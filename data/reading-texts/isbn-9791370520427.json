@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370520427",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ikkyu Núm. 01: 1 encaja con lectores de cómic y novela gráfica que buscan una obra clasificada dentro de la narrativa juvenil. Su título lo identifica como el n.º 1, mientras que quienes prefieran novelas escritas íntegramente en prosa encontrarán aquí un formato narrativo diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ikkyu Núm. 01: 1 es de tapa blanda y reúne 624 páginas en castellano. El formato físico de Devir permite conservar el volumen en una biblioteca y volver a sus páginas, aunque su extensión puede resultar menos cómoda para llevarlo en desplazamientos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ikkyu Núm. 01: 1 comparte autoría y orientación juvenil con Ikkyu Núm. 02: 2, ambos de Hisashi Sakaguchi. Sus títulos los identifican como entregas distintas, mientras que Ikkyu Cofre: 1 conserva la misma autoría, pero utiliza una presentación denominada cofre.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370520441",
+        "isbn-9791370520434"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "266e5b763aedfd9b",
+  "origen": "chatgpt-web"
+}

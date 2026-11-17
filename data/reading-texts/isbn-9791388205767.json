@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388205767",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Qué es el teatro se dirige a lectores interesados en el teatro como disciplina artística. José Luis González Subías aborda esta materia en un volumen de 62 páginas, más próximo a una lectura breve sobre arte que a una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Qué es el teatro está disponible en tapa blanda, con 62 páginas en castellano. Esta edición de Sílex Ediciones permite consultar el contenido en papel y transportarlo sin el volumen de una obra extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Qué es el teatro y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) comparten su vinculación con las artes y el sello Sílex Ediciones. El primero, de José Luis González Subías, se centra en el teatro y tiene 62 páginas; el segundo, de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga, aborda el western cinematográfico desde su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "editorial",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e3c09cc4fe0e577b",
+  "origen": "chatgpt-web"
+}

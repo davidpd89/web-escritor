@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399207873",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Deja de actuar: ya interpretaste demasiado tiempo quién deberías ser, ahora atrévete a ser tú. se orienta a lectores interesados en el desarrollo personal y la reflexión sobre la propia identidad. Su enfoque en el bienestar y el conocimiento de uno mismo se aparta de la narrativa de ficción y de los libros centrados en técnicas profesionales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Deja de actuar: ya interpretaste demasiado tiempo quién deberías ser, ahora atrévete a ser tú. es de tapa blanda y tiene 180 páginas. El soporte impreso permite subrayar y recuperar pasajes durante la lectura, especialmente cuando se utiliza como texto de reflexión personal.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, comparte el ámbito del bienestar y la reflexión personal. A diferencia de su enfoque anunciado sobre longevidad y optimismo, el libro de Marìa Fernanda Salas sitúa en primer plano la identidad y las expectativas sobre quién debería ser cada persona.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "971c4dfbd7ea2105",
+  "origen": "chatgpt-web"
+}

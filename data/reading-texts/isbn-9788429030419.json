@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788429030419",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inteligencia artificial y daños: La indemnización por daños derivados de sistemas inteligentes (Derecho de las Nuevas Tecnologías) se dirige a lectores interesados en la responsabilidad jurídica asociada a la inteligencia artificial. Su enfoque en la indemnización encaja menos con quienes buscan una introducción general a la programación o al uso cotidiano de estas herramientas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Inteligencia artificial y daños: La indemnización por daños derivados de sistemas inteligentes (Derecho de las Nuevas Tecnologías) reúne 330 páginas en castellano. El formato físico facilita marcar apartados y recuperar consultas sobre indemnizaciones y sistemas inteligentes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Basura espacial: desafíos técnico-jurídicos (monografico) comparte con Inteligencia artificial y daños: La indemnización por daños derivados de sistemas inteligentes (Derecho de las Nuevas Tecnologías) el interés por los problemas jurídicos vinculados a la tecnología. El primero se centra en los desafíos de la basura espacial; el segundo delimita su materia a los daños y su indemnización en sistemas inteligentes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650346"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c067819c0bfed5b2",
+  "origen": "chatgpt-web"
+}

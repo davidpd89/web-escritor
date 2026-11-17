@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pensado para lectores de cómic y novela gráfica que siguen obras publicadas en volúmenes integrales. El título identifica esta entrega como el volumen 3, por lo que quien busque comenzar una colección desde su primera entrega encontrará aquí una numeración posterior.",
+      "texto": "Marshal Bass integral volumen 3 (CMYK) se dirige a lectores de cómic y novela gráfica que buscan una obra vinculada a la narrativa contemporánea. Por su clasificación editorial, encaja menos con quienes prefieren una novela escrita únicamente en prosa.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Marshal Bass integral volumen 3 (CMYK) cuenta con 240 páginas en tapa dura, una presentación adecuada para conservar el volumen en una colección de cómics. Su encuadernación rígida facilita guardarlo junto a otras entregas y consultarlo repetidamente en formato físico.",
+      "texto": "Marshal Bass integral volumen 3 (CMYK) está disponible en tapa dura, con 240 páginas en castellano. Esta encuadernación permite conservar el volumen en una estantería y consultarlo de nuevo sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "categorias"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los pecados de la familia Ichinose 6 (Shônen), de Taizan 5, comparte el formato narrativo del cómic, aunque pertenece a una serie identificada como shônen. Cinco cuentos, de Posy Simmonds, reúne cinco relatos creados entre 1987 y 2004; Marshal Bass integral volumen 3 (CMYK), en cambio, se presenta como una entrega numerada de una colección integral.",
+      "texto": "Marshal Bass integral volumen 3 (CMYK) comparte con After God 7 (Shônen) su pertenencia al ámbito del cómic. La diferencia identificable está en la autoría, con Darko Macan e Igor Kordey Anubis frente a Sumi Eno, y en que el primero se presenta como volumen integral mientras el segundo lleva una numeración de serie.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410305106",
-        "isbn-9788419981035"
+        "isbn-9791387962388"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3de9d7e0c64b440c",
+  "fuente_hash": "2dc7dae312c33d59",
   "origen": "chatgpt-web"
 }

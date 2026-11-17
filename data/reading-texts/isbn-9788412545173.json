@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788412545173",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estraperlo se dirige a lectores de narrativa contemporánea que buscan una obra extensa en castellano. Sus 620 páginas, firmadas por Óscar Figueruelo Burrieza, requieren mayor dedicación que una novela breve y encajan menos con quien prefiere lecturas de pocas sesiones o cómics.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estraperlo está disponible en tapa blanda, con una edición de 620 páginas publicada por Salto Al Vacío0. La encuadernación flexible permite manejar un libro extenso sin la rigidez de una tapa dura, aunque su número de páginas hace más relevante el espacio y el peso al transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0c13ec1f81540ea",
+  "origen": "chatgpt-web"
+}

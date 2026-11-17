@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409935628",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sin altar: Trilogía del Altar · Libro III se orienta a lectores de biografías y memorias interesados en continuar una trilogía de Santiago Daniel Blázquez Rozalén. El título lo identifica como el Libro III, de modo que encaja menos con quienes buscan empezar una serie desde su primera entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sin altar: Trilogía del Altar · Libro III está disponible en tapa blanda, con 206 páginas en castellano. Esta edición permite conservar la obra en papel y reunirla físicamente con las demás entregas de la trilogía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sin altar: Trilogía del Altar · Libro III se relaciona directamente con El altar de los irrecuperables: Trilogía del Altar · Libro I y El altar de los vivos: Trilogía del Altar · Libro II. Las tres obras pertenecen a la misma trilogía y están firmadas por Santiago Daniel Blázquez Rozalén; sus títulos las diferencian por el lugar que ocupan en ella.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409927432",
+        "isbn-9788409933440"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "00f8156c01fb16ce",
+  "origen": "chatgpt-web"
+}

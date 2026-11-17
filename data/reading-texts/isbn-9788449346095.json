@@ -4,35 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro de Sara Rubayo está dirigido a lectores interesados en la historia del arte español. Sus 384 páginas abordan el arte y su historia, por lo que se aleja de las obras de ficción narrativa.",
+      "texto": "El libro de Sara Rubayo se dirige a lectores interesados en la historia del arte español y las cuestiones de representación cultural. Sus 384 páginas y su clasificación en historia y arte y diseño lo diferencian de una novela de ficción o de un manual de técnicas artísticas.",
       "evidencias": [
+        "titulo",
         "autores",
-        "categorias",
         "numero_paginas",
-        "titulo"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece un volumen físico de 384 páginas, manejable para consultar y leer fuera de casa. Kindle permite llevar la obra en formato digital y acceder a su contenido desde un dispositivo electrónico.",
+      "texto": "La obra de Sara Rubayo está disponible en tapa blanda y Kindle. La edición impresa tiene 384 páginas y permite consultar el contenido en papel, mientras que Kindle facilita la lectura en un dispositivo electrónico sin transportar el volumen físico.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "formato_edicion",
-        "formatos_disponibles"
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El libro de Sara Rubayo comparte con Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia), de Kenneth Clark, el interés por la historia del arte. Su enfoque se centra en el arte español, mientras que la obra de Kenneth Clark amplía la perspectiva a la cultura y la civilización moderna.",
+      "texto": "El libro de Sara Rubayo comparte el ámbito artístico con Art for All: Surrealistas, de Andrea Kettenmann, Gilles Néret, Janis Mink, Marcel Paquet y Ulrich Bischoff. La obra de Sara Rubayo trata la historia del arte español desde la cuestión de la representación, mientras que Art for All: Surrealistas delimita su temática a un movimiento artístico concreto.",
       "evidencias": [
+        "titulo",
         "autores",
         "categorias",
-        "titulo",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387592493"
+        "isbn-9783754401477",
+        "isbn-9783754401514"
       ]
     }
   ],

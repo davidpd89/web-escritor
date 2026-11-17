@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788488020987",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La palabra encendida: 29 (Vanguardia clásica) está dirigida a lectores de ensayo interesados en una obra firmada por César Manrique. Con 110 páginas, pertenece al grupo de libros de extensión breve; no responde a la búsqueda de una novela de ficción o de una narración gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La palabra encendida: 29 (Vanguardia clásica) se publica en tapa blanda, con 110 páginas en castellano. El formato permite llevar el ensayo en papel y consultar sus páginas sin depender de una pantalla; su extensión contenida también facilita guardarlo en una bolsa o mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c1d3fc87ba3e65ec",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791387775575",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan recetas vegetales y quieren prestar atención a su aporte de proteínas. Por su orientación culinaria y nutricional, encaja menos con lectores interesados en preparaciones basadas en alimentos de origen animal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Reúne recetas fáciles de cocina vegetal centradas en conseguir las proteínas necesarias mediante la alimentación. Sus 208 páginas permiten utilizarlo como recetario de consulta para preparar platos y organizar una alimentación basada en ingredientes vegetales.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar sus 208 páginas mientras se preparan las recetas y mantener el libro a mano en la cocina. La edición Kindle facilita acceder al recetario desde el móvil o un lector electrónico, sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De dónde saco las proteínas: Cómo conseguir las que necesitas con recetas fáciles, sabrosas y 100 % vegetales (Gastronomía y Nutrición) comparte el interés culinario con Arroz (Comerse el mundo), de Tove Nilsson. El libro de Tamara Alonso se centra en las proteínas de origen vegetal, mientras que el de Tove Nilsson organiza su propuesta alrededor de un alimento concreto: el arroz.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419483898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f10cdf6650f83065",
+  "origen": "chatgpt-web"
+}

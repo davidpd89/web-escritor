@@ -4,40 +4,45 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Gracias a Mr. Jacobs / Because of Our Student Teacher se orienta a lectores interesados en las relaciones familiares y la amistad. La obra de Rob Buyea se relaciona con esos ámbitos y resulta menos afín a quienes buscan aventuras fantásticas o divulgación técnica.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Gracias a Mr. Jacobs / Because of Our Student Teacher se publica en tapa blanda, con 352 páginas en castellano. La edición de Vintage Espanol permite una lectura en papel que puede distribuirse en varias sesiones y resulta transportable para quienes leen fuera de casa.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Gracias a Mr. Jacobs / Because of Our Student Teacher y Casi familia / Almost Family permiten establecer una comparación alrededor de los vínculos familiares. El primero, de Rob Buyea, también se relaciona con la amistad, mientras que el segundo, de Ana Romero, sitúa la idea de familia en el propio título.",
+      "texto": "Gracias a Mr. Jacobs / Because of Our Student Teacher se sitúa en el ámbito de la familia y la crianza, por lo que puede interesar a lectores que buscan libros relacionados con ese entorno. Rob Buyea firma un volumen de 352 páginas, alejado por su clasificación temática de las lecturas centradas en fantasía o terror.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gracias a Mr. Jacobs / Because of Our Student Teacher se publica en tapa blanda, con 352 páginas. La edición de Vintage Espanol está escrita en castellano y ofrece una cubierta flexible para llevar el libro y leerlo en papel. Su publicación editorial está prevista para mayo de 2027.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gracias a Mr. Jacobs / Because of Our Student Teacher puede compararse con Abuelas Y Abuelos (Álbumes Ilustrados castellano) por su vinculación con el ámbito familiar. Rob Buyea firma un volumen de 352 páginas, mientras que Helene Delforge aborda desde el título las figuras de los abuelos en un álbum ilustrado. La diferencia principal para el lector está en el tipo de edición y el enfoque familiar anunciado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "edicion",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073875011"
+        "isbn-9788491429586"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b5a52fad046f1f7b",
+  "fuente_hash": "77ab32b89633ded2",
   "origen": "chatgpt-web"
 }

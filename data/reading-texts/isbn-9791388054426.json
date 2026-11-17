@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388054426",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pan ácimo reparten (Poéticas), de Vicente Gallego, se orienta a lectores de poesía y ensayo. Su clasificación lo sitúa fuera de las lecturas centradas en una trama novelesca convencional, por lo que encaja menos con quien busca narrativa de aventuras o intriga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pan ácimo reparten (Poéticas) cuenta con una edición en tapa blanda de 130 páginas. Publicado en castellano por Editorial Pre-Textos, es un volumen de extensión reducida que puede transportarse y consultarse sin el peso de una edición extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pan ácimo reparten (Poéticas) comparte el terreno de la poesía y la reflexión con Estética del dharma: Tratados filosófico-poéticos (II) (Ensayo), de Jorge Gimeno. Este último identifica expresamente su contenido como tratados filosófico-poéticos, mientras que la obra de Vicente Gallego se presenta bajo la denominación Poéticas. Son propuestas de autores distintos dentro de un ámbito literario próximo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388054587"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "02e9a4d019f4a763",
+  "origen": "chatgpt-web"
+}

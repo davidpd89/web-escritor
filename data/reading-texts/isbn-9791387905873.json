@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los silencios cómplices (Novela), de María Boado Olabarrieta, encaja con lectores que buscan misterio y thriller. Sus 544 páginas corresponden a una novela extensa, por lo que no se dirige a quien prefiere lecturas breves o busca principalmente romance, fantasía o narrativa de otros géneros.",
+      "texto": "Los silencios cómplices (Novela), de María Boado Olabarrieta, se dirige a lectores de misterio y thriller que buscan una novela extensa. Sus 544 páginas la alejan de quienes prefieren relatos breves o lecturas centradas en el romance.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer Los silencios cómplices (Novela), de María Boado Olabarrieta, en papel a lo largo de sus 544 páginas. Es el formato disponible para quien prefiere pasar las páginas de un ejemplar físico en lugar de leer en una pantalla.",
+      "texto": "Los silencios cómplices (Novela) está disponible en tapa blanda y Kindle. La edición impresa de Roca Editorial reúne 544 páginas en un volumen físico; Kindle permite leer esa misma obra en un dispositivo electrónico sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los silencios cómplices (Novela) comparte el terreno del misterio con Aberración, de Santiago López de Hoyos, y Aguas muertas, de Ann Cleeves. Frente a la referencia televisiva de Aguas muertas, la obra de María Boado Olabarrieta se presenta como una novela de misterio de 544 páginas.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "numero_paginas",
-        "formatos_disponibles",
-        "formato_edicion"
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399297508",
+        "isbn-9788410424524"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c2d64ab12a81908f",
+  "fuente_hash": "b634e8246f17d28d",
   "origen": "chatgpt-web"
 }

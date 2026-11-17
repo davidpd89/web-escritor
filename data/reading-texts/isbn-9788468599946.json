@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788468599946",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "España, Pueblo y poesía se dirige a lectores interesados en la poesía española y su relación con la narrativa contemporánea. Por su clasificación entre poesía y clásicos, se aleja de las lecturas centradas exclusivamente en una trama de ficción prolongada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "España, Pueblo y poesía está disponible en tapa blanda, con 147 páginas en castellano. Es una edición física de extensión contenida, que permite consultar y releer sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "España, Pueblo y poesía comparte el ámbito poético con Esas muchachas que escriben poemas, de Alba Donati, y poemas de amor (Los Tres Mundos), de rupi kaur. El primero pone el foco en mujeres que escriben poesía y el segundo anuncia una temática amorosa, mientras que España, Pueblo y poesía incorpora la referencia al país y al pueblo en su título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426434272",
+        "isbn-9788432251627"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "568339156bb333af",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788413432984",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El baile diminuto (Poesía Ilustrada), de María José Ferrada, está dirigido al público infantil interesado en la poesía ilustrada. Con 36 páginas, se diferencia de las novelas juveniles extensas y de los libros centrados exclusivamente en la narración en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El baile diminuto (Poesía Ilustrada) se presenta en tapa dura, con una edición de 36 páginas publicada por Kalandraka. El formato físico permite compartir la lectura y consultar las ilustraciones sobre papel; la encuadernación rígida resulta práctica para conservar el ejemplar y regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El baile diminuto (Poesía Ilustrada) puede compararse con Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento, de Mar Benegas, por su relación con la poesía dirigida a lectores infantiles. María José Ferrada firma un volumen de poesía ilustrada de 36 páginas, mientras que la obra de Mar Benegas combina cuentos, poemas y canciones organizados alrededor del Adviento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326564"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c31c92ec5da5184",
+  "origen": "chatgpt-web"
+}

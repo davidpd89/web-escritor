@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798182960144",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sorpresa de Michael, de Brian Edlin, pertenece al ámbito de la lectura infantil y juvenil. Sus 32 páginas permiten plantear una lectura breve, mientras que quien busque una obra extensa o dirigida específicamente a adultos encontrará aquí otra clase de propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La sorpresa de Michael está disponible en tapa blanda y tiene 32 páginas. Su extensión permite leer el volumen completo en pocas sesiones y manejarlo como un libro físico breve, tanto para una lectura compartida como para conservarlo en una biblioteca infantil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La imaginación de Michael, de Brian Edlin, comparte autor y personaje mencionado en el título con La sorpresa de Michael. La diferencia está en el enfoque que anuncian sus nombres: La sorpresa de Michael apunta a un acontecimiento inesperado, mientras que La imaginación de Michael sitúa la capacidad imaginativa del personaje en primer plano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798182960182"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "394dd82467407d65",
+  "origen": "chatgpt-web"
+}

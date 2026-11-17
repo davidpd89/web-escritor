@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388147968",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia de España y en cuestiones de poder y política, desde el enfoque anunciado por La España que intentaron robarnos. Encaja menos con quienes buscan ficción histórica o una exposición ajena al debate político.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Patria digna (edición limitada): La España que intentaron robarnos (Campaña | Ahora por menos) aparece en formato de bolsillo bajo el sello Penguin Bolsillo. Esta edición limitada consta de 320 páginas, tiene el ISBN 9791388147968 y figura con fecha editorial de 2027-01-07. La denominación de edición limitada forma parte del título comercial.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "isbn13",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda en formato de bolsillo es la presentación disponible de esta obra de 320 páginas. Permite transportar el ejemplar físico y consultar sus contenidos sobre historia y política sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Patria digna (edición limitada): La España que intentaron robarnos (Campaña | Ahora por menos) puede compararse con Comunistas bajo el franquismo: Culturas militantes, símbolos e identidades: 29 (Base Hispánica) por su relación con la historia política española. El primero plantea una reflexión sobre España desde su propio subtítulo, mientras que el segundo delimita su estudio a las culturas militantes, los símbolos y las identidades comunistas durante el franquismo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388439124"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c0a4ff82cdd3ba48",
+  "origen": "chatgpt-web"
+}

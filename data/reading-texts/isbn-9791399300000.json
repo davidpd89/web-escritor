@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399300000",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Plan B: El obstáculo como camino: 17 (Trayectos) se dirige a lectores interesados en el desarrollo personal y en la manera de afrontar las dificultades. Sus 96 páginas y su clasificación también en biografías, memorias y espiritualidad lo sitúan lejos de una novela de aventuras o de una guía técnica especializada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Plan B: El obstáculo como camino: 17 (Trayectos) se ofrece en tapa blanda, con una extensión de 96 páginas. Esta edición de Trayectos permite transportarlo con facilidad y volver a determinados pasajes durante la lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Plan B: El obstáculo como camino: 17 (Trayectos) puede compararse con Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, por su relación con las experiencias personales y la idea de camino. Borja Poal-Manresa plantea el obstáculo como eje de su libro, mientras que Carlos Díaz Ballesta identifica unas vivencias vinculadas al Camino de Santiago. El primero se orienta al desarrollo personal y el segundo anuncia un recorrido concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8061bf76f8983e6b",
+  "origen": "chatgpt-web"
+}

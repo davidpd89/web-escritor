@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la psicología y el desarrollo personal, especialmente en la relación con el trabajo que plantea su título. No responde a la búsqueda de una novela de ficción ni de un manual de cocina o actividad física.",
+      "texto": "Se dirige a lectores interesados en la relación entre el trabajo, la psicología y el bienestar personal. No todo es urgente / Mind Over Grind: How to Break Free When Work Hijacks Your Life, de Guy Winch Ph.D., aborda el problema de la ocupación laboral que invade otros espacios de la vida, por lo que no está planteado como un manual de productividad empresarial ni como una novela.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 256 páginas de No todo es urgente / Mind Over Grind: How to Break Free When Work Hijacks Your Life en un volumen físico. Permite consultar y releer sus contenidos sin depender de una pantalla, con una extensión delimitada para organizar la lectura.",
+      "texto": "No todo es urgente / Mind Over Grind: How to Break Free When Work Hijacks Your Life se ofrece en tapa blanda, con 256 páginas en castellano. El ejemplar físico permite marcar reflexiones sobre la relación con el trabajo y consultar de nuevo apartados concretos sin recurrir a una pantalla.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El libro de Guy Winch Ph.D. y Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias), de Seung-hwan Jeon, comparten el interés por el desarrollo personal. El primero aborda la relación con el trabajo y el segundo, la búsqueda de orientación personal. El cerebro optimista, de Mikel Alonso, se centra en la neurociencia y el optimismo, frente al enfoque laboral del libro de Guy Winch Ph.D.",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparte con No todo es urgente / Mind Over Grind: How to Break Free When Work Hijacks Your Life el interés por el desarrollo personal. Beatriz García Saez plantea un método de autoliderazgo y cambio, mientras que Guy Winch Ph.D. centra su obra en la relación entre el trabajo y la vida personal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431684",
-        "isbn-9791387662639"
+        "isbn-9788409924059"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e71795a5f6fab5b4",
+  "fuente_hash": "01e30189b00ede57",
   "origen": "chatgpt-web"
 }

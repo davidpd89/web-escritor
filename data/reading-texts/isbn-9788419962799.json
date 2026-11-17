@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788419962799",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para padres y educadores interesados en la crianza, los límites y las responsabilidades domésticas de los menores. Su orientación práctica hacia la educación familiar se distancia de los libros de desarrollo personal centrados exclusivamente en hábitos individuales de adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece 208 páginas para leer y consultar físicamente las cuestiones de crianza tratadas en el libro. La versión Kindle permite llevar esa misma lectura en un dispositivo compatible y acceder a ella sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Convertirse en padre: 02 (Psicologia), de Patricia Catalá Mesón, Cecilia Peñacoba Puente y María P. Huertas-Vieco, comparte el interés por la experiencia de criar. Su Majestad no recoge el cuarto. Guía para no criar a un pequeño rey tirano (Padres y educadores), de Juan Bautista Fernández Álvarez-Robles, delimita más su asunto: la educación de los hijos y la prevención de conductas dominantes en el entorno familiar.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370550288"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12ce7c13c4fa36ca",
+  "origen": "chatgpt-web"
+}

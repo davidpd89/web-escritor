@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este libro de Eduardo Caamaño se dirige a lectores interesados en la historia de la época victoriana. Su enfoque en un periodo histórico concreto encaja con quienes buscan conocer el pasado, pero menos con quienes prefieren novelas de ficción o estudios que abarquen varias épocas.",
+      "texto": "El libro de Eduardo Caamaño se dirige a lectores interesados en la historia y, especialmente, en el periodo victoriano. Sus 384 páginas corresponden a una obra de no ficción histórica, por lo que se diferencia de las novelas ambientadas en esa época y de los relatos de aventuras.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "titulo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Almuzara se presenta en tapa blanda, con 384 páginas en castellano. Permite leer y consultar el contenido en papel, aunque su extensión supone un volumen considerable para transportarlo a diario.",
+      "texto": "La edición de Almuzara se publica en tapa blanda y contiene 384 páginas en castellano. Este formato permite consultar el contenido sobre la época victoriana directamente en papel, marcar pasajes con separadores y conservar el volumen para posteriores lecturas sin depender de dispositivos electrónicos.",
       "evidencias": [
         "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La obra de Eduardo Caamaño puede compararse con 76, de Felipe Pigna, por su relación con la historia. La primera aborda la época victoriana, mientras que el título de Felipe Pigna señala un periodo mediante una cifra, sin identificarlo expresamente. Ambas presentan autores diferentes y permiten aproximarse a asuntos históricos desde obras independientes.",
+      "texto": "La obra histórica de Eduardo Caamaño puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, porque ambas tratan periodos del pasado desde la no ficción. La primera aborda la época victoriana, mientras que la segunda se centra en el proceso por el que Hitler derribó una democracia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329695"
+        "isbn-9788411005517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "451258ab2113735b",
+  "fuente_hash": "69947b206007f218",
   "origen": "chatgpt-web"
 }

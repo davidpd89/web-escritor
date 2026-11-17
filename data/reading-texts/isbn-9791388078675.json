@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388078675",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes necesitan estudiar la valoración de la declaración de víctimas de violencia de género dentro del proceso penal. Su orientación práctica y sus 150 páginas lo distinguen de los manuales generales de Derecho y de las lecturas sobre violencia de género ajenas al procedimiento judicial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de La LEY tiene 150 páginas, una extensión que facilita transportarla y consultarla durante el estudio. El formato físico permite marcar los apartados dedicados a la valoración de declaraciones de víctimas de violencia de género en el proceso penal.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal comparte el ámbito penal y el tratamiento jurídico de la violencia sexual, pero estudia la actuación conjunta y un precepto concreto. La obra de Vicente Magro Servet se centra, en cambio, en la valoración de la declaración de la víctima de violencia de género durante el proceso penal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370475949"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "255cd2811d0e7d71",
+  "origen": "chatgpt-web"
+}

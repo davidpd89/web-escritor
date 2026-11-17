@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788466685009",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La traición de Roma (Trilogía Africanus 3) (edición conmemorativa 20.º aniversario) (Histórica) encaja con lectores de novela histórica interesados en las aventuras ambientadas en Roma. Sus 872 páginas requieren una lectura extensa y su título la identifica como el n.º 3 de Trilogía Africanus. No está orientada a quien busque una novela contemporánea breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La traición de Roma (Trilogía Africanus 3) (edición conmemorativa 20.º aniversario) (Histórica) se presenta como una edición conmemorativa del 20.º aniversario. Ediciones B la publica en tapa dura, con 872 páginas y texto en castellano. El título la identifica como el n.º 3 de Trilogía Africanus, lo que permite distinguirla de otras obras históricas de Santiago Posteguillo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La traición de Roma (Trilogía Africanus 3) (edición conmemorativa 20.º aniversario) (Histórica) está disponible en tapa dura. Sus 872 páginas forman un volumen extenso, apropiado para mantener en una biblioteca o regalar como edición conmemorativa. Es una elección centrada en la lectura y conservación en papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La traición de Roma (Trilogía Africanus 3) (edición conmemorativa 20.º aniversario) (Histórica) y Las legiones malditas (Trilogía Africanus 2) (edición conmemorativa 20.º aniversario) (Histórica) comparten autor y colección, aunque sus títulos las identifican como los números 3 y 2 de Trilogía Africanus. Los tres mundos (Serie Julio César 3) también pertenece a la narrativa histórica de Santiago Posteguillo, pero aborda la conquista de las Galias por Julio César y forma parte de otra serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466684996",
+        "isbn-9791388147302"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21bc6dfe9cbec92d",
+  "origen": "chatgpt-web"
+}

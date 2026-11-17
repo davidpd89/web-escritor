@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788431341770",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El lenguaje de la fertilidad humana (Divulgación - Clínica Universidad de los Andes), de Jose Antonio Arraztoa Valdivielso, se orienta a quienes buscan una lectura divulgativa sobre fertilidad humana. Por su temática, encaja menos con lectores interesados exclusivamente en ficción juvenil o en manuales de crianza centrados en la adolescencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El lenguaje de la fertilidad humana (Divulgación - Clínica Universidad de los Andes) está disponible en tapa blanda y cuenta con 172 páginas. Esta edición permite consultar el contenido en papel y conservar el volumen como referencia física sobre fertilidad humana.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El lenguaje de la fertilidad humana (Divulgación - Clínica Universidad de los Andes) y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito se relacionan con la divulgación sobre salud y bienestar. Jose Antonio Arraztoa Valdivielso concentra su obra en la fertilidad humana, mientras que Liz Moody plantea cuestiones más amplias sobre salud, relaciones y bienestar. La diferencia está en la especialización temática frente a una perspectiva general sobre distintos aspectos de la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d27b7b6ce514ef0a",
+  "origen": "chatgpt-web"
+}

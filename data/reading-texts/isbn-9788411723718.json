@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788411723718",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes quieren aprender a interpretar la baraja petit lenormand mediante el método alemán. La obra de Odete Lopes Mazza se centra en la cartomancia y el tarot, por lo que se aleja de los manuales de bienestar físico o nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 718 páginas de esta guía de Odete Lopes Mazza en un único volumen físico. Permite consultar el método alemán de lectura de la baraja petit lenormand y volver a sus explicaciones durante el aprendizaje.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life comparte con esta guía el interés por las prácticas espirituales, aunque aborda mensajes cotidianos en lugar de la lectura de cartas. La obra de Odete Lopes Mazza se distingue por enseñar el método alemán aplicado a la baraja petit lenormand.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9786073881388"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16fe858c54517389",
+  "origen": "chatgpt-web"
+}

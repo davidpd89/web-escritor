@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La destrucción o el amor (Best Seller | Ediciones Conmemorativas), de Vicente Aleixandre, se dirige a lectores interesados en el amor y las relaciones de pareja como materia literaria. Con 136 páginas, se aparta de quienes buscan específicamente una extensa novela de aventuras o fantasía.",
+      "texto": "La destrucción o el amor (Best Seller | Ediciones Conmemorativas), de Vicente Aleixandre, se relaciona con lecturas centradas en el amor y las relaciones de pareja. Sus 136 páginas y su edición conmemorativa delimitan una obra de extensión breve. No es la elección correspondiente a quien busque un manual de economía o una aventura detectivesca.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,17 +14,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La destrucción o el amor (Best Seller | Ediciones Conmemorativas) está disponible en tapa dura y tapa blanda. La edición de tapa dura de Penguin Bolsillo reúne 136 páginas y ofrece una encuadernación rígida para conservar o regalar; la tapa blanda permite elegir una presentación flexible del mismo título.",
+      "texto": "La destrucción o el amor (Best Seller | Ediciones Conmemorativas) está disponible en tapa dura y tapa blanda. La primera proporciona una cubierta rígida para conservar o regalar esta edición conmemorativa; la segunda ofrece una encuadernación flexible para leerla y transportarla. La edición de Penguin Bolsillo en tapa dura consta de 136 páginas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La destrucción o el amor (Best Seller | Ediciones Conmemorativas) comparte el interés por el amor con Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor. La obra de Vicente Aleixandre se clasifica en amor y pareja, mientras que la de Carlos del Amor vincula expresamente ese sentimiento con el arte y se presenta como ensayo.",
+      "texto": "Amor, de Patri Psicóloga y Yolanda Cuevas, comparte con La destrucción o el amor (Best Seller | Ediciones Conmemorativas) el interés por las relaciones afectivas, pero propone prácticas semanales de cuidado de pareja. Amor en plena guerra, de Natalia Jiménez, aborda el amor junto a la resiliencia y la esperanza durante una guerra. La obra de Vicente Aleixandre se distingue por su autoría y su presentación como edición conmemorativa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +33,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084122"
+        "isbn-9788425373602",
+        "isbn-9788408323099"
       ]
     }
   ],

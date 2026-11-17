@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La vida de los animales: 21 (esenciales) encaja con lectores de ensayo interesados en la relación entre animales, filosofía y naturaleza. Su clasificación temática incluye también el derecho, por lo que se aparta de las expectativas de quien busque una narración de aventuras protagonizada por animales.",
+      "texto": "La vida de los animales: 21 (esenciales), de JM Coetzee, se orienta a lectores interesados en el ensayo y la filosofía, con presencia también del ámbito del derecho. Su clasificación temática lo aleja de quienes buscan una novela de aventuras o una historia de ficción centrada en la acción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La vida de los animales: 21 (esenciales) se publica en tapa blanda, con 148 páginas en castellano. La edición de Bauplan reúne el texto en un volumen de extensión contenida, adecuado para transportarlo y volver a consultar sus apartados durante la lectura.",
+      "texto": "La vida de los animales: 21 (esenciales) está disponible en tapa blanda, con 148 páginas en castellano. Su extensión permite transportarlo como volumen físico relativamente breve, mientras que la cubierta flexible facilita guardarlo en una bolsa o llevarlo durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Por qué miramos a los animales? comparte con La vida de los animales: 21 (esenciales) el interés por los animales desde el pensamiento, aunque el ensayo de John Berger examina especialmente cómo ha cambiado nuestra manera de relacionarnos con ellos. Temporada de mariposas: Lo que la naturaleza me enseñó sobre el sentido de la vida se aproxima desde las enseñanzas personales de la naturaleza, frente al encuadre filosófico y jurídico de la obra de JM Coetzee.",
+      "texto": "La vida de los animales: 21 (esenciales) y El momento es ahora: Un manifiesto contra la resignación (Espasa Ensayo) comparten su vinculación con el ensayo, aunque el segundo se presenta expresamente como un manifiesto. Curso básico de protección de datos-CTRG0012 ofrece otra conexión con el ámbito jurídico, pero su título apunta a una materia técnica concreta, frente al enfoque filosófico y ensayístico del libro de JM Coetzee.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425236716",
-        "isbn-9788430629251"
+        "isbn-9788411354714",
+        "isbn-9788467085174"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "77d3e6f268501b0f",
+  "fuente_hash": "77c8e4d2bbe98984",
   "origen": "chatgpt-web"
 }

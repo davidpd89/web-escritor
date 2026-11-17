@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798182960151",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "John y su nuevo amigo Ash, de Brian Edlin, se dirige al público infantil y gira en torno a una nueva amistad, según indica su título. Sus 56 páginas plantean una lectura de extensión breve; quien busque una novela juvenil larga encontrará aquí una propuesta de menor recorrido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "John y su nuevo amigo Ash está disponible en tapa blanda, con 56 páginas en castellano. Esta edición física de Self Publisher permite leerlo en papel, prestarlo o regalarlo sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "John y su elefante azul comparte con John y su nuevo amigo Ash el personaje de John y la autoría de Brian Edlin, aunque sus títulos presentan acompañantes diferentes. La extraña aventura: Ser diferente te hace ser tú, también de Brian Edlin, introduce en su título el tema de la identidad personal, frente a la nueva amistad que anuncia John y su nuevo amigo Ash.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798182960038",
+        "isbn-9798182959094"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08e0c304fa846938",
+  "origen": "chatgpt-web"
+}

@@ -4,34 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La sort de trobar un trèvol, de Xavier Mollà i Revert, se dirige a lectores interesados en publicaciones de arte y diseño en castellano. Con 304 páginas, se diferencia de los libros breves de esta materia y de las novelas clasificadas como narrativa.",
+      "texto": "La sort de trobar un trèvol se sitúa entre las publicaciones de arte y diseño y puede interesar a lectores que siguen la obra de Xavier Mollà i Revert. Sus 304 páginas ofrecen una extensión considerable dentro de este ámbito, aunque su clasificación temática no lo presenta como una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "idioma",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La sort de trobar un trèvol está editado en tapa blanda y tiene 304 páginas. Su extensión permite distribuir la lectura o consulta entre varias sesiones, con la flexibilidad de una cubierta blanda frente a una encuadernación rígida.",
+      "texto": "La sort de trobar un trèvol tiene una edición en tapa blanda de 304 páginas, publicada por Ed. Xavier Mollà I Revert. La encuadernación flexible permite manejar el libro durante la lectura y guardarlo en una estantería, mientras su extensión invita a reservar espacio para un volumen de varios centenares de páginas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "formato_edicion"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La sort de trobar un trèvol comparte autoría y ámbito de arte y diseño con 720 retrats, de Xavier Mollà i Revert. La diferencia está en la extensión y la encuadernación: La sort de trobar un trèvol tiene 304 páginas en tapa blanda, mientras que 720 retrats se presenta como una publicación de mayor extensión en tapa dura. Ambos permiten acercarse a publicaciones del mismo autor con características físicas distintas.",
+      "texto": "La sort de trobar un trèvol y 720 retrats comparten autor, Xavier Mollà i Revert, y pertenecen al ámbito del arte y diseño. La diferencia está en el enfoque anunciado por sus títulos: 720 retrats se centra en los retratos, mientras La sort de trobar un trèvol plantea otro asunto desde su propio nombre. Ambas obras permiten comparar publicaciones de un mismo autor.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -41,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2127872de4da79fe",
+  "fuente_hash": "53b1564b08376a27",
   "origen": "chatgpt-web"
 }

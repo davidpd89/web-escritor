@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387962388",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "After God 7 (Shônen) se dirige a lectores de manga con elementos de fantasía y narración gráfica. La obra de Sumi Eno tiene 192 páginas y el título la identifica con el número 7, por lo que se diferencia de una novela convencional escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "After God 7 (Shônen) cuenta con una edición en tapa blanda publicada por Distrito Manga. Sus 192 páginas en castellano reúnen el contenido gráfico en un volumen físico que puede guardarse junto a otros títulos de la misma colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "After God 8 (Shônen) comparte autoría y denominación con After God 7 (Shônen); los títulos los identifican con los números 8 y 7, respectivamente. Orient. Samurai Quest, 11 (Shônen - Orient), de Shinobu Ohtaka, también pertenece al ámbito del manga shônen, pero presenta otra obra y otra autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962647",
+        "isbn-9791043309649"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d83525784383b286",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9780786970353",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan ampliar sus actividades de ocio con un libro de expansión de juego de D&D en español. Por su orientación al juego, no responde a la búsqueda de una novela convencional ni de una lectura narrativa independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta expansión de juego, publicada en castellano por Wizards Of The Coast. Sus 288 páginas permiten conservar el volumen como libro físico de consulta durante las partidas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con 80 crímenes imposibles de resolver (FUERA DE ESCENA) el ámbito del entretenimiento mediante actividades, aunque este último se centra en resolver crímenes y el libro de Wizards of the Coast amplía un juego. Frente a 99 Sudoku (LIBROS SINGULARES), dedicado a pasatiempos numéricos, propone contenido de expansión para D&D.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388015816",
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "84c1150798709e4e",
+  "origen": "chatgpt-web"
+}

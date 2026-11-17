@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399132656",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hacha de raskolnikov: 54 (Poesía - los libros del mississippi), de Teresa Sánchez Ruiz, se dirige a lectores de poesía interesados también en textos de orientación ensayística. Su clasificación lo separa de la novela de argumento continuado y de los libros concebidos principalmente como manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El hacha de raskolnikov: 54 (Poesía - los libros del mississippi) se presenta en tapa blanda, con 60 páginas. Su extensión permite transportar el volumen con facilidad y volver a pasajes concretos durante la lectura, una forma de uso compatible con su clasificación poética.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El hacha de raskolnikov: 54 (Poesía - los libros del mississippi) puede compararse con Fuego y raíz: Cancionero (Primera persona) por su vinculación con la poesía. Teresa Sánchez Ruiz firma una obra clasificada también como ensayo, mientras que Gata Cattana presenta un título identificado como cancionero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403524996"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93de02c900dca5b0",
+  "origen": "chatgpt-web"
+}

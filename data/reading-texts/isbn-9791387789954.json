@@ -4,42 +4,44 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la filosofía y en el debate sobre las ciencias humanas y sociales. Su enfoque fenomenológico y hermenéutico lo aleja de quienes buscan una introducción general a las ciencias naturales o un manual de investigación experimental.",
+      "texto": "Las ciencias humanas y sociales a debate: Perspectivas fenomenológicas y hermenéuticas (Fenomenología y metafísica) se dirige a lectores interesados en filosofía, ensayo y reflexión sobre las ciencias humanas y sociales. Su enfoque académico y conceptual lo diferencia de los libros de lectura breve basados en citas o reflexiones independientes.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Examina las ciencias humanas y sociales desde perspectivas fenomenológicas y hermenéuticas. El planteamiento sitúa la discusión en el terreno filosófico, con atención a las formas de comprender e interpretar los fenómenos humanos y sociales.",
+      "texto": "Las ciencias humanas y sociales a debate: Perspectivas fenomenológicas y hermenéuticas aborda las ciencias humanas y sociales desde dos perspectivas filosóficas: la fenomenología y la hermenéutica. El planteamiento se inscribe en el ámbito de la metafísica y el ensayo, con una extensión de 240 páginas.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 240 páginas en castellano y está publicada por Guillermo Escolar Editor. Es una opción física para leer, subrayar y consultar pasajes durante el estudio de las cuestiones filosóficas que plantea.",
+      "texto": "La tapa blanda permite consultar Las ciencias humanas y sociales a debate: Perspectivas fenomenológicas y hermenéuticas en un volumen físico de 240 páginas. Es una edición de Guillermo Escolar Editor en castellano, adecuada para quien prefiera leer y conservar el ensayo en papel en lugar de utilizar una pantalla.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial",
-        "titulo"
+        "idioma",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Puede compararse con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, por su relación con la reflexión filosófica. Mientras este último título plantea una práctica espiritual, el libro de César Gómez Algarra centra su debate en las ciencias humanas y sociales mediante la fenomenología y la hermenéutica.",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte con Las ciencias humanas y sociales a debate: Perspectivas fenomenológicas y hermenéuticas el formato de ensayo y el interés por cuestiones de pensamiento. La diferencia está en sus campos: el primero aborda las raíces económicas y políticas del anarcocapitalismo, mientras que el segundo se centra en perspectivas fenomenológicas y hermenéuticas sobre las ciencias humanas y sociales.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9791388182457"
       ]
     }
   ],

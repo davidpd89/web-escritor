@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399300925",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Confesiones, de San Agustin, se dirige a lectores interesados en obras vinculadas con la historia y en ediciones extensas. Sus 576 páginas en castellano requieren una lectura más prolongada que la de un volumen breve; no responde a la búsqueda de una obra corta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Confesiones está disponible en tapa dura y Kindle. La edición física de Ediciones Mi-lla SL reúne 576 páginas y permite conservar el volumen en una biblioteca; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Confesiones y Confesiones de un pecador: Ediciones icónicas (Penguin Clásicos | Vintage) comparten la autoría de San Agustin. La diferencia identificable está en la edición: Confesiones figura con 576 páginas en tapa dura de Ediciones Mi-lla SL, mientras que el otro título se presenta como una edición de Penguin Clásicos | Vintage.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "numero_paginas",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9788491058687",
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5e2fba5a4f13830",
+  "origen": "chatgpt-web"
+}

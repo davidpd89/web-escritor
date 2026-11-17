@@ -4,51 +4,49 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El gran libro de los colores de Osito Tito está dirigido al público infantil que empieza a explorar los colores mediante libros de cartón. Su contenido temático y sus 22 páginas lo alejan de las lecturas juveniles con tramas largas y conflictos narrativos.",
+      "texto": "Está dirigido al público infantil que comienza a familiarizarse con los colores mediante libros físicos. Por su temática y sus 22 páginas de cartón, responde menos a quienes buscan una narración juvenil extensa o una lectura centrada en aventuras complejas.",
       "evidencias": [
         "titulo",
+        "categorias",
         "edicion",
-        "numero_paginas",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "La propuesta consiste en explorar los colores a través de un libro infantil de cartón protagonizado por Osito Tito. Sus 22 páginas permiten detenerse en cada color, señalarlo y relacionarlo con objetos del entorno durante una lectura compartida.",
+      "texto": "El libro permite acercarse a los colores a través de la lectura compartida y la observación de sus páginas. Su presentación en cartón y su extensión de 22 páginas facilitan recorrerlo en sesiones breves, señalando y nombrando los colores que se vayan identificando.",
       "evidencias": [
         "titulo",
         "edicion",
-        "numero_paginas",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es de tapa dura, presentada como libro de cartón por Timun Mas Infantil. Sus 22 páginas forman un volumen físico pensado para pasar las hojas y consultar los colores directamente, también durante las lecturas compartidas.",
+      "texto": "La edición disponible es un libro de cartón de 22 páginas, presentado dentro de los formatos de tapa dura. Su soporte físico permite pasar las páginas y volver a ellas durante las actividades de reconocimiento de colores, sin necesidad de pantalla ni reproducción de audio.",
       "evidencias": [
-        "formatos_disponibles",
         "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
         "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Osito Tito: Diversión En La Granja, también de Benji Davies, comparte protagonista y autor con El gran libro de los colores de Osito Tito, pero sitúa su tema en la granja en lugar de los colores. Osito Tito. Mi primer libro de memoria. Estaciones mantiene la misma autoría y personaje, aunque propone trabajar la memoria y las estaciones frente al reconocimiento de colores.",
+      "texto": "Osito Tito. Mi primer libro de memoria. Estaciones, de Benji Davies, comparte protagonista y autoría, pero orienta su título hacia la memoria y las estaciones en lugar de los colores. Osito Tito: Diversión En La Granja, también de Benji Davies, mantiene el personaje y cambia el tema hacia la granja, mientras que El gran libro de los colores de Osito Tito se centra en el reconocimiento de colores.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
-        "afines_catalogo"
+        "autores"
       ],
       "enlaces": [
-        "isbn-9781536256468",
-        "isbn-9788408303893"
+        "isbn-9788408303893",
+        "isbn-9781536256468"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a6bd706f76b37226",
+  "fuente_hash": "6004922166bf8781",
   "origen": "chatgpt-web"
 }

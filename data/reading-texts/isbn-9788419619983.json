@@ -4,39 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La montaña del Intocable: Itinerario de un alpinista de la Conciencia, de Daniel Meurois, se dirige a lectores interesados en el desarrollo personal, el bienestar y la reflexión sobre la conciencia. Su planteamiento se aleja de quienes buscan principalmente una novela de aventuras o una obra de ficción narrativa.",
+      "texto": "La montaña del Intocable: Itinerario de un alpinista de la Conciencia se dirige a lectores interesados en la conciencia y su relación con el bienestar personal. Su planteamiento temático se distancia de las lecturas centradas específicamente en nutrición, ejercicio físico o recomendaciones médicas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 204 páginas de La montaña del Intocable: Itinerario de un alpinista de la Conciencia en un volumen físico manejable. Kindle permite acceder a la misma obra en formato digital, una alternativa para quienes prefieren leer en dispositivos electrónicos.",
+      "texto": "La montaña del Intocable: Itinerario de un alpinista de la Conciencia ofrece 204 páginas en su edición de tapa blanda, apropiada para conservar el texto y consultarlo en papel. La versión Kindle permite leerlo en pantalla y transportarlo sin añadir un volumen físico. Ambas opciones corresponden a la misma obra de Daniel Meurois.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, comparte con La montaña del Intocable: Itinerario de un alpinista de la Conciencia, de Daniel Meurois, el interés por el desarrollo personal y el bienestar. Se diferencian en el planteamiento: el primero aborda la salud, las relaciones y la felicidad desde la ciencia, mientras que el segundo se presenta como un itinerario ligado a la conciencia.",
+      "texto": "44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life comparte con La montaña del Intocable: Itinerario de un alpinista de la Conciencia el interés por asuntos espirituales. La obra de Tania Karam plantea mensajes para la vida cotidiana, mientras que la de Daniel Meurois presenta un itinerario relacionado con la conciencia. Son aproximaciones distintas dentro de ese ámbito temático.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9786073881388"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2e1e00f5e68318a7",
+  "fuente_hash": "8ee95d71c36c6fca",
   "origen": "chatgpt-web"
 }

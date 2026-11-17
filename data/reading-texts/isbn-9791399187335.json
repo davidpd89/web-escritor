@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399187335",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El soldado de la niebla: 1 (Los registros de Latro) encaja con lectores interesados en combinar fantasía, aventuras y novela histórica. Sus 400 páginas plantean una lectura de extensión media; por su clasificación temática, queda fuera de las búsquedas centradas exclusivamente en romance o narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El soldado de la niebla: 1 (Los registros de Latro) se publica en tapa blanda, con 400 páginas en castellano. Esta edición de Zona Abisal S.l. permite consultar el volumen completo en papel y conservarlo físicamente junto a otros libros de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al otro lado de la niebla (Novela), de Juan Luis Arsuaga, y Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, son dos referencias para comparar con El soldado de la niebla: 1 (Los registros de Latro). Este último reúne fantasía, aventuras y novela histórica, mientras que los títulos afines remiten respectivamente a la niebla y a una saga vinculada a la Reconquista. También cambia la autoría: El soldado de la niebla: 1 (Los registros de Latro) es de Gene Wolfe.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370849",
+        "isbn-9788401039539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6789fc9cb70d8240",
+  "origen": "chatgpt-web"
+}

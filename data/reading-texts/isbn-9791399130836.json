@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399130836",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El banquetista: Crónica de un parásito, de Geling Yan, se sitúa entre la narrativa contemporánea, el romance y la historia. Puede interesar a quienes buscan esa combinación de géneros, pero se aleja de las lecturas centradas exclusivamente en fantasía o en contenidos técnicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El banquetista: Crónica de un parásito cuenta con una edición en tapa blanda de 300 páginas, publicada en castellano por Editorial Más Al Este. El formato impreso permite llevar una lectura de extensión media y conservar el volumen en una biblioteca física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El banquetista: Crónica de un parásito comparte el componente romántico con El mundo de Suzie Wong y La carta perdida (Clean Romance). La obra de Geling Yan también se clasifica como narrativa contemporánea e historia, mientras que La carta perdida (Clean Romance), de Mimi Matthews, señala expresamente su orientación romántica en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399046465",
+        "isbn-9788410481442"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dee6e2793d7c66ba",
+  "origen": "chatgpt-web"
+}

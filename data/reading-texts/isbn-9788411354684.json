@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788411354684",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Análisis de la rentabilidad en los establecimientos hoteleros-ADGD08 (v2) se orienta a quienes buscan estudiar la rentabilidad económica aplicada al sector hotelero. Su enfoque empresarial lo separa de las lecturas sobre turismo centradas en destinos, experiencias de viaje o narraciones personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Análisis de la rentabilidad en los establecimientos hoteleros-ADGD08 (v2) se presenta en tapa blanda, con 154 páginas en castellano. La edición impresa permite señalar conceptos relacionados con la rentabilidad hotelera y volver a ellos durante una consulta o sesión de estudio, sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Análisis de la rentabilidad en los establecimientos hoteleros-ADGD08 (v2) y Gestión de la morosidad-ADGN057PO (v2) comparten una orientación hacia cuestiones de gestión económica. El primero delimita su estudio a la rentabilidad hotelera; el segundo se ocupa de la morosidad y está firmado por Carlos Trujillo Márquez y Avanza Editorial, frente a José Antonio Vela Martín y Avanza Editorial. Son enfoques diferentes dentro de la actividad empresarial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586859"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0187c05a35b6ef70",
+  "origen": "chatgpt-web"
+}

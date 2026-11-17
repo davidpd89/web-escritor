@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788467084283",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Conviértete en un descifrador de personas: Trucos y consejos para conocerlas e influir en ellas (Espasa Crecimiento personal), de Alexandre Monteiro, se dirige a lectores interesados en comprender las relaciones personales y la influencia sobre los demás. Su orientación hacia el desarrollo personal y la empresa lo diferencia de los libros de ficción y de los estudios exclusivamente históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Conviértete en un descifrador de personas: Trucos y consejos para conocerlas e influir en ellas (Espasa Crecimiento personal) tiene una edición en tapa blanda de 336 páginas. El formato en papel permite señalar consejos y regresar a ellos cuando se quiera revisar alguna cuestión relacionada con el conocimiento de las personas o la influencia interpersonal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conviértete en un descifrador de personas: Trucos y consejos para conocerlas e influir en ellas (Espasa Crecimiento personal) comparte con El arte de elegir: Relatos sobre decisiones, pérdidas y nuevos comienzos (Acción Empresarial) el interés por las decisiones y la conducta humana. Alexandre Monteiro se centra en conocer e influir en otras personas, mientras que Antonio Bonet aborda decisiones y cambios vitales mediante relatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388130397"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f529f6315921077a",
+  "origen": "chatgpt-web"
+}

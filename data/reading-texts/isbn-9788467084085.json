@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La gran familia de la fe: Un oasis donde pertenecer, creer y crecer (Espasa Religión) se dirige a lectores interesados en la fe, la pertenencia comunitaria y el crecimiento espiritual. Por su orientación religiosa y ensayística, encaja menos con quienes buscan ficción o una aproximación ajena a las creencias.",
+      "texto": "La gran familia de la fe: Un oasis donde pertenecer, creer y crecer (Espasa Religión) se dirige a lectores interesados en la religión, la espiritualidad y la reflexión sobre la pertenencia a una comunidad de fe. No responde a quien busque una novela de ficción o un manual de prácticas culinarias o técnicas.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La obra aborda la fe desde las ideas de pertenencia, creencia y crecimiento personal dentro de una comunidad. José María Sánchez de Lamadrid sitúa estas cuestiones en el terreno del ensayo religioso, con la familia y la espiritualidad como ejes temáticos.",
+      "texto": "Aborda la fe desde las ideas de pertenecer, creer y crecer, con una perspectiva centrada en la comunidad religiosa. José María Sánchez de Lamadrid plantea estas cuestiones en una obra clasificada como ensayo y religión y espiritualidad, publicada dentro de Espasa Religión.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,16 +21,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 256 páginas de La gran familia de la fe: Un oasis donde pertenecer, creer y crecer (Espasa Religión) en un volumen físico que permite consultar y releer pasajes. Kindle facilita llevar el texto en un lector electrónico o móvil y acceder a él sin cargar con el libro impreso.",
+      "texto": "La tapa blanda ofrece una edición física de 256 páginas que puede consultarse y conservarse en papel. Kindle permite llevar el ensayo en formato digital y acceder a sus contenidos desde un dispositivo compatible, sin necesidad de transportar el ejemplar impreso.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La gran familia de la fe: Un oasis donde pertenecer, creer y crecer (Espasa Religión) y Astrología, filosofía y magia: Un camino de práctica espiritual comparten el interés por la espiritualidad. La obra de José María Sánchez de Lamadrid se centra en la fe y la pertenencia comunitaria, mientras que la de Soledad Davies propone un acercamiento a la práctica espiritual mediante la astrología, la filosofía y la magia.",
+      "texto": "Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, comparte con La gran familia de la fe: Un oasis donde pertenecer, creer y crecer (Espasa Religión) el interés por la reflexión espiritual, aunque su título anuncia aforismos en lugar de un ensayo centrado en la comunidad de fe. Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, también aborda la espiritualidad, pero desde la astrología, la filosofía y la magia, frente al enfoque religioso de José María Sánchez de Lamadrid.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,12 +39,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791387548278",
         "isbn-9788411214315"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0243d46873acfd16",
+  "fuente_hash": "18930e48e67af210",
   "origen": "chatgpt-web"
 }

@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Más aventuras en Bullerbyn: 2 (Los niños de Bullerbyn), de Astrid Lindgren, está orientado al público infantil interesado en la amistad, la infancia y las aventuras. Su combinación de narrativa infantil y clásicos encaja menos con lectores que buscan historias de temática adulta o ensayos.",
+      "texto": "Más aventuras en Bullerbyn: 2 (Los niños de Bullerbyn) está orientado a lectores infantiles y juveniles interesados en aventuras y clásicos de la literatura para estas edades. Con 168 páginas, ofrece una extensión intermedia frente a los cuentos muy breves; el título lo identifica como el n.º 2 de Los niños de Bullerbyn.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Más aventuras en Bullerbyn: 2 (Los niños de Bullerbyn) se publica en tapa dura y tiene 168 páginas en castellano. La encuadernación rígida de Editorial Kókinos resulta práctica para conservar el ejemplar, compartirlo y volver a leerlo en papel.",
+      "texto": "La edición de Editorial Kókinos está disponible en tapa dura, con 168 páginas en castellano. La cubierta rígida favorece su conservación para posteriores lecturas y permite incorporarlo a una colección física de literatura infantil.",
       "evidencias": [
-        "titulo",
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Más aventuras en Bullerbyn: 2 (Los niños de Bullerbyn) comparte con Onin 1 - Onin y la isla del tesoro, de Ibon Martín, el interés por las aventuras y los grupos de amigos. La obra de Astrid Lindgren se vincula a la infancia y los clásicos, mientras que la de Ibon Martín incorpora misterios y magia. El título identifica la obra de Bullerbyn con el n.º 2.",
+      "texto": "Más aventuras en Bullerbyn: 2 (Los niños de Bullerbyn), de Astrid Lindgren, comparte el público infantil y el componente aventurero con A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini), de Núria Parera Ciuró. La obra de Lindgren se identifica con los niños de Bullerbyn y su carácter de clásico, mientras que el título de Parera Ciuró sitúa su propuesta en tierra de vikingos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387994549"
+        "isbn-9788412857597"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2911e64c9fa0d559",
+  "fuente_hash": "8b57627e1f30c7e9",
   "origen": "chatgpt-web"
 }

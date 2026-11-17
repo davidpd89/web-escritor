@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9781805206224",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Jack Probyn se dirige a lectores de misterio y narrativa policial británica. Pertenece a la serie La Inspectora Stephanie Broadbent y el título la identifica como el n.º 5, por lo que se relaciona con las investigaciones de una protagonista recurrente y no con la narrativa romántica o fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta entrega de la serie La Inspectora Stephanie Broadbent se presenta en tapa blanda, con 350 páginas en castellano. La edición de Cliff Edge Press Limited permite leerla en papel y conservarla junto a otros volúmenes de la misma serie, sin necesidad de utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esta entrega de La Inspectora Stephanie Broadbent comparte protagonista, autor y género con Tres en Raya, de Jack Probyn. El título de esta última la identifica como el n.º 4 de la serie, mientras que la obra aquí tratada aparece como el n.º 5; ambas pertenecen al ámbito del misterio policial británico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781805203902"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5507dbb0f90b8b1",
+  "origen": "chatgpt-web"
+}

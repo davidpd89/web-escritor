@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788433950895",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nadie merece nada: Por qué la izquierda necesita la meritocracia (Nuevos cuadernos Anagrama) está dirigido a lectores de ensayo interesados en la relación entre meritocracia y pensamiento político de izquierdas. Su orientación argumentativa lo distingue de la narrativa de ficción y de los libros ajenos al debate político.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Editorial Anagrama publica este ensayo de Jahel Queralt en tapa blanda, con 128 páginas en castellano. La extensión permite abordar su planteamiento sobre la meritocracia en un volumen físico relativamente breve, apto para consultar y releer sus argumentos.",
+      "evidencias": [
+        "editorial",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crítica de la razón geopolítica (Nuevos cuadernos Anagrama) comparte colección y orientación hacia el ensayo político, pero trata la geopolítica en lugar de la meritocracia. Su autor es Carlos Corrochano, mientras que Nadie merece nada: Por qué la izquierda necesita la meritocracia (Nuevos cuadernos Anagrama) está firmado por Jahel Queralt.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788433951175"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7cda72d6f635f5b6",
+  "origen": "chatgpt-web"
+}

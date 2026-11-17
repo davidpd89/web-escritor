@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9789564078052",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Integridad Patrimonial, Extincion De Dominio Y Compliance, de Emilio J. Urbina Mendoza, se orienta a lectores que buscan contenidos jurídicos sobre patrimonio, extinción de dominio y cumplimiento normativo. Su temática se aleja de los manuales generales de contratación civil y de las obras centradas en convivencia familiar. El interés principal está en las cuestiones legales que identifica el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Integridad Patrimonial, Extincion De Dominio Y Compliance tiene una edición en tapa blanda de 206 páginas. Ediciones Olejnik la publica en castellano y la identifica como Bunko. El soporte físico permite mantener reunidos los contenidos sobre integridad patrimonial, extinción de dominio y compliance para su lectura y consulta en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Integridad Patrimonial, Extincion De Dominio Y Compliance puede ponerse junto a Argumentacion Juridica, de Carlos Parma, como lectura de temática jurídica. Emilio J. Urbina Mendoza delimita su materia a la integridad patrimonial, la extinción de dominio y el compliance; Carlos Parma se ocupa de la argumentación jurídica. Uno permite centrarse en cuestiones patrimoniales y de cumplimiento, mientras que el otro toma como eje la argumentación en derecho.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c5e1dc4523ec7f8",
+  "origen": "chatgpt-web"
+}

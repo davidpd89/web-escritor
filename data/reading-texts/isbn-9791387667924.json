@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tras la pista del mal se dirige a lectores interesados en la criminología, los rituales y las creencias que rodean determinados delitos. Su enfoque de investigación sobre casos de crónica negra lo aleja de la novela policíaca de ficción y de los relatos centrados únicamente en resolver un crimen.",
+      "texto": "Tras la pista del mal se dirige a lectores interesados en la criminología, los rituales y las creencias vinculadas a la violencia. Su enfoque de investigación sobre crímenes reales lo distancia de una novela de misterio con personajes ficticios.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial",
@@ -13,42 +13,39 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un ensayo de investigación criminal que examina la relación entre violencia, mitología y creencias religiosas. Cristian Puig aborda casos de crónica negra desde su experiencia como policía nacional y criminólogo, con una estructura articulada en tres grandes bloques y una extensión de 392 páginas.",
+      "texto": "Es un ensayo de investigación sobre el origen del mal y su relación con determinadas conductas criminales. Cristian Puig aborda casos de crónica negra desde su experiencia como policía nacional y criminólogo, con atención a las dimensiones rituales y religiosas del delito.",
       "evidencias": [
-        "titulo",
-        "autores",
         "sinopsis_editorial",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tras la pista del mal está disponible en tapa blanda, mediante una edición rústica con solapas de Ediciones Luciérnaga. Sus 392 páginas permiten consultar y retomar los distintos casos de investigación en un único volumen físico, sin depender de un dispositivo electrónico.",
+      "texto": "La tapa blanda con solapas reúne las 392 páginas de Tras la pista del mal en un volumen físico. Esta presentación de Ediciones Luciérnaga permite leer y consultar los casos sin utilizar una pantalla.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "edicion",
-        "editorial",
         "numero_paginas",
-        "sinopsis_editorial"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Diálogos sobre lo desconocido comparte con Tras la pista del mal el interés por fenómenos vinculados a las creencias, pero reúne testimonios personales en lugar de investigaciones criminológicas. A la sombra del Estado también examina actividades ocultas, aunque se ocupa del espionaje y del poder clandestino, no de los delitos asociados a rituales o mitos.",
+      "texto": "Diálogos sobre lo desconocido comparte con Tras la pista del mal el interés por fenómenos que plantean preguntas sobre las creencias humanas. El primero reúne testimonios de más de 40 personalidades, mientras que Cristian Puig investiga delitos y sus posibles conexiones con mitos, rituales y fe.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "autores",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791387667849",
-        "isbn-9788434441057"
+        "isbn-9791387667849"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a5c33c5161a1b051",
+  "fuente_hash": "8cae5f0421d83f4b",
   "origen": "chatgpt-web"
 }

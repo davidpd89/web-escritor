@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388259364",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Roma Caput Mundi. La saga completa: El último pretoriano · El último césar · La última batalla (Superinsuperables) se dirige a lectores de novela histórica interesados en relatos ambientados en el mundo romano. Andrea Frediani reúne una saga de 1376 páginas, una extensión considerable para quien busque una lectura breve o una novela independiente de pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Roma Caput Mundi. La saga completa: El último pretoriano · El último césar · La última batalla (Superinsuperables) está disponible en tapa blanda. Sus 1376 páginas reúnen los tres títulos mencionados en la cubierta, por lo que el volumen permite mantener la saga junta en una biblioteca. Por su extensión, conviene tener en cuenta el tamaño de la lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Roma Caput Mundi. La saga completa: El último pretoriano · El último césar · La última batalla (Superinsuperables) comparte el terreno de la novela histórica con Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth. Andrea Frediani sitúa el interés en el mundo romano y reúne una saga completa, mientras que Valerio Massimo Manfredi presenta una obra vinculada a Aléxandros. La diferencia para el lector está en el contexto histórico y en la extensión del volumen de Andrea Frediani, que alcanza las 1376 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897106"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b331356c9ae0cd3",
+  "origen": "chatgpt-web"
+}

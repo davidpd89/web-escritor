@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388424199",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué dijo?: Diccionario mexicano - español, de Soledad Burgaleta, se dirige a quienes desean consultar vocabulario y diferencias lingüísticas entre variedades del español. Por su planteamiento como diccionario y su clasificación entre las obras de referencia, encaja con una búsqueda de consulta lingüística, pero no con quien espera una novela o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Qué dijo?: Diccionario mexicano - español se publica en tapa blanda, con 234 páginas en castellano. El formato físico permite tenerlo a mano para consultas de vocabulario y revisar distintas entradas durante la lectura o el estudio de expresiones mexicanas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Qué dijo?: Diccionario mexicano - español comparte su carácter de obra de consulta con Gustavo Adolfo Bécquer y su Obra: Bibliografia (1853-2025): 184 (Literatura), de Jesús Rubio Jiménez y Antonio Martín Barrachina. El libro de Soledad Burgaleta se orienta al vocabulario mexicano y su relación con el español, mientras que el otro título aborda la bibliografía de un autor literario. Ambos permiten acudir a un tema delimitado sin plantearse como novelas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788447234813"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7895e5301ca4fcb6",
+  "origen": "chatgpt-web"
+}

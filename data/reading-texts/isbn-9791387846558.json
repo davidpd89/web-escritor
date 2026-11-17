@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amargo, amargo (Literaturas), de Joanna Bator, se orienta a lectores de narrativa contemporánea e histórica interesados en las relaciones familiares. Sus 672 páginas requieren una lectura más prolongada que la de una novela breve, y su temática se aleja de la fantasía y las aventuras.",
+      "texto": "Amargo, amargo (Literaturas), de Joanna Bator, se dirige a quienes buscan narrativa contemporánea vinculada también a la novela histórica. Sus 672 páginas plantean una lectura extensa, menos ajustada a quien prefiera libros breves o una obra centrada en divulgación y conocimientos prácticos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Amargo, amargo (Literaturas) es de tapa blanda y reúne 672 páginas en castellano. Por su extensión, resulta más cómoda para leer con apoyo que para sostenerla durante sesiones largas; Alfaguara publica esta presentación física.",
+      "texto": "Amargo, amargo (Literaturas) está editado en tapa blanda y tiene 672 páginas. La cubierta flexible permite manejar un volumen extenso sin la rigidez de una tapa dura; es una edición en castellano publicada por Alfaguara.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -25,7 +25,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amargo, amargo (Literaturas), de Joanna Bator, puede compararse con Hacia otro lugar (SUMA), de Mónica Rocha, como otra propuesta de ficción de distinta autoría. También comparte el ámbito narrativo con La casa de huéspedes, de Ana Lena Rivera, aunque la obra de Joanna Bator combina expresamente novela histórica, narrativa contemporánea y temática familiar.",
+      "texto": "Amargo, amargo (Literaturas) comparte el ámbito de la novela histórica con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon. La obra de Joanna Bator también pertenece a la narrativa contemporánea, mientras que el título de Valerio Massimo Manfredi identifica una segunda entrega y sitúa las arenas de Amón como referencia temática.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388163043",
-        "isbn-9788466375375"
+        "isbn-9786287897090"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4f393abf778e53eb",
+  "fuente_hash": "c504cce22847575a",
   "origen": "chatgpt-web"
 }

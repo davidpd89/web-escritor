@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410555501",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Navidad del bosque (Libro de adviento) se dirige al público infantil interesado en lecturas de temática navideña y en el formato de libro de adviento. La obra de Claire Renaud tiene 196 páginas, por lo que se aleja de los álbumes infantiles de pocas páginas y de las lecturas sin temática estacional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Navidad del bosque (Libro de adviento) está disponible en tapa blanda, con 196 páginas en castellano. Esta edición de Ediciones SM permite conservar el libro en papel y distribuir su lectura a lo largo del periodo de adviento al que alude el título, en lugar de depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2277020f890b83f4",
+  "origen": "chatgpt-web"
+}

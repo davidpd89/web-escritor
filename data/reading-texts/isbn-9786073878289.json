@@ -4,25 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "En lengua privada / In Private Language se sitúa entre el ensayo, los relatos y la narrativa contemporánea, por lo que encaja con lectores interesados en esas formas de escritura. Sus 240 páginas ofrecen una extensión moderada y se alejan de las expectativas de quien busca exclusivamente fantasía o una novela de género.",
+      "texto": "En lengua privada / In Private Language se dirige a lectores de narrativa contemporánea, ensayo y relatos. Por su clasificación editorial, encaja menos con quien busca una novela identificada exclusivamente con un género narrativo o un manual de instrucciones prácticas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda presenta las 240 páginas de En lengua privada / In Private Language en un volumen físico manejable para leer y consultar. Kindle permite acceder al mismo título en formato digital desde dispositivos compatibles, sin necesidad de llevar el ejemplar en papel.",
+      "texto": "En lengua privada / In Private Language está disponible en tapa blanda y Kindle. La edición impresa reúne 240 páginas y permite conservar el volumen físico; Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles sin transportar el libro en papel.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "En lengua privada / In Private Language comparte su vertiente ensayística con El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil. La obra de Emiliano Monge también se relaciona con los relatos y la narrativa contemporánea, mientras que el título de Simone Weil identifica expresamente la Ilíada como uno de sus asuntos.",
+      "texto": "En lengua privada / In Private Language puede compararse con Vivir adrede / To Live Purposely por su vinculación con textos literarios, aunque son obras de Emiliano Monge y Mario Benedetti, respectivamente. El arte de la vida: 101 relatos cortos con moraleja también permite contrastar el formato de los relatos, pero su título anuncia expresamente una orientación hacia la moraleja.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,7 +29,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466394604"
+        "isbn-9786287897403",
+        "isbn-9788409939701"
       ]
     }
   ],

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ensayos económicos: Los orígenes del capitalismo moderno. (No Ficción), de David Hume, se dirige a lectores interesados en economía, filosofía e historia. Su enfoque ensayístico sobre los orígenes del capitalismo lo separa de los manuales prácticos de gestión empresarial y de las novelas históricas.",
+      "texto": "Se dirige a lectores interesados en la historia económica y en las ideas filosóficas relacionadas con el capitalismo moderno. Ensayos económicos: Los orígenes del capitalismo moderno. (No Ficción), de David Hume, no responde a quien busque una novela o un manual práctico de gestión empresarial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,31 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Ensayos económicos: Los orígenes del capitalismo moderno. (No Ficción) está disponible en tapa blanda y reúne 160 páginas. El volumen físico de Biblioteca Nueva permite consultar y releer sus contenidos sobre economía e historia en castellano.",
+      "texto": "La tapa blanda permite consultar y subrayar en papel las 160 páginas de Ensayos económicos: Los orígenes del capitalismo moderno. (No Ficción). Kindle ofrece la alternativa de llevar el texto en un lector electrónico o en el móvil, sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ensayos económicos: Los orígenes del capitalismo moderno. (No Ficción) comparte el interés por las ideas económicas con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo). David Hume aborda los orígenes del capitalismo moderno, mientras que Miguel Anxo Bastos Boubeta centra su obra en las raíces del pensamiento anarcocapitalista.",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte el interés por la economía y sus fundamentos políticos, pero se centra en el pensamiento anarcocapitalista. Ensayos económicos: Los orígenes del capitalismo moderno. (No Ficción) aborda los orígenes del capitalismo moderno desde una perspectiva histórica y filosófica, mientras que Dinerosofía: Conoce y cuida la Economía con Filosofía vincula la economía con la filosofía desde otro planteamiento.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457"
+        "isbn-9791388182457",
+        "isbn-9791388613098"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3b33fa7a91b5ab66",
+  "fuente_hash": "a094d75708277dbd",
   "origen": "chatgpt-web"
 }

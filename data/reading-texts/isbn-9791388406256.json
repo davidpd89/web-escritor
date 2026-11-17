@@ -4,38 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a quienes buscan testimonios de mujeres vinculados a la guerra de Ucrania y lecturas de carácter biográfico o ensayístico. Su asunto bélico y su enfoque testimonial lo alejan de las novelas de evasión y de los estudios militares centrados exclusivamente en operaciones y armamento.",
+      "texto": "Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania se dirige a lectores interesados en testimonios de mujeres, conflictos bélicos y ensayo. Su temática resulta menos adecuada para quienes buscan ficción de aventuras o lecturas alejadas de la guerra.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 208 páginas de Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania en una edición impresa de Plataforma Editorial. Kindle permite leer el texto en formato digital y retomarlo desde el móvil o un lector electrónico.",
+      "texto": "La tapa blanda reúne las 208 páginas de Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania en un volumen físico que puede conservarse y consultarse. Kindle permite leerlo digitalmente en el móvil o en un lector electrónico, sin llevar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación) también sitúa a las mujeres en el centro, pero recorre un marco histórico amplio. Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania delimita su mirada a mujeres afectadas por un conflicto bélico concreto, con un planteamiento biográfico y ensayístico.",
+      "texto": "Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978) comparte con Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania el interés por las experiencias humanas, aunque se centra en una vida individual frente a un conjunto de mujeres afectadas por la guerra. Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes propone otra aproximación biográfica, organizada alrededor de una figura concreta y no de un conflicto bélico.",
       "evidencias": [
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788403527041"
+        "isbn-9786073873154",
+        "isbn-9788417645311"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "22ddfdcc71ac4d5c",
+  "fuente_hash": "6edef1d9694292d0",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788418859786",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Manual Del Dictador: Por qué la mala conducta es casi siempre buena política: 124 (Biblioteca de Ensayo / Serie mayor) se dirige a lectores interesados en el ejercicio del poder y las conductas políticas. Por su orientación ensayística, encaja menos con quienes buscan una novela o una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Bruce Bueno de Mesquita y Alastair Smith examinan la relación entre el comportamiento de los gobernantes y la lógica del poder político. La cuestión central, planteada desde el ensayo, es por qué determinadas conductas consideradas negativas pueden resultar políticamente beneficiosas para quienes las practican.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Manual Del Dictador: Por qué la mala conducta es casi siempre buena política: 124 (Biblioteca de Ensayo / Serie mayor) se ofrece en tapa blanda. La edición de Ediciones Siruela contiene 368 páginas en castellano, reunidas en un volumen físico que permite consultar y retomar los argumentos del ensayo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Manual Del Dictador: Por qué la mala conducta es casi siempre buena política: 124 (Biblioteca de Ensayo / Serie mayor) y Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparten interés por las ideas políticas. El primero examina la conducta de quienes ejercen el poder; el segundo se presenta como una introducción a una corriente de pensamiento económico y político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ff94f5a1b2e20640",
+  "origen": "chatgpt-web"
+}

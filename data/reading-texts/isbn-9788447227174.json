@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788447227174",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores de historia, geografía y ensayo interesados en las fronteras ibéricas y sus relaciones territoriales. Por su planteamiento académico y colectivo, se distancia de las guías de viaje y de los relatos de ficción ambientados en territorios fronterizos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Fronteiras ibéricas em diálogo: discursos plurais sobre história, cooperação e globalização: 4 (Geografía) plantea el estudio de las fronteras ibéricas desde la historia, la cooperación y la globalización. La pluralidad de autores y su publicación universitaria sitúan el tratamiento en el ámbito del ensayo y el análisis territorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 302 páginas y está publicada por Editorial Universidad de Sevilla-secretariado de Publicaciones. Es una opción física para consultar los distintos enfoques sobre historia, cooperación y globalización, así como para volver a pasajes concretos durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fronteiras ibéricas em diálogo: discursos plurais sobre história, cooperação e globalização: 4 (Geografía) y Geografía. Libros V-VII (Biblioteca Clásica Gredos) comparten el interés por el territorio y su estudio. El primero aborda las fronteras ibéricas desde perspectivas históricas y contemporáneas, mientras que el segundo corresponde a una obra geográfica de Estrabón.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387896348"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9b9fa5499ef67f3f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9798182903509",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Caminando a través de la sombra se dirige a lectores interesados en el desarrollo personal, el bienestar y la espiritualidad. Calvin Amandus firma una obra de 146 páginas en castellano, alejada de la narrativa de ficción y de los manuales centrados exclusivamente en cuestiones técnicas de salud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Caminando a través de la sombra está disponible en tapa blanda, con 146 páginas en castellano. Esta edición de Biblical Intelligence permite consultar el texto en papel, volver a pasajes anteriores y conservarlo en una biblioteca personal sin ocupar el espacio de un volumen especialmente extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Caminando a través de la sombra comparte el ámbito espiritual con El principio Zen / The Zen Principle, de Osho. Frente a ese título, que señala expresamente el zen, la obra de Calvin Amandus se presenta dentro del desarrollo personal, el bienestar y la espiritualidad. También puede compararse con El perdón: Una sabiduría silenciosa (ENSAYO), de Rafael Domingo Osle, cuyo título centra la atención en el perdón.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410943896",
+        "isbn-9786073874342"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "59db7b63c6bcd07f",
+  "origen": "chatgpt-web"
+}

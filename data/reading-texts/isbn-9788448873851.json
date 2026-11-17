@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas) está dirigido a quienes se inician en la lectura y buscan aventuras con elementos fantásticos y amistad. Sus 64 páginas plantean una extensión breve; encaja menos con lectores que prefieren novelas largas o historias sin componentes mágicos.",
+      "texto": "El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas) se dirige a lectores infantiles interesados en aventuras con elementos fantásticos. Con 64 páginas y su identificación como primeras lecturas, se aparta de las novelas largas y de la fantasía dirigida principalmente al público adulto.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,17 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas) se ofrece en tapa blanda, con 64 páginas. Es una edición física breve que puede transportarse fácilmente y utilizarse en sesiones de primeras lecturas, tanto individuales como acompañadas.",
+      "texto": "El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas) está disponible en tapa blanda y tiene 64 páginas. Su encuadernación flexible facilita llevarlo en una mochila y manejarlo durante la lectura, mientras que su extensión permite distribuirlo en sesiones breves.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Onin 1 - Onin y la isla del tesoro comparte con El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas) la combinación de aventuras y magia, aunque su título sitúa la acción en una isla del tesoro. Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño también reúne fantasía y amistad, pero propone cuentos de temática navideña frente a la aventura nevada de Begoña Oro.",
+      "texto": "El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas) y A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria) comparten referencias a la magia desde sus títulos. Begoña Oro presenta una aventura infantil vinculada a un jardín mágico y a la nieve; Sergio Sánchez Morán sitúa su obra bajo la denominación Enseñanza Mágica Obligatoria.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409926671",
-        "isbn-9791387994549"
+        "isbn-9791399305517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f7785947c3f906e7",
+  "fuente_hash": "7b685426ca32c216",
   "origen": "chatgpt-web"
 }

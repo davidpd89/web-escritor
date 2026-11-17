@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370274542",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a quienes necesitan estudiar el mantenimiento básico de equipos informáticos, aplicaciones y redes. Por su enfoque técnico y su extensión de 68 páginas, responde a un interés concreto de formación, no a la búsqueda de una introducción general a todas las disciplinas científicas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 68 páginas de ADG_A_0649_01. Mantenimiento básico de equipos, aplicaciones y red. ADG_C_004_5B en un volumen físico para estudiar y consultar. Kindle ofrece el mismo título en formato digital, una alternativa para acceder a la materia desde un lector electrónico o un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Energías renovables: Especialidad biomasa-ENAE010PO comparte autoría con este manual de Elsa Rubio Duce, pero trata una fuente energética en lugar del mantenimiento informático. Producción, transporte, almacenaje y aplicaciones del hidrógeno verde-ENAE0008 también aborda una materia técnica vinculada a la energía, mientras ADG_A_0649_01. Mantenimiento básico de equipos, aplicaciones y red. ADG_C_004_5B se centra en equipos, aplicaciones y redes.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791388586279",
+        "isbn-9788411354677"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b2df5db186a7f494",
+  "origen": "chatgpt-web"
+}

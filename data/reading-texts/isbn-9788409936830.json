@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409936830",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La princesa traviesa y el hada de los sueños: Un cuento para ayudar a los niños a dormir en sus camas está dirigido al público infantil y aborda el momento de dormir mediante la fantasía. Por su planteamiento como cuento de 44 páginas, se diferencia de las lecturas juveniles extensas y de las historias centradas en aventuras prolongadas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La princesa traviesa y el hada de los sueños: Un cuento para ayudar a los niños a dormir en sus camas está disponible en tapa blanda. Sus 44 páginas en castellano permiten utilizar el ejemplar físico para la lectura compartida antes de acostarse y conservarlo junto a otros cuentos infantiles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La princesa traviesa y el hada de los sueños: Un cuento para ayudar a los niños a dormir en sus camas se aproxima a Acurrúcate a mi lado (Cuentos para peques), de Rosie Dickins, por su orientación hacia los pequeños y el entorno afectivo de la lectura. Frente a Brujas y dragones 2: La bruja mala del oeste, de Ledicia Costas y Luis Miguel Pérez, centra su propuesta en el descanso infantil en lugar de destacar una figura de bruja y un conflicto fantástico en el título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781836066385",
+        "isbn-9791387501877"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2eb46d511134521d",
+  "origen": "chatgpt-web"
+}

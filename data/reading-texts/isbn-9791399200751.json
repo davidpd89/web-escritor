@@ -4,37 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tesis: Guión cinematográfico de la película, de Alejandro Amenábar y Mateo Gil, está dirigido a lectores interesados en los guiones de cine y la escritura audiovisual. Su condición de guion lo distingue de una novela convencional, por lo que encaja menos con quienes buscan narrativa presentada exclusivamente en prosa.",
+      "texto": "Tesis: Guión cinematográfico de la película se dirige a lectores interesados en los guiones cinematográficos y su relación con el cine. Alejandro Amenábar y Mateo Gil firman esta publicación de 126 páginas, vinculada al ámbito del arte y el diseño. Su enfoque se aleja de la novela narrativa convencional.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tesis: Guión cinematográfico de la película está disponible en tapa blanda y tiene 126 páginas. Esta edición permite consultar el guion en papel, volver a sus pasajes y conservarlo como volumen de referencia para el estudio de la escritura cinematográfica.",
+      "texto": "Tesis: Guión cinematográfico de la película está disponible en tapa blanda, con 126 páginas en castellano. Es una edición física de Ediciones Ocho y Medio SL que permite consultar el texto y volver a pasajes concretos durante el estudio de un guion cinematográfico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tesis: Guión cinematográfico de la película comparte el interés por la escritura destinada a la representación con Arde Talía: Una pieza teatral sobre el infierno de la creación artística, de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano. La diferencia está en el medio: el primero es un guion cinematográfico y el segundo se presenta como una pieza teatral centrada en la creación artística.",
+      "texto": "Tesis: Guión cinematográfico de la película y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) comparten su vinculación con el cine. El primero presenta un guion cinematográfico firmado por Alejandro Amenábar y Mateo Gil; el segundo, de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga, se centra por su título en películas del género wéstern.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399289510"
+        "isbn-9791388205842"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9f33c4145a71f193",
+  "fuente_hash": "d85fb667808adbff",
   "origen": "chatgpt-web"
 }

@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Matar a un jabalí encaja con lectores de misterio y thriller interesados también en las relaciones de poder y la política. Sus 618 páginas requieren una lectura más prolongada que una novela breve, por lo que se aleja de quien busque una historia corta o centrada exclusivamente en asuntos personales.",
+      "texto": "Matar a un jabalí, de Juan Montojo Quadreny, se sitúa en el terreno del misterio y el thriller. Con 618 páginas, se dirige a lectores que buscan una obra extensa dentro de ese género, más que a quienes prefieren relatos breves o lecturas de temática ajena al suspense.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Matar a un jabalí ofrece tapa blanda y Kindle para sus 618 páginas. La edición en papel permite mantener una lectura física de considerable extensión, mientras que Kindle facilita llevar el texto completo en un lector electrónico o en el móvil.",
+      "texto": "Matar a un jabalí puede leerse en tapa blanda o en Kindle. La edición física reúne sus 618 páginas en un volumen de papel, mientras que Kindle permite llevar una obra de esa extensión en un lector electrónico o en la aplicación del móvil, sin cargar con el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -22,7 +23,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Matar a un jabalí comparte con El vuelo de los gansos el interés por el poder y los conflictos que puede provocar enfrentarse a él. La obra de Ángel Boixadós plantea ese enfrentamiento como una cuestión de principios, mientras que Juan Montojo Quadreny combina en su libro el ámbito político con el misterio y el thriller.",
+      "texto": "Matar a un jabalí comparte el terreno del misterio con Aberración, de Santiago López de Hoyos, aunque son obras de distinta autoría. También puede compararse con 25 días hasta Navidad, de Per Jacobsen, identificado como thriller de adviento, mientras que Matar a un jabalí se presenta como una obra de misterio sin ese marco navideño en su título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425375040"
+        "isbn-9788427055063",
+        "isbn-9791399297508"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e47af09389d1d4d9",
+  "fuente_hash": "bc3b4278738fd4b5",
   "origen": "chatgpt-web"
 }

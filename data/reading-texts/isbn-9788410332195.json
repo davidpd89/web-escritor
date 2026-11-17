@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410332195",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la historia contada mediante cómic y novela gráfica. La balada del norte. Tomo 1 (Sillón Orejero), de Alfonso Zapico, reúne ambos ámbitos en 232 páginas; no responde a quien busca un ensayo histórico exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La balada del norte. Tomo 1 (Sillón Orejero) se presenta en tapa dura, con 232 páginas en castellano. Esta encuadernación permite conservar el volumen en una estantería y consultarlo de nuevo en papel, tanto por sus páginas de cómic como por su contenido histórico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La balada del norte. Tomo 2 (Sillón Orejero) comparte autor y título principal con este volumen, mientras que La balada del norte 03 (nueva edición) (Sillón Orejero) pertenece a la misma línea de obras de Alfonso Zapico. La diferencia visible está en la numeración: el libro consultado es el Tomo 1 y los otros títulos identifican entregas distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419670373",
+        "isbn-9788410332201"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "72e8691bcefb2d73",
+  "origen": "chatgpt-web"
+}

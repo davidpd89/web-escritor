@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido al público infantil interesado en los relatos bíblicos, la historia y la religión. Por su contenido sobre el Antiguo y el Nuevo Testamento, se aleja de las lecturas centradas exclusivamente en aventuras de ficción o misterios.",
+      "texto": "La Biblia para niños está dirigida al público infantil interesado en conocer relatos del Antiguo y del Nuevo Testamento mediante la lectura y las actividades. Su contenido religioso e histórico la diferencia de los libros infantiles centrados exclusivamente en aventuras de ficción.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,36 +12,38 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "El libro combina historias del Antiguo y del Nuevo Testamento con juegos y actividades complementarias. Permite alternar la lectura de los relatos con las propuestas de participación incluidas en el volumen, en lugar de limitarse a una lectura seguida.",
+      "texto": "El libro combina la lectura de historias bíblicas con juegos y actividades complementarias. Los niños pueden acercarse a los relatos del Antiguo y del Nuevo Testamento y utilizar las propuestas adicionales para trabajar sobre ese contenido.",
       "evidencias": [
-        "titulo"
+        "titulo",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 128 páginas en un volumen físico que puede consultarse durante las actividades y conservarse en una biblioteca infantil. Kindle permite acceder al mismo título desde un dispositivo de lectura, sin necesidad de transportar el ejemplar impreso.",
+      "texto": "La tapa dura ofrece las 128 páginas en un volumen físico que puede conservarse y utilizarse durante las actividades. Kindle permite llevar la lectura en un dispositivo compatible, sin necesidad de transportar el libro impreso.",
       "evidencias": [
-        "numero_paginas",
         "formatos_disponibles",
-        "titulo"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antigua Roma (Civilizaciones antiguas para niños) también acerca contenidos del pasado al público infantil, pero se ocupa de una civilización histórica, mientras que este libro aborda relatos religiosos. Mi biblioteca Julio Verne (Julio Verne para niños): Estuche con: Vuelta al mundo en 80 días y Veinte mil leguas de viaje submarino (Peques) comparte la orientación infantil, aunque reúne aventuras literarias en lugar de historias bíblicas.",
+      "texto": "Dios: Una Historia Humana / God: A Human History, de Reza Aslan, comparte el interés por la religión, aunque La Biblia para niños se presenta como una lectura infantil con juegos y actividades. Dominio (edición especial limitada en tapa dura con los cantos pintados): Cómo el cristianismo dio forma a Occidente (ATICO HISTORIA), de Tom Holland, aborda la influencia histórica del cristianismo, frente a los relatos bíblicos destinados a niños de Javier Alonso López.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "autores",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788427256972",
-        "isbn-9780241839362"
+        "isbn-9786073877565",
+        "isbn-9791387592981"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "abdbebaa05eeca44",
+  "fuente_hash": "f164daa74ea697e9",
   "origen": "chatgpt-web"
 }

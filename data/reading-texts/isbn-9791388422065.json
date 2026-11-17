@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388422065",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La isla de los pájaros, de David Fox, se dirige a lectores de narrativa juvenil interesados en el misterio y el thriller. Sus 542 páginas plantean una lectura extensa, menos ajustada a quienes buscan una obra breve o prefieren géneros alejados de la intriga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La isla de los pájaros está disponible en tapa blanda, con 542 páginas en castellano. Esta edición de Universo de Letras permite conservar el volumen en papel y consultar sus páginas físicamente durante una lectura prolongada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La isla de los pájaros puede compararse con La niebla de ninguna parte por compartir autor, David Fox. También se aproxima a El asesino del metro, de Andrew Reid, por su vinculación con el thriller; La isla de los pájaros incorpora además una orientación juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388422072",
+        "isbn-9791399227406"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b22642a302c68f34",
+  "origen": "chatgpt-web"
+}

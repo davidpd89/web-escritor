@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387995515",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tebori obra completa se orienta a lectores de cómic y novela gráfica que prefieren una edición física recopilatoria. El volumen de José Manuel Robledo y Marcial Toledano reúne 160 páginas en tapa dura, por lo que responde a una búsqueda distinta de la novela contemporánea escrita principalmente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tebori obra completa se presenta en tapa dura, con 160 páginas publicadas por Diabolo Ediciones. Esta encuadernación rígida protege mejor el volumen durante su conservación y permite tener la obra completa reunida en un ejemplar físico, también adecuado para regalar a quien colecciona cómics.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f9c33bb0fdb950eb",
+  "origen": "chatgpt-web"
+}

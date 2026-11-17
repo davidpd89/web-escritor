@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388243264",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Poemario mitológico lunar se dirige a lectores interesados en la poesía y los relatos, especialmente cuando buscan referencias mitológicas y lunares. Sus 86 páginas lo sitúan entre las lecturas breves, lejos de las novelas extensas o de los libros centrados exclusivamente en información práctica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Poemario mitológico lunar está disponible en tapa blanda y Kindle. La edición física reúne sus 86 páginas en un volumen que permite señalar poemas y conservarlo en papel; Kindle facilita la lectura digital y el acceso al texto desde distintos dispositivos compatibles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Poemario mitológico lunar puede compararse con Antología final: 282 (LITORAL), de Varios autores, por su relación con la poesía, aunque el primero está firmado por Javier Alonso Carvalho Betancur y el segundo se presenta como una antología colectiva. El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, ofrece otra conexión temática con la tradición antigua, pero desde textos sobre la Ilíada y la fuerza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412931075",
+        "isbn-9788466394604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "69d5482523cfcd95",
+  "origen": "chatgpt-web"
+}

@@ -4,37 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Secuestrada por el deseo: 3257 (Bianca), de Millie Adams, se dirige a quienes leen narrativa romántica en castellano. Sus 160 páginas permiten abordar una obra breve dentro del género; no responde a quien busca fantasía, ciencia ficción o una lectura de gran extensión.",
+      "texto": "Secuestrada por el deseo: 3257 (Bianca) encaja con lectores de romance que buscan una obra de extensión contenida, con 160 páginas. El título sitúa el deseo en el centro de la propuesta; quienes prefieran lecturas jurídicas, ensayos o poesía encontrarán aquí un género diferente.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "idioma",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer y conservar físicamente las 160 páginas de Secuestrada por el deseo: 3257 (Bianca). La edición Kindle ofrece el mismo título en formato digital para llevarlo en el móvil o en un lector electrónico, sin transportar el ejemplar impreso.",
+      "texto": "Secuestrada por el deseo: 3257 (Bianca) puede leerse en tapa blanda o Kindle. La edición impresa reúne 160 páginas y permite conservar el volumen en papel, mientras que Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Secuestrada por el deseo: 3257 (Bianca) y A medio salto (Romántica) comparten su orientación hacia el romance, aunque son obras de Millie Adams y Valera Gomalva, respectivamente. A mil por hora, de Hannah Grace, también aborda una relación romántica, pero la sitúa entre un piloto de F1 y una mujer vinculada a su pasado, mientras que Secuestrada por el deseo: 3257 (Bianca) se presenta como una novela romántica de 160 páginas.",
+      "texto": "Secuestrada por el deseo: 3257 (Bianca) y 24 historias para enamorarte en navidad: Relatos navideños comparten el romance como referencia de lectura. La obra de Millie Adams se presenta como un título de la colección Bianca, mientras que la de Patricia Bonet anuncia expresamente relatos ambientados en Navidad. La diferencia principal está en el planteamiento editorial y la temática señalada por cada título.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388365089",
-        "isbn-9788466683449"
+        "isbn-9788409929177"
       ]
     }
   ],

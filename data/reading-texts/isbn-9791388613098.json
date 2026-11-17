@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388613098",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dinerosofía: Conoce y cuida la Economía con Filosofía se dirige a lectores que desean abordar cuestiones económicas desde una perspectiva filosófica. Su orientación ensayística se diferencia de la narrativa de ficción y de las lecturas dedicadas exclusivamente al ocio, sin relación con la economía o el pensamiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dinerosofía: Conoce y cuida la Economía con Filosofía está editado en tapa dura y contiene 163 páginas. La encuadernación rígida protege el ejemplar durante su conservación y permite incorporarlo a una biblioteca de consulta, mientras que su extensión facilita distribuir la lectura en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dinerosofía: Conoce y cuida la Economía con Filosofía y El vino filosófico: Cuida tu identidad, bebe en libertad comparten autora, María del Carmen Bengoechea Bernal, y una aproximación filosófica a asuntos concretos. El primero aborda la economía y su cuidado; el segundo relaciona el vino con la identidad y la libertad personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388613050"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7309ed2dc99aa70f",
+  "origen": "chatgpt-web"
+}

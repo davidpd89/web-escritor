@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788428576208",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Venite ad me. Venid a mí: Consideraciones sobre la transmisión de la fe en el cambio de época (Encíclicas y Documentos) se dirige a lectores interesados en la comunicación de la fe y sus desafíos contemporáneos. Por su enfoque religioso y documental, encaja menos con quienes buscan una novela o una introducción general a distintas tradiciones espirituales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Venite ad me. Venid a mí: Consideraciones sobre la transmisión de la fe en el cambio de época (Encíclicas y Documentos) se presenta en tapa blanda y tiene 176 páginas. El volumen físico de Editorial San Pablo permite subrayar pasajes y consultar apartados durante el estudio de la transmisión de la fe.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un camino de esperanza: Sesenta años de diálogo y fraternidad interreligiosa a la luz de la Declaración conciliar Nostra aetate (Encíclicas y Documentos) comparte con Venite ad me. Venid a mí: Consideraciones sobre la transmisión de la fe en el cambio de época (Encíclicas y Documentos) la autoría del Dicasterio para la Doctrina de la Fe. El primero aborda el diálogo interreligioso y el segundo centra su asunto en la transmisión de la fe.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428576093"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e75037b95fe04573",
+  "origen": "chatgpt-web"
+}

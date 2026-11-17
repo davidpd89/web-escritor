@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419831934",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hecha de estrellas (Romántica), de Fátima Sánchez, se dirige a lectores de romance y narrativa juvenil que buscan una historia de extensión considerable. Sus 416 páginas encajan con quienes prefieren dedicar varias sesiones a un libro, pero menos con quienes buscan relatos breves o géneros sin componente romántico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Hecha de estrellas (Romántica) reúne 416 páginas en un ejemplar físico para leer, prestar o regalar. Kindle permite llevar esa lectura en un dispositivo electrónico o en el móvil, una alternativa práctica cuando se quiere evitar transportar un volumen de esa extensión.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hecha de estrellas (Romántica) y Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday) comparten su presencia entre las lecturas afines, aunque están firmadas por Fátima Sánchez y John Green, respectivamente. También puede compararse con Alfa (Romantasy), de Ali Hazelwood, por su relación con el romance; este último título incorpora expresamente la etiqueta romantasy, mientras que Hecha de estrellas (Romántica) se clasifica como romance juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387739638",
+        "isbn-9788466395816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "665d745572bbdba4",
+  "origen": "chatgpt-web"
+}

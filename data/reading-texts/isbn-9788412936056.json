@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412936056",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Casa de fieras: Diarios, septiembre de 2020 - diciembre de 2021: 6 (La Pipa de Kif) se dirige a quienes leen diarios personales, memorias y textos de carácter autobiográfico. Luis Bravo sitúa el periodo indicado en el título entre septiembre de 2020 y diciembre de 2021; no responde a la estructura de una novela de ficción convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Casa de fieras: Diarios, septiembre de 2020 - diciembre de 2021: 6 (La Pipa de Kif) cuenta con una edición en tapa blanda de 92 páginas. El volumen físico reúne en castellano este diario de Luis Bravo y permite recorrerlo en sesiones cortas o consultar nuevamente sus entradas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casa de fieras: Diarios, septiembre de 2020 - diciembre de 2021: 6 (La Pipa de Kif) y Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes se relacionan con la escritura sobre vidas personales. Luis Bravo presenta un diario delimitado por fechas, mientras que Andrew Paxman organiza una biografía en episodios; A bordo de un diario sin fin (CUENTOS PARA ALARGAR-LA-VIDA) pertenece, por su título, al terreno de los cuentos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388436727",
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d63e422211111d5",
+  "origen": "chatgpt-web"
+}

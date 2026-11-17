@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387927462",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La pequeña genia y la noche de las brujas: 3 (Txikiberri) está orientado al público infantil y juvenil que lee cómics y novelas gráficas. Su propuesta se aparta de la narrativa exclusivamente en prosa, y el título incorpora una referencia a las brujas que puede interesar a quienes buscan esa temática.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La pequeña genia y la noche de las brujas: 3 (Txikiberri) cuenta con una edición en tapa blanda de 224 páginas. El volumen impreso permite recorrer las páginas de este cómic infantil y juvenil y conservarlo junto a otros libros de la colección Txikiberri.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Avni 1. Animal verdaderamente no identificado (Txikiberri), de Romain Pujol, comparte con La pequeña genia y la noche de las brujas: 3 (Txikiberri) el sello Txikiberri, pero presenta otro personaje en su título. Animal Jack 2 la montaña mágica, de Kid Toussaint, ofrece otra referencia de temática fantástica, con una montaña mágica en lugar de la noche de las brujas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387744410",
+        "isbn-9788417575847"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d601b55eefaa60c8",
+  "origen": "chatgpt-web"
+}

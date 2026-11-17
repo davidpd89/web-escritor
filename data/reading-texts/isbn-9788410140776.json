@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El médico de la reina está dirigido a lectores que buscan novela histórica y tienen interés por la historia del siglo XX. Sus 480 páginas lo sitúan entre las lecturas de mayor extensión de esta selección; no corresponde a quien busque divulgación histórica en lugar de narrativa.",
+      "texto": "Dirigido a lectores de novela histórica interesados en relatos vinculados a la medicina y al entorno de una reina. Su clasificación como ficción histórica lo distingue de las biografías documentales y de los ensayos generales sobre historia.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 480 páginas de El médico de la reina en una edición encuadernada en cartoné. Es el formato disponible para este libro y ofrece una presentación física adecuada para conservar una novela de esta extensión en la biblioteca personal.",
+      "texto": "El médico de la reina (NdeNovela) se publica en tapa dura, con 480 páginas en castellano. Es una edición física de extensión considerable, apropiada para mantener la novela en una biblioteca personal o regalar una obra de narrativa histórica.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas",
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El médico de la reina puede compararse con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, por su presencia en la novela histórica. Los títulos apuntan a focos distintos: el primero identifica a un médico vinculado a la realeza, mientras que el segundo sitúa su referencia histórica en Pompeya. Ambos permiten acercarse a la ficción desde escenarios históricos diferentes.",
+      "texto": "El médico de la reina (NdeNovela) comparte con Bajo las cenizas de Pompeya (ESPASA NARRATIVA) su pertenencia a la novela histórica. El título de Rubén Moreno sitúa el interés en un médico vinculado a una reina, mientras que el de María Reig remite a Pompeya. También puede compararse con Ave César (Narrativas Históricas), de Rex Warner, por su orientación hacia escenarios históricos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788435064125",
         "isbn-9788467084870"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4f8b358c7d5c1073",
+  "fuente_hash": "e2ee94c8875abc1f",
   "origen": "chatgpt-web"
 }

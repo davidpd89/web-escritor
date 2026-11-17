@@ -4,25 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en el desarrollo personal, especialmente en afrontar retos y encontrar un propósito, con elementos propios de las memorias. Su planteamiento encaja menos con quien busca ficción de aventuras o una obra centrada exclusivamente en técnicas de productividad.",
+      "texto": "Palacios en el aire: Afrontar un reto, encontrar un propósito (Espasa Crecimiento personal), de Rosa Rodríguez, se dirige a lectores interesados en el desarrollo personal y las experiencias de carácter biográfico. Su enfoque en los retos y la búsqueda de propósito encaja menos con quienes buscan ficción, fantasía o una guía técnica especializada.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Palacios en el aire: Afrontar un reto, encontrar un propósito (Espasa Crecimiento personal) se ofrece en tapa blanda y Kindle. La edición física reúne 200 páginas y permite consultar el texto en papel; Kindle facilita llevar la lectura en un dispositivo compatible y retomarla sin transportar el ejemplar.",
+      "texto": "Palacios en el aire: Afrontar un reto, encontrar un propósito (Espasa Crecimiento personal) puede leerse en tapa blanda o Kindle. La edición física de Editorial Espasa tiene 200 páginas y permite conservar el volumen en papel; Kindle facilita llevar el contenido en un dispositivo compatible y consultarlo sin transportar el libro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Palacios en el aire: Afrontar un reto, encontrar un propósito (Espasa Crecimiento personal) comparte con Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) el interés por el sentido de la vida. Rosa Rodríguez plantea el propósito desde los retos personales, mientras que el título de Paul Kalanithi relaciona ese aprendizaje con la muerte.",
+      "texto": "Capitán: La conquista del liderazgo (Crecimiento personal), de Jaime Nava, comparte con Palacios en el aire: Afrontar un reto, encontrar un propósito (Espasa Crecimiento personal), de Rosa Rodríguez, el interés por el crecimiento personal. El primero sitúa el liderazgo en el centro de su título; el segundo plantea los retos y la búsqueda de propósito desde una obra clasificada también entre biografías y memorias.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,7 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425375286"
+        "isbn-9788418011689"
       ]
     }
   ],

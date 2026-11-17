@@ -4,38 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) encaja con lectores interesados en el desarrollo personal y la reflexión sobre la prosperidad. Sus 176 páginas y su presentación ilustrada ofrecen una lectura de extensión moderada; no está orientada a quien busca una novela de ficción o un tratado especializado de psicología clínica.",
+      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) se orienta a lectores interesados en desarrollo personal, psicología y prosperidad. Su planteamiento temático encaja menos con quienes buscan ficción narrativa o un estudio exclusivamente histórico.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) se presenta en una edición ilustrada de tapa dura publicada por Zenith. El volumen tiene 176 páginas en castellano y fecha de publicación del 11 de noviembre de 2026; la combinación de ilustraciones y encuadernación rígida caracteriza esta presentación.",
+      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) se presenta en una edición ilustrada de tapa dura publicada por Zenith. Tiene 176 páginas y acredita a Álex Rovira, Fernando Trías de Bes y Laura Agustí (Lalauri), una combinación de características que identifica esta versión.",
       "evidencias": [
         "titulo",
         "edicion",
         "editorial",
         "numero_paginas",
-        "idioma",
-        "fecha_publicacion"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) está disponible en tapa dura, con 176 páginas y una presentación ilustrada. Este formato permite consultar las ilustraciones sobre papel y conservar el volumen en una estantería, además de utilizarlo como ejemplar físico para regalo.",
+      "texto": "La tapa dura de La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) reúne 176 páginas en una edición ilustrada que puede conservarse o regalarse como libro físico. Kindle ofrece una alternativa digital para leer en dispositivos compatibles, sin necesidad de transportar el volumen.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) comparte autoría y ámbito de desarrollo personal con El buen dinero: Cómo dejar de sufrir por lo que se tiene, se gana o se debe (Autoayuda y superación). Fernando Trías de Bes participa en ambos títulos, pero el primero trata la prosperidad en sentido amplio junto a Álex Rovira y Laura Agustí (Lalauri), mientras que el segundo se centra en la relación con el dinero.",
+      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) y El buen dinero: Cómo dejar de sufrir por lo que se tiene, se gana o se debe (Autoayuda y superación) comparten la autoría de Fernando Trías de Bes y el ámbito del desarrollo personal. La primera aborda la prosperidad desde una edición ilustrada de autoría compartida; la segunda se concentra en la relación con el dinero y aparece firmada únicamente por Fernando Trías de Bes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -49,6 +47,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b344479815a6217f",
+  "fuente_hash": "dbccc2ee85e5602e",
   "origen": "chatgpt-web"
 }

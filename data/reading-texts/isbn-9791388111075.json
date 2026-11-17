@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Regreso a Trieste (Feltrinelli) se orienta a lectores de narrativa contemporánea interesados en las relaciones familiares y sus conflictos. Por su clasificación temática, se aleja de las lecturas centradas en la fantasía o en las explicaciones prácticas sobre crianza, aunque la familia figure entre sus asuntos.",
+      "texto": "Regreso a Trieste (Feltrinelli) se orienta a lectores de narrativa contemporánea interesados en historias vinculadas con la familia. Su clasificación temática lo aleja de los manuales de crianza y de quienes buscan una lectura centrada en técnicas o consejos prácticos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,32 +12,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer las 280 páginas de Regreso a Trieste (Feltrinelli) en un volumen físico de extensión intermedia. Esta edición de Feltrinelli Editores resulta adecuada para una lectura continuada en papel y para conservarla junto a otras novelas contemporáneas.",
+      "texto": "La tapa blanda presenta las 280 páginas de Regreso a Trieste (Feltrinelli) en un volumen físico para leer y conservar. La versión Kindle permite seguir la misma obra en formato digital, con la comodidad de transportarla en un lector electrónico o dispositivo compatible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Regreso a Trieste (Feltrinelli) puede compararse con Dime, niña bonita (Narrativa) por su orientación hacia la narrativa, aunque son obras de Federica Manzon y Laura Galve, respectivamente. También comparte ese terreno literario con El verano en que desaparecieron los ciervos (Grijalbo Narrativa), de Fran López Galán, mientras que Regreso a Trieste (Feltrinelli) incorpora expresamente la familia y la crianza entre sus temas.",
+      "texto": "Al faro: Nueva traducción al español: 82 (Clásicos en español) ofrece otra referencia de narrativa literaria, aunque su título destaca expresamente una nueva traducción. Regreso a Trieste (Feltrinelli), de Federica Manzon, se presenta como narrativa contemporánea relacionada con la familia, con 280 páginas y edición en castellano.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "numero_paginas",
+        "idioma"
       ],
       "enlaces": [
-        "isbn-9791387605964",
-        "isbn-9788425376184"
+        "isbn-9781836472568"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "01f7a232a896f26d",
+  "fuente_hash": "c1f794d7ac430199",
   "origen": "chatgpt-web"
 }

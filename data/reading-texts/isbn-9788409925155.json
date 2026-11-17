@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La ciencia del fútbol para niños está dirigida a niños y niñas de 8 a 12 años interesados en comprender el fútbol mediante preguntas, curiosidades y retos. Sus 145 propuestas se centran en este deporte, por lo que no responde a quien busca una guía de entrenamiento para adultos o una novela deportiva.",
+      "texto": "La ciencia del fútbol para niños: El libro de los porqués del fútbol: 145 curiosidades, preguntas y retos para niños y niñas futboleros de 8 a 12 años (La ciencia del deporte para niños) está dirigido a niños y niñas de 8 a 12 años interesados en el fútbol. Sus preguntas y retos se centran en este deporte, por lo que no responde a quien busque una lectura sobre otras disciplinas deportivas.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,17 +12,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de La ciencia del fútbol para niños es de tapa blanda y contiene 100 páginas en castellano. El formato físico permite consultar las 145 curiosidades, preguntas y retos, volver a ellos y utilizar el libro durante actividades relacionadas con el fútbol.",
+      "texto": "La ciencia del fútbol para niños se ofrece en tapa blanda, con 100 páginas para consultar sus preguntas, curiosidades y retos en papel. Este formato permite utilizar el libro durante actividades relacionadas con el fútbol y volver a sus contenidos sin necesidad de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La ciencia del fútbol para niños comparte autor y planteamiento de 145 curiosidades, preguntas y retos con La ciencia del baloncesto para niños: El libro de los porqués del baloncesto: 145 curiosidades, preguntas y retos para niños y niñas amantes del ... a 12 años (La ciencia del deporte para niños). La diferencia principal es el deporte: fútbol frente a baloncesto, mientras que MENTE DE JUEGO: Psicología clínica, rendimiento mental y construcción de equipos aplicada al fútbol de competición. aborda la psicología y el rendimiento competitivo.",
+      "texto": "La ciencia del fútbol para niños y La ciencia del baloncesto para niños comparten autor, Angel Manuel Montero Anaya, y una estructura anunciada de 145 curiosidades, preguntas y retos. La diferencia principal es el deporte: el primero se ocupa del fútbol y el segundo del baloncesto. Frente a MENTE DE JUEGO: Psicología clínica, rendimiento mental y construcción de equipos aplicada al fútbol de competición., el libro infantil se centra en preguntas y curiosidades para edades de 8 a 12 años.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2637b9223d3edbc8",
+  "fuente_hash": "bbee13e154b5f256",
   "origen": "chatgpt-web"
 }

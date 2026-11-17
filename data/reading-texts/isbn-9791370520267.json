@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791370520267",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lea: 1, de Paloma Alma, está orientado al público infantil y juvenil que lee cómics y novelas gráficas. Su clasificación editorial lo sitúa fuera de la narrativa adulta y de los libros centrados exclusivamente en texto, con una extensión de 128 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lea: 1 es en tapa blanda y contiene 128 páginas en castellano. El volumen publicado por Devir permite leer y consultar la obra en papel, con una extensión relativamente contenida para transportarlo en una mochila o guardarlo en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lea: 1 comparte con Animal Jack 2 la montaña mágica su vinculación con el cómic dirigido a lectores jóvenes. La obra de Paloma Alma tiene 128 páginas y lleva un número inicial en el título; Animal Jack 2 la montaña mágica, de Kid Toussaint, se identifica por una numeración distinta y una referencia explícita a la montaña mágica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387744410"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3752d8e6c00c55a5",
+  "origen": "chatgpt-web"
+}

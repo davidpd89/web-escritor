@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399227406",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El asesino del metro se dirige a lectores de narrativa juvenil interesados en el misterio y el thriller. Por su clasificación juvenil y su extensión de 400 páginas, encaja menos con quienes buscan narrativa infantil breve o lecturas alejadas del suspense.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El asesino del metro está disponible en tapa blanda y Kindle, dos opciones para leer sus 400 páginas. La tapa blanda permite conservar el ejemplar físico o regalarlo; Kindle facilita llevar la lectura en el móvil o en un lector electrónico sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asesino del metro comparte el terreno del thriller con American Caper nº 01: 1 (Thriller), aunque este último se identifica en el título como una entrega numerada y cuenta con cuatro autores, frente a la autoría individual de Andrew Reid. El acantilado de cristal, de Alberto Muriel Pina, ofrece otra comparación dentro del catálogo, con una autoría diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491738107",
+        "isbn-9791388290718"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7f5671df1675f458",
+  "origen": "chatgpt-web"
+}

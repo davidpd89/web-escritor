@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388102332",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sensor (Novela gráfica) se dirige a lectores de terror que prefieren historias contadas mediante narrativa gráfica. La obra de Junji Ito también figura en el ámbito juvenil, aunque su temática de terror puede no encajar con quienes evitan este género o buscan lecturas realistas sin elementos inquietantes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sensor (Novela gráfica) está disponible en tapa dura, con 240 páginas en castellano. Esta edición de Planeta Cómic reúne la obra de Junji Ito en un volumen físico de encuadernación rígida, una opción para conservarla o regalarla sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sensor (Novela gráfica) y Junji Ito: Un estudio profundo (Novela gráfica) comparten autor, Junji Ito, y su relación con el terror y la narrativa gráfica. El primero se presenta como una novela gráfica de 240 páginas, mientras que el segundo se identifica como un estudio profundo. Ambos permiten acercarse al mismo autor desde publicaciones con planteamientos editoriales distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102462"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c4544e06304f333",
+  "origen": "chatgpt-web"
+}

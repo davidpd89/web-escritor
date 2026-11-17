@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788487248795",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la arqueología y la historia de los enterramientos antiguos en Ciudad Real. Sus 518 páginas y el estudio de una necrópolis lo alejan de quienes buscan una introducción breve a la historia general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra se centra en la necrópolis del Cerro de La Encantada, situada en Granátula de Calatrava, Ciudad Real. Su enfoque arqueológico delimita el estudio a un espacio funerario del II milenio AC y a su relación con la antigua acrópolis.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne las 518 páginas en un volumen físico pensado para consultar y conservar. Esta encuadernación permite mantener el estudio arqueológico en una biblioteca de referencia y volver a sus apartados durante distintas consultas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su interés histórico. Mientras ese título aborda la caída de una democracia, El Cerro de La Encantada (Granátula de Calatrava, Ciudad Real), una necrópolis del II milenio AC en la antigua acrópolis.: 3 (ARQUEOLOGÍA) se ocupa de un yacimiento funerario antiguo.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d968e1483c8ff14",
+  "origen": "chatgpt-web"
+}

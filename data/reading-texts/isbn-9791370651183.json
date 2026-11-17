@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370651183",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a contribuyentes y profesionales que necesitan interpretar notificaciones de Hacienda, atenderlas y actuar ante posibles defectos. Es una guía jurídica de 160 páginas, no una obra centrada en la planificación fiscal general ni en el cálculo de impuestos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 160 páginas de esta guía sobre notificaciones de Hacienda. El formato impreso permite consultar los pasos de interpretación y actuación, así como volver a apartados concretos durante la revisión de una comunicación tributaria.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Claves fiscales para grandes empresas. Paso a paso: De la adquisición a la pérdida de la condición de gran empresa: requisitos y consecuencias fiscales comparte la autoría de Departamento de Documentación Iberley y el ámbito tributario, pero se centra en grandes empresas. Notificaciones de Hacienda: guía práctica para contribuyentes y profesionales. Paso a paso: Cómo interpretarlas, atenderlas y actuar ante posibles defectos aborda las comunicaciones de Hacienda y su tratamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aefcb25f161f8ccb",
+  "origen": "chatgpt-web"
+}

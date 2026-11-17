@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388464362",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro de Miguel Ángel Ladrón Jiménez se dirige a quienes estudian seguridad vial y formación de profesores de esta especialidad. Sus 387 páginas en castellano ofrecen contenidos vinculados al Certificado de Aptitud de profesor de formación vial. No está orientado a quienes buscan ficción o lecturas de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para este manual de seguridad vial, publicado por Tutor Formación. Sus 387 páginas en papel permiten consultar contenidos, colocar marcadores y tomar notas durante el estudio. El volumen físico facilita volver a los apartados relacionados con la formación de profesores de seguridad vial.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Este manual de seguridad vial comparte autor, Miguel Ángel Ladrón Jiménez, con Análisis sensorial de productos selectos propios de sumillería y diseño de sus ofertas. HOT_B_1738. (Enoturismo). Ambos abordan materias de formación especializada, pero el primero se centra en seguridad vial y preparación de profesores, mientras que el segundo trata sobre sumillería y diseño de ofertas vinculadas al enoturismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388464393"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e50509392a0ee08d",
+  "origen": "chatgpt-web"
+}

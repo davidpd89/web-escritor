@@ -4,29 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "American Caper nº 01: 1 (Thriller) se orienta a lectores de narrativa juvenil que buscan historias vinculadas al misterio y al thriller. Su clasificación temática lo aleja de las preferencias centradas en la fantasía o en relatos sin componentes de intriga.",
+      "texto": "American Caper nº 01: 1 (Thriller) se dirige a quienes buscan misterio y thriller en una publicación vinculada a la narrativa juvenil. Con 144 páginas, encaja mejor con quienes prefieren extensiones breves que con lectores interesados en novelas largas o historias alejadas del suspense.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "American Caper nº 01: 1 (Thriller) dispone de una edición en tapa dura de 144 páginas en castellano. Esta encuadernación permite conservar el ejemplar como parte de una colección física y utilizarlo como regalo, con una extensión contenida para su lectura en papel.",
+      "texto": "American Caper nº 01: 1 (Thriller) ofrece una edición en tapa dura de 144 páginas publicada por Planeta Cómic. Esta opción permite conservar o regalar el ejemplar físico, mientras que Kindle sirve para leerlo digitalmente sin llevar el libro impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amor Eterno nº 03: 3 (Thriller) comparte con American Caper nº 01: 1 (Thriller) su orientación hacia el misterio y el público juvenil. Amor Eterno incorpora además el amor y la pareja entre sus temas, mientras que American Caper aparece asociado al thriller; sus equipos creativos también son diferentes.",
+      "texto": "Amor Eterno nº 03: 3 (Thriller) y American Caper nº 01: 1 (Thriller) comparten su identificación con el thriller, pero tienen equipos creativos diferentes. El primero está firmado por Tom King y Elsa Charretier; el segundo, por Dan Houser, Lazlow, David Lapham y Brent Anderson, y su título señala el n.º 01.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -36,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8b2bc1f85cc1479e",
+  "fuente_hash": "fd59c3a188a3b6d9",
   "origen": "chatgpt-web"
 }

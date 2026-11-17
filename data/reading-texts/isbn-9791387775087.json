@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387775087",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El oráculo de las brujas y las malas hierbas: Manual y baraja de 50 cartas (Espiritualidad) se orienta a lectores interesados en oráculos, cartas y espiritualidad. Por su planteamiento de manual acompañado de baraja, se aparta de quienes buscan exclusivamente una lectura narrativa o un tratado de nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El oráculo de las brujas y las malas hierbas: Manual y baraja de 50 cartas (Espiritualidad) se presenta en tapa dura. La edición de Oberon tiene 62 páginas y el título identifica una baraja de 50 cartas, por lo que la elección se centra en un conjunto físico para consultar y manipular.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El oráculo de las brujas y las malas hierbas: Manual y baraja de 50 cartas (Espiritualidad) se aproxima a 44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life por su temática espiritual. El libro de Cecilia Lattari identifica expresamente un manual y una baraja de 50 cartas, mientras que el de Tania Karam presenta mensajes espirituales en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073881388"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa26c9a3535b6074",
+  "origen": "chatgpt-web"
+}

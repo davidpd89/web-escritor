@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409930371",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Revista de occidente 546: Encuentros de Mexico y España se orienta a lectores interesados en historia, política y relaciones entre países. Su enfoque temático se aleja de la ficción narrativa y de las lecturas centradas en personajes imaginarios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Revista de occidente 546: Encuentros de Mexico y España está disponible en tapa blanda, con 176 páginas en castellano. La encuadernación permite consultar el volumen en papel y guardarlo junto a otras publicaciones de historia y política.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Revista de occidente 546: Encuentros de Mexico y España y Redes transnacionales en la cultura arquitectónica: Italia-España 1976-2006 (ARQUITECTURA) comparten el interés por las relaciones entre países y la autoría colectiva. La primera aborda encuentros entre Mexico y España desde un marco histórico y político; la segunda delimita su asunto a la cultura arquitectónica entre Italia y España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387634674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b52e9bb8db4214e1",
+  "origen": "chatgpt-web"
+}

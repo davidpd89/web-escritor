@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399186970",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los días como pájaros se orienta a lectores de narrativa contemporánea interesados en una obra de 324 páginas. Su clasificación también la relaciona con el tiempo libre, aunque no corresponde a quienes buscan específicamente un manual de actividades o una guía de consulta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los días como pájaros se presenta en tapa blanda, con 324 páginas publicadas por Impronta. Esta edición permite leer la obra de Luciano Castañón en papel y conservarla sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los días como pájaros puede compararse con El campo se despierta por su presencia entre las lecturas relacionadas con el tiempo libre. La primera es una obra de narrativa contemporánea de Luciano Castañón, mientras que la segunda, de Víctor David López Díez, remite desde su título al entorno rural. Son dos propuestas de autores diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412245592"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a39ffb5ae8ec856",
+  "origen": "chatgpt-web"
+}

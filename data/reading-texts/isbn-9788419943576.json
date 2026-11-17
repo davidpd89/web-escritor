@@ -4,27 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Río en blanco: 70 (ποίησις [poíesis]), de Adalber Salas Hernández, pertenece a la poesía y se dirige a lectores que buscan obras de este género en castellano. No responde a la búsqueda de una novela de trama continua ni a la de un ensayo histórico.",
+      "texto": "Río en blanco: 70 (ποίησις [poíesis]) se dirige a lectores que buscan poesía contemporánea en castellano. Con 96 páginas y autoría de Adalber Salas Hernández, responde a una preferencia por el género poético y no a la búsqueda de una novela extensa o de un libro de divulgación.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Río en blanco: 70 (ποίησις [poíesis]) tiene una edición en tapa blanda de 96 páginas, publicada por Libros de la Resistencia. Su extensión permite transportar el volumen con facilidad y volver a consultar pasajes durante distintas sesiones de lectura.",
+      "texto": "Río en blanco: 70 (ποίησις [poíesis]) se publica en tapa blanda y tiene 96 páginas. La edición de Libros de la Resistencia reúne la obra de Adalber Salas Hernández en un volumen físico manejable para transportar y consultar durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "editorial",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Río en blanco: 70 (ποίησις [poíesis]) comparte el género poético con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. El título de esta última señala una orientación amorosa, mientras que Río en blanco: 70 (ποίησις [poíesis]) se presenta como una obra de Adalber Salas Hernández dentro de la colección indicada en su título.",
+      "texto": "Río en blanco: 70 (ποίησις [poíesis]) puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, por su pertenencia al ámbito poético. Adalber Salas Hernández firma el primero y Antonio Fernández Lera el segundo. Sus títulos también los sitúan en colecciones identificadas de forma distinta: ποίησις [poíesis] y La garza roja.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +34,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788412988833"
       ]
     }
   ],

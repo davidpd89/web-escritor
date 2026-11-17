@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409932726",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mimaya: Biografía del alma encaja con lectores interesados en los relatos biográficos vinculados al desarrollo personal y el bienestar. Su orientación hacia la memoria personal y la reflexión sobre la propia vida la distancia de quienes buscan ficción de aventuras o un tratado técnico de nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda ofrece las 204 páginas de Mimaya: Biografía del alma en castellano y permite conservar el volumen para posteriores consultas. El soporte físico también facilita señalar pasajes relacionados con la reflexión personal y la dimensión biográfica de la obra.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mimaya: Biografía del alma se aproxima a Camino a la felicidad: Segunda parte, de Maria de los Angelres De Leon Mesa, por su relación con el desarrollo personal. Mientras el título de Carmen Concejero apunta hacia una dimensión biográfica y espiritual, el otro sitúa la felicidad como eje y se identifica expresamente como segunda parte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409941506"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "940c01c8c555588f",
+  "origen": "chatgpt-web"
+}

@@ -4,29 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) encaja con lectores de fantasía que buscan una historia vinculada a los gatos y con elementos de aventura. No se orienta a quienes prefieren exclusivamente relatos realistas, sin componentes mágicos o fantásticos.",
+      "texto": "Encaja con lectores de fantasía y aventuras que buscan una historia relacionada con la magia y un refugio de gatos. El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett, también se sitúa en la narrativa contemporánea; quienes prefieren exclusivamente historias realistas encontrarán aquí un componente fantástico.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La novela de Heather Fawcett tiene 352 páginas y puede leerse en tapa blanda o Kindle. La edición física permite conservarla en papel, mientras que Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen impreso.",
+      "texto": "El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) puede leerse en tapa blanda o en Kindle. La edición física de Umbriel tiene 352 páginas y permite conservar el libro en papel o regalarlo; Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles sin transportar el volumen.",
       "evidencias": [
-        "autores",
+        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Estuche Las crónicas de Emily Wilde (Umbriel narrativa) comparte con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) la autoría de Heather Fawcett y el sello narrativo indicado en ambos títulos. El primero se presenta como estuche de una serie, mientras que el segundo identifica una historia centrada en un refugio mágico de gatos.",
+      "texto": "Estuche Las crónicas de Emily Wilde (Umbriel narrativa) comparte autoría con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa): ambos son de Heather Fawcett. La diferencia visible está en la presentación, pues el primero es un estuche y el segundo una novela de 352 páginas disponible en tapa blanda y Kindle. Para quien busca otra obra de la misma autora, esa distinción condiciona la elección.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo"
+        "afines_catalogo",
+        "numero_paginas",
+        "formatos_disponibles"
       ],
       "enlaces": [
         "isbn-9791387749347"
@@ -35,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f59a0fef5d10e2e0",
+  "fuente_hash": "9f74a02f39ee87e9",
   "origen": "chatgpt-web"
 }

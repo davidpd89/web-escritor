@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388102455",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Good Morning Sunshine nº 01: 1 (Manga Boys Love) encaja con lectores de manga juvenil interesados específicamente en el género Boys Love. El título lo identifica como el n.º 1 y delimita su orientación temática, por lo que resulta menos afín a quienes buscan exclusivamente relatos gráficos de otros géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Good Morning Sunshine nº 01: 1 (Manga Boys Love) está editado en tapa blanda y contiene 226 páginas en castellano. Esta edición de Planeta Cómic ofrece una extensión menor que la de otros volúmenes gráficos más largos, lo que facilita llevar el ejemplar y leerlo en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Good Morning Sunshine nº 01: 1 (Manga Boys Love), de Makoto Taji, comparte el ámbito del manga con Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura y Muneyuki Kaneshiro. La diferencia está en la orientación indicada por los títulos: Boys Love frente a Shonen. También puede compararse con Alya a veces me susurra en ruso 9 (Shônen - Alya), de SunSunSun, cuya identificación editorial apunta igualmente al shônen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791043309670",
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f6985b2d227ad6cc",
+  "origen": "chatgpt-web"
+}

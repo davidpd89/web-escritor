@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788490922248",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Con la corona puesta se encuadra en el desarrollo personal y el bienestar, por lo que responde a intereses relacionados con estos dos ámbitos. Su clasificación temática lo distingue de las novelas románticas y de las obras de ficción centradas en personajes y conflictos imaginarios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Con la corona puesta está editado en tapa blanda por Trasantier y tiene 278 páginas. La edición en papel permite mantener el volumen a mano para consultas posteriores y conservarlo junto a otras lecturas de desarrollo personal y bienestar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Con la corona puesta y Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta se relacionan con el desarrollo personal, aunque el segundo delimita su asunto a las cuestiones de la vida adulta. Por otra parte, Aliméntate según tus genes / Eat According to Your Genes aborda la alimentación desde su propio título, frente al encuadre más amplio de bienestar de la obra de María Alfonsa Nieto Rodríguez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938490",
+        "isbn-9786073872935"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "144054c25121e73b",
+  "origen": "chatgpt-web"
+}

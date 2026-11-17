@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409863495",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tu intestino no está roto: es tu memoria implícita se dirige a lectores interesados en la relación entre bienestar, psicología y nutrición. El enfoque de Nuria Marco Raga se sitúa en el ensayo sobre salud, por lo que encaja menos con quien busca una novela o un recetario de cocina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tu intestino no está roto: es tu memoria implícita está disponible en tapa blanda, con 155 páginas en castellano. Esta edición permite consultar sus contenidos sobre psicología y bienestar en papel, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tu intestino no está roto: es tu memoria implícita comparte el interés por el bienestar con Bienestar: Habitar el equilibrio (Conversaciones con mis hijos), de Silvia Caselles Martínez. El libro de Nuria Marco Raga centra su propuesta en el intestino y la memoria implícita, mientras que el de Silvia Caselles Martínez plantea el equilibrio desde las conversaciones familiares que anuncia su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409915750"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc3c8d1fb45422bb",
+  "origen": "chatgpt-web"
+}

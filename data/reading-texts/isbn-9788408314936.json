@@ -4,40 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado al público infantil que disfruta buscando elementos en las páginas y con los motivos navideños. Sus 20 páginas de cartón lo sitúan entre los libros de actividad visual breve, no entre las novelas juveniles de lectura continuada.",
+      "texto": "Mi primer busca y encuentra. La magia de la Navidad (Varios) está orientado al público infantil que disfruta buscando elementos en las páginas y de la temática navideña. Su propuesta de búsqueda visual se distingue de los cuentos centrados en seguir una historia mediante la lectura.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
         "edicion"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Se utiliza observando las páginas y buscando los elementos que propone el juego de busca y encuentra, dentro de una ambientación navideña. El formato de cartón permite pasar sus 20 páginas y volver a examinar las imágenes en sucesivas partidas. Puede compartirse entre un adulto y un niño para señalar y localizar elementos.",
+      "texto": "Mi primer busca y encuentra. La magia de la Navidad (Varios) propone una actividad de observación y búsqueda relacionada con la Navidad. Sus 20 páginas de cartón permiten recorrer el libro, detenerse en cada página y repetir la búsqueda durante distintas sesiones de juego.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
-        "categorias"
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es física, en libro de cartón, identificada también como tapa dura. Sus 20 páginas están pensadas para manipularse y observarse durante la búsqueda de elementos, por lo que el soporte material forma parte de la actividad. Puede guardarse y recuperarse para repetir el juego navideño.",
+      "texto": "La edición de Mi primer busca y encuentra. La magia de la Navidad (Varios) se presenta como un libro de cartón en tapa dura. Sus 20 páginas ofrecen un soporte físico para señalar elementos, pasar las hojas y compartir la actividad de búsqueda durante la lectura.",
       "evidencias": [
+        "titulo",
         "edicion",
         "formatos_disponibles",
-        "numero_paginas",
-        "titulo"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Busca y encuentra: Monstruos comparte el mecanismo de localizar elementos en escenas ilustradas, pero utiliza fantasmas, brujas y duendes en lugar de una ambientación navideña. ¡Ya es Navidad! (Pop-up de cuento) coincide en la temática de Navidad, aunque propone un formato desplegable en vez de centrar la actividad en buscar elementos por las páginas.",
+      "texto": "Busca y encuentra: Monstruos comparte con Mi primer busca y encuentra. La magia de la Navidad (Varios) la actividad de localizar elementos en las páginas, pero cambia la Navidad por escenas de monstruos y criaturas fantásticas. ¡Ya es Navidad! (Pop-up de cuento) coincide en la temática navideña, aunque utiliza un formato desplegable en lugar de centrarse en la búsqueda visual.",
       "evidencias": [
         "titulo",
-        "afines_catalogo"
+        "afines_catalogo",
+        "edicion"
       ],
       "enlaces": [
         "isbn-9788410333963",
@@ -47,6 +46,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "78bbc668b9dccb93",
+  "fuente_hash": "84e5e76022899030",
   "origen": "chatgpt-web"
 }

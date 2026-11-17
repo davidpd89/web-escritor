@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9789203210812",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La escucha en el ejercicio de la autoridad y la obediencia (Revista Frontera Hegian) se orienta a lectores interesados en la relación entre escuchar, ejercer autoridad y obedecer desde una perspectiva religiosa. El planteamiento de Nurya Martínez-Gayol Fernández se aleja de la ficción narrativa y de los libros centrados en técnicas generales de dirección empresarial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La escucha en el ejercicio de la autoridad y la obediencia (Revista Frontera Hegian) cuenta con una edición en tapa blanda de 118 páginas. El formato físico de Editorial San Pablo facilita marcar fragmentos y consultar el texto en sesiones de lectura dedicadas a la autoridad y la obediencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción y La escucha en el ejercicio de la autoridad y la obediencia (Revista Frontera Hegian) comparten una orientación hacia cuestiones religiosas. Sofía Noemy Quintanilla Ramírez trata la adopción desde la teología bíblica y pastoral, mientras Nurya Martínez-Gayol Fernández centra su obra en la escucha vinculada a la autoridad y la obediencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387625535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "097178f3f8ddffd8",
+  "origen": "chatgpt-web"
+}

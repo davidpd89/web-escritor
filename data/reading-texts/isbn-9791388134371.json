@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388134371",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estoy vacía, de Martha Black, se dirige a lectores de narrativa contemporánea en castellano. Por su clasificación editorial, se aparta de las lecturas centradas en la fantasía y se presenta en una edición de 206 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estoy vacía está disponible en tapa blanda, con 206 páginas en castellano. Esta edición física de Distrito 93 permite leer en papel, colocar el ejemplar en una estantería o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1821f5f583596569",
+  "origen": "chatgpt-web"
+}

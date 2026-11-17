@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387621964",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El encanto de Foxglove Cottage Bed & Breakfast se dirige a lectores de fantasía que buscan una novela extensa en castellano. Con 464 páginas, encaja menos con quienes prefieren relatos breves o lecturas centradas en géneros ajenos a la fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La novela de Audrey Rose se ofrece en tapa blanda y Kindle. La edición física de Entre Libros reúne 464 páginas en un volumen de papel, mientras que Kindle permite leer la obra en formato digital desde un dispositivo compatible. La elección depende de si se prefiere conservar el libro en la estantería o llevarlo sin cargar con el ejemplar impreso.",
+      "evidencias": [
+        "autores",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "43690c271ac96456",
+  "origen": "chatgpt-web"
+}

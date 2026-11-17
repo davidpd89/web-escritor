@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788498297492",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran agujero en el cielo (Premio Desnivel de Literatura) se dirige a lectores de narrativa contemporánea que prefieren libros de extensión moderada. Sus 176 páginas y su clasificación literaria lo alejan de las obras extensas de fantasía o de los manuales técnicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gran agujero en el cielo (Premio Desnivel de Literatura) se presenta en tapa blanda, con 176 páginas publicadas por Ediciones Desnivel, S. L. Es una edición física de extensión contenida, adecuada para quien prefiere leer en papel y transportar un volumen relativamente breve.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran agujero en el cielo (Premio Desnivel de Literatura) puede compararse con Los días como pájaros por su vinculación con la narrativa contemporánea. La diferencia más clara es la autoría: Ángel Sánchez Calderón \"Pizarraña\" firma el primero y Luciano Castañón el segundo. El primero cuenta además con una edición en tapa blanda de 176 páginas, un dato útil para decidir por extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ],
+      "enlaces": [
+        "isbn-9791399186970"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6a5751350b872836",
+  "origen": "chatgpt-web"
+}

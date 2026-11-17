@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9798295716331",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Junto al corazón quebrantado se orienta a quienes buscan lecturas de desarrollo personal relacionadas con el bienestar y la espiritualidad. La obra de Justin K tiene 116 páginas y se publica en castellano; por su clasificación temática, queda fuera de las lecturas centradas en ficción, aventuras o divulgación científica especializada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Junto al corazón quebrantado es en tapa blanda y reúne 116 páginas. Publicada por Biblical Intelligence en castellano, ofrece una extensión contenida para leer en papel, transportar el ejemplar y recuperar fragmentos durante consultas posteriores. Es la presentación incluida entre sus formatos disponibles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Junto al corazón quebrantado puede compararse con Caminando a través de la sombra, de Calvin Amandus, por su relación con el desarrollo personal y la espiritualidad. La diferencia visible está en el enfoque sugerido por sus títulos: uno alude al corazón quebrantado y el otro a atravesar la sombra. El perdón: Una sabiduría silenciosa (ENSAYO), de Rafael Domingo Osle, introduce el perdón como asunto explícito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798182903509",
+        "isbn-9788410943896"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f35fb26e94be982",
+  "origen": "chatgpt-web"
+}

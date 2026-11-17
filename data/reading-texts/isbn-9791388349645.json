@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9791388349645",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Calidad de vida, bienestar y desarrollo humano: Perspectivas contemporáneas basadas en evidencias está dirigido a lectores interesados en el bienestar y las cuestiones relacionadas con el desarrollo humano. Por su planteamiento de ensayo y sus 394 páginas, se orienta más a quien busca reflexionar sobre estos asuntos que a quien prefiere una lectura narrativa o de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda tres grandes cuestiones: calidad de vida, bienestar y desarrollo humano. Su enfoque reúne perspectivas contemporáneas basadas en evidencias y presenta un planteamiento de ensayo con la participación de once autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene sus 394 páginas en un volumen físico pensado para una lectura por capítulos o sesiones. Es el formato disponible para esta edición, una opción que permite consultar y retomar el contenido sin recurrir a dispositivos electrónicos.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41cdda7e6340ec8d",
+  "origen": "chatgpt-web"
+}

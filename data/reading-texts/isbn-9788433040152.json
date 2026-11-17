@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El poder de lo pequeño. En un mundo convulso, lo fundamental está en nuestra mano.: 131 (A los cuatro vientos), de Matilde De Torres Villagrá, se orienta a lectores interesados en el desarrollo personal y el bienestar desde una perspectiva ensayística. No pertenece a la narrativa de ficción ni se presenta como un recetario de alimentación.",
+      "texto": "El poder de lo pequeño. En un mundo convulso, lo fundamental está en nuestra mano.: 131 (A los cuatro vientos) se orienta a lectores interesados en el bienestar y la reflexión sobre aquello que pueden hacer en su vida cotidiana. Su planteamiento ensayístico encaja menos con quienes buscan ficción narrativa o un recetario de alimentación.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El poder de lo pequeño. En un mundo convulso, lo fundamental está en nuestra mano.: 131 (A los cuatro vientos) se ofrece en tapa blanda, con 224 páginas en castellano. La edición de Desclée de Brouwer permite conservar el ensayo en papel y consultar sus apartados durante la lectura.",
+      "texto": "El poder de lo pequeño. En un mundo convulso, lo fundamental está en nuestra mano.: 131 (A los cuatro vientos) está editado en tapa blanda. Sus 224 páginas ofrecen una extensión concreta para leer el ensayo en papel, subrayar reflexiones y consultar pasajes sin utilizar dispositivos electrónicos.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
+        "formatos_disponibles",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El poder de lo pequeño. En un mundo convulso, lo fundamental está en nuestra mano.: 131 (A los cuatro vientos) comparte con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta, de Anca Martínez, el interés por el desarrollo personal y las cuestiones cotidianas. Frente a Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, la obra de Matilde De Torres Villagrá plantea desde su título la importancia de las pequeñas acciones ante las dificultades del entorno, en lugar de centrarse en la práctica espiritual.",
+      "texto": "El poder de lo pequeño. En un mundo convulso, lo fundamental está en nuestra mano.: 131 (A los cuatro vientos) puede compararse con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta por su atención a cuestiones de la vida cotidiana. Matilde De Torres Villagrá plantea una reflexión sobre lo que está en nuestras manos ante un mundo convulso, mientras Anca Martínez centra su título en los aprendizajes de la vida adulta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409938490",
-        "isbn-9788411214315"
+        "isbn-9788409938490"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3cf0199bd89b8e90",
+  "fuente_hash": "99562544cb82cad7",
   "origen": "chatgpt-web"
 }

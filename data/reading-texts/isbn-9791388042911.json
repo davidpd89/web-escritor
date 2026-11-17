@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388042911",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Surtido 1+1 (Duomo bolsillo) está dirigido a lectores interesados en narrativa contemporánea y obras de autoría colectiva. Su clasificación lo aleja de quienes buscan específicamente manuales técnicos, poesía o libros centrados en una única disciplina práctica. Tiene 111 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Surtido 1+1 (Duomo bolsillo) se publica en tapa blanda, con 111 páginas en castellano. La extensión reducida facilita transportarlo y leerlo en desplazamientos, mientras que la edición física permite conservarlo o prestarlo sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) comparte con Surtido 1+1 (Duomo bolsillo) la firma de Varios autores, pero sus títulos plantean enfoques editoriales diferentes: clásicos frente a narrativa contemporánea. Planeta Manga nº 07: 7 (Universo Planeta Manga) también figura firmado por Varios autores, aunque se identifica expresamente con el manga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388259586",
+        "isbn-9791388102295"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c42531859b978204",
+  "origen": "chatgpt-web"
+}

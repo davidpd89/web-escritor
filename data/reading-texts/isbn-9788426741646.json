@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788426741646",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las Altas Capacidades (SENTILIBROS), de Esther Secanilla, se dirige a lectores interesados en psicología y desarrollo personal. Por su enfoque de ensayo, encaja menos con quienes buscan una novela de ficción o una historia protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las Altas Capacidades (SENTILIBROS) está disponible en tapa blanda, con 184 páginas en castellano. Es una edición física de Marcombo que permite consultar distintos pasajes, volver a ellos y hacer anotaciones durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las Altas Capacidades (SENTILIBROS) comparte el ámbito del desarrollo personal con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso. El primero se centra en las altas capacidades desde la psicología, mientras que el segundo plantea en su título el trabajo sobre la infancia. Ambos abordan cuestiones personales desde asuntos diferentes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c52acc82c4daff6",
+  "origen": "chatgpt-web"
+}

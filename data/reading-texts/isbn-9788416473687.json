@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788416473687",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la inteligencia artificial desde la filosofía, la ética y la divulgación científica. Su planteamiento se centra en cuestiones conceptuales sobre la tecnología, por lo que se aleja de una guía práctica de programación.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Dialogando con el Espejo: De la IA al SPI | Filosofía, ética y verdad sobre la inteligencia artificial y la simulación tecnológica | Jorge G. Gosálvez aborda la inteligencia artificial y la simulación tecnológica desde una perspectiva filosófica y ética. El título sitúa la verdad y el paso de la IA al SPI entre sus cuestiones centrales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Denes Editorial se presenta en tapa dura y contiene 270 páginas en castellano. Este formato permite conservar el volumen en una biblioteca y consultar nuevamente sus apartados sobre inteligencia artificial y ética.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, comparte el interés por la inteligencia artificial, aunque su título plantea una aproximación organizada en cuestiones concretas. Dialogando con el Espejo: De la IA al SPI | Filosofía, ética y verdad sobre la inteligencia artificial y la simulación tecnológica | Jorge G. Gosálvez, de Jorge Guillermo Gosálvez Gosálvez, pone el foco en la filosofía, la ética y la simulación tecnológica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f69fb8d393dbfc6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399132458",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "CAESAR AVGVSTA: La fundación de la Zaragoza romana, siglo I a.C.: 22 (LA HISTORIA DE ARAGÓN EN NOVELA), de Isabel Abenia Marcellán, se dirige a lectores interesados en la novela histórica y en los orígenes romanos de Zaragoza. Su ambientación en el siglo I a.C. lo aleja de quienes buscan historias contemporáneas o narraciones centradas en acontecimientos actuales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de CAESAR AVGVSTA: La fundación de la Zaragoza romana, siglo I a.C.: 22 (LA HISTORIA DE ARAGÓN EN NOVELA) está publicada en tapa blanda por Editorial Doce Robles. Sus 268 páginas forman un volumen físico que permite consultar y releer pasajes sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "CAESAR AVGVSTA: La fundación de la Zaragoza romana, siglo I a.C.: 22 (LA HISTORIA DE ARAGÓN EN NOVELA) puede compararse con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi, por su vinculación con escenarios históricos. El primero sitúa su asunto en la fundación de Zaragoza durante el siglo I a.C.; el segundo remite desde su título a Aléxandros y Amón, con un marco histórico diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8c321fb30f16845",
+  "origen": "chatgpt-web"
+}

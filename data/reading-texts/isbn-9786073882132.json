@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa) se dirige a lectores interesados en el desarrollo personal y su relación con el mundo empresarial. Es un ensayo de Marisa Lazo, por lo que responde menos a quien busca una novela de ficción o un manual de procedimientos técnicos.",
+      "texto": "La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa) se orienta a lectores interesados en el desarrollo personal y en cuestiones relacionadas con la identidad y las decisiones individuales. Su clasificación también incluye ensayo y economía y empresa, por lo que no responde a la búsqueda de una novela de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa) es en tapa blanda y tiene 240 páginas. Este formato permite consultar y retomar apartados del ensayo en papel, además de transportarlo sin el peso añadido de una encuadernación rígida.",
+      "texto": "La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa) tiene una edición en tapa blanda de 240 páginas. Se trata de un volumen físico en castellano, con encuadernación flexible para llevarlo y consultar sus páginas durante distintas sesiones de lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mente Shaolin: La búsqueda de la verdadera libertad (Vivir hoy) comparte con el libro de Marisa Lazo el interés por el desarrollo personal, aunque su título sitúa la libertad en el centro. El alfabeto infinito: Las leyes del conocimiento (Ensayo y Pensamiento) ofrece otra perspectiva ensayística, centrada en el conocimiento, frente al enfoque personal y empresarial de La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa).",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparte con La persona que eliges ser (Un café con Marisa) / The Person You Choose to Be (Coffee with Marisa) el ámbito del desarrollo personal, aunque el primero anuncia un método estructurado de acompañamiento. Mente Shaolin: La búsqueda de la verdadera libertad (Vivir hoy) plantea desde su título la cuestión de la libertad, frente al énfasis en la elección personal del libro de Marisa Lazo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,8 +30,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388279676",
-        "isbn-9791388092701"
+        "isbn-9788409924059",
+        "isbn-9791388279676"
       ]
     }
   ],

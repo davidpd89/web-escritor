@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388036484",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Apapachar, de Andrea Bravo Camacho, se dirige a quienes buscan poesía en castellano en un volumen breve. Sus 60 páginas y su clasificación poética lo alejan de las novelas extensas y de los manuales de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Apapachar está disponible en tapa blanda, con una extensión de 60 páginas. Esta edición de Cuatro Hojas permite conservar los poemas en un volumen físico de tamaño contenido por su número de páginas, tanto para leerlo como para regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apapachar comparte el terreno de la poesía con A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza. La diferencia comprobable está en la autoría: Apapachar es de Andrea Bravo Camacho y reúne 60 páginas, mientras que los otros títulos corresponden a autores distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1fc44ddf38f62843",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399280128",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi Soniechka, de Marina Tsvietáieva, encaja con lectores interesados en el romance y en obras que también se sitúan entre la narrativa contemporánea y el cómic o la novela gráfica. Quien busque una lectura centrada exclusivamente en otros géneros encontrará aquí una clasificación editorial diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi Soniechka puede compararse con Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, por su relación con el romance y las lecturas vinculadas al ámbito gráfico. La diferencia identificable está en la autoría y en que el título de Keiko Iwashita señala expresamente su pertenencia al shôjo y el número 1, mientras que Mi Soniechka se presenta también como narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c7c95a99eae52fe",
+  "origen": "chatgpt-web"
+}

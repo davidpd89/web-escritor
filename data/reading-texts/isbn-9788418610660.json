@@ -4,41 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está pensado para lectores infantiles interesados en los superhéroes, la fantasía y las aventuras de Spidey y su superequipo. No responde al planteamiento de una novela extensa: sus 32 páginas corresponden a una edición breve en formato de cuento y proyector.",
+      "texto": "Spidey y su superequipo. Cine en casa: Cuento y proyector se dirige al público infantil interesado en Spidey y su superequipo. Sus 32 páginas y su presentación como cuento con proyector lo distinguen de una novela juvenil extensa; no está planteado como lectura de narrativa adulta.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "autores"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura concentra sus 32 páginas en un volumen físico manejable, con el formato de cuento y proyector que anuncia el título. Es una edición breve de Spidey y su superequipo. Cine en casa: Cuento y proyector, de Marvel, publicada por Libros Disney.",
+      "texto": "Spidey y su superequipo. Cine en casa: Cuento y proyector está disponible en tapa dura, con 32 páginas. Esta edición física reúne el cuento y el proyector anunciado en el título, por lo que la elección está vinculada al uso del libro como objeto y no únicamente a la lectura del texto.",
       "evidencias": [
-        "numero_paginas",
-        "formatos_disponibles",
         "titulo",
-        "autores",
-        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
         "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los Vengadores. Libroaventuras: Incluye un cuento, figuritas y un tapete comparte con este libro el universo de los superhéroes de Marvel. Se diferencia por reunir figuritas y un tapete, frente al cuento con proyector de Spidey y su superequipo. Cine en casa: Cuento y proyector.",
+      "texto": "Spidey y su superequipo. Mi libro para llevar comparte personajes y autoría de Marvel con el cuento con proyector, aunque su título destaca una presentación para transportar. Los Vengadores. Libroaventuras: Incluye un cuento, figuritas y un tapete también es de Marvel, pero se centra en otro equipo e incorpora figuritas y un tapete en lugar de un proyector.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788415343806"
+        "isbn-9788415343806",
+        "isbn-9788410362604"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5d8b06ce58cb4b1d",
+  "fuente_hash": "d6c01bb1f1860282",
   "origen": "chatgpt-web"
 }

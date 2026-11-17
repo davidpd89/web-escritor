@@ -4,29 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Historias para escuchar en el metro, de Ascensión Badiola, se dirige a quienes buscan relatos en castellano y prefieren este tipo de narrativa frente a una novela identificada como tal. Con 341 páginas, también responde a lectores que desean un volumen de relatos de extensión considerable, no un cuento infantil breve.",
+      "texto": "Historias para escuchar en el metro se dirige a lectores que buscan relatos en castellano y prefieren este género a una novela presentada como una única narración extensa. Sus 341 páginas permiten distinguirlo de los libros breves, aunque quienes busquen ensayo o divulgación encontrarán aquí una propuesta de otro género.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "idioma",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Historias para escuchar en el metro se publica en tapa blanda, con 341 páginas en castellano y edición de Autor-editor. El ejemplar físico permite leer durante los trayectos y conservar marcadas las páginas para continuar después, sin utilizar un lector electrónico.",
+      "texto": "Historias para escuchar en el metro puede leerse en tapa blanda o en Kindle. La edición en papel reúne 341 páginas y permite conservar el volumen físicamente, mientras que Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antología final: 282 (LITORAL), de Varios autores, ofrece un punto de comparación por su carácter antológico y su autoría colectiva. Historias para escuchar en el metro, de Ascensión Badiola, se identifica en cambio como un libro de relatos firmado por una sola autora. A sangre y fuego, de Manuel Chaves Nogales, se distingue por el enfrentamiento que constituye su materia testimonial y literaria.",
+      "texto": "Historias para escuchar en el metro y A sangre y fuego pueden ponerse en relación por su carácter literario, aunque el primero se presenta como un libro de relatos y el segundo como un testimonio sobre un enfrentamiento. Frente a ambos, Ahora que te has ido: Corona poética en homenaje a José Manuel de Lara: 249 (Otros títulos) se orienta hacia el homenaje poético, una forma de lectura distinta de los relatos de Ascensión Badiola.",
       "evidencias": [
         "titulo",
         "autores",
@@ -35,12 +32,12 @@
       ],
       "enlaces": [
         "isbn-9788408331810",
-        "isbn-9788412931075"
+        "isbn-9791388381485"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "10bb68309ab29f78",
+  "fuente_hash": "8bbe343130af04fc",
   "origen": "chatgpt-web"
 }

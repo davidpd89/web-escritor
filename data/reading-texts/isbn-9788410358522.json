@@ -4,29 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Terapia psicodélica se orienta a lectores interesados en la psicología y en el estudio de las terapias psicodélicas desde la no ficción. Es un ensayo de 352 páginas, por lo que no responde a la búsqueda de una novela ni de una lectura narrativa breve.",
+      "texto": "Terapia psicodélica se orienta a lectores interesados en la psicología, el bienestar y el desarrollo personal, especialmente en el ámbito de las terapias psicodélicas. Por su temática y su clasificación como ensayo, encaja menos con quienes buscan ficción o una lectura centrada exclusivamente en nutrición.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
         "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Terapia psicodélica está disponible en tapa blanda, en una edición de Ediciones Koan con 352 páginas en castellano. El soporte físico permite consultar distintos pasajes y volver a ellos durante la lectura de este ensayo de psicología.",
+      "texto": "La tapa blanda presenta las 352 páginas de Terapia psicodélica en una edición física de Ediciones Koan, que permite marcar y consultar pasajes. Kindle ofrece una alternativa digital para leer el libro en dispositivos compatibles sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "editorial",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El cerebro optimista, de Mikel Alonso, y Terapia psicodélica comparten su relación con la psicología y la salud. El primero aborda el optimismo desde la neurociencia, mientras que el segundo se centra en la terapia psicodélica y está firmado por Will Van Derveer y Keith Kurlander.",
+      "texto": "Bienestar: Habitar el equilibrio (Conversaciones con mis hijos), de Silvia Caselles Martínez, comparte con Terapia psicodélica el interés por el bienestar, pero aborda el equilibrio personal en lugar de una modalidad terapéutica concreta. Deja de tratarte como el culo: De la autocrítica también se sale (Vivir Mejor), de Lorena Gascón, se aproxima desde la psicología aplicada a la autocrítica, frente al enfoque psicodélico del libro de Will Van Derveer y Keith Kurlander.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387662639"
+        "isbn-9788409915750",
+        "isbn-9788427055988"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "00dbabf46929ac71",
+  "fuente_hash": "661b028f96680154",
   "origen": "chatgpt-web"
 }

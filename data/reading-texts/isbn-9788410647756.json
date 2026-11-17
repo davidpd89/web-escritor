@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte encaja con lectores interesados en el humor, las memorias y la relación entre personalidad y estilo. Sus 208 páginas se alejan de una obra académica extensa sobre filosofía, por lo que responde menos a quien busca un tratado especializado.",
+      "texto": "El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte, de Mario Vaquerizo, encaja con lectores interesados en biografías, memorias y arte y diseño. Quien busque exclusivamente narrativa de ficción o una novela con personajes y una trama argumental encontrará aquí un planteamiento distinto.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 208 páginas de El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte en una edición física de Harpercollins. Kindle permite leerlo en el móvil o en un dispositivo electrónico, mientras que el audiolibro ofrece la posibilidad de escucharlo durante desplazamientos o actividades cotidianas.",
+      "texto": "La tapa blanda ofrece una edición física de 208 páginas; Kindle permite llevar la lectura en el móvil o en un lector electrónico, y el audiolibro ofrece una alternativa para escucharla. Los tres formatos están disponibles para El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La Risa de mi vida comparte con El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte el vínculo con el humor y las experiencias personales. La obra de Jorge Bolaños parte de la adopción de una perra, mientras que Mario Vaquerizo plantea una filosofía personal ante las dificultades. Mexikid: Sueña / Mexikid: Dreams: A Graphic Memoir ofrece otra aproximación a las vivencias personales, presentada como memoria gráfica.",
+      "texto": "El cardadismo ilustrado: Filosofía para sobrevivir a las caídas sin despeinarte, de Mario Vaquerizo, comparte con Bad Bunny: Un icono: sin permiso, sin límite, sin miedo (No ficción), de Jaime Valero, el interés por figuras públicas. El primero plantea su enfoque desde la filosofía y las caídas; el segundo sitúa su atención en una figura identificada como icono.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466684606",
-        "isbn-9798890988690"
+        "isbn-9791388139482"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ece759eb540f9655",
+  "fuente_hash": "81bf4c1cc2ab06bb",
   "origen": "chatgpt-web"
 }

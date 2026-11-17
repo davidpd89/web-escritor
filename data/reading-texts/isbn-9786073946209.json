@@ -4,7 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores de historia y ensayo interesados en las figuras femeninas de los mitos y las leyendas. Mitos Y Leyendas Sin Hombres: Vírgenes, Guerreras, Monstruos Y Brujas, Como Nunca Te Las Habían Contrado / Ancient Myths and Legends Without Men, de Mara Gold, no está clasificado como novela fantástica, sino como una obra de no ficción sobre relatos tradicionales.",
+      "texto": "Mitos Y Leyendas Sin Hombres: Vírgenes, Guerreras, Monstruos Y Brujas, Como Nunca Te Las Habían Contrado / Ancient Myths and Legends Without Men se dirige a lectores interesados en los mitos, las leyendas y sus figuras femeninas. Su clasificación como historia y ensayo lo diferencia de una novela fantástica protagonizada por brujas o guerreras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Mara Gold centra esta obra en figuras femeninas de los relatos míticos y legendarios, entre ellas vírgenes, guerreras, monstruos y brujas. El título plantea una aproximación a estas figuras sin situar a los hombres en el centro. La clasificación editorial combina historia y ensayo, lo que orienta la lectura hacia el tratamiento de los mitos como materia de reflexión.",
       "evidencias": [
         "titulo",
         "autores",
@@ -12,40 +20,31 @@
       ]
     },
     {
-      "modulo": "temas_y_enfoque",
-      "texto": "La obra aborda mitos y leyendas desde la presencia de vírgenes, guerreras, monstruos y brujas, con especial atención a las figuras femeninas. Su clasificación como historia y ensayo sitúa el tratamiento en la revisión de relatos tradicionales, y sus 240 páginas delimitan la extensión del volumen.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es la presentación que puede elegirse para esta obra de Mara Gold, con una extensión de 240 páginas. El volumen permite consultar en papel los temas dedicados a las figuras femeninas de los relatos míticos, sin depender de dispositivos electrónicos para su lectura.",
+      "texto": "El libro de Mara Gold puede elegirse en tapa blanda o Kindle. La edición física tiene 240 páginas y permite señalar pasajes o consultar los distintos tipos de figuras míticas en papel. Kindle facilita llevar la lectura en un dispositivo compatible y acceder al texto sin transportar el volumen impreso.",
       "evidencias": [
-        "formatos_disponibles",
         "autores",
+        "formatos_disponibles",
         "numero_paginas",
         "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados) comparte el interés por las tradiciones míticas, pero delimita su asunto a España. Mitos Y Leyendas Sin Hombres: Vírgenes, Guerreras, Monstruos Y Brujas, Como Nunca Te Las Habían Contrado / Ancient Myths and Legends Without Men, de Mara Gold, desplaza el foco hacia las figuras femeninas, mientras que el libro de Javier Prado Coronel anuncia un tratamiento ilustrado de mitos y leyendas del país.",
+      "texto": "Amor y sexo en España contado para escépticos (Historia) comparte el interés por asuntos culturales tratados desde una perspectiva histórica, pero se centra en el amor y la sexualidad en España. Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) se aproxima a la cultura mediante la relación entre arte y amor. La obra de Mara Gold se distingue por situar a las figuras femeninas de los mitos y leyendas en el centro.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949976"
+        "isbn-9788467084122",
+        "isbn-9788408326441"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "43c0718527eaa7d4",
+  "fuente_hash": "8cc42a6dc04cc7d5",
   "origen": "chatgpt-web"
 }

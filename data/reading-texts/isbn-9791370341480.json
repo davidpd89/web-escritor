@@ -4,47 +4,45 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El café se dirige a lectores interesados en el origen, el cultivo y las distintas maneras de preparar esta bebida. Su perspectiva histórica y gastronómica encaja con la curiosidad por el producto y su elaboración, más que con la búsqueda de una novela o una historia de ficción.",
+      "texto": "El café se dirige a lectores interesados en el origen, el cultivo y las formas de preparar esta bebida. Su contenido histórico y gastronómico se distancia de los recetarios dedicados exclusivamente a instrucciones de cocina y de las obras de ficción.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El café aborda la evolución histórica de esta bebida y los procesos que intervienen desde su cultivo hasta su preparación. Yomikoko relaciona esos aspectos con la apreciación gastronómica del producto y su presencia en las costumbres cotidianas.",
+      "texto": "Yomikoko recorre la trayectoria del café desde su cultivo hasta las distintas maneras de elaborarlo. La obra combina una perspectiva histórica con la atención a su preparación y a su dimensión gastronómica, vinculando el producto con las prácticas desarrolladas a su alrededor.",
       "evidencias": [
-        "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El café está publicado en tapa dura y tiene 256 páginas en castellano. La edición física de Susaeta Ediciones reúne en un volumen de cubierta rígida los contenidos dedicados a la historia, el cultivo y la preparación del café, con un formato apropiado para conservar o regalar.",
+      "texto": "El café se publica en tapa dura y tiene 256 páginas. La edición de Susaeta Ediciones reúne en un volumen físico su contenido sobre historia, cultivo y preparación, apropiado para conservarlo y volver a consultar apartados concretos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El café puede compararse con Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo) por su aproximación a una actividad vinculada con la apreciación estética, aunque Yomikoko se centra en una bebida y Carlos del Amor en la relación entre arte y afectos. AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA comparte el interés histórico, pero aborda una investigación biográfica en lugar de la evolución de un producto gastronómico.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) comparte con El café el interés por los acontecimientos y procesos históricos, aunque aborda la caída de una democracia. La obra de Yomikoko se centra en la evolución de una bebida, desde su cultivo hasta sus distintas formas de preparación y su dimensión gastronómica.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788418567933",
-        "isbn-9788467084122"
+        "isbn-9788411005517"
       ]
     }
   ],

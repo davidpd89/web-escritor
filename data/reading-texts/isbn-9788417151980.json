@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788417151980",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vuelta al mundo de un forro polar rojo: Pequeña historia de la gran globalización: 8 (Las Tres Edades / Nos Gusta Saber) se dirige a lectores juveniles interesados en la globalización y sus implicaciones. Por su enfoque contemporáneo y divulgativo, encaja menos con quienes buscan una novela de fantasía o una historia centrada en relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 144 páginas en castellano, una extensión manejable para leer por partes o transportar en una mochila. Publicada por Ediciones Siruela, permite consultar y retomar los contenidos sobre globalización en un volumen físico relativamente breve.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La vuelta al mundo de un forro polar rojo: Pequeña historia de la gran globalización: 8 (Las Tres Edades / Nos Gusta Saber) y Bajo la estela de un legado comparten presencia en el ámbito de la narrativa, aunque el primero identifica expresamente la globalización como asunto central. Frente a Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday), de John Green, el libro de Wolfgang Korn plantea una lectura juvenil vinculada a un fenómeno económico y social.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399178555",
+        "isbn-9788466395816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5949760a229de2ce",
+  "origen": "chatgpt-web"
+}

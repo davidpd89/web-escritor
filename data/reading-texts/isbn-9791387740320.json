@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rebeldes (Reservoir Gráfica) se orienta a lectores interesados en historia, biografías y memorias relacionadas con el siglo XX. Sus 448 páginas responden a una lectura extensa de carácter histórico, menos cercana a quienes buscan fantasía o aventuras de ficción.",
+      "texto": "Rebeldes (Reservoir Gráfica) se dirige a lectores interesados en la historia y las biografías o memorias. Sus 448 páginas responden a una lectura de largo recorrido; quien busque ficción de aventuras o una obra breve encontrará aquí un enfoque y una extensión diferentes.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,24 +13,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Rebeldes (Reservoir Gráfica) está editado en tapa blanda y tiene 448 páginas en castellano. La edición de Reservoir Books ofrece un volumen de papel flexible para consultar o leer por partes, especialmente por su extensión.",
+      "texto": "Rebeldes (Reservoir Gráfica) está disponible en tapa blanda, con 448 páginas en castellano. Esta edición de Reservoir Books permite leer la obra en papel y guardarla en una biblioteca dedicada a la historia y las memorias.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rebeldes (Reservoir Gráfica) y Rebels (Reservoir Gráfica) comparten autoría de Keum Suk Gendry-Kim y una orientación hacia la historia y las memorias. Ambos figuran con 448 páginas en sus respectivas fichas, pero se distinguen por el título con el que aparecen identificados en el catálogo.",
+      "texto": "Rebeldes (Reservoir Gráfica) puede compararse con Rebels (Reservoir Gráfica): ambos títulos corresponden a Keum Suk Gendry-Kim y comparten orientación histórica y biográfica. La diferencia verificable está en el título y el ISBN de cada edición, mientras que ambas tienen 448 páginas y están publicadas en castellano.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "afines_catalogo",
         "numero_paginas",
-        "afines_catalogo"
+        "idioma",
+        "isbn13"
       ],
       "enlaces": [
         "isbn-9791387740344"
@@ -39,6 +42,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4779635141d404cb",
+  "fuente_hash": "07f8ee0a33eab166",
   "origen": "chatgpt-web"
 }

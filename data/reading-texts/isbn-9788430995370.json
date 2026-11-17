@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788430995370",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en el derecho laboral y los límites jurídicos de la desconexión digital en el trabajo. Su enfoque sobre régimen jurídico y conflictos laborales lo aleja de las lecturas de divulgación tecnológica general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Tecnos se presenta en tapa dura y contiene 304 páginas en castellano. Es una opción física para consultar distintos apartados sobre el régimen jurídico de la desconexión digital y conservar el volumen como material de referencia.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Argumentacion Juridica, de Carlos Parma, comparte el interés por el razonamiento jurídico, aunque aborda una cuestión más general. Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos), de Mari Luz Sánchez García-Arista, se aproxima desde la gestión de conflictos en el ámbito educativo, frente al enfoque laboral de Francisco Trujillo Pons.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788429030372",
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f26a0bb27edfbb3",
+  "origen": "chatgpt-web"
+}

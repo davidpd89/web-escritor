@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399301083",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MUJERES EN ACCIÓN: Liderazgo, interculturalidad, Migración se orienta a lectores interesados en el liderazgo femenino, la interculturalidad y la migración desde el ámbito del desarrollo personal. Su planteamiento temático se distancia de los manuales dedicados exclusivamente a nutrición o alimentación.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MUJERES EN ACCIÓN: Liderazgo, interculturalidad, Migración cuenta con una edición en tapa blanda de 132 páginas. El volumen de Letralma Editorial ofrece una lectura física de extensión breve, que puede guardarse o consultarse sin ocupar el espacio de un manual extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta comparte con MUJERES EN ACCIÓN: Liderazgo, interculturalidad, Migración su orientación hacia cuestiones relacionadas con el desarrollo personal. El libro de Anca Martínez aborda la vida adulta de forma general, mientras que el de Mónica Araque delimita su atención al liderazgo, la interculturalidad y la migración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938490"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0091e4340a641976",
+  "origen": "chatgpt-web"
+}

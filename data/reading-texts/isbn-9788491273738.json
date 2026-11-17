@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rehabilitación de cines y teatros en Extremadura (Extremadura Artística) se orienta a quienes se interesan por la recuperación de espacios culturales y el patrimonio arquitectónico. Su temática de arte y diseño, centrada en edificios destinados a espectáculos, lo aleja de quienes buscan novelas o guías de dibujo.",
+      "texto": "Está orientado a lectores interesados en la rehabilitación de edificios culturales, especialmente cines y teatros de Extremadura. Rehabilitación de cines y teatros en Extremadura (Extremadura Artística), de Laura Fernández Rojo, tiene un enfoque territorial y arquitectónico que se distancia de los manuales de dibujo o de las obras dedicadas a otras disciplinas artísticas.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Rehabilitación de cines y teatros en Extremadura (Extremadura Artística) cuenta con una edición en tapa blanda de 336 páginas. El papel permite consultar distintos apartados y regresar a ellos durante el estudio de estos espacios culturales; Publicauex Editorial lo publica en castellano.",
+      "texto": "Rehabilitación de cines y teatros en Extremadura (Extremadura Artística) cuenta con una edición en tapa blanda de 336 páginas, publicada por Publicauex Editorial. El soporte físico permite consultar el volumen mientras se estudian los espacios culturales mencionados en el título y conservarlo como referencia sobre Extremadura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rehabilitación de cines y teatros en Extremadura (Extremadura Artística) y 720 retrats comparten su vinculación con el arte, pero abordan objetos de estudio distintos. Laura Fernández Rojo se centra en la rehabilitación de espacios destinados al cine y al teatro en Extremadura, mientras que Xavier Mollà i Revert presenta una obra dedicada al retrato, según indica su título.",
+      "texto": "720 retrats y Rehabilitación de cines y teatros en Extremadura (Extremadura Artística) comparten su relación con el arte, aunque sus títulos señalan objetos de estudio distintos. El libro de Xavier Mollà i Revert se centra en retratos, mientras que el de Laura Fernández Rojo aborda la rehabilitación de cines y teatros de Extremadura.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d072e40d680afcc5",
+  "fuente_hash": "d639517db3e0895b",
   "origen": "chatgpt-web"
 }

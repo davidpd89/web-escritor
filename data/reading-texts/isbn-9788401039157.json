@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788401039157",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todo mortal (Éxitos) se dirige a lectores interesados en el terror y el misterio, especialmente a quienes buscan una obra que combine ambos géneros. Sus 328 páginas permiten una lectura de extensión media, alejada de las preferencias por el romance o las historias de tono ligero.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todo mortal (Éxitos) está disponible en tapa blanda, con una extensión de 328 páginas. La edición de Plaza & Janés permite leer la obra en papel y transportarla sin el peso añadido de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Carrie (edición serie), de Stephen King, comparte con Todo mortal (Éxitos) su relación con el terror, aunque la primera presenta un conflicto de acoso escolar y convivencia familiar. Coraline, de Neil Gaiman, también permite una comparación desde lo inquietante, pero introduce una realidad alternativa vinculada al hogar, mientras que Todo mortal (Éxitos) se clasifica además dentro del misterio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396806",
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "13e92c4e613ddb45",
+  "origen": "chatgpt-web"
+}

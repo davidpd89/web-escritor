@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387745301",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "«¿Por qué este propósito de escribir a diario...?»: (Escritos de 1989 interrumpidos): 8 (Isla Negra) encaja con lectores interesados en los escritos personales de Mario Benedetti y en las memorias de autor. Su orientación autobiográfica y ensayística lo distancia de quienes buscan una novela de ficción o una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de «¿Por qué este propósito de escribir a diario...?»: (Escritos de 1989 interrumpidos): 8 (Isla Negra) se publica en tapa blanda y reúne 146 páginas. El volumen de Visor Libros ofrece una extensión relativamente breve para leer en papel, llevar consigo o incorporar a una colección de obras de Mario Benedetti.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vivir adrede / To Live Purposely comparte autor con «¿Por qué este propósito de escribir a diario...?»: (Escritos de 1989 interrumpidos): 8 (Isla Negra): ambos son de Mario Benedetti. El segundo identifica expresamente unos escritos interrumpidos y sitúa su contenido en 1989. A bordo de un diario sin fin (CUENTOS PARA ALARGAR-LA-VIDA), de Marcos Corzo Fernández, también remite al diario desde el título, pero se presenta como una obra de cuentos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897403",
+        "isbn-9791388436727"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8700bf40b6e99ac6",
+  "origen": "chatgpt-web"
+}

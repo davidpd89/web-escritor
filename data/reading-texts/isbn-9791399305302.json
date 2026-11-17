@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399305302",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pasan vencejos: Antología poética de granada (1964-2026), de Jenaro Talens Carmona, está dirigida a lectores de poesía interesados en una antología vinculada a Granada. El periodo 1964-2026 figura en el título y delimita su presentación; no responde a la búsqueda de una novela con una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pasan vencejos: Antología poética de granada (1964-2026) tiene una edición en tapa blanda de 176 páginas, publicada por Puerta Granada. Su extensión permite manejar el volumen en papel y regresar a poemas concretos sin necesidad de seguir una lectura lineal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pasan vencejos: Antología poética de granada (1964-2026) se relaciona con A solas, de María Jesús Martínez Ramos, por su proximidad al ámbito de la poesía. La diferencia está en el enfoque anunciado: la obra de Jenaro Talens Carmona se presenta expresamente como antología vinculada a Granada y a un periodo delimitado, mientras A solas no incorpora esas referencias en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28d005de6ac5c883",
+  "origen": "chatgpt-web"
+}

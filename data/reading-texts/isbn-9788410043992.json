@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410043992",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La isla del tesoro (Novela gráfica): 2 (Obras maestras en novela gráfica) se dirige a lectores que prefieren el lenguaje del cómic y la novela gráfica frente a la narrativa exclusivamente textual. Esta edición de una obra de Robert Louis Stevenson tiene 160 páginas y se aleja del formato de novela convencional en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La isla del tesoro (Novela gráfica): 2 (Obras maestras en novela gráfica) se presenta en tapa dura y cuenta con 160 páginas. La encuadernación rígida resulta práctica para conservar una novela gráfica en papel, consultarla de nuevo o regalar un ejemplar físico; es una edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4b597702ec0f8af3",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387995478",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fu-manchú y el peligro amarillo, de Javier Jimenez Barco, se dirige a lectores interesados en el cómic y la novela gráfica. Por su clasificación editorial, se aleja de quienes buscan específicamente narrativa contemporánea en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fu-manchú y el peligro amarillo se presenta en tapa dura, con 296 páginas en castellano. Esta edición física de Diabolo Ediciones permite conservar el volumen en una encuadernación rígida y consultarlo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0851eebaee8d98ad",
+  "origen": "chatgpt-web"
+}

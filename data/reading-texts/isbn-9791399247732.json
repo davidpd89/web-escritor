@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399247732",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Cid. Historia y mito de un señor de la guerra se dirige a lectores interesados en la historia y las biografías de figuras vinculadas a conflictos bélicos. Su enfoque histórico y biográfico encaja menos con quienes buscan una novela de aventuras ficticias o una narración fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Cid. Historia y mito de un señor de la guerra se publica en tapa dura, con 440 páginas en castellano. Esta encuadernación resulta apropiada para conservar el volumen en una biblioteca personal o regalar una obra histórica extensa, aunque añade rigidez frente a una cubierta flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Cid. Historia y mito de un señor de la guerra puede compararse con Cesar La conquista de la eternidad por su atención a figuras históricas relacionadas con la guerra. David Porrinas González aborda al Cid desde la historia y el mito, mientras que el libro de Alberto Angela se centra en un general romano y su trayectoria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944329"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "82b54d088752a383",
+  "origen": "chatgpt-web"
+}

@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Gato en las alcantarillas: 078 (Vdb Nuevo Teatro) se dirige a lectores interesados en el teatro y las publicaciones vinculadas a las artes. Sus 142 páginas en castellano ofrecen una extensión breve; no responde a la búsqueda de un manual práctico de dibujo o diseño.",
+      "texto": "El Gato en las alcantarillas: 078 (Vdb Nuevo Teatro), de Adelardo Méndez Moya, se dirige a lectores interesados en publicaciones de arte y diseño. Sus 142 páginas en castellano ofrecen una extensión contenida; no responde a la búsqueda de un manual jurídico o de economía.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas",
         "idioma"
@@ -14,29 +15,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El Gato en las alcantarillas: 078 (Vdb Nuevo Teatro) se presenta en tapa blanda, con 142 páginas. Este formato permite llevar el volumen en una mochila y consultar sus páginas en papel, sin depender de un dispositivo electrónico.",
+      "texto": "El Gato en las alcantarillas: 078 (Vdb Nuevo Teatro) está disponible en tapa blanda, con 142 páginas en castellano. Esta edición de Vdb permite llevar el volumen en papel y consultarlo sin dispositivos electrónicos; es la opción para quien prefiere una copia física.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Arde Talía: Una pieza teatral sobre el infierno de la creación artística comparte con El Gato en las alcantarillas: 078 (Vdb Nuevo Teatro) la referencia explícita al teatro. La primera obra sitúa la creación artística en su título, mientras que la segunda se identifica con la colección Vdb Nuevo Teatro y está firmada por Adelardo Méndez Moya.",
+      "texto": "El Gato en las alcantarillas: 078 (Vdb Nuevo Teatro) puede compararse con Ahorcados, de Miguel Ávila Cabezas, y 720 retrats, de Xavier Mollà i Revert, dentro de una selección vinculada al arte y el diseño. La diferencia comprobable está en la autoría y en el enfoque anunciado por los títulos: alcantarillas, ahorcados y retratos, respectivamente.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399289510"
+        "isbn-9788412678802",
+        "isbn-9791399276725"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "020e6ebe2d17edf2",
+  "fuente_hash": "9c611c193c780d91",
   "origen": "chatgpt-web"
 }

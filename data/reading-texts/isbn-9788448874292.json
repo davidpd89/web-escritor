@@ -4,50 +4,48 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido al público infantil que disfruta de los juegos con personajes y objetos manipulables. Su propuesta combina las aventuras de Bluey con figuras extraíbles y una situación de hospital; no responde a la búsqueda de una novela extensa ni de una lectura centrada exclusivamente en el texto.",
+      "texto": "Bluey. Libro juguete - Hospital. Libro de cartón con figuras extraíbles para jugar (Pequeñas manitas) está orientado al público infantil que disfruta manipulando figuras y representando situaciones de juego. Su propuesta de hospital y piezas extraíbles se aparta de los cuentos destinados únicamente a escuchar o seguir una historia.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
+        "edicion"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Se juega con las figuras extraíbles que acompañan al libro de cartón, utilizando el hospital como escenario. Las piezas permiten representar situaciones con los personajes mientras se recorren sus 12 páginas, de modo que la manipulación forma parte de la actividad y no se limita a pasar las hojas.",
+      "texto": "El libro permite jugar con figuras extraíbles dentro de una propuesta ambientada en un hospital. Las piezas pueden separarse del soporte para representar situaciones relacionadas con ese entorno, mientras las 12 páginas de cartón sirven como parte física de la actividad.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es de tapa dura, en cartón, con 12 páginas y figuras extraíbles. Este soporte permite alternar la lectura con el juego físico y mantener las piezas asociadas al escenario del hospital; es una elección distinta de la lectura exclusivamente digital o de la escucha.",
+      "texto": "La edición disponible es un libro de cartón en tapa dura de 12 páginas, concebido para manipularlo durante el juego. El soporte físico permite utilizar las figuras extraíbles que forman parte de Bluey. Libro juguete - Hospital. Libro de cartón con figuras extraíbles para jugar (Pequeñas manitas).",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "edicion",
         "numero_paginas",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Bluey. Un cuento con solapas - Fiesta de pijamas (Cuentos infantiles) comparte la autoría de Bluey y el uso de elementos manipulables, pero propone levantar solapas en lugar de jugar con figuras extraíbles. Bluey. Actividades - Pinta y pega ofrece actividades de colorear y utilizar pegatinas, mientras que el libro del hospital permite representar situaciones con sus figuras de cartón.",
+      "texto": "Bluey. Un cuento con solapas - Fiesta de pijamas (Cuentos infantiles) comparte protagonista y público infantil con el libro juguete Hospital de Bluey. La diferencia está en la interacción: el primero incorpora solapas para explorar durante la lectura, mientras Hospital utiliza figuras extraíbles para representar situaciones de juego.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores",
-        "edicion"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788448874858",
-        "isbn-9788448875541",
-        "isbn-9788448875329"
+        "isbn-9788448875541"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d60f19d247cd3c81",
+  "fuente_hash": "8dc13043d9d94fd4",
   "origen": "chatgpt-web"
 }

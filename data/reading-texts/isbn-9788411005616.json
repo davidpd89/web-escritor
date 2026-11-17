@@ -4,29 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en comprender el síndrome de la impostora y su relación con la confianza de las mujeres en sí mismas. Elisabeth Cadoche y Anne de Montarlot abordan esta cuestión desde el desarrollo personal, el ensayo y la psicología; no es una obra de ficción ni una novela romántica.",
+      "texto": "El síndrome de la impostora (edición especial): ¿Por qué las mujeres siguen sin creer en ellas mismas? (FEMINISMO) se dirige a quienes buscan una reflexión sobre la confianza de las mujeres en sus propias capacidades. Su enfoque combina psicología, ensayo y desarrollo personal, por lo que encaja menos con lectores interesados exclusivamente en ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición especial de Ediciones Península se publica en tapa dura y contiene 336 páginas en castellano. Su fecha de publicación es el 25 de noviembre de 2026 y se identifica mediante el ISBN 9788411005616, lo que permite distinguirla de otras presentaciones de la obra.",
+      "texto": "La edición especial de El síndrome de la impostora (edición especial): ¿Por qué las mujeres siguen sin creer en ellas mismas? (FEMINISMO) está publicada por Ediciones Península en tapa dura y castellano. Reúne 336 páginas y tiene el ISBN 9788411005616. Su fecha de publicación editorial es el 25 de noviembre de 2026.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
-        "numero_paginas",
         "idioma",
-        "fecha_publicacion",
-        "isbn13"
+        "numero_paginas",
+        "isbn13",
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato de esta edición especial de 336 páginas, pensado para conservar el volumen físico y consultarlo en distintas ocasiones. Su encuadernación rígida también permite regalar un ejemplar de un ensayo sobre psicología y desarrollo personal.",
+      "texto": "La tapa dura permite consultar las 336 páginas de El síndrome de la impostora (edición especial): ¿Por qué las mujeres siguen sin creer en ellas mismas? (FEMINISMO) en un volumen físico. Es una opción para quienes prefieren subrayar o volver a determinados pasajes de un ensayo. También permite regalar el libro en una encuadernación rígida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -36,19 +35,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparte el interés por cuestiones personales y psicológicas, pero se centra en la infancia y su reparación emocional. El síndrome de la impostora (edición especial): ¿Por qué las mujeres siguen sin creer en ellas mismas? (FEMINISMO) aborda específicamente la confianza de las mujeres en sus capacidades.",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia y El síndrome de la impostora (edición especial): ¿Por qué las mujeres siguen sin creer en ellas mismas? (FEMINISMO) coinciden en el interés por cuestiones personales y psicológicas. El primero se centra en la infancia y el segundo plantea la confianza de las mujeres en sí mismas. También puede compararse con ACE: Lo que la asexualidad desvela sobre el deseo, la sociedad y el significado del sexo (Tendencias), que aborda el deseo y su dimensión social desde otro asunto.",
       "evidencias": [
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410944206"
+        "isbn-9788410944206",
+        "isbn-9788492917525"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "274cbe05c6c3f6d6",
+  "fuente_hash": "bc46ef97a2570bfc",
   "origen": "chatgpt-web"
 }

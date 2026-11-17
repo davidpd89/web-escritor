@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388357343",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de biografías vinculadas con la música escénica y la historia cultural entre España y América. Lola Millanes: Una tiple de zarzuela entre España y América: 14 (Artes & Estudio), de Josep Maria Rebés Molina, se centra en una figura de la zarzuela; no corresponde a una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lola Millanes: Una tiple de zarzuela entre España y América: 14 (Artes & Estudio) se presenta en tapa blanda. Sus 564 páginas reúnen el contenido biográfico en un volumen físico de Libargo, que puede consultarse por partes durante una lectura prolongada.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lola Millanes: Una tiple de zarzuela entre España y América: 14 (Artes & Estudio) comparte con Bad Bunny: Un icono: sin permiso, sin límite, sin miedo (No ficción) el interés por figuras relacionadas con la música. El primero aborda una tiple de zarzuela entre España y América, mientras que el segundo se centra en Bad Bunny y está firmado por Jaime Valero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388139482"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6adb0557749fdbb3",
+  "origen": "chatgpt-web"
+}

@@ -4,26 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Honey lemon soda 4 (Shôjo) se orienta a lectores que siguen el manga romántico contemporáneo y las historias sobre relaciones de pareja. El título lo identifica como el n.º 4, por lo que quienes buscan una obra señalada como primer volumen encontrarán una numeración diferente.",
+      "texto": "Honey lemon soda 4 (Shôjo), de Mayu Murata, encaja con lectores de manga romántico contemporáneo que buscan un volumen numerado. Sus 352 páginas suponen una extensión considerable dentro de la lectura gráfica; no responde a las preferencias de quien quiera un ensayo o una narración sin viñetas. El título lo identifica como el n.º 4.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Honey lemon soda 4 (Shôjo) está disponible en tapa blanda, con 352 páginas en castellano. La edición de Distrito Manga ofrece un volumen físico para leer y conservar; su extensión es mayor que la de otros tomos breves de manga.",
+      "texto": "Honey lemon soda 4 (Shôjo) se ofrece en tapa blanda, con 352 páginas en castellano editadas por Distrito Manga. El formato físico permite seguir la narración gráfica sobre papel y conservar el tomo en una estantería. Su extensión requiere más espacio que la de un volumen breve, algo que conviene considerar al transportarlo.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
         "idioma",
         "editorial",
-        "formatos_disponibles"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Honey lemon soda 5 (Shôjo) comparte serie y autora con Honey lemon soda 4 (Shôjo); los títulos identifican los números 5 y 4 respectivamente. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, también se presenta como manga romántico, pero corresponde a otra autora y su título lo identifica como el n.º 1.",
+      "texto": "Honey lemon soda 4 (Shôjo) tiene como comparación directa Honey lemon soda 5 (Shôjo), también de Mayu Murata, cuyo título indica otro número dentro de la misma obra. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, comparte la orientación romántica y el formato de manga, pero pertenece a una obra de distinta autoría. Además, el título de este último identifica el n.º 1, frente al n.º 4 de Honey lemon soda 4 (Shôjo).",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +41,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a6baadfc18f52028",
+  "fuente_hash": "e4592b740ebf612b",
   "origen": "chatgpt-web"
 }

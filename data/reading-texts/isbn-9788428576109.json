@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788428576109",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las apariencias engañan: La parábola de “los últimos serán los primeros y los primeros serán los últimos” (Mashal) se dirige a lectores interesados en la religión, la espiritualidad y la interpretación de parábolas. Su tema central lo distancia de quienes buscan ficción ajena a cuestiones religiosas o manuales dedicados a actividades recreativas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Las apariencias engañan: La parábola de “los últimos serán los primeros y los primeros serán los últimos” (Mashal) reúne 282 páginas. El soporte impreso permite marcar pasajes y regresar a ellos durante la reflexión personal o el estudio de la parábola que identifica el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las apariencias engañan: La parábola de “los últimos serán los primeros y los primeros serán los últimos” (Mashal) y AKITA: Las lágrimas y el mensaje de María comparten el ámbito religioso, pero el primero se centra en una parábola y el segundo anuncia un mensaje mariano. Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación aborda, por su parte, una tradición espiritual distinta, vinculada al Dharma.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f40313ca78b5eb5c",
+  "origen": "chatgpt-web"
+}

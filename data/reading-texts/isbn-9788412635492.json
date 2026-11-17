@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788412635492",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mejorando la rentabilidad a través de la excelencia operacional se orienta a lectores interesados en la relación entre gestión operativa y resultados económicos. Su enfoque temático encaja menos con quienes buscan ficción narrativa o una introducción general a disciplinas científicas sin aplicación empresarial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Mejorando la rentabilidad a través de la excelencia operacional es de tapa blanda y contiene 274 páginas. Este soporte permite conservar el volumen en una biblioteca de consulta y volver a sus apartados mediante la paginación impresa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mejorando la rentabilidad a través de la excelencia operacional se aproxima a (ENAC0019) Herramientas de análisis coste/beneficio aplicadas a la eficiencia energética por su atención a la eficiencia y los resultados económicos. La primera obra plantea la rentabilidad desde la excelencia operacional, mientras que la segunda delimita el análisis de costes y beneficios al ámbito energético.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388334627"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a230d42dda2ff07e",
+  "origen": "chatgpt-web"
+}

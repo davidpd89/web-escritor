@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387962197",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pink & Habanero 2 (Shôjo) se dirige a quienes leen manga romántico y buscan historias en formato de cómic. Sus 176 páginas y su orientación hacia el romance lo distinguen de las novelas extensas en prosa; el título lo identifica como el n.º 2, algo relevante para quienes prefieren comenzar por una primera entrega.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pink & Habanero 2 (Shôjo) está disponible en tapa blanda, con 176 páginas en castellano y edición de Distrito Manga. El soporte impreso permite seguir las viñetas directamente sobre la página y conservar el volumen junto a otras entregas de la colección.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pink & Habanero 3 (Shôjo) comparte título de serie y autoría con Pink & Habanero 2 (Shôjo); los títulos los identifican como los números 3 y 2, respectivamente. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, pertenece también al ámbito del manga romántico, pero corresponde a otra obra y su título señala el n.º 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962562",
+        "isbn-9791387962494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "557917f0fcc10b06",
+  "origen": "chatgpt-web"
+}

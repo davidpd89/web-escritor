@@ -4,27 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El futuro del dinero y de la banca: Estabilidad y competencia (Economía), de Miguel A. Fernández Ordóñez, está dirigido a lectores interesados en el funcionamiento del dinero, la banca y la competencia económica. Encaja menos con quienes buscan ficción o consejos de finanzas domésticas, porque su asunto central es el sistema bancario.",
+      "texto": "El futuro del dinero y de la banca: Estabilidad y competencia (Economía), de Miguel A. Fernández Ordóñez, se dirige a lectores interesados en economía, dinero y actividad bancaria. Su título sitúa la estabilidad y la competencia como asuntos centrales de sus 192 páginas. No responde a quien busque ficción romántica o aventuras.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El futuro del dinero y de la banca: Estabilidad y competencia (Economía) se presenta en tapa blanda, con 192 páginas en castellano. La edición de Taurus permite consultar físicamente los apartados sobre estabilidad y competencia, así como conservar el volumen para futuras consultas.",
+      "texto": "El futuro del dinero y de la banca: Estabilidad y competencia (Economía) cuenta con una edición en tapa blanda de 192 páginas. Su cubierta flexible facilita transportarlo y consultarlo durante una lectura centrada en cuestiones económicas. Taurus lo publica en castellano.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "idioma",
-        "editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El futuro del dinero y de la banca: Estabilidad y competencia (Economía) se relaciona con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) por su atención a cuestiones económicas. Miguel A. Fernández Ordóñez aborda el dinero y la banca; Miguel Anxo Bastos Boubeta se ocupa de las bases económicas y políticas del anarcocapitalismo.",
+      "texto": "ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, plantea desde su título el papel de las ideas, mientras que El futuro del dinero y de la banca: Estabilidad y competencia (Economía) se centra en asuntos monetarios y bancarios. Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, desplaza la atención hacia el liderazgo. Los tres títulos permiten distinguir entre ideas, gestión profesional y economía bancaria.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +34,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457"
+        "isbn-9791399087222",
+        "isbn-9788409921980"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f256ede9938a7342",
+  "fuente_hash": "6c0b9fcd336b502a",
   "origen": "chatgpt-web"
 }

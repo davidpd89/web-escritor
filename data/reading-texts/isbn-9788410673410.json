@@ -1,31 +1,29 @@
 {
   "id": "isbn-9788410673410",
-  "familia": "practico",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cerebro y estilo de vida: 1107 (Mayor) se dirige a lectores interesados en la relación entre bienestar, psicología y divulgación científica. José Luis Trejo aborda desde el título el cerebro y los hábitos de vida; sus 160 páginas lo sitúan lejos de una búsqueda de ficción o de un manual exclusivamente culinario.",
+      "texto": "Cerebro y estilo de vida: 1107 (Mayor) se dirige a lectores interesados en la relación entre el cerebro, la psicología y los hábitos de vida desde una perspectiva de divulgación científica. Por su enfoque temático, encaja menos con quienes buscan una novela o un relato de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cerebro y estilo de vida: 1107 (Mayor) se publica en tapa blanda, con 160 páginas en castellano y edición de Los Libros de la Catarata. Su extensión facilita una lectura en papel que puede alternarse con la consulta de apartados sobre cerebro y estilo de vida, sin necesitar un dispositivo electrónico.",
+      "texto": "La tapa blanda ofrece las 160 páginas de Cerebro y estilo de vida: 1107 (Mayor) en un volumen físico publicado por Los Libros de la Catarata, manejable para consultar y subrayar. Kindle permite llevar el texto en formato digital y leerlo desde un dispositivo compatible, sin ocupar espacio en la estantería.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cerebro y estilo de vida: 1107 (Mayor) y El efecto ritual: El poder transformador de nuestros hábitos cotidianos (Divulgación) comparten el interés por los hábitos y su relación con la vida diaria. José Luis Trejo sitúa el cerebro en el centro de su obra, mientras que el título de Michael Norton pone el foco en los rituales cotidianos.",
+      "texto": "El cerebro enjaulado, de David Molina Zuquin, comparte con Cerebro y estilo de vida: 1107 (Mayor) el interés por el cerebro, mientras que el libro de José Luis Trejo lo relaciona expresamente con el estilo de vida. El efecto ritual: El poder transformador de nuestros hábitos cotidianos (Divulgación), de Michael Norton, se acerca por el estudio de los hábitos, aunque sitúa el foco en los rituales y su influencia cotidiana.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791399297409",
         "isbn-9788449346163"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5c2464b8f2f0fbbf",
+  "fuente_hash": "7bf2dcbf83d5fc85",
   "origen": "chatgpt-web"
 }

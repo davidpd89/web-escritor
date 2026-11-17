@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399277937",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La travesía del desierto se dirige a lectores interesados en libros de religión y espiritualidad. Con 162 páginas, pertenece a un ámbito temático distinto del de las novelas de aventuras o los manuales técnicos, por lo que encaja menos con quienes buscan esos tipos de lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La travesía del desierto se presenta en tapa blanda, con 162 páginas en castellano. Es una edición física que permite consultar y releer pasajes en papel, tanto durante una lectura continuada como en sesiones separadas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La travesía del desierto y AKITA: Las lágrimas y el mensaje de María comparten el ámbito religioso, aunque el segundo título identifica expresamente a María como figura central. Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se presenta como una obra sobre fundamentos y práctica espiritual, mientras que el libro de Manuel Coronado lleva un título centrado en la travesía del desierto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16ada504e4aadae6",
+  "origen": "chatgpt-web"
+}

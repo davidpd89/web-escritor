@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Maleducados emocionales está dirigido a quienes buscan comprender el desprecio cotidiano y sus efectos sobre las relaciones y la autoestima. Dr. José Carbonell examina conductas de exclusión e indiferencia desde la psiquiatría; su enfoque no corresponde a una novela sobre conflictos personales.",
+      "texto": "Maleducados emocionales se dirige a quienes quieren reconocer conductas de desprecio cotidiano y comprender cómo afectan a las relaciones y la autoestima. Dr. José Carbonell aborda estos comportamientos desde la psicología, de modo que encaja menos con lectores que buscan ficción o un tratado general sobre todas las emociones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,20 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Maleducados emocionales se presenta en tapa blanda, con encuadernación rústica y solapas de Editorial Planeta. Las 256 páginas forman una edición física que puede consultarse por pasajes para volver sobre las conductas y situaciones sociales que analiza Dr. José Carbonell.",
+      "texto": "Maleducados emocionales está disponible en tapa blanda y Kindle, con una edición impresa de 256 páginas en rústica con solapas. El papel permite consultar y señalar pasajes físicamente; Kindle facilita llevar la lectura en un móvil o lector electrónico sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
         "numero_paginas",
-        "autores",
-        "sinopsis_editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Maleducados emocionales y Abraza a tu niño interior: Nunca es tarde para sanar tu infancia abordan el bienestar psicológico desde perspectivas distintas. Dr. José Carbonell se ocupa de los desprecios en las relaciones presentes, mientras Victoria Cadarso orienta su libro hacia las experiencias de la infancia y su reparación emocional.",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparte con Maleducados emocionales el interés por el bienestar psicológico, pero centra su propuesta en las experiencias de la infancia. Dr. José Carbonell aborda los microdesprecios en las relaciones cotidianas, sus efectos sobre la autoestima y la manera de identificar y gestionar esas conductas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ce5ba0ca1d5a33fa",
+  "fuente_hash": "524d3e2a4e247ca1",
   "origen": "chatgpt-web"
 }

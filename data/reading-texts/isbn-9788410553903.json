@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410553903",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Enciclopedia del océano se dirige al público infantil interesado en el océano y en los libros de consulta. Su enfoque de referencia y sus 16 páginas la alejan de las novelas de aventuras extensas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Enciclopedia del océano está disponible en tapa dura, con una extensión de 16 páginas. Esta encuadernación permite conservar el volumen como libro de consulta infantil y tenerlo a mano para revisiones frecuentes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Enciclopedia del océano y Atlas de la noche (¡incluye un póster que brilla en la oscuridad!): Explora las constelaciones y las historias de las estrellas (Cuentos que cuentan) comparten la orientación hacia el conocimiento de la naturaleza. La obra de Camilla de la Bedoyere se centra en el océano, mientras que la de Davide Cenadelli aborda las constelaciones y las estrellas e incluye un póster que brilla en la oscuridad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410318823"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf76c4ef2a0f82b9",
+  "origen": "chatgpt-web"
+}

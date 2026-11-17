@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798905941535",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Viaje de Jason la Rana(TM) Robot de IA para Explorar el Mundo del Tyrannosaurus rex se dirige a lectores infantiles interesados en aventuras y dinosaurios. Sus 36 páginas plantean una lectura breve, distinta de las novelas juveniles extensas y de los libros centrados en conflictos realistas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 36 páginas de El Viaje de Jason la Rana(TM) Robot de IA para Explorar el Mundo del Tyrannosaurus rex en un volumen físico. Su extensión permite leerlo en sesiones breves y transportarlo sin el peso de una novela larga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Viaje de Jason la Rana Robot de IA para Explorar el Mundo de los Osos Polares comparte autores y protagonista con El Viaje de Jason la Rana(TM) Robot de IA para Explorar el Mundo del Tyrannosaurus rex. Ambos se presentan como aventuras de exploración, pero uno se centra en los osos polares y el otro en el Tyrannosaurus rex.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9798905941399"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "51aa2103281ed097",
+  "origen": "chatgpt-web"
+}

@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) se orienta a lectores interesados en bienestar, nutrición y desarrollo personal desde el enfoque del ayurveda. Por su temática, se aleja de los libros centrados exclusivamente en recetas de cocina o en divulgación científica general.",
+      "texto": "Secretos del ayurveda: Que cambiarán tu vida se dirige a lectores interesados en nutrición, bienestar y cocina. Sus 396 páginas corresponden a un libro práctico relacionado con estos ámbitos, no a una obra de ficción narrativa.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 396 páginas dedicadas al ámbito del ayurveda y el bienestar. Su formato impreso permite consultar distintos apartados, volver a ellos durante la lectura y mantener el volumen en una biblioteca de salud y desarrollo personal.",
+      "texto": "La tapa blanda reúne las 396 páginas de Secretos del ayurveda: Que cambiarán tu vida en una edición física de Editorial Kairós SA. Es el formato disponible para consultar el contenido en papel y conservar el libro como parte de una biblioteca de nutrición y bienestar.",
       "evidencias": [
         "titulo",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
-        "categorias"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Reset alimentario: Nutrición del futuro para el día a día (Alienta) comparte con Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud) el interés por la alimentación y el bienestar. Pablo Ojeda sitúa la nutrición cotidiana en el centro de su libro, mientras que Isabel Bautista aborda estos asuntos desde el ayurveda. Ambos se distinguen por el enfoque anunciado en sus títulos.",
+      "texto": "Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante, de Sarah Ann Macklin, comparte el interés por la alimentación y la salud. Secretos del ayurveda: Que cambiarán tu vida, de Isabel Bautista, incorpora además las conexiones con la cocina y el bienestar que identifican su propuesta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788413445625"
+        "isbn-9788411193900"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "847068bd94ba30e7",
+  "fuente_hash": "06fcadaa4b22cbd2",
   "origen": "chatgpt-web"
 }

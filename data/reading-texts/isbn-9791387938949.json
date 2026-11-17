@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387938949",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Miura: Morir en el campo: 07 (Cromos) se sitúa en el ámbito del ocio y las aficiones, con una extensión de 104 páginas. Por su clasificación temática, encaja menos con quien busca un manual académico de historia o una novela identificada expresamente como ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Miura: Morir en el campo: 07 (Cromos) está publicada en tapa blanda por Altamarea Ediciones. Sus 104 páginas permiten manejarla como un volumen impreso relativamente breve, tanto para leerlo como para conservarlo en una colección.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Miura: Morir en el campo: 07 (Cromos) y 99 Sudoku (LIBROS SINGULARES) comparten su clasificación dentro del ocio y las aficiones en el catálogo. La diferencia está en su planteamiento declarado: el segundo identifica expresamente los sudokus como contenido, mientras que el primero presenta una obra de Toni Padilla con el subtítulo Morir en el campo y la identificación 07 (Cromos).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a10f0556dab88e8b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388234583",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Del planeta al universo, de Juan Pablo Moreno, se dirige a quienes prefieren el ensayo a la narrativa de ficción. El título plantea una escala que va de lo planetario a lo universal y sus 154 páginas ofrecen una extensión relativamente breve; no encaja con quien busca una novela con personajes y una trama.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Del planeta al universo está editado en tapa blanda y tiene 154 páginas en castellano. Su extensión permite llevarlo en papel para leer durante desplazamientos o consultarlo en distintos momentos, sin depender de un dispositivo electrónico. La edición corresponde a Npq Editores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80181fbeb089214c",
+  "origen": "chatgpt-web"
+}

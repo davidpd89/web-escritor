@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399095845",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Leer la odisea en tiempos iletrados encaja con lectores interesados en los clásicos y en el ensayo, más que con quienes buscan una novela de aventuras. Juan José Gómez Cadenas firma este volumen de 308 páginas en castellano, cuyo título sitúa la lectura de la odisea en el centro de su planteamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Leer la odisea en tiempos iletrados está disponible en tapa blanda, con 308 páginas en castellano. La edición de JOT Down Books reúne el texto en un volumen físico que puede consultarse por partes o leerse de forma continuada. Su cubierta flexible facilita llevarlo en una bolsa o mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e58900d73e18b8fc",
+  "origen": "chatgpt-web"
+}

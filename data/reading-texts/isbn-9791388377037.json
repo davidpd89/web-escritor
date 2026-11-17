@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388377037",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Inteligencia Artificial en el espejo, de Juan Manuel Prieto Arosa, Isaac Maroto González y José Miguel Túñez López, se dirige a lectores interesados en la inteligencia artificial desde el ámbito del ensayo y el derecho. Con 438 páginas, responde a una búsqueda de lectura extensa sobre estas materias, no a quien pretende encontrar una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Inteligencia Artificial en el espejo está disponible en tapa blanda, con 438 páginas publicadas por Aula Magna Proyecto Clave Mcgraw Hill. El ejemplar físico permite consultar y volver a localizar pasajes durante la lectura, aunque su extensión hace menos cómodo transportarlo que un libro breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Inteligencia Artificial en el espejo puede compararse con Curso básico de protección de datos-CTRG0012, de Elsa Rubio Duce, por su proximidad temática al tratamiento de cuestiones tecnológicas y jurídicas, aunque el segundo se centra en protección de datos. También comparte el ámbito del derecho con Justicia, ¿quién responde?: El mundo cambia, la justicia no (Ensayo), de Álvaro Lobato Lavín, cuya atención se dirige a la justicia en lugar de la inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411354714",
+        "isbn-9791370206017"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f3ea7a86617d1786",
+  "origen": "chatgpt-web"
+}

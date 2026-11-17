@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788401039034",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Perros, chicos y otras cosas por las que he llorado (Obras diversas), de Isabel Klee, encaja con lectores de biografías y memorias interesados en experiencias personales relacionadas con los animales y las relaciones afectivas. Por su clasificación y enfoque autobiográfico, se aparta de las novelas de ficción y de los manuales prácticos de adiestramiento canino.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de Isabel Klee cuenta con una edición en tapa blanda de 320 páginas, publicada por Plaza & Janés. Este formato permite leer las memorias en papel, transportarlas y conservar el volumen sin recurrir a una encuadernación de tapa dura.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Espíritu salvaje: La llamada de África a una veterinaria (Obras diversas), de Fabiola Quesada Fernández, comparte con Perros, chicos y otras cosas por las que he llorado (Obras diversas) la presencia de animales y una perspectiva personal, aunque el primero se centra en una veterinaria y el segundo incorpora relaciones afectivas. Enzo Ferrari: Velocidad, sangre y gloria. La biografía definitiva sobre Ferrari y su legado en el mundo del automovilismo. (No ficción), de Luca dal Monte, pertenece también al ámbito biográfico, pero aborda una figura del automovilismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412955835",
+        "isbn-9788401041662"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "35853de06a6570dd",
+  "origen": "chatgpt-web"
+}

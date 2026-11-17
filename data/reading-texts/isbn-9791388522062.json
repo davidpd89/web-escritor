@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pack Fantasía y amistad reúne referencias a la fantasía, la amistad y el ensayo, por lo que se dirige a lectores interesados en esos ámbitos. Puede encajar con quien busca una propuesta que combine el componente fantástico con las relaciones personales, pero no con quien busca exclusivamente narrativa de ficción o un ensayo centrado en otro tema.",
+      "texto": "Pack Fantasía y amistad se dirige a lectores interesados en la fantasía y en el ensayo, con la amistad como tema anunciado en el título. Por su clasificación editorial, se orienta menos a quienes buscan exclusivamente una novela de aventuras fantásticas.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pack Fantasía y amistad comparte el componente fantástico con Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic), aunque este último se presenta como cómic y el pack incorpora también la amistad y el ensayo. Frente a Harry Potter Y El Misterio del Príncipe (Edición Con Ilustraciones de Xavier Bonet) / Harry Potter and the Half-Blood Prince, la diferencia está en que el título de Laura Fernandez plantea una combinación temática más amplia, mientras que el otro se identifica como una entrega de una obra de fantasía.",
+      "texto": "Pack Fantasía y amistad comparte el ámbito fantástico con Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO), de Emanuela Brumana y Marco Guadalupi, aunque este último centra su título en objetos mágicos. También puede compararse con Atlas de Lovecraft (Minotauro Ilustrados), de Alain T. Puysségur, que propone un enfoque de atlas frente a la combinación de fantasía y amistad anunciada por Laura Fernandez.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,13 +21,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448875381",
-        "isbn-9798901230695"
+        "isbn-9788411724210",
+        "isbn-9788445022863"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "557a2ff05b15a8c1",
+  "fuente_hash": "cc430447f734f321",
   "origen": "chatgpt-web"
 }

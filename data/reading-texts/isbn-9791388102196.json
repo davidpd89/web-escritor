@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388102196",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hajime no Ippo nº 18 (Manga Shonen) está orientado a lectores de manga juvenil que siguen colecciones por entregas. El título lo identifica como el n.º 18, una característica relevante para quienes desean mantener el orden de sus volúmenes. Su formato de cómic se distancia de la novela convencional escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hajime no Ippo nº 18 (Manga Shonen) se publica en tapa blanda y cuenta con 368 páginas. Es una edición física para leer y conservar junto a otros volúmenes de la colección. El título identifica esta entrega como el n.º 18, un dato útil al organizar los tomos en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hajime no Ippo nº 18 (Manga Shonen) puede compararse con Blue Lock nº 33 (Manga Shonen) por su pertenencia al manga shonen y su publicación en entregas numeradas. El primero es obra de Joji Morikawa y el segundo figura firmado por Yusuke Nomura y Muneyuki Kaneshiro. Los títulos identifican entregas distintas, el n.º 18 y el n.º 33, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "279bab50a4787ce5",
+  "origen": "chatgpt-web"
+}

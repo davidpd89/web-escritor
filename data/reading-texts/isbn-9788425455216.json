@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788425455216",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un herido en el camino: Kafka frente al buen samaritano (fuera de colección) se dirige a lectores de ensayo y filosofía interesados en el contraste entre las dos referencias de su título. No responde a la búsqueda de una novela de ficción, pues se presenta como una obra ensayística de Francesc Torralba.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Un herido en el camino: Kafka frente al buen samaritano (fuera de colección) está disponible en tapa blanda. Sus 176 páginas permiten llevar el ensayo en un volumen físico manejable, tanto para leerlo seguido como para volver a determinados pasajes durante una consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un herido en el camino: Kafka frente al buen samaritano (fuera de colección) comparte el terreno de la reflexión filosófica con Aforismos para reflexionar y meditar: 109 (Fragmentos). El primero plantea un contraste entre figuras desde su título, mientras que el segundo anuncia una recopilación de aforismos. Ambos se diferencian de Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), centrado en una corriente de pensamiento político y económico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278",
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f6477427bab0a405",
+  "origen": "chatgpt-web"
+}

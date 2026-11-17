@@ -4,40 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tierra negra: Algunos secretos crecen en la oscuridad (MAEVA noir) se dirige a lectores de misterio y thriller interesados en historias construidas alrededor de secretos. Su clasificación y su pertenencia a la línea MAEVA noir la alejan de la fantasía épica y de la narrativa romántica como géneros principales.",
+      "texto": "Tierra negra: Algunos secretos crecen en la oscuridad (MAEVA noir) se dirige a lectores de misterio y thriller interesados en relatos relacionados con secretos. Sus 320 páginas corresponden a una novela de extensión media, alejada de la fantasía y de las aventuras infantiles.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Maeva Ediciones tiene 320 páginas en castellano y permite conservar el texto en papel para leerlo por sesiones. El audiolibro ofrece otra forma de seguir la historia mediante la escucha, útil durante desplazamientos o actividades en las que no se puede sostener un libro.",
+      "texto": "Tierra negra: Algunos secretos crecen en la oscuridad (MAEVA noir) puede leerse en tapa blanda o escucharse en audiolibro. La edición impresa de 320 páginas permite seguir el texto en papel, mientras que el audiolibro ofrece una alternativa para escuchar durante desplazamientos o actividades cotidianas.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El último secreto: Edición limitada a precio especial (Colección Especial), de Dan Brown, comparte con Tierra negra: Algunos secretos crecen en la oscuridad (MAEVA noir) el interés por los secretos y el misterio. La obra de Ángela Armero se presenta dentro de MAEVA noir y consta de 320 páginas, mientras que el título de Dan Brown se identifica por su edición limitada dentro de una colección especial.",
+      "texto": "Aberración y Tierra negra: Algunos secretos crecen en la oscuridad (MAEVA noir) figuran entre las lecturas vinculadas al misterio y al thriller. La segunda, escrita por Ángela Armero, anuncia los secretos como elemento central desde el subtítulo, mientras que Aberración es una obra de Santiago López de Hoyos.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408331483"
+        "isbn-9791399297508"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "28a0b107337ddf06",
+  "fuente_hash": "4560a1c10387453e",
   "origen": "chatgpt-web"
 }

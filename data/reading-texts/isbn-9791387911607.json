@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387911607",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Muerte como pretexto: 58 (Mexuar), de Susana Collado Vázquez, se dirige a lectores de narrativa contemporánea en castellano. Sus 164 páginas permiten elegir una obra de extensión relativamente breve; por su clasificación, no está orientada a quien busca específicamente ciencia ficción o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Muerte como pretexto: 58 (Mexuar) se presenta en tapa blanda, con 164 páginas en castellano. Esta edición de Editorial Nazarí S.l. permite leer en papel y transportarla sin el volumen habitual de una novela extensa; también puede guardarse en una estantería ocupando relativamente poco espacio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d9e54f08eb899a4",
+  "origen": "chatgpt-web"
+}

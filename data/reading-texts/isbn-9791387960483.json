@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791387960483",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Carmen Calvo.: Platos Giratorios. (Libros de autor) se dirige a quienes buscan publicaciones de arte y diseño centradas en la autoría de Carmen Calvo. Con 107 páginas, su extensión es menor que la de numerosos volúmenes de consulta; no responde a una búsqueda de ficción narrativa o aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Carmen Calvo.: Platos Giratorios. (Libros de autor) está disponible en tapa dura, en una edición de La Fábrica. Sus 107 páginas forman un volumen físico de extensión relativamente breve, apropiado para conservar en una colección de libros de arte o regalar a alguien interesado en la obra de Carmen Calvo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Carmen Calvo.: Platos Giratorios. (Libros de autor) y 720 retrats, de Xavier Mollà i Revert, pertenecen al ámbito artístico, pero presentan autorías y títulos distintos. All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, también se relaciona con el arte, aunque se identifica expresamente como cuaderno, frente al libro de autor de Carmen Calvo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9789879871119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8fa45c4622d701f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388207327",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La mirada al milímetro. Un ensayo sobre moléculas, células y montaje de muebles se dirige a lectores interesados en el ensayo y la divulgación científica. Sus 136 páginas abordan, desde el propio planteamiento del título, cuestiones relacionadas con las moléculas y las células; no corresponde a una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La mirada al milímetro. Un ensayo sobre moléculas, células y montaje de muebles se publica en tapa blanda, con 136 páginas. El volumen físico permite consultar pasajes y volver sobre conceptos durante la lectura, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arquitectura cognitivo-neuro sistémica de los falsos recuerdos (Plural -México-), de Pedro Muñoz-Arteaga, Vanessa Quito-Calle, Lorena Cañizares-Jarrín y Andrés Ramírez, también sitúa cuestiones científicas en el centro de su título. Frente a su enfoque sobre los falsos recuerdos, La mirada al milímetro. Un ensayo sobre moléculas, células y montaje de muebles anuncia un recorrido por moléculas, células y objetos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370384968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d94356849d2928f9",
+  "origen": "chatgpt-web"
+}

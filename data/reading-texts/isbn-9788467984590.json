@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788467984590",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Magic knight rayearth premium collection 01: Primera parte: 1 se dirige a lectores de fantasía contada mediante cómic. Su propuesta gráfica se aparta de la novela fantástica escrita únicamente en prosa, y el título identifica esta entrega como parte inicial de una colección.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa blanda reúne 202 páginas de Magic knight rayearth premium collection 01: Primera parte: 1. Es una opción física para leer sus páginas ilustradas y conservar el volumen en una colección de cómics.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Magic knight rayearth premium collection 01: Primera parte: 1 y Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic) comparten la combinación de fantasía y narración gráfica. La primera obra está firmada por CLAMP y se presenta como colección premium, mientras que la segunda, de Steve Smallman, se identifica expresamente como Mi primer cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875381"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eb055b82a3910406",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pensado para el público infantil que se acerca a los villancicos mediante un libro de sonidos. Su temática navideña y sus 12 páginas lo distinguen de las lecturas infantiles con narraciones largas y de los libros de actividades centrados en el dibujo.",
+      "texto": "Está pensado para un público infantil que empieza a familiarizarse con los villancicos mediante un libro de sonidos. Su propuesta musical y su extensión de 12 páginas responden menos a quienes buscan una narración larga o un libro de actividades centrado en la lectura de textos extensos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,35 +13,34 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "La propuesta combina el libro físico con sonidos asociados a los primeros villancicos. Permite alternar la exploración de sus 12 páginas con la escucha, de manera que la actividad se centra en reconocer canciones navideñas y relacionarlas con el contenido del libro.",
+      "texto": "Se utiliza como libro sonoro para explorar los primeros villancicos mediante la interacción con sus sonidos. La actividad consiste en combinar la observación de las páginas con la escucha, dentro de un volumen infantil de 12 páginas.",
       "evidencias": [
         "titulo",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Auzou se presenta en tapa dura, con 12 páginas en castellano. Es un formato físico para manipular durante la actividad sonora y guardar junto a otros libros infantiles de temática navideña.",
+      "texto": "La edición en tapa dura reúne 12 páginas y mantiene el formato físico propio de este libro de sonidos. Permite manipular el volumen durante las actividades de escucha y conservarlo para repetir los villancicos en diferentes momentos.",
       "evidencias": [
-        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "titulo",
-        "categorias"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La única manera de bailar / The Only Way to Dance comparte con este libro una referencia a la expresión musical o corporal, aunque el título de Mei STOYVA se centra específicamente en los villancicos y los sonidos. Frente a Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena), su actividad gira alrededor de la escucha y no del dibujo.",
+      "texto": "Libro de sonidos. Mis primeros villancicos (LIBRO DE SONIDOS/LLIBRE DE SONS) y La única manera de bailar / The Only Way to Dance se relacionan con experiencias artísticas, aunque el primero se centra en la escucha de villancicos y el segundo presenta el baile como asunto principal. Frente a 30 misiones para ver el mundo con otros ojos: Retos de fotografía con móvil para descubrir, crear y contar historias, de Gustavo Duarte, la propuesta de Mei STOYVA se basa en sonidos y no en retos fotográficos.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890984005",
-        "isbn-9791388322778"
+        "isbn-9788409910434",
+        "isbn-9798890984005"
       ]
     }
   ],

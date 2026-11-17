@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El circo de la poíesis: Acerca del arte inútil. Breviario n.º 4 (Ensayo) está dirigido a lectores interesados en la reflexión filosófica sobre el arte. Su planteamiento ensayístico se distancia de la narrativa de ficción y de los libros que abordan la creación artística mediante una historia novelada.",
+      "texto": "El circo de la poíesis: Acerca del arte inútil. Breviario n.º 4 (Ensayo), de Chantal Maillard, se dirige a lectores interesados en la reflexión filosófica sobre el arte. Su clasificación como ensayo y filosofía lo distingue de las novelas narrativas y de los libros de instrucciones prácticas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El circo de la poíesis: Acerca del arte inútil. Breviario n.º 4 (Ensayo) se publica en tapa blanda, con 120 páginas en castellano. Es una edición física de extensión breve que permite transportar el texto y volver a pasajes concretos durante su lectura o consulta.",
+      "texto": "El circo de la poíesis: Acerca del arte inútil. Breviario n.º 4 (Ensayo) está publicado por Galaxia Gutenberg en tapa blanda y tiene 120 páginas. Su extensión breve permite abordar el texto filosófico en un volumen manejable y regresar a sus pasajes durante la consulta.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El circo de la poíesis: Acerca del arte inútil. Breviario n.º 4 (Ensayo) comparte con Astrología, filosofía y magia: Un camino de práctica espiritual el interés por la filosofía. Chantal Maillard sitúa su reflexión en el arte, mientras que Soledad Davies vincula el pensamiento filosófico con la astrología, la magia y la práctica espiritual.",
+      "texto": "Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, y El circo de la poíesis: Acerca del arte inútil. Breviario n.º 4 (Ensayo), de Chantal Maillard, se relacionan por su orientación hacia la reflexión. El primero se presenta como una colección de aforismos para meditar, mientras que el segundo aborda el arte desde el ensayo filosófico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,7 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9791387548278"
       ]
     }
   ],

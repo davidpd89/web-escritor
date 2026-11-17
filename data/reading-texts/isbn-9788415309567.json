@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788415309567",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Coloración capilar (CFGM PELUQUERÍA Y COSMETICA CAPILAR) se dirige a quienes buscan contenidos relacionados con la coloración del cabello y la formación en peluquería. Su enfoque temático y sus 152 páginas lo diferencian de las lecturas generales sobre bienestar o hábitos saludables.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Coloración capilar (CFGM PELUQUERÍA Y COSMETICA CAPILAR) está editado en tapa blanda por Editorial Altamar. Es un volumen físico de 152 páginas en castellano, que permite mantener el contenido a mano para su lectura y consulta durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante (Salud natural) comparte con Coloración capilar (CFGM PELUQUERÍA Y COSMETICA CAPILAR) el interés por el cuidado personal, aunque se centra en la alimentación y la salud. Defiéndete: Claves básicas para fortalecer tu seguridad personal y salir a la calle sin miedo (Alienta) también tiene una orientación práctica, pero aborda la seguridad personal en lugar de la coloración del cabello.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411193900",
+        "isbn-9788413445373"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d61c27f0fd06c46",
+  "origen": "chatgpt-web"
+}

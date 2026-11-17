@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuaderno Bunik: 65 (Comba) se dirige a lectores interesados en la poesía y en libros de formato breve. Por su género, encaja con quien busca una propuesta poética, no con quien espera una novela o una obra narrativa extensa.",
+      "texto": "Cuaderno Bunik: 65 (Comba), de Celso Castro, se dirige a lectores de poesía en castellano que buscan un volumen de 112 páginas. Por su clasificación literaria, se aleja de las lecturas centradas en una trama narrativa de ciencia ficción o misterio.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda tiene 112 páginas y es el formato disponible para Cuaderno Bunik: 65 (Comba). Su extensión permite conservar una edición física de tamaño contenido, frente a las alternativas digitales o de tapa dura que no forman parte de esta oferta.",
+      "texto": "Cuaderno Bunik: 65 (Comba) está disponible en tapa blanda, con 112 páginas. Esta edición de Editorial Comba permite leerlo en papel y guardarlo en una estantería sin el volumen físico de una obra más extensa.",
       "evidencias": [
         "titulo",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuaderno Bunik: 65 (Comba) puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por su relación con la poesía. La diferencia está en el planteamiento que anuncia cada título: el de Pedro Salinas identifica expresamente una antología amorosa, mientras que Cuaderno Bunik: 65 (Comba) no presenta esa misma orientación temática en su título.",
+      "texto": "Cuaderno Bunik: 65 (Comba) comparte su ámbito poético con A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza. La diferencia identificable está en la autoría: Celso Castro firma Cuaderno Bunik: 65 (Comba), mientras que los otros títulos corresponden a escritoras y escritores distintos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,8 +33,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288",
-        "isbn-9791370140908"
+        "isbn-9788410907539",
+        "isbn-9788410212749"
       ]
     }
   ],

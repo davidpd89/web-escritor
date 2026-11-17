@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388334603",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inteligencia artificial para mayores, de Dolores Trujillo, se dirige a lectores interesados en comprender la inteligencia artificial desde la divulgación científica. No es una propuesta de ficción ni de narrativa, sino un libro de divulgación centrado en una tecnología concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 154 páginas en un volumen físico manejable. Es el único formato disponible para este título y permite leerlo sin depender de una pantalla ni de un dispositivo electrónico.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, comparte el interés por explicar la inteligencia artificial a lectores no especializados. Inteligencia artificial para mayores, de Dolores Trujillo, plantea ese mismo ámbito desde un título orientado expresamente a un público mayor, mientras que el libro de Mansfield presenta un recorrido organizado alrededor de cincuenta cuestiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c015544225cf47a",
+  "origen": "chatgpt-web"
+}

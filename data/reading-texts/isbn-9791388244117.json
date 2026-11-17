@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388244117",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La matanza de Gaza: Crónicas de una catástrofe (GENERAL) se dirige a lectores interesados en la historia contemporánea, las crónicas y el ensayo sobre conflictos. Sus 312 páginas abordan una temática de violencia y catástrofe, por lo que se aleja de las preferencias de quienes buscan ficción ligera o relatos de evasión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La matanza de Gaza: Crónicas de una catástrofe (GENERAL) está disponible en tapa blanda y reúne 312 páginas. La edición en castellano de Radical Books permite leer las crónicas en papel y conservar el volumen para futuras consultas sobre el conflicto tratado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La matanza de Gaza: Crónicas de una catástrofe (GENERAL) puede compararse con El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas), de Lyse Doucet. Ambas obras se relacionan con territorios marcados por conflictos y con la escritura de carácter testimonial. Gideon Levy sitúa sus crónicas en Gaza, mientras que Lyse Doucet presenta una historia en primera persona vinculada a Afganistán.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928360"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a3b46dcb1c0d99af",
+  "origen": "chatgpt-web"
+}

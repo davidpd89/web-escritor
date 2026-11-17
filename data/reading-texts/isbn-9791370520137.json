@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370520137",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de cómic y novela gráfica interesados en el misterio y el thriller. Sus 600 páginas plantean una lectura extensa dentro de esos géneros, por lo que encaja menos con quien busca una historieta breve o una novela convencional sin formato gráfico.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Devir contiene 600 páginas en castellano. Por su extensión, conviene tener en cuenta el espacio que ocupa al transportarla; el papel permite recorrer las páginas y volver a escenas anteriores sin depender de una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mientras siga vivo Núm. 01: 1 comparte el terreno del cómic con Caminando con la muerte 4 (Seinen), aunque sus títulos identifican entregas diferentes. También puede compararse con Anna en la cueva: Anna Dédalus detective: 4 por su relación con el misterio; esta última se presenta expresamente como una historia detectivesca.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419605528",
+        "isbn-9788410305830"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aeccaf1e51815001",
+  "origen": "chatgpt-web"
+}

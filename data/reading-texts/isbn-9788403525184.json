@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788403525184",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El camino del artista para cada día: Inspiración diaria para una vida creativa, de Julia Cameron, está dirigido a personas interesadas en incorporar la creatividad a su rutina. Su enfoque de desarrollo personal y actividad artística se distancia de las novelas y de los manuales centrados exclusivamente en una técnica creativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El camino del artista para cada día: Inspiración diaria para una vida creativa tiene 400 páginas en castellano. El volumen de Aguilar permite mantener el libro a mano para consultas frecuentes, de acuerdo con su planteamiento de inspiración cotidiana.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El camino del artista para cada día: Inspiración diaria para una vida creativa se relaciona con Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros). Ambos vinculan la creación artística con la vida cotidiana, pero el libro de Julia Cameron se presenta desde el desarrollo personal, mientras que el de Katy Hessel destaca las inspiraciones de artistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388324239"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "51abd3d086dd7c79",
+  "origen": "chatgpt-web"
+}

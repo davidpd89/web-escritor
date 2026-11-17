@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388077104",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores con interés en la ecografía y en el estudio de la vena cava inferior en personas mayores de 18 años. Su objeto de investigación es anatómico y clínico, por lo que se aparta de la divulgación científica general sobre asuntos no relacionados con la salud.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina los valores normales del diámetro de la vena cava inferior y su dinámica mediante ecografía. El estudio delimita la población a personas mayores de 18 años y plantea una aproximación centrada en mediciones y comportamiento de esta estructura anatómica.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 40 páginas en castellano. Su extensión permite manejar el estudio como un documento físico breve, consultar el tema de la medición ecográfica y regresar a sus contenidos sin recorrer un manual de gran tamaño.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "(ENAC0019) Herramientas de análisis coste/beneficio aplicadas a la eficiencia energética comparte la orientación hacia un asunto técnico concreto. La diferencia está en el campo estudiado: aquel trata el análisis económico de la eficiencia energética, mientras Estudio de los valores normales del diámetro y la dinámica de la vena cava inferior mediante ecografía en personas mayores de 18 años. se ocupa de mediciones anatómicas por ecografía.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388334627"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4605ddb746b6f806",
+  "origen": "chatgpt-web"
+}

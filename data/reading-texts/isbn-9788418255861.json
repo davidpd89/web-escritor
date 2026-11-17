@@ -4,46 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a lectores que buscan fundamentos teóricos y normativos sobre la calidad en la edificación. Marco teórico y principios normativos de la Calidad en la Edificación, de Alejandra Vidales Barriguete, se sitúa en un contexto técnico y formativo, distinto del de las lecturas sobre arquitectura centradas únicamente en su vertiente estética.",
+      "texto": "Marco teórico y principios normativos de la Calidad en la Edificación se orienta a lectores interesados en la construcción, sus criterios de calidad y su marco normativo. Su planteamiento técnico se distancia de los libros sobre decoración doméstica o creación artística sin contenido normativo.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El contenido se centra en los fundamentos conceptuales y los principios normativos relacionados con la calidad de la edificación. Alejandra Vidales Barriguete plantea este asunto desde un marco teórico que conecta el ámbito constructivo con cuestiones técnicas y de gestión, en una publicación de 77 páginas.",
+      "texto": "Trata los fundamentos teóricos y los principios normativos relacionados con la calidad en la edificación. El enfoque conecta cuestiones de construcción y diseño con criterios de calidad, dentro de una publicación de 77 páginas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición física tiene 77 páginas en castellano y se presenta con encuadernación en espiral, aunque el formato figura como tapa blanda. Esta presentación permite mantener las páginas abiertas durante la consulta de los principios normativos y facilita su utilización como material de estudio o referencia técnica.",
+      "texto": "La edición física de Marco teórico y principios normativos de la Calidad en la Edificación tiene 77 páginas y utiliza encuadernación en espiral. Aunque aparece clasificada como tapa blanda, la espiral facilita mantener abiertas las páginas durante la consulta de los contenidos técnicos.",
       "evidencias": [
+        "titulo",
         "edicion",
         "formato_edicion",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "titulo"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Gestión de proyectos de inteligencia artificial y Marco teórico y principios normativos de la Calidad en la Edificación comparten el interés por cuestiones técnicas y de gestión. La obra de Adrián González Sánchez y Malini Jain Runtasewee se ocupa de proyectos de inteligencia artificial, mientras que Alejandra Vidales Barriguete aborda los fundamentos normativos de la calidad constructiva.",
+      "texto": "LA PMO INVISIBLE: Gestión de proyectos holónica para despachos de arquitectura, ingeniería y consultoría de 15 a 50 personas comparte con esta obra el ámbito profesional de la arquitectura y la edificación. La diferencia está en el objeto de estudio: LA PMO INVISIBLE trata la gestión de proyectos y despachos, mientras que Marco teórico y principios normativos de la Calidad en la Edificación se ocupa de la calidad y sus fundamentos normativos.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788426742827"
+        "isbn-9788409935536"
       ]
     }
   ],

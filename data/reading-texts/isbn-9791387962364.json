@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387962364",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ranger Reject 17 (Shônen), de Negi Haruba, se dirige a lectores de manga interesados en las aventuras narradas mediante cómic. El título lo identifica como el n.º 17, por lo que se aleja de quienes buscan empezar una colección desde un volumen identificado como inicial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ranger Reject 17 (Shônen) se publica en tapa blanda y tiene 192 páginas en castellano. Este formato físico permite incorporar el volumen a una colección de manga y consultar sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ranger Reject 18 (Shônen), de Negi Haruba, comparte autor y nombre de serie con Ranger Reject 17 (Shônen); sus títulos los identifican como los números 18 y 17, respectivamente. Galaxias, 1 (Shônen - Galaxias), de Ao Hatesaka, pertenece también al ámbito del manga shônen, pero presenta otra autoría y un título identificado con el n.º 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962661",
+        "isbn-9782811699475"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "93a60053d0464ebd",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399101362",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores de filosofía, espiritualidad y ensayo que prefieren explorar estas cuestiones mediante diálogos. El planteamiento de Jean Klein se diferencia de una guía de ejercicios prácticos o de un manual técnico, ya que el propio título sitúa el intercambio de ideas en el centro de la obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mas alla del conocimiento: Diálogos en Sounion, Grecia y Londres, Inglaterra. se publica en tapa blanda y tiene 132 páginas. Su extensión permite abordar los diálogos en sesiones relativamente breves, con un volumen físico que puede guardarse y consultarse sin ocupar demasiado espacio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mas alla del conocimiento: Diálogos en Sounion, Grecia y Londres, Inglaterra. se aproxima a Consciencia Inmortal: Conversaciones con Sri Ramana Maharshihi por su formato de intercambio de ideas y su vinculación con la espiritualidad. Frente a Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, la obra de Jean Klein plantea diálogos en lugar de una colección de aforismos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278",
+        "isbn-9791399252705"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e4fd33db905e1465",
+  "origen": "chatgpt-web"
+}

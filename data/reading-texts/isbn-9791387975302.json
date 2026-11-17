@@ -4,50 +4,56 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de narrativa contemporánea interesados en una obra de Agustín Fernández Mallo presentada como edición definitiva. Su orientación literaria se aleja de los manuales históricos y de quienes buscan una exposición académica de acontecimientos del siglo XX.",
+      "texto": "Nocilla dream. Edición definitiva (Hispánica) se dirige a lectores interesados en la narrativa contemporánea y en obras vinculadas también con la historia. Su encuadre resulta menos próximo a quienes buscan específicamente fantasía, aventuras infantiles o ciencia ficción. Agustín Fernández Mallo firma esta edición de 216 páginas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Nocilla dream. Edición definitiva (Hispánica) identifica expresamente esta publicación como edición definitiva de la obra de Agustín Fernández Mallo. Alfaguara la publica en castellano, en tapa blanda, con 216 páginas y fecha de publicación del 2026-11-05.",
+      "texto": "Nocilla dream. Edición definitiva (Hispánica) identifica expresamente esta publicación como edición definitiva de la obra de Agustín Fernández Mallo. Alfaguara la presenta en castellano, en tapa blanda y con 216 páginas, con fecha de publicación editorial 2026-11-05. El ISBN 9791387975302 permite distinguir esta edición concreta de otras presentaciones del mismo título.",
       "evidencias": [
         "titulo",
         "autores",
         "editorial",
-        "idioma",
         "edicion",
+        "idioma",
         "numero_paginas",
-        "fecha_publicacion"
+        "fecha_publicacion",
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 216 páginas de Nocilla dream. Edición definitiva (Hispánica) en un volumen físico que puede guardarse y prestarse. Kindle permite llevar la misma obra en un lector electrónico o en el móvil, sin necesidad de transportar el ejemplar impreso.",
+      "texto": "Nocilla dream. Edición definitiva (Hispánica) se ofrece en tapa blanda y Kindle. La edición física de Alfaguara contiene 216 páginas y utiliza una cubierta flexible, práctica para llevar el volumen durante los desplazamientos. Kindle permite leer la obra en formato digital y prescindir del ejemplar impreso.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) comparte con Nocilla dream. Edición definitiva (Hispánica) el interés por presentar una obra narrativa en una edición identificada de forma particular. La diferencia editorial está en el planteamiento: una se anuncia como edición limitada a precio especial y la otra como edición definitiva.",
+      "texto": "Nocilla dream. Edición definitiva (Hispánica) y Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) pertenecen al ámbito de la narrativa, aunque sus presentaciones editoriales son distintas. La obra de Agustín Fernández Mallo figura como narrativa contemporánea en edición definitiva de tapa blanda; la de Lev Tolstoi se identifica como edición especial en tapa dura. La comparación permite distinguir una publicación contemporánea de una obra presentada en una colección conmemorativa.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "edicion",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328353"
+        "isbn-9788491058397"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2d8b55f9f25db82d",
+  "fuente_hash": "d53ed8ca1b549753",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388136375",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige al público infantil y juvenil que busca historias en formato de novela gráfica. El título identifica esta entrega de Ellen T. Crenshaw con el número 16, por lo que encaja con quienes siguen El club de las canguro y no con quienes prefieren narrativa exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Maeva Ediciones reúne 160 páginas en castellano. Es una presentación física de esta novela gráfica, adecuada para recorrer sus páginas en papel y conservar la entrega junto a otros volúmenes de la colección.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animal Jack 2 la montaña mágica comparte su orientación hacia el cómic juvenil, aunque su título sitúa la historia en un contexto mágico frente al desastre con patas de Kristy. AVATAR. La leyenda de Aang 5 - Norte y sur también pertenece a una serie y desarrolla aventuras de personajes conocidos, pero se centra en el universo de Avatar en lugar de El club de las canguro.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387744410",
+        "isbn-9788448874803"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4dd18c1a6315b0fe",
+  "origen": "chatgpt-web"
+}

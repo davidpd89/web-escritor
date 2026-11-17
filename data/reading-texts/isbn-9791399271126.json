@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399271126",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pequeño tratado sobre los elefantes (Fuera de Serie) se dirige a lectores interesados en el ensayo y en su relación con el arte y el diseño. Por su clasificación editorial, se aleja de la narrativa de ficción y de los manuales centrados exclusivamente en actividades prácticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pequeño tratado sobre los elefantes (Fuera de Serie) está disponible en tapa blanda, con 198 páginas en castellano. Esta edición de Ampersand permite conservar el volumen en papel y consultarlo por partes, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pequeño tratado sobre los elefantes (Fuera de Serie) comparte el ámbito del arte con Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros). El primero se presenta como un tratado sobre los elefantes, mientras que el segundo plantea inspiraciones artísticas para la vida cotidiana. Ambos se diferencian de Cómo crear y consolidar tu propia marca de joyería, cuyo título apunta a una actividad profesional concreta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410650534",
+        "isbn-9791388324239"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9ad7a936795171c7",
+  "origen": "chatgpt-web"
+}

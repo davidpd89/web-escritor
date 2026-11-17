@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9791370093310",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de poesía que buscan reunir la producción poética de Miguel Hernández en un solo volumen. Por su extensión de 832 páginas y su carácter recopilatorio, encaja menos con quienes prefieren un poemario breve o una selección reducida de textos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Obra poética completa: Edición especial con cantos tintados: 20 (Especial (Únicos)) se distingue por sus cantos tintados y su encuadernación en tapa dura. Alianza Editorial la publicó el 15 de octubre de 2026 en castellano, con 832 páginas dedicadas a la poesía de Miguel Hernández.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, con 832 páginas y cantos tintados. Su encuadernación rígida y sus acabados especiales la orientan a conservar la obra reunida de Miguel Hernández, tanto para consultas y relecturas como para regalar un volumen de poesía.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Obra poética completa, de Miguel Hernández, puede compararse con A solas, de María Jesús Martínez Ramos, por su vinculación con la poesía. La obra de Miguel Hernández reúne su producción poética en 832 páginas, mientras que A solas se presenta como un título independiente de otra autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "51370b40ba812597",
+  "origen": "chatgpt-web"
+}

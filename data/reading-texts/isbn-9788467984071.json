@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788467984071",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Muerte a la villana 05: 5 está dirigido a quienes leen cómic y novela gráfica y siguen obras de HAEGI y Your April. El título lo identifica como el n.º 5, una característica que puede alejar a quienes prefieren comenzar por el primer volumen de una colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Muerte a la villana 05: 5 cuenta con una edición en tapa blanda de 272 páginas, publicada en castellano por Norma Editorial. Su presentación en papel permite guardarlo con otros volúmenes numerados y consultarlo sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c79b990d08b6460",
+  "origen": "chatgpt-web"
+}

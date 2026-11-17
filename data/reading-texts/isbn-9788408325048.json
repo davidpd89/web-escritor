@@ -4,8 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de 6 a 8 años interesados en la fantasía, el baile y las aventuras escolares con magia. Quienes prefieran historias realistas o ajenas a la música encontrarán aquí una propuesta distinta, centrada en los ensayos y la convivencia entre compañeras.",
+      "texto": "K-Pop Witch Academy 1. El sueño de una aprendiz está dirigido a lectores de 6 a 8 años interesados en la fantasía, la música y las aventuras escolares. El entrenamiento de aspirantes a estrellas del K-pop y los problemas de convivencia marcan su propuesta, distinta de una historia realista sin elementos mágicos.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -13,35 +14,36 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Está recomendado para niños de 6 a 8 años y tiene 176 páginas. La edición física es de tapa dura, en castellano, y el libro combina aventuras fantásticas con una historia de aprendizaje vinculada al baile y la magia.",
+      "texto": "La edad recomendada para K-Pop Witch Academy 1. El sueño de una aprendiz es de 6 a 8 años. Tiene 176 páginas y una edición en tapa dura sin sobrecubierta, publicada por Planeta Junior; el título lo identifica como el n.º 1 de la serie.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "edicion",
-        "idioma",
-        "categorias",
-        "sinopsis_editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 176 páginas en un volumen físico resistente para conservar o regalar. Kindle permite llevar la misma lectura en un dispositivo compatible, sin necesidad de transportar el libro impreso.",
+      "texto": "La tapa dura en cartoné reúne las 176 páginas de K-Pop Witch Academy 1. El sueño de una aprendiz en un volumen físico que puede guardarse y prestarse. La versión Kindle permite leerlo desde un dispositivo compatible y evita transportar el libro impreso.",
       "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas"
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte con Estuche Magic Animals. Misiones especiales 1 y 2, de Susanna Isern, Carles Dalmau y Nil López, el interés por la magia dentro de la literatura infantil. K-Pop Witch Academy 1. El sueño de una aprendiz se distingue por unir esa fantasía con el entrenamiento musical y los conflictos entre compañeras, mientras el otro título se presenta como un estuche de misiones especiales.",
+      "texto": "Iris y Luna: cuidadoras de cachorritos mágicos 8 - ¡Un reno en apuros!: ¡Un libro con purpurina en la cubierta! (Primeras lecturas) comparte con K-Pop Witch Academy 1. El sueño de una aprendiz la presencia de magia en una propuesta infantil. La obra de Aurora Quirón gira alrededor de cachorritos mágicos, mientras Fiona Scoble combina formación musical, convivencia y poderes extraordinarios.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
+        "autores",
+        "categorias",
         "sinopsis_editorial",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408327332"
+        "isbn-9791387695682"
       ]
     }
   ],

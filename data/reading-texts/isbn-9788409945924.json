@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hasta la Muerte: Usque ad mortem, Menorca 1558 se dirige a lectores interesados en la historia y la narrativa vinculada a épocas pasadas. El título sitúa su referencia en Menorca y en 1558, mientras que sus 232 páginas la diferencian de los estudios históricos de gran extensión; no está orientada a quienes buscan exclusivamente narrativa contemporánea sin componente histórico.",
+      "texto": "Encaja con lectores interesados en relatos vinculados a la historia de Menorca y, en concreto, al año 1558. Su combinación de narrativa contemporánea e historia se aleja de los manuales históricos de consulta y de las lecturas centradas exclusivamente en acontecimientos actuales.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hasta la Muerte: Usque ad mortem, Menorca 1558 cuenta con una edición en tapa blanda de 232 páginas en castellano. El volumen de Voyage Of Discovery permite leer y conservar la obra de Sr. Josep Bosch en papel, con una encuadernación flexible para su transporte y consulta.",
+      "texto": "La edición de Hasta la Muerte: Usque ad mortem, Menorca 1558 se presenta en tapa blanda, con 232 páginas en castellano. Su extensión permite llevar el volumen en papel y leerlo por sesiones sin depender de un dispositivo electrónico; también puede conservarse en una biblioteca dedicada a narrativa e historia.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "autores"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El caballero inventor de la corte: Jerónimo de Ayanz. Aprovechando que el Pisuerga pasa por Valladolid comparte con Hasta la Muerte: Usque ad mortem, Menorca 1558 el interés por referentes históricos, aunque sus títulos señalan protagonistas y lugares diferentes. Corazón de oro: Edición limitada a precio especial (Colección Especial) ofrece otra referencia de narrativa, firmada por Luz Gabás, frente a la obra de Sr. Josep Bosch vinculada en su título a Menorca y 1558.",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) y Hasta la Muerte: Usque ad mortem, Menorca 1558 se sitúan en el ámbito narrativo, aunque pertenecen a autores distintos: Luz Gabás y Sr. Josep Bosch. El segundo identifica expresamente Menorca y el año 1558 como referencias históricas, mientras que el título de Corazón de oro no delimita un lugar ni una fecha.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328353",
-        "isbn-9788410929944"
+        "isbn-9788408328353"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f3d43c958c78bc86",
+  "fuente_hash": "7b58ff2a316b5207",
   "origen": "chatgpt-web"
 }

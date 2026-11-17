@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Manual de ilustración científica - Nueva edición con láminas (Ilustrados) se dirige a lectores interesados en representar visualmente la naturaleza y en la relación entre arte y ciencia. Su carácter de manual con láminas lo diferencia de una lectura narrativa y lo sitúa más cerca de la consulta y el trabajo gráfico.",
+      "texto": "Está orientado a personas interesadas en la representación visual de contenidos científicos y en las técnicas de ilustración. Manual de ilustración científica - Nueva edición con láminas (Ilustrados), de Varios autores, combina los ámbitos del arte, el diseño y la divulgación científica, por lo que se diferencia de los libros centrados únicamente en la teoría científica.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Manual de ilustración científica - Nueva edición con láminas (Ilustrados) se presenta en tapa dura, con 400 páginas y láminas anunciadas en el título. Esta edición física de Geoplaneta permite mantener reunido el material gráfico y consultarlo durante el trabajo de ilustración.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
+        "autores",
         "categorias"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Manual de ilustración científica - Nueva edición con láminas (Ilustrados) comparte con Dibujos para colorear, ¡qué misterio! Naturaleza (Hachette HEROES - DISNEY - Arteterapia) el interés por las imágenes y la naturaleza. El primero se presenta como manual de ilustración científica con láminas, mientras que el segundo propone una actividad de coloreado vinculada a la naturaleza.",
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Manual de ilustración científica - Nueva edición con láminas (Ilustrados) contiene 400 páginas y se presenta como una nueva edición con láminas. Su formato físico permite consultar las ilustraciones directamente sobre papel y mantener el volumen como material de referencia para trabajos de dibujo científico.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manual de ilustración científica - Nueva edición con láminas (Ilustrados) y All Black Cuaderno (LIBRETAS ARTÖSTICAS) comparten su vinculación con la actividad artística y la autoría de Varios autores. El primero se presenta como un manual de ilustración científica con láminas, mientras que el segundo se identifica como un cuaderno artístico, con una finalidad distinta de la consulta técnica.",
+      "evidencias": [
+        "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388034497"
+        "isbn-9789879871119"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fafa5f5145b1db26",
+  "fuente_hash": "ff47cc9e6ea47073",
   "origen": "chatgpt-web"
 }

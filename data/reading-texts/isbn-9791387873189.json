@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791387873189",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en relatos de viajes, experiencias personales y navegación a vela. El título sitúa la experiencia en una vuelta al mundo realizada en un velero de ocho metros, por lo que se diferencia de las guías centradas en destinos y recorridos turísticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La navegación y la experiencia de recorrer el mundo en una embarcación pequeña articulan el planteamiento del libro. El título identifica tanto el medio de transporte —un velero de ocho metros— como la dimensión internacional de la travesía, dentro del ámbito de los viajes y las memorias.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne sus 424 páginas en un único volumen, un formato pensado para la lectura en papel. Es la opción disponible para quien quiera conservar el libro físicamente o incorporarlo a su biblioteca de viajes y memorias.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "España en moto: 13 676 km en rutas de un día + Camino de Santiago (Nómadas) comparte el interés por recorrer territorios mediante un vehículo, aunque aquí el título sitúa el recorrido en el mar y a bordo de un velero. Al andar: Vivencias del Camino de Santiago también aborda la experiencia de desplazarse y conocer lugares, pero desde las vivencias asociadas al Camino.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo"
+      ],
+      "enlaces": [
+        "isbn-9788408324812",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a75a85e2683cf304",
+  "origen": "chatgpt-web"
+}

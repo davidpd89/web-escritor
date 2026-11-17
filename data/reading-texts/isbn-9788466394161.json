@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores de romance y narrativa contemporánea interesados en las relaciones de pareja atravesadas por circunstancias difíciles. Un burka por amor (edición limitada): La emotiva historia de una española atrapada en Afganistán (Campaña | Ahora por menos) se aleja del romance centrado exclusivamente en el cortejo: su propio título sitúa el conflicto amoroso en una situación de encierro.",
+      "texto": "Se dirige a lectores de romance y narrativa contemporánea interesados en una historia de amor relacionada con una española atrapada en Afganistán. Su planteamiento se aleja de las historias románticas centradas únicamente en el encuentro sentimental, ya que incorpora una situación de encierro como parte del conflicto anunciado.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,34 +12,35 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición limitada pertenece al sello Penguin Bolsillo y se presenta como libro de bolsillo en castellano. Su identificación editorial es el ISBN 9788466394161, con publicación prevista para el 2027-02-04; estos datos permiten distinguirla de otras presentaciones de la obra de Reyes Monforte.",
+      "texto": "Esta edición limitada pertenece al sello Penguin Bolsillo y se presenta en tapa blanda, con 384 páginas en castellano. Su fecha de publicación es 2027-02-04 y el ISBN 9788466394161 permite identificar esta presentación concreta de la obra de Reyes Monforte.",
       "evidencias": [
         "titulo",
-        "autores",
         "editorial",
         "edicion",
+        "formato_edicion",
+        "numero_paginas",
         "idioma",
+        "fecha_publicacion",
         "isbn13",
-        "fecha_publicacion"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La opción disponible es la tapa blanda, en edición de bolsillo de Penguin Bolsillo. Sus 384 páginas permiten llevar la lectura en un volumen físico compacto, aunque su extensión exige más tiempo que una novela breve. Es una elección orientada a quien prefiere leer en papel y transportar el libro.",
+      "texto": "La tapa blanda es la presentación disponible de esta obra de 384 páginas, publicada como libro de bolsillo. Su encuadernación flexible facilita llevarla durante los desplazamientos y guardarla sin el volumen añadido de unas cubiertas rígidas.",
       "evidencias": [
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La infiel comparte con esta obra la autoría de Reyes Monforte y el interés por experiencias personales difíciles. Mientras La infiel presenta a una profesora marcada por una pérdida familiar y un embarazo temprano, Un burka por amor (edición limitada): La emotiva historia de una española atrapada en Afganistán (Campaña | Ahora por menos) sitúa su conflicto en Afganistán y dentro del romance.",
+      "texto": "La infiel, también de Reyes Monforte, comparte con Un burka por amor (edición limitada): La emotiva historia de una española atrapada en Afganistán (Campaña | Ahora por menos) una atención a mujeres que afrontan circunstancias difíciles. La primera presenta a Sara, una profesora de Madrid marcada por pérdidas personales y un embarazo, mientras que la segunda sitúa su conflicto anunciado en Afganistán y lo relaciona con el amor.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
+        "afines_catalogo",
         "categorias"
       ],
       "enlaces": [
@@ -49,6 +50,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "de584be557b1121f",
+  "fuente_hash": "8419409beef55b1f",
   "origen": "chatgpt-web"
 }

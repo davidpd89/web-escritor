@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791388453274",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Viaje espírita en 1862: El nacimiento de un movimiento que quiso transformar la sociedad se orienta a lectores interesados en el espiritismo y su dimensión histórica y social. El asunto que anuncia su título lo distingue de los manuales de alimentación, ejercicio o bienestar físico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Viaje espírita en 1862: El nacimiento de un movimiento que quiso transformar la sociedad está editado en tapa blanda. Sus 148 páginas permiten leerlo en papel y volver a pasajes concretos sobre el movimiento al que se refiere el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Viaje espírita en 1862: El nacimiento de un movimiento que quiso transformar la sociedad tiene un punto de contacto temático con 44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life, de Tania Karam. Allan Kardec aborda un movimiento espírita desde su título histórico, mientras que la obra de Tania Karam plantea mensajes espirituales aplicados a la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073881388"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "afa48c375fb2d488",
+  "origen": "chatgpt-web"
+}

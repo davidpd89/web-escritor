@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo leer la arquitectura: Introducción al entendimiento del entorno construido (Estudios Universitarios de Arquitectura (EUA)) está orientado a lectores interesados en comprender la arquitectura y los espacios construidos. Su enfoque introductorio y universitario lo diferencia de los libros centrados en la creación artística personal o en técnicas de dibujo.",
+      "texto": "Cómo leer la arquitectura: Introducción al entendimiento del entorno construido (Estudios Universitarios de Arquitectura (EUA)) se dirige a lectores interesados en comprender la arquitectura desde una perspectiva de estudio. Por su enfoque introductorio y sus 424 páginas, se diferencia de las publicaciones centradas en la creación literaria o en actividades artísticas sin relación directa con los edificios.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cómo leer la arquitectura: Introducción al entendimiento del entorno construido (Estudios Universitarios de Arquitectura (EUA)) se publica en tapa blanda. La edición de Editorial Reverté consta de 424 páginas en castellano, una extensión que permite utilizar el volumen como lectura continuada o como material de consulta física.",
+      "texto": "Cómo leer la arquitectura: Introducción al entendimiento del entorno construido (Estudios Universitarios de Arquitectura (EUA)) se presenta en tapa blanda, con 424 páginas. Su extensión permite dedicarle sesiones de lectura y consulta, mientras que la encuadernación flexible facilita manejar el volumen durante el estudio del entorno construido.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "editorial",
         "numero_paginas",
-        "idioma"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo leer la arquitectura: Introducción al entendimiento del entorno construido (Estudios Universitarios de Arquitectura (EUA)) y 720 retrats, de Xavier Mollà i Revert, se sitúan en el ámbito de las artes visuales. El libro de Paulette Singley se ocupa de interpretar el entorno construido, mientras que 720 retrats centra su título en el retrato.",
+      "texto": "Cómo leer la arquitectura: Introducción al entendimiento del entorno construido (Estudios Universitarios de Arquitectura (EUA)) y 720 retrats se relacionan con el ámbito artístico, pero parten de objetos de estudio diferentes. Paulette Singley se ocupa de la comprensión del espacio arquitectónico, mientras que Xavier Mollà i Revert presenta una obra centrada en retratos. All Black Cuaderno (LIBRETAS ARTÖSTICAS) se diferencia de ambos por su condición de cuaderno, frente al enfoque de estudio de la arquitectura.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412678802"
+        "isbn-9788412678802",
+        "isbn-9789879871119"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0ba72f4a5051488a",
+  "fuente_hash": "6e6961a73a9d2d85",
   "origen": "chatgpt-web"
 }

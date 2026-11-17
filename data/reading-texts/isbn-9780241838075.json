@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Star Wars. Los diseños: Planos y dibujos técnicos originales de la saga Skywalker se dirige a lectores interesados en los diseños técnicos y visuales del universo Star Wars. Sus 336 páginas y su enfoque en planos y dibujos lo distinguen de una novela centrada en narrar nuevas aventuras de ciencia ficción.",
+      "texto": "Star Wars. Los diseños: Planos y dibujos técnicos originales de la saga Skywalker, de DK, está dirigido a lectores interesados en el diseño visual y técnico de Star Wars. Su contenido se centra en planos y dibujos originales, por lo que se aleja de una novela que desarrolle la historia mediante escenas y diálogos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Star Wars. Los diseños: Planos y dibujos técnicos originales de la saga Skywalker se presenta en tapa dura, con 336 páginas en castellano. Esta edición física de DK permite consultar los planos y dibujos técnicos originales de la saga Skywalker en un volumen que también puede conservarse como libro de consulta.",
+      "texto": "La edición en tapa dura de Star Wars. Los diseños: Planos y dibujos técnicos originales de la saga Skywalker reúne 336 páginas dedicadas al material gráfico de la saga. Su presentación física permite consultar los planos y dibujos sobre papel, conservar el volumen como obra de referencia y colocarlo en una biblioteca de arte y diseño.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Star Wars. Los diseños: Planos y dibujos técnicos originales de la saga Skywalker comparte autoría con El libro de los aviones (Transportes): Helicópteros, planeadores, dirigibles y otras aeronaves (Enciclopedia visual), ambos de DK. Los dos se relacionan con la representación técnica y visual, pero el primero aborda diseños de una saga de ciencia ficción y el segundo se ocupa de aeronaves. Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual), también de DK, cambia ese ámbito por una civilización histórica.",
+      "texto": "El libro de los aviones (Transportes): Helicópteros, planeadores, dirigibles y otras aeronaves (Enciclopedia visual), de DK, comparte con Star Wars. Los diseños: Planos y dibujos técnicos originales de la saga Skywalker el interés por los objetos técnicos, aunque aborda aeronaves en lugar de diseños de ficción. Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual), también de DK, propone una aproximación visual a una civilización histórica, frente al estudio gráfico de la saga Skywalker.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a707750bbbb2796a",
+  "fuente_hash": "4e4970685ffce0bb",
   "origen": "chatgpt-web"
 }

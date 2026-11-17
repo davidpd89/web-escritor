@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410435346",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Donde no me llevaste: 46 (Narrativa) encaja con lectores interesados en narrativa contemporánea relacionada con los viajes. La combinación de ambos ámbitos lo distingue de una guía turística centrada en datos prácticos sobre destinos. Maria Grazia Calandrone firma esta obra de 280 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Donde no me llevaste: 46 (Narrativa) se ofrece en tapa blanda y cuenta con 280 páginas. Su encuadernación flexible facilita llevarlo en desplazamientos y leerlo fuera de casa, mientras que la extensión permite organizar la lectura en varias sesiones. Altamarea Ediciones publica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde no me llevaste: 46 (Narrativa) puede compararse con El viaje por la relación entre narrativa y desplazamiento que sugieren sus títulos. Maria Grazia Calandrone firma el primero, mientras que Eloy Moreno es el autor del segundo. También se aproxima a A lomos de mi borrico: 537 (El Acantilado) por su vinculación con los viajes, aunque pertenece a otra colección y está firmado por Andrzej Stasiuk.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466685382",
+        "isbn-9791387964771"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "597c491df75433ff",
+  "origen": "chatgpt-web"
+}

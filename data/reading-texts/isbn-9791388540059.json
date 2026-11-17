@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "LA CHISPA DE LEX: El viaje de los sueños se orienta a lectores interesados en libros vinculados a los viajes. Con 250 páginas en castellano, propone una extensión intermedia y resulta menos afín a quien busca específicamente poesía, cómic o manuales técnicos.",
+      "texto": "LA CHISPA DE LEX: El viaje de los sueños se dirige a lectores interesados en relatos vinculados con los viajes y los sueños. Por su planteamiento temático, se aleja de quienes buscan específicamente un ensayo histórico o una guía práctica de destinos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "idioma"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "LA CHISPA DE LEX: El viaje de los sueños está editado en tapa blanda y reúne 250 páginas. La encuadernación flexible facilita llevar el volumen durante desplazamientos y leerlo en papel sin el peso habitual de una cubierta rígida.",
+      "texto": "LA CHISPA DE LEX: El viaje de los sueños está disponible en tapa blanda, con 250 páginas en castellano. Esta edición de Livensoul permite leerlo en papel y transportarlo sin la rigidez de una cubierta dura. Su extensión también permite organizar la lectura en varias sesiones.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "LA CHISPA DE LEX: El viaje de los sueños comparte autor con El último baile, también de Manel Rodriguez Moreno. Para quien busque una comparación centrada en viajes, 33 islas: Un periplo mediterráneo. De Marettimo a Venecia. ofrece un recorrido geográfico explícito, mientras que LA CHISPA DE LEX se presenta con un título centrado en los sueños.",
+      "texto": "LA CHISPA DE LEX: El viaje de los sueños comparte autor con La bruja buena del tiempo y El último baile, ambos de Manel Rodriguez Moreno. La diferencia reconocible está en el enfoque anunciado por los títulos: el primero remite a viajes y sueños, mientras los otros apuntan al tiempo y al baile, respectivamente. La coincidencia de autoría permite compararlos sin atribuirles una misma trama.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,7 +33,7 @@
       ],
       "enlaces": [
         "isbn-9791388540073",
-        "isbn-9791387873127"
+        "isbn-9791388540035"
       ]
     }
   ],

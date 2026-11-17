@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370520229",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ángel de al lado me mima demasiado Núm. 03: 3 está dirigido al público juvenil que lee cómics y novelas gráficas. Con 178 páginas, se diferencia de una novela convencional en prosa por su clasificación editorial; el título lo identifica como el n.º 03.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El ángel de al lado me mima demasiado Núm. 03: 3 se publica en tapa blanda, con 178 páginas en castellano. La edición física de Devir permite leer y conservar este volumen de cómic juvenil en papel, con una cubierta flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El ángel de al lado me mima demasiado Núm. 03: 3 puede compararse con Alya a veces me susurra en ruso 9 (Shônen - Alya) por su relación con el cómic juvenil. El primero tiene historia original de Saekisan y guion de Suzu Yuki, mientras que el segundo figura a nombre de SunSunSun; sus títulos identifican entregas diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791043309670"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc496db5b703bae3",
+  "origen": "chatgpt-web"
+}

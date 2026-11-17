@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estética y fragilidad se sitúa en el ensayo filosófico y encaja con lectores interesados en la reflexión conceptual. Sus 158 páginas, firmadas por Ílber Alexánder Salcedo Velásquez, responden a una lectura de no ficción y no a la búsqueda de una novela con trama y personajes.",
+      "texto": "Estética y fragilidad, de Ílber Alexánder Salcedo Velásquez, está orientado a lectores de ensayo y filosofía interesados en cuestiones estéticas. Con 158 páginas, se sitúa en el terreno de la reflexión filosófica y no en el de la ficción narrativa o los manuales de actividades.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,17 +14,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Estética y fragilidad se presenta en tapa blanda, con 158 páginas en castellano. El volumen permite una lectura física relativamente breve y facilita volver a los pasajes de interés mediante anotaciones o marcadores de papel.",
+      "texto": "Estética y fragilidad se publica en tapa blanda, con 158 páginas en castellano y edición de Ápeiron Ediciones. Su extensión permite manejarlo como un volumen físico relativamente breve, consultar pasajes anteriores y conservar las referencias de lectura en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Arendt y la antropología de la condición plural en doble movimiento comparte con Estética y fragilidad su orientación filosófica, pero el título de Javier Pons-Gallach delimita su estudio a la condición plural. Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, también incorpora la filosofía, aunque la vincula expresamente con la astrología y la práctica espiritual, frente al eje de estética y fragilidad de Ílber Alexánder Salcedo Velásquez.",
+      "texto": "Estética y fragilidad puede compararse con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, por su orientación hacia la reflexión filosófica. El libro de Ílber Alexánder Salcedo Velásquez se presenta como ensayo sobre estética y fragilidad, mientras que el de Raimon Panikkar identifica expresamente los aforismos como forma de lectura.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,8 +33,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399308358",
-        "isbn-9788411214315"
+        "isbn-9791387548278"
       ]
     }
   ],

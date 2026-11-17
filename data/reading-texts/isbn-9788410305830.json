@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Caminando con la muerte 4 (Seinen) se dirige a lectores de manga que buscan historias de terror, fantasía y misterio. Su clasificación como seinen y su combinación de géneros la sitúan en el terreno de la narrativa gráfica de suspense, no en el de la lectura práctica o romántica.",
+      "texto": "Caminando con la muerte 4 (Seinen), de ryoko, se dirige a lectores interesados en el terror y el misterio dentro del cómic. Su combinación de géneros se aleja de las historias centradas en el romance o la vida cotidiana sin elementos de suspense.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,19 +13,21 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda y reúne sus 224 páginas en un volumen físico. Es la opción para quien prefiere leer manga en papel y conservar el ejemplar en su colección, sin depender de una pantalla.",
+      "texto": "Caminando con la muerte 4 (Seinen) tiene una edición en tapa blanda de 224 páginas, publicada en castellano por Distrito Manga. El formato permite leer sus páginas de cómic en papel y guardarlo con otros volúmenes de la colección.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tomogui: que comience la caza 1 (Seinen) comparte el formato de manga seinen y el componente oscuro, pero centra su planteamiento en la venganza contra una profesora. Coraline ofrece otra aproximación a lo inquietante: parte de una puerta hacia una versión alternativa del hogar, con un componente fantástico distinto del terror y el misterio que identifican a Caminando con la muerte 4 (Seinen).",
+      "texto": "Tomogui: que comience la caza 1 (Seinen), de Nobuaki Kanazawa y RAZEN, comparte con Caminando con la muerte 4 (Seinen) el terreno del cómic de terror y misterio, aunque plantea expresamente una venganza escolar. Coraline, de Neil Gaiman, también introduce una situación inquietante, pero parte del hallazgo de una puerta hacia otra versión del hogar de su protagonista.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
@@ -37,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f50aaee231434d10",
+  "fuente_hash": "46ce64d9a7a36de4",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Soy como como se dirige a adultos que quieren revisar sus hábitos alimentarios y desarrollar criterios propios sobre nutrición. Núria Coll plantea reflexiones y consejos frente a las dietas de moda, de modo que su enfoque se distingue del de los libros centrados en recetas o planes de comidas cerrados.",
+      "texto": "Soy como como, de Núria Coll, está dirigido a adultos interesados en alimentación saludable y en desarrollar criterios propios sobre nutrición. Sus reflexiones y consejos encajan con quienes buscan orientación general, no con quienes necesitan exclusivamente un recetario o una dieta pautada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,13 +15,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Soy como como cuenta con una edición de bolsillo de 200 páginas y una versión Kindle. El formato físico permite subrayar y consultar sus reflexiones sobre alimentación en papel, mientras que Kindle facilita llevar el texto en el móvil y recuperar sus consejos durante la lectura cotidiana.",
+      "texto": "Soy como como está disponible en tapa blanda y Kindle. La edición de bolsillo reúne 200 páginas para leer y consultar en papel, mientras que Kindle permite llevar las reflexiones y consejos sobre alimentación en formato digital.",
       "evidencias": [
         "titulo",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Soy como como, de Núria Coll, comparte con Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante (Salud natural), de Sarah Ann Macklin, el interés por revisar cómo se aborda el cuidado personal. Núria Coll centra su propuesta en construir un criterio alimentario propio, mientras que el título de Sarah Ann Macklin plantea una perspectiva más amplia sobre alimentación, salud y exigencia de optimización.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411193900"
       ]
     }
   ],

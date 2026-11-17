@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788425236921",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Intervenir?: Habitar para el equilibrio ecológico (GGNatura), de Gilles Clément, se orienta a lectores interesados en la ecología y la divulgación científica. Su enfoque sobre la relación entre habitar e intervenir en el entorno encaja menos con quien busca una novela o una lectura centrada en personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Intervenir?: Habitar para el equilibrio ecológico (GGNatura) está disponible en tapa blanda y Kindle. La edición física de Editorial GG tiene 88 páginas y permite conservar el volumen para consultas; Kindle facilita llevar el texto en un lector electrónico o dispositivo móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "CÓMO AYUDAR A LOS ERIZOS: Más de 100 ideas para transformar tu jardín en un refugio para la naturaleza comparte con ¿Intervenir?: Habitar para el equilibrio ecológico (GGNatura) el interés por la relación humana con el entorno natural. El libro de Helen Bostock y Sophie Collins plantea actuaciones concretas en el jardín, mientras que el de Gilles Clément formula una cuestión más amplia sobre el equilibrio ecológico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399220322"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b418e03f4a11f922",
+  "origen": "chatgpt-web"
+}

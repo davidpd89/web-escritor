@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este estuche encaja con lectores adultos que buscan ficción de misterio y thriller psicológico, especialmente historias relacionadas con secretos. Reúne cinco títulos de Freida McFadden, por lo que no está pensado para quien prefiere adquirir una única novela o busca lecturas de otros géneros.",
+      "texto": "El estuche de Freida McFadden está dirigido a lectores de misterio y thriller que buscan varias obras de una misma autora. Contiene La mujer de arriba, La profesora, El recluso, Tras la puerta y Nunca mientas; no está orientado a quienes prefieren una única novela independiente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,20 +13,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El divorcio y La inquilina comparten autora con este estuche: Freida McFadden. La diferencia es que el estuche reúne cinco títulos, entre ellos La mujer de arriba, La profesora y Nunca mientas, mientras que El divorcio tiene como punto de partida una historia de amor que parecía perfecta y La inquilina se presenta como otra novela individual de la autora.",
+      "texto": "La asistenta comparte con este estuche la autoría de Freida McFadden y su vinculación al thriller psicológico, pero se presenta como una obra individual frente a los cinco títulos reunidos en el estuche. La compañera también pertenece a la autora y aborda las consecuencias de un pasado oscuro, mientras que el estuche agrupa distintas historias de misterio.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388163531",
-        "isbn-9791387512446"
+        "isbn-9788466390729",
+        "isbn-9791388163555"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2908c0bfb2b9b2c2",
+  "fuente_hash": "89046c964513dba3",
   "origen": "chatgpt-web"
 }

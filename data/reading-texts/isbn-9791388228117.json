@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388228117",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El poder del aura: Guía para sanar, cargarte de energía y potenciar tu luz se dirige a lectores interesados en el aura y en planteamientos de bienestar vinculados con la energía personal. Por su enfoque temático, se distancia de quienes buscan exclusivamente explicaciones de salud basadas en nutrición o ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El poder del aura: Guía para sanar, cargarte de energía y potenciar tu luz se presenta en tapa dura, con 160 páginas en castellano. Esta encuadernación proporciona una cubierta rígida para conservar el volumen y facilita tenerlo como libro físico de consulta dentro de una colección dedicada al bienestar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El poder del aura: Guía para sanar, cargarte de energía y potenciar tu luz se aproxima a 44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life por su orientación espiritual. En cambio, 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) plantea desde el título cuestiones relacionadas con la longevidad y el bienestar cotidiano.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290",
+        "isbn-9786073881388"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e937366c95bebac",
+  "origen": "chatgpt-web"
+}

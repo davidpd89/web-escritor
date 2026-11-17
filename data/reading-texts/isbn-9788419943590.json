@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Diez diálogos espirituales con grandes maestros (Fragmentos): y tres entrevistas con E. S. sobre la esencia del ajedrez: 1 (Biblioteca Eduardo Scala) se dirige a lectores interesados en la reflexión espiritual y el ajedrez. Su estructura anunciada de diálogos y entrevistas se aparta de los manuales de actividades y de las narraciones de ficción convencionales.",
+      "texto": "Diez diálogos espirituales con grandes maestros (Fragmentos): y tres entrevistas con E. S. sobre la esencia del ajedrez: 1 (Biblioteca Eduardo Scala) se dirige a quienes buscan reflexiones sobre el ajedrez mediante diálogos y entrevistas. Su planteamiento resulta menos afín a lectores que prefieren manuales de ejercicios, problemas de tablero o instrucciones de juego.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,29 +12,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Diez diálogos espirituales con grandes maestros (Fragmentos): y tres entrevistas con E. S. sobre la esencia del ajedrez: 1 (Biblioteca Eduardo Scala) se publica en tapa blanda y tiene 144 páginas. Su extensión permite consultar los diálogos y entrevistas en papel, con un volumen más reducido que otras obras de lectura prolongada.",
+      "texto": "La edición en tapa blanda contiene 144 páginas y permite consultar los diálogos y entrevistas en papel. Es el formato disponible para Diez diálogos espirituales con grandes maestros (Fragmentos): y tres entrevistas con E. S. sobre la esencia del ajedrez: 1 (Biblioteca Eduardo Scala), publicado por Libros de la Resistencia.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
-        "numero_paginas"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La obra de Eduardo Scala González comparte con 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) su vinculación con el ocio. El libro de Varios autores propone una actividad de coloreado relacionada con un videojuego, mientras que Eduardo Scala González reúne diálogos espirituales y entrevistas sobre la esencia del ajedrez.",
+      "texto": "La obra de Eduardo Scala González comparte con 99 Sudoku (LIBROS SINGULARES) el interés por los juegos de concentración, aunque se centra en diálogos espirituales sobre el ajedrez en lugar de ejercicios numéricos. Frente a 80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres, sustituye los casos de investigación por entrevistas y reflexiones sobre la esencia del ajedrez.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328384"
+        "isbn-9791388015816",
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c69342bebe19c180",
+  "fuente_hash": "8c11bc2c2640a28c",
   "origen": "chatgpt-web"
 }

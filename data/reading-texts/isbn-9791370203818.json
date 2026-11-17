@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pensado para lectores interesados en las biografías políticas, el monarquismo y la historia del siglo XX. Sus 838 páginas y su orientación histórica encajan menos con quien busca una introducción breve a la política o una lectura de ficción.",
+      "texto": "Está dirigido a lectores interesados en las biografías políticas, el monarquismo y la historia del siglo XX. Sus 838 páginas permiten abordar una trayectoria individual con una extensión considerable, por lo que encaja menos con quien busca una introducción breve a ese periodo.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Examina la trayectoria de José María de Areilza desde su vinculación con la monarquía y la actividad política del siglo XX. Pablo Hispán Iglesias de Ussel aborda esa figura mediante una biografía situada en el ámbito de la historia política y social.",
+      "texto": "El eje del libro es la trayectoria política de José María de Areilza y su vinculación con el monarquismo del siglo XX. Pablo Hispán Iglesias de Ussel aborda esta figura mediante una biografía histórica, centrada en una persona y su relación con la política de su época.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,29 +22,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de José María de Areilza. La política ante todo: Biografía de un monárquico del siglo XX (Historia de las dinámicas sociales, culturales y políticas) está disponible en tapa blanda. Sus 838 páginas hacen de ella un volumen extenso, más adecuado para consultar y leer en sesiones prolongadas que para llevar habitualmente en el bolsillo.",
+      "texto": "La edición disponible es en tapa blanda y reúne 838 páginas en castellano. Este formato permite consultar una biografía extensa en papel, aunque su volumen puede resultar menos cómodo para transportarla durante los desplazamientos.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes comparte el interés por reconstruir una trayectoria política individual, aunque organiza su propuesta en episodios. Antes de irme (Espasa Actualidad) también se relaciona con una figura de la política, mientras que José María de Areilza. La política ante todo: Biografía de un monárquico del siglo XX (Historia de las dinámicas sociales, culturales y políticas) se centra expresamente en un monárquico del siglo XX.",
+      "texto": "Puede compararse con Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978), de Tomeu Canyelles Canyelles, por su atención a una trayectoria personal vinculada a un contexto histórico. Mientras ese título delimita su relato mediante unas fechas concretas, José María de Areilza. La política ante todo: Biografía de un monárquico del siglo XX (Historia de las dinámicas sociales, culturales y políticas) se centra en una figura política y el monarquismo.",
       "evidencias": [
         "afines_catalogo",
         "titulo",
         "categorias"
       ],
       "enlaces": [
-        "isbn-9786073873154",
-        "isbn-9788467085044"
+        "isbn-9788417645311"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "338baada92523253",
+  "fuente_hash": "d251a7122e871ebf",
   "origen": "chatgpt-web"
 }

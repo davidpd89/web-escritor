@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9798182911207",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inteligencia artificial en biología molecular y medicina: Aplicaciones avanzadas en investigación biomédica y medicina de precisión: 2 (Serie Inteligencia Artificial en las Ciencias de la Vida) se orienta a lectores interesados en las aplicaciones científicas de la inteligencia artificial. Su enfoque especializado se aleja de las introducciones generales a esta tecnología y de las guías de uso cotidiano.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro trata la aplicación de la inteligencia artificial a la biología molecular, la investigación biomédica y la medicina de precisión. Bolakale Aremu plantea un enfoque centrado en usos científicos avanzados, dentro de la serie identificada en el título como Inteligencia Artificial en las Ciencias de la Vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 430 páginas en castellano y está publicada por AB Publisher LLC. Su extensión permite dedicar una lectura de estudio a las aplicaciones de la inteligencia artificial en biomedicina y conservar el volumen para consultas posteriores.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, comparte el interés por la inteligencia artificial, pero plantea una aproximación general a sus conceptos. Inteligencia artificial en biología molecular y medicina: Aplicaciones avanzadas en investigación biomédica y medicina de precisión: 2 (Serie Inteligencia Artificial en las Ciencias de la Vida) restringe su campo a las aplicaciones biomédicas y la medicina de precisión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c72fc2ff18c6304c",
+  "origen": "chatgpt-web"
+}

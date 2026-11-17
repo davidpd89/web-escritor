@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788410476615",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en los incendios forestales, la divulgación científica y el ensayo sobre cuestiones ambientales. Piroceno: Viejo y nuevo orden de los incendios forestales. Vivir en la Edad del fuego: 133 (Ensayo), de Stephen J. Pyne, aborda el fuego como asunto central; no responde a la búsqueda de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina los incendios forestales desde la relación entre sus formas históricas y su configuración actual. El concepto de Edad del fuego sitúa el fenómeno en un marco temporal amplio, mientras que su clasificación como ensayo y divulgación científica señala un tratamiento expositivo del asunto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 232 páginas de Piroceno: Viejo y nuevo orden de los incendios forestales. Vivir en la Edad del fuego: 133 (Ensayo) en una edición física de Pepitas de calabaza, adecuada para consultar y señalar pasajes. Kindle permite llevar el ensayo en un lector electrónico o en el móvil, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El lugar de las mareas y Piroceno comparten el interés por la relación entre las personas y el entorno natural. James Rebanks aborda las recolectoras de plumón de éider, mientras que Stephen J. Pyne examina los incendios forestales y distingue entre su orden antiguo y el actual. Ambos son ensayos, pero tratan fenómenos ambientales diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399230031"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eaef12abc1209e68",
+  "origen": "chatgpt-web"
+}

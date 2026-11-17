@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388220364",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una maleta, dos libros y un corazón (Literatura ilustrada) se dirige a lectores de narrativa contemporánea interesados en publicaciones de extensión contenida. La obra de Máximo Huerta reúne 128 páginas en castellano y encaja menos con quienes buscan novelas de fantasía o lecturas considerablemente más largas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una maleta, dos libros y un corazón (Literatura ilustrada) se ofrece en tapa dura y Kindle. La edición física de Lunwerg Editores tiene 128 páginas y una cubierta rígida para conservarla o regalarla; Kindle permite leer el contenido en el móvil o en un lector electrónico sin llevar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3683b31e5f54f558",
+  "origen": "chatgpt-web"
+}

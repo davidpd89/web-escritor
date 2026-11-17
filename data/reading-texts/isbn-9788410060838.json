@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788410060838",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El rey de la farándula, de Angel Ruiz, se dirige a lectores interesados en publicaciones del ámbito artístico y cultural. Con 60 páginas, corresponde a una lectura breve en castellano, distinta de los libros extensos de narrativa o de los manuales especializados de gran volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El rey de la farándula se publica en tapa blanda, con 60 páginas editadas por Ediciones Antígona. Su formato físico y extensión reducida permiten leerlo y guardarlo sin ocupar el espacio de un volumen extenso; también puede incorporarse a una colección de publicaciones sobre arte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "21 Westerns del siglo XXI (Sílex Cine/Claqueta), de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga, comparte con El rey de la farándula su relación con el ámbito artístico. El primero identifica expresamente el cine del oeste como materia, mientras El rey de la farándula, de Angel Ruiz, se presenta como una publicación de arte de 60 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8b0117464c27bd2",
+  "origen": "chatgpt-web"
+}

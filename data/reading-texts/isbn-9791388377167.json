@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388377167",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Baropodometría clínica: Bases para una biomecánica integrada del control postural se dirige a lectores interesados en el estudio científico de la biomecánica y el control postural. Su enfoque clínico lo aleja de quienes buscan divulgación general sobre ciencia sin una especialización temática.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Baropodometría clínica: Bases para una biomecánica integrada del control postural está disponible en tapa blanda y Kindle, con 358 páginas. El papel permite consultar físicamente el volumen de Fernando Ares, mientras que Kindle ofrece acceso digital a la misma obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Baropodometría clínica: Bases para una biomecánica integrada del control postural puede compararse con (ENAC0019) Herramientas de análisis coste/beneficio aplicadas a la eficiencia energética por su orientación hacia conocimientos especializados. El libro de Fernando Ares aborda biomecánica y control postural, mientras que el de Nelson Pompeyo Martínez Rodríguez se ocupa del análisis económico aplicado a la eficiencia energética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388334627"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e34f2df549fbe63",
+  "origen": "chatgpt-web"
+}

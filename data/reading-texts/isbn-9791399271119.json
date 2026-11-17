@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399271119",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cuerpo a la moda (Estudios de Moda), de Maria Luisa Frisa, se dirige a quienes buscan una lectura ensayística relacionada con la moda y el cuerpo. Su clasificación en historia y ensayo lo separa de los manuales de confección, las guías de estilismo y la narrativa de ficción; pertenece a Estudios de Moda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cuerpo a la moda (Estudios de Moda) cuenta con una edición en tapa blanda de 114 páginas. Es un volumen físico de extensión reducida para leer o consultar un ensayo sobre moda, y su encuadernación permite llevarlo sin el volumen habitual de una edición de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cuerpo a la moda (Estudios de Moda) y La formación de España: Una historia de pueblos, costumbres y leyes coinciden en su relación con el estudio histórico. Maria Luisa Frisa sitúa su obra en el ámbito de la moda y el cuerpo, mientras que José María Pérez Zúñiga aborda desde el título la formación de España a través de pueblos, costumbres y leyes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629770"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "250903b1a7c8dd48",
+  "origen": "chatgpt-web"
+}

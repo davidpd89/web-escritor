@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410404359",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El camino del haiku (Literatura) encaja con lectores interesados en la poesía y, particularmente, en el haiku como forma literaria. Sus 216 páginas ofrecen una extensión contenida dentro de este género; se aleja de las expectativas de quien busca una novela con una trama narrativa prolongada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El camino del haiku (Literatura) cuenta con una edición en tapa blanda de 216 páginas, publicada en castellano por Satori Ediciones C.b. Su extensión facilita llevar el volumen en papel y volver a pasajes concretos durante la lectura de poesía. La encuadernación flexible ocupa menos espacio que una edición rígida equivalente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El camino del haiku (Literatura) y A solas pertenecen al ámbito de la poesía, aunque sus títulos apuntan a intereses distintos. Carlos Rubio sitúa el haiku en el centro de su obra, mientras que A solas, de María Jesús Martínez Ramos, no identifica una forma poética concreta en su título. La diferencia más visible para el lector está en esa delimitación temática del primero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6367cd2dade6038f",
+  "origen": "chatgpt-web"
+}

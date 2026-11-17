@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La casa de Maynard (PANICO BOOKS), de Herman Raucher, pertenece al terror y se dirige a lectores que buscan ficción de ese género. Sus 296 páginas en castellano ofrecen una extensión intermedia, mientras que su clasificación lo aleja de quienes prefieren lecturas ajenas al miedo.",
+      "texto": "La casa de Maynard (PANICO BOOKS), de Herman Raucher, se dirige a lectores de terror que buscan una novela de extensión media. Por su clasificación temática, no encaja con quienes prefieren el romance o las lecturas ajenas al terror.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La casa de Maynard (PANICO BOOKS) se ofrece en Tapa blanda y Kindle. La edición física de Panico Books tiene 296 páginas y permite leer en papel; Kindle ofrece la misma obra en formato digital para utilizarla desde un lector electrónico o un móvil.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "editorial",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de La casa de Maynard (PANICO BOOKS) reúne 296 páginas en un volumen físico que puede prestarse o colocarse en la biblioteca. La versión Kindle permite leer el mismo título en un dispositivo electrónico sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "La casa de Maynard (PANICO BOOKS), de Herman Raucher, se sitúa en el terror, mientras que 25 días hasta Navidad, de Per Jacobsen, se presenta como un thriller de adviento. Ambos títulos se relacionan con lecturas de tensión, aunque el segundo introduce una referencia navideña explícita. After God 8 (Shônen), de Sumi Eno, se distingue por su identificación como shônen y por el número de entrega incluido en el título.",
+      "texto": "La casa de Maynard (PANICO BOOKS) puede compararse con 25 días hasta Navidad, de Per Jacobsen, por su proximidad al suspense y al terror. La diferencia está en el enfoque anunciado: el libro de Herman Raucher se clasifica como terror, mientras que el de Per Jacobsen se presenta como un thriller de adviento.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,8 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055063",
-        "isbn-9791387962647"
+        "isbn-9788427055063"
       ]
     }
   ],

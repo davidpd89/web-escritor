@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a quienes buscan relatos sobre mujeres y una perspectiva vinculada al México Antiguo. Por su clasificación como narrativa contemporánea y relatos, encaja menos con quien prefiere una novela de fantasía o una historia centrada en un único protagonista.",
+      "texto": "Está dirigido a lectores interesados en relatos sobre mujeres célebres del México Antiguo, desde una propuesta de narrativa contemporánea. Por su orientación temática, encaja menos con quienes buscan una novela fantástica o una obra centrada en personajes masculinos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Propone una lectura de relatos centrados en mujeres célebres del México Antiguo, dentro del ámbito de la narrativa contemporánea. La autoría compartida por Blanca López de Mariscal, Denise Carpinteyro, Mónica Castellanos, Gabriela Riveros y Maria De Alva distingue el libro de una obra firmada por una sola persona.",
+      "texto": "La lectura se sitúa entre la narrativa contemporánea y los relatos, con las mujeres célebres del México Antiguo como asunto central. La autoría corresponde a Blanca López de Mariscal, Denise Carpinteyro, Mónica Castellanos, Gabriela Riveros y Maria De Alva, por lo que se presenta como una obra de autoría compartida.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,29 +21,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y releer sus 256 páginas en papel, mientras que Kindle facilita llevar el texto en un dispositivo móvil. El audiolibro ofrece una alternativa de escucha para quienes prefieren acceder a los relatos sin leer en pantalla o papel.",
+      "texto": "La tapa blanda reúne sus 256 páginas en un volumen físico, adecuado para consultar y conservar los textos. Kindle permite leerlo en dispositivos electrónicos, mientras que el audiolibro ofrece una opción de escucha para quienes prefieren seguir la obra sin utilizar una edición impresa.",
       "evidencias": [
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte el interés por las mujeres con Lo mejor de las mujeres de Bruguera (Bruguera Clásica), aunque este último se vincula por su título a Bruguera y el libro de Blanca López de Mariscal, Denise Carpinteyro, Mónica Castellanos, Gabriela Riveros y Maria De Alva se centra en el México Antiguo. También puede compararse con Esas muchachas que escriben poemas por su atención a figuras femeninas, aunque allí el título apunta a la escritura poética.",
+      "texto": "Nosotras también contamos. Mujeres célebres del México Antiguo / We Matter Too: Famous Women of Ancient Mexico comparte con Don Florencio de Polvorín y su prodigiosa profesión / Don Florencio of Polvorin and His Prodigious Profession la presentación de un título en español e inglés. La diferencia está en el tema anunciado: la primera se centra en mujeres del México Antiguo y la segunda en un personaje y su profesión. Además, Gabriela Riveros figura entre las autoras de la primera y firma la segunda.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402432216",
-        "isbn-9788426434272"
+        "isbn-9786073873451"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4255da1684b04c57",
+  "fuente_hash": "a56cf2b0fb91b986",
   "origen": "chatgpt-web"
 }

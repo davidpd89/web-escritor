@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Destroza este diario. Diversión EXTREMA está pensado para quienes prefieren intervenir físicamente en un libro mediante actividades creativas. Su propuesta de pintar, romper y manchar páginas se aleja de la lectura convencional de una novela o de un cuaderno destinado únicamente a escribir.",
+      "texto": "Está pensado para quienes disfrutan interviniendo físicamente en un libro mediante pintura, manchas, roturas y experimentación creativa. No encaja con quien prefiera mantener las páginas intactas o busque una lectura narrativa convencional, porque la participación manual forma parte de la experiencia.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un libro de ocio creativo basado en experimentar directamente sobre sus páginas. Keri Smith plantea una versión más intensa de Destroza este diario, con acciones que incluyen pintar, romper materiales y ensayar formas de expresión alejadas del uso habitual de un cuaderno.",
+      "texto": "Es un libro de actividades creativas que convierte la alteración material de sus páginas en el centro de la propuesta. Esta versión intensifica las acciones de romper, pintar y ensuciar respecto al planteamiento habitual de la obra, de modo que el lector actúa sobre el objeto en vez de limitarse a leerlo.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Destroza este diario. Diversión EXTREMA se publica en tapa blanda, en una edición rústica sin solapas de 256 páginas. El soporte físico permite realizar las actividades de pintura, manchas y manipulación que forman parte de su planteamiento creativo.",
+      "texto": "La edición en tapa blanda, presentada en rústica sin solapas, contiene 256 páginas destinadas a la experimentación manual. El formato impreso permite pintar, doblar, manchar o romper hojas, acciones que constituyen el uso principal de este libro de actividades.",
       "evidencias": [
-        "titulo",
         "edicion",
         "numero_paginas",
         "formatos_disponibles",
@@ -34,21 +31,19 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "800 stickers sweet and cosy (Prácticos) y Destroza este diario. Diversión EXTREMA comparten su orientación hacia las actividades manuales y el ocio creativo. El libro de Keri Smith se distingue por proponer intervenciones sobre las propias páginas, incluidas acciones de pintura, manchas y rotura, en lugar de centrarse en las pegatinas.",
+      "texto": "Destroza este diario. Diversión EXTREMA y Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas comparten una orientación hacia la actividad manual. El primero plantea intervenciones libres sobre las páginas, mientras que el segundo se centra en letras, números y diagramas aplicados al bordado.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448049737"
+        "isbn-9788498748208"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a1514c1673b5fc2f",
+  "fuente_hash": "b2d4bedf0607c9db",
   "origen": "chatgpt-web"
 }

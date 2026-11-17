@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388054440",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Breves fragmentos de eternidad (Textos y Pretextos), de Juan Jiménez García, se dirige a quienes leen relatos y ensayo. Su combinación de géneros lo diferencia de las novelas concebidas alrededor de una única trama extensa y resulta menos afín a quienes buscan exclusivamente narrativa de acción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Breves fragmentos de eternidad (Textos y Pretextos) se publica en tapa blanda y reúne 216 páginas. La edición de Editorial Pre-Textos está escrita en castellano y ofrece un volumen en papel de extensión intermedia para lectura y consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Breves fragmentos de eternidad (Textos y Pretextos) puede compararse con El arte de la vida: 101 relatos cortos con moraleja, de Bruno Brisa, por su relación con el relato. La obra de Bruno Brisa anuncia expresamente relatos breves con moraleja, mientras que la de Juan Jiménez García combina las clasificaciones de relatos y ensayo, sin limitarse en su presentación a esa finalidad moral.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409939701"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3d6072441c132296",
+  "origen": "chatgpt-web"
+}

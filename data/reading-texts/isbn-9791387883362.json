@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791387883362",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado al público infantil y a quienes buscan una lectura en formato de cartón sobre un niño y un pingüino. Sus 40 páginas y su presentación como pequeña biblioteca lo alejan de las novelas juveniles extensas y de los libros dirigidos principalmente a lectores adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se puede utilizar como lectura compartida, mostrando las páginas del libro de cartón y conversando sobre el niño y el pingüino que aparecen en el título. Sus 40 páginas permiten repartir la lectura en varias sesiones o volver a recorrer el volumen con el pequeño lector.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa dura se presenta como libro de cartón, con 40 páginas en castellano. Este soporte físico permite pasar las páginas durante una lectura acompañada y conservar el volumen en una biblioteca infantil; también resulta apropiado para regalar un libro de pequeño formato.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un día sin cole (Álbumes) comparte con El niño y el pingüino: Pequeña biblioteca (Àlbums Locomotora) la autoría de Oliver Jeffers y su orientación infantil. El primero incorpora también a Kevin Waldron y plantea desde el título una jornada sin colegio; el segundo se identifica por sus protagonistas y su presentación como pequeña biblioteca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387883348"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f5e4669cd31da87b",
+  "origen": "chatgpt-web"
+}

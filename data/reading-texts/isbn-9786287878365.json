@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Marina y el caso de plata / Marina and the Silver Case, de Verónica Villa Agudelo, se dirige a lectores que buscan narrativa contemporánea. Su extensión de 288 páginas permite plantear una lectura en formato de novela; no es la opción adecuada para quien busca un ensayo o un manual práctico.",
+      "texto": "Marina y el caso de plata / Marina and the Silver Case, de Verónica Villa Agudelo, se sitúa en la narrativa contemporánea y se dirige a quienes buscan ficción de extensión intermedia. Sus 288 páginas la separan de los relatos breves; tampoco corresponde a quien prefiere una lectura de no ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,16 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece una edición física de 288 páginas publicada por Ediciones B. Es la alternativa disponible para quien prefiere leer en papel y guardar el libro en su biblioteca.",
+      "texto": "Marina y el caso de plata / Marina and the Silver Case se presenta en tapa blanda y Kindle. La edición de Ediciones B tiene 288 páginas y ofrece un ejemplar físico que puede prestarse o guardarse; Kindle permite llevar la lectura en formato digital y ajustar su visualización según el dispositivo.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "edicion"
+        "editorial",
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "db23bc482685edb1",
+  "fuente_hash": "5c56ef11bb679a9f",
   "origen": "chatgpt-web"
 }

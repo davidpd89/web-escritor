@@ -4,38 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El poder transformador del Derecho de la Unión Europea y su impacto en el Derecho Procesal Nacional (Estudios) se dirige a quienes investigan las relaciones entre el ordenamiento europeo y las normas procesales nacionales. Su enfoque sobre la influencia jurídica europea se aparta de los manuales centrados exclusivamente en procedimientos internos.",
+      "texto": "Dirigido a lectores interesados en el Derecho de la Unión Europea y sus efectos sobre el Derecho Procesal Nacional. Su enfoque jurídico y sus 400 páginas lo alejan de quienes buscan una introducción general a la Unión Europea sin contenido procesal.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 400 páginas de El poder transformador del Derecho de la Unión Europea y su impacto en el Derecho Procesal Nacional (Estudios) en un volumen físico que permite anotaciones y consultas. La edición Kindle permite llevar el texto en un dispositivo compatible sin transportar el ejemplar impreso.",
+      "texto": "La tapa blanda permite consultar y subrayar las 400 páginas de esta edición de Aranzadi en papel. Kindle ofrece una alternativa digital para llevar el estudio del Derecho de la Unión Europea y su dimensión procesal en un dispositivo de lectura o en el móvil.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I comparte el estudio de normas jurídicas, pero se centra en los contratos de consumo. La obra de Juan Jorge Piernas Lopez examina la influencia del Derecho de la Unión Europea sobre el Derecho Procesal Nacional, mientras que Casos prácticos sobre el despido (Supuestos prácticos) se orienta a situaciones concretas de despido.",
+      "texto": "Argumentacion Juridica comparte el ámbito del Derecho, pero se centra en la argumentación, mientras que este libro examina la relación entre el Derecho de la Unión Europea y el Derecho Procesal Nacional. Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) aborda otra especialidad jurídica, la administrativa sancionadora, frente al enfoque europeo y procesal de esta obra.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370651749",
-        "isbn-9791370297305"
+        "isbn-9791370610562",
+        "isbn-9789564078014"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "24747248dc3c717f",
+  "fuente_hash": "a9bbb3df052b7db7",
   "origen": "chatgpt-web"
 }

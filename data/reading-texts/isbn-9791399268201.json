@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399268201",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El amante de la flor del ciruelo, de OKU, encaja con quienes buscan fantasía en formato de cómic o novela gráfica. Sus 164 páginas ofrecen una extensión contenida; quien prefiera una novela extensa de narrativa convencional encontrará aquí otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El amante de la flor del ciruelo está disponible en tapa blanda, con 164 páginas en castellano. Esta edición física de Kibook Ediciones permite leer y conservar el volumen en papel, con una extensión relativamente breve para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El amante de la flor del ciruelo comparte la fantasía y el ámbito del cómic con Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic), de Steve Smallman. Este último se presenta como primer cómic y gira en torno a animales mágicos, mientras que la obra de OKU se identifica como fantasía y novela gráfica, con 164 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875381"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "905561b39dc4a773",
+  "origen": "chatgpt-web"
+}

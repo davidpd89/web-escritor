@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer está dirigida a lectores de relatos contemporáneos interesados en el fútbol como asunto literario. Eduardo Sacheri reúne cuentos en un volumen de 352 páginas; su planteamiento no corresponde a una novela de argumento único ni a un manual deportivo.",
+      "texto": "La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer, de Eduardo Sacheri, se dirige a lectores de relatos contemporáneos interesados en el fútbol como tema literario. Sus 352 páginas reúnen una propuesta identificada como cuentos, distinta de una novela de argumento único o de un manual deportivo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer cuenta con una edición en tapa blanda de 352 páginas, publicada por Penguin Random House Grupo Editorial. El formato permite leer los relatos por separado en papel y retomar el volumen entre sesiones, sin necesidad de seguir una narración continua.",
+      "texto": "La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer se ofrece en tapa blanda, con 352 páginas. La edición impresa permite alternar la lectura de los cuentos, regresar a relatos concretos y conservar el volumen sin utilizar dispositivos electrónicos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf y Ficciones (Hispánica) permiten comparar La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer con otras propuestas de narrativa breve. Las tres obras se relacionan con la ficción literaria, pero Eduardo Sacheri delimita sus cuentos mediante el fútbol, mientras los otros títulos no presentan ese eje deportivo en su identificación.",
+      "texto": "La vida que pensamos. Cuentos de fútbol / The Life We Imagined. Stories About Soccer puede compararse con Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf, de Pilar Quintana, por la presentación de sus títulos en español e inglés. Eduardo Sacheri identifica expresamente el fútbol y los cuentos como ejes de su libro; En lengua privada / In Private Language, de Emiliano Monge, también presenta un título bilingüe, pero apunta desde él hacia el lenguaje en lugar del deporte.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +33,12 @@
       ],
       "enlaces": [
         "isbn-9786287880610",
-        "isbn-9791387846107"
+        "isbn-9786073878289"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0c5dabeb79390e4a",
+  "fuente_hash": "73afd45b0cf7a432",
   "origen": "chatgpt-web"
 }

@@ -4,39 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los hombres que amaban a las mujeres: catálogo de la exposicion: 24 (Biblioteca Añil Feminista) se dirige a lectores interesados en las mujeres, el feminismo y los catálogos de exposiciones. Sus 72 páginas corresponden a una obra breve de ensayo; no es la elección para quien busque una novela de ficción o una historia extensa.",
+      "texto": "Los hombres que amaban a las mujeres: catálogo de la exposicion: 24 (Biblioteca Añil Feminista) se dirige a lectores de ensayo interesados en publicaciones vinculadas a exposiciones y a la temática feminista indicada en el título. La obra de Oliva Blanco Corujo tiene 72 páginas y se diferencia de una novela de ficción por su carácter de catálogo.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los hombres que amaban a las mujeres: catálogo de la exposicion: 24 (Biblioteca Añil Feminista) se publica en tapa blanda, con 72 páginas en castellano. Este formato permite conservar el catálogo en papel y consultar sus páginas sin manejar un volumen extenso.",
+      "texto": "La tapa blanda es el formato de Los hombres que amaban a las mujeres: catálogo de la exposicion: 24 (Biblioteca Añil Feminista). Sus 72 páginas permiten manejar el catálogo en papel y conservarlo como referencia física de la exposición. El volumen, publicado por Almud Ediciones de Castilla-la Mancha, también puede prestarse o regalarse.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Los hombres que amaban a las mujeres: catálogo de la exposicion: 24 (Biblioteca Añil Feminista) comparte el interés por las mujeres con Feminismo gótico: La creación cultural de la monstrua, de Núria Gómez Gabriel e Ingrid Guardiola. La obra de Oliva Blanco Corujo se presenta como catálogo de exposición; la otra sitúa su asunto en la creación cultural y el feminismo gótico.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387914264"
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bd4565d11e848cb8",
+  "fuente_hash": "ad5ebe0e7dd8d4c8",
   "origen": "chatgpt-web"
 }

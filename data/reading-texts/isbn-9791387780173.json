@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387780173",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Planeta Manga: Alter Ego edición Deluxe: 1 (Universo Planeta Manga) está dirigido a lectores de narrativa juvenil que prefieren las historias contadas mediante cómic. Con 436 páginas, se distancia de las novelas breves y de quienes buscan una narración exclusivamente en texto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Planeta Manga: Alter Ego edición Deluxe: 1 (Universo Planeta Manga) se publica en tapa blanda, con 436 páginas en castellano. Esta presentación permite leer la obra en papel y conservarla en la estantería; su cubierta flexible facilita sujetar el volumen durante sesiones de lectura prolongadas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Planeta Manga: Alter Ego edición Deluxe: 1 (Universo Planeta Manga) puede compararse con Alya a veces me susurra en ruso 9 (Shônen - Alya) por su vinculación con el manga juvenil. La primera obra está firmada por Ana C. Sánchez y se presenta como edición Deluxe, mientras que la segunda pertenece a la serie de SunSunSun. Otra referencia es Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura y Muneyuki Kaneshiro, cuyo título identifica una entrega numerada distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791043309670",
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a6c37dc7819c9ea",
+  "origen": "chatgpt-web"
+}

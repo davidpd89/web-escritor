@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Gary en tu bolsillo: Cuentos y diarios de Gary Fisher: 1 (Teorías del caos) se dirige a quienes alternan cuentos, escritura diarística, poesía y ensayo. Sus 362 páginas y la combinación de formas literarias lo distinguen de una novela construida alrededor de una única trama continua.",
+      "texto": "Gary en tu bolsillo: Cuentos y diarios de Gary Fisher: 1 (Teorías del caos) encaja con lectores que alternan narrativa contemporánea, poesía y textos de carácter ensayístico. Su combinación de cuentos y diarios se aparta de las expectativas de quien busca exclusivamente una novela de argumento continuo o un ensayo dedicado a un único asunto.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Gary en tu bolsillo: Cuentos y diarios de Gary Fisher: 1 (Teorías del caos) se presenta en tapa blanda y reúne 362 páginas en castellano. El volumen físico permite volver a los cuentos y las entradas de diario, señalar fragmentos y consultar distintas partes sin depender de un dispositivo electrónico.",
+      "texto": "Gary en tu bolsillo: Cuentos y diarios de Gary Fisher: 1 (Teorías del caos) se presenta en tapa blanda y reúne 362 páginas en castellano. La edición física permite alternar cuentos y entradas de diario, consultar pasajes anteriores y mantener juntos los distintos tipos de texto que anuncia el título.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,7 +23,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Gary en tu bolsillo: Cuentos y diarios de Gary Fisher: 1 (Teorías del caos) comparte la presencia de poesía con poemas de amor (Los Tres Mundos), de rupi kaur. La diferencia está en la variedad de formas anunciadas: Gary Fisher reúne cuentos y diarios, mientras que el título de rupi kaur se centra en poemas amorosos. También se relaciona con La falacia del escritor: Anatomía de una fe sin milagros: 7 (im-verso), de Víctor Morata Cortado, por su clasificación entre poesía y ensayo.",
+      "texto": "Gary en tu bolsillo: Cuentos y diarios de Gary Fisher: 1 (Teorías del caos) puede compararse con poemas de amor (Los Tres Mundos) por su relación con la escritura poética, aunque Gary Fisher también incorpora cuentos y diarios. Frente a El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, comparte el espacio del ensayo, pero presenta una combinación explícita de formas narrativas y personales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +32,7 @@
       ],
       "enlaces": [
         "isbn-9788432251627",
-        "isbn-9791399257625"
+        "isbn-9788466394604"
       ]
     }
   ],

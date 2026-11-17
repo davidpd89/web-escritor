@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) se dirige a quienes estudian o trabajan con cuestiones jurídicas relacionadas con el despido. Su planteamiento de supuestos prácticos encaja con la consulta de casos concretos, mientras que no responde a quien busca una novela o una introducción general a materias ajenas al derecho laboral.",
+      "texto": "Dirigido a quienes buscan casos prácticos sobre el despido dentro del ámbito del derecho. Casos prácticos sobre el despido (Supuestos prácticos), de Departamento de Documentación Iberley, se centra en esa materia y no en cuestiones fiscales o patrimoniales.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) está disponible en tapa blanda, con 366 páginas editadas por Colex. El papel permite marcar apartados y volver a los supuestos durante el estudio o la consulta profesional; se trata de un volumen físico que puede mantenerse junto a otros materiales jurídicos.",
+      "texto": "La edición de Casos prácticos sobre el despido (Supuestos prácticos) está disponible en tapa blanda y reúne 366 páginas. El formato impreso permite consultar los supuestos prácticos en papel y volver a ellos durante el estudio o el trabajo jurídico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) comparte autoría con La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas, ambos del Departamento de Documentación Iberley. El primero se centra en supuestos de despido; el segundo aborda plazos y circunstancias de la prescripción tributaria, por lo que sirven para consultas jurídicas distintas.",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) comparte autoría y enfoque jurídico con Casos prácticos sobre la fiscalidad de las «holding» y sus grupos (monografico). Ambos son de Departamento de Documentación Iberley, pero el primero aborda el despido y el segundo la fiscalidad de sociedades y grupos. La diferencia principal es la materia jurídica que se pretende consultar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370651282"
+        "isbn-9791370650186"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "70b3830f75e18923",
+  "fuente_hash": "ddf3a4fccdc8362c",
   "origen": "chatgpt-web"
 }

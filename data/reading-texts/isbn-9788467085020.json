@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Felipe II: Cuando España soñaba en grande (Espasa Historia de España) se dirige a lectores interesados en la historia española y las biografías de figuras históricas. Sus 516 páginas encajan con una lectura extensa, menos adecuada para quien busca ficción breve o aventuras contemporáneas.",
+      "texto": "Felipe II: Cuando España soñaba en grande (Espasa Historia de España), de Marcelo Gullo Omodeo, se dirige a lectores interesados en la historia española y las biografías de figuras históricas. Sus 516 páginas lo sitúan lejos de una introducción breve y de las lecturas de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Felipe II: Cuando España soñaba en grande (Espasa Historia de España) se ofrece en tapa blanda, con 516 páginas en castellano. Es una edición física de Editorial Espasa que permite avanzar por una lectura extensa y volver a pasajes anteriores sin utilizar una pantalla.",
+      "texto": "Felipe II: Cuando España soñaba en grande (Espasa Historia de España) está editado en tapa blanda y tiene 516 páginas. Es una edición física en castellano que permite consultar y retomar distintos pasajes durante una lectura prolongada.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Felipe II: Cuando España soñaba en grande (Espasa Historia de España) puede compararse con Corona Nostra: De Felipe VI a Felipe V por su atención a la historia de la monarquía española. Marcelo Gullo Omodeo centra su libro en Felipe II, mientras el título de Nieves Concostrina abarca otras figuras de la monarquía. Ambos se relacionan por el interés histórico, aunque difieren en el periodo y el enfoque anunciado.",
+      "texto": "Felipe II: Cuando España soñaba en grande (Espasa Historia de España) comparte el interés por personajes históricos con Cesar La conquista de la eternidad, de Alberto Angela. El primero se centra en la historia de España a través de Felipe II, mientras que el segundo aborda la trayectoria de un general romano.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410944176"
+        "isbn-9788410944329"
       ]
     }
   ],

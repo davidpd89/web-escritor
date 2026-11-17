@@ -4,39 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores interesados en la responsabilidad patrimonial de la Administración y la prevención de la violencia de género mediante VioGén. Es una monografía jurídica de Mireia Molina Sanchez, por lo que su enfoque se aleja de la narrativa de ficción y de las lecturas generales sobre relaciones personales.",
+      "texto": "Se dirige a lectores interesados en la responsabilidad patrimonial de la Administración y en el uso de VioGén para prevenir la violencia de género. El tratamiento jurídico de una herramienta administrativa concreta lo diferencia de las obras de sensibilización general o de la narrativa sobre violencia de género.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La responsabilidad patrimonial de la Administración por el uso de VioGén en la prevención de la violencia de género (Monografía) está disponible en tapa blanda. Sus 320 páginas permiten consultar el contenido jurídico en papel, marcar pasajes y volver a determinados apartados durante el estudio.",
+      "texto": "La edición de Aranzadi está disponible en tapa blanda, con 320 páginas en castellano. El soporte físico facilita marcar referencias y regresar a los apartados sobre responsabilidad administrativa y utilización de VioGén durante una consulta jurídica.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "idioma",
+        "editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte el enfoque jurídico de Blockchain: un desafío legal (Monografía), aunque este último se centra en los desafíos legales de una tecnología y la obra de Mireia Molina Sanchez aborda la responsabilidad administrativa vinculada a VioGén. Ambos títulos tratan cuestiones jurídicas específicas desde ámbitos diferentes.",
+      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos), de Mari Luz Sánchez García-Arista, también trata cuestiones relacionadas con la gestión de conflictos. Sin embargo, esa obra sitúa la mediación en el entorno educativo, mientras Mireia Molina Sanchez estudia la responsabilidad patrimonial de la Administración vinculada a VioGén y la prevención de la violencia de género.",
       "evidencias": [
-        "titulo",
-        "autores",
         "afines_catalogo",
-        "categorias"
+        "titulo",
+        "autores"
       ],
       "enlaces": [
-        "isbn-9791370610265"
+        "isbn-9788429030372"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "41feb9d436f21e93",
+  "fuente_hash": "1dbda086502578a9",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387789909",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la filosofía como disciplina científica y en el pensamiento de Friedrich Wilhelm Joseph Schelling. Sus 248 páginas de ensayo filosófico se alejan de la narrativa de ficción y de los libros de ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de De la naturaleza de la filosofía en cuanto ciencia: Lecciones erlanguesas (1821) (Hitos) se presenta en tapa blanda, con 248 páginas en castellano. Es un volumen físico que permite consultar pasajes y volver a ellos durante el estudio de los planteamientos filosóficos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el terreno de la reflexión filosófica con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar. Mientras ese título plantea la reflexión mediante aforismos, Friedrich Wilhelm Joseph Schelling aborda la naturaleza científica de la filosofía a través de unas lecciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3aee32d8355c2bc3",
+  "origen": "chatgpt-web"
+}

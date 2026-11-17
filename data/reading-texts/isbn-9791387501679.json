@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387501679",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gran zootel está dirigido al público infantil que busca relatos en lugar de una única novela extensa. Reúne la autoría de Pedro Mañas, Susanna Isern, Begoña Oro y Diego Arboleda en 160 páginas; quien prefiera narrativa para adultos encontrará aquí un enfoque editorial diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gran zootel se presenta en tapa dura, con 160 páginas en castellano. Esta edición física permite compartir el volumen durante la lectura infantil y conservarlo para futuras ocasiones, además de ofrecer una encuadernación rígida para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gran zootel comparte autores con Brigada Felina 2 - El secreto de Zarpafilada, de Susanna Isern, y Anna Kadabra. El Gran Libro de Anna Kadabra. El despertar de las brujas: 1, de Pedro Mañas y David Sierra Listón. Se diferencia por reunir a cuatro escritores en un volumen de relatos infantiles, mientras que los otros títulos presentan sus propias autorías y colecciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873639",
+        "isbn-9788408328933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "480309f896b752e3",
+  "origen": "chatgpt-web"
+}

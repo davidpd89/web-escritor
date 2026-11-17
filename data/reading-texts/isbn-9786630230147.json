@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9786630230147",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Soberanía Intelectual: Forjando una democracia del conocimiento para América latina desde el sur, de Diana Milagros Rueda de Aranguren, se dirige a lectores de ensayo interesados en la soberanía intelectual y el conocimiento en América latina. No responde a la búsqueda de una novela de ficción: su clasificación editorial es ensayo y tiene 244 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Soberanía Intelectual: Forjando una democracia del conocimiento para América latina desde el sur se edita en tapa blanda, con 244 páginas en castellano. La edición de Editorial Academica Espanola permite consultar el contenido en papel, señalar pasajes y volver a apartados anteriores durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d5bad5e7e2ccbce",
+  "origen": "chatgpt-web"
+}

@@ -4,32 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está pensado para jóvenes y adultos interesados en resolver casos detectivescos mediante la investigación de rutas de huida. CRIMEMAPS: ¿Dónde se esconde el asesino? 7 ciudades del mundo. 50 rutas de huida que investigar: Casos para detectives jóvenes y adultos, de Malla Books, propone una actividad vinculada al misterio y la investigación criminal, en lugar de una lectura centrada en el romance.",
+      "texto": "Está dirigido a lectores juveniles y adultos interesados en investigar casos y seguir rutas de huida. CRIMEMAPS: ¿Dónde se esconde el asesino? 7 ciudades del mundo. 50 rutas de huida que investigar: Casos para detectives jóvenes y adultos plantea una actividad detectivesca; no responde a la búsqueda de una novela juvenil centrada exclusivamente en una historia lineal.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite manejar físicamente las 128 páginas mientras se investigan las 50 rutas de huida anunciadas en el título. Su cubierta flexible facilita llevar el volumen de un lugar a otro y volver a consultar las páginas durante la resolución de los casos, sin necesidad de utilizar una pantalla.",
+      "texto": "La edición disponible es en tapa blanda, con 128 páginas en castellano, publicada por Alfaguara. Su extensión permite consultar los casos y las rutas de investigación en papel, volver a páginas anteriores y llevar el volumen durante los desplazamientos.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma",
+        "editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "American Caper nº 01: 1 (Thriller), de Dan Houser, Lazlow, David Lapham y Brent Anderson, comparte con CRIMEMAPS: ¿Dónde se esconde el asesino? 7 ciudades del mundo. 50 rutas de huida que investigar: Casos para detectives jóvenes y adultos el terreno del crimen y el suspense. La diferencia está en la propuesta explícita de Malla Books: investigar 50 rutas de huida distribuidas por 7 ciudades, con casos dirigidos a jóvenes y adultos.",
+      "texto": "Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación comparte el público juvenil con la obra de Malla Books, aunque sus títulos plantean asuntos diferentes. La propuesta de Malla Books se centra en investigar rutas de huida y casos detectivescos por distintas ciudades, mientras que Adolescelandia remite a un espacio relacionado con la autenticidad.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788491738107"
+        "isbn-9781637659380"
       ]
     }
   ],

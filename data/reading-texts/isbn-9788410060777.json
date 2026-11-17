@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410060777",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dramaturgia contemporánea para títeres y teatro de objetos 4: 287 se dirige a lectores interesados en la dramaturgia, los títeres y el teatro de objetos. Por su orientación hacia las artes escénicas, queda fuera de las búsquedas centradas en novelas de aventuras o romance.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dramaturgia contemporánea para títeres y teatro de objetos 4: 287 está disponible en tapa blanda, con 108 páginas en castellano. Esta edición de Ediciones Antígona permite consultar el volumen en papel y transportarlo sin el peso de una obra extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dramaturgia contemporánea para títeres y teatro de objetos 4: 287 comparte el ámbito artístico con 21 Westerns del siglo XXI (Sílex Cine/Claqueta), aunque aborda la dramaturgia para títeres y objetos en lugar del cine del oeste. Frente a 720 retrats, centrado por su título en retratos, se orienta hacia las formas de representación teatral.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842",
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d836a0e8df7cbbad",
+  "origen": "chatgpt-web"
+}

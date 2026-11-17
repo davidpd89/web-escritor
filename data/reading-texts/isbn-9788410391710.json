@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410391710",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bridgerton: Felices para siempre (Titania época) se sitúa entre las lecturas de romance y novela histórica, con Julia Quinn como autora. Se ajusta a quienes buscan ficción sentimental ambientada en un contexto histórico, mientras que responde menos a lectores interesados exclusivamente en narrativa contemporánea o ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bridgerton: Felices para siempre (Titania época) cuenta con una edición en tapa blanda de 288 páginas publicada por Titania. Su extensión permite leerlo en un volumen físico único, transportarlo en una bolsa y conservarlo junto a otros títulos de Julia Quinn de la misma colección editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "afines_catalogo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bridgerton: Felices para siempre (Titania época) puede compararse con Corazón de una bridgerton (Titania época) y La otra Miss Bridgerton (Titania época), ambos de Julia Quinn. Los tres comparten autora y colección editorial, además de su vinculación con el romance histórico. Se distinguen por sus títulos y por la posición que cada uno ocupa dentro de la oferta de obras de la autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410391772",
+        "isbn-9788410391697"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "add688e52ff9e3d5",
+  "origen": "chatgpt-web"
+}

@@ -4,38 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El arte de la guerra: El influyente tratado sobre estrategia militar (Filosofía), de Sun Tzu, se dirige a lectores interesados en estrategia, filosofía y ensayo. Quien busque una narración de ficción o una novela encontrará un tratado en lugar de una historia narrativa.",
+      "texto": "El arte de la guerra: El influyente tratado sobre estrategia militar (Filosofía), de Sun Tzu, se dirige a lectores interesados en el pensamiento estratégico y la filosofía. Sus 136 páginas corresponden a un tratado, no a una novela bélica con personajes y una trama de ficción.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda concentra sus 136 páginas en un volumen físico de Editorial del Nuevo Extremo, S.l. El audiolibro ofrece una alternativa para escuchar el contenido en lugar de leerlo, mientras que el papel permite consultar directamente el texto impreso.",
+      "texto": "El arte de la guerra: El influyente tratado sobre estrategia militar (Filosofía) se ofrece en tapa blanda y audiolibro. La edición impresa permite consultar sus 136 páginas y volver a pasajes concretos; el audiolibro facilita escuchar el tratado durante desplazamientos o actividades cotidianas.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El arte de la guerra, de Sun Tzu, coincide en título y autoría con El arte de la guerra: El influyente tratado sobre estrategia militar (Filosofía). Ambos registros remiten a la misma obra, por lo que la comparación no enfrenta dos planteamientos distintos, sino dos fichas del mismo título.",
+      "texto": "El arte de la guerra: El influyente tratado sobre estrategia militar (Filosofía) comparte autor y materia con El arte de la guerra, también de Sun Tzu. Frente a El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage), de Baltasar Gracián, su asunto declarado es la estrategia militar, mientras que la otra obra se centra en la prudencia.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084481"
+        "isbn-9788467084481",
+        "isbn-9788491058670"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "453181213fddc48a",
+  "fuente_hash": "ed883f446802f9e7",
   "origen": "chatgpt-web"
 }

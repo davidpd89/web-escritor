@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Historia de vidas y personajes de mi fantasía se dirige a lectores de poesía interesados en la imaginación y en los personajes de creación literaria. Con 78 páginas, se presta a sesiones breves y se aleja de la extensión habitual de una novela de fantasía larga.",
+      "texto": "Historia de vidas y personajes de mi fantasía, de Alfonso Abril Zaccagnini, encaja con lectores interesados en la poesía y en referencias a la fantasía. Con 78 páginas, se orienta a quienes prefieren libros breves; resulta menos afín a quien busca una novela fantástica extensa.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Historia de vidas y personajes de mi fantasía es de tapa blanda, publicada por Huerga & Fierro Editores. Sus 78 páginas en castellano forman un volumen corto, cómodo para transportar y para alternar su lectura con otros libros.",
+      "texto": "Historia de vidas y personajes de mi fantasía está disponible en tapa blanda, con 78 páginas reunidas en un volumen de extensión reducida. Es una opción física para leer por partes, conservar en una estantería o regalar sin recurrir a un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "223 esquinas: 16 (La garza roja) y Advenir son dos referencias del catálogo para comparar con Historia de vidas y personajes de mi fantasía. La obra de Alfonso Abril Zaccagnini se distingue por reunir en su título las vidas, los personajes y la fantasía, mientras que las otras corresponden a Antonio Fernández Lera y Jose Eceolaza, respectivamente.",
+      "texto": "Historia de vidas y personajes de mi fantasía puede compararse con A solas, de María Jesús Martínez Ramos, por su presencia entre las lecturas afines, aunque sus títulos apuntan a enfoques distintos: personajes imaginados frente a una referencia a la soledad. También se relaciona con Cacahuete, el elfo pedorrete (Libros ilustrados), de Rafael Ordóñez, por la vertiente fantástica; este último se identifica como libro ilustrado, mientras que la obra de Alfonso Abril Zaccagnini figura en poesía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,8 +31,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412988833",
-        "isbn-9788410212749"
+        "isbn-9788410318526",
+        "isbn-9788410907539"
       ]
     }
   ],

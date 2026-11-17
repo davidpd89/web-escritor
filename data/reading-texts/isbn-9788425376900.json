@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes) se dirige a quienes buscan lecturas relacionadas con el misterio y el ocio, dentro de una clasificación que también incluye novela histórica. Su planteamiento editorial se aleja de los manuales de viajes centrados exclusivamente en destinos.",
+      "texto": "El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes) se dirige a lectores interesados en historias relacionadas con crímenes y propuestas de ocio. Su clasificación también incluye novela histórica, por lo que se diferencia de los libros dedicados exclusivamente a la investigación criminal contemporánea.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,18 +12,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes) está disponible en tapa blanda, con 224 páginas en castellano. Esta edición de Grijalbo permite leerlo en papel y transportarlo sin el volumen habitual de un libro de mayor extensión.",
+      "texto": "El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes) se presenta en tapa blanda, en una edición de 224 páginas. El volumen físico de Grijalbo permite leerlo en papel y recuperar páginas anteriores sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Dónde está el asesino?: Rastrea pistas, descarta ciudades y caza al culpable (Ocio, entretenimiento y viajes) comparte autoría con El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes). El primero anuncia una búsqueda de pistas y ciudades en su título; el segundo presenta un asesinato como eje de su propuesta.",
+      "texto": "El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes) se relaciona con ¿Dónde está el asesino?: Rastrea pistas, descarta ciudades y caza al culpable (Ocio, entretenimiento y viajes) por su autoría común y la presencia de un crimen. Joseángel Murcia firma ambos títulos, aunque el segundo anuncia una búsqueda basada en pistas y ciudades, frente al asesinato específico que identifica el primero.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c83fe2a091ac23e5",
+  "fuente_hash": "c0351633831e6fcc",
   "origen": "chatgpt-web"
 }

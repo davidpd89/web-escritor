@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466395755",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ladrón de rostros (Inspectora Ane Cestero 3) (Best Seller | Ficción) corresponde al ámbito del misterio y el thriller, con la inspectora Ane Cestero como referencia de la serie. El título lo identifica como el n.º 3; quienes busquen el comienzo de la colección pueden distinguirlo de La danza de los tulipanes (Inspectora Ane Cestero 1) (Best Seller | Ficción).",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El ladrón de rostros (Inspectora Ane Cestero 3) (Best Seller | Ficción) cuenta con una edición de bolsillo en tapa blanda de 472 páginas. El formato de Penguin Bolsillo facilita transportar el volumen y leerlo en papel durante desplazamientos, aunque su extensión requiere más espacio que una novela breve.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El ladrón de rostros (Inspectora Ane Cestero 3) (Best Seller | Ficción) y La hora de las gaviotas (Inspectora Ane Cestero 2) (Best Seller | Ficción) pertenecen al mismo conjunto de títulos de Ibon Martín. El primero se identifica como n.º 3 y el segundo como n.º 2; la diferencia principal para quien siga la serie es su posición indicada en los títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395748"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b8d5387bfb187237",
+  "origen": "chatgpt-web"
+}

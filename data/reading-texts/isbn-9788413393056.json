@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788413393056",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El dinero: 193 (Nuevo Ensayo), de Charles Péguy, encaja con lectores interesados en el ensayo y la filosofía. Su clasificación también incluye literatura juvenil, aunque el enfoque ensayístico lo aleja de quien busca exclusivamente una narración de ficción con personajes y una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El dinero: 193 (Nuevo Ensayo) está disponible en tapa blanda, con una edición de 282 páginas publicada por Encuentro. Es una opción física para leer, consultar y conservar el texto en papel, con una extensión que permite distribuir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La escuela de salamanca.: Antecedentes, raíces europeas y vocación teológica: 192 (Nuevo Ensayo) comparte con El dinero: 193 (Nuevo Ensayo) su pertenencia a la colección Nuevo Ensayo. El primero anuncia un estudio de raíces europeas y teología, mientras que el libro de Charles Péguy se presenta bajo el concepto del dinero. Son obras de distinta autoría y asunto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413393001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f11f8b59218dd26e",
+  "origen": "chatgpt-web"
+}

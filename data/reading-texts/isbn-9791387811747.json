@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387811747",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las lunas que se han ido (Conrad), de María Asunción Mateo, se dirige a quienes leen narrativa contemporánea en castellano. Sus 256 páginas ofrecen una extensión intermedia, distinta de la que buscan los lectores interesados principalmente en obras muy cortas o especialmente voluminosas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las lunas que se han ido (Conrad) cuenta con una edición en tapa blanda de 256 páginas. El formato de Editorial Berenice permite tener el texto en papel y transportarlo con una cubierta flexible, una opción práctica para leer fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e463544ff8749565",
+  "origen": "chatgpt-web"
+}

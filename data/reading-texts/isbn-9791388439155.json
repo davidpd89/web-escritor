@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388439155",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores que buscan consultar datos y cifras mediante imágenes, en lugar de seguir una narración continua. Sus 336 páginas responden a un interés por las obras de referencia visuales; encaja menos con quien necesita una novela o un manual dedicado a una sola disciplina.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 336 páginas de esta enciclopedia infográfica en un volumen de consulta física. La encuadernación rígida resulta práctica para mantener el libro en una estantería y volver a sus explicaciones visuales, además de ofrecer una presentación apropiada para regalo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de la noche (¡incluye un póster que brilla en la oscuridad!): Explora las constelaciones y las historias de las estrellas (Cuentos que cuentan) comparte el interés por explicar conocimientos con apoyo visual, pero se concentra en el cielo y añade un póster. Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos) también sirve para consultar información, aunque restringida al vocabulario político. La enciclopedia de Andrew Pettie y Conrad Quilty-Harper se distingue por presentar miles de datos y cifras mediante imágenes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410318823",
+        "isbn-9791388175671"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f7bd5c6010e54c36",
+  "origen": "chatgpt-web"
+}

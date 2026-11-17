@@ -4,40 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Guiones para la adoración eucarística con jóvenes se dirige a quienes trabajan la espiritualidad y la práctica religiosa con grupos juveniles. La Delegación General de la Juventud Eucarística Reparadora (JER) firma este volumen de 320 páginas, cuyo enfoque no corresponde a una lectura de ficción.",
+      "texto": "Guiones para la adoración eucarística con jóvenes está dirigido a quienes trabajan la espiritualidad religiosa en encuentros juveniles. Su enfoque en la adoración eucarística lo distancia de los manuales generales de desarrollo personal y de las lecturas religiosas centradas en otras tradiciones.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Guiones para la adoración eucarística con jóvenes está disponible en tapa blanda, con 320 páginas en castellano. El formato impreso permite consultar los guiones durante la preparación de actividades de adoración eucarística y conservar el volumen como material de trabajo.",
+      "texto": "La edición en tapa blanda contiene 320 páginas de Guiones para la adoración eucarística con jóvenes. El formato permite llevar el volumen a reuniones y utilizarlo como material de consulta durante la preparación de actividades religiosas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Guiones para la adoración eucarística con jóvenes y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación abordan prácticas espirituales desde tradiciones diferentes. El primero trata la adoración eucarística juvenil; el libro de Tsondru Yeshe se ocupa del Dharma y de un camino de liberación.",
+      "texto": "Guiones para la adoración eucarística con jóvenes y AKITA: Las lágrimas y el mensaje de María comparten un marco religioso cristiano. El primero se centra en guiones para la adoración con jóvenes, mientras que el segundo aborda las lágrimas y el mensaje de María. Ambos se diferencian de Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, dedicado a otra tradición espiritual.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791388176357",
         "isbn-9791399210088"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e1430dbf3059646a",
+  "fuente_hash": "6f573028dc0d1293",
   "origen": "chatgpt-web"
 }

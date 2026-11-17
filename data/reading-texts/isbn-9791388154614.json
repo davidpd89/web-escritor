@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La aldea más allá de la niebla se dirige al público infantil y juvenil interesado en la fantasía. La obra de Sachiko Kashiwaba tiene 160 páginas y combina su clasificación fantástica con la literatura para lectores jóvenes. Quien busque un ensayo o una lectura realista para adultos encontrará aquí un planteamiento diferente.",
+      "texto": "La aldea más allá de la niebla se dirige a lectores infantiles y juveniles interesados en la fantasía. Sus 160 páginas y su clasificación como literatura infantil y juvenil sitúan el libro en la narrativa fantástica, frente a quienes buscan relatos realistas o ensayos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,24 +14,22 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La aldea más allá de la niebla cuenta con una edición en tapa dura de 160 páginas, publicada por Blackie Books. La encuadernación rígida facilita conservar el ejemplar en una biblioteca infantil y utilizarlo para lecturas compartidas. Su extensión permite distribuir la lectura en varias sesiones.",
+      "texto": "La tapa dura reúne las 160 páginas de La aldea más allá de la niebla en una edición física publicada por Blackie Books. Es el formato disponible para quienes prefieren conservar el ejemplar en papel y compartirlo o incorporarlo a una biblioteca infantil.",
       "evidencias": [
         "titulo",
         "edicion",
-        "editorial",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La aldea más allá de la niebla y Brujas y dragones 2: La bruja mala del oeste se relacionan con la fantasía dirigida a lectores jóvenes. La primera está escrita por Sachiko Kashiwaba y tiene 160 páginas; la segunda figura firmada por Ledicia Costas y Luis Miguel Pérez, y su título la identifica como el n.º 2.",
+      "texto": "La aldea más allá de la niebla puede ponerse en relación con Brujas y dragones 2: La bruja mala del oeste, de Ledicia Costas, Luis Miguel Pérez, por su vinculación con la fantasía. La primera presenta una aldea en su título, mientras que la segunda identifica expresamente brujas y dragones; ambos títulos se sitúan en el terreno de la ficción fantástica dirigida a lectores jóvenes.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -41,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7c0598dc496ec1fb",
+  "fuente_hash": "aee8f4e55c6461e6",
   "origen": "chatgpt-web"
 }

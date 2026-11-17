@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387599621",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de poesía contemporánea en castellano que buscan un volumen de extensión breve. Sus 88 páginas y su pertenencia a la colección Los Versos de Cordelia lo sitúan en un ámbito distinto al de la novela o el ensayo práctico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Reino de Cordelia S.l. reúne 88 páginas en tapa blanda y está publicada en castellano. El volumen físico permite leer los poemas por separado, regresar a determinados pasajes y conservarlos reunidos en un mismo ejemplar.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, y Advenir, de Jose Eceolaza, por su vinculación con la poesía. Flores de plástico: XXIX Premio de Poesía Ciudad de Salamanca: 115 (Los Versos de Cordelia) se distingue por su autoría, José María Higuera, y su pertenencia a la colección Los Versos de Cordelia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "341d0c5dfe67e220",
+  "origen": "chatgpt-web"
+}

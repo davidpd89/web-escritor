@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788417350956",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuaderno frida khalo se sitúa en el ámbito del ocio y las aficiones, por lo que encaja con quienes buscan un cuaderno vinculado al tiempo libre. No responde a la búsqueda de un tratado académico o una obra especializada en derecho, ciencia o fiscalidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Boncahier consta de 144 páginas en tapa blanda y está publicada en castellano. Su presentación física permite llevar el cuaderno en una bolsa o guardarlo junto a otros materiales de ocio, sin depender de una pantalla para utilizarlo.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuaderno frida khalo comparte autoría con Atrápame si puedes (Libro interactivo), de Varios autores, aunque el primero se presenta como cuaderno y el segundo como libro interactivo. También se relaciona con Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas, de Varios autores, por su vinculación con las aficiones; este último se centra específicamente en el bordado y sus diagramas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498748208",
+        "isbn-9791388220500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d9b3d718335676fb",
+  "origen": "chatgpt-web"
+}

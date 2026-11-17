@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788498748208",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas está dirigido a personas interesadas en el bordado de letras y cifras. Sus 128 páginas reúnen diagramas para trabajos manuales; no es una novela ni una lectura centrada en personajes y argumento.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas está disponible en tapa blanda. La edición de Editorial el Drac tiene 128 páginas en castellano, lo que permite consultar los diagramas sobre papel mientras se realiza el trabajo de bordado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Máscaras para decorar comparte con Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas su orientación hacia las manualidades, pero se ocupa de decorar máscaras en lugar de bordar letras y números. Cuaderno frida khalo, también atribuido a Varios autores, se presenta como cuaderno, mientras que Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas reúne modelos de caracteres y sus diagramas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788417350956"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "de5fe6ca5fbe389b",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Lo personal es político: 16 (NARRATIVA), de Carol Hanisch, se dirige a quienes leen ensayos sobre poder, política e historia del siglo XX. Su enfoque temático se aleja de las lecturas centradas en la ficción y de quienes buscan una novela de aventuras.",
+      "texto": "Lo personal es político: 16 (NARRATIVA), de Carol Hanisch, se dirige a lectores interesados en el ensayo y la historia. Por su clasificación temática, encaja menos con quienes buscan una novela de fantasía o una lectura centrada en la ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Lo personal es político: 16 (NARRATIVA) está disponible en tapa blanda, con 130 páginas en castellano. Esta edición de Sabina Editorial S.l. permite llevar el ensayo en papel y consultar sus páginas durante la lectura o el estudio.",
+      "texto": "La edición de Lo personal es político: 16 (NARRATIVA) está disponible en tapa blanda y tiene 130 páginas. Este formato permite llevar el volumen en el bolso y consultar sus páginas en papel, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Lo personal es político: 16 (NARRATIVA) comparte el interés por la política y la historia con Los pilares de la historia, de Javier Fernández Sebastián. Mientras este último plantea la capacidad de la historia para explicar un mundo en crisis, el libro de Carol Hanisch se sitúa en el terreno del ensayo sobre poder y política del siglo XX.",
+      "texto": "Lo personal es político: 16 (NARRATIVA) comparte el terreno del ensayo con Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor, aunque este último se centra en la relación entre amor y arte. También puede compararse con A sangre y fuego (Clásicos ilustrados), de Manuel Chaves Nogales, por su vinculación con la historia, frente al enfoque ensayístico del libro de Carol Hanisch.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629664"
+        "isbn-9791387752590",
+        "isbn-9788467084122"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e79ead474b015130",
+  "fuente_hash": "052c68a0cc988172",
   "origen": "chatgpt-web"
 }

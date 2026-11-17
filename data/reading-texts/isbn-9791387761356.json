@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387761356",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Siempre París: Guía ilustrada de una ciudad infinita se dirige a lectores interesados en París, los viajes y las publicaciones ilustradas sobre ciudades. Su enfoque combina el ámbito turístico con el arte y el diseño, por lo que se aparta de las guías exclusivamente textuales y de la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lunwerg Editores tiene 304 páginas, encuadernación en tapa dura y texto en castellano. Su presentación física reúne el contenido de esta guía ilustrada en un volumen que puede consultarse en casa o conservarse como libro de viajes y arte.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Itálica (Arte y patrimonio) comparte con Siempre París: Guía ilustrada de una ciudad infinita el interés por los lugares y su dimensión artística, pero aborda un referente patrimonial distinto de París. El primero está firmado por Rosa García Perea, mientras que la guía ilustrada de la capital francesa es obra de Marin Montagut.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370205577"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "75d427a1bfdae73f",
+  "origen": "chatgpt-web"
+}

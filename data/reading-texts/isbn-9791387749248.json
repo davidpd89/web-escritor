@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Enlazados (Umbriel narrativa) se dirige a quienes buscan ficción que combine fantasía, aventuras y elementos de novela histórica. Por esa mezcla de géneros, se distancia tanto del realismo cotidiano como de las obras exclusivamente documentales o ensayísticas.",
+      "texto": "Enlazados (Umbriel narrativa), de H.M. Long, se dirige a lectores que buscan fantasía combinada con aventuras y elementos de novela histórica. Sus 336 páginas corresponden a una obra narrativa que reúne esos géneros, por lo que se distancia de la ficción estrictamente realista y de los libros de divulgación histórica.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Enlazados (Umbriel narrativa) está disponible en tapa blanda y Kindle. La edición física reúne 336 páginas en castellano y permite conservar la novela en papel; Kindle ofrece la misma opción de lectura digital para llevarla en el móvil o en un lector electrónico.",
+      "texto": "Enlazados (Umbriel narrativa) puede leerse en tapa blanda o en Kindle. La edición impresa de Umbriel reúne 336 páginas y permite conservar el volumen en papel; Kindle ofrece la misma opción de lectura digital sin transportar el libro físico, especialmente útil para alternar dispositivos o leer durante los desplazamientos.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Enlazados (Umbriel narrativa) puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su relación con la ficción fantástica. H.M. Long combina fantasía, aventuras y elementos históricos, mientras que el título de Tracy Wolff sitúa su propuesta alrededor de los dioses y una prueba.",
+      "texto": "Enlazados (Umbriel narrativa) puede compararse con El soldado de la niebla: 1 (Los registros de Latro), de Gene Wolfe, por su proximidad a las lecturas que relacionan fantasía e historia. La obra de H.M. Long combina fantasía, aventuras y novela histórica; la de Gene Wolfe se presenta como parte de Los registros de Latro. La diferencia identificable está en la autoría y en la identificación de una serie en el segundo título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324102"
+        "isbn-9791399187335"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fcb49f7c0b817c8e",
+  "fuente_hash": "643d6bebc822aa79",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9786630375152",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ecotoxicología acuática: Fundamentos, bioindicadores y experimentación se orienta a lectores interesados en el estudio científico de los efectos de sustancias sobre los ecosistemas acuáticos. Por su enfoque en fundamentos, bioindicadores y experimentación, encaja menos con quienes buscan divulgación general sin contenidos especializados.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ecotoxicología acuática: Fundamentos, bioindicadores y experimentación cuenta con una edición en tapa blanda de 316 páginas en castellano. El formato impreso permite consultar sus apartados sobre fundamentos, bioindicadores y experimentación y regresar a ellos durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ecotoxicología acuática: Fundamentos, bioindicadores y experimentación puede compararse con Abonado y fertilización en agricultura ecológica-AGAU001PO por su relación con el estudio de procesos vinculados al medio natural. La primera se centra en ecotoxicología de sistemas acuáticos y bioindicadores, mientras que la segunda aborda, según su título, técnicas de fertilización agrícola.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2bb1370b124b51a0",
+  "origen": "chatgpt-web"
+}

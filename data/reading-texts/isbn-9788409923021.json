@@ -4,37 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ephemeris Insani está dirigido a lectores de poesía en castellano que prefieren este género a la narrativa convencional. Sus 158 páginas lo sitúan en una extensión relativamente contenida; no responde a quien busque una novela construida alrededor de una trama de fantasía o romance.",
+      "texto": "Ephemeris Insani está dirigido a lectores de poesía, más que a quienes buscan una novela de desarrollo narrativo continuo. Daniel Jimena González firma esta publicación de 158 páginas en castellano. Su clasificación poética permite distinguirla de los libros centrados en una trama de aventuras o romance.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "idioma",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ephemeris Insani se publica en tapa blanda, con 158 páginas en castellano. El ejemplar en papel permite volver a los textos y consultar distintas páginas sin depender de un dispositivo electrónico, una forma de lectura compatible con la poesía.",
+      "texto": "Ephemeris Insani cuenta con una edición en tapa blanda de 158 páginas. El volumen en castellano, publicado por Daniel Jimena González, permite leer y consultar los textos poéticos en papel, así como regresar a páginas concretas durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
+        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ephemeris Insani se puede comparar con Advenir y Animales que flotan lejos de casa: 43 (Leteo), dos títulos incluidos entre sus lecturas afines. Daniel Jimena González firma el primero de los libros comparados, mientras que Advenir es de Jose Eceolaza y Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña; los títulos apuntan a enfoques distintos.",
+      "texto": "Ephemeris Insani y A solas pueden compararse como obras de distinta autoría dentro de un catálogo que incluye poesía. Ephemeris Insani, de Daniel Jimena González, está clasificado como poesía y tiene 158 páginas. A solas, de María Jesús Martínez Ramos, presenta un título centrado en la idea de soledad, mientras que Ephemeris Insani utiliza una expresión en latín.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410212749",
-        "isbn-9791388299421"
+        "isbn-9788410907539"
       ]
     }
   ],

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399227529",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dioses imperfectos: 7 (Colección de poesía pie de página) se dirige a lectores de poesía en castellano que buscan un volumen de 92 páginas. Su clasificación poética lo distingue de las novelas de argumento continuo y de los ensayos divulgativos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dioses imperfectos: 7 (Colección de poesía pie de página) está editado en tapa blanda y tiene 92 páginas. Su extensión permite llevar el ejemplar físico en un bolso y volver a determinados pasajes sin manejar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dioses imperfectos: 7 (Colección de poesía pie de página) y A solas comparten su vinculación con la poesía, pero pertenecen a autores distintos: David Calzado y María Jesús Martínez Ramos. Frente a Advenir, de Jose Eceolaza, Dioses imperfectos: 7 (Colección de poesía pie de página) se identifica además por su pertenencia a una colección poética numerada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f9a396cb6c84dc59",
+  "origen": "chatgpt-web"
+}

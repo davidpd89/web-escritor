@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388036903",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de los casi 300 prevencionistas, de Ana Vanesa Serrano Soriano, se encuadra en el ensayo y se dirige a lectores interesados en ese tipo de obra. Sus 278 páginas corresponden a una lectura de no ficción de cierta extensión, distinta de una novela o un manual infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El libro de los casi 300 prevencionistas está editado en tapa blanda y reúne 278 páginas. Esta presentación permite leer y consultar el contenido directamente en papel; la cubierta flexible facilita abrirlo y manejarlo durante sesiones de lectura prolongadas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14c9287e60c49aaf",
+  "origen": "chatgpt-web"
+}

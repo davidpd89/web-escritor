@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388254444",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No somos el problema: El autismo sin filtro, de Vanesa Almeida Querejazu, se dirige a lectores interesados en el autismo desde el ámbito de la divulgación. Su enfoque temático lo diferencia de los manuales técnicos sobre disciplinas científicas ajenas a la condición autista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No somos el problema: El autismo sin filtro se ofrece en tapa blanda, con 306 páginas en castellano y edición de Caligrama. El volumen impreso permite consultar pasajes y retomarlos durante la lectura, sin necesidad de utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No somos el problema: El autismo sin filtro y 50 cosas que hay que saber sobre IA comparten su vinculación con la divulgación de temas científicos. Vanesa Almeida Querejazu centra su libro en el autismo, mientras que Keith Mansfield aborda la inteligencia artificial; son materias distintas dentro de la divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e41dd3b43c1e1f1f",
+  "origen": "chatgpt-web"
+}

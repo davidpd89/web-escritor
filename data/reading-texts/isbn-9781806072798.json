@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9781806072798",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Buenas noches, Conejito (Llena de luz tus sueños), de Anna Milbourne, se orienta a familias que buscan una lectura infantil breve relacionada con la hora de dormir. Sus 10 páginas de cartón permiten incorporarlo a momentos de lectura compartida; no responde a la búsqueda de un manual extenso sobre crianza o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Buenas noches, Conejito (Llena de luz tus sueños) se ofrece en tapa dura, mediante una edición de cartón de 10 páginas. Su soporte físico permite pasar las páginas durante la lectura acompañada antes de dormir y guardarlo junto a otros libros infantiles. La extensión favorece sesiones cortas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Buenas noches, Conejito (Llena de luz tus sueños) y Abuelita, dame las buenas noches (Libros sonoros grabables) comparten la referencia a las buenas noches y al entorno familiar. El libro de Anna Milbourne consta de 10 páginas de cartón, mientras que el de Joanne Parry se identifica como un libro sonoro grabable. La diferencia principal para el lector está entre la edición de cartón y una propuesta centrada en la grabación sonora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781806075768"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9bf6cdda78331b5c",
+  "origen": "chatgpt-web"
+}

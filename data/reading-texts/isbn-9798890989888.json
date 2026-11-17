@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798890989888",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dulce Navidad / Cozy Christmas: Coloring Book for Adults and Kids (Coco Wyo) está dirigido a niños y adultos que buscan una actividad de coloreado con temática navideña. Su propuesta pertenece al ocio creativo, no a la lectura de una historia narrativa, y permite dedicar tiempo a una actividad manual sobre papel.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dulce Navidad / Cozy Christmas: Coloring Book for Adults and Kids (Coco Wyo) se publica en tapa blanda y tiene 96 páginas. Al tratarse de un libro para colorear, el formato físico permite trabajar directamente sobre sus páginas con materiales de dibujo y utilizarlo como actividad navideña compartida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dulce Navidad / Cozy Christmas: Coloring Book for Adults and Kids (Coco Wyo) y Mieditos Tiernos / Spooky Cutie: Coloring Book for Adults and Kids (Coco Wyo) son libros para colorear de Coco Wyo dirigidos a adultos y niños. El primero utiliza la Navidad como tema, mientras que el segundo se identifica con motivos de miedo de carácter tierno. Ambos mantienen el coloreado como actividad principal, pero cambian el ambiente temático.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989901",
+        "isbn-9788402432391",
+        "isbn-9788402432452"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "31cff5faacc65e4e",
+  "origen": "chatgpt-web"
+}

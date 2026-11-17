@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788487775253",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El dinosaurio Tolomeo: Aventura en Fuengirola encaja con lectores que buscan una aventura protagonizada por un dinosaurio y situada en Fuengirola. Sus 24 páginas ofrecen una extensión breve; por su temática, se aleja de quienes prefieren relatos realistas sin elementos de aventura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El dinosaurio Tolomeo: Aventura en Fuengirola está editado en tapa blanda y tiene 24 páginas. Su extensión facilita llevarlo en papel y leerlo en sesiones cortas, mientras que la edición en castellano de Ayuntamiento de Fuengirola0 reúne la aventura en un volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El dinosaurio Tolomeo: Aventura en Fuengirola y El diario de una princesa desastrosa (Diarios), de Maidy, presentan protagonistas diferentes desde sus títulos. La obra de Ignacio Pangua plantea una aventura con un dinosaurio en Fuengirola, mientras que la de Maidy se identifica como un diario protagonizado por una princesa. La elección depende de si se busca una aventura localizada o una historia presentada como diario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331148"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5748e6dc09242bd3",
+  "origen": "chatgpt-web"
+}

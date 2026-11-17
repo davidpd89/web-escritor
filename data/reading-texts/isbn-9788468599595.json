@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788468599595",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la investigación sobre lesiones cerebrales y respuestas celulares del sistema nervioso. Por su enfoque específico sobre la microglía y las metaloproteasas, se aleja de las lecturas de divulgación científica general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina la relación entre la inhibición de metaloproteasas y la respuesta microglial ante una lesión mecánica cerebral. El objeto de estudio es la corteza cerebral de ratones adultos, con un planteamiento centrado en un proceso biológico concreto.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Bubok Publishing se presenta en tapa blanda y tiene 48 páginas. Su extensión permite consultar el estudio completo en un volumen físico breve, que puede guardarse junto a otros materiales de investigación.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a 50 cosas que hay que saber sobre IA, de Keith Mansfield, esta obra delimita su estudio a una reacción celular ante una lesión cerebral. Ambas se sitúan en el ámbito científico, pero la primera aborda la inteligencia artificial y esta se concentra en la investigación biológica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f5afabd739bb6b4",
+  "origen": "chatgpt-web"
+}

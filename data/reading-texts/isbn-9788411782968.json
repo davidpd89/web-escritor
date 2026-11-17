@@ -4,34 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estrofas rotas: Poesía reunida (Poesía Ilustrado) está dirigido a lectores de poesía interesados en la obra reunida de Safo. Su carácter poético lo diferencia de una novela con argumento continuo, por lo que encaja menos con quienes prefieren una narración en prosa.",
+      "texto": "Estrofas rotas: Poesía reunida (Poesía Ilustrado) está destinada a lectores interesados en la obra poética de Safo y en los volúmenes de poesía reunida. Sus 344 páginas corresponden a una publicación poética, no a una novela de trama continua ni a una recopilación de narrativa en prosa.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura reúne 344 páginas y ofrece un volumen físico para conservar, regalar o releer los poemas de Safo. Kindle permite acceder al libro en formato digital y consultar sus textos desde un dispositivo compatible, sin necesidad de llevar la edición impresa.",
+      "texto": "Estrofas rotas: Poesía reunida (Poesía Ilustrado) se ofrece en tapa dura y Kindle. La edición física de Alba Editorial reúne 344 páginas en un volumen encuadernado; la versión Kindle permite consultar los poemas en formato digital y prescindir del libro impreso durante los desplazamientos.",
       "evidencias": [
         "titulo",
-        "autores",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antologia amorosa la voz a ti debida y razon de amor y Estrofas rotas: Poesía reunida (Poesía Ilustrado) coinciden en su pertenencia a la poesía. El primero reúne textos amorosos de Pedro Salinas, mientras que el segundo presenta poesía reunida de Safo. La diferencia principal para el lector está en la autoría y en el alcance anunciado por cada título.",
+      "texto": "Estrofas rotas: Poesía reunida (Poesía Ilustrado) y A solas comparten su presencia entre las lecturas relacionadas con la poesía. La primera reúne obra de Safo en un volumen de 344 páginas; la segunda está firmada por María Jesús Martínez Ramos y se presenta como un título independiente, sin indicación de poesía reunida en su denominación.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788410907539"
       ]
     }
   ],

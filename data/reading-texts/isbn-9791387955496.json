@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Jannik Sinner: El tenista que vino del futuro (Otros deportes) está dirigido a lectores de biografías interesados en el tenis y en las figuras deportivas. Sus 224 páginas se sitúan en el terreno de la no ficción; no corresponde a quien busque una novela deportiva o un libro de actividades.",
+      "texto": "Jannik Sinner: El tenista que vino del futuro (Otros deportes) se orienta a lectores interesados en el tenis y las biografías deportivas. Sus 224 páginas se centran en una figura identificada por su nombre, por lo que no responde a la búsqueda de un manual general de entrenamiento o de una novela deportiva.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,19 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Jannik Sinner: El tenista que vino del futuro (Otros deportes) cuenta con una edición en tapa blanda de 224 páginas. Libros de Ruta la publica en castellano, en un formato físico flexible que permite leer la biografía en distintos momentos y conservarla en una colección deportiva.",
+      "texto": "Jannik Sinner: El tenista que vino del futuro (Otros deportes) está disponible en tapa blanda, con 224 páginas en castellano. Es un volumen físico que permite consultar pasajes de la biografía y conservarlo junto a otros libros sobre deportistas, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Jannik Sinner: El tenista que vino del futuro (Otros deportes) se relaciona con Kylian Mbappé: La biografía definitiva (Deportes) por su enfoque biográfico sobre deportistas. Alessandro Francesco Ruta aborda a un tenista, mientras que Julien Laurens dedica su libro a una figura del fútbol; ambos permiten acercarse a trayectorias deportivas distintas.",
+      "texto": "Jannik Sinner: El tenista que vino del futuro (Otros deportes) puede compararse con Enzo Ferrari: Velocidad, sangre y gloria. La biografía definitiva sobre Ferrari y su legado en el mundo del automovilismo. Ambos títulos abordan figuras vinculadas al deporte, pero Alessandro Francesco Ruta escribe sobre tenis y Luca dal Monte sobre automovilismo. Frente a Alpinismo de secano: La esencia de la escalada natural (Literatura no ficción Desnivel), de Eduard Sallent Vilanova, cambia también la disciplina tratada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,7 +32,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448049669"
+        "isbn-9788498297461",
+        "isbn-9788412955835"
       ]
     }
   ],

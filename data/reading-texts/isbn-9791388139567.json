@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Deja de regalar tu dinero está dirigido a lectores que necesitan orientarse ante contratos, hipotecas, alquileres, impuestos y otros trámites con consecuencias económicas. Su enfoque jurídico y práctico encaja menos con quien busca ficción o un tratado centrado en teorías económicas, sin consejos aplicados a situaciones personales.",
+      "texto": "Deja de regalar tu dinero está dirigido a quienes quieren entender las consecuencias económicas de sus decisiones legales cotidianas. Trata contratos, alquileres, hipotecas, herencias y obligaciones fiscales mediante consejos prácticos; encaja menos con lectores que buscan teoría económica o análisis de mercados.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Deja de regalar tu dinero es una guía práctica de David Jiménez organizada alrededor de 100 consejos sobre decisiones legales con repercusión económica. Trata contratos, vivienda, divorcios, herencias, despidos y obligaciones fiscales. Su planteamiento consiste en identificar errores habituales y explicar medidas de prevención, dentro del ámbito de economía y empresa.",
+      "texto": "Deja de regalar tu dinero plantea una guía práctica de economía personal desde el ámbito jurídico, organizada en 100 consejos. David Jiménez aborda situaciones como los despidos, los divorcios, la declaración de la renta y la protección del patrimonio, con atención a los errores que pueden generar gastos o pérdidas económicas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,19 +23,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Deja de regalar tu dinero se ofrece en tapa blanda, con 288 páginas en castellano publicadas por Roca Editorial. El volumen físico permite consultar por separado sus 100 consejos prácticos y regresar a cuestiones concretas, como contratos, hipotecas, alquileres o herencias, sin necesidad de seguir una lectura continua.",
+      "texto": "Deja de regalar tu dinero está disponible en tapa blanda, con 288 páginas publicadas por Roca Editorial. Este formato permite consultar los consejos sobre contratos, impuestos y patrimonio en papel, así como volver a los apartados relacionados con un trámite concreto.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Deja de regalar tu dinero puede compararse con ANTES DE QUE OCURRA: Vender, formar y proteger el futuro, de Rafael De la Torre Pérez, por su atención a la prevención, aunque David Jiménez se centra en trámites legales y patrimonio personal. Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, aborda en cambio el pensamiento económico y político.",
+      "texto": "Deja de regalar tu dinero puede compararse con ANTES DE QUE OCURRA: Vender, formar y proteger el futuro por su atención a la prevención y la protección. El libro de David Jiménez concreta ese enfoque en problemas jurídicos y decisiones económicas personales, mientras que el título de Rafael De la Torre Pérez anuncia un ámbito relacionado con la venta, la formación y la protección del futuro.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,13 +42,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457",
         "isbn-9788409935604"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "96b6f08cf9bb7be6",
+  "fuente_hash": "068c38ea85694bee",
   "origen": "chatgpt-web"
 }

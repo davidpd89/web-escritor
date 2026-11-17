@@ -4,39 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil) encaja con lectores infantiles y juveniles interesados en la fantasía, las aventuras y los entornos naturales. Se aleja de las lecturas realistas que prescinden de elementos mágicos y de los relatos centrados exclusivamente en situaciones cotidianas.",
-      "evidencias": [
-        "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil) se publica en tapa dura y tiene 224 páginas en castellano. La encuadernación rígida protege el volumen durante su uso y permite conservarlo en una colección de libros infantiles y juveniles.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil) comparte con Estuche Magic Animals. Misiones especiales 1 y 2 la combinación de magia y aventuras dirigida al público infantil. La obra de Kira Gembri sitúa la bahía en su título, mientras que la propuesta de Susanna Isern, Carles Dalmau y Nil López reúne misiones especiales en un estuche. El título identifica la obra de Kira Gembri con el n.º 2.",
+      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil), de Kira Gembri, encaja con lectores infantiles y juveniles que buscan fantasía y aventuras. Sus 224 páginas plantean una lectura de extensión intermedia; por su orientación temática, queda fuera de las preferencias centradas en el realismo adulto.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los guardianes de la bahía mágica: 2 (Alma Juvenil) se publica en tapa dura, con 224 páginas. Esta edición de Editorial Alma permite conservar el volumen en una estantería y utilizarlo como regalo físico, con una encuadernación rígida para las sucesivas lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste, de Ledicia Costas y Luis Miguel Pérez, comparte con Los guardianes de la bahía mágica: 2 (Alma Juvenil) el interés por la fantasía. Campamento Mestizo 1 - La zona rebelde, de Rick Riordan y Annabelle Oh, ofrece otra referencia vinculada a un escenario fantástico. La obra de Kira Gembri se presenta específicamente como una aventura infantil y juvenil de 224 páginas, mientras que las otras lecturas se distinguen por sus respectivos escenarios y personajes anunciados en los títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408327332"
+        "isbn-9791387501877",
+        "isbn-9788419868466"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "14f088be024ac2e5",
+  "fuente_hash": "3312ffc52dcd4b0a",
   "origen": "chatgpt-web"
 }

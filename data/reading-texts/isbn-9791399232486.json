@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399232486",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Antología de Flores Marchitas: 20 (Vorágine), de Mariano Lozano-P., se dirige a quienes buscan poesía en castellano. Sus 150 páginas permiten abordar el volumen por partes; encaja menos con lectores que prefieren una narración extensa en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 150 páginas de Antología de Flores Marchitas: 20 (Vorágine) en un volumen físico. Esta edición de Esdrújula Ediciones (2020) permite volver a los textos y marcar pasajes durante la lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antología de Flores Marchitas: 20 (Vorágine) puede compararse con A solas por su pertenencia a la poesía, aunque son obras de Mariano Lozano-P. y María Jesús Martínez Ramos, respectivamente. También comparte ese ámbito con Advenir, de Jose Eceolaza; la diferencia verificable entre los volúmenes está en la autoría y en la identificación de la obra de Mariano Lozano-P. como antología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e76d50167d7e307",
+  "origen": "chatgpt-web"
+}

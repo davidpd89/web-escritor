@@ -4,40 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Relatos de un laberinto, de Jerónimo Cambero, se orienta a lectores que buscan relatos vinculados a la fantasía, la ciencia ficción y la narrativa contemporánea. Quien prefiera una obra identificada como novela de un único género encontrará aquí una clasificación más diversa.",
+      "texto": "Relatos de un laberinto encaja con quienes buscan relatos de fantasía vinculados a la narrativa contemporánea. Sus 174 páginas permiten abordar una lectura de extensión moderada; no responde a quien prefiera un ensayo o un manual práctico.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Relatos de un laberinto se publica en tapa blanda, con una extensión de 174 páginas. Esta edición permite leer los relatos en papel y conservar el volumen para volver a ellos por separado.",
+      "texto": "Relatos de un laberinto está disponible en tapa blanda y Kindle. La edición física reúne 174 páginas y permite conservar el volumen en papel; Kindle facilita llevar la lectura en un dispositivo electrónico sin transportar el libro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Relatos de un laberinto comparte el terreno de la ficción imaginativa con Al despertar, rompe el cascarón (Runas), de Becky Chambers, aunque son obras de distinta autoría. También puede compararse con Caníbales de caramelandia, de Carlton Mellick Iii, por su proximidad al catálogo de ficción fantástica. Relatos de un laberinto se distingue por su clasificación expresa como colección de relatos.",
+      "texto": "Relatos de un laberinto comparte la fantasía con Alas de Hierro, aunque el primero se presenta como relatos y el segundo pertenece a una serie identificada en su título. También puede compararse con Caníbales de caramelandia por su vinculación con la ficción fantástica, aunque son obras de distinta autoría.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "autores"
       ],
       "enlaces": [
-        "isbn-9791370093488",
         "isbn-9788412837278"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4494f20c2c0bdc64",
+  "fuente_hash": "a8f36127418eaa18",
   "origen": "chatgpt-web"
 }

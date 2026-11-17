@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9789493531253",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Monir Shahroudy Farmanfarmaian se dirige a lectores interesados en la historia del arte y el diseño. Sus 224 páginas, firmadas por Asrin Haidari, Reza Daftarian y Sussan Babaie, plantean una lectura de temática artística, no un manual de técnicas creativas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Monir Shahroudy Farmanfarmaian está disponible en tapa blanda, con 224 páginas en castellano. Esta edición de Hannibal Books permite consultar el volumen en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Monir Shahroudy Farmanfarmaian puede compararse con Art for All: Surrealistas por su relación con el arte, aunque el primero se identifica con una figura concreta y el segundo con un movimiento artístico. Arte Matrio, de Sara Rubayo, comparte el interés por la historia del arte, pero se centra en el arte español y su representación, frente al enfoque de Monir Shahroudy Farmanfarmaian.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9783754401477",
+        "isbn-9783754401514",
+        "isbn-9788449346095"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c753ea78295f3b37",
+  "origen": "chatgpt-web"
+}

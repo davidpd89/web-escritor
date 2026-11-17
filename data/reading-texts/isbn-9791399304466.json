@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399304466",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crónicas de las flores rojas II: Destino se dirige a quienes buscan ciencia ficción vinculada a los relatos y al ensayo. Su clasificación reúne esos tres ámbitos, por lo que no responde a una búsqueda centrada exclusivamente en divulgación científica o narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Crónicas de las flores rojas II: Destino está disponible en tapa blanda, con 266 páginas en castellano. Es una edición física que permite consultar y releer pasajes sin depender de dispositivos electrónicos; su extensión también permite calcular el espacio que ocupará en una biblioteca.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crónicas de las flores rojas II: Destino comparte el ámbito de la ciencia ficción con UNO: Una distopía sobre la individualidad (Ciencia Ficción), de David Karp. La diferencia temática explícita está en la individualidad y la distopía del segundo título, mientras que el primero combina ciencia ficción, relatos y ensayo. También puede compararse por género con Al despertar, rompe el cascarón (Runas), de Becky Chambers, aunque se trata de obras de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370093488",
+        "isbn-9788445022085"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "561732e450c3a2ff",
+  "origen": "chatgpt-web"
+}

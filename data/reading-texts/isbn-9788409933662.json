@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409933662",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Taxidermista de Androides, de Vanadey Z., se dirige a lectores de narrativa juvenil interesados en el terror y el misterio. Sus 89 páginas plantean una lectura breve dentro de estos géneros, menos ajustada a quienes buscan una novela extensa o alejada de las historias de miedo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Taxidermista de Androides puede leerse en tapa blanda o en Kindle. La edición física reúne sus 89 páginas en un volumen de extensión breve, mientras que Kindle permite llevar la misma obra en un lector electrónico o en el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Taxidermista de Androides comparte el terreno del terror con La casa Manzev: Una historia de horror báltico, aunque este último título sitúa expresamente su propuesta en el horror báltico. También puede compararse con Historias De Miedo (Calcetín), de Angela Sommer-Bodenburg: ambos se relacionan con las historias de miedo, mientras que la obra de Vanadey Z. incorpora además el misterio y la narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388049606",
+        "isbn-9788491429005"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b07eb5b44946007b",
+  "origen": "chatgpt-web"
+}

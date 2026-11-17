@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409920099",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rinde sin perderte: Lo que nadie te dice cuando funcionas por fuera y te vacías por dentro, de Miguel Obradors, se dirige a lectores interesados en el desarrollo personal, la psicología y su relación con el rendimiento. Por su orientación temática, se aleja de quienes buscan ficción o un tratado exclusivamente económico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rinde sin perderte: Lo que nadie te dice cuando funcionas por fuera y te vacías por dentro está editado en tapa blanda, con 162 páginas en castellano. Su extensión permite llevarlo en papel para leerlo por sesiones y volver a consultar los apartados que interesen al lector.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rinde sin perderte: Lo que nadie te dice cuando funcionas por fuera y te vacías por dentro comparte el interés por el desarrollo personal con Los Archivos de la felicidad: Reflexiones sobre la vida y el trabajo, de Arthur C. Brooks. Miguel Obradors centra su título en el rendimiento y el desgaste interior, mientras que la obra de Brooks plantea reflexiones sobre la vida y el trabajo. Ambos relacionan el bienestar personal con la actividad cotidiana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410121645"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4d174a9087a21c50",
+  "origen": "chatgpt-web"
+}

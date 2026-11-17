@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791370260217",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia de las comunidades antiguas y en el estudio de asentamientos y necrópolis. Sus 300 páginas y su autoría colectiva encajan con una lectura centrada en un lugar concreto, no con quien busca una panorámica general de toda la historia antigua.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El estudio se centra en la necrópolis y el asentamiento de una comunidad edetana en El Maset del Pedralbino, en Llíria, Valencia. El enfoque delimita dos espacios relacionados con esa comunidad, el funerario y el habitacional, y los sitúa dentro de la colección Trabajos Varios del SIP.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se presenta en tapa blanda, con 300 páginas dedicadas a un asentamiento y una necrópolis concretos. La edición impresa permite consultar distintas partes del estudio y regresar a ellas durante una investigación o lectura histórica.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, el interés por un objeto de estudio histórico delimitado. La diferencia está en el periodo y el asunto: aquel título aborda el derrumbe de una democracia, mientras este examina una comunidad edetana mediante su asentamiento y su necrópolis.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "61fbbbc7b9d19536",
+  "origen": "chatgpt-web"
+}

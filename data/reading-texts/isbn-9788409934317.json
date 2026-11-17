@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "LAS COORDENADAS IMPOSIBLES.: Una red de alineaciones irrealizable hace 500 años sin GPS... O no? se dirige a lectores interesados en la historia, la Edad Media y las preguntas sobre conocimientos técnicos del pasado. El ensayo de Salvador Navarro Masip aborda las alineaciones y su relación con la orientación, por lo que se aleja de la ficción histórica y de las novelas de aventuras.",
+      "texto": "LAS COORDENADAS IMPOSIBLES.: Una red de alineaciones irrealizable hace 500 años sin GPS... O no? se dirige a lectores de historia y ensayo interesados en las alineaciones geográficas del pasado. Su planteamiento interrogativo se aleja de una exposición histórica general y delimita una cuestión concreta.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de LAS COORDENADAS IMPOSIBLES.: Una red de alineaciones irrealizable hace 500 años sin GPS... O no? está disponible en tapa blanda. Sus 266 páginas permiten consultar el ensayo en papel y volver a los pasajes sobre historia y alineaciones sin depender de un dispositivo electrónico.",
+      "texto": "LAS COORDENADAS IMPOSIBLES.: Una red de alineaciones irrealizable hace 500 años sin GPS... O no? cuenta con una edición en tapa blanda de 266 páginas. El volumen físico permite seguir la exposición histórica en papel y consultar de nuevo los pasajes relacionados con las alineaciones.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,7 +22,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados) comparte con el ensayo de Salvador Navarro Masip el interés por cuestiones relacionadas con el pasado. Javier Prado Coronel aborda los mitos y las leyendas de España, mientras Salvador Navarro Masip plantea una cuestión sobre alineaciones y orientación hace 500 años. La diferencia está entre el estudio de las tradiciones legendarias y una investigación planteada desde la historia y la Edad Media.",
+      "texto": "LAS COORDENADAS IMPOSIBLES.: Una red de alineaciones irrealizable hace 500 años sin GPS... O no? comparte el interés por cuestiones históricas con Amor y sexo en España contado para escépticos (Historia), de Juan Eslava Galán. Salvador Navarro Masip plantea un interrogante sobre alineaciones antiguas, mientras que el otro título se ocupa de la historia del amor y el sexo en España.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949976"
+        "isbn-9788408326441"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "df3af0c1559f5a09",
+  "fuente_hash": "a9029d7309fe3977",
   "origen": "chatgpt-web"
 }

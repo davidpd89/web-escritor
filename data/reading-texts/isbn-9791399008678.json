@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399008678",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cartografía interior (DEMETER) encaja con lectores de terror que prefieren obras de extensión contenida. Sus 160 páginas lo sitúan entre las lecturas breves del género; quienes busquen una novela extensa de narrativa contemporánea encontrarán aquí una propuesta de menor longitud.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cartografía interior (DEMETER) se presenta en tapa blanda y reúne 160 páginas en castellano. Su extensión facilita transportarlo y terminarlo en pocas sesiones, mientras que la encuadernación flexible permite guardarlo en espacios reducidos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartografía interior (DEMETER) puede compararse con Anatomía del miedo por su relación con el terror y el miedo. La obra de Stephen Graham Jones se identifica editorialmente como terror, mientras que el título de Rubin Editorial señala el miedo como asunto central sin precisar una modalidad narrativa concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786316730589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cabd5b900631c31a",
+  "origen": "chatgpt-web"
+}

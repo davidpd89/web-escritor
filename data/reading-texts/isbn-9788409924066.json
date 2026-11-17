@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409924066",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el liderazgo consciente y en herramientas de reflexión aplicadas al ámbito profesional. Su orientación hacia el desarrollo personal y la gestión empresarial lo diferencia de los manuales centrados exclusivamente en economía financiera o en técnicas comerciales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda cuenta con 346 páginas en castellano y está publicada por Juan Enrique Llimona Valonero. Este formato permite mantener el journal a mano para consultar sus contenidos sobre liderazgo consciente y utilizarlo como material de trabajo personal o profesional.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "SOMOS Journal: Reflexión, claridad y transformación personal, también de Enrique Llimona Valonero, comparte el planteamiento de reflexión personal, mientras que SOMOS Journal Executive: La herramienta estratégica para el liderazgo consciente lo dirige al liderazgo. Burnout en el trabajo: Guía práctica para trabajadores, mandos y empresas: prevenirlo, detectarlo y actuar. Con casos, 170 test y modelos para fotocopiar, de José Luis Efraín Zeballos, aborda el entorno laboral desde la prevención y gestión del agotamiento, con un enfoque distinto al del liderazgo consciente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409886845",
+        "isbn-9791399320725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1fc054e1b223fa90",
+  "origen": "chatgpt-web"
+}

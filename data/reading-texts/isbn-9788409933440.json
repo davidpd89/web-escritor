@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409933440",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El altar de los vivos: Trilogía del Altar · Libro II se dirige a lectores interesados en biografías y memorias que desean seguir una obra organizada como trilogía. El título lo identifica como el Libro II, por lo que resulta menos adecuado para quien prefiera comenzar una serie por su primera entrega.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El altar de los vivos: Trilogía del Altar · Libro II cuenta con una edición en tapa blanda de 204 páginas, publicada en castellano. Su extensión permite valorar el tiempo de lectura y el espacio necesario para conservar físicamente esta entrega de la trilogía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El altar de los vivos: Trilogía del Altar · Libro II comparte autoría y pertenencia a una trilogía con El altar de los irrecuperables: Trilogía del Altar · Libro I y Sin altar: Trilogía del Altar · Libro III. Los títulos distinguen sus posiciones dentro de la misma serie, mientras que Santiago Daniel Blázquez Rozalén firma las tres obras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409927432",
+        "isbn-9788409935628"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab7f33ecf5c54e88",
+  "origen": "chatgpt-web"
+}

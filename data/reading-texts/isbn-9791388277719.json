@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Dónde está Matilda?: Un libro de busca y encuentra (Alfaguara Clásicos), de Roald Dahl, está dirigido a quienes prefieren buscar elementos en las páginas antes que seguir una narración extensa. Su propuesta de busca y encuentra, vinculada a los clásicos y las aventuras, no responde a quien quiera una novela larga de lectura continuada.",
+      "texto": "¿Dónde está Matilda?: Un libro de busca y encuentra (Alfaguara Clásicos) se dirige a quienes prefieren buscar elementos en las páginas antes que seguir una narración extensa. Sus 48 páginas y su propuesta de búsqueda lo diferencian de una novela convencional, por lo que encaja menos con lectores interesados exclusivamente en relatos largos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Dónde está Matilda?: Un libro de busca y encuentra (Alfaguara Clásicos) se presenta en tapa dura, con 48 páginas en castellano. La encuadernación rígida facilita conservar el volumen para repetir las búsquedas y utilizarlo como regalo físico, mientras que su extensión permite manejarlo en sesiones breves.",
+      "texto": "¿Dónde está Matilda?: Un libro de busca y encuentra (Alfaguara Clásicos) está disponible en tapa dura, con 48 páginas publicadas por Alfaguara. La cubierta rígida facilita manipularlo y apoyarlo durante las búsquedas, además de proteger las páginas cuando se consulta repetidamente.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Dónde está Matilda?: Un libro de busca y encuentra (Alfaguara Clásicos) comparte personaje y autor con El Superingenioso Libro Para Colorear de Matilda / Matilda's Outrageous Coloring Adventure, de Roald Dahl. La diferencia está en la actividad anunciada por cada título: buscar y encontrar elementos en el primero y colorear en el segundo.",
+      "texto": "La terrible señorita Trunchbull y otros relatos de maldades y villanos (Alfaguara Clásicos) comparte autor y colección con ¿Dónde está Matilda?: Un libro de busca y encuentra (Alfaguara Clásicos), pero se presenta como una reunión de relatos, frente a una actividad de búsqueda. Juan y la habichuela mágica también es de Roald Dahl y parte de un intercambio extraordinario. La diferencia principal está en la forma de lectura: localizar elementos o seguir una historia.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073877299"
+        "isbn-9791388277030",
+        "isbn-9791388277771"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b8ce2dc1a42d6f90",
+  "fuente_hash": "276f805ca13db795",
   "origen": "chatgpt-web"
 }

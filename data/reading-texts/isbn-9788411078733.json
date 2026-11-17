@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores de fantasía que también buscan narrativa contemporánea, las dos vertientes con las que se clasifica la obra de John Connolly. Encaja menos con quienes prefieren exclusivamente literatura realista y evitan los elementos fantásticos.",
+      "texto": "Se orienta a lectores de fantasía que también buscan narrativa contemporánea, con ilustraciones de Riki Blanco. Encaja menos con quienes prefieren una lectura exclusivamente realista o una obra breve, ya que esta edición reúne 416 páginas.",
       "evidencias": [
-        "autores",
-        "categorias"
+        "titulo",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de La tierra de las cosas perdidas: Ilustraciones de Riki Blanco (MAXI) pertenece al sello Maxi-tusquets y se presenta como libro de bolsillo. Reúne 416 páginas en castellano, con publicación editorial fechada el 2027-01-13; el propio título identifica las ilustraciones de Riki Blanco.",
+      "texto": "La tierra de las cosas perdidas: Ilustraciones de Riki Blanco (MAXI) se presenta en una edición de bolsillo de Maxi-tusquets. Sus 416 páginas y el ISBN 9788411078733 identifican esta publicación en castellano, fechada editorialmente el 2027-01-13. El propio título destaca las ilustraciones de Riki Blanco.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
         "numero_paginas",
+        "isbn13",
         "idioma",
         "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 416 páginas de esta edición en un volumen de bolsillo, apropiado para transportar y conservar en papel. Kindle permite leer la obra en un dispositivo electrónico y ajustar la visualización del texto sin cargar con el ejemplar físico.",
+      "texto": "La tapa blanda corresponde a una edición de bolsillo de 416 páginas, pensada para transportar el libro físico con mayor facilidad que un volumen de gran formato. Kindle permite llevar la misma lectura en un dispositivo electrónico y prescindir del peso del ejemplar impreso.",
       "evidencias": [
         "edicion",
         "numero_paginas",
@@ -33,16 +34,15 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) permite establecer una comparación por su componente mágico, mientras que La tierra de las cosas perdidas: Ilustraciones de Riki Blanco (MAXI) se presenta además como narrativa contemporánea. El trono de las pesadillas (Umbriel narrativa) ofrece otra referencia fantástica, con una autoría distinta de la de John Connolly.",
+      "texto": "La tierra de las cosas perdidas: Ilustraciones de Riki Blanco (MAXI) comparte el ámbito de la fantasía con El exorcismo de las hadas: Perversas realidades: libro 1 (Faeris Editorial). La diferencia visible está en su presentación: el primero destaca las ilustraciones de Riki Blanco y el segundo se identifica expresamente como libro 1 de Perversas realidades. También puede compararse con Adversaria del villano (Faeris Editorial), otra obra del catálogo cuyo título remite a personajes de ficción fantástica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387749316",
-        "isbn-9791387749255"
+        "isbn-9791388108327",
+        "isbn-9791388108280"
       ]
     }
   ],

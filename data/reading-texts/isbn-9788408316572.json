@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción) se dirige a lectores de romance y narrativa juvenil interesados en las relaciones de pareja. Sus 592 páginas plantean una lectura extensa, menos ajustada a quienes buscan una novela breve o una historia centrada en géneros ajenos al romance.",
+      "texto": "Está dirigido a lectores de romance y narrativa juvenil que buscan una novela extensa en castellano. Por su clasificación temática, encaja menos con quienes prefieren ensayos, divulgación o historias alejadas de las relaciones románticas.",
       "evidencias": [
-        "titulo",
         "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "esta_edicion",
-      "texto": "Esta edición de Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción) se distingue por sus cantos tintados y su encuadernación en tapa dura. Crossbooks la publicó el 11 de noviembre de 2026, en castellano y con 592 páginas; el acabado de los cantos es su rasgo identificativo frente a una presentación convencional.",
-      "evidencias": [
-        "titulo",
-        "edicion",
-        "editorial",
-        "fecha_publicacion",
         "idioma",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición especial de Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción) se distingue por sus cantos tintados y su encuadernación en tapa dura. Crossbooks la publica en castellano, con 592 páginas, bajo el ISBN 9788408316572.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "isbn13"
+      ]
+    },
+    {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura permite conservar las 592 páginas de Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción) en un volumen físico con cantos tintados. Kindle facilita llevar la novela en un dispositivo de lectura o móvil, mientras que el audiolibro permite escucharla sin manejar el ejemplar impreso.",
+      "texto": "La tapa dura reúne las 592 páginas en un volumen físico con cantos tintados, una característica de esta edición especial. Kindle permite leer el texto en un dispositivo compatible, mientras que el audiolibro ofrece la alternativa de escucharlo en lugar de leerlo en pantalla o papel.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -34,20 +34,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción) comparte el interés por las relaciones románticas con EXITUS [SAGA CORSARIOS I]: Una atracción inevitable. La obra de Iryna Zubkova. ir_zu pertenece a la narrativa juvenil, mientras que el título de Naiara Ruz Redondo destaca una atracción inevitable y se identifica como parte de una saga.",
+      "texto": "El arte de ser nosotros. Edición de bolsillo con cantos decorados (Colección Especial) comparte el componente romántico y la atención a los acabados físicos, aunque se presenta en bolsillo frente a la tapa dura de Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción). Asistente del villano (edición especial limitada) (Faeris Editorial) también destaca su condición de edición especial, pero su título sitúa la historia en un contexto diferente.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
+        "edicion",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788409926589"
+        "isbn-9791388108112",
+        "isbn-9788408326830"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "39b5ae981ef1f687",
+  "fuente_hash": "70abf5adebd5ece3",
   "origen": "chatgpt-web"
 }

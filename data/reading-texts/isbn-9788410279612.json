@@ -4,29 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La yedra se dirige a lectores que buscan poesía en castellano y prefieren un volumen de extensión contenida. La obra de Elena Cobos Ruiz reúne 64 páginas, por lo que no corresponde a quien busca una novela larga o un ensayo desarrollado en prosa.",
+      "texto": "La yedra está dirigida a lectores interesados en la poesía y en los libros de este género. Sus 64 páginas ofrecen una extensión breve; no responde a quien busque una novela o una narración en prosa.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La yedra se presenta en tapa blanda, con 64 páginas en castellano y edición de Calixto Torres Perales. La encuadernación flexible facilita transportarla y consultar sus páginas en distintos momentos; su extensión también permite dedicar sesiones breves a la lectura poética.",
+      "texto": "La tapa blanda reúne las 64 páginas de La yedra en un volumen físico de extensión breve. Es la opción disponible para quien prefiera leer poesía en papel y conservar el libro en su biblioteca.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La yedra y Antologia amorosa la voz a ti debida y razon de amor pertenecen al ámbito de la poesía. La primera es una obra de Elena Cobos Ruiz de 64 páginas; la segunda, de Pedro Salinas, identifica expresamente el amor como eje de su selección. La comparación permite distinguir una obra individual de una antología de temática amorosa.",
+      "texto": "La yedra, de Elena Cobos Ruiz, comparte espacio en el catálogo con A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza. Los tres títulos permiten acercarse a distintas autorías presentes en la selección, aunque La yedra se identifica expresamente como poesía y tiene una extensión de 64 páginas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -35,8 +33,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288",
-        "isbn-9791370140908"
+        "isbn-9788410907539",
+        "isbn-9788410212749"
       ]
     }
   ],

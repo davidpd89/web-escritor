@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9781806072699",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para el público infantil que empieza a explorar los objetos y sonidos relacionados con la casa. Sus 10 páginas y su presentación en cartón lo sitúan entre las lecturas breves de descubrimiento, no entre los cuentos extensos con una trama desarrollada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La propuesta consiste en explorar la casa mediante el oído y el tacto, siguiendo las acciones que anuncia el título de la colección. Las 10 páginas permiten recorrer el libro en sesiones breves, señalar elementos y relacionarlos con los sonidos del entorno doméstico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición física es un libro de cartón de 10 páginas, presentado como tapa dura y publicado por Ediciones Usborne. Su estructura rígida facilita sujetarlo y pasar las páginas durante la exploración táctil, mientras que su corta extensión permite repetir la actividad.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1c35df42dcadf939",
+  "origen": "chatgpt-web"
+}

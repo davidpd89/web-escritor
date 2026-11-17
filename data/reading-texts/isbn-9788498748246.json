@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788498748246",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes practican el ganchillo y buscan proyectos de animales tejidos. Christine Maria Sonnenschein reúne en el título 15 animales de 23 a 25 cm; su planteamiento se aleja de la lectura de novelas y de los pasatiempos de resolución escrita.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Los amigos de Frida tejidos a ganchillo: 15 animales adorables de 23 a 25 cm se presenta en tapa blanda. Sus 144 páginas permiten consultar el volumen durante las sesiones de ganchillo y volver a los distintos proyectos sin seguir una lectura continua.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas comparte el interés por las labores textiles, aunque se centra en letras y números bordados en lugar de animales de ganchillo. Frente a 99 Sudoku (LIBROS SINGULARES), de Anónimo, la actividad propuesta es manual y textil, no un pasatiempo numérico.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425",
+        "isbn-9788498748208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "677fa842f83c3a92",
+  "origen": "chatgpt-web"
+}

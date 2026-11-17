@@ -4,31 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pensad en Flebas (OZ EDITORIAL), de Iain M. Banks, se dirige a lectores interesados en la ciencia ficción y la fantasía. Su clasificación también incluye el ensayo, por lo que se aleja de las búsquedas centradas exclusivamente en narrativa realista.",
+      "texto": "Pensad en Flebas (OZ EDITORIAL), de Iain M. Banks, se sitúa en el ámbito de la ciencia ficción y también aparece vinculado al ensayo. Sus 528 páginas encajan con quien busca una lectura extensa dentro de esos géneros, más que con quien prefiere un libro breve de consulta.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer las 528 páginas de Pensad en Flebas (OZ EDITORIAL) en una edición física de Oz Editorial. Kindle ofrece el mismo título en formato digital para llevarlo en un lector electrónico o consultarlo desde el móvil.",
+      "texto": "Pensad en Flebas (OZ EDITORIAL) se ofrece en tapa blanda y Kindle. La edición de Oz Editorial consta de 528 páginas en papel, mientras que Kindle permite llevar el texto en formato digital sin transportar un volumen de esa extensión.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "editorial",
-        "formatos_disponibles"
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pensad en Flebas (OZ EDITORIAL), de Iain M. Banks, puede compararse con Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados), de Andy Weir, por su relación con la ciencia ficción. La diferencia verificable está en la edición: el primero se ofrece en tapa blanda y Kindle, mientras que el segundo se identifica por sus cantos tintados.",
+      "texto": "Pensad en Flebas (OZ EDITORIAL) comparte el terreno de la ciencia ficción con Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados), de Andy Weir. La diferencia visible entre las ediciones está en su presentación: el título de Andy Weir identifica una edición limitada con cantos tintados, mientras que el de Iain M. Banks se publica en tapa blanda y también dispone de Kindle.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
         "formatos_disponibles",
+        "edicion",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -38,6 +41,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dd31ad182b61885d",
+  "fuente_hash": "1e87814a07a4b06d",
   "origen": "chatgpt-web"
 }

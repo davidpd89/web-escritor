@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788433950918",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las cosas que llevaban los hombres que lucharon (Compactos) se orienta a lectores de narrativa contemporánea interesados en historias relacionadas con la historia y las aventuras. Por su clasificación literaria, se distancia de los manuales históricos y de los ensayos dedicados exclusivamente al análisis de acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Editorial Anagrama ofrece Las cosas que llevaban los hombres que lucharon (Compactos) en tapa blanda, con 272 páginas en castellano. Es una edición física de extensión intermedia que permite leer la obra completa y conservarla dentro de una biblioteca de narrativa contemporánea.",
+      "evidencias": [
+        "editorial",
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA) comparte con Las cosas que llevaban los hombres que lucharon (Compactos) la relación entre narrativa e historia, aunque sus títulos remiten a asuntos diferentes. La primera obra está firmada por María Reig y la segunda por Tim O'Brien; ambas se sitúan en el ámbito de la lectura narrativa vinculada a temas históricos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7ba07676743fc746",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) se dirige a lectores interesados en los textos religiosos y la espiritualidad. Su contenido responde a la lectura de los evangelios, no a quien busca un manual de ejercicios de bienestar o desarrollo personal.",
+      "texto": "Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) se dirige a lectores interesados en los textos evangélicos y la espiritualidad cristiana. Por su contenido religioso y su presentación con prólogo, se diferencia de los manuales de bienestar centrados en hábitos cotidianos o técnicas de salud.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,41 +12,41 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) incorpora un prólogo de Pablo d'Ors y está publicada por Errata naturae. Apareció el 2026-10-26, en castellano, con 304 páginas encuadernadas en tapa dura.",
+      "texto": "Esta edición de Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) incorpora un prólogo de Pablo d'Ors. Errata naturae la publica en castellano, en tapa dura y con 304 páginas, características que permiten identificar esta presentación editorial frente a otras.",
       "evidencias": [
         "titulo",
+        "autores",
         "editorial",
-        "fecha_publicacion",
         "idioma",
-        "numero_paginas",
-        "edicion"
+        "formato_edicion",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible para esta edición de 304 páginas de Errata naturae. Resulta apropiada para conservar el volumen, consultarlo en diferentes momentos o regalar una edición física con el prólogo de Pablo d'Ors.",
+      "texto": "Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) se presenta en tapa dura, con 304 páginas. La encuadernación rígida resulta adecuada para conservar el volumen en una biblioteca, regalarlo o consultarlo repetidamente, incluido su prólogo.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
-        "titulo"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, comparte el interés por la espiritualidad, pero se orienta hacia la astrología, la filosofía y la magia. Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) se centra, en cambio, en los textos evangélicos y añade un prólogo de Pablo d'Ors.",
+      "texto": "Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) y Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia comparten un marco de lectura espiritual, pero el primero reúne textos evangélicos y el segundo plantea el desarrollo de la consciencia. Frente a CONCIENCIA PRIMERA: La Revelación Empírica de un Más Allá, cuyo título propone una aproximación empírica al más allá, Los cuatro evangelios: Con prólogo de Pablo d'Ors (VARIOS) se centra en la tradición evangélica.",
       "evidencias": [
         "titulo",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9798888505335",
+        "isbn-9788409901364"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "08000a9aad11b9cd",
+  "fuente_hash": "05cb74254bab52e2",
   "origen": "chatgpt-web"
 }

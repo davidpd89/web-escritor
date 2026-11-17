@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409930814",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Metamorfosis peluqueros empresarios: En quién tienes que convertirte para construir una peluquería rentable se dirige a profesionales de la peluquería interesados en gestionar su actividad como negocio. Su planteamiento combina desarrollo personal y cuestiones empresariales. No está enfocado en enseñar exclusivamente técnicas de corte, peinado o coloración.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Metamorfosis peluqueros empresarios: En quién tienes que convertirte para construir una peluquería rentable está editado en tapa blanda, con 458 páginas en castellano. La extensión permite abordar su temática empresarial mediante una lectura prolongada y volver sobre apartados concretos. El papel facilita marcar ideas relacionadas con la gestión de una peluquería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Metamorfosis peluqueros empresarios comparte autor, Mario A. Sánchez, y ámbito profesional con La biblia de la colorimetría: Domina el universo del color y las claves para convertirte en expert@ colorist@. El primero trata la gestión rentable de una peluquería; el segundo se centra en las técnicas de color. Burnout en el trabajo aborda también cuestiones laborales, pero desde la prevención del desgaste profesional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409934508",
+        "isbn-9791399320725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0d703505bef47417",
+  "origen": "chatgpt-web"
+}

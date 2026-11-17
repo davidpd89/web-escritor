@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409914692",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida buena: Ver de otra manera (Conversaciones con mis hijos) se dirige a lectores interesados en el desarrollo personal, la filosofía y la psicología. Sus 398 páginas responden a una búsqueda de reflexión extensa sobre estas materias, no a quien prefiera una novela de ficción o una lectura de pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida buena: Ver de otra manera (Conversaciones con mis hijos) está editado en tapa blanda y castellano, con una extensión de 398 páginas. El volumen físico permite volver a los apartados que interesen y realizar anotaciones durante una lectura centrada en el desarrollo personal y la reflexión filosófica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de organizar los pensamientos: Sabiduría pausada para un mundo acelerado comparte con La vida buena: Ver de otra manera (Conversaciones con mis hijos) el interés por revisar la manera de pensar, aunque el primero se centra expresamente en organizar los pensamientos. El descubrimiento de la vida interior: Sentir, pensar, decidir (Espasa Bienestar y Salud) plantea otro punto de comparación, con el foco puesto en la experiencia interior y las decisiones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629657",
+        "isbn-9788467084528"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ef0006aa78bd3e95",
+  "origen": "chatgpt-web"
+}

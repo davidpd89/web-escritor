@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Leo solito Ana, la de Tejas Verdes (Castellano - A PARTIR DE 3 AÑOS - LIBROS DIDÁCTICOS - Otros libros) está dirigido a lectores infantiles a partir de 3 años, dentro de una propuesta didáctica de iniciación a la lectura. Sus 48 páginas encajan con la búsqueda de un libro infantil breve, pero no con quien prefiere una novela extensa.",
+      "texto": "Leo solito Ana, la de Tejas Verdes (Castellano - A PARTIR DE 3 AÑOS - LIBROS DIDÁCTICOS - Otros libros) se dirige al público infantil desde los 3 años, con interés por las aventuras y la lectura. Sus 48 páginas responden a una extensión reducida; no está planteado como una novela extensa para lectores adultos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,19 +13,20 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Leo solito Ana, la de Tejas Verdes (Castellano - A PARTIR DE 3 AÑOS - LIBROS DIDÁCTICOS - Otros libros) ofrece dos formatos: tapa blanda y Kindle. La edición física permite manejar sus 48 páginas como libro de aprendizaje; Kindle facilita llevar la lectura en un dispositivo compatible, sin transportar el ejemplar impreso.",
+      "texto": "La edición de 48 páginas de Leo solito Ana, la de Tejas Verdes (Castellano - A PARTIR DE 3 AÑOS - LIBROS DIDÁCTICOS - Otros libros) se ofrece en tapa blanda y Kindle. El papel permite manejar las páginas físicamente durante la lectura infantil; Kindle facilita tener el texto en formato digital para leerlo en un dispositivo compatible.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprender a leer con Las Fantasticotas 16. Alejandra encuentra una salamandra: En letra MAYÚSCULA para aprender a leer (Libros para niños a partir de 5 años) comparte con este libro el propósito de iniciarse en la lectura y la autoría de Laura Vila. La diferencia de edad figura en los títulos: Leo solito Ana, la de Tejas Verdes se presenta a partir de 3 años, mientras que la otra propuesta indica 5 años y lectura en mayúsculas.",
+      "texto": "Aprender a leer con Las Fantasticotas 16. Alejandra encuentra una salamandra: En letra MAYÚSCULA para aprender a leer (Libros para niños a partir de 5 años) comparte con Leo solito Ana, la de Tejas Verdes (Castellano - A PARTIR DE 3 AÑOS - LIBROS DIDÁCTICOS - Otros libros) la autoría de Laura Vila y la orientación hacia la lectura infantil. La diferencia explícita es la edad indicada en los títulos: a partir de 5 años en el primero y de 3 años en el segundo; el primero también destaca el uso de mayúsculas.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -35,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b1c1e177a1a191ff",
+  "fuente_hash": "0a4bc9fc5a4acb3e",
   "origen": "chatgpt-web"
 }

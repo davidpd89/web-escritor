@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Envejecer es opcional: La fórmula para vivir más sin perder tu calidad de vida (Best Seller | No Ficción), de Dr. José Hernández Poveda, se dirige a lectores interesados en el envejecimiento, la salud y la conservación de la calidad de vida. Su planteamiento de desarrollo personal y bienestar no corresponde a una narración de ficción ni a una historia familiar novelada.",
+      "texto": "Se dirige a quienes buscan lecturas sobre longevidad, bienestar y calidad de vida. Envejecer es opcional: La fórmula para vivir más sin perder tu calidad de vida (Best Seller | No Ficción), de Dr. José Hernández Poveda, aborda estas cuestiones desde la no ficción, por lo que se aleja de las novelas y los relatos imaginarios.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,30 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Penguin Bolsillo contiene 256 páginas y permite llevar el libro para consultar sus contenidos sobre salud y bienestar. Kindle facilita leerlo desde el móvil y localizar fragmentos; el audiolibro permite escucharlo durante trayectos o mientras se realizan otras actividades.",
+      "texto": "La tapa blanda reúne las 256 páginas en una edición de bolsillo de Penguin Bolsillo, pensada para llevar el libro en papel. Kindle permite consultar el contenido desde un lector electrónico o el móvil, mientras que el audiolibro ofrece la posibilidad de escucharlo sin necesidad de leer en pantalla.",
       "evidencias": [
         "numero_paginas",
         "edicion",
-        "formatos_disponibles",
-        "categorias"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, comparte con Envejecer es opcional: La fórmula para vivir más sin perder tu calidad de vida (Best Seller | No Ficción) el interés por mejorar la salud. El libro de Liz Moody amplía el enfoque a las relaciones, la felicidad y el éxito, mientras que el de Dr. José Hernández Poveda se concentra en la longevidad y la calidad de vida.",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, comparte con este libro el interés por vivir más años, aunque su título pone el acento en el optimismo y el humor. Envejecer es opcional: La fórmula para vivir más sin perder tu calidad de vida (Best Seller | No Ficción), de Dr. José Hernández Poveda, centra su propuesta en conservar la calidad de vida durante el envejecimiento.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9791387852290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e585f7e4dd12753a",
+  "fuente_hash": "79c6dc9a739af1bf",
   "origen": "chatgpt-web"
 }

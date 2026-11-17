@@ -4,42 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores adultos interesados en las relaciones entre ciencia, religión y espiritualidad, especialmente en los argumentos sobre la existencia de Dios. Encaja menos con quienes buscan una exposición científica desvinculada de las creencias religiosas o una guía de prácticas espirituales.",
+      "texto": "Nuevas evidencias científicas de la existencia de Dios se dirige a adultos interesados en el debate entre ciencia, religión y espiritualidad. Su enfoque sobre los argumentos científicos relacionados con la existencia de un creador no corresponde a quien busca una novela o un manual de prácticas religiosas.",
       "evidencias": [
+        "titulo",
         "edad_recomendada",
         "categorias",
-        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Plantea una reflexión sobre la existencia de Dios a partir de descubrimientos científicos y de la relación entre fe y conocimiento. José Carlos González-Hurtado recurre a cuestiones como el Big Bang, la termodinámica, las leyes naturales y la genética para desarrollar su argumentación, dirigida al público adulto.",
+      "texto": "Se trata de una obra de reflexión sobre la posible relación entre los descubrimientos científicos y la existencia de Dios. José Carlos González-Hurtado examina cuestiones como el Big Bang, la termodinámica, las leyes naturales y la genética para desarrollar su argumentación, en lugar de construir una trama de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "edad_recomendada"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer sus 432 páginas en papel, en una edición de bolsillo que puede transportarse para consultar los argumentos durante la lectura. Kindle ofrece el mismo título como opción digital para leer en un dispositivo compatible, sin necesidad de llevar el volumen físico.",
+      "texto": "La tapa blanda de Debolsillo reúne las 432 páginas de Nuevas evidencias científicas de la existencia de Dios en una edición de bolsillo. Kindle permite llevar el texto en un dispositivo compatible y consultar sus argumentos sin transportar el volumen físico.",
       "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
+        "titulo",
+        "editorial",
         "edicion",
-        "titulo"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los genios creen en Dios, de José Carlos González-Hurtado, comparte con Nuevas evidencias científicas de la existencia de Dios el debate sobre la relación entre fe y ciencia. Mientras el primero cuestiona la idea de que el avance científico haya dejado atrás las creencias religiosas, el segundo desarrolla argumentos sobre la existencia de un Creador a partir del Big Bang, la termodinámica y la genética.",
+      "texto": "Los genios creen en Dios comparte con Nuevas evidencias científicas de la existencia de Dios el interés por la relación entre ciencia y fe, además de la autoría de José Carlos González-Hurtado. El primero cuestiona la idea de que el progreso científico haya sustituido las creencias religiosas, mientras que el segundo analiza descubrimientos de la física y la genética para defender la existencia de un creador. Ambos abordan el debate desde una perspectiva religiosa vinculada al conocimiento científico.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788410096547"
@@ -48,6 +49,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "416c564fe349a483",
+  "fuente_hash": "d795d21adfdd2176",
   "origen": "chatgpt-web"
 }

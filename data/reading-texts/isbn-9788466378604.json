@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466378604",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los ojos de Mona: Una novela en 52 obras maestras (Best Seller | Ficción) está dirigido a lectores de narrativa contemporánea interesados en el arte y su relación con la historia. Su planteamiento como novela lo diferencia de los manuales técnicos de creación artística o de los catálogos dedicados exclusivamente a reproducir obras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los ojos de Mona: Una novela en 52 obras maestras (Best Seller | Ficción) se publica en tapa blanda de bolsillo, con 512 páginas en castellano. La edición de Penguin Bolsillo reúne la novela en un volumen físico transportable, adecuado para una lectura prolongada y para conservarlo después.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los ojos de Mona: Una novela en 52 obras maestras (Best Seller | Ficción) y Art for All: Surrealistas comparten su vinculación con el arte, pero ofrecen enfoques distintos. Thomas Schlesser utiliza la narrativa contemporánea para abordar 52 obras maestras, mientras que el segundo título se centra en los surrealistas y reúne las firmas de Andrea Kettenmann, Gilles Néret, Janis Mink, Marcel Paquet y Ulrich Bischoff.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9783754401477",
+        "isbn-9783754401514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3376e7970cb353d9",
+  "origen": "chatgpt-web"
+}

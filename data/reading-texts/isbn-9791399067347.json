@@ -4,29 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Colecciones de cuentos, de Leopoldo Lugones, se dirige a lectores de relatos vinculados al terror, la fantasía y la ciencia ficción. Su condición de colección de cuentos la distingue de las novelas concebidas como una única narración extensa, por lo que encaja menos con quienes buscan ese formato narrativo.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Colecciones de cuentos, de Leopoldo Lugones, comparte con Krabat (Alma Juvenil), de Otfried Preussler, su vinculación con la fantasía. La diferencia está en la presentación: el primero reúne cuentos y también se clasifica dentro del terror y la ciencia ficción, mientras que el segundo se identifica como una obra juvenil.",
+      "texto": "Colecciones de cuentos encaja con lectores interesados en relatos vinculados al terror y la ciencia ficción. La obra de Leopoldo Lugones se presenta en castellano y en tapa blanda; por su clasificación temática, queda fuera de una búsqueda centrada exclusivamente en narrativa realista sin elementos de esos géneros.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Colecciones de cuentos comparte el terreno del terror y la ciencia ficción con Estuche Abismo Lovecraft (Minotauro Ilustrados) y El Vivo (Impedimenta). La diferencia identificable está en la autoría y la presentación: Leopoldo Lugones firma una colección de cuentos en tapa blanda, mientras que los títulos afines corresponden a Tomás Hijo y H. P. Lovecraft, y a Anna Starobinets.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387752453"
+        "isbn-9788445022856",
+        "isbn-9791388412042"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4302264c2e23503b",
+  "fuente_hash": "c10fbda568f20c11",
   "origen": "chatgpt-web"
 }

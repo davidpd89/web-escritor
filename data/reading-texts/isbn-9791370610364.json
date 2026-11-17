@@ -4,40 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a quienes buscan una aproximación jurídica al teletrabajo y su relación con la conciliación familiar y laboral en España. No responde al mismo interés que una lectura sobre organización personal o productividad, porque su tema central es la relación entre trabajo, familia y derecho.",
+      "texto": "Se dirige a quienes buscan un tratamiento jurídico del teletrabajo y de la conciliación familiar y laboral en España. Con 320 páginas, pertenece al ámbito del derecho y no al de las guías generales de productividad o los relatos sobre experiencias profesionales.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La obra de Jorge Gabriel Pol Pujol está disponible en tapa blanda, con 320 páginas en castellano. Esta edición de Aranzadi permite leer y consultar en papel el tratamiento del teletrabajo y la conciliación, además de realizar anotaciones para recuperar cuestiones concretas.",
+      "texto": "El teletrabajo y la conciliación de la vida familiar y laboral en España (Monografía) tiene una edición en tapa blanda de 320 páginas. Su presentación en papel permite consultar el contenido jurídico y recuperar pasajes concretos durante la lectura o el estudio.",
       "evidencias": [
-        "autores",
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "titulo"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Se relaciona con Familia y sucesiones en la jurisprudencia: tendencias actuales (Monografía) por su atención a asuntos familiares desde el derecho. Jorge Gabriel Pol Pujol estudia el teletrabajo y la conciliación en España; Romina Santillan Santa Cruz se ocupa de las tendencias jurisprudenciales en familia y sucesiones. La diferencia está entre el ámbito laboral y el análisis jurisprudencial familiar y sucesorio.",
+      "texto": "El teletrabajo y la conciliación de la vida familiar y laboral en España (Monografía) puede ponerse en relación con Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos), de Mari Luz Sánchez García-Arista. Ambos títulos tratan asuntos vinculados a las relaciones entre personas, pero el de Jorge Gabriel Pol Pujol se centra en el teletrabajo y la conciliación desde el derecho, mientras que el otro aborda la mediación educativa. Sus ámbitos de aplicación son diferentes.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610425"
+        "isbn-9788429030372"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f1edd565cf417e3b",
+  "fuente_hash": "697ae233c9ef8d31",
   "origen": "chatgpt-web"
 }

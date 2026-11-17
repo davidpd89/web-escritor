@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "ROSAURA, AMOR PÚRPURA: Cuando la noche está más oscura, es cuando empieza a clarear se dirige a quienes leen romance contemporáneo centrado en el amor, la pareja y la familia. Sus 510 páginas plantean una lectura extensa; encaja menos con quien busca fantasía o aventuras como eje principal.",
+      "texto": "ROSAURA, AMOR PÚRPURA: Cuando la noche está más oscura, es cuando empieza a clarear, de Reynalldo Rey, se orienta a lectores de romance y narrativa contemporánea. Sus 510 páginas plantean una lectura extensa, menos ajustada a quien busca un relato breve o una obra de consulta.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible de ROSAURA, AMOR PÚRPURA: Cuando la noche está más oscura, es cuando empieza a clarear es en tapa dura. Sus 510 páginas forman un volumen físico extenso, adecuado para conservar en una biblioteca personal o entregar como regalo.",
+      "texto": "ROSAURA, AMOR PÚRPURA: Cuando la noche está más oscura, es cuando empieza a clarear puede leerse en tapa dura, tapa blanda o Kindle. La tapa dura ofrece una encuadernación rígida para sus 510 páginas, la blanda resulta más flexible al sostenerla y Kindle permite llevar la novela en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -22,21 +23,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "ROSAURA, AMOR PÚRPURA: Cuando la noche está más oscura, es cuando empieza a clarear puede compararse con El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, por su vinculación con la narrativa de ficción. La obra de Reynalldo Rey aborda el romance, la pareja y la familia en 510 páginas, mientras que el título de Weronika Anna Marczak se presenta como ficción crossover y se identifica como una primera entrega.",
+      "texto": "A mil por hora, de Hannah Grace, y ROSAURA, AMOR PÚRPURA: Cuando la noche está más oscura, es cuando empieza a clarear, de Reynalldo Rey, comparten el enfoque romántico. La primera presenta una relación entre un piloto de F1 y una mujer vinculada a su pasado, mientras que la segunda se clasifica como romance y narrativa contemporánea. La obra de Reynalldo Rey tiene 510 páginas y permite comparar su extensión con otras lecturas del género.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "afines_catalogo"
+        "numero_paginas"
       ],
       "enlaces": [
-        "isbn-9788427226074"
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ada613b530b6593e",
+  "fuente_hash": "95d189276d593e5a",
   "origen": "chatgpt-web"
 }

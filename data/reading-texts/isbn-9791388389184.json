@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388389184",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Japón Kawaii (Cozy coloring), de Chickie Cafe, se dirige a quienes buscan actividades de ocio y tiempo libre relacionadas con el coloreado. Por su planteamiento práctico, se aleja de las lecturas centradas en desarrollar argumentos o seguir personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Japón Kawaii (Cozy coloring) está disponible en tapa blanda, con 80 páginas en castellano. Es una edición física que permite trabajar directamente sobre las páginas y guardar el volumen junto a otros libros de actividades de coloreado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Japón Kawaii (Cozy coloring) y Mi rincón cozy (Cozy coloring) comparten la identificación Cozy coloring en sus títulos. La diferencia está en la temática anunciada: Chickie Cafe presenta una propuesta vinculada a Japón, mientras que Pomiechi sitúa la suya en un rincón acogedor. Ambos se orientan al ocio creativo, frente a los libros de autoayuda del catálogo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388389177"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9378811685649a73",
+  "origen": "chatgpt-web"
+}

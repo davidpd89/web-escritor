@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387624477",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El retorno de Orfeo. El cerebro de Beaubourg: 30 (MínimaTeatro) se orienta a lectores interesados en textos teatrales y publicaciones sobre artes escénicas. Sus 120 páginas corresponden a un volumen breve, distinto de una novela extensa o de un manual general de historia del arte.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El retorno de Orfeo. El cerebro de Beaubourg: 30 (MínimaTeatro) se publica en tapa blanda, con 120 páginas en castellano. La extensión facilita transportar el ejemplar y consultar el texto en papel, tanto para lectura individual como para trabajar con una edición física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El retorno de Orfeo. El cerebro de Beaubourg: 30 (MínimaTeatro) y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) comparten su relación con las artes escénicas y audiovisuales, aunque el primero se identifica con el teatro y el segundo con el cine. A diferencia del estudio cinematográfico firmado por Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga, el volumen de Tadeusz Słobodzianek pertenece a MínimaTeatro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e47df1ecb16f5ce",
+  "origen": "chatgpt-web"
+}

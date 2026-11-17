@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788416827381",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo mejor de George Orwell: 10 (UNIVERSO) se dirige a lectores interesados en la obra de George Orwell y en publicaciones vinculadas a la historia. Por sus 769 páginas, requiere más tiempo de lectura que un volumen breve y encaja menos con quien busca una obra corta para terminar en pocas sesiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa blanda de Lo mejor de George Orwell: 10 (UNIVERSO) reúne 769 páginas en castellano. Su extensión hace que el peso y el espacio ocupado sean aspectos prácticos al transportarlo; como libro físico, permite mantener reunido el contenido en la biblioteca y volver a consultar sus páginas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo mejor de George Orwell: 10 (UNIVERSO) comparte autor con 1984 (edición especial limitada con cantos tintados) y ¿Qué es el fascismo?: Textos escogidos (ENSAYO). 1984 presenta una sociedad sometida a la vigilancia del pensamiento, mientras que ¿Qué es el fascismo?: Textos escogidos (ENSAYO) identifica expresamente una selección de textos ensayísticos. Lo mejor de George Orwell: 10 (UNIVERSO) se distingue por su título de recopilación y su extensión de 769 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788491058298",
+        "isbn-9791399203042"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f6cb07cd60c4dc17",
+  "origen": "chatgpt-web"
+}

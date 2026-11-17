@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387624606",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos completos: 15 (Clásicos), de Francisco Nieva, se dirige a lectores interesados en los clásicos y la narrativa contemporánea en formato de cuentos. Por su extensión de 584 páginas, encaja mejor con quien busca una recopilación amplia que con quien prefiere una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuentos completos: 15 (Clásicos) se presenta en tapa blanda, con 584 páginas en castellano. Esta edición de Punto de Vista Editores reúne una extensión considerable en un volumen de cubierta flexible, apropiado para leer por partes y conservar en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e9b51d378901946",
+  "origen": "chatgpt-web"
+}

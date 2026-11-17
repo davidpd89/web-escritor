@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "PECES VOLADORES: Aforismos y notas para una filosofía mínima: 6 (ARTEMISA DE AFORISMOS) se dirige a lectores interesados en aforismos, reflexiones breves y poesía. Por su planteamiento fragmentario y sus 50 páginas, se distancia de quienes buscan una novela extensa con una trama continuada.",
+      "texto": "PECES VOLADORES: Aforismos y notas para una filosofía mínima: 6 (ARTEMISA DE AFORISMOS) se dirige a lectores interesados en los aforismos, las notas filosóficas y la poesía. Por su planteamiento y sus 50 páginas, se aparta de las novelas extensas y de las lecturas centradas en una trama narrativa.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de PECES VOLADORES: Aforismos y notas para una filosofía mínima: 6 (ARTEMISA DE AFORISMOS) es de tapa blanda y tiene 50 páginas. Su extensión permite llevar el volumen en un bolso y consultar sus aforismos durante pausas breves, sin necesidad de reservar sesiones largas de lectura.",
+      "texto": "La edición de PECES VOLADORES: Aforismos y notas para una filosofía mínima: 6 (ARTEMISA DE AFORISMOS) está disponible en tapa blanda. Sus 50 páginas permiten manejar el volumen con facilidad y volver a consultar aforismos y notas sin necesidad de recorrer una obra extensa.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -22,15 +22,17 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "PECES VOLADORES: Aforismos y notas para una filosofía mínima: 6 (ARTEMISA DE AFORISMOS) puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por su relación con la escritura poética. José Antonio Fernández Sánchez presenta aforismos y notas filosóficas, mientras que el título de Pedro Salinas sitúa el amor en el centro de su selección. La diferencia principal está en el tipo de texto y su orientación temática.",
+      "texto": "PECES VOLADORES: Aforismos y notas para una filosofía mínima: 6 (ARTEMISA DE AFORISMOS) puede compararse con A solas por su proximidad a las lecturas de carácter poético. La diferencia identificable está en la propuesta explícita de aforismos y notas filosóficas de José Antonio Fernández Sánchez, frente al título de María Jesús Martínez Ramos. También comparte el ámbito poético con Advenir, de Jose Eceolaza, aunque su título anuncia una estructura basada en textos breves.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "numero_paginas"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788410907539",
+        "isbn-9788410212749"
       ]
     }
   ],

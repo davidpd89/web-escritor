@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399240184",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La guitarra, otra voz en el aula: Un camino hacia la enseñanza musical y pedagógica se orienta a lectores interesados en la guitarra y su relación con la enseñanza musical. Sus 84 páginas y su vinculación con el arte lo distinguen de las novelas extensas y de los libros dirigidos a quienes buscan principalmente ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La guitarra, otra voz en el aula: Un camino hacia la enseñanza musical y pedagógica se publica en tapa blanda, con 84 páginas en castellano. Esta edición de Libros para el Infinito permite consultar el texto en papel y transportarlo sin el volumen de una obra de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La guitarra, otra voz en el aula: Un camino hacia la enseñanza musical y pedagógica y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) se relacionan con disciplinas artísticas, pero el primero aborda la enseñanza musical y el segundo se centra en el cine del oeste. También puede contrastarse con 720 retrats, cuyo título remite al retrato, frente al enfoque musical y pedagógico de Antonio Bernal Navarro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842",
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c2a92e499801133",
+  "origen": "chatgpt-web"
+}

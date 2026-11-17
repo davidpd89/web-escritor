@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388102202",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historias cortas Ai Yazawa nº 03 (Usubeni no arashi / escape): 3 (Manga Josei) se dirige a lectores de manga y narrativa gráfica interesados en relatos breves de Ai Yazawa. Sus 304 páginas se encuadran en el cómic y la narrativa juvenil; no responde al formato de novela escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historias cortas Ai Yazawa nº 03 (Usubeni no arashi / escape): 3 (Manga Josei) se publica en tapa blanda, con 304 páginas en castellano. La edición de Planeta Cómic permite leer las historias en papel y conservar el volumen junto a otros mangas de la autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historias cortas Ai Yazawa nº 03 (Usubeni no arashi / escape): 3 (Manga Josei) comparte el formato de manga con Blue Lock nº 33 (Manga Shonen) y Cadenas invisibles Núm. 02: 2. La diferencia visible está en su identificación como Manga Josei y en su presentación como historias cortas, frente a las numeraciones y denominaciones de las otras obras, firmadas por autores distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991",
+        "isbn-9791370520243"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d5e601c39d9b9b2d",
+  "origen": "chatgpt-web"
+}

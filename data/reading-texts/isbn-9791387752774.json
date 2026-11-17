@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sudokus Originales Nikoli Nivel 8 (Sudokus Nikoli) encaja con quienes buscan resolver sudokus como actividad de ocio y prefieren un nivel identificado con el número 8. NIKOLI firma este volumen de pasatiempos, que no responde a una búsqueda de relatos, novelas o ejercicios de comprensión lectora.",
+      "texto": "Sudokus Originales Nikoli Nivel 8 (Sudokus Nikoli) está dirigido a quienes buscan resolver sudokus como actividad de ocio y entretenimiento mental. Su propuesta se centra en los pasatiempos numéricos, por lo que no corresponde a quien busque una lectura narrativa o una historia de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sudokus Originales Nikoli Nivel 8 (Sudokus Nikoli) se publica en tapa blanda y tiene 160 páginas. La edición de Editorial Alma permite resolver los pasatiempos directamente sobre papel, sin depender de una pantalla para consultar las cuadrículas.",
+      "texto": "La tapa blanda reúne sus 160 páginas en un cuaderno físico que permite resolver los sudokus directamente sobre el papel. Es el formato disponible de esta edición, publicado por Editorial Alma.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "categorias"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sudokus Originales Nikoli Nivel 1 (Sudokus Nikoli) y Sudokus Originales Nikoli Nivel 4 (Sudokus Nikoli) pertenecen a la misma colección y comparten la autoría de NIKOLI. Frente a ellos, Sudokus Originales Nikoli Nivel 8 (Sudokus Nikoli) se identifica con un nivel numérico superior, una diferencia relevante al escoger entre los volúmenes.",
+      "texto": "Sudokus Originales Nikoli Nivel 8 (Sudokus Nikoli) comparte colección y autoría con Sudokus Originales Nikoli Nivel 1 (Sudokus Nikoli) y Sudokus Originales Nikoli Nivel 4 (Sudokus Nikoli). Los tres títulos se identifican mediante niveles numéricos distintos, por lo que la comparación permite localizar esta entrega dentro de la misma serie de pasatiempos de NIKOLI.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "287048a821d58658",
+  "fuente_hash": "7700a2bceb6b97d1",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788416415755",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Electrotecnia (CFGM INSTALACIONES ELECTRICAS Y AUTOMATICAS), de Altamar, se orienta a lectores interesados en la electrotecnia dentro del ámbito de las instalaciones eléctricas y automáticas. Su planteamiento temático resulta menos adecuado para quien busque una historia juvenil centrada en personajes y conflictos personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Electrotecnia (CFGM INSTALACIONES ELECTRICAS Y AUTOMATICAS) se presenta en tapa blanda, con 286 páginas en castellano. Es una edición física que permite mantener el material reunido para su consulta y utilizar marcadores o anotaciones durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Electrotecnia (CFGM INSTALACIONES ELECTRICAS Y AUTOMATICAS) y Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción) se relacionan con el aprendizaje, aunque abordan asuntos diferentes. El libro de Altamar trata de electrotecnia e instalaciones, mientras que el de Carmen López Suárez se centra en la prevención de la violencia y el abuso durante la adolescencia. Uno tiene una orientación técnica y el otro aborda las relaciones personales y la crianza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410274600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4a16b8a0ca67544",
+  "origen": "chatgpt-web"
+}

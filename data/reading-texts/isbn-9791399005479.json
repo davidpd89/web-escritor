@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399005479",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un sueño pastoral, de San Manuel González García, se dirige a quienes buscan lecturas relacionadas con la religión y la espiritualidad. Su temática lo distingue de las novelas de misterio o de narrativa juvenil, por lo que responde a un interés religioso antes que a la búsqueda de ficción de esos géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un sueño pastoral cuenta con una edición en tapa blanda de 518 páginas, publicada por El Granito de Arena. El volumen físico permite consultar distintos pasajes y conservar las referencias de lectura mediante marcadores. Por su extensión, requiere transportar un libro de más de quinientas páginas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un sueño pastoral se relaciona con Lo que puede un cura hoy, también de San Manuel González García, por compartir autoría y orientación religiosa. Frente a Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción, de Sofía Noemy Quintanilla Ramírez, la diferencia explícita está en el tema de la adopción que delimita este segundo título, mientras que Un sueño pastoral plantea un marco pastoral más general desde su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399005462",
+        "isbn-9791387625535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f28c6555a5b67288",
+  "origen": "chatgpt-web"
+}

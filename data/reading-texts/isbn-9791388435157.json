@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Romancero gitano (VINTAGE), de Federico García Lorca, se dirige a lectores de poesía en castellano y a quienes buscan obras de este autor. Por su naturaleza poética, se distancia de las novelas de argumento continuo y de los textos teatrales.",
+      "texto": "Romancero gitano (VINTAGE), de Federico García Lorca, se dirige a quienes buscan poesía en castellano y prefieren una lectura de extensión contenida. Sus 128 páginas encajan menos con quien quiere una novela extensa o una obra centrada en la narración en prosa.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura de Romancero gitano (VINTAGE) tiene 128 páginas y está publicada por Newton Compton Editores. Su encuadernación rígida permite conservar el volumen en una biblioteca personal y utilizarlo para consultas o relecturas.",
+      "texto": "La tapa dura de Romancero gitano (VINTAGE) reúne 128 páginas en una encuadernación rígida, apropiada para conservar el ejemplar o regalarlo. La tapa blanda ofrece una alternativa más flexible y ligera para transportarlo; el audiolibro permite escuchar la poesía sin depender de la lectura en papel.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Romancero gitano (VINTAGE) y Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada) comparten la autoría de Federico García Lorca y su vinculación con la poesía. El primero se presenta en tapa dura con 128 páginas, mientras que el segundo destaca por una edición especial con cantos tintados y la participación de Ricardo Cavolo.",
+      "texto": "Romancero gitano (VINTAGE) y Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada) comparten la autoría de Federico García Lorca y su vinculación con la poesía. El primero tiene 128 páginas y una edición en tapa dura; el segundo incorpora a Ricardo Cavolo en la autoría y presenta una edición especial con cantos tintados.",
       "evidencias": [
         "titulo",
         "autores",
@@ -40,6 +41,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d02a8496a39741c9",
+  "fuente_hash": "4a0b148cfc3dd902",
   "origen": "chatgpt-web"
 }

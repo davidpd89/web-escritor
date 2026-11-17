@@ -4,46 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta novela de Liz Tomforde se dirige a lectores de romance interesados en las relaciones de pareja y el humor. Sus 464 páginas y su pertenencia a Windy City la sitúan lejos de quien busca una obra de ensayo o una historia ajena a las relaciones sentimentales.",
+      "texto": "Jugando fuerte (edición especial) (Windy City 2) (Lo más visto) se dirige a lectores de romance que buscan una entrega identificada con la serie Windy City. No es la elección más ajustada para quien prefiera fantasía o una obra sin vinculación explícita con una serie.",
       "evidencias": [
-        "autores",
-        "categorias",
-        "numero_paginas",
-        "titulo"
+        "titulo",
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición especial de Jugando fuerte (edición especial) (Windy City 2) (Lo más visto) se publica en tapa dura bajo el sello Montena. El título la identifica como el n.º 2 de Windy City, y esta presentación en castellano cuenta con 464 páginas, fecha editorial del 26 de noviembre de 2026 e ISBN 9791388417764.",
+      "texto": "Esta edición especial de Jugando fuerte (edición especial) (Windy City 2) (Lo más visto) se publica en tapa dura bajo el sello Montena. Tiene 464 páginas en castellano y fecha editorial de publicación del 26 de noviembre de 2026. El título la identifica como la entrega n.º 2 de Windy City.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
-        "formato_edicion",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "fecha_publicacion",
-        "isbn13"
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato de esta edición especial de 464 páginas, pensada para conservar el volumen físico de Windy City. Su encuadernación favorece el uso como regalo o como parte de una colección, aunque ocupa más espacio que una edición de bolsillo durante los desplazamientos.",
+      "texto": "La edición disponible es de tapa dura y contiene 464 páginas, una presentación física apropiada para conservar junto a otros volúmenes de Windy City. Al tratarse de una edición especial de Montena, el formato también permite mantener una colección de ejemplares en papel de la serie.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rozando el cielo (edición especial) (Windy City 1) y Perdiendo el control (edición especial) (Windy City 3) comparten autoría de Liz Tomforde y su vinculación al romance deportivo. Sus títulos los identifican como los números 1 y 3 de Windy City, respectivamente, mientras que Jugando fuerte (edición especial) (Windy City 2) (Lo más visto) ocupa la posición indicada como n.º 2.",
+      "texto": "Rozando el cielo (edición especial) (Windy City 1) comparte autora, Liz Tomforde, y serie con Jugando fuerte (edición especial) (Windy City 2) (Lo más visto), pero su título lo identifica como la entrega anterior. Perdiendo el control (edición especial) (Windy City 3) pertenece al mismo conjunto y su título lo sitúa después. Los tres se relacionan con el romance deportivo, frente a otras propuestas románticas del catálogo.",
       "evidencias": [
-        "afines_catalogo",
-        "autores",
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791388222856",
@@ -53,6 +50,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "22d0a0d3ec1e9482",
+  "fuente_hash": "9262865da26d0574",
   "origen": "chatgpt-web"
 }

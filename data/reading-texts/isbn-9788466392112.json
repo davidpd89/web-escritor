@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La gravedad y la gracia (Contemporánea | Narrativa), de Simone Weil, se dirige a lectores interesados en filosofía, ensayo y cuestiones relacionadas con el poder y la política. Su clasificación temática la aleja de una novela de entretenimiento centrada en una trama de ficción.",
+      "texto": "La gravedad y la gracia (Contemporánea | Narrativa) interesa a lectores de filosofía y ensayo, especialmente a quienes buscan textos vinculados al pensamiento de Simone Weil. No está planteado como una novela de ficción ni como una lectura de entretenimiento narrativo convencional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,33 +13,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La gravedad y la gracia (Contemporánea | Narrativa) se publica en libro de bolsillo de Penguin Bolsillo, con 216 páginas, para quienes prefieren un ejemplar físico de tamaño manejable. Kindle ofrece una alternativa digital para consultar y leer el texto sin transportar el libro.",
+      "texto": "El libro de bolsillo reúne sus 216 páginas en una edición física de tapa blanda, fácil de transportar y consultar durante la lectura. Kindle permite acceder a la obra en formato digital, una alternativa para leerla desde el móvil o un lector electrónico.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
         "numero_paginas",
+        "formato_edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La gravedad y la gracia (Contemporánea | Narrativa) comparte autora con Esenciales, de Simone Weil, que propone una panorámica de sus escritos. La primera se presenta como un volumen de 216 páginas dentro del ensayo y la filosofía, mientras que Esenciales plantea un recorrido más amplio por su obra. También coincide en autoría con La Ilíada o el poema de la fuerza: Seguido de No empecemos otra vez la guerra de Troya (ENSAYO), cuyo título delimita otros textos y asuntos.",
+      "texto": "El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, comparte autora y orientación filosófica, aunque reúne textos centrados en otros asuntos. La Ilíada o el poema de la fuerza: Seguido de No empecemos otra vez la guerra de Troya (ENSAYO), de Simone Weil, también aborda la reflexión ensayística desde la misma autoría y un título centrado en la fuerza y la guerra.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629138",
+        "isbn-9788466394604",
         "isbn-9791399203035"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4a43c2f355abf077",
+  "fuente_hash": "d064be056bf3f0da",
   "origen": "chatgpt-web"
 }

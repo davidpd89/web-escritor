@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791370598846",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra se dirige a lectores interesados en la calidad democrática, el derecho y las relaciones entre política e inteligencia artificial antropomórfica. Con 626 páginas y un enfoque que combina divulgación científica y cuestiones jurídicas, se aleja de las introducciones breves a la tecnología y de las novelas de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra relaciona la calidad democrática con la inteligencia artificial antropomórfica, dos asuntos situados en la intersección de la política y la tecnología. Su clasificación en derecho, divulgación científica y poder y política permite abordar esa relación desde varias disciplinas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Editorial Tirant Lo Blanch publica este volumen de 626 páginas en tapa blanda. Por su extensión, la edición física permite mantener reunido un texto amplio sobre democracia e inteligencia artificial y localizar pasajes durante sucesivas consultas.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La democracia confrontada: retos, disputas teóricas y dilemas persistentes (Monografías Maior -México-) comparte el interés por los problemas de la democracia y sus dilemas teóricos. La obra de Luis Miguel González de la Garza y Antonio Garrigues Walker se diferencia por relacionar la calidad democrática con la inteligencia artificial antropomórfica desde un ámbito que incluye el derecho y la divulgación científica.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370590932"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c9f6cd7d05f1aa6d",
+  "origen": "chatgpt-web"
+}

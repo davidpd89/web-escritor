@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788419232793",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Plumas en el cajón: poesía olvidada se dirige a lectores de poesía que buscan un libro breve en castellano. Con 28 páginas, responde a una lectura de extensión reducida y no a quien prefiera una novela larga, una trama continuada o un ensayo desarrollado en varios capítulos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Plumas en el cajón: poesía olvidada es de tapa blanda y contiene 28 páginas. Su extensión permite llevar el libro en papel y volver a sus textos en distintas sesiones de lectura. Álter Ego Ediciones lo publica en castellano, en un volumen físico breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Plumas en el cajón: poesía olvidada puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, por su pertenencia al ámbito poético. También Advenir, de Jose Eceolaza, aparece entre sus lecturas relacionadas. La diferencia identificable está en la autoría y en que el libro de Inmaculada Ruiz Montero cuenta con 28 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2be3bc932e72b89c",
+  "origen": "chatgpt-web"
+}

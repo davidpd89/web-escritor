@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788415803584",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La pasión según G. H.: 1 (Biblioteca Clarice Lispector) se dirige a lectores de narrativa contemporánea con elementos de misterio. Su extensión de 156 páginas encaja con quienes buscan una obra relativamente breve; resulta menos afín a quienes prefieren fantasía o romance. El título identifica el n.º 1 de la colección Biblioteca Clarice Lispector.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La pasión según G. H.: 1 (Biblioteca Clarice Lispector) se publica en tapa blanda por Ediciones Siruela, con 156 páginas en castellano. Es una edición física de extensión contenida, práctica para transportar y conservar en una biblioteca personal sin ocupar el espacio de un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas comparte con La pasión según G. H.: 1 (Biblioteca Clarice Lispector) el ámbito del misterio, pero sitúa su conflicto en Edimburgo y relaciona acontecimientos del pasado con el presente. Corazón de sílex parte de una pérdida de memoria tras una noche desconocida; la obra de Clarice Lispector se presenta, además, como narrativa contemporánea dentro de una colección dedicada a su autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b33cdca78c558327",
+  "origen": "chatgpt-web"
+}

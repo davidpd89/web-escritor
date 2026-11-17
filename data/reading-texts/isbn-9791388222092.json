@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388222092",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores infantiles y juveniles que buscan aventuras de misterio y siguen la serie Perrock Holmes. Perrock Holmes 22 - La caza de Lord Monty: El final de la serie Perrock Holmes (Jóvenes lectores), de Isaac Palmiola, se presenta como su cierre, por lo que se aleja de una historia independiente sin relación con entregas anteriores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 96 páginas de Perrock Holmes 22 - La caza de Lord Monty: El final de la serie Perrock Holmes (Jóvenes lectores) en un volumen físico que puede conservarse junto a los anteriores. Kindle permite leer esta entrega en formato digital sin llevar el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Detectives de barrio 3 - ¿Quién la está liando en la feria? (Montena) comparte con Perrock Holmes 22 - La caza de Lord Monty: El final de la serie Perrock Holmes (Jóvenes lectores) la autoría de Isaac Palmiola y el interés por los misterios juveniles. El primero plantea un enigma en una feria; el segundo se identifica en su título como el final de la serie Perrock Holmes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387924959"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5c063085d6f0d28",
+  "origen": "chatgpt-web"
+}

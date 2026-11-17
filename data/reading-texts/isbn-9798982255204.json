@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798982255204",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Felipe y Macio el Elefante Vuelan a Ámsterdam: La Primera Aventura Europea de un Niño y su Elefante: 1 (Las Aventuras de Felipe y Macio) se dirige al público infantil interesado en viajes y aventuras protagonizadas por un niño y un elefante. Con 42 páginas, ofrece una extensión menor que otras entregas de la misma colección y se aparta de las historias de misterio escolar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato de esta edición de 42 páginas, publicada por Five Explorers Press, LLC. Su extensión permite llevar el ejemplar en una mochila y leer en papel la aventura de Felipe y Macio el Elefante durante un desplazamiento o en casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Felipe y Macio el Elefante Exploran Holanda: Molinos, Tulipanes y Canales - Una Aventura de Viaje para Leer en Voz Alta, para Niños que Exploran los Países Bajos: 2 (Las Aventuras de Felipe y Macio) comparte personajes y autoría de Five Explorers Press con la aventura de Ámsterdam. La diferencia es el enfoque del viaje: el vuelo a Ámsterdam frente a la exploración de Holanda; el título del libro de Ámsterdam lo identifica como el n.º 1.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798982255211"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ec4a1cf690ff9325",
+  "origen": "chatgpt-web"
+}

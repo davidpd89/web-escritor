@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cambiar para Vivir, Colección Autoayuda, de Raúl M. Mir Coll, se dirige a lectores interesados en el desarrollo personal y el bienestar. También se relaciona con la familia y el tiempo libre, mientras que quien busque una novela de ficción encontrará aquí una propuesta de orientación práctica.",
+      "texto": "Cambiar para Vivir, Colección Autoayuda, de Raúl M. Mir Coll, está dirigido a lectores de desarrollo personal interesados en cuestiones de bienestar y cambio personal. Su orientación práctica lo diferencia de las obras de ficción y de los libros dedicados exclusivamente a una disciplina técnica o académica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cambiar para Vivir, Colección Autoayuda se ofrece en tapa blanda, con 320 páginas en castellano. Esta presentación permite consultar el contenido en papel, marcar pasajes y regresar a apartados anteriores durante la lectura, sin depender de una pantalla.",
+      "texto": "Cambiar para Vivir, Colección Autoayuda se presenta en tapa blanda, con 320 páginas en castellano. La edición de Chronica permite leer en papel y volver a consultar apartados relacionados con el desarrollo personal y el bienestar, sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cambiar para Vivir, Colección Autoayuda comparte su interés por el bienestar con El código del rendimiento: La ciencia detrás de lo que el deportista consume, de Eztizen Pérez Díaz. La obra de Raúl M. Mir Coll se sitúa en el desarrollo personal y la autoayuda, mientras que la de Eztizen Pérez Díaz aborda la alimentación desde la perspectiva del rendimiento deportivo.",
+      "texto": "Cambiar para Vivir, Colección Autoayuda comparte el ámbito del bienestar personal con Defiéndete: Claves básicas para fortalecer tu seguridad personal y salir a la calle sin miedo (Alienta), que delimita su propuesta a la seguridad personal. También puede compararse con El gran libro de la dieta mediterránea: Hábitos, ciencia y salud para prevenir enfermedades (No Ficción), centrado en alimentación y salud, frente al enfoque más general de desarrollo personal de Raúl M. Mir Coll.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409934010"
+        "isbn-9788413445373",
+        "isbn-9788408331001"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5c9e2fe0849557ed",
+  "fuente_hash": "95ef2749ba15c318",
   "origen": "chatgpt-web"
 }

@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Clave para identificar anfibios está orientado a lectores interesados en reconocer anfibios y dedicar parte de su tiempo libre a esta actividad. Por su finalidad de identificación, no responde a quienes buscan una novela de aventuras o una obra de ficción protagonizada por animales.",
+      "texto": "Clave para identificar anfibios se dirige a quienes buscan una lectura sobre identificación de anfibios vinculada al tiempo libre y las aficiones. Sus 48 páginas la sitúan entre las publicaciones breves, frente a quienes prefieren una novela extensa o una colección de pasatiempos.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Sociedad de Ciencias Aranzadi consta de 48 páginas en castellano y se presenta en tapa blanda. Su extensión reducida permite transportarla para consultar las claves de identificación de anfibios, además de utilizarla como referencia en casa.",
+      "texto": "Clave para identificar anfibios está disponible en tapa blanda, con 48 páginas en castellano. Esta edición de Sociedad de Ciencias Aranzadi permite consultar el volumen físico y transportarlo sin cargar con un libro extenso.",
       "evidencias": [
-        "editorial",
+        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "formatos_disponibles",
-        "titulo"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres, comparte con Clave para identificar anfibios una orientación hacia la resolución de cuestiones concretas, aunque trata enigmas criminales en lugar de identificar animales. Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen (FICCIÓN), de Sarah Dvojack, también propone resolver casos, frente al enfoque naturalista de Ion Garin Barrio, Iñaki Romero Iraola e Iñaki Sanz Azkue.",
+      "texto": "Clave para identificar anfibios comparte con 99 Sudoku (LIBROS SINGULARES) su orientación hacia las aficiones y el tiempo libre. La diferencia está en la actividad: Ion Garin Barrio, Iñaki Romero Iraola e Iñaki Sanz Azkue tratan la identificación de anfibios, mientras que el libro de Anónimo reúne sudokus.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388015816",
-        "isbn-9791259578907"
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "242b559c8118a356",
+  "fuente_hash": "aa32c9a9a72688f8",
   "origen": "chatgpt-web"
 }

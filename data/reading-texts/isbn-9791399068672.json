@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399068672",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Renacer nuclear: cómo la energía nuclear salvará el mundo., de Tim Gregory, encaja con lectores interesados en la divulgación científica y las implicaciones económicas de la energía nuclear. El título plantea una perspectiva favorable a su papel en el futuro, por lo que se aleja de las lecturas de ficción y de los manuales centrados en la gestión empresarial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Renacer nuclear: cómo la energía nuclear salvará el mundo. puede compararse con Asistentes y agentes empresariales con IA, de Iván Rodríguez, por su interés en cuestiones tecnológicas con implicaciones económicas. El primero se centra en la energía nuclear y su papel futuro; el segundo aborda asistentes y agentes de inteligencia artificial aplicados al ámbito empresarial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426742704"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c90ab7da9cdc2580",
+  "origen": "chatgpt-web"
+}

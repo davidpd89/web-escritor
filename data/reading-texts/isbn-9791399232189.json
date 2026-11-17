@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399232189",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado al público infantil y juvenil interesado en historias relacionadas con el cuerpo y el desarrollo personal. Su propuesta se distancia de las aventuras extensas y de los ensayos dirigidos exclusivamente a adultos: el título presenta tres historias y la edición tiene 76 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Symphonia contiene 76 páginas en castellano. Su encuadernación rígida resulta práctica para conservar el libro, compartirlo en lecturas familiares o regalarlo; la extensión permite repartir sus tres historias en distintas sesiones de lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La brújula del cuerpo: Tres historias de Isla Clara comparte autoría con El niño que llegó después: Por qué juzgamos mal a los niños, y cómo aprender a mirarlos, de Nacor Camps. El primero se presenta como tres historias infantiles sobre el cuerpo; el segundo plantea una reflexión sobre cómo se juzga y comprende a los niños.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399232165"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8f0a4d7949a5567",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Secreto nazi / Nazi Secret, de Leopoldo Mendívil López, se dirige a lectores interesados en la historia del siglo XX y sus secretos. Su enfoque histórico se aleja de las aventuras de fantasía y de los relatos centrados en mundos mágicos.",
+      "texto": "Secreto nazi / Nazi Secret, de Leopoldo Mendívil López, se dirige a lectores interesados en la historia y en asuntos relacionados con el nazismo. Su clasificación histórica lo diferencia de los libros prácticos de desarrollo personal y de las obras centradas en actividades recreativas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Secreto nazi / Nazi Secret está disponible en tapa blanda, con 464 páginas en castellano. Esta edición permite consultar y retomar distintos pasajes en papel, sin depender de un dispositivo electrónico.",
+      "texto": "Secreto nazi / Nazi Secret está disponible en tapa blanda, con 464 páginas en castellano. Esta edición de Penguin Random House Grupo Editorial permite leer un volumen histórico extenso en papel, con una cubierta flexible para transportarlo y guardarlo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Secreto nazi / Nazi Secret y Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) comparten el interés por los secretos, pero abordan ámbitos distintos. Leopoldo Mendívil López se sitúa en la historia del siglo XX, mientras que el libro de Emanuela Brumana y Marco Guadalupi se centra, desde su propio título, en los artefactos mágicos y el ocultismo.",
+      "texto": "Secreto nazi / Nazi Secret y 53 días: Cómo Hitler derribó una democracia (HISTORIA) comparten el interés por la historia del nazismo. El libro de Leopoldo Mendívil López anuncia un secreto relacionado con ese periodo, mientras que el de Timothy Ryback centra su título en el derribo de una democracia. Ambos tratan cuestiones históricas desde enfoques distintos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411724210"
+        "isbn-9788411005517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "69a91a9e32453912",
+  "fuente_hash": "9065a2c17a25a702",
   "origen": "chatgpt-web"
 }

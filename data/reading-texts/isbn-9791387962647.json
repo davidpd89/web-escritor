@@ -4,40 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "After God 8 (Shônen) se orienta a lectores de manga interesados en la fantasía y el terror, con elementos de narrativa contemporánea. El título lo identifica como el n.º 8; encaja menos con quienes buscan historias independientes o prefieren evitar los temas de terror.",
+      "texto": "After God 8 (Shônen) se dirige a lectores de cómic japonés interesados en la fantasía y las historias narradas mediante viñetas. Sus 192 páginas en tapa blanda responden a ese tipo de lectura, no a quien busca una novela de prosa convencional.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "After God 8 (Shônen) se publica en tapa blanda, con 192 páginas en castellano y edición de Distrito Manga. Su extensión permite manejar el volumen durante la lectura y guardarlo junto a otras entregas de manga en formato físico.",
+      "texto": "La edición de After God 8 (Shônen) está disponible en tapa blanda, con 192 páginas en castellano. Este formato permite leer las viñetas sobre papel y conservar el volumen junto a otros títulos de la colección.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Caminando con la muerte 4 (Seinen) y After God 8 (Shônen) ofrecen dos referencias de manga vinculadas, por sus títulos, a la muerte y a lo sobrenatural. La diferencia explícita está en su identificación editorial: el primero figura como seinen y el segundo como shônen, con autorías distintas, ryoko y Sumi Eno.",
+      "texto": "After God 7 (Shônen) es la comparación más directa con After God 8 (Shônen): ambos llevan la firma de Sumi Eno y pertenecen a la misma serie numerada. Orient. Samurai Quest, 11 (Shônen - Orient), de Shinobu Ohtaka, comparte la identificación shônen, pero corresponde a otra obra y otra autoría.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410305830"
+        "isbn-9791387962388",
+        "isbn-9791043309649"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c4b0d61b9e1d8e7c",
+  "fuente_hash": "5dbb8fce5c0117b9",
   "origen": "chatgpt-web"
 }

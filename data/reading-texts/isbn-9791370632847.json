@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370632847",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi pasión: El amor nace de un reto: 1 (Romance) se dirige a lectores de narrativa romántica interesados en historias donde el amor aparece vinculado a un desafío. Sus 452 páginas permiten una lectura de cierta extensión; por su orientación romántica, no responde a quienes buscan principalmente ensayo, divulgación o narrativa ajena a las relaciones amorosas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y conservar en papel las 452 páginas de Mi pasión: El amor nace de un reto: 1 (Romance). Kindle ofrece el mismo título como opción digital para llevar la lectura en el móvil o en un lector electrónico compatible, sin cargar con el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi pasión: El amor nace de un reto: 1 (Romance) comparte el enfoque romántico con A cinco segundos de ti, de Sandra Miró, aunque el primero anuncia un amor nacido de un reto y el segundo presenta, en su descripción, la perfección como rasgo de su protagonista. También puede compararse con 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet. La diferencia es de planteamiento editorial: el libro de Federick Ávila tiene 452 páginas y un título que lo identifica como el n.º 1, mientras que el de Patricia Bonet se presenta como una colección de relatos navideños.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409929177",
+        "isbn-9788427055735"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c242d26775201432",
+  "origen": "chatgpt-web"
+}

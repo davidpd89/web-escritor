@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387604622",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Norma Jeane Baker de Troya (2 edición) (TEATRO) se dirige a lectores interesados en textos teatrales y en la obra de Anne Carson. Su identificación con el teatro lo diferencia de una novela convencional, por lo que encaja menos con quienes buscan una narración en prosa ajena a la escritura dramática.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Norma Jeane Baker de Troya (2 edición) (TEATRO) está disponible en tapa blanda, con 112 páginas en castellano. La edición física de Vaso Roto Ediciones permite anotar el texto teatral y consultar sus pasajes durante una lectura individual o un trabajo sobre la obra.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Norma Jeane Baker de Troya (2 edición) (TEATRO) y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) se vinculan con las artes escénicas y audiovisuales, respectivamente. Anne Carson firma una obra identificada como teatro, mientras Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga presentan un título dedicado al western del siglo XXI.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5ca67d84570d8339",
+  "origen": "chatgpt-web"
+}

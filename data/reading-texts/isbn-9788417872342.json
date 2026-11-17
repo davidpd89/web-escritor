@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788417872342",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes estudian dirección de cocina o necesitan abordar la gestión de personal y equipos en restauración. Su enfoque en recursos humanos encaja menos con lectores que buscan exclusivamente recetas o técnicas para preparar platos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Recursos humanos y dirección de equipos en restauración (CFGS DIRECCIÓN DE COCINA) se presenta en tapa blanda, con 144 páginas. El volumen físico permite consultar contenidos de gestión de equipos durante el estudio o el trabajo en restauración.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Recursos humanos y dirección de equipos en restauración (CFGS DIRECCIÓN DE COCINA) y 20 minutos ¡y listo! se relacionan con el ámbito de la cocina. El primero se ocupa de recursos humanos y dirección de equipos, mientras que el libro de Jamie Oliver pone el foco en preparar comida en poco tiempo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c260ad4550f9b6e5",
+  "origen": "chatgpt-web"
+}

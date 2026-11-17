@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tomogui: que comience la caza 2 (Seinen) se dirige a quienes leen manga de misterio y thriller, especialmente si buscan conflictos desarrollados en formato de cómic. Por su orientación hacia el suspense, encaja menos con quienes prefieren aventuras humorísticas o relatos centrados en el romance.",
+      "texto": "Tomogui: que comience la caza 2 (Seinen), de Nobuaki Kanazawa y RAZEN, se dirige a lectores de manga seinen con interés por el misterio y el thriller. El título lo identifica como el n.º 2, por lo que se diferencia de una novela independiente en prosa o de una historia romántica.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tomogui: que comience la caza 2 (Seinen) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de Distrito Manga permite leer el volumen en papel y conservarlo junto a otros tomos de la colección.",
+      "texto": "Tomogui: que comience la caza 2 (Seinen) se ofrece en tapa blanda y Kindle. La edición de Distrito Manga tiene 192 páginas, adecuadas para conservar el volumen físico junto al anterior; Kindle permite leerlo en formato digital sin llevar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tomogui: que comience la caza 1 (Seinen) comparte autoría con este volumen y presenta un conflicto de venganza entre compañeros de clase relacionado con una profesora. Caminando con la muerte 4 (Seinen), de ryoko, ofrece otra referencia de manga seinen, aunque pertenece a una obra de distinta autoría.",
+      "texto": "Tomogui: que comience la caza 2 (Seinen) tiene su comparación más directa en Tomogui: que comience la caza 1 (Seinen), también de Nobuaki Kanazawa y RAZEN. El título identifica al primero como n.º 1 y al segundo como n.º 2; el primero presenta un conflicto de venganza escolar relacionado con Kaede Kanda y Nanami Takao.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962272",
-        "isbn-9788410305830"
+        "isbn-9791387962272"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "387fd5dc020b2e52",
+  "fuente_hash": "07eb534e6b8d5c24",
   "origen": "chatgpt-web"
 }

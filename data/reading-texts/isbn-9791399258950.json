@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399258950",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un planeta llamado garage, de Ubaldo Fambuena, se sitúa en el ámbito del arte y el diseño. Por esa orientación, encaja con lectores que buscan publicaciones vinculadas a la creación artística y menos con quienes desean específicamente un manual de instalaciones técnicas o una novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un planeta llamado garage se publica en tapa blanda, con 144 páginas en castellano. Su extensión permite manejarlo como volumen físico de consulta o lectura y conservarlo en una colección de publicaciones sobre arte y diseño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un planeta llamado garage y 720 retrats comparten su presencia entre las publicaciones relacionadas con el arte y el diseño. Ubaldo Fambuena presenta una obra titulada alrededor del concepto de garage, mientras que Xavier Mollà i Revert identifica la suya mediante los retratos. Para quien compara ambas, la distinción visible está en esos asuntos y en la autoría, no en una misma propuesta narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7661aadb7dd38070",
+  "origen": "chatgpt-web"
+}

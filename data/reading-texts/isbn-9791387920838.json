@@ -4,30 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen) se dirige a lectores infantiles y juveniles interesados en el manga de fantasía. El título lo identifica como el n.º 11 de 25 y sus 256 páginas corresponden a una entrega de la colección; no responde a quien busca una historia independiente ajena a una serie.",
+      "texto": "Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen) está dirigido a lectores de cómic y manga interesados en la aventura juvenil. Su presentación como manga shonen lo sitúa en una línea de lectura distinta de los álbumes infantiles y de los libros de narrativa convencional.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen) está disponible en tapa blanda y Kindle. La edición física de Planeta Cómic reúne 256 páginas y permite conservar este volumen junto a otros de la colección; Kindle facilita leerlo en una pantalla sin transportar el ejemplar impreso.",
+      "texto": "La tapa blanda ofrece sus 256 páginas en papel, en un volumen que puede incorporarse a una colección física. Kindle permite acceder a la edición en formato digital y leerla sin guardar ni transportar el ejemplar impreso.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen) se relaciona directamente con Dragon Quest: The Adventure of Dai nº 12/25, también de Koji Inada. Ambos pertenecen a la misma colección de fantasía, pero sus títulos los identifican como entregas consecutivas; el segundo presenta un conflicto relacionado con el asalto a la Tierra de Muerte.",
+      "texto": "Dragon Quest: The Adventure of Dai nº 12/25, de Koji Inada, comparte título, autoría y serie con este volumen; además, su numeración lo identifica como el siguiente número de la colección. Frente al nº 11/25, el volumen posterior presenta el asalto a la Tierra de Muerte y la decisión de los reinos de atacar ese territorio.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -37,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "de81461f1cb5d675",
+  "fuente_hash": "0dba044609eff4fe",
   "origen": "chatgpt-web"
 }

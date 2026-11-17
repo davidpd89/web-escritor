@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388366239",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Memento Inspección de Hacienda 2027-2028 se dirige a lectores interesados en el derecho y, específicamente, en la inspección de Hacienda. Por su materia jurídica y sus 990 páginas, se aleja de la narrativa de entretenimiento y de las lecturas breves.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Memento Inspección de Hacienda 2027-2028 está disponible en tapa blanda, con una extensión de 990 páginas. Esta edición física permite consultar el contenido jurídico en papel y volver a distintos apartados durante el estudio o el trabajo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memento Penal 2027 comparte con Memento Inspección de Hacienda 2027-2028 la autoría de Lefebvre-El Derecho y el enfoque jurídico, aunque sus títulos delimitan materias distintas: derecho penal e inspección de Hacienda. Memento Procedimiento Laboral 2027-2028 mantiene esa misma autoría, pero orienta su contenido hacia el procedimiento laboral en lugar de la inspección tributaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388366062",
+        "isbn-9791388366260"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5da38b5acac6370e",
+  "origen": "chatgpt-web"
+}

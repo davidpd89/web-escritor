@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388088124",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Metafísica Para Adolescentes, de Rafael Gomez Perez, se orienta a lectores adolescentes interesados en cuestiones filosóficas y metafísicas. Su planteamiento como ensayo de filosofía lo distingue de las novelas juveniles y de los libros centrados en ejercicios escolares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Metafísica Para Adolescentes cuenta con una edición en tapa blanda de tipo bunko, publicada por Ideas y Libros Ediciones. Sus 194 páginas en castellano permiten una lectura en papel de extensión moderada, con posibilidad de regresar a conceptos y pasajes concretos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Metafísica Para Adolescentes y Aforismos para reflexionar y meditar: 109 (Fragmentos) se relacionan por su orientación hacia la reflexión filosófica. Rafael Gomez Perez dirige su obra a adolescentes y aborda la metafísica; Raimon Panikkar presenta un título centrado en aforismos para la reflexión y la meditación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4394b0da17b6fb3a",
+  "origen": "chatgpt-web"
+}

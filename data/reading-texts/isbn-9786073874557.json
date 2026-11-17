@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073874557",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hackea tu microbiota / Hack Your Microbiome, de Andrea Aldana, se dirige a quienes buscan lecturas sobre microbiota, nutrición y bienestar. Su enfoque temático lo separa de los libros de ficción y de las obras centradas en economía o historia; tiene 216 páginas en castellano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hackea tu microbiota / Hack Your Microbiome cuenta con una edición en tapa blanda de 216 páginas. El volumen publicado por Penguin Random House Grupo Editorial permite consultar el contenido en papel y trasladarlo sin recurrir a un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hackea tu microbiota / Hack Your Microbiome y 5 semanas para desinflamarte (edición limitada) se aproximan desde asuntos relacionados con la salud y el bienestar. El libro de Andrea Aldana centra su título en la microbiota, mientras que el de Blanca García-Orea Haro plantea un periodo de cinco semanas y la desinflamación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c68f230a9c72663f",
+  "origen": "chatgpt-web"
+}

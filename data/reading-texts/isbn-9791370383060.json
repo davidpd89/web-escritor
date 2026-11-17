@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370383060",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Obras selectas del Dr. José López Yepes: padre de la documentación Tomo IV (Plural -México-) se orienta a lectores interesados en la documentación y su relación con el ámbito jurídico y académico. Sus 568 páginas corresponden a una obra de consulta y estudio, no a una narración de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Obras selectas del Dr. José López Yepes: padre de la documentación Tomo IV (Plural -México-) se presenta en tapa blanda, con 568 páginas en castellano. Es una edición física que permite marcar pasajes y realizar consultas durante el estudio, con una encuadernación flexible para manejar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Obras selectas del Dr. José López Yepes: padre de la documentación Tomo IV (Plural -México-) puede compararse con Argumentacion Juridica, de Carlos Parma, por su vinculación con el estudio académico del derecho. La primera reúne obras selectas vinculadas a la documentación, mientras que la segunda centra su título en la argumentación jurídica; ambas se distinguen por sus autores y materias de estudio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12bdffa9a0839e40",
+  "origen": "chatgpt-web"
+}

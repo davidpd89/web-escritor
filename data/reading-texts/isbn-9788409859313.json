@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409859313",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "COMO SER MILLONARIO: Una historia verídica. Tú también puedes serlo, de Antonio Prieto, se dirige a lectores interesados en economía, desarrollo personal y experiencias biográficas. Sus 202 páginas presentan una propuesta vinculada al éxito económico desde una historia real; no está orientado a quienes buscan ficción o una novela de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "COMO SER MILLONARIO: Una historia verídica. Tú también puedes serlo tiene 202 páginas en su edición de tapa blanda de Editorial Letra Minúscula. El papel permite conservar el libro y consultar pasajes físicamente; Kindle facilita llevar la lectura en el móvil o en un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Buffett: La construcción de un capitalista (IMPULSA) y COMO SER MILLONARIO: Una historia verídica. Tú también puedes serlo se relacionan por su enfoque biográfico y económico. Roger Lowenstein centra su libro en la construcción de un capitalista, mientras que Antonio Prieto presenta una historia verídica asociada a la posibilidad de alcanzar una gran fortuna personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005630"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5fb16850b5bc2b49",
+  "origen": "chatgpt-web"
+}

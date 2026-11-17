@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788419737601",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aca/Ica (IMPRONUNCIABLES) está dirigido a lectores de cómic y novela gráfica que buscan una publicación de 192 páginas. La obra de Ula Zuhra se sitúa en ese ámbito editorial y se diferencia de las novelas convencionales en prosa por su formato de cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aca/Ica (IMPRONUNCIABLES) se publica en tapa blanda y reúne 192 páginas. La edición de Fulgencio Pimentel permite consultar el cómic en papel y conservarlo en una colección física; también puede prestarse o regalarse como ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6f09c56d7e95521",
+  "origen": "chatgpt-web"
+}

@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El ensayo de Evan Friss se dirige a lectores interesados en la historia de las librerías y en los libros de no ficción sobre el mundo editorial. Sus 312 páginas abordan la evolución de estos establecimientos; no corresponde a quien busque una novela protagonizada por libreros.",
+      "texto": "El ensayo de Evan Friss sobre la historia de las librerías se dirige a lectores interesados en la evolución de estos establecimientos y su relación con el mundo del libro. Por su enfoque histórico, se diferencia de las novelas de ficción ambientadas en librerías y de los relatos protagonizados por libreros.",
       "evidencias": [
-        "autores",
-        "categorias",
         "titulo",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Maeva Ediciones se publica en tapa blanda y contiene 312 páginas en castellano. Este formato físico permite marcar páginas, consultar pasajes sobre la historia de las librerías y conservar el volumen para futuras consultas.",
+      "texto": "La obra de Evan Friss está disponible en tapa blanda y Kindle. La edición impresa de Maeva Ediciones consta de 312 páginas y permite consultar el contenido en papel, mientras que Kindle ofrece lectura digital en dispositivos compatibles, incluido el móvil, sin necesidad de transportar el ejemplar físico.",
       "evidencias": [
+        "autores",
         "editorial",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "92d37a9ab90aee99",
+  "fuente_hash": "1e3f10c6af9ab1b0",
   "origen": "chatgpt-web"
 }

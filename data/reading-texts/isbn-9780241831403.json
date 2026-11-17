@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nepal (Sabores del mundo) está dirigido a lectores adultos interesados en la cocina nepalí y en preparar recetas vinculadas a sus tradiciones familiares. Su enfoque gastronómico y cultural se distancia de los manuales centrados exclusivamente en dietas, objetivos nutricionales o planificación de comidas.",
+      "texto": "Nepal (Sabores del mundo) está orientado a lectores adultos interesados en la cocina nepalí, las recetas familiares y las tradiciones gastronómicas. Su contenido se dirige más a quienes buscan preparar platos y conocer su contexto cultural que a quienes prefieren un manual de nutrición centrado en dietas o recomendaciones de salud.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,41 +14,35 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "Nepal (Sabores del mundo) reúne una selección de recetas tradicionales y familiares de la gastronomía nepalí, presentadas por Tiana Salles. Sus 192 páginas relacionan la preparación de platos con los orígenes de la autora y la cultura culinaria del país. Puede utilizarse para cocinar y para conocer las prácticas gastronómicas que acompañan esas elaboraciones.",
+      "texto": "El libro reúne una selección de recetas nepalíes de carácter familiar y preparación sencilla, acompañadas de una aproximación a la cultura gastronómica del país. Tiana Salles relaciona la cocina con sus raíces y con las costumbres cotidianas, de modo que las 192 páginas sirven tanto para preparar platos como para conocer su procedencia cultural.",
       "evidencias": [
-        "titulo",
+        "sinopsis_editorial",
         "autores",
-        "numero_paginas",
-        "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Nepal (Sabores del mundo) se presenta en tapa dura, con 192 páginas en castellano publicadas por DK. La cubierta rígida permite mantener el recetario como volumen de consulta en la cocina o en una biblioteca gastronómica. También puede regalarse como libro físico dedicado a la cocina de Nepal.",
+      "texto": "La edición en tapa dura de DK contiene 192 páginas en castellano. Su encuadernación rígida permite mantener el volumen como libro de consulta en la cocina y conservarlo para volver a sus recetas; también constituye una presentación física apropiada para regalar a alguien interesado en la gastronomía nepalí.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "edicion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Recetas veganas para airfryer: Begin Vegan Begun (Cocina) comparte con Nepal (Sabores del mundo) su orientación hacia la preparación de alimentos, pero se centra en la cocina vegana con freidora de aire frente a las recetas tradicionales nepalíes. La fibra es la solución también aborda la alimentación, aunque desde sus efectos sobre la salud y el consumo de fibra, mientras que Tiana Salles presenta la gastronomía de Nepal desde una perspectiva culinaria y cultural.",
+      "texto": "Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables, de Marcos Vázquez y Elizabeth Ochoa, también aborda la cocina mediante recetas, pero incorpora una perspectiva histórica y de alimentación saludable. Nepal (Sabores del mundo), de Tiana Salles, se centra en la gastronomía nepalí, las preparaciones familiares y las tradiciones culinarias del país.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788448049614",
-        "isbn-9788425374869"
+        "isbn-9788466395939"
       ]
     }
   ],

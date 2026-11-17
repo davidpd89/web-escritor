@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388311024",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MP1782 Prevención de riesgos laborales está dirigido a lectores interesados en la prevención laboral desde una perspectiva vinculada al derecho. Su temática especializada lo aleja de las lecturas recreativas y de quienes buscan ficción o divulgación sobre asuntos ajenos al ámbito laboral.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "MP1782 Prevención de riesgos laborales se publica en tapa blanda y cuenta con 116 páginas en castellano. Esta presentación permite consultar el contenido en papel y localizar apartados durante el estudio o la revisión de cuestiones relacionadas con la prevención laboral.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MP1782 Prevención de riesgos laborales y Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) comparten su vinculación con el ámbito jurídico. Laura Cano García aborda la prevención de riesgos laborales, mientras que la obra de Tomás Cano Campos se centra, según su título, en el derecho administrativo sancionador; responden a intereses de estudio diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610562"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "72ad8a4f202fb745",
+  "origen": "chatgpt-web"
+}

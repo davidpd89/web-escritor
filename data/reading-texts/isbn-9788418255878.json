@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788418255878",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Álgebra lineal aplicada a la Edificación, de Cristina Sardón Muñoz, se orienta a lectores interesados en las matemáticas vinculadas al ámbito de la construcción. Su enfoque especializado lo distancia de la divulgación científica generalista y de las lecturas sobre ciencia sin una aplicación técnica concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Álgebra lineal aplicada a la Edificación se presenta en tapa blanda, con 155 páginas en castellano. El soporte impreso permite consultar expresiones matemáticas y volver a páginas anteriores mientras se estudia, sin depender de una pantalla. Su extensión facilita manejarlo como volumen de consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Álgebra lineal aplicada a la Edificación y 50 cosas que hay que saber sobre IA, de Keith Mansfield, comparten su relación con materias científicas y técnicas. Cristina Sardón Muñoz centra su obra en el álgebra lineal aplicada a la construcción, mientras que el otro título aborda conocimientos sobre inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "476c0eb3a7fbddb4",
+  "origen": "chatgpt-web"
+}

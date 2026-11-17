@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370651008",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes necesitan abordar el absentismo laboral desde el ámbito jurídico y empresarial. Trata las bajas, las ausencias, los retrasos y las faltas de asistencia de los trabajadores; no responde a la búsqueda de narrativa de ficción ni de contenidos ajenos al derecho laboral.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Gestión del absentismo laboral en la empresa. Paso a paso: Cómo actuar ante bajas, ausencias, retrasos y faltas de asistencia del trabajador está disponible en tapa blanda. Sus 266 páginas permiten consultar en papel los distintos supuestos de inasistencia laboral, con una encuadernación manejable para el uso profesional.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) comparte con este libro la autoría de Departamento de Documentación Iberley y el ámbito de las relaciones laborales, pero se centra en el despido frente a la gestión de ausencias y retrasos. Beneficios fiscales para mayores de 65 años impuesto a impuesto. Paso a paso: Estudio de las principales ventajas fiscales en el IRPF, el IVA y otros ... para este colectivo y su entorno más próximo mantiene el enfoque jurídico práctico del mismo autor, aunque aborda cuestiones tributarias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650728",
+        "isbn-9791370651749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "39d8a5396b798193",
+  "origen": "chatgpt-web"
+}

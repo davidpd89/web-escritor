@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El juego final: Que gane el mejor encaja con lectores de misterio y thriller que buscan una novela de extensión intermedia. Sus 336 páginas lo sitúan en una lectura narrativa más prolongada que un relato breve; no responde a quienes prefieren ensayos o libros de consulta.",
+      "texto": "El juego final: Que gane el mejor, de Jeffrey Archer, se dirige a lectores de misterio y thriller. Sus 336 páginas encajan con quienes buscan una novela de extensión media, pero no con quienes prefieren poesía, ensayo o divulgación.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de El juego final: Que gane el mejor tiene 336 páginas y permite leerlo en papel sin recurrir a un dispositivo. La versión Kindle ofrece una alternativa digital para continuar la lectura en el móvil o ajustar la presentación del texto en un lector compatible.",
+      "texto": "El juego final: Que gane el mejor está disponible en tapa blanda y Kindle. La edición física de Harpercollins reúne 336 páginas y permite conservar el ejemplar en papel; Kindle facilita llevar la novela en un lector electrónico o en el móvil sin cargar con el volumen.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El juego final: Que gane el mejor comparte el terreno del thriller con 25 días hasta Navidad, de Per Jacobsen, aunque este último incorpora una estructura vinculada al Adviento. También puede compararse con Aguas turbulentas, de Rankin Ian, que sitúa su conflicto en Edimburgo y relaciona acontecimientos del pasado con el presente.",
+      "texto": "El juego final: Que gane el mejor comparte el terreno del misterio con Aberración y Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir). Las tres son obras de autores distintos: Jeffrey Archer, Santiago López de Hoyos y Ann Cleeves, respectivamente. Frente a la referencia a Shetland del último título, El juego final: Que gane el mejor se presenta mediante una competición.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,8 +32,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055063",
-        "isbn-9791370310318"
+        "isbn-9791399297508",
+        "isbn-9788410424524"
       ]
     }
   ],

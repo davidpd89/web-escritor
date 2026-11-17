@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La prueba del cielo (Autoayuda y superación) se orienta a lectores interesados en desarrollo personal, espiritualidad y cuestiones relacionadas con la superación y el duelo. No pertenece a la narrativa de ficción: sus 272 páginas se sitúan en el ámbito de la autoayuda y la reflexión religiosa.",
+      "texto": "La prueba del cielo (Autoayuda y superación), de Eben Alexander, se dirige a quienes buscan lecturas relacionadas con la espiritualidad y la superación personal. Su clasificación en desarrollo personal y religión lo diferencia de los ensayos centrados exclusivamente en asuntos históricos o científicos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La prueba del cielo (Autoayuda y superación) cuenta con tapa dura, tapa blanda y Kindle. La edición de Zenith en tapa dura tiene 272 páginas y ofrece una encuadernación rígida para conservar o regalar; la tapa blanda facilita el transporte y Kindle permite consultar el texto desde un lector electrónico o móvil.",
+      "texto": "La prueba del cielo (Autoayuda y superación) puede elegirse en tapa dura, tapa blanda o Kindle. La edición de tapa dura de Zenith tiene 272 páginas y ofrece una encuadernación rígida para conservar o regalar; la tapa blanda resulta más flexible para transportarla y Kindle permite leer en un dispositivo compatible sin llevar el volumen físico.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La prueba del cielo (Autoayuda y superación) y Duelo abordan cuestiones relacionadas con la pérdida y la experiencia humana. El libro de Eben Alexander se sitúa en la autoayuda y la espiritualidad, mientras que Duelo, de Michael Cholbi, desarrolla una aproximación filosófica a las emociones. También se relaciona temáticamente con Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal), centrado en la ausencia de animales queridos.",
+      "texto": "La prueba del cielo (Autoayuda y superación) y Con Dios todo lo puedo: Enseñanzas cristianas para la vida desde san Pedro hasta san Juan Pablo II (Bruguera Tendencias) comparten el ámbito espiritual. El libro de Eben Alexander se presenta desde la autoayuda y la superación, mientras el de María Gómez Zúñiga y Laura Trueba anuncia enseñanzas cristianas para la vida. La diferencia está en el enfoque religioso explícito del segundo frente al planteamiento más amplio del primero.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449344626",
-        "isbn-9789507885365"
+        "isbn-9788402431660"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8459988135f883bb",
+  "fuente_hash": "6fa5a8a0a5466863",
   "origen": "chatgpt-web"
 }

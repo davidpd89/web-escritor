@@ -4,36 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi novio caballo (Reservoir Gráfica) se dirige a quienes buscan lecturas vinculadas con las biografías y las memorias. La obra de Xiomara Correa Docampo tiene 160 páginas y se presenta en castellano, por lo que se distingue de una novela de fantasía o de un manual práctico.",
+      "texto": "Mi novio caballo (Reservoir Gráfica) se dirige a lectores interesados en biografías y memorias, dentro de una obra de 160 páginas. Por su clasificación editorial, se aleja de quienes buscan una novela de fantasía o una guía práctica de desarrollo personal.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Mi novio caballo (Reservoir Gráfica), editada por Reservoir Books, ofrece sus 160 páginas en un ejemplar físico que puede guardarse o regalarse. Kindle permite llevar la obra en formato digital y acceder a ella desde un dispositivo compatible, sin depender del libro impreso.",
+      "texto": "La tapa blanda reúne las 160 páginas de Mi novio caballo (Reservoir Gráfica) en una edición física de Reservoir Books, apropiada para conservar o prestar. Kindle permite leer la misma obra en un dispositivo electrónico o en el móvil, sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
         "numero_paginas",
+        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Al andar: Vivencias del Camino de Santiago comparte con Mi novio caballo (Reservoir Gráfica) el interés por las experiencias personales, aunque el título de Carlos Díaz Ballesta sitúa esas vivencias en el Camino de Santiago. Alfred y Emily (Narrativa), de Doris Lessing, ofrece otra referencia de lectura centrada en nombres personales, pero identificada expresamente como narrativa.",
+      "texto": "Mi novio caballo (Reservoir Gráfica) comparte el ámbito de las experiencias personales con Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, aunque este último centra su título en las vivencias de un recorrido concreto. También puede compararse con 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, que plantea consejos sobre longevidad en lugar del enfoque biográfico de Mi novio caballo (Reservoir Gráfica).",
       "evidencias": [
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496",
-        "isbn-9788426438515"
+        "isbn-9791387852290",
+        "isbn-9791388099496"
       ]
     }
   ],

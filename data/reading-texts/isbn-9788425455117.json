@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Qué es una persona? (Pensamiento Herder) se dirige a lectores interesados en la filosofía y en las preguntas sobre la condición humana. Por su planteamiento ensayístico, encaja menos con quienes buscan una novela de ficción o una biografía centrada en acontecimientos personales.",
+      "texto": "¿Qué es una persona? (Pensamiento Herder), de Guillermo Hurtado, se dirige a lectores interesados en el ensayo filosófico y las preguntas sobre la condición de persona. Su planteamiento conceptual se distancia de las lecturas centradas en instrucciones prácticas o entretenimiento narrativo.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Qué es una persona? (Pensamiento Herder) puede leerse en tapa blanda o en Kindle. La edición física reúne 152 páginas y permite consultar el ensayo en papel; Kindle facilita llevar el texto en un dispositivo de lectura compatible sin transportar el volumen.",
+      "texto": "¿Qué es una persona? (Pensamiento Herder) puede leerse en tapa blanda o en Kindle. La edición impresa tiene 152 páginas y permite consultar el ensayo en papel; Kindle facilita llevar la lectura en un dispositivo compatible y ajustar la visualización del texto.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Qué es una persona? (Pensamiento Herder) puede compararse con Arendt y la antropología de la condición plural en doble movimiento por su interés filosófico en el ser humano. Guillermo Hurtado plantea la pregunta general por la persona, mientras que Javier Pons-Gallach delimita su trabajo mediante la antropología y la condición plural.",
+      "texto": "¿Qué es una persona? (Pensamiento Herder) y Aforismos para reflexionar y meditar: 109 (Fragmentos) comparten una orientación hacia la reflexión. Guillermo Hurtado plantea una pregunta filosófica sobre la persona, mientras que Raimon Panikkar presenta una obra identificada como colección de aforismos. La diferencia principal está entre el ensayo dedicado a una cuestión y el formato de pensamientos breves.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,7 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399308358"
+        "isbn-9791387548278"
       ]
     }
   ],

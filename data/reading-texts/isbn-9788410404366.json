@@ -4,28 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Fugitivo de la desesperación (Poetica satori), de Sakutarô Hagiwara, está dirigido a lectores de poesía. Su clasificación poética lo diferencia de las novelas narrativas y de los libros prácticos, por lo que responde a una búsqueda centrada en el verso.",
+      "texto": "Fugitivo de la desesperación (Poetica satori), de Sakutarô Hagiwara, se dirige a lectores de poesía en castellano. Con 232 páginas, ofrece una extensión mayor que la de un poemario muy breve y encaja menos con quienes buscan una novela construida alrededor de una trama continua.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Fugitivo de la desesperación (Poetica satori) cuenta con una edición de tapa dura presentada como libro de tela. Sus 232 páginas en castellano forman un volumen físico de cubierta rígida, apropiado para conservarlo y consultar sus poemas en distintas sesiones de lectura.",
+      "texto": "Fugitivo de la desesperación (Poetica satori) cuenta con una edición física de 232 páginas, presentada como libro de tela por Satori Ediciones C.b. Su formato de tapa dura favorece la conservación del volumen y la consulta repetida de los textos poéticos.",
       "evidencias": [
         "titulo",
         "edicion",
+        "formato_edicion",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antologia amorosa la voz a ti debida y razon de amor y Fugitivo de la desesperación (Poetica satori) pertenecen al ámbito de la poesía, pero sus títulos señalan intereses diferentes. La obra de Pedro Salinas identifica el amor como eje, mientras que la de Sakutarô Hagiwara sitúa la desesperación en primer plano.",
+      "texto": "Fugitivo de la desesperación (Poetica satori) comparte su clasificación poética con A solas, de María Jesús Martínez Ramos, aunque corresponde a otro autor, Sakutarô Hagiwara. También puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera: ambos pertenecen al ámbito de la poesía, pero presentan títulos, autorías y colecciones editoriales diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,7 +35,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788412988833",
+        "isbn-9788410907539"
       ]
     }
   ],

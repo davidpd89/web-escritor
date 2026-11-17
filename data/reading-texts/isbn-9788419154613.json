@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788419154613",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sadorski y el ángel del pecado: «Sadorski y el ángel del pecado» es la tercera entrega de la Trilogía de los Colaboracionistas, protagonizada por el inspector Léon Sadorski. (Ficción) encaja con lectores de novela histórica, misterio y thriller. Al pertenecer a una trilogía, resulta menos adecuado para quienes buscan una historia presentada como independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra combina el marco de la novela histórica con elementos de misterio y thriller, alrededor del inspector Léon Sadorski. El título la presenta como la tercera entrega de la Trilogía de los Colaboracionistas, de modo que su enfoque narrativo está vinculado a una serie protagonizada por el mismo personaje. Se trata de ficción de Romain Slocombe, no de un ensayo histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 512 páginas de Sadorski y el ángel del pecado: «Sadorski y el ángel del pecado» es la tercera entrega de la Trilogía de los Colaboracionistas, protagonizada por el inspector Léon Sadorski. (Ficción) en un volumen físico. Esta encuadernación permite conservar la novela en una colección y protegerla durante las relecturas. También es una opción para regalar a lectores de ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El hombre que fue casi nadie (Salamandra Black) puede compararse con Sadorski y el ángel del pecado: «Sadorski y el ángel del pecado» es la tercera entrega de la Trilogía de los Colaboracionistas, protagonizada por el inspector Léon Sadorski. (Ficción) por su proximidad al ámbito del misterio. El asesino de la almarada (Novela Histórica) ofrece otra referencia por su vinculación con la ficción histórica. La obra de Romain Slocombe se diferencia por su pertenencia expresa a una trilogía y por el protagonismo del inspector Léon Sadorski.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387928599",
+        "isbn-9791370205362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b09bff21f3e943dc",
+  "origen": "chatgpt-web"
+}

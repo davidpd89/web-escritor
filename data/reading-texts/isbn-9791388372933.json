@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388372933",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Irisación artificial, de Adrian Hyde, se dirige a lectores interesados en el ensayo, los relatos y la narrativa juvenil. Su clasificación también incluye literatura juvenil, por lo que resulta menos afín a quien busca exclusivamente narrativa adulta de un único género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Irisación artificial está disponible en tapa blanda, con 302 páginas en castellano. Esta edición de La Maleta Ediciones permite consultar el contenido en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Irisación artificial puede compararse con Reflexiones de una loca por su relación con la escritura reflexiva, aunque Adrian Hyde también figura en narrativa juvenil y relatos. El arte de la vida: 101 relatos cortos con moraleja comparte la presencia del relato, pero su título plantea expresamente textos breves con moraleja, mientras que Irisación artificial abarca varias modalidades literarias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388234620",
+        "isbn-9788409939701"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a07eef29032f1d7d",
+  "origen": "chatgpt-web"
+}

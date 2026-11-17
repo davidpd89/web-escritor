@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta monografía está orientada a lectores que buscan estudiar el crédito al consumo, las relaciones entre prestamistas, consumidores e intermediarios y su regulación jurídica. Su análisis jurisprudencial y de la reforma vinculada a la Directiva 2023/2225 la aleja de los manuales de finanzas personales y de las guías generales de ahorro.",
+      "texto": "Esta monografía encaja con lectores interesados en la regulación del crédito al consumo, las relaciones entre prestamistas, consumidores e intermediarios y el análisis jurisprudencial. Carmen Perez Dios sitúa el estudio en el contexto de la Directiva 2023/2225, por lo que su orientación jurídica resulta distinta de la divulgación financiera o de una guía práctica para solicitar préstamos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Prestamista, consumidor e intermediario en el crédito al consumo: Análisis jurisprudencial y reforma del régimen jurídico tras la Directiva 2023/2225 (Monografía) tiene 230 páginas y se ofrece en tapa blanda. La edición física permite marcar pasajes y consultar el análisis jurídico durante el estudio, sin necesidad de utilizar una pantalla.",
+      "texto": "Prestamista, consumidor e intermediario en el crédito al consumo: Análisis jurisprudencial y reforma del régimen jurídico tras la Directiva 2023/2225 (Monografía) se ofrece en tapa blanda y tiene 230 páginas. La extensión permite manejar un volumen físico relativamente contenido para estudiar, subrayar y consultar cuestiones jurídicas relacionadas con el crédito al consumo.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Prestamista, consumidor e intermediario en el crédito al consumo: Análisis jurisprudencial y reforma del régimen jurídico tras la Directiva 2023/2225 (Monografía) se relaciona directamente con Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I, de Juan Felipe Criado-Castilla. Ambas obras tratan cuestiones jurídicas del consumo, pero Carmen Perez Dios delimita su estudio al crédito, sus participantes y la reforma normativa, mientras que el otro título aborda la contratación y sus condiciones generales.",
+      "texto": "Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) comparte el ámbito del derecho, pero aborda la materia administrativa sancionadora en lugar de la regulación del crédito al consumo. Argumentacion Juridica se aproxima desde otra cuestión jurídica, la argumentación, mientras que Carmen Perez Dios delimita su estudio mediante la jurisprudencia y la Directiva 2023/2225.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370297305"
+        "isbn-9791370610562",
+        "isbn-9789564078014"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0bbbd895df7f98fd",
+  "fuente_hash": "e870f34d08e35bd5",
   "origen": "chatgpt-web"
 }

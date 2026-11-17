@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410558618",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómic Moztruos 1: Un amigo muy espacial se dirige a lectores que prefieren el cómic y la fantasía frente a la narrativa exclusivamente en prosa. Sus 48 páginas ofrecen una extensión breve; el título lo identifica como el n.º 1, aunque esa numeración no determina por sí sola una edad de lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómic Moztruos 1: Un amigo muy espacial se presenta en tapa dura y reúne 48 páginas. La encuadernación rígida resulta práctica para conservar un cómic de extensión breve y volver a consultar sus páginas ilustradas en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Personajes sin autor en la mente y Cómic Moztruos 1: Un amigo muy espacial comparten una referencia a personajes desde sus títulos. La obra de Pedro Mañas Romero se presenta expresamente como cómic de fantasía y tiene 48 páginas; la de Arquímedes Rivera Olazábal plantea desde su título una cuestión relacionada con la autoría de los personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907461"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c07e1831accecdd8",
+  "origen": "chatgpt-web"
+}

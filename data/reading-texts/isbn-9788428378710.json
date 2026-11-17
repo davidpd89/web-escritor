@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788428378710",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en evaluar procesos de enseñanza y aprendizaje dentro de los servicios socioculturales y a la comunidad. Su enfoque corresponde al ámbito de la formación y la evaluación educativa, no a una obra narrativa ni a un manual centrado exclusivamente en recursos materiales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La cuestión principal es la evaluación del proceso enseñanza-aprendizaje. El título vincula esta actividad con Servicios Socioculturales y a la Comunidad, por lo que el foco recae en la dimensión evaluadora de la práctica formativa y no en la planificación general de contenidos.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta edición de Ediciones Paraninfo se presenta en tapa blanda y tiene 318 páginas en castellano. El ejemplar físico permite consultar los contenidos de evaluación, marcar apartados y utilizarlo como material de estudio sobre enseñanza y aprendizaje.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Se relaciona con 1705 Programación didáctica de los Grados A/B/C (Servicios Socioculturales y a la Comunidad), aunque este aborda la programación y no la evaluación. También comparte ámbito y autoría con 1785 Acción tutorial de los Grados A/B/C (Servicios Socioculturales y a la Comunidad), cuyo asunto principal es la acción tutorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428378673",
+        "isbn-9788428378727"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05be3f38b8f52d07",
+  "origen": "chatgpt-web"
+}

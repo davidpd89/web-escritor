@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388465116",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La esgrima de florete, espada y sable: 12 (Minor), de Román de Lorca Díez, se orienta a personas interesadas en la esgrima como afición. Sus 80 páginas y su enfoque en las tres armas mencionadas en el título lo alejan de quienes buscan una novela deportiva o una lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La esgrima de florete, espada y sable: 12 (Minor) se presenta en tapa blanda, con 80 páginas. El formato impreso permite consultar el contenido sobre florete, espada y sable y volver a sus páginas durante el estudio de esta actividad. La edición corresponde a Agea Editora.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La esgrima de florete, espada y sable: 12 (Minor), de Román de Lorca Díez, puede compararse con 99 Sudoku (LIBROS SINGULARES), de Anónimo, por su relación con el ocio y las aficiones. El primero aborda la esgrima mediante tres armas deportivas, mientras que el segundo se centra en los pasatiempos numéricos. También difieren en su autoría y en el tipo de actividad que presentan.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19312f9ce19c8e00",
+  "origen": "chatgpt-web"
+}

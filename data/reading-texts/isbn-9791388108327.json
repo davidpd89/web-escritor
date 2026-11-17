@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388108327",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Adversaria del villano (Faeris Editorial) encaja con lectores que buscan fantasía combinada con relaciones románticas y elementos de narrativa contemporánea. Sus 496 páginas ofrecen una lectura extensa dentro de esos géneros; no se orienta a quienes prefieren relatos realistas sin componentes fantásticos ni tramas románticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Adversaria del villano (Faeris Editorial) se presenta en tapa blanda, con 496 páginas en castellano. Es una edición física para quienes prefieren leer una novela extensa en papel, conservarla en la estantería o regalar un ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adversaria del villano (Faeris Editorial) puede compararse con Asistente del villano (edición especial limitada) (Faeris Editorial), también de Hannah Nicole Maehrer, por su autoría y la referencia compartida al villano en los títulos. Otra lectura próxima es Endemoniada (Faeris Editorial), de Laura Thalassa, que comparte el sello editorial. La diferencia comprobable está en la autoría: las dos primeras pertenecen a la obra de Hannah Nicole Maehrer, mientras que la tercera corresponde a otra escritora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108112",
+        "isbn-9791388108303"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e22889008d31db34",
+  "origen": "chatgpt-web"
+}

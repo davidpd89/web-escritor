@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788412988840",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Es un libro para lectores de poesía que prefieren volúmenes breves en castellano. Sus 56 páginas lo sitúan lejos de las novelas extensas y de los ensayos argumentativos; el título lo identifica con el n.º 17 de La garza roja.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La noche a solas: 17 (La garza roja) tiene una edición en tapa blanda de 56 páginas, publicada por Aflera. Su extensión facilita llevar el volumen en el bolso o consultar poemas concretos sin cargar con un libro grueso; el papel permite anotar versos y señalar páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La noche a solas: 17 (La garza roja), de Alfredo Buxán, puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera. Ambos pertenecen al ámbito de la poesía y sus títulos los identifican con los números 17 y 16 de La garza roja, respectivamente; cambia la autoría y, por tanto, la voz poética que encontrará el lector.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "226ac245b87c9d6b",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) se dirige a lectores interesados en las relaciones de pareja, la familia y las experiencias personales. Su orientación hacia las biografías y memorias lo aleja de quienes buscan una novela de aventuras o una guía de crianza con instrucciones prácticas.",
+      "texto": "El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) se orienta a quienes leen sobre experiencias personales, vínculos familiares y crianza. Por su enfoque biográfico y familiar, se distancia de las lecturas centradas en aventuras o misterios de ficción.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) se presenta en tapa dura, con 292 páginas en castellano. Este formato permite conservar el volumen en una biblioteca doméstica y entregarlo como regalo físico, aunque resulta menos ligero de transportar que una edición de bolsillo.",
+      "texto": "La edición en tapa dura reúne 292 páginas en castellano y está publicada por Altamarea Ediciones. Su encuadernación rígida facilita conservar el volumen en una biblioteca personal y ofrecerlo como regalo a alguien interesado en historias familiares.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) comparte el interés por los vínculos afectivos con Conectados para el amor / Wired for Love, de Stan Tatkin. Mientras el primero se sitúa en el ámbito de las memorias, el segundo centra su propuesta en el amor de pareja. También puede compararse con Bienvenido, bebé: Un libro muy tierno para dar la bienvenida a un nuevo bebé y celebrar el amor que lo rodea: 15 (Álbumes ilustrados), de Jane Chapman, cuyo título apunta específicamente a la llegada de un bebé.",
+      "texto": "El amor de una madre comparte con El grano de arroz: Una historia de amor y espera: 9 (Marea gráfica) el interés por los vínculos afectivos y familiares, aunque sus títulos sitúan el foco en relaciones distintas. En Construcción. Una Historia Real: Work in Progress también remite a una experiencia personal, pero desde la idea de un proceso vital en desarrollo, frente al amor y la espera que identifica el título de Catherine Plessis-Bélair y Daniel Plaisance.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387948160",
-        "isbn-9786073876056"
+        "isbn-9798182960311",
+        "isbn-9798890986344"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "50f99c8453db5c82",
+  "fuente_hash": "a4e827c09d21f675",
   "origen": "chatgpt-web"
 }

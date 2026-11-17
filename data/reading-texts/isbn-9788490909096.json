@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788490909096",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en los esquemas procesales y en la Ley de Medidas de Eficiencia procesal del Servicio Público de Justicia. Por su enfoque jurídico y sus 650 páginas, se aleja de la lectura narrativa y de las introducciones breves al derecho.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Esquemas Procesales: Actualizados a la Ley de Medidas de Eficiencia procesal del Servicio Público de Justicia se presenta en tapa dura. Sus 650 páginas forman un volumen de consulta jurídica que puede mantenerse en una mesa de estudio o trabajo, con una encuadernación rígida para el manejo habitual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Formularios de la Práctica Procesal Civil comparte con este libro el ámbito procesal y la autoría de Pablo Izquierdo Blanco y Joan Picó Junoy, pero se centra en formularios frente a esquemas actualizados. Argumentacion Juridica, de Carlos Parma, aborda la argumentación en derecho, mientras que este volumen se ocupa de la organización procesal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788490909072",
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c1d6c20cbd809b43",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370079345",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Roberto Cavalli | Colección Leyendas de la Moda | Libro LXIV se dirige a lectores interesados en la moda, el diseño y las publicaciones dedicadas a sus figuras. Su pertenencia a una colección de arte y ensayo lo distancia de quienes buscan narrativa de ficción o una novela con argumento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Roberto Cavalli | Colección Leyendas de la Moda | Libro LXIV se publica en tapa dura, con 128 páginas en castellano. Esta encuadernación permite conservar el volumen junto a otros títulos de la colección y consultarlo en papel, tanto de forma independiente como dentro de una biblioteca dedicada al diseño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII y Roberto Cavalli | Colección Leyendas de la Moda | Libro LXIV pertenecen a la misma colección de RBA Coleccionables España. Ambos se sitúan en el ámbito de la moda, pero cada título identifica a una figura diferente y ocupa un número distinto dentro de la serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079321"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0cbd87be18ef32f",
+  "origen": "chatgpt-web"
+}

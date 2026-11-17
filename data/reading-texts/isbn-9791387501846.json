@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387501846",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Quiero ser papá Noel, de José Carlos Román, se dirige al público infantil y gira, desde su propio título, alrededor de la figura de papá Noel. Con 40 páginas, se ajusta a quienes buscan una lectura infantil breve, pero menos a lectores que prefieren obras extensas o dirigidas a adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Quiero ser papá Noel está disponible en tapa dura, con 40 páginas en castellano. Esta presentación ofrece un volumen físico de cubierta rígida, apropiado para conservarlo en una biblioteca infantil o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Quiero ser papá Noel puede compararse con Piel de cocodrilo (INFANTIL), ya que ambos títulos pertenecen a José Carlos Román y se sitúan en el ámbito infantil. La diferencia visible está en el tema anunciado: Quiero ser papá Noel alude a un personaje navideño, mientras que Piel de cocodrilo (INFANTIL) remite a un cocodrilo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387884307"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22551a08d37e0edb",
+  "origen": "chatgpt-web"
+}

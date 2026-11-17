@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788467084528",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El descubrimiento de la vida interior: Sentir, pensar, decidir (Espasa Bienestar y Salud) se dirige a lectores interesados en psicología, filosofía y desarrollo personal. Su atención a la experiencia interior encaja menos con quienes buscan ficción narrativa o contenidos centrados en cuestiones materiales y externas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de El descubrimiento de la vida interior: Sentir, pensar, decidir (Espasa Bienestar y Salud) contiene 248 páginas y facilita la consulta física de sus contenidos. Kindle permite leer el mismo título en formato digital, tanto en un lector electrónico como en el móvil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El descubrimiento de la vida interior: Sentir, pensar, decidir (Espasa Bienestar y Salud) comparte el interés por los procesos mentales con El arte de organizar los pensamientos: Sabiduría pausada para un mundo acelerado. Javier López-Ibor plantea una perspectiva más amplia sobre sentir, pensar y decidir, mientras Shigehiko Toyama concentra su propuesta en la organización del pensamiento. Ambos se relacionan con la reflexión personal, pero parten de cuestiones diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629657"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "209a42044465c980",
+  "origen": "chatgpt-web"
+}

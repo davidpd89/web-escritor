@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "MAD 03: 3 se dirige a lectores de ciencia ficción interesados en el lenguaje del cómic y la novela gráfica. Sus 200 páginas responden a ese tipo de lectura visual, por lo que se aleja de quienes buscan narrativa exclusivamente en prosa o libros prácticos.",
+      "texto": "MAD 03: 3 se dirige a lectores de ciencia ficción interesados en el cómic y la novela gráfica. El título lo identifica como el n.º 3, por lo que quienes busquen comenzar una serie desde su primera entrega pueden preferir una lectura inicial distinta. Tampoco responde a la búsqueda de una novela exclusivamente en prosa.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "MAD 03: 3 está disponible en tapa blanda, con 200 páginas en un volumen físico publicado por Norma Editorial. Esta edición permite seguir la lectura gráfica directamente sobre papel y conservar el ejemplar en una colección impresa.",
+      "texto": "MAD 03: 3 está disponible en tapa blanda, con 200 páginas en castellano. El volumen físico permite seguir la narración gráfica sobre papel y conservarlo junto a otros ejemplares de la serie. La edición corresponde a Norma Editorial.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "MAD 03: 3 puede compararse con El incidente Darwin 1 (Seinen): Universo Manga por su pertenencia al ámbito del cómic y la novela gráfica. Yusuke Otori firma MAD 03: 3, mientras que Shun Umezawa es el autor del otro título; la diferencia identificable está en la obra y su numeración, con un 3 en el primero y un 1 en el segundo.",
+      "texto": "MAD 03: 3 y El incidente Darwin 9 (Seinen) comparten su vinculación con el cómic y la ciencia ficción dentro de esta selección de lecturas. Los títulos identifican entregas diferentes de obras firmadas por Yusuke Otori y Shun Umezawa, respectivamente. Frente a El mesias de Dune. La novela grafica libro 01, MAD 03: 3 aparece identificado en su título como el n.º 3, mientras que el otro volumen se presenta como libro 01.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +32,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962791"
+        "isbn-9791387962616",
+        "isbn-9788467986174"
       ]
     }
   ],

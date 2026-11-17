@@ -4,37 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cross in a Box: 50 retos en los que descubrir al culpable se dirige a quienes buscan actividades de deducción y resolución de enigmas. Sus 50 retos sitúan la experiencia en el terreno del entretenimiento participativo, por lo que no responde a quien prefiera una novela policíaca de lectura continua.",
+      "texto": "Cross in a Box: 50 retos en los que descubrir al culpable, de Ramona Casamán, está dirigido a quienes buscan actividades de deducción relacionadas con la identificación de culpables. Sus 50 retos lo sitúan en el ámbito del ocio y los pasatiempos, frente a una novela policíaca construida alrededor de una única historia.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cross in a Box: 50 retos en los que descubrir al culpable se publica en tapa blanda, con 154 páginas. Esta edición física permite consultar los retos y regresar a ellos durante la resolución, sin depender de una pantalla; también puede utilizarse como libro de actividades para regalar.",
+      "texto": "Cross in a Box: 50 retos en los que descubrir al culpable está disponible en tapa blanda y reúne 154 páginas. El soporte impreso permite consultar los retos y regresar a ellos durante la resolución, con el libro físico como material de actividad.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos) comparte con Cross in a Box: 50 retos en los que descubrir al culpable su orientación hacia el ocio mediante actividades. El primero propone colorear píxeles relacionados con Roblox; el segundo plantea resolver retos para identificar culpables, por lo que exige una participación distinta.",
+      "texto": "Cross in a Box: 50 retos en los que descubrir al culpable se aproxima a 80 crímenes imposibles de resolver (FUERA DE ESCENA) por plantear actividades relacionadas con delitos y su resolución. Ramona Casamán propone 50 retos para identificar culpables, mientras que el libro de Gareth Moore y Laura Jayne Ayres anuncia 80 crímenes imposibles de resolver.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328384"
+        "isbn-9791388015816"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3ec6d49e337ff795",
+  "fuente_hash": "6492d6105a0da518",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788466390163",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Todo pasa en Derry (contiene: It | Un saco de huesos | El cazador de sueños | Insomnia | 22/11/63) (Best Seller | Ficción), de Stephen King, está dirigido a lectores de terror y fantasía que quieren reunir varias obras del autor. Su formato de estuche encaja menos con quienes buscan una única novela independiente o prefieren narrativa ajena a esos géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "It (edición especial con cantos tintados) (Best Seller) comparte autor y obra con el estuche, pero se presenta como una edición especial individual, mientras que el conjunto reúne también otros títulos de Stephen King. Carrie (edición serie) ofrece otra lectura del mismo autor centrada en una joven acosada en el instituto, frente a la selección de varias obras que propone el estuche.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466382045",
+        "isbn-9788466396806"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "62eea9227235488a",
+  "origen": "chatgpt-web"
+}

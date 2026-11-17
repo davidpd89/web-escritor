@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370550295",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan contenidos de psicología centrados en las terapias grupales dentro de la sanidad pública. Terapias grupales en el sistema sanitario público: 36 (Psicologia), de Luis Javier Sanz Rodríguez y Beatriz Vallejo Sánchez, aborda un ámbito específico de la atención psicológica, distinto de los libros sobre motivación personal o relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Terapias grupales en el sistema sanitario público: 36 (Psicologia) se presenta en tapa blanda, con 372 páginas en castellano. Esta edición de Editorial Sintesis SA permite consultar físicamente los contenidos y volver a los apartados de interés durante el estudio de las terapias grupales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparte el ámbito psicológico con Terapias grupales en el sistema sanitario público: 36 (Psicologia). El primero se centra en la infancia y su reparación emocional; el segundo, de Luis Javier Sanz Rodríguez y Beatriz Vallejo Sánchez, trata las terapias grupales en la sanidad pública. Son enfoques diferentes dentro del interés por la psicología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f15282b2c7d26b89",
+  "origen": "chatgpt-web"
+}

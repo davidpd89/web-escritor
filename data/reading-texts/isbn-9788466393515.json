@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vuelo 19 (Best Seller | Ficción) encaja con lectores de novela histórica interesados en el siglo XX. Su orientación hacia la ficción histórica lo aleja de quienes buscan un ensayo documental o una exposición académica de acontecimientos históricos.",
+      "texto": "Vuelo 19 (Best Seller | Ficción) se orienta a lectores interesados en la historia y la novela histórica. José Antonio Ponseti firma este volumen de 512 páginas, una extensión que exige más tiempo de lectura que una novela breve; encaja menos con quien busca principalmente romance o fantasía.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 512 páginas de Vuelo 19 (Best Seller | Ficción) en una edición de bolsillo, adecuada para leer en papel sin recurrir a un volumen de tapa dura. Kindle permite llevar la lectura en formato digital y el audiolibro ofrece la alternativa de escucharla.",
+      "texto": "Vuelo 19 (Best Seller | Ficción) cuenta con una edición de bolsillo en tapa blanda de 512 páginas, que permite llevar el volumen sin recurrir a una encuadernación rígida. Kindle ofrece la alternativa digital para leer en dispositivos compatibles, y el audiolibro permite seguir el contenido mediante la escucha.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "edicion",
+        "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando éramos pilotos: Historias de los españoles que sobrevivieron al Dakar en África (Best Seller | Ficción) comparte autor, José Antonio Ponseti, con Vuelo 19 (Best Seller | Ficción), pero su título dirige la atención hacia los pilotos españoles del Dakar. Ave César (Narrativas Históricas), de Rex Warner, ofrece otra referencia histórica, diferenciada por su autoría frente al enfoque en el siglo XX de Vuelo 19 (Best Seller | Ficción).",
+      "texto": "Cuando éramos pilotos: Historias de los españoles que sobrevivieron al Dakar en África (Best Seller | Ficción) comparte autor con Vuelo 19 (Best Seller | Ficción), pero su título se centra expresamente en pilotos españoles y el Dakar en África. Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, ofrece otra referencia de novela histórica, con una autoría y un marco sugerido por el título diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +33,12 @@
       ],
       "enlaces": [
         "isbn-9788466393522",
-        "isbn-9788435064125"
+        "isbn-9788467084870"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c8bf67b243e5541a",
+  "fuente_hash": "79bfe4d95f401dc8",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788409927623",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "cuando en las mañanas y el verde musgo, yo.: Entro por la ventana (DIALOGOS) encaja con lectores que buscan ensayo en castellano. La obra de Friederike Mayröcker tiene 240 páginas y se aleja de las búsquedas centradas específicamente en novelas de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "cuando en las mañanas y el verde musgo, yo.: Entro por la ventana (DIALOGOS) cuenta con una edición en tapa blanda de 240 páginas. Comisura publica este volumen en castellano, con una encuadernación flexible que facilita llevarlo en el bolso o la mochila y leerlo en papel.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b31399a3be946bf4",
+  "origen": "chatgpt-web"
+}

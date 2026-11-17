@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La cara B del amor: Más allá de las dificultades (Contextos) se dirige a lectores interesados en las relaciones de pareja desde la psicología y el desarrollo personal. Por su enfoque temático, se aleja de quienes buscan una novela romántica o una historia de ficción.",
+      "texto": "La cara B del amor: Más allá de las dificultades (Contextos), de Gabriel Rolón, se dirige a quienes buscan lecturas sobre las dificultades amorosas desde la psicología y el desarrollo personal. Su enfoque temático lo separa de las novelas románticas centradas en personajes y tramas de ficción.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La cara B del amor: Más allá de las dificultades (Contextos) está disponible en tapa blanda, con 296 páginas en castellano. Esta edición de Ediciones Paidós permite consultar y releer pasajes en papel, además de incorporar anotaciones durante la lectura.",
+      "texto": "La cara B del amor: Más allá de las dificultades (Contextos) se ofrece en tapa blanda, con 296 páginas. La edición de Ediciones Paidós permite leer y consultar el contenido en papel, con una cubierta flexible que facilita llevar el volumen entre distintas sesiones de lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La cara B del amor: Más allá de las dificultades (Contextos) y El duelo: Cuando el dolor se hace carne (Ciencias Humanas y Sociales) comparten autor, Gabriel Rolón. El primero aborda las dificultades amorosas desde la psicología, mientras que el segundo se centra en el duelo y el dolor. Ambos tratan experiencias personales, aunque desde asuntos diferentes.",
+      "texto": "La cara B del amor: Más allá de las dificultades (Contextos) y El duelo: Cuando el dolor se hace carne (Ciencias Humanas y Sociales) comparten autor, Gabriel Rolón, pero sus títulos apuntan a las dificultades amorosas y al duelo, respectivamente. Frente a ambos, El arte de organizar los pensamientos: Sabiduría pausada para un mundo acelerado, de Shigehiko Toyama, desplaza el interés hacia la organización del pensamiento.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408331544"
+        "isbn-9788408331544",
+        "isbn-9788430629657"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e4fefdd7b2f86787",
+  "fuente_hash": "b99f14774a18d000",
   "origen": "chatgpt-web"
 }

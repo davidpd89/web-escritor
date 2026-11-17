@@ -4,26 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Madrid Capital del mundo: De cómo la villa castellana se convirtió en una ciudad de palacios (HISTORIA) se dirige a quienes se interesan por la historia urbana, la arquitectura y la transformación de Madrid. Su enfoque histórico y artístico se aleja de las novelas centradas en personajes y conflictos ficticios.",
+      "texto": "Madrid Capital del mundo: De cómo la villa castellana se convirtió en una ciudad de palacios (HISTORIA) se dirige a lectores interesados en la historia urbana de Madrid, sus palacios y su transformación arquitectónica. Por su enfoque histórico y artístico, se distancia de quienes buscan una novela ambientada en la ciudad o una guía práctica de visitas.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 336 páginas y está publicada por La Esfera de los Libros. Para una lectura centrada en la evolución histórica y arquitectónica de Madrid, el volumen físico permite volver a pasajes anteriores y consultar distintos apartados durante la lectura.",
+      "texto": "Madrid Capital del mundo: De cómo la villa castellana se convirtió en una ciudad de palacios (HISTORIA) está disponible en tapa blanda y Kindle. La edición física de La Esfera de los Libros tiene 336 páginas y permite conservar el volumen en una biblioteca de historia; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro impreso.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "titulo"
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Madrid Capital del mundo: De cómo la villa castellana se convirtió en una ciudad de palacios (HISTORIA) y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) comparten el interés por las manifestaciones culturales, pero abordan objetos distintos. Cipriano García-Hidalgo Villena se centra en la transformación histórica y arquitectónica de Madrid, mientras que Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga tratan el cine del oeste del siglo XXI.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "63b8b27c34e0eea7",
+  "fuente_hash": "971a498981846e26",
   "origen": "chatgpt-web"
 }

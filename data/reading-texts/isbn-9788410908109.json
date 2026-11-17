@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788410908109",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El sueño de una noche de verano: Edición con prólogo y notas se dirige a lectores que buscan una obra de William Shakespeare acompañada de materiales de lectura. Su planteamiento editorial encaja menos con quien prefiere una edición centrada exclusivamente en el texto, sin prólogo ni anotaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de El sueño de una noche de verano: Edición con prólogo y notas se distingue por anunciar expresamente un prólogo y notas. Editorial Letra Minúscula la publica en castellano, en tapa dura y con 130 páginas, características que permiten identificar esta presentación frente a otras del mismo texto.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La presentación disponible de El sueño de una noche de verano: Edición con prólogo y notas es en tapa dura. Sus 130 páginas reúnen el texto y los materiales anunciados en el título dentro de un volumen encuadernado, una opción para conservarlo en la biblioteca o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El sueño de una noche de verano: Edición con prólogo y notas comparte autoría con Ricardo II: 1 (Clásica) y Romeo y Julieta: 3 (Shakespeare en el Mediterráneo), ambas obras de William Shakespeare. La diferencia editorial visible es que la primera anuncia prólogo y notas, mientras que los otros títulos identifican sus respectivas colecciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467023909",
+        "isbn-9791399252316"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7af4489c6fcc4334",
+  "origen": "chatgpt-web"
+}

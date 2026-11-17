@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419737588",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cielo en casa (MISCELANEA) se sitúa entre el cómic y la novela gráfica, las biografías y memorias y las lecturas vinculadas al tiempo libre. Por esa combinación, encaja con intereses distintos de los de quien busca exclusivamente una novela de ficción convencional o un manual técnico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de El cielo en casa (MISCELANEA) contiene 352 páginas y está publicada por Fulgencio Pimentel. Su encuadernación rígida facilita conservar el volumen en una biblioteca personal y consultarlo de nuevo, especialmente por su vinculación con el cómic y la novela gráfica.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cielo en casa (MISCELANEA) y Espíritu salvaje: La llamada de África a una veterinaria (Obras diversas) coinciden en el ámbito de las biografías y memorias. La obra de Fabiola Quesada Fernández apunta desde su título a una experiencia veterinaria en África, mientras que la de Manuel Marsol también se vincula con el cómic y la novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401041662"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "19a8608ada11fb22",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cocido madrileño: 213 (Narrativa), de José Francisco Alonso, se dirige a lectores de misterio y thriller. Sus 340 páginas en castellano encajan con quienes buscan una novela del género, pero no con quienes prefieren poesía o libros prácticos.",
+      "texto": "Cocido madrileño: 213 (Narrativa), de José Francisco Alonso, se dirige a lectores de misterio y thriller en castellano. Sus 340 páginas lo sitúan en una extensión de novela, frente a quienes buscan una lectura breve o un libro de otro género.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,26 +15,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cocido madrileño: 213 (Narrativa) está disponible en tapa blanda y Kindle. La edición física reúne 340 páginas y permite conservar el ejemplar en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen.",
+      "texto": "Cocido madrileño: 213 (Narrativa) está disponible en tapa blanda y Kindle. La edición impresa de Editorial Alreves, S.l reúne 340 páginas en un volumen físico; Kindle permite llevar la misma obra en un dispositivo de lectura digital sin transportar el ejemplar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "formato_edicion"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cocido madrileño: 213 (Narrativa) comparte el terreno del misterio con Aguas turbulentas, de Rankin Ian. Mientras este último sitúa su conflicto entre el pasado y el presente de Edimburgo, el libro de José Francisco Alonso se presenta como una obra de misterio de 340 páginas. Ambos se diferencian por su autoría y por los elementos narrativos descritos.",
+      "texto": "Cocido madrileño: 213 (Narrativa) comparte el terreno del misterio con Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, aunque este último plantea la desaparición de unas croquetas. También puede compararse con 25 días hasta Navidad, de Per Jacobsen, presentado como un thriller de adviento, frente al título de José Francisco Alonso, que no incorpora esa referencia temporal.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370310318"
+        "isbn-9788427055063",
+        "isbn-9788427256644"
       ]
     }
   ],

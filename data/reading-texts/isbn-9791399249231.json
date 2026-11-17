@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399249231",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Andanzas de una cabeza (BIBLIOTECA DIBUJADA), de Susana Benet Fayos, se dirige a lectores de fantasía interesados en el cómic y la narración gráfica. Sus 72 páginas permiten abordar una obra breve, mientras que quienes buscan una novela extensa en prosa encontrarán un planteamiento formal diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Andanzas de una cabeza (BIBLIOTECA DIBUJADA) cuenta con una edición en tapa blanda de 72 páginas, publicada en castellano por Ediciones Orígenes, SL. Su extensión y encuadernación permiten transportarla y leerla en papel sin manejar un volumen de gran tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic) comparte con Andanzas de una cabeza (BIBLIOTECA DIBUJADA) la relación entre fantasía y narración gráfica. El título de Steve Smallman se presenta dentro de Mi primer cómic y gira nominalmente alrededor de animales mágicos, mientras que la obra de Susana Benet Fayos pertenece a BIBLIOTECA DIBUJADA y consta de 72 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875381"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "56866896ccc8724f",
+  "origen": "chatgpt-web"
+}

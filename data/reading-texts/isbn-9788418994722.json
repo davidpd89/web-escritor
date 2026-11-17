@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El tren de la peste: 59 (Narrativa), de Rein Raud, encaja con lectores interesados en la narrativa contemporánea vinculada a la historia y al siglo XX. Su clasificación temática se aparta de quienes buscan específicamente romance o fantasía.",
+      "texto": "El tren de la peste: 59 (Narrativa) se dirige a lectores de narrativa contemporánea con interés por la historia. La obra de Rein Raud se aleja de las lecturas centradas exclusivamente en el romance o la fantasía, ya que combina una clasificación histórica con otra narrativa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,21 +13,23 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El tren de la peste: 59 (Narrativa) cuenta con una edición en tapa blanda de 336 páginas. Armaenia Editorial lo publica en castellano, en un volumen físico que puede transportarse y leerse sin dispositivos electrónicos.",
+      "texto": "El tren de la peste: 59 (Narrativa) está disponible en tapa blanda, con 336 páginas en castellano. Esta edición de Armaenia Editorial permite consultar el texto en papel y conservarlo en una biblioteca sin recurrir a un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El tren de la peste: 59 (Narrativa) puede compararse con Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) por su vinculación con la narrativa. La obra de Rein Raud figura entre la narrativa contemporánea y la historia, mientras que la de Lev Tolstoi se presenta en una edición conmemorativa de tapa dura.",
+      "texto": "El tren de la peste: 59 (Narrativa) puede compararse con Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) por su vinculación con la narrativa de interés histórico. La diferencia verificable está en la presentación: Rein Raud tiene una edición de 336 páginas en tapa blanda, mientras que la obra de Lev Tolstoi figura en una edición especial de tapa dura.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
+        "formatos_disponibles",
         "categorias",
         "afines_catalogo"
       ],
@@ -38,6 +40,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "31db6332540673dd",
+  "fuente_hash": "789389d5baba066a",
   "origen": "chatgpt-web"
 }

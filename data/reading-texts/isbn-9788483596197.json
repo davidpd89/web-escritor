@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788483596197",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tótem y tabú: 21 (Clásicos) se orienta a lectores interesados en la psicología y el ensayo, especialmente en los textos de Sigmund Freud. Su planteamiento ensayístico encaja menos con quien busca ejercicios de desarrollo personal o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Tótem y tabú: 21 (Clásicos) se presenta en tapa blanda y reúne 250 páginas en castellano. El volumen físico permite subrayar conceptos y volver a pasajes concretos durante el estudio, una forma de uso relacionada con su carácter de ensayo psicológico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tótem y tabú: 21 (Clásicos) puede compararse con Inhibición, síntoma y angustia (Bilingüe) y Dos casos clínicos, ambos de Sigmund Freud. Los tres pertenecen a la obra del mismo autor, pero Inhibición, síntoma y angustia (Bilingüe) aborda la elaboración de la angustia y Dos casos clínicos reúne estudios de pacientes, frente al enfoque anunciado por Tótem y tabú: 21 (Clásicos).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399156607",
+        "isbn-9791388306259"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e9c2e2df36ffc6b9",
+  "origen": "chatgpt-web"
+}

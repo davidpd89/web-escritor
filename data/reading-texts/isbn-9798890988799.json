@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La trama francesa / The French Illusion, de John Grisham, está dirigida a lectores que buscan misterio y thriller. Su clasificación la sitúa en la ficción de intriga, frente a quienes prefieren ensayos, libros prácticos o narrativa contemporánea ajena al suspense.",
+      "texto": "La trama francesa / The French Illusion, de John Grisham, se dirige a lectores de misterio y thriller. Su clasificación la aleja de quienes prefieren libros históricos, ensayos o manuales prácticos frente a la ficción de intriga.",
       "evidencias": [
         "titulo",
         "autores",
@@ -12,13 +12,22 @@
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La trama francesa / The French Illusion puede elegirse en tapa dura, tapa blanda, Kindle o audiolibro. La tapa dura ofrece una encuadernación rígida para conservar o regalar; la blanda resulta más flexible, Kindle permite leer en dispositivos compatibles y el audiolibro ofrece escucha en lugar de lectura visual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "La trama francesa / The French Illusion comparte autor con La tapadera (La tapadera 1), de John Grisham, y con El jurado / The Runaway Jury, también de John Grisham. La comparación con La tapadera (La tapadera 1) permite distinguir dos referencias: esta última presenta a un graduado de Harvard que recibe ofertas de bufetes, mientras que La trama francesa / The French Illusion está clasificada como misterio y thriller.",
+      "texto": "La trama francesa / The French Illusion comparte autor y ámbito de misterio con El jurado / The Runaway Jury, de John Grisham. También puede compararse con La tapadera (La tapadera 1), del mismo autor, cuyo planteamiento parte de un joven abogado que recibe ofertas de bufetes. La trama francesa / The French Illusion se distingue por su propio título y edición.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "edicion"
       ],
       "enlaces": [
         "isbn-9786287897373",
@@ -29,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bbfb41395aaa9cd3",
+  "fuente_hash": "36fd086affb52b75",
   "origen": "chatgpt-web"
 }

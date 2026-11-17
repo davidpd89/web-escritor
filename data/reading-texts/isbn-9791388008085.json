@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388008085",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los restos de la espesura, de Cipriano Zotes, encaja con lectores que buscan narrativa contemporánea en castellano y una extensión contenida. Sus 182 páginas lo distinguen de las novelas extensas; no está orientado a quien busca específicamente un cómic o una obra de literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los restos de la espesura está editado en tapa blanda y reúne 182 páginas. El formato en papel de Universo de Letras resulta manejable para llevarlo en el bolso o la mochila y leerlo fuera de casa, sin recurrir a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e4569d36c8ceeec6",
+  "origen": "chatgpt-web"
+}

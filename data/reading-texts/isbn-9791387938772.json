@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387938772",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Boa constrictor: 37 (Barlovento), de Iván Frankó, se encuadra en la narrativa contemporánea y tiene 128 páginas. Se ajusta a quien busca ficción de extensión breve, frente a lectores que prefieren novelas extensas o libros de carácter divulgativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Boa constrictor: 37 (Barlovento) cuenta con una edición en tapa blanda de 128 páginas, publicada por Altamarea Ediciones. Su extensión permite llevar el volumen físico en el bolso o la mochila y leerlo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ec001c6833f561de",
+  "origen": "chatgpt-web"
+}

@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Materia viva (Rosita y Amparo por... LiterNatura), de Jorge Comensal, se dirige a lectores interesados en el ensayo y la reflexión filosófica, con el derecho como otro ámbito de referencia. Por su clasificación temática, se aleja de quienes buscan una novela de ficción o un manual centrado exclusivamente en cuestiones prácticas.",
+      "texto": "Materia viva (Rosita y Amparo por... LiterNatura) encaja con lectores que buscan ensayo y reflexión filosófica. La clasificación editorial también incluye derecho, por lo que resulta menos afín a quien busca exclusivamente narrativa de ficción o poesía.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Materia viva (Rosita y Amparo por... LiterNatura) está disponible en tapa blanda, con 240 páginas en castellano. Esta edición de Rosita y Amparo Editores permite consultar y releer pasajes en papel, además de incorporar anotaciones durante una lectura dedicada al ensayo y la filosofía.",
+      "texto": "Materia viva (Rosita y Amparo por... LiterNatura) puede leerse en tapa blanda o en Kindle. La edición impresa reúne 240 páginas y permite la consulta en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Materia viva (Rosita y Amparo por... LiterNatura) puede compararse con La vida de los animales: 21 (esenciales), de JM Coetzee, por su relación con la reflexión sobre la vida. La diferencia está en el enfoque anunciado: el primero figura entre los ensayos de filosofía y derecho, mientras que el segundo sitúa a los animales en el centro de su título.",
+      "texto": "Materia viva (Rosita y Amparo por... LiterNatura) y La vida de los animales: 21 (esenciales) pueden ponerse en relación desde la lectura ensayística y la reflexión. Jorge Comensal firma el primero, clasificado también como filosofía y derecho, mientras que JM Coetzee es el autor del segundo, cuyo título sitúa a los animales en el centro.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8a19cbdfcd56d60e",
+  "fuente_hash": "2cefa9e0023b89aa",
   "origen": "chatgpt-web"
 }

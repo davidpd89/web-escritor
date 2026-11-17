@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores interesados en arte, diseño y recuperación de espacios deteriorados, LOS PAISAJES DEL DESECHO: Reactivación de los lugares del deterioro (POLIÊDRICA) aborda una cuestión vinculada al entorno construido. Por su temática, se aleja de quienes buscan ficción narrativa o manuales de dibujo.",
+      "texto": "LOS PAISAJES DEL DESECHO: Reactivación de los lugares del deterioro (POLIÊDRICA) se dirige a lectores interesados en el arte, el diseño y la transformación de espacios deteriorados. Su planteamiento temático encaja menos con quien busca manuales de dibujo centrados en personajes o cuadernos destinados a realizar ejercicios gráficos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de LOS PAISAJES DEL DESECHO: Reactivación de los lugares del deterioro (POLIÊDRICA) está disponible en tapa blanda y reúne 188 páginas. Este formato permite transportar el volumen y consultarlo durante el estudio de cuestiones relacionadas con el diseño y los espacios deteriorados.",
+      "texto": "La edición de LOS PAISAJES DEL DESECHO: Reactivación de los lugares del deterioro (POLIÊDRICA) tiene 188 páginas y se publica en tapa blanda. El soporte impreso facilita la consulta de apartados y la incorporación de notas personales durante el estudio de cuestiones relacionadas con el arte y el diseño.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "LOS PAISAJES DEL DESECHO: Reactivación de los lugares del deterioro (POLIÊDRICA) y 720 retrats comparten su relación con el ámbito artístico. Israel Alba Ramis centra su título en la reactivación de lugares deteriorados, mientras que la obra de Xavier Mollà i Revert se presenta desde el retrato.",
+      "texto": "LOS PAISAJES DEL DESECHO: Reactivación de los lugares del deterioro (POLIÊDRICA) y 720 retrats comparten su relación con el arte y el diseño, pero el título de Israel Alba Ramis aborda los lugares deteriorados, mientras que el de Xavier Mollà i Revert remite al retrato. All Black Cuaderno (LIBRETAS ARTÖSTICAS) se diferencia por presentarse expresamente como un cuaderno, frente al planteamiento sobre reactivación de espacios del primero.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412678802"
+        "isbn-9788412678802",
+        "isbn-9789879871119"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "935a75d0187cad4c",
+  "fuente_hash": "f8c1f24455c2bdc4",
   "origen": "chatgpt-web"
 }

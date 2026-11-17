@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388154409",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "También las princesas van al cole (Huesitos), de Susie Morgenstern, pertenece a la literatura infantil y se relaciona con las aventuras y el entorno escolar. Su temática se acerca a lectores que buscan historias sobre la escuela y personajes de cuentos, mientras que quienes prefieren narrativa adulta encontrarán un planteamiento de otro público.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "También las princesas van al cole (Huesitos) está disponible en tapa dura, en una edición de Blackie Books de 72 páginas. La encuadernación rígida facilita conservar el ejemplar y manejarlo durante lecturas compartidas, mientras que su extensión permite distribuir la lectura en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "También las princesas van al cole (Huesitos) y Abre el misterio 1 - El robo de las croquetas pertenecen al ámbito de las lecturas infantiles de aventuras. La obra de Susie Morgenstern sitúa en su título a las princesas en el colegio, mientras que la de Carlos G. Gurpegui plantea la desaparición de unas croquetas. Cambian así el punto de partida y la autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "45971b3bb0e93afc",
+  "origen": "chatgpt-web"
+}

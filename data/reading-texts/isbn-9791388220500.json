@@ -4,35 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Atrápame si puedes (Libro interactivo) se dirige a quienes buscan entretenimiento relacionado con el misterio y las actividades de tiempo libre. Su planteamiento como libro interactivo lo distingue de una novela de intriga convencional, por lo que no responde a la búsqueda de una narración extensa.",
+      "texto": "Atrápame si puedes (Libro interactivo), de Varios autores, se dirige a lectores interesados en el misterio y las propuestas de ocio con participación activa. Su carácter interactivo lo diferencia de una novela convencional destinada únicamente a seguir una narración lineal.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Atrápame si puedes (Libro interactivo) está disponible en tapa blanda, con 128 páginas en castellano. Esta edición física permite consultar y manejar el libro durante las actividades, sin depender de una pantalla; su extensión facilita transportarlo y utilizarlo en distintos momentos.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
+        "autores",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Atrápame si puedes (Libro interactivo), publicado por Lunwerg Editores. Sus 128 páginas en castellano permiten manejar el libro físicamente durante la lectura y las actividades propias de su planteamiento interactivo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Atrápame si puedes (Libro interactivo) comparte con Dibujos para colorear, ¡qué misterio! Superclásicos (Hachette HEROES - DISNEY - Arteterapia) su relación con el misterio y el entretenimiento participativo. El primero se presenta como libro interactivo, mientras que el segundo identifica el coloreado como actividad principal; ambos figuran bajo la autoría de Varios autores.",
+      "texto": "Cuaderno frida khalo, de Varios autores, y Atrápame si puedes (Libro interactivo), también de Varios autores, comparten la autoría colectiva y su vinculación con formatos de ocio. Atrápame si puedes (Libro interactivo) se distingue por su orientación hacia el misterio y por sus 128 páginas en tapa blanda.",
       "evidencias": [
         "titulo",
         "autores",
+        "afines_catalogo",
         "categorias",
-        "afines_catalogo"
+        "numero_paginas",
+        "formatos_disponibles"
       ],
       "enlaces": [
-        "isbn-9791388034510"
+        "isbn-9788417350956"
       ]
     }
   ],

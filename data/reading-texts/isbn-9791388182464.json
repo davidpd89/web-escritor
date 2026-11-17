@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791388182464",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Qué nos pasa con las matemáticas: Una historia de nuestra relación con las matemáticas, las razones de su fracaso en las aulas y las claves de su futuro (Ciencia) se dirige a lectores interesados en educación matemática y divulgación científica. Su enfoque histórico y educativo lo diferencia de un cuaderno de ejercicios o de un manual de resolución de problemas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Enrique Gracián aborda la relación de las personas con las matemáticas desde una perspectiva histórica y educativa. El libro plantea las dificultades de su enseñanza en las aulas y las cuestiones que condicionan su futuro, dentro del ensayo y la divulgación científica.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Qué nos pasa con las matemáticas: Una historia de nuestra relación con las matemáticas, las razones de su fracaso en las aulas y las claves de su futuro (Ciencia) se edita en tapa blanda, con 208 páginas en castellano. El formato permite leer en papel y consultar de nuevo los apartados relacionados con la enseñanza y la historia de las matemáticas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Qué nos pasa con las matemáticas: Una historia de nuestra relación con las matemáticas, las razones de su fracaso en las aulas y las claves de su futuro (Ciencia) y Arquitectura cognitivo-neuro sistémica de los falsos recuerdos (Plural -México-) tratan cuestiones relacionadas con el conocimiento humano. Enrique Gracián se centra en la educación matemática; la segunda obra aborda los falsos recuerdos desde un enfoque cognitivo y neuro sistémico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370384968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a9ae6d1b9c10f8a",
+  "origen": "chatgpt-web"
+}

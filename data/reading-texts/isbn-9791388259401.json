@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amor con aroma a jengibre (ROMÁNTICA), de Victoria Walters, encaja con lectores interesados en las relaciones de pareja dentro de la narrativa contemporánea. Su orientación romántica y sus 320 páginas lo alejan de las lecturas centradas en la divulgación científica, los manuales prácticos o los relatos de aventuras sin componente amoroso.",
+      "texto": "Amor con aroma a jengibre (ROMÁNTICA), de Victoria Walters, se dirige a lectores interesados en novelas de temática romántica dentro de la narrativa contemporánea. Sus 320 páginas ofrecen una extensión media; por su orientación temática, encaja menos con quien busca una lectura centrada en el ensayo o la divulgación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,30 +14,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Amor con aroma a jengibre (ROMÁNTICA) se publica en tapa dura, con 320 páginas y texto en castellano. La encuadernación rígida ofrece mayor protección física para conservar el ejemplar, prestarlo o regalarlo, aunque ocupa más espacio que una edición flexible de extensión equivalente.",
+      "texto": "Amor con aroma a jengibre (ROMÁNTICA) está disponible en tapa dura, con 320 páginas en castellano. La edición de Newton Compton Editores utiliza una cubierta rígida que facilita conservar el ejemplar y presentarlo como regalo, manteniendo toda la novela en un único volumen físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Amor con aroma a jengibre (ROMÁNTICA) coincide con Amor en pole position (Dirty Air 3) en su interés por las relaciones amorosas. Victoria Walters firma una obra de narrativa contemporánea, mientras que Lauren Asher sitúa la historia de Amor en pole position (Dirty Air 3) en el mundo de la Fórmula 1. Esta última incorpora, por tanto, un entorno deportivo concreto.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788427055674"
+        "idioma",
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "96e6a0dbd75be450",
+  "fuente_hash": "5368b73a39622534",
   "origen": "chatgpt-web"
 }

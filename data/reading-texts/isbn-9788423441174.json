@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La economía del cambio climático se orienta a lectores interesados en la relación entre las decisiones económicas, la sostenibilidad y la prosperidad. Su planteamiento analítico, dentro de economía y empresa, se distancia de las narraciones de ficción sobre desastres ambientales.",
+      "texto": "La economía del cambio climático se dirige a lectores que quieren comprender las consecuencias económicas de las decisiones medioambientales. Su planteamiento sobre sostenibilidad y prosperidad se aparta de una lectura centrada exclusivamente en los procesos naturales del clima.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La economía del cambio climático examina las consecuencias económicas de las decisiones relacionadas con el medioambiente. Rafael Doménech Vilariño y Javier Angel Andrés Domingo abordan la tensión entre crecimiento económico y protección ambiental desde una perspectiva de economía y empresa.",
+      "texto": "El libro estudia la relación entre la lucha contra el cambio climático y el mantenimiento de la prosperidad económica. Rafael Doménech Vilariño y Javier Angel Andrés Domingo examinan las decisiones que pueden influir en ambas cuestiones durante las próximas décadas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 296 páginas en una edición rústica con solapas, apropiada para leer y consultar en papel. Kindle permite llevar el contenido en un dispositivo de lectura o en el móvil, sin transportar el volumen físico.",
+      "texto": "La edición en tapa blanda con solapas contiene 296 páginas y permite consultar el texto directamente en papel. Kindle facilita la lectura digital y evita llevar el ejemplar físico, especialmente cuando se alterna entre distintos lugares de lectura.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
@@ -32,21 +31,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, comparte el interés por las cuestiones económicas, pero se centra en una corriente de pensamiento político. La economía del cambio climático, de Rafael Doménech Vilariño y Javier Angel Andrés Domingo, aplica ese campo de análisis al vínculo entre sostenibilidad y prosperidad.",
+      "texto": "ANTES DE QUE OCURRA: Vender, formar y proteger el futuro comparte con La economía del cambio climático una orientación hacia las decisiones futuras. Rafael De la Torre Pérez plantea esa preocupación desde la venta, la formación y la protección, mientras que Rafael Doménech Vilariño y Javier Angel Andrés Domingo la sitúan en la relación entre economía y sostenibilidad.",
       "evidencias": [
         "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791388182457"
+        "isbn-9788409935604"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e9322956433787c8",
+  "fuente_hash": "76e3805854d64b36",
   "origen": "chatgpt-web"
 }

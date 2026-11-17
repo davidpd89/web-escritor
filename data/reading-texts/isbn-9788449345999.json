@@ -1,53 +1,50 @@
 {
   "id": "isbn-9788449345999",
-  "familia": "narrativa",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Despierto pero disperso, de Peg Dawson, Richard Guare y Colin Guare, está dirigido a familias y docentes que buscan trabajar las habilidades ejecutivas de niños de entre cuatro y trece años. Trata dificultades habituales como la distracción, la gestión del tiempo y la frustración, por lo que su enfoque práctico difiere del de un ensayo exclusivamente teórico.",
+      "texto": "Despierto pero disperso está dirigido a familias y docentes que quieren trabajar las habilidades ejecutivas de niños de entre cuatro y trece años. Su enfoque educativo y práctico se aleja de las lecturas de entretenimiento y de los ensayos centrados exclusivamente en adultos.",
       "evidencias": [
         "titulo",
-        "autores",
         "sinopsis_editorial",
         "categorias"
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "Despierto pero disperso es una guía práctica sobre el desarrollo de las habilidades ejecutivas durante la infancia. Aborda la capacidad para organizarse, mantener la atención y afrontar situaciones frustrantes, con el propósito de favorecer la autonomía y la resolución de problemas. Su público principal son padres y profesores de niños de cuatro a trece años.",
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la distracción, la gestión del tiempo y las reacciones de frustración durante la infancia. Peg Dawson, Richard Guare y Colin Guare plantean el desarrollo de habilidades ejecutivas desde una perspectiva práctica, orientada a fomentar la autonomía y la capacidad de resolver problemas cotidianos.",
       "evidencias": [
-        "titulo",
+        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Despierto pero disperso está disponible en tapa blanda y Kindle. La edición de Ediciones Paidós consta de 448 páginas en rústica con solapas, que permiten conservar un ejemplar físico para consultar sus orientaciones; Kindle facilita llevar la guía en el móvil o en un lector electrónico y acceder a ella sin transportar el volumen.",
+      "texto": "La edición en tapa blanda reúne 448 páginas en rústica con solapas, una presentación física que permite consultar y señalar apartados durante el trabajo educativo. La versión Kindle ofrece el mismo título en formato digital, útil para llevar la lectura en el móvil o consultarla sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "editorial",
         "numero_paginas",
         "edicion",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Despierto pero disperso puede compararse con Ciencias del comportamiento (Edición especial), de Juan Manuel García Pincho (@cienciasdelcomportamiento), por su interés en comprender y modificar conductas. Peg Dawson, Richard Guare y Colin Guare se centran en habilidades infantiles y orientación para familias y docentes; el otro título aborda la comunicación no consciente y la negociación mediante un método de aplicación cotidiana.",
+      "texto": "Habilidades ejecutivas en niños y adolescentes. Guía práctica para la evaluación y la intervención: 0 (AMAE) comparte con Despierto pero disperso el interés por las habilidades ejecutivas y la autoría de Peg Dawson y Richard Guare. El primero se presenta como una guía de evaluación e intervención, mientras que Despierto pero disperso dirige su aplicación cotidiana a padres y profesores de niños de entre cuatro y trece años.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791388279263"
+        "isbn-9788433040114"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "685e4b89f8c30350",
+  "fuente_hash": "f0d1ea9ba0d9e774",
   "origen": "chatgpt-web"
 }

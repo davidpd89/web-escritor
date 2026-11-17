@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387605933",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ahogada (Narrativa) se dirige a lectores de misterio y narrativa contemporánea que buscan una obra de extensión breve. Sus 160 páginas y su clasificación literaria la distinguen de los manuales prácticos y de las novelas de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda permite leer y conservar físicamente las 160 páginas de La ahogada (Narrativa). Kindle ofrece la misma obra en formato digital para leerla en un dispositivo compatible, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas comparte con La ahogada (Narrativa) su relación con el misterio, aunque sitúa su conflicto entre el pasado y el presente de Edimburgo. Corazón de sílex plantea una incógnita relacionada con una noche olvidada, mientras que la obra de Therese Bohman también se encuadra en la narrativa contemporánea.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "619ef4366e7265fd",
+  "origen": "chatgpt-web"
+}

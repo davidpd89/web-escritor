@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387886912",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes estudian o practican la traducción del alemán al español y quieren trabajar destrezas básicas mediante aprendizaje activo. Su orientación formativa y especializada lo diferencia de una lectura general sobre literatura o cultura alemana.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El título identifica esta entrega como la 4.ª edición de Traducción alemán-español. Aprendizaje activo de destrezas básicas (4ª ed.): 2 (Universitas), de Silvia Gamero Pérez. Publicacions de la Universitat Jaume I la publicó el 2 de noviembre de 2026 en castellano, con 301 páginas en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "fecha_publicacion",
+        "idioma",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es la presentación disponible de este manual de 301 páginas. El ejemplar físico permite consultar apartados y trabajar con el contenido durante el estudio de las destrezas de traducción alemán-español.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Silvia Gamero Pérez se relaciona directamente con Traducción alemán-español. Aprendizaje activo de destrezas básicas (4ª ed.). Guía didáctica: 2 (Universitas), de la misma autora; ambos títulos comparten materia y edición. La primera se centra en desarrollar destrezas básicas de traducción mediante aprendizaje activo, mientras que la segunda se presenta como una guía didáctica sobre esa misma materia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387886929"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc36ca850eb69e67",
+  "origen": "chatgpt-web"
+}

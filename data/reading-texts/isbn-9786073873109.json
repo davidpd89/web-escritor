@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073873109",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las armas de la ilusión / The Weapons of Illusion encaja con lectores que buscan textos de ensayo y relatos dentro de una misma propuesta editorial. Su clasificación combina reflexión y narrativa breve, por lo que no se orienta específicamente a quienes buscan una novela extensa de argumento continuado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las armas de la ilusión / The Weapons of Illusion se publica en tapa blanda y tiene 176 páginas en castellano. Este formato permite llevar el ejemplar en una bolsa y volver a pasajes concretos, algo pertinente para una obra clasificada tanto como ensayo como relatos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El fuego de Bandung (Hispánica) comparte con Las armas de la ilusión / The Weapons of Illusion la firma de Jordi Soler, aunque sus títulos anuncian asuntos diferentes. El arte de la vida: 101 relatos cortos con moraleja, de Bruno Brisa, ofrece otra comparación por su vinculación con los relatos, pero declara expresamente una estructura de piezas breves con moraleja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387846602",
+        "isbn-9788409939701"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8f1c4ec6e16b22f0",
+  "origen": "chatgpt-web"
+}

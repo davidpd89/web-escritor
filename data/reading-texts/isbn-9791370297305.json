@@ -4,38 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I está orientado a lectores interesados en el derecho del consumo y las condiciones generales de los contratos. Su especialización jurídica lo separa de las lecturas sobre mediación educativa o de las introducciones generales a la gestión empresarial.",
+      "texto": "Dirigido a lectores interesados en el derecho contractual del consumo y las condiciones generales de contratación. Su enfoque jurídico y su extensión de 338 páginas lo alejan de quienes buscan narrativa de ficción o una lectura breve de divulgación general.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es la presentación disponible de Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I. Sus 338 páginas en castellano forman un volumen físico publicado por Letrame Grupo Editorial, adecuado para mantener a mano durante consultas sobre la materia contractual.",
+      "texto": "La edición de Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I se presenta en tapa blanda. Sus 338 páginas en papel permiten consultar distintos apartados y volver a ellos durante el estudio de la materia.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) y Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I comparten el tratamiento de cuestiones jurídicas especializadas. Ana Isabel Quiroz Ruiz se ocupa de los desafíos legales de blockchain, mientras que Juan Felipe Criado-Castilla centra su obra en los contratos de consumo y sus condiciones generales.",
+      "texto": "Argumentacion Juridica, de Carlos Parma, comparte con este tomo el ámbito del derecho, aunque su título apunta a la argumentación y no a los contratos de consumo. Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios), de Tomás Cano Campos, aborda otra rama jurídica y se presenta como una recopilación de estudios y comentarios.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791370610265"
+        "isbn-9791370610562",
+        "isbn-9789564078014"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0170286c4c80bd50",
+  "fuente_hash": "3b5a79732261a730",
   "origen": "chatgpt-web"
 }

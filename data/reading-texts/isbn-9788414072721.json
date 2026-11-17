@@ -4,50 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pop-up Cohete espacial (Ideaka), de Joalda Morancy, se dirige al público infantil interesado en los cohetes espaciales y los libros desplegables. Sus 10 páginas y su formato de tapa dura lo distinguen de las lecturas narrativas extensas, por lo que no responde a quien busca una novela de aventuras.",
+      "texto": "Pop-up Cohete espacial (Ideaka) está dirigido al público infantil interesado en los cohetes espaciales y los libros desplegables. Con solo 10 páginas, se orienta a una experiencia de lectura breve y visual, no a quien busca una narración extensa.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Pop-up Cohete espacial (Ideaka) se utiliza pasando sus páginas y observando los elementos desplegables propios de un libro pop-up. La edición tiene 10 páginas encuadernadas en tapa dura, un formato físico que permite explorar el tema del cohete espacial mediante la manipulación del libro.",
+      "texto": "Pop-up Cohete espacial (Ideaka) se utiliza abriendo sus páginas para explorar el elemento desplegable relacionado con el cohete espacial. Sus 10 páginas permiten recorrer el libro en una sesión breve y volver a observar sus elementos físicos mediante la manipulación del volumen.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato de Pop-up Cohete espacial (Ideaka) y permite conservar sus páginas en una encuadernación rígida. Con 10 páginas, es un libro breve que se presta a la exploración física y al regalo, especialmente por su carácter desplegable.",
+      "texto": "Pop-up Cohete espacial (Ideaka) se presenta en tapa dura y consta de 10 páginas. El formato físico permite abrir y manipular los elementos desplegables asociados a su propuesta pop-up, una característica que cobra sentido durante la lectura compartida.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Pop-up Cohete espacial (Ideaka) y Aprende a contar animales comparten su orientación infantil y la interacción con un objeto físico. El primero se centra en un cohete espacial mediante un formato pop-up de 10 páginas; el segundo propone abrir un maletín y aprender a contar del 1 al 10 con animales. Animales, de Susaeta Ediciones, ofrece otra alternativa infantil, basada en seis cuentos ilustrados en lugar de desplegables.",
-      "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791370341589",
-        "isbn-9791370341176"
+        "categorias"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "59c93d078e2bc600",
+  "fuente_hash": "6eef2f86260bd403",
   "origen": "chatgpt-web"
 }

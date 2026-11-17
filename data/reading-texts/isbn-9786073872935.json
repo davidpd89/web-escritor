@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786073872935",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aliméntate según tus genes / Eat According to Your Genes, de Alejandra Ponce, se dirige a quienes buscan lecturas sobre nutrición, bienestar y desarrollo personal. Por su orientación temática, encaja menos con quien prefiere ficción o libros centrados en cuestiones ajenas a la alimentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aliméntate según tus genes / Eat According to Your Genes está disponible en tapa blanda, con 248 páginas en castellano. Esta edición permite consultar el contenido en papel, volver a apartados anteriores y conservar el ejemplar en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aliméntate según tus genes / Eat According to Your Genes comparte el interés por el bienestar con 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke. El primero se centra en la alimentación y los genes, mientras que el segundo plantea la longevidad desde los consejos, el optimismo y el humor.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe077ea259bc407c",
+  "origen": "chatgpt-web"
+}

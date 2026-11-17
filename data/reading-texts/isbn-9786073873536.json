@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786073873536",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Games: Una Historia de Amor / Games: A Love Story, de Anna Maria Volkova, encaja con lectores interesados en el romance dentro de la narrativa contemporánea. Sus 350 páginas ofrecen una lectura de extensión media; por su clasificación temática, queda fuera de las búsquedas centradas en ensayo, divulgación o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Games: Una Historia de Amor / Games: A Love Story está disponible en tapa blanda, con 350 páginas en castellano. La edición de Prh Grupo Editorial permite leerlo en papel, prestarlo o incorporarlo a una colección física de narrativa romántica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A mil por hora y Games: Una Historia de Amor / Games: A Love Story comparten el romance como eje de lectura. La obra de Hannah Grace sitúa su relación en el entorno de un piloto de F1, mientras que el libro de Anna Maria Volkova se presenta como narrativa romántica contemporánea sin esa referencia deportiva en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd1a126743998f4f",
+  "origen": "chatgpt-web"
+}

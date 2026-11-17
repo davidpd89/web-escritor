@@ -4,22 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los compis 3 Consumir sin moderación encaja con lectores infantiles y juveniles que disfrutan del cómic y la novela gráfica. Sus 64 páginas ofrecen una lectura en formato de cómic; no está dirigido a quien busca una novela extensa o un ensayo.",
+      "texto": "Los compis 3 Consumir sin moderación encaja con lectores infantiles que prefieren el cómic, el humor cotidiano y las escenas ambientadas en el comedor. Nob combina situaciones graciosas con momentos sensibles; no está planteado como una narración extensa en prosa ni como una aventura de fantasía.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 64 páginas de Los compis 3 Consumir sin moderación en un volumen físico ligero, fácil de manejar y transportar. Es el formato disponible para quien prefiere pasar las páginas de un cómic en papel y conservarlo en su colección.",
+      "texto": "Los compis 3 Consumir sin moderación se publica en tapa blanda y tiene 64 páginas, una extensión que permite recorrer sus escenas de cómic en un volumen breve. La edición física facilita pasar de una viñeta a otra y volver a los momentos humorísticos del comedor.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los compis 3 Consumir sin moderación puede compararse con Anatol Lapifia Vol 10 ¡Sálvese quien pueda!: 9 por su presencia entre los cómics infantiles del catálogo. Nob sitúa sus escenas humorísticas en un comedor, mientras que la obra de Anne Didier y Olivier Muller pertenece a otra serie y presenta una numeración diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387744366"
       ]
     }
   ],

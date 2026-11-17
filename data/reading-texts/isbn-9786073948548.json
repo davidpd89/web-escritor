@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores interesados en el ensayo, las biografías y las memorias, especialmente quienes buscan una obra de Benito Taibo. Su clasificación temática lo separa de las novelas de aventuras y de los relatos de ficción detectivesca, pese a las referencias literarias presentes en el título.",
+      "texto": "Sherlock En Busca de Moby Dick. Edición Tapa Dura / Sherlock in Search of Moby-Dick, de Benito Taibo, se orienta a lectores de ensayo, biografías y memorias. Su clasificación lo sitúa fuera de las novelas de aventuras y de los relatos de misterio convencionales, aunque el título contenga referencias literarias reconocibles.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es la presentación de Sherlock En Busca de Moby Dick. Edición Tapa Dura / Sherlock in Search of Moby-Dick, con 296 páginas en castellano. La encuadernación rígida favorece su conservación en una biblioteca y resulta práctica para una lectura que se retoma o consulta en papel.",
+      "texto": "La edición en tapa dura de Sherlock En Busca de Moby Dick. Edición Tapa Dura / Sherlock in Search of Moby-Dick contiene 296 páginas y ofrece una encuadernación rígida para conservar el ejemplar o regalarlo. La tapa blanda proporciona otra opción física, Kindle facilita la lectura digital y el audiolibro permite escuchar el contenido sin mantener la vista en la página.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes, de Andrew Paxman, comparte el ámbito biográfico, pero anuncia una estructura dividida en episodios. Cartas a Lucilio: Edición íntegra (Clásicos), de Séneca, ofrece otra referencia para lectores de textos reflexivos, frente al encuadre de ensayo y memorias de la obra de Benito Taibo.",
+      "texto": "Sherlock En Busca de Moby Dick. Edición Tapa Dura / Sherlock in Search of Moby-Dick comparte el ámbito de la escritura biográfica con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes. El libro de Andrew Paxman identifica expresamente una biografía organizada en episodios, mientras que el de Benito Taibo se clasifica también como ensayo y utiliza referencias literarias en su título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073873154",
-        "isbn-9791388182495"
+        "isbn-9786073873154"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "af9878e9dceadaba",
+  "fuente_hash": "8459343b9034c93d",
   "origen": "chatgpt-web"
 }

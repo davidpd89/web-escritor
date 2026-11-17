@@ -4,39 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vigilia (Biblioteca Formentor), de George Saunders, se dirige a lectores de narrativa contemporánea interesados en el humor y el duelo. Su combinación de temas puede encajar con quienes buscan una lectura sobre la superación personal, pero no con quienes prefieren la fantasía o una novela centrada exclusivamente en la acción.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Vigilia (Biblioteca Formentor) reúne 248 páginas en una edición física de Seix Barral, apropiada para leer en papel y conservar en la estantería. Kindle permite llevar el mismo título en un lector electrónico o consultarlo desde el móvil, sin transportar el ejemplar impreso.",
-      "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "editorial",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Vigilia (Biblioteca Formentor) puede compararse con Lo primero que se rompió fue el corazón (Hispánica) desde el interés por la narrativa y las emociones humanas. George Saunders firma una obra asociada al humor y al duelo, mientras que Julián Delgado Lopera ofrece otra autoría y otro título centrado expresamente en el corazón. La comparación permite distinguir entre una lectura de superación y otra cuyo título sitúa el conflicto afectivo en primer plano.",
+      "texto": "Vigilia (Biblioteca Formentor), de George Saunders, se sitúa en la narrativa contemporánea y se dirige a lectores de ficción literaria actual. Sus 248 páginas delimitan una extensión concreta para quienes buscan una obra de este género; no corresponde a una guía práctica ni a un manual de desarrollo personal.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791388473111"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vigilia (Biblioteca Formentor) está disponible en tapa blanda y Kindle. La edición física de Seix Barral tiene 248 páginas y permite conservar el ejemplar en papel o regalarlo; Kindle ofrece la misma obra en formato digital para leerla en un dispositivo compatible sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2d59f9a82a329677",
+  "fuente_hash": "4a049766e704c27e",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788428576079",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la relación entre religión, pensamiento sobre la humanidad e inteligencia artificial en la era digital. Su orientación espiritual y divulgativa encaja menos con quienes buscan exclusivamente instrucciones técnicas para desarrollar sistemas informáticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina la inteligencia artificial y la era digital desde una perspectiva vinculada a León XIV y a la reflexión sobre lo humano. Sus 592 páginas sitúan estas cuestiones en un marco que relaciona religión, espiritualidad y divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se presenta en tapa blanda, con 592 páginas en castellano publicadas por Editorial San Pablo. Es una edición física destinada a la lectura continuada y a la consulta de sus reflexiones sobre la inteligencia artificial y la era digital.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "León XIV y la inteligencia artifical: Magnifica humanitas: claves para la era digital (ALÉTHEIA) puede compararse con Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción, de Sofía Noemy Quintanilla Ramírez. Ambos se relacionan con el pensamiento religioso, pero Rafael Lazcano González aborda la inteligencia artificial y la era digital, mientras que la otra obra trata la adopción desde la teología bíblica y pastoral.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387625535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a2a12e71b3b15c8c",
+  "origen": "chatgpt-web"
+}

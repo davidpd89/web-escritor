@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La empatía de mí mismo, de Jesús Rivas Melchor, se orienta a lectores de poesía interesados en el amor, las relaciones personales y la superación del duelo. Por su clasificación poética, se diferencia de las novelas románticas con una trama narrativa y de los manuales prácticos dedicados al bienestar emocional.",
+      "texto": "La empatía de mí mismo se dirige a quienes buscan poesía en castellano y prefieren la lectura literaria a una narración convencional. Por su clasificación como poesía, no responde a las expectativas de quien busca una novela con una trama continuada y capítulos narrativos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La empatía de mí mismo se publica en tapa blanda, con 240 páginas en castellano, bajo el sello Ediciones Filo Abierto. Esta presentación en papel permite detenerse en los textos poéticos, señalar versos y regresar a páginas concretas durante distintas sesiones de lectura.",
+      "texto": "La empatía de mí mismo se presenta en tapa blanda, con 240 páginas publicadas por Ediciones Filo Abierto. El volumen físico permite conservar los textos reunidos y volver a ellos mediante una lectura por páginas, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La empatía de mí mismo comparte el interés por el amor con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. Ambas obras se relacionan con la poesía amorosa, aunque la de Jesús Rivas Melchor también se sitúa en el ámbito de la superación y el duelo, mientras la de Pedro Salinas se presenta expresamente como una antología amorosa.",
+      "texto": "La empatía de mí mismo puede compararse con 223 esquinas: 16 (La garza roja) dentro de una búsqueda de lecturas poéticas. También comparte autor con Última Columna: Artículos de opinión, veinticinco años después, pero Jesús Rivas Melchor presenta aquí una obra clasificada como poesía, frente al carácter periodístico anunciado por el título de la otra.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9791399306040",
+        "isbn-9788412988833"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "14fb5e16243f9a78",
+  "fuente_hash": "67a9bfab16511802",
   "origen": "chatgpt-web"
 }

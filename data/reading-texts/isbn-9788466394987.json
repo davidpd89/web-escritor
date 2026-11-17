@@ -4,37 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La doctora Cole (Trilogía de la familia Cole 3) (Best Seller) encaja con lectores interesados en narrativa histórica y relaciones familiares. El título la identifica como la tercera entrega de una trilogía, por lo que quien prefiera empezar una serie por su primera parte puede optar por otro punto de entrada.",
+      "texto": "La doctora Cole (Trilogía de la familia Cole 3) (Best Seller) encaja con lectores de novela histórica y narrativa contemporánea interesados en la familia Cole. El título lo identifica como el n.º 3 de la trilogía, por lo que se orienta más a quien busca esa continuación que a quien prefiere comenzar una serie desde su primera entrega.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de tapa blanda reúne las 416 páginas de La doctora Cole (Trilogía de la familia Cole 3) (Best Seller) en formato de bolsillo, apropiado para guardar junto a otros volúmenes de la serie. Kindle facilita continuar la lectura en el móvil y ajustar la visualización del texto.",
+      "texto": "La tapa blanda corresponde a una edición de bolsillo de Debolsillo, con 416 páginas en castellano. Kindle permite leer la misma obra en formato digital y llevarla en el móvil, mientras que la edición impresa conserva las páginas físicas para quienes prefieren leer en papel.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "edicion",
+        "editorial",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La doctora Cole (Trilogía de la familia Cole 3) (Best Seller) puede compararse con Chamán (Trilogía de la familia Cole 2) (Best Seller), también de Noah Gordon y perteneciente a la misma trilogía familiar. El título de La doctora Cole la sitúa como tercera entrega y el de Chamán como segunda; ambas comparten autoría, pero ocupan posiciones distintas en la serie.",
+      "texto": "Chamán (Trilogía de la familia Cole 2) (Best Seller) y El médico (Trilogía de la familia Cole 1) (Best Seller) son los títulos afines más directos por su autor, Noah Gordon, y su pertenencia a la familia Cole. Frente a ellos, La doctora Cole (Trilogía de la familia Cole 3) (Best Seller) se identifica en el título como el n.º 3, mientras que los otros señalan los números 2 y 1.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466394970"
+        "isbn-9788466394970",
+        "isbn-9788466394963"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7c4f2b1be6236df1",
+  "fuente_hash": "f584335fd7a45431",
   "origen": "chatgpt-web"
 }

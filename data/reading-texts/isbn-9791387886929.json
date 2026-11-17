@@ -1,0 +1,60 @@
+{
+  "id": "isbn-9791387886929",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Traducción alemán-español. Aprendizaje activo de destrezas básicas (4ª ed.). Guía didáctica: 2 (Universitas) se orienta a lectores interesados en la enseñanza y el aprendizaje de destrezas de traducción entre alemán y español. Por su carácter de guía didáctica, no responde a la búsqueda de una novela ni de una lectura de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta guía didáctica de Silvia Gamero Pérez corresponde a la cuarta edición de una obra dedicada al aprendizaje activo de la traducción del alemán al español. Publicacions de la Universitat Jaume I la publica en castellano, con 96 páginas y encuadernación en tapa blanda. Su ISBN es 9791387886929.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El tema central es el aprendizaje activo de destrezas básicas para traducir del alemán al español. El enfoque didáctico aparece expresamente en el título, que identifica la obra como una guía y señala su cuarta edición. Su orientación es formativa, vinculada al desarrollo de competencias de traducción.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de Traducción alemán-español. Aprendizaje activo de destrezas básicas (4ª ed.). Guía didáctica: 2 (Universitas) es de tapa blanda. Sus 96 páginas forman un volumen físico breve, manejable para consultar durante el estudio y transportar junto con otros materiales de trabajo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Traducción alemán-español. Aprendizaje activo de destrezas básicas (4ª ed.): 2 (Universitas) comparte autora y enfoque formativo con la guía didáctica de Silvia Gamero Pérez. Ambas obras tratan el aprendizaje activo de destrezas básicas para traducir del alemán al español. La diferencia está en que la obra consultada se identifica expresamente como guía didáctica, mientras que el título afín no incluye esa denominación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387886912"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bdf8b58c8e6194e4",
+  "origen": "chatgpt-web"
+}

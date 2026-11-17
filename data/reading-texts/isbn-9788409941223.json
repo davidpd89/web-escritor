@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409941223",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Whispers OF a life: Susurros de una vida se sitúa entre el misterio, la narrativa contemporánea y la psicología, para lectores interesados en esa combinación de enfoques. Sus 356 páginas lo alejan de las lecturas breves y de las obras centradas exclusivamente en la divulgación psicológica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 356 páginas de Whispers OF a life: Susurros de una vida en castellano y en un único volumen físico. Es una opción para leer en papel y conservar la novela en la estantería, sin depender de una aplicación de lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La asistenta, de Freida McFadden, comparte con Whispers OF a life: Susurros de una vida su relación con el misterio y los aspectos psicológicos de la ficción. La primera se presenta expresamente como thriller psicológico, mientras que la obra de Daniel Ruiz Cano también se sitúa en la narrativa contemporánea, lo que amplía su encuadre más allá del suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390729"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "891197ea5984c242",
+  "origen": "chatgpt-web"
+}

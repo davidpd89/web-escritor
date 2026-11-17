@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El mito del genio: Historia de una ficción (Artes) se dirige a lectores de ensayo interesados en la historia, el arte y las ideas asociadas a la figura del genio. Sus 576 páginas corresponden a una obra de no ficción, alejada de quienes buscan una novela de aventuras o una historia romántica.",
+      "texto": "El mito del genio: Historia de una ficción (Artes) está orientado a lectores interesados en el ensayo, la historia y el arte. Sus 576 páginas corresponden a una obra de no ficción, por lo que encaja menos con quienes buscan una novela de ficción o una lectura narrativa breve.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,17 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda contiene las 576 páginas de El mito del genio: Historia de una ficción (Artes), publicado por Taurus. Por su extensión, es un volumen pensado para consultar o leer en varias sesiones; permite señalar pasajes y volver a ellos en el ejemplar físico.",
+      "texto": "El mito del genio: Historia de una ficción (Artes) está disponible en tapa blanda, Kindle y audiolibro. La edición física consta de 576 páginas y permite conservar el ensayo en papel; Kindle facilita llevarlo en formato digital y el audiolibro ofrece la posibilidad de escucharlo.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El mito del genio: Historia de una ficción (Artes) y Arte Matrio, de Sara Rubayo, se relacionan con el estudio de la historia del arte. Eugenia Tenenbaum aborda la construcción histórica de la figura del genio, mientras que Sara Rubayo centra su obra en la representación dentro del arte español. Ambos títulos permiten comparar enfoques distintos sobre la interpretación y la transmisión de la historia artística.",
+      "texto": "El mito del genio: Historia de una ficción (Artes) puede compararse con Charlotte Perriand. La libertad de repensar el mundo por su relación con el arte y sus figuras. La obra de Eugenia Tenenbaum aborda el concepto de genio desde una perspectiva histórica, mientras que la de Varios autores se centra en Charlotte Perriand y su relación con la transformación del mundo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449346095"
+        "isbn-9788416411993"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e5883ed1d7ff3df5",
+  "fuente_hash": "ac6ea22e1b2d769b",
   "origen": "chatgpt-web"
 }

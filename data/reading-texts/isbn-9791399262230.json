@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399262230",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los ritos del adiós: 4 (Narrativa), de Daniel De Leo, pertenece a la narrativa contemporánea y tiene 128 páginas. Su extensión encaja con lectores que buscan una obra relativamente corta, pero menos con quienes prefieren novelas de varios cientos de páginas. El título lo identifica como el n.º 4.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los ritos del adiós: 4 (Narrativa) está disponible en tapa blanda, en una edición de Abril 26. Con 128 páginas, es un volumen físico de extensión reducida que puede transportarse y guardarse con facilidad, sin el peso asociado a una novela mucho más larga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f2cdb5f28ac424e2",
+  "origen": "chatgpt-web"
+}

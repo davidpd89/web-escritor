@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387969639",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En lugar de un lugar: 6 (Paragrafies) se dirige a lectores interesados en publicaciones relacionadas con el arte y el diseño. La obra de Constanza Brnčić encaja menos con quienes buscan manuales de economía o narraciones clasificadas como fantasía, pues su ámbito editorial es artístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "En lugar de un lugar: 6 (Paragrafies) se ofrece en tapa blanda, con 136 páginas en castellano. Su extensión facilita transportarlo y consultarlo en papel, mientras que la encuadernación flexible permite guardarlo junto a otras publicaciones de arte y diseño sin ocupar tanto espacio como una edición rígida equivalente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats y En lugar de un lugar: 6 (Paragrafies) se sitúan en el ámbito del arte y el diseño, pero sus títulos apuntan a enfoques diferentes. Xavier Mollà i Revert presenta una obra identificada con los retratos, mientras que Constanza Brnčić firma un volumen cuyo título remite al concepto de lugar. Para quien compara ambas publicaciones, esa diferencia temática es el principal criterio de elección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea22b35acc0b8676",
+  "origen": "chatgpt-web"
+}

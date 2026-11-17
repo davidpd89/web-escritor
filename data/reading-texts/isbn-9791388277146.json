@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Telmo Lobo 4 - El desafío de los caballeros se dirige a lectores desde los 9 años interesados en fantasía, amistad y aventuras con peligros. La historia incluye combates con espadas, un enemigo recurrente y la amenaza de quedar atrapados lejos de casa; por eso se distancia de las lecturas cotidianas sin enfrentamientos ni tensión.",
+      "texto": "Telmo Lobo 4 - El desafío de los caballeros se dirige a lectores a partir de 9 años interesados en la fantasía, los misterios y las aventuras entre mundos. La amistad y la colaboración frente a un enemigo forman parte del conflicto; puede encajar menos con quienes prefieren historias cotidianas sin peligros ni enfrentamientos.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,10 +14,11 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Telmo Lobo 4 - El desafío de los caballeros está recomendado a partir de 9 años y tiene 216 páginas en castellano. La edición de Alfaguara es de tapa dura e incorpora ilustraciones. El título lo identifica como el n.º 4, mientras que su argumento presenta una aventura fantástica con caballeros, espadas y un mundo del que los protagonistas deben escapar.",
+      "texto": "La edad recomendada para Telmo Lobo 4 - El desafío de los caballeros es a partir de 9 años. Esta edición de Alfaguara tiene 216 páginas, está escrita en castellano y se presenta en tapa dura. Incluye ilustraciones que acompañan una aventura de fantasía con caballeros, espadas y misterios.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
+        "editorial",
         "numero_paginas",
         "idioma",
         "edicion",
@@ -26,26 +27,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Telmo Lobo 4 - El desafío de los caballeros puede leerse en tapa dura o en Kindle. La tapa dura reúne sus 216 páginas en un volumen físico con ilustraciones, adecuado para conservarlo o regalarlo. Kindle permite llevar la misma aventura en un dispositivo de lectura o en el móvil sin transportar el libro impreso.",
+      "texto": "Telmo Lobo 4 - El desafío de los caballeros está disponible en tapa dura y Kindle. La edición física de Alfaguara reúne sus 216 páginas en un volumen adecuado para conservar, prestar o regalar. Kindle permite llevar la misma lectura en un dispositivo compatible sin transportar el libro físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "sinopsis_editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Onin 1 - Onin y la isla del tesoro comparte con Telmo Lobo 4 - El desafío de los caballeros las aventuras con misterios y elementos fantásticos. La obra de Emilio Aragón sitúa el peligro en un mundo de caballeros donde los protagonistas deben encontrar la salida. Campamento Mestizo 1 - La zona rebelde presenta otro escenario de aventuras, con un campamento como punto de partida, frente al entorno de espadas y nobles de Telmo Lobo.",
+      "texto": "Telmo Lobo 4 - El desafío de los caballeros comparte con Onin 1 - Onin y la isla del tesoro el interés por los misterios, la aventura y los elementos mágicos. En el libro de Emilio Aragón, el conflicto incluye viajes entre mundos y enfrentamientos con caballeros; el de Ibon Martín presenta a un grupo de amigos vinculado a una isla del tesoro. Ambos se sitúan en el terreno de la aventura infantil, aunque sus escenarios y amenazas son distintos.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387994549",
-        "isbn-9788419868466"
+        "isbn-9791387994549"
       ]
     }
   ],

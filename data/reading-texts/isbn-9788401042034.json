@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788401042034",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a parejas que quieren dedicar un libro a su historia compartida y a lectores interesados en las relaciones personales. Por su planteamiento familiar y autobiográfico, se distancia de los manuales de crianza centrados en consejos educativos o alimentación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Plaza & Janés tiene 208 páginas en castellano. Su presentación física permite conservarla como recuerdo de pareja o entregarla como regalo relacionado con una historia personal compartida.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi amor, ¿contamos nuestra historia? comparte autoría y colección con Familia, ¿contamos nuestra historia?, ambos de Elma van Vliet. El primero se dirige a las parejas que quieren conservar su historia compartida, mientras que el segundo está planteado como regalo para toda la familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039836"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9cf80633facc2fec",
+  "origen": "chatgpt-web"
+}

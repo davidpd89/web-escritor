@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788401039126",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fuegos artificiales (Éxitos), de Paul Pen, se dirige a lectores de misterio, thriller y terror. Sus géneros lo sitúan entre las lecturas que buscan intriga o elementos inquietantes, por lo que encaja menos con quienes prefieren historias costumbristas sin suspense o conflictos propios del terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fuegos artificiales (Éxitos) se presenta en tapa blanda, con 384 páginas en castellano publicadas por Plaza & Janés. Es una edición física de extensión media-larga que permite seguir la lectura de misterio y terror en papel, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fuegos artificiales (Éxitos) puede compararse con Carrie (edición serie), de Stephen King, por su pertenencia al ámbito del terror y las situaciones inquietantes. En Carrie (edición serie), el conflicto conocido gira alrededor de una joven acosada y su convivencia con una madre religiosa; Fuegos artificiales (Éxitos), de Paul Pen, se presenta como una obra que combina misterio y terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396806"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "675c788e93627f6d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388586835",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gestión de la PRL en Pymes y MicroPymes-SEAD097PO (v2) se dirige a lectores interesados en la prevención de riesgos laborales en pequeñas empresas y microempresas. Su enfoque empresarial y jurídico lo aleja de quienes buscan narrativa o una introducción general al desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Gestión de la PRL en Pymes y MicroPymes-SEAD097PO (v2) está disponible en tapa blanda, con 138 páginas en castellano. Su extensión permite consultar el contenido por apartados y transportar el ejemplar físico para utilizarlo en contextos de estudio o trabajo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Recurso Preventivo: Guía práctica. comparte con Gestión de la PRL en Pymes y MicroPymes-SEAD097PO (v2) el ámbito de la prevención laboral, pero centra su título en las funciones y responsabilidades del recurso preventivo. El segundo delimita su materia por el tamaño de las empresas, mientras que el primero anuncia supuestos resueltos y preguntas tipo test.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399320718"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "151182f397c70430",
+  "origen": "chatgpt-web"
+}

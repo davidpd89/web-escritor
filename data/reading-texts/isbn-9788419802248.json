@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419802248",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando el corazón llora: Hacer las paces con el pasado para mejorar tu presente y disfrutar del futuro se dirige a lectores interesados en el desarrollo personal, la psicología y la relación entre pasado y bienestar emocional. Por su enfoque de autoayuda y memorias, no responde a quien busca una novela de ficción o una lectura centrada en aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Cuando el corazón llora: Hacer las paces con el pasado para mejorar tu presente y disfrutar del futuro es de tapa blanda y tiene 304 páginas. Este formato permite transportar el libro y volver a consultar sus apartados en papel, con una extensión más manejable que la de un volumen de gran tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparte con Cuando el corazón llora: Hacer las paces con el pasado para mejorar tu presente y disfrutar del futuro el interés por reconciliarse con experiencias anteriores. La obra de Victoria Cadarso se centra específicamente en las heridas de la infancia, mientras que la de Tamara Gorro plantea una relación más amplia entre el pasado, el bienestar presente y el futuro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5d0e5d53a0b5df0",
+  "origen": "chatgpt-web"
+}

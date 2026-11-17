@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788423441143",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores de ensayo político interesados en las acusaciones de corrupción y en el funcionamiento del poder en la democracia española. Su planteamiento se centra en una trama política concreta, por lo que encaja menos con quien busca una introducción general a las instituciones o una novela de intriga.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Ketty Garat aborda la organización de una presunta trama de corrupción vinculada al entorno de Sánchez, según el planteamiento expresado en el título. El libro se encuadra en el ensayo sobre poder y política, con la corrupción en la democracia española como eje de análisis; el alcance de las acusaciones debe distinguirse de los hechos judicialmente acreditados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 560 páginas y permite conservar una copia física para consultar pasajes del ensayo político. La versión Kindle ofrece el mismo título en formato digital para leerlo en un dispositivo compatible, sin transportar el volumen impreso; la elección depende de si se prefiere el papel o la lectura en pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, comparte el interés por la política, pero aborda una corriente de pensamiento en lugar de una trama de corrupción. Caminos opuestos: Contra el sionismo (Biblioteca Judith Butler), de Judith Butler, también trata cuestiones políticas, aunque desde un asunto distinto al de Ketty Garat.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788449346071"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2570715ae71c1db9",
+  "origen": "chatgpt-web"
+}

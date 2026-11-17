@@ -4,44 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros) está dirigido a lectores interesados en incorporar referencias artísticas a sus hábitos cotidianos. Sus 366 inspiraciones y sus 504 páginas lo orientan hacia una consulta continuada, más que hacia quien busca una novela o un cuaderno de ejercicios de dibujo.",
+      "texto": "Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros) se dirige a lectores interesados en el arte, la historia y las formas de incorporar la creatividad a su vida cotidiana. Su planteamiento encaja con quien busca contenidos de no ficción relacionados con el arte y el diseño, no con quien espera una narración de ficción o una novela.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
+        "autores"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Katy Hessel plantea la relación entre arte y vida cotidiana mediante 366 inspiraciones procedentes de artistas. El libro vincula creatividad, historia y apreciación artística desde una estructura de propuestas que pueden abordarse individualmente. Sus 504 páginas permiten reunir ese conjunto en un único volumen de consulta.",
+      "texto": "El libro aborda la creatividad cotidiana a través de 366 inspiraciones vinculadas a artistas. Katy Hessel plantea el arte como punto de partida para incorporar ideas creativas a las actividades diarias, con un enfoque que conecta la expresión artística con la vida cotidiana.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible para Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros). Esta edición de Ático de los Libros reúne 504 páginas y 366 inspiraciones en un volumen físico, adecuado para consultar las propuestas en distintos momentos o conservarlo como libro de referencia.",
+      "texto": "La tapa dura reúne sus 504 páginas en un volumen físico, adecuado para consultar y conservar junto a otros libros de arte. Es el formato disponible de esta edición de Ático de los Libros, por lo que la elección está entre adquirir el ejemplar impreso o buscar otra edición.",
       "evidencias": [
-        "titulo",
-        "edicion",
+        "numero_paginas",
         "formatos_disponibles",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Destinos vintage: 40 láminas misteriosas para colorear (GEOPLANETA COLOREA), de Sophie Guët, comparte el interés por la actividad artística, pero se centra en colorear láminas. Gabinete de maravillas para colorear (Somos B), de Carlota Santos, también propone una actividad de coloreado. Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros) se diferencia por reunir referencias de artistas para aplicar la creatividad a la vida cotidiana.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408324836",
-        "isbn-9788466685542"
+        "edicion",
+        "editorial"
       ]
     }
   ],

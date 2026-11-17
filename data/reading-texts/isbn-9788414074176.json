@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788414074176",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un enigma anónimo (Shh!), de Estela Bescós, encaja con lectores juveniles interesados en aventuras y narrativa contemporánea. Sus 358 páginas corresponden a una novela de cierta extensión, menos ajustada a quienes buscan relatos breves o historias centradas exclusivamente en la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un enigma anónimo (Shh!) se presenta en tapa blanda, con 358 páginas en castellano. El formato permite leer una novela juvenil de aventuras en un único volumen físico y conservarla para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un enigma anónimo (Shh!) puede compararse con El caballero de la capa negra, de Carlos J. Sánchez, por su relación con las aventuras. También se aproxima a Edición LEGACY Muerte a la oscuridad- Black Bird Academy: Black Bird Academy: 1 (Inlov Romantasy), de Stella Tack, desde la narrativa juvenil, aunque esta última se identifica con el romantasy y la obra de Estela Bescós con las aventuras contemporáneas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410399518",
+        "isbn-9791399254419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "99bf41a3a613cfbe",
+  "origen": "chatgpt-web"
+}

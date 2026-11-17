@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388439100",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aitana Bonmatí y la pandilla Poti-poti 1. Las brujas se dirige al público infantil que busca aventuras y relatos con una pandilla de personajes. Su orientación infantil lo diferencia de la fantasía destinada a lectores adultos, y el título anuncia una historia relacionada con brujas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda tiene 112 páginas y está publicada por Editorial Base (es). Es un volumen físico de extensión relativamente breve, que permite avanzar por la aventura en sesiones de lectura y volver a sus páginas sin utilizar pantallas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aitana Bonmatí y la pandilla Poti-poti 1. Las brujas y Caníbales de caramelandia comparten su vinculación con relatos de elementos fantásticos sugeridos por sus títulos. La obra de Ricard Bonmatí Guidonet se dirige al público infantil y presenta aventuras de una pandilla, mientras que la de Carlton Mellick Iii plantea un tema diferente relacionado con los caníbales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412837278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb737796850ef139",
+  "origen": "chatgpt-web"
+}

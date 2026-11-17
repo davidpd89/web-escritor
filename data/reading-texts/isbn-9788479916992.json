@@ -4,41 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Asistentes de inteligencia artificial generativa en la universidad: diseño de experiencias educativas para activar el razonamiento se dirige a lectores interesados en la enseñanza universitaria y el uso educativo de la inteligencia artificial. Sus 180 páginas se sitúan entre el ensayo y la divulgación científica, por lo que su enfoque se aleja de la ficción y del entretenimiento narrativo.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "temas_y_enfoque",
-      "texto": "El libro examina cómo integrar asistentes de inteligencia artificial generativa en el diseño de experiencias de aprendizaje universitario. Su planteamiento vincula el uso de estas herramientas con la activación del razonamiento del alumnado, situando la planificación de las actividades educativas en el centro del análisis.",
+      "texto": "Se dirige a lectores interesados en la enseñanza universitaria y el uso educativo de asistentes de inteligencia artificial generativa. Su enfoque sobre el diseño de experiencias para activar el razonamiento se aleja de una introducción general a la tecnología o de una obra narrativa sobre inteligencia artificial.",
       "evidencias": [
         "titulo",
         "categorias"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 180 páginas de Asistentes de inteligencia artificial generativa en la universidad: diseño de experiencias educativas para activar el razonamiento en un volumen físico. Este formato permite subrayar, añadir notas y consultar apartados durante el trabajo académico o la preparación de actividades docentes.",
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro trata la incorporación de asistentes de inteligencia artificial generativa a la universidad desde el diseño de experiencias educativas. El razonamiento aparece como objetivo central de esas experiencias, dentro de una publicación de 180 páginas situada entre el ensayo y la divulgación científica.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa blanda y contiene 180 páginas en castellano. Su extensión y encuadernación permiten utilizarla como volumen físico de consulta sobre experiencias educativas universitarias relacionadas con la inteligencia artificial generativa.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Asistentes de inteligencia artificial generativa en la universidad: diseño de experiencias educativas para activar el razonamiento y Colonialismo digital: Por una crítica hacker-fanoniana comparten el interés por las implicaciones de la tecnología digital. El primero aborda el diseño educativo universitario, mientras que la obra de Deivison Faustino y Walter Lippold plantea una crítica del colonialismo digital.",
+      "texto": "Arquitectura cognitivo-neuro sistémica de los falsos recuerdos (Plural -México-), de Pedro Muñoz-Arteaga, Vanessa Quito-Calle, Lorena Cañizares-Jarrín y Andrés Ramírez, también aborda cuestiones relacionadas con la cognición, pero se centra en los falsos recuerdos. Asistentes de inteligencia artificial generativa en la universidad: diseño de experiencias educativas para activar el razonamiento traslada el interés por el razonamiento al diseño educativo universitario.",
       "evidencias": [
         "titulo",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399306408"
+        "isbn-9791370384968"
       ]
     }
   ],

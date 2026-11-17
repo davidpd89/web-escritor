@@ -4,37 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "No abras los ojos: Si a ti también te atormenta un sueño (Crónicas de Lethen) se dirige a lectores de fantasía y ciencia ficción interesados en historias relacionadas con los sueños. Por su clasificación temática, no responde a quien busque una novela realista o centrada exclusivamente en relaciones románticas.",
-      "evidencias": [
-        "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición de No abras los ojos: Si a ti también te atormenta un sueño (Crónicas de Lethen) se presenta en tapa blanda y tiene 253 páginas. Es una opción física para leer en papel, transportar en una mochila o conservar en la estantería, con una extensión delimitada a un solo volumen.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "No abras los ojos: Si a ti también te atormenta un sueño (Crónicas de Lethen) puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su vinculación con la fantasía. El primero incorpora los sueños a su planteamiento titular, mientras que el segundo anuncia una prueba relacionada con los dioses y está firmado por Tracy Wolff, frente a Sra. Fa Mallouk.",
+      "texto": "No abras los ojos: Si a ti también te atormenta un sueño (Crónicas de Lethen) se dirige a lectores de fantasía interesados en historias cuyo título plantea una relación con los sueños inquietantes. La obra de Sra. Fa Mallouk se distingue de las lecturas de narrativa realista por su clasificación fantástica y tiene 253 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408324102"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No abras los ojos: Si a ti también te atormenta un sueño (Crónicas de Lethen) se publica en tapa blanda, con 253 páginas en castellano. Esta edición de Fa Mallouk permite leer en papel y conservar el volumen físicamente, tanto en una biblioteca personal como para entregarlo de regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2df258e9975c6162",
+  "fuente_hash": "a1773bc86975b60c",
   "origen": "chatgpt-web"
 }

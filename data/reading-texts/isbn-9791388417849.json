@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La conquista perfecta (Montena) está dirigida a lectores que buscan ficción romántica y asuntos relacionados con el amor y la pareja. Sus 400 páginas corresponden a una obra de América Rodas, alejada por su orientación temática de los ensayos históricos o los manuales de bienestar.",
+      "texto": "La conquista perfecta (Montena) está orientada a quienes buscan una lectura centrada en el romance. Con 400 páginas, plantea una extensión considerable dentro del género y queda fuera de las preferencias de quien busca principalmente terror, misterio o fantasía.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de La conquista perfecta (Montena) reúne 400 páginas en una edición física de Montena, apropiada para conservar o regalar. Kindle permite leerla en formato digital desde el móvil o un lector compatible; el audiolibro ofrece la opción de escucharla durante desplazamientos u otras actividades.",
+      "texto": "La conquista perfecta (Montena) ofrece tres opciones: tapa blanda, Kindle y audiolibro. La edición en papel tiene 400 páginas para leer y conservar físicamente; Kindle permite continuar en dispositivos electrónicos, mientras que el audiolibro facilita escuchar la obra durante otras actividades.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La conquista perfecta / The Perfect Conquest es el título más próximo a La conquista perfecta (Montena), ya que ambos figuran bajo la autoría de América Rodas y comparten su denominación principal. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, ofrece otra referencia relacionada con el amor, aunque su título identifica una entrega numerada y la denominación Shôjo.",
+      "texto": "La conquista perfecta / The Perfect Conquest es la referencia más cercana a La conquista perfecta (Montena), ya que ambas obras aparecen atribuidas a América Rodas y comparten el título principal. Frente a esa coincidencia, 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, propone una estructura de relatos y una temática navideña, en lugar de presentarse como un único título de romance.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +32,12 @@
       ],
       "enlaces": [
         "isbn-9786073878746",
-        "isbn-9791387962494"
+        "isbn-9788409929177"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3c61ed4a4c1ee8a6",
+  "fuente_hash": "506aff7fd40c138c",
   "origen": "chatgpt-web"
 }

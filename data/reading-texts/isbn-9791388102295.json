@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388102295",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Planeta Manga nº 07: 7 (Universo Planeta Manga) encaja con lectores de manga, cómic y narrativa juvenil. Sus 144 páginas reúnen una propuesta de autoría colectiva; quienes busquen una novela convencional en prosa encontrarán aquí un formato editorial diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Planeta Manga nº 07: 7 (Universo Planeta Manga) se publica en tapa blanda, con 144 páginas en castellano. La edición física de Planeta Cómic permite leer y conservar este número en papel, una opción para quienes organizan sus colecciones de manga por entregas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Planeta Manga nº 07: 7 (Universo Planeta Manga) comparte con Nano Machine nº 01: 1 (Manhwa) y Overgeared nº 01: 1 (Manhwa) la autoría atribuida a Varios autores y su relación con el cómic de tradición asiática. La diferencia editorial visible está en sus denominaciones: Planeta Manga se presenta como manga, mientras los otros títulos se identifican como manhwa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102509",
+        "isbn-9791388102554"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0de2ec83e10edd0a",
+  "origen": "chatgpt-web"
+}

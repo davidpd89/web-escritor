@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El cazador es la presa (El hueco al final del mundo) se orienta a lectores de ciencia ficción, fantasía y aventuras que buscan una novela extensa. Con 542 páginas, encaja menos con quienes prefieren lecturas breves o historias centradas en el realismo cotidiano.",
+      "texto": "El cazador es la presa (El hueco al final del mundo), de Rodolfo Martínez, se dirige a lectores de ciencia ficción y aventuras que buscan una novela extensa. Sus 542 páginas requieren una lectura más prolongada que la de un relato breve; por su género, se aleja de quienes prefieren historias exclusivamente realistas o románticas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El cazador es la presa (El hueco al final del mundo) está disponible en tapa dura, con una extensión de 542 páginas. Esta presentación permite conservar la novela como volumen de biblioteca y resulta apropiada para regalar a lectores de ciencia ficción y aventuras.",
+      "texto": "El cazador es la presa (El hueco al final del mundo) está disponible en tapa dura y tapa blanda. La edición de Spórtula tiene 542 páginas: la tapa dura aporta una encuadernación rígida para conservarla o regalarla, mientras que la tapa blanda ofrece una cubierta flexible para manejar un volumen de esta extensión.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El cazador es la presa (El hueco al final del mundo) comparte el terreno de la ciencia ficción con Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados), de Andy Weir. La obra de Rodolfo Martínez también se vincula con la fantasía y las aventuras, mientras que el título de Andy Weir destaca en su presentación por una edición limitada con cantos tintados.",
+      "texto": "La incierta forma del futuro (El hueco al final del mundo) es la comparación más directa con El cazador es la presa (El hueco al final del mundo): ambos títulos comparten autor, Rodolfo Martínez, y la denominación El hueco al final del mundo. Se distinguen por el título principal, aunque esa coincidencia no establece por sí sola el orden de lectura.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388147470"
+        "isbn-9791399256116"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2c00e4faedcf7ce2",
+  "fuente_hash": "54c7d0a5b35370a8",
   "origen": "chatgpt-web"
 }

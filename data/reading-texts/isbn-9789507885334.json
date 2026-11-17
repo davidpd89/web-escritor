@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9789507885334",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Por qué no puedo dejar de pensar en comida?: Cómo los fármacos para adelgazar y la nutrición inteligente pueden silenciar tus antojos (SALUD Y BIENESTAR) se orienta a lectores interesados en la alimentación, los antojos y los tratamientos farmacológicos relacionados con el peso. Su planteamiento sanitario encaja menos con quienes buscan recetas de cocina o una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Por qué no puedo dejar de pensar en comida?: Cómo los fármacos para adelgazar y la nutrición inteligente pueden silenciar tus antojos (SALUD Y BIENESTAR) cuenta con una edición en tapa blanda de 312 páginas. El volumen físico permite consultar de nuevo sus contenidos sobre nutrición y antojos y mantenerlo como libro de referencia personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Por qué no puedo dejar de pensar en comida?: Cómo los fármacos para adelgazar y la nutrición inteligente pueden silenciar tus antojos (SALUD Y BIENESTAR) se centra en la alimentación y el control de los antojos, mientras que 5 semanas para desinflamarte (edición limitada) plantea un objetivo relacionado con la inflamación. Ambos tratan cuestiones de bienestar, pero el libro de Jack Mosley incorpora expresamente los fármacos para adelgazar en su enfoque.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bca55a92735490c6",
+  "origen": "chatgpt-web"
+}

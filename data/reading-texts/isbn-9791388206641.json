@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388206641",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entre piedras y linajes: historia de la familia de la Rubia en Almagro se dirige a lectores interesados en la genealogía, la historia familiar y el pasado de una localidad concreta. Su enfoque en la familia de la Rubia y Almagro encaja menos con quienes buscan una panorámica histórica de alcance internacional o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Entre piedras y linajes: historia de la familia de la Rubia en Almagro cuenta con una edición en tapa blanda de 62 páginas. Su extensión permite consultar el volumen en sesiones breves y conservarlo como referencia física sobre la familia y la localidad que aparecen en el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Entre piedras y linajes: historia de la familia de la Rubia en Almagro puede compararse con Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días) por relacionar historia y experiencias humanas vinculadas a un territorio. Adrián Martín de la Rubia se centra en una familia de Almagro, mientras Jacob Mikanowski aborda una región europea desde una perspectiva histórica e íntima.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d6d14247cd3a7ed4",
+  "origen": "chatgpt-web"
+}

@@ -4,37 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Decesura: 72 (ποίησις [poíesis]) se dirige a lectores de poesía contemporánea en castellano. Con 136 páginas, responde a un interés por la escritura poética más que por las novelas de argumento continuado o los ensayos históricos.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "numero_paginas",
-        "idioma"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Decesura: 72 (ποίησις [poíesis]) está disponible en tapa blanda y tiene 136 páginas. La edición de Libros de la Resistencia ofrece un volumen de extensión contenida para leer poesía en papel, transportarlo y volver a sus páginas durante distintas sesiones de lectura.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Decesura: 72 (ποίησις [poíesis]), de Julio Prieto, puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, por su pertenencia al ámbito poético. También comparte género con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, cuyo título señala expresamente el amor como eje. En Decesura: 72 (ποίησις [poíesis]), el título no delimita esa misma temática amorosa.",
+      "texto": "Decesura: 72 (ποίησις [poíesis]), de Julio Prieto, se dirige a lectores de poesía en castellano. Sus 136 páginas corresponden a una edición de Libros de la Resistencia; no está planteado como una novela narrativa, sino como una publicación poética.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "idioma",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Decesura: 72 (ποίησις [poíesis]) se presenta en tapa blanda, con 136 páginas. Esta edición física de Libros de la Resistencia permite consultar el volumen y volver a sus páginas sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Decesura: 72 (ποίησις [poíesis]) comparte su ámbito poético con A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza. La diferencia comprobable está en la autoría: Julio Prieto firma Decesura: 72 (ποίησις [poíesis]), mientras que los otros títulos pertenecen a autores distintos. La edición de Julio Prieto reúne 136 páginas en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas",
+        "formatos_disponibles"
       ],
       "enlaces": [
-        "isbn-9788412988833",
-        "isbn-9788466396288"
+        "isbn-9788410907539",
+        "isbn-9788410212749"
       ]
     }
   ],

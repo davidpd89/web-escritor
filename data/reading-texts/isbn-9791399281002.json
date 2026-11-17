@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399281002",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en la historia cultural del inconsciente y sus conexiones con la filosofía y la psicología. El inconsciente: Una historia cultural de Hipócrates a Philip K. Dick y más a: 22 (esenciales), de Antonio Melechi, se orienta al ensayo, no a quienes buscan una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El inconsciente: Una historia cultural de Hipócrates a Philip K. Dick y más a: 22 (esenciales) contiene 334 páginas en castellano. Publicada por Bauplan, permite consultar en papel un ensayo que relaciona el inconsciente con distintas etapas de la historia cultural.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El inconsciente: Una historia cultural de Hipócrates a Philip K. Dick y más a: 22 (esenciales) y De cuerpo presente: Las ciencias cognitivas y la experiencia humana (Caja Verde) comparten el interés por el estudio de la mente. Antonio Melechi aborda el inconsciente desde la historia cultural, mientras que Francisco Varela, Evan Thompson y Eleanor Rosch se centran en las ciencias cognitivas y la experiencia humana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425454851"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c114f385fbeeb78",
+  "origen": "chatgpt-web"
+}

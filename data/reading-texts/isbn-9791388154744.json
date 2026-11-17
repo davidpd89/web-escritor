@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388154744",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los asquerosos (colección Narrativa Blackie Books) se dirige a lectores de narrativa contemporánea que prefieren novelas independientes de los géneros especializados. Santiago Lorenzo firma esta edición de 240 páginas. Por su clasificación editorial, queda más lejos de quienes buscan ensayo histórico, divulgación o una guía práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los asquerosos (colección Narrativa Blackie Books) tiene una edición en tapa blanda de 240 páginas. La cubierta flexible facilita llevar la novela en el bolso o la mochila y leerla durante los desplazamientos. Blackie Books publica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los asquerosos (colección Narrativa Blackie Books) tiene como comparación directa Los millones (colección Narrativa Blackie Books). Ambas obras están firmadas por Santiago Lorenzo y pertenecen a la misma colección editorial. Para quien busca continuar con la narrativa del autor, la diferencia principal es que se trata de dos títulos distintos dentro de ese catálogo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388154966"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "78d70b21e0afe4af",
+  "origen": "chatgpt-web"
+}

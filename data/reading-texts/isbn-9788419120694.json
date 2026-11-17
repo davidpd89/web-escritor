@@ -4,30 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar), de Nathan Ballingrud, se dirige a lectores de terror, ciencia ficción y fantasía. Sus 200 páginas ofrecen una extensión contenida; encaja menos con quien prefiera relatos humorísticos o fantasía infantil sin elementos inquietantes.",
+      "texto": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar), de Nathan Ballingrud, se dirige a lectores de terror y ciencia ficción. El título lo identifica como el n.º 2 de Trilogía Gótica Lunar, por lo que quienes busquen una obra presentada como independiente deben tener en cuenta esa numeración.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas",
-        "afines_catalogo"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar) se publica en tapa blanda, con 200 páginas en castellano bajo el sello Lubre. El formato permite transportar una novela de terror y ciencia ficción sin el peso habitual de un volumen de tapa dura.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar) cuenta con una edición en tapa blanda de 200 páginas. El formato físico permite incorporarlo a una colección en papel, mientras que su extensión facilita organizar la lectura en varias sesiones sin manejar un volumen especialmente largo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar) comparte elementos fantásticos con Aftermyth 1. Penelope y la prueba de los dioses, aunque incorpora también terror y ciencia ficción. Frente a Asistente del villano (edición especial limitada) (Faeris Editorial), la obra de Nathan Ballingrud se distingue por su orientación hacia el terror y por una extensión de 200 páginas.",
+      "texto": "La obra de Nathan Ballingrud comparte su vinculación con el terror con Estuche Abismo Lovecraft (Minotauro Ilustrados), de Tomás Hijo y H. P. Lovecraft. La primera combina terror y ciencia ficción en una edición de 200 páginas, mientras que la segunda se presenta como un estuche ilustrado.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324102",
-        "isbn-9791388108112"
+        "isbn-9788445022856"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ee1d8d25a9c66f19",
+  "fuente_hash": "4a710b57795d5899",
   "origen": "chatgpt-web"
 }

@@ -4,40 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El gran libro de los pequeños exploradores y exploradoras: Pasaporte de la Naturaleza se orienta a lectores infantiles interesados en la naturaleza y las aventuras. Sus 132 páginas encajan con quien busca una lectura de temática natural, pero no con quien prefiere historias centradas en la magia o la fantasía.",
+      "texto": "El gran libro de los pequeños exploradores y exploradoras: Pasaporte de la Naturaleza se dirige al público infantil interesado en la naturaleza y la exploración, según su título y clasificación. Con 132 páginas en castellano, se diferencia de las lecturas destinadas específicamente a adultos; puede formar parte de una selección infantil relacionada con el entorno natural.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El gran libro de los pequeños exploradores y exploradoras: Pasaporte de la Naturaleza tiene una edición en tapa blanda de 132 páginas. Su extensión permite manejarlo y transportarlo con relativa facilidad, tanto para leerlo en casa como para llevarlo en una mochila.",
+      "texto": "El gran libro de los pequeños exploradores y exploradoras: Pasaporte de la Naturaleza está editado en tapa blanda y tiene 132 páginas. Su formato físico permite llevarlo en una mochila o consultarlo sobre una mesa; la extensión facilita repartir su lectura en varias sesiones. La edición está publicada en castellano por Pedro Javier Prieto Ocete.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El gran libro de los pequeños exploradores y exploradoras: Pasaporte de la Naturaleza y Los guardianes de la bahía mágica: 2 (Alma Juvenil) se relacionan por su orientación juvenil y la presencia de aventuras, aunque el primero se centra en la naturaleza. Frente a Estuche Magic Animals. Misiones especiales 1 y 2, de Susanna Isern, Carles Dalmau y Nil López, la obra de Pedro Javier Prieto Ocete y Clara Muñoz García propone una temática natural en un volumen de 132 páginas.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
         "numero_paginas",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408327332",
-        "isbn-9791387752378"
+        "idioma",
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8e00d0ac76b9417d",
+  "fuente_hash": "e2e1ea6be0b5a7d1",
   "origen": "chatgpt-web"
 }

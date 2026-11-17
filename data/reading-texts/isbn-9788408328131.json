@@ -4,38 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Animalize 21 3. Animalize 21 y el misterioso show de teatro (Jóvenes influencers) se orienta a lectores de aventuras con misterio y humor. Su combinación de intriga y espectáculo teatral encaja menos con quienes prefieren relatos realistas centrados en la vida cotidiana, sin elementos de suspense.",
+      "texto": "Animalize 21 3. Animalize 21 y el misterioso show de teatro (Jóvenes influencers) se dirige a lectores de aventuras y misterio interesados en historias vinculadas al mundo del teatro. Sus 144 páginas y su publicación en una colección juvenil lo alejan de quienes buscan una novela extensa o una trama centrada en fantasía.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Animalize 21 3. Animalize 21 y el misterioso show de teatro (Jóvenes influencers) se presenta en tapa dura, con 144 páginas en castellano. La encuadernación rígida facilita conservarlo en una colección física o entregarlo como regalo, mientras que su extensión permite organizar la lectura en sesiones breves.",
+      "texto": "La tapa dura reúne las 144 páginas de Animalize 21 3. Animalize 21 y el misterioso show de teatro (Jóvenes influencers) en un libro físico de cubierta rígida. Su extensión facilita terminarlo en varias sesiones cortas, y la encuadernación permite conservarlo junto a otros títulos de la colección de Destino Infantil & Juvenil.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Animalize 21 3. Animalize 21 y el misterioso show de teatro (Jóvenes influencers) comparte autoría y colección con Estuche Animalize 21 1 + El Rulas 1 (Jóvenes influencers). La diferencia está en el contenido: el primero presenta una aventura individual relacionada con un espectáculo teatral, mientras que el segundo reúne dos títulos en un estuche.",
+      "texto": "Estuche Animalize 21 1 + El Rulas 1 (Jóvenes influencers) comparte autoría con Animalize 21 3. Animalize 21 y el misterioso show de teatro (Jóvenes influencers), pero reúne títulos distintos en un estuche. Abre el misterio 1 - El robo de las croquetas también parte de un misterio, aunque su conflicto gira alrededor de unas croquetas desaparecidas, mientras que el libro de Animalize21 sitúa su propuesta en un espectáculo teatral.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328957"
+        "isbn-9788408328957",
+        "isbn-9788427256644"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f8de932cd429a744",
+  "fuente_hash": "4bdd9c3ebf78a1d0",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387927424",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lengua materna (Sillón Orejero) se orienta a lectores de cómic y novela gráfica que buscan una obra extensa en castellano. Sus 368 páginas la alejan de las lecturas gráficas especialmente breves, por lo que encaja menos con quien prefiera un volumen de pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lengua materna (Sillón Orejero) está editado en tapa dura por Astiberri Ediciones, con 368 páginas. La encuadernación rígida resulta práctica para conservar un volumen gráfico de esta extensión y consultarlo repetidamente, aunque ocupa más espacio que una edición flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d883327f4b8cd7f4",
+  "origen": "chatgpt-web"
+}

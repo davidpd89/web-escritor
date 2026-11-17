@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788420307404",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en la historia y en las crónicas relacionadas con el sur de África. Sus 196 páginas ofrecen una extensión relativamente breve; resulta menos afín a quien busca una obra centrada en otros territorios o un estudio histórico de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Crónicas desde el sur de África: Segunda edición revisada y ampliada se presenta expresamente como una segunda edición con revisiones y ampliaciones. Editorial Alas la publica en castellano, en tapa blanda, con 196 páginas y fecha de publicación del 13 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "formatos_disponibles",
+        "numero_paginas",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa blanda, con 196 páginas en castellano. Su extensión permite llevar el libro en papel para leerlo durante desplazamientos o consultarlo por partes, sin recurrir a un volumen especialmente largo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con El príncipe espía: Cosimo III en la España de la Regencia (Ariel), de Lorenzo De Medici, el interés por la historia situada en un contexto geográfico concreto. Crónicas desde el sur de África: Segunda edición revisada y ampliada orienta sus crónicas hacia el sur africano, mientras que el otro título identifica a un personaje y la España de la Regencia como ejes de su relato.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788434441149"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04a15de627b4e5c9",
+  "origen": "chatgpt-web"
+}

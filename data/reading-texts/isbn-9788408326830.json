@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408326830",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores de romance y narrativa juvenil que buscan una novela de Inma Rubiales. El arte de ser nosotros. Edición de bolsillo con cantos decorados (Colección Especial) tiene 528 páginas y no responde a la búsqueda de una obra centrada en la fantasía o la novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición se distingue por los cantos decorados y su pertenencia a la Colección Especial. Booket publica El arte de ser nosotros. Edición de bolsillo con cantos decorados (Colección Especial) en tapa dura, con 528 páginas en castellano, pese a la referencia al bolsillo que figura en el título.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, con 528 páginas. Esta encuadernación permite conservar los cantos decorados como parte de la presentación del libro y resulta apropiada para regalar una edición física de El arte de ser nosotros. Edición de bolsillo con cantos decorados (Colección Especial).",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hasta que nos quedemos sin estrellas (edición especial), de Inma Rubiales, comparte autoría y orientación hacia la narrativa romántica juvenil, pero incorpora ilustraciones de Vero Navarro. El arte de ser nosotros. Edición de bolsillo con cantos decorados (Colección Especial) se diferencia por sus cantos decorados y su presentación en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9788408326632"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f4debb1a01c2206",
+  "origen": "chatgpt-web"
+}

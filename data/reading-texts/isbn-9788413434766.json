@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788413434766",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Noche de Luna (Premio Compostela), de Guia Risari y Paolo Domeniconi, pertenece al ámbito de la literatura infantil y juvenil. Con 28 páginas, se ajusta a quienes buscan un libro infantil breve, mientras que su extensión lo aleja de las novelas juveniles largas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Noche de Luna (Premio Compostela) tiene una edición en tapa dura de 28 páginas, publicada por Kalandraka. La encuadernación rígida ofrece mayor protección para las páginas durante la manipulación y permite conservar el ejemplar en una biblioteca infantil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a907b202cc2068d7",
+  "origen": "chatgpt-web"
+}

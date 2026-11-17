@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788484806691",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las escalas de la pintura europea está dirigido a lectores interesados en la pintura, la historia y el estudio del arte europeo. Por su temática, resulta menos afín a quienes buscan una guía práctica de técnicas pictóricas o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las escalas de la pintura europea se presenta en tapa blanda, en una edición del Museo del Prado de 200 páginas. El volumen físico permite consultar su contenido sobre pintura europea y conservarlo como parte de una biblioteca dedicada a la historia del arte.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las escalas de la pintura europea y Art for All: Surrealistas comparten su vinculación con el estudio del arte. Alexander Nagel aborda en su título las escalas de la pintura europea, mientras que Art for All: Surrealistas delimita su materia al surrealismo y reúne una autoría diferente. La elección depende de si interesa una cuestión general sobre pintura europea o un movimiento artístico concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9783754401477",
+        "isbn-9783754401514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fcb95ec5ac75b70c",
+  "origen": "chatgpt-web"
+}

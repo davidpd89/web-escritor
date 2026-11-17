@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788419047700",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La vida exterior, de Annie Ernaux, se sitúa en la narrativa contemporánea y se dirige a lectores interesados en ese ámbito literario. Tiene 160 páginas, una extensión contenida frente a las novelas de mayor volumen; quien busque específicamente fantasía o un ensayo encontrará aquí otro género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La vida exterior está disponible en tapa blanda y Kindle. La edición en papel de Cabaret Voltaire tiene 160 páginas y cubierta flexible, mientras que Kindle permite leer el mismo título en formato digital, incluso desde un móvil compatible, sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f66bdb55933a93c",
+  "origen": "chatgpt-web"
+}

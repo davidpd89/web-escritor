@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791259578914",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Blanco y negro. El libro de alto contraste nº1 para bebés (FICCIÓN), de Tana Hoban, está orientado a bebés y a adultos interesados en libros visuales de alto contraste. Sus 8 páginas y su enfoque gráfico lo alejan de las lecturas extensas o de quienes buscan una narración desarrollada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Blanco y negro. El libro de alto contraste nº1 para bebés (FICCIÓN) se presenta en tapa dura, con 8 páginas dedicadas a una propuesta visual de alto contraste. Este formato permite manejar el libro como objeto físico y conservarlo en una biblioteca infantil; también puede entregarse como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blanco y negro. El libro de alto contraste nº1 para bebés (FICCIÓN) puede compararse con 720 retrats, de Xavier Mollà i Revert, por su vinculación con lo visual, aunque el primero se presenta como libro de alto contraste para bebés y el segundo anuncia retratos. Frente a All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, se distingue por identificarse como libro infantil y no como cuaderno.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9789879871119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3c2a2eb2efa9c4e4",
+  "origen": "chatgpt-web"
+}

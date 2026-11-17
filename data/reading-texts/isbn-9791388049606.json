@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388049606",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La casa Manzev: Una historia de horror báltico se orienta a lectores de narrativa juvenil interesados en el terror y el misterio. Sus 154 páginas plantean una lectura relativamente breve dentro de estos géneros; quienes busquen aventuras infantiles sin elementos inquietantes encontrarán una propuesta temática diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La casa Manzev: Una historia de horror báltico está disponible en tapa blanda y Kindle. La edición impresa de Editorial Samarcanda reúne 154 páginas en un volumen manejable para transportar o prestar; Kindle permite leer la obra digitalmente desde el móvil o un lector electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La casa Manzev: Una historia de horror báltico y Historias De Miedo (Calcetín) coinciden en su orientación hacia el miedo, aunque el primero añade una referencia geográfica báltica y se clasifica también como misterio juvenil. Sensor (Novela gráfica), de Junji Ito, ofrece otra aproximación al terror mediante el formato de novela gráfica, frente a la edición narrativa en tapa blanda de Džena Andersone.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491429005",
+        "isbn-9791388102462",
+        "isbn-9791388102332"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "469a96bb1d75e15e",
+  "origen": "chatgpt-web"
+}

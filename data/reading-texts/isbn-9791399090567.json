@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791399090567",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en la historia de la psiquiatría, el tratamiento institucional de las mujeres y las relaciones entre salud mental y control social. Su enfoque de ensayo histórico y psicológico no corresponde a quien busca una guía práctica de bienestar emocional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Carmen Valiña examina la relación entre locura y control social a través de las mujeres calificadas de histéricas en el manicomio de Conxo, en Santiago de Compostela, entre 1885 y 1900. El estudio sitúa el tratamiento institucional de estas mujeres en un contexto histórico concreto y relaciona la atención psiquiátrica con las formas de control social.",
+      "evidencias": [
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 64 páginas de este ensayo, publicado por Piedra Papel Libros. Su extensión permite abordar el estudio en pocas sesiones y conservar un ejemplar físico para posteriores consultas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Locura y control social: Mujeres histéricas en el manicomio de Conxo (Santiago de Compostela, 1885-1900): 27 (Serie Transhistorias) puede compararse con ACE: Lo que la asexualidad desvela sobre el deseo, la sociedad y el significado del sexo (Tendencias), de Angela Chen, por su atención a las relaciones entre experiencia humana y sociedad. Carmen Valiña aborda el control institucional de mujeres en un periodo histórico concreto; Angela Chen centra su libro en la asexualidad y su relación con las ideas sociales sobre el deseo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788492917525"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28182f70cf1d260c",
+  "origen": "chatgpt-web"
+}

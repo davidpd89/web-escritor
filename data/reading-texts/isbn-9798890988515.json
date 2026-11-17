@@ -4,42 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con quienes buscan humor relacionado con la escuela y las relaciones familiares. ¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara), de Dan Gutman, tiene 96 páginas y se aleja de las lecturas centradas en asuntos económicos o profesionales.",
+      "texto": "¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara) se orienta a lectores interesados en historias de ambiente escolar y familiar. Su título sitúa el foco en una profesora y su extensión de 96 páginas lo aleja de las novelas largas o de los manuales extensos de crianza.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de ¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara) se presenta en tapa blanda. Sus 96 páginas permiten llevar el libro en una mochila y leerlo en varias sesiones cortas; Vintage Espanol lo publica en castellano.",
+      "texto": "¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara) puede leerse en tapa blanda o Kindle. La edición impresa reúne 96 páginas y permite prestarlo físicamente; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El Más Gallina / Fight or Flight (Diario del Wimpy Kid), de Jeff Kinney, comparte con la obra de Dan Gutman su relación con el humor, aunque pertenece a otra serie. El pequeño libro de los padres (Somos B), de 72 Kilos, se acerca al ámbito familiar desde la crianza, mientras que la obra de Dan Gutman sitúa su propuesta humorística en el entorno escolar.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9798890989772",
-        "isbn-9788466684101"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
   "version": 3,
-  "fuente_hash": "00625bc4f443caf6",
+  "fuente_hash": "ac449791243198ef",
   "origen": "chatgpt-web"
 }

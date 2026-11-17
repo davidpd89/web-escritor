@@ -4,43 +4,51 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Asesinato en la Casa Rosa (edición limitada) (Los crímenes de Loeiro 1) (Campaña | Ahora por menos) se dirige a lectores interesados en relatos de crímenes y en obras identificadas como parte de una serie. Sus 440 páginas en formato de bolsillo encajan menos con quien busca una lectura corta o una novela ajena a las investigaciones criminales.",
+      "texto": "Está dirigido a quienes buscan misterio y thriller alrededor de un asesinato, con una investigación criminal como referencia temática. Por su clasificación y su título, se aparta de las novelas centradas exclusivamente en relaciones románticas o conflictos cotidianos.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La opción disponible es la tapa blanda, presentada por Penguin Bolsillo como libro de bolsillo. Sus 440 páginas ofrecen una lectura extensa en un volumen flexible, más sencillo de transportar que una encuadernación rígida y adecuado para quien acostumbra a leer durante los desplazamientos.",
-      "evidencias": [
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición limitada de Penguin Bolsillo se ofrece en castellano, como libro de bolsillo con encuadernación de tapa blanda. Tiene 440 páginas y su ISBN es 9788466396363. La identificación Los crímenes de Loeiro 1 figura en el título y permite reconocer esta entrega de Arantza Portabales dentro de la serie.",
+      "texto": "Penguin Bolsillo publica esta edición limitada en formato de bolsillo, con 440 páginas en castellano y encuadernación de tapa blanda. Su fecha de publicación es 2027-02-04 y lleva el ISBN 9788466396363, que permite distinguir esta presentación de otras ediciones del mismo título.",
       "evidencias": [
         "titulo",
-        "autores",
         "editorial",
         "edicion",
         "numero_paginas",
-        "formato_edicion",
         "idioma",
+        "formato_edicion",
+        "fecha_publicacion",
         "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para esta edición de 440 páginas. Al tratarse de un libro de bolsillo, permite llevar la lectura fuera de casa y resulta más manejable que una encuadernación rígida de extensión semejante.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves, comparte con Asesinato en la Casa Rosa (edición limitada) (Los crímenes de Loeiro 1) (Campaña | Ahora por menos) su orientación hacia el misterio criminal. La diferencia está en la autoría y en el marco de cada obra: la primera se vincula a Shetland, mientras que el título de Arantza Portabales identifica una serie de crímenes de Loeiro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410424524"
       ]
     }
   ],
-  "descartados": [
-    "esta_edicion: repite otro bloque",
-    "faltan módulos: esta_edicion"
-  ],
+  "descartados": [],
   "version": 3,
-  "fuente_hash": "2585e0070e319ba4",
+  "fuente_hash": "c30a982710a71b13",
   "origen": "chatgpt-web"
 }

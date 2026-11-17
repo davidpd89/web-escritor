@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388042256",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia de dos almas. Cruces (NEFELIBATA), de Alex Landragin, se sitúa entre la novela histórica, la narrativa contemporánea y el ensayo. Sus 400 páginas responden a una lectura extensa que encaja menos con quien busca exclusivamente un manual práctico o una obra breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historia de dos almas. Cruces (NEFELIBATA) se ofrece en tapa blanda, con 400 páginas en castellano. Esta edición de Duomo Ediciones permite abordar la lectura por sesiones y mantener el volumen como ejemplar físico para posteriores consultas o relecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historia de dos almas. Cruces (NEFELIBATA) puede compararse con El baile de las que sobran (Novela histórica), de Fermina Cañaveras, por su vinculación con la narrativa histórica. También se aproxima a Schönberg o la muerte de la música: Cuarteto de la guerra IV (Narrativa), de Xavier Güell, por su dimensión narrativa, aunque el libro de Alex Landragin reúne además una clasificación como ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388019722",
+        "isbn-9788467083910"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d69f6ad4b5c6f8f6",
+  "origen": "chatgpt-web"
+}

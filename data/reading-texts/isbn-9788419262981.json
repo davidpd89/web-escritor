@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788419262981",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Días de invierno (Las estaciones del año), de Ekaterina Trukhan, se dirige al público infantil interesado en el invierno y las estaciones. Con 32 páginas, responde a una búsqueda de lecturas cortas y encaja menos con quienes buscan novelas juveniles de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Días de invierno (Las estaciones del año) se publica en tapa dura y tiene 32 páginas. Su extensión permite recorrer el libro en sesiones breves, mientras que la encuadernación rígida ofrece un volumen físico para conservar y volver a consultar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b06221c37b5d859",
+  "origen": "chatgpt-web"
+}

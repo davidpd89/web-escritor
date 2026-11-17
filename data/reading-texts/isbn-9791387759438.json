@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387759438",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El drama de los insectos. Crónicas de los bichos de seis patas está dirigido a lectores interesados en la divulgación científica sobre insectos. Su enfoque en el mundo de estos animales lo aleja de la narrativa de ficción y de los manuales centrados en aplicaciones profesionales concretas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El drama de los insectos. Crónicas de los bichos de seis patas se publica en tapa blanda y tiene 396 páginas. La edición en castellano de Tundra reúne en un volumen físico una lectura extensa sobre insectos, que puede consultarse por escrito y conservarse en una biblioteca de divulgación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El drama de los insectos. Crónicas de los bichos de seis patas y Abonado y fertilización en agricultura ecológica-AGAU001PO se relacionan por su atención a asuntos del mundo natural. El libro de Jose Carlos Otero aborda los insectos desde la divulgación científica, mientras que el de Elsa Rubio Duce se centra en una práctica agrícola concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bada138e3bcae6d1",
+  "origen": "chatgpt-web"
+}

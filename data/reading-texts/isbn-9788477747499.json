@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788477747499",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las tres confesiones (Fuera de colección), de Juan Pablo Ruano, se dirige a lectores interesados en la novela histórica. Por su clasificación editorial, queda fuera de una búsqueda centrada exclusivamente en otros géneros narrativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las tres confesiones (Fuera de colección) se presenta en tapa blanda, con 344 páginas en castellano. Esta edición de A. Machado Libros permite leerla en papel y conservarla en una biblioteca sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las tres confesiones (Fuera de colección) puede compararse con Al otro lado de la niebla (Novela), de Juan Luis Arsuaga, por su presencia entre lecturas relacionadas. La diferencia comprobable está en la autoría: Juan Pablo Ruano firma la primera, mientras que Juan Luis Arsuaga firma la segunda; la primera está clasificada como novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370849"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "662db1a056bc71ad",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412911282",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La mente indomita se orienta a lectores interesados en publicaciones sobre arte y diseño. Angel Sala y Jordi Sanchez-Navarro firman un volumen de 210 páginas cuyo encuadre temático lo diferencia de las novelas centradas en una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La mente indomita se presenta en tapa blanda, con 210 páginas y edición en castellano de Hermenaute. El formato impreso permite mantener el volumen como referencia física y consultar sus páginas sin pantalla, tanto en una lectura continuada como en consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La mente indomita comparte el ámbito del arte con 21 Westerns del siglo XXI (Sílex Cine/Claqueta), cuyo título delimita un objeto de estudio cinematográfico. También puede situarse junto a 720 retrats, aunque este último título remite al retrato, mientras que La mente indomita no delimita una disciplina artística concreta en su denominación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842",
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc056ce548f89c78",
+  "origen": "chatgpt-web"
+}

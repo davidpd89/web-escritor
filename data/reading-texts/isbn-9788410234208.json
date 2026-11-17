@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788410234208",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Contar el mundo: Las grandes preguntas en la narrativa breve se dirige a lectores interesados en el ensayo literario y en las cuestiones que plantea la narrativa de corta extensión. Su enfoque de reflexión sobre la literatura encaja menos con quienes buscan una recopilación de cuentos para leer como ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Contar el mundo: Las grandes preguntas en la narrativa breve se presenta en tapa blanda, con 282 páginas dedicadas al ensayo sobre narrativa breve. La edición física permite consultar distintos pasajes, señalar ideas y regresar a cuestiones concretas durante su lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "333a2e44220c370e",
+  "origen": "chatgpt-web"
+}

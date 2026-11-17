@@ -1,42 +1,41 @@
 {
   "id": "isbn-9791387949808",
-  "familia": "narrativa",
+  "familia": "infantil",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está pensado para niños a partir de 5 años que empiezan a leer y necesitan textos en letra mayúscula. Sus 48 páginas y su planteamiento de aprendizaje de la lectura lo sitúan en la literatura infantil inicial, no en lecturas destinadas a lectores autónomos de mayor edad.",
+      "texto": "Dirigido a niños a partir de 5 años que están aprendiendo a leer en letra mayúscula. Aprende a leer con los Animolones 1 - Amigos nuevos se centra, desde su título, en las nuevas amistades; no está orientado a quienes buscan lecturas juveniles de mayor extensión.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece una edición física de 48 páginas, manejable para las primeras sesiones de lectura. Es el formato disponible y permite que los niños practiquen con el libro en papel, siguiendo los textos en letra mayúscula.",
+      "texto": "La edición disponible es en tapa blanda, con 48 páginas en castellano y letra mayúscula. Su extensión permite repartir la práctica lectora en sesiones breves, mientras que el formato físico facilita seguir las palabras directamente sobre el papel.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
-        "titulo",
-        "edicion"
+        "idioma",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprende a leer con los Animolones 2 - Me equivoqué: En letra MAYÚSCULA (libros para niños a partir de 5 años) (Jóvenes lectores), de Gemma Brie, comparte la propuesta de aprendizaje de lectura y la letra mayúscula, aunque su título corresponde al n.º 2 frente al n.º 1 de este libro. Aprender a leer con Las Fantasticotas 16. Alejandra encuentra una salamandra: En letra MAYÚSCULA para aprender a leer (Libros para niños a partir de 5 años), de Laura Vila, ofrece otra propuesta de lectura inicial con el mismo recurso tipográfico.",
+      "texto": "Aprende a leer con los Animolones 2 - Me equivoqué: En letra MAYÚSCULA (libros para niños a partir de 5 años) (Jóvenes lectores) comparte autoría de Gemma Brie, colección, edad indicada y uso de mayúsculas. La diferencia está en el asunto anunciado por cada título: Amigos nuevos presenta la amistad, mientras que Me equivoqué apunta al reconocimiento de los errores.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949815",
-        "isbn-9788408330264"
+        "isbn-9791387949815"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "88239792b22f4135",
+  "fuente_hash": "8297192bfd3b168a",
   "origen": "chatgpt-web"
 }

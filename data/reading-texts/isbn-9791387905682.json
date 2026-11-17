@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387905682",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la relación entre la salud bucal, la prevención de enfermedades y la autoestima. Su enfoque centrado en la boca encaja menos con quien busca un libro dedicado principalmente a la alimentación, el ejercicio físico o el bienestar emocional sin abordar la salud oral.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece 256 páginas en papel para consultar los contenidos sobre salud bucal y prevención. Kindle permite acceder al mismo título de Sandra G. Martín desde un lector electrónico o un móvil, una alternativa para quienes prefieren consultar libros de salud en formato digital.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "autores",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, comparte el interés por la longevidad, aunque plantea un abanico más amplio de cuestiones. La salud empieza en tu boca concentra su propuesta en la salud oral y su relación con la prevención. Aliméntate según tus genes / Eat According to Your Genes, de Alejandra Ponce, desplaza el foco hacia la alimentación y la genética.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387852290",
+        "isbn-9786073872935"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d3b59107f25507b4",
+  "origen": "chatgpt-web"
+}

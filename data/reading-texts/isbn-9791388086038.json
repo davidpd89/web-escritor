@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388086038",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diccionario político de inteligencia artificial se dirige a quienes quieren abordar la inteligencia artificial desde sus implicaciones políticas y mediante una obra de referencia. Sus 192 páginas se sitúan entre la divulgación científica y el análisis del poder; no está orientado a quien busca exclusivamente ficción sobre máquinas inteligentes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 192 páginas de Diccionario político de inteligencia artificial en un volumen físico que facilita la consulta y el subrayado. Kindle permite llevar el contenido en el móvil o en un lector electrónico, una alternativa práctica para consultar el libro sin cargar con la edición impresa.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ante la libertad, de Kenyi Martin Alcántara, permite comparar dos obras cuyos títulos remiten a cuestiones relacionadas con la libertad y el poder. Diccionario político de inteligencia artificial, de Natalia Zuazo, delimita su enfoque a la inteligencia artificial y sus implicaciones políticas, con 192 páginas y una orientación hacia la divulgación y la consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409942176"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b07ed290ff1b22ad",
+  "origen": "chatgpt-web"
+}

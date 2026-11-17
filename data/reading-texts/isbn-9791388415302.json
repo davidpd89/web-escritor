@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388415302",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El dolor que nunca se olvida se dirige a lectores interesados en biografías, memorias y experiencias personales relacionadas con el dolor y el recuerdo. Por su clasificación y su título, se distancia de la ficción fantástica y de los libros de actividades. Sus 84 páginas permiten abordar la lectura en un volumen breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El dolor que nunca se olvida se presenta en tapa blanda, con 84 páginas en castellano. Su extensión permite transportarlo y leerlo en varias sesiones sin manejar un volumen grueso. La edición de Círculo Lector utiliza una encuadernación flexible para la lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El dolor que nunca se olvida puede compararse con Al andar: Vivencias del Camino de Santiago por su vinculación con las experiencias personales. El libro de Mariana Costina sitúa el dolor y el recuerdo en su título, mientras que el de Carlos Díaz Ballesta identifica las vivencias de un recorrido concreto. A bordo de un diario sin fin (CUENTOS PARA ALARGAR-LA-VIDA) plantea otra vía, centrada en cuentos y en la forma del diario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388436727",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "815b7f9959a44c6a",
+  "origen": "chatgpt-web"
+}

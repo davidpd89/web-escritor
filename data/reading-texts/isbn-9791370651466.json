@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370651466",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este manual se dirige a quienes buscan orientación jurídica sobre la delimitación de fincas y las controversias entre linderos. Su materia es el derecho aplicado a conflictos sobre terrenos, por lo que no responde a una búsqueda de narrativa ni de consejos generales sobre compraventa inmobiliaria.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Colex se presenta en tapa blanda y tiene 134 páginas, una extensión que permite consultar físicamente el tratamiento de los deslindes. Puede utilizarse para subrayar cuestiones sobre delimitación de fincas y mantener señalados los apartados relacionados con conflictos de linderos.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte su atención a cuestiones jurídicas sobre inmuebles con Cómo aplicar la exención por reinversión en vivienda habitual. Paso a paso: Todas las claves para aplicar con éxito este beneficio fiscal (requisitos, ... que pueden generar dudas) (monografico). La diferencia está en el asunto tratado: aquella obra aborda una exención tributaria y esta se ocupa de delimitar fincas y resolver controversias sobre linderos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f160686f526b0dab",
+  "origen": "chatgpt-web"
+}

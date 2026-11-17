@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Historia nocturna de la arquitectura se orienta a lectores interesados en la historia, la arquitectura y el diseño. Sus 284 páginas responden a una búsqueda de contenido histórico y artístico, no a quien busca una novela de ficción.",
+      "texto": "Historia nocturna de la arquitectura se dirige a lectores interesados en estudiar la arquitectura desde la historia y el diseño. Sus 284 páginas corresponden a una publicación de no ficción, menos adecuada para quien busca una trama novelesca o una lectura de narrativa.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,17 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Historia nocturna de la arquitectura cuenta con una edición en tapa blanda de 284 páginas, publicada por Ediciones Asimetricas,s.l. Permite conservar el volumen en papel y consultar sus páginas físicamente, sin depender de un dispositivo de lectura.",
+      "texto": "Historia nocturna de la arquitectura se publica en tapa blanda y tiene 284 páginas. Su edición física en castellano permite consultar el contenido y volver a determinados pasajes sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "formatos_disponibles"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Historia nocturna de la arquitectura, de Javier Fernández Contreras, Vera Sacchetti y Roberto Zancan, comparte el interés histórico y artístico con Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia), de Kenneth Clark. La primera delimita su asunto a la arquitectura nocturna; la segunda plantea una historia más amplia del arte y la cultura.",
+      "texto": "Historia nocturna de la arquitectura puede compararse con Art for All: Arquitectura californiana por su atención a la arquitectura. El primero plantea desde su título una perspectiva histórica y nocturna, mientras que el segundo delimita su asunto a la arquitectura californiana; también difieren sus equipos de autores.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,7 +31,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387592493"
+        "isbn-9783754401477",
+        "isbn-9783754401514"
       ]
     }
   ],

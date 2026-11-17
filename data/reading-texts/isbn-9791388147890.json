@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388147890",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marfil (edición limitada · Black Friday) (Edición película) (Enfrentados 1) (Campaña | Black Friday) se orienta a lectores de narrativa juvenil que buscan romance combinado con misterio. Su clasificación también incluye thriller, por lo que encaja menos con quienes prefieren historias románticas sin componentes de intriga.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión de Penguin Bolsillo se distingue por las menciones edición limitada de Black Friday y Edición película incluidas en su título. Tiene 448 páginas, se publicó el 2026-10-01 y corresponde al ISBN 9791388147890; el título la identifica como el n.º 1 de Enfrentados.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La presentación disponible de Marfil (edición limitada · Black Friday) (Edición película) (Enfrentados 1) (Campaña | Black Friday) es la tapa blanda de bolsillo. Sus 448 páginas en castellano forman un volumen flexible para leer fuera de casa o conservar en una estantería sin recurrir a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday), de John Green, comparte con Marfil la orientación romántica de esta selección y la denominación editorial de edición limitada. Marfil, de Mercedes Ron, añade misterio y thriller a su clasificación juvenil, además de identificarse como parte de Enfrentados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d022792d011b5f7f",
+  "origen": "chatgpt-web"
+}

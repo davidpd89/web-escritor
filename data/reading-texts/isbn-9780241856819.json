@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9780241856819",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para personas interesadas en confeccionar su propia ropa mediante instrucciones paso a paso. Su enfoque práctico en prendas de vestir se aleja de los libros dedicados exclusivamente a la historia del arte o a la contemplación de obras terminadas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se presenta en tapa dura, con 304 páginas en castellano y edición de DK. El formato encuadernado permite mantener el manual como referencia física durante los trabajos de confección y consultarlo en distintas sesiones.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Prendas de vestir (Hecho a mano): Guía completa paso a paso para crear tu propia ropa (Manualidades DK) y Cómo crear y consolidar tu propia marca de joyería abordan actividades creativas relacionadas con objetos de uso personal. La obra de Alison Smith se concentra en confeccionar ropa paso a paso, mientras que la de Jose Luis Fettolini trata la creación y consolidación de una marca de joyería.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410650534"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "176e84d67792e215",
+  "origen": "chatgpt-web"
+}

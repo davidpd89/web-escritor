@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE) está dirigido a lectores infantiles que empiezan a identificar y comprender sus emociones. Sus cuentos relacionan los sentimientos con el desarrollo personal; no está planteado como un tratado teórico para adultos.",
+      "texto": "Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE), de Pau Ju y Ric Caralca, encaja con lectores infantiles que buscan relatos sobre los sentimientos y su comprensión. Sus 120 páginas combinan el formato de cuentos con el desarrollo personal; no está planteado como una obra centrada en aventuras o conocimientos históricos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE) tiene una edición en tapa blanda de 120 páginas. El papel permite compartir los cuentos durante la lectura acompañada y volver a determinados pasajes para hablar sobre los sentimientos.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE) se ofrece en tapa dura, tapa blanda y Kindle. La tapa dura proporciona una encuadernación rígida para sus 120 páginas, mientras que la blanda resulta más flexible para transportarla; Kindle permite leer los cuentos en un dispositivo compatible sin llevar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Amigos de verdad y Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE) comparten el interés por el desarrollo emocional de los lectores jóvenes. El primero se centra en la amistad como parte de la formación personal, mientras que el libro de Pau Ju y Ric Caralca aborda los sentimientos mediante cuentos infantiles.",
+      "texto": "Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE) comparte con El león y Ellen: Ocho nuevas historias contadas por el león de Ellen (Libros para rumiar) el formato de relatos dirigidos al público infantil. El libro de Pau Ju y Ric Caralca se centra en comprender sentimientos, mientras que el de Crockett Johnson presenta ocho historias narradas por un león.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387994532"
+        "isbn-9788412872781"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "152f5d4294871b8f",
+  "fuente_hash": "0b499b5348ad1956",
   "origen": "chatgpt-web"
 }

@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Brujas y dragones 2: La bruja mala del oeste se dirige al público infantil y juvenil interesado en la fantasía y las aventuras. El título lo identifica como el n.º 2 y anuncia brujas y dragones, por lo que se aparta de las historias realistas y de las lecturas centradas exclusivamente en situaciones cotidianas.",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste está dirigido al público infantil y juvenil interesado en la fantasía y las aventuras. Sus 288 páginas lo sitúan entre las lecturas de mayor extensión para este público; quienes buscan misterio criminal o narrativa realista encontrarán una propuesta de género diferente.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Brujas y dragones 2: La bruja mala del oeste cuenta con una edición en tapa blanda de 288 páginas. El ejemplar físico de Triqueta Verde, SLU permite leerlo sin pantalla, llevarlo en la mochila y conservarlo junto a otros libros de aventuras infantiles.",
+      "texto": "La tapa blanda reúne sus 288 páginas en un ejemplar físico, apropiado para leer en papel y conservar junto a otros libros de la colección. También permite consultar directamente sus páginas durante la lectura, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "categorias"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Brujas y dragones 2: La bruja mala del oeste comparte autoría con Zodiakids 3. El Gran Torneo de Zooikos: Ledicia Costas figura en ambos títulos. El primero, firmado también por Luis Miguel Pérez, anuncia brujas y dragones; el segundo, creado junto a Guille Rancel, presenta un torneo. Ambos se identifican mediante numeración, aunque pertenecen a series con nombres distintos.",
+      "texto": "Zodiakids 3. El Gran Torneo de Zooikos, de Ledicia Costas, Guille Rancel, comparte con Brujas y dragones 2: La bruja mala del oeste la autoría de Ledicia Costas y su orientación hacia el público infantil. La diferencia está en los títulos y sus planteamientos identificables: Brujas y dragones 2: La bruja mala del oeste se encuadra en fantasía y aventuras, mientras Zodiakids 3. El Gran Torneo de Zooikos sitúa su propuesta alrededor de un torneo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "62f57a80ef15077d",
+  "fuente_hash": "0505de4d658be3c5",
   "origen": "chatgpt-web"
 }

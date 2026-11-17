@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399162998",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes quieren organizar y registrar su práctica musical durante 52 semanas, con espacio para 5 días de práctica por semana. Su planteamiento de diario encaja menos con quien busca una lectura teórica sobre música o una obra narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 128 páginas en una edición de papel blanco y tamaño 7×10. Es una opción física para escribir y consultar las anotaciones de práctica musical a lo largo de las 52 semanas que plantea el título.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, comparte con este diario el carácter de cuaderno físico vinculado a la actividad creativa. La diferencia está en que el título de Cookie Publishing House propone un seguimiento musical organizado en 52 semanas y 5 días de práctica por semana, en lugar de presentarse simplemente como cuaderno.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9789879871119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a36f87e33d48baf",
+  "origen": "chatgpt-web"
+}

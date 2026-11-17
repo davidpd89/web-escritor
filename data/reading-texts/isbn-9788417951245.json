@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788417951245",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Meditaciones para nuestro tiempo (SIN COLECCION) encaja con lectores interesados en la filosofía y su relación con las cuestiones personales. La obra de Marco Aurelio y Paloma Ortiz se sitúa también en el ámbito histórico, por lo que no responde a quien busca una novela de aventuras o una guía de ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Meditaciones para nuestro tiempo (SIN COLECCION) se ofrece en tapa blanda, con 136 páginas que permiten manejar y consultar el volumen en papel. Es una edición física de Editorial Alfabeto, adecuada para quien prefiere conservar sus lecturas filosóficas en la estantería y volver a pasajes concretos.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Meditaciones: 103 (Los pequeños libros de la sabiduría) comparte con Meditaciones para nuestro tiempo (SIN COLECCION) la autoría de Marco Aurelio y el ámbito filosófico. La diferencia bibliográfica es que el segundo título incorpora también a Paloma Ortiz, mientras que el primero aparece atribuido únicamente a Marco Aurelio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399285055"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "983534e58d73c76e",
+  "origen": "chatgpt-web"
+}

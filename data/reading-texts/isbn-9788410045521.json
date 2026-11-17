@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410045521",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Bacalao! (edición 10.º aniversario): Historia oral de la música de baile en Valencia, 1980-1995, de Luis Costa Plans, se dirige a lectores interesados en la historia musical valenciana y la cultura del baile. Su delimitación geográfica y temporal lo diferencia de las historias generales de la música y de las biografías centradas en un solo artista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Bacalao! (edición 10.º aniversario): Historia oral de la música de baile en Valencia, 1980-1995 se presenta en tapa blanda, con 408 páginas. Esta edición permite consultar físicamente una obra extensa sobre la historia de la música de baile valenciana y conservarla como volumen de ensayo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Bacalao! (edición 10.º aniversario): Historia oral de la música de baile en Valencia, 1980-1995 puede compararse con Bella ciao: Historia de un himno popular: 32 (Tascabili), de Marcello Flores, por su perspectiva histórica sobre la música. Luis Costa Plans aborda la música de baile valenciana entre 1980 y 1995 mediante una historia oral, mientras que Marcello Flores centra su obra en la trayectoria de un himno popular.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410435292"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "54847436a6c1c7f2",
+  "origen": "chatgpt-web"
+}

@@ -4,37 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Repostería disfrutona: Postres irresistibles sin complicaciones (Gastronomía y Nutrición) está dirigido a quienes buscan preparar postres y dedicar tiempo a la cocina doméstica. El enfoque anunciado en el título prioriza la repostería sin complicaciones, por lo que se distancia de los libros centrados en platos salados o técnicas culinarias ajenas a los dulces.",
+      "texto": "Repostería disfrutona: Postres irresistibles sin complicaciones (Gastronomía y Nutrición) está dirigido a quienes buscan preparar postres y dedicar parte de su tiempo libre a la cocina dulce. Su enfoque en la repostería sencilla lo diferencia de los libros centrados en platos salados, técnicas de sumillería o conocimientos generales de gastronomía.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Repostería disfrutona: Postres irresistibles sin complicaciones (Gastronomía y Nutrición) reúne 224 páginas y permite consultar el libro físicamente mientras se cocina. Kindle ofrece una alternativa digital para acceder al contenido desde un dispositivo, sin ocupar espacio en la estantería. Ambos formatos permiten elegir según el lugar habitual de consulta.",
+      "texto": "La tapa blanda de Repostería disfrutona: Postres irresistibles sin complicaciones (Gastronomía y Nutrición) ofrece 224 páginas en papel, que pueden consultarse mientras se cocina. Kindle permite acceder al contenido desde el móvil o un lector electrónico y evita tener que reservar espacio físico para el volumen.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Repostería disfrutona: Postres irresistibles sin complicaciones (Gastronomía y Nutrición) comparte con Chef sapiens el interés por la preparación de alimentos, aunque Pamela Sánchez Sotomayor se centra en los postres y Marcos Vázquez y Elizabeth Ochoa abordan recetas saludables desde una perspectiva histórica. Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) amplía el campo culinario hacia la huerta, las bebidas y los cócteles, frente al enfoque específico de repostería del primer libro.",
+      "texto": "Repostería disfrutona: Postres irresistibles sin complicaciones (Gastronomía y Nutrición) y Arroz (Comerse el mundo) comparten el interés por la cocina, pero Pamela Sánchez Sotomayor se centra en los postres y Tove Nilsson en el arroz. Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) amplía el campo a bebidas y productos de huerta, frente al enfoque repostero del primero.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466395939",
-        "isbn-9791387934293"
+        "isbn-9791387934293",
+        "isbn-9788419483898"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6590b5ee04b7964e",
+  "fuente_hash": "cc70d3b811e62cf3",
   "origen": "chatgpt-web"
 }

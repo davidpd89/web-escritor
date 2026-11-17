@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "No subir montañas: 10 (Bastardilla) se sitúa entre las lecturas de ensayo, memorias y tiempo libre, para lectores interesados en esos ámbitos. Sus 160 páginas plantean una extensión relativamente breve; por su clasificación editorial, queda fuera de una búsqueda centrada en ficción fantástica o narrativa de aventuras.",
+      "texto": "No subir montañas: 10 (Bastardilla) se dirige a lectores interesados en ensayo, memorias y textos relacionados con el tiempo libre. Sus 160 páginas ofrecen una extensión breve frente a las obras de consulta voluminosas, aunque su clasificación como no ficción lo aleja de la narrativa fantástica.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "No subir montañas: 10 (Bastardilla) está editado en tapa blanda por La Caja Books, con 160 páginas en castellano. Esta presentación permite leerlo en papel y transportarlo sin el volumen de una obra de gran extensión; también puede guardarse en una estantería junto a otros títulos de la colección.",
+      "texto": "No subir montañas: 10 (Bastardilla) cuenta con una edición en tapa blanda de 160 páginas publicada por La Caja Books. El volumen físico permite llevarlo en desplazamientos y leerlo por partes, sin necesitar el espacio que ocupan las obras de mayor extensión.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "editorial",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "No subir montañas: 10 (Bastardilla) y La voz del desierto: El Dakar me enseñó a competir. El desierto me enseñó a vivir (No ficción) pueden compararse desde el interés por las experiencias personales y el tiempo libre. El libro de Paula Pontes se presenta como ensayo y memorias, mientras que el de Cristina Gutiérrez anuncia en su título una experiencia vinculada al Dakar y la competición.",
+      "texto": "No subir montañas: 10 (Bastardilla) puede compararse con Alpinismo de secano: La esencia de la escalada natural (Literatura no ficción Desnivel) por su relación temática con las montañas y las actividades al aire libre. La obra de Paula Pontes combina su clasificación entre ensayo, memorias y tiempo libre, mientras que la de Eduard Sallent Vilanova señala expresamente la escalada natural como asunto central.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,7 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466685528"
+        "isbn-9788498297461"
       ]
     }
   ],

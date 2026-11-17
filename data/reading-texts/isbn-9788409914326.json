@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788409914326",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "NeuroRiqueza: Si no entiendes tu dinero, vas a ciegas Detecta patrones y creencias que condicionan tus decisiones financieras y crea un plan con criterio. se dirige a quienes quieren examinar sus hábitos financieros desde la psicología y el desarrollo personal. Su enfoque en las decisiones económicas se aleja de las lecturas centradas exclusivamente en la gestión empresarial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar el contenido en papel, volver a pasajes anteriores y señalar apartados durante la lectura. Es una edición física en castellano que puede guardarse junto a otros libros de consulta sobre economía y psicología.",
+      "evidencias": [
+        "formatos_disponibles",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparte el interés por revisar patrones personales. La obra de Beatriz García Saez aborda el autoliderazgo y los procesos de cambio, mientras que la de Susana Bueno Ballesta aplica esa reflexión a las creencias sobre el dinero y las decisiones financieras.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "titulo"
+      ],
+      "enlaces": [
+        "isbn-9788409924059"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c082389ef9ffd5aa",
+  "origen": "chatgpt-web"
+}

@@ -4,50 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Elmer. Libro juguete - Elmer. El libro puzle (Pequeñas manitas) está dirigido al público infantil que disfruta manipulando libros y resolviendo puzles. Su formato de cartón y sus 16 páginas lo diferencian de las narraciones juveniles extensas destinadas principalmente a la lectura continuada.",
+      "texto": "Elmer. Libro juguete - Elmer. El libro puzle (Pequeñas manitas) está orientado al público infantil que disfruta de los libros con componentes de juego. Sus 16 páginas y su presentación en cartón lo distinguen de las lecturas juveniles extensas o de los libros centrados únicamente en texto.",
       "evidencias": [
         "titulo",
         "categorias",
-        "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Elmer. Libro juguete - Elmer. El libro puzle (Pequeñas manitas) propone una actividad de puzle integrada en un libro infantil. Su presentación en cartón permite combinar la exploración de las páginas con la manipulación propia de un libro juguete, en lugar de limitarse a leer texto seguido.",
+      "texto": "Elmer. Libro juguete - Elmer. El libro puzle (Pequeñas manitas) propone combinar la lectura con el juego de puzles. Su formato de libro de cartón permite manipular las páginas mientras se explora el contenido, en lugar de limitar la actividad a una lectura seguida.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "categorias"
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Elmer. Libro juguete - Elmer. El libro puzle (Pequeñas manitas) está disponible en tapa dura, presentado como libro de cartón. Sus 16 páginas y su planteamiento de puzle favorecen el uso físico y la manipulación directa, especialmente cuando se comparte la actividad con un niño.",
+      "texto": "Elmer. Libro juguete - Elmer. El libro puzle (Pequeñas manitas) se ofrece en tapa dura, con una edición descrita como libro de cartón. Sus 16 páginas forman un volumen breve y manipulable, pensado para una experiencia física de lectura y juego.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
         "numero_paginas"
       ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Elmer. Libro juguete - Elmer. El libro puzle (Pequeñas manitas) puede compararse con Aprende a contar animales por su orientación infantil y su componente de actividad. El primero plantea un puzle en formato de cartón; el segundo utiliza un maletín y animales para trabajar el conteo.",
-      "evidencias": [
-        "titulo",
-        "edicion",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791370341589",
-        "isbn-9791370341176"
-      ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f55b6ee6a4d7b18d",
+  "fuente_hash": "9c66d187674f3101",
   "origen": "chatgpt-web"
 }

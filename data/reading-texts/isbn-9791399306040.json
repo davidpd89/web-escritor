@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399306040",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Última Columna: Artículos de opinión, veinticinco años después, de Jesús Rivas Melchor, se dirige a lectores interesados en el articulismo, el ensayo y los textos de reflexión personal. Su clasificación también abarca biografías, memorias y relatos, por lo que no responde a quien busca exclusivamente ficción romántica o poesía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Última Columna: Artículos de opinión, veinticinco años después se publica en tapa blanda, con 242 páginas. La edición de Ediciones Filo Abierto permite consultar los artículos en papel y retomar la lectura en distintos momentos sin necesidad de seguir una novela extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Música Sin Músicos: Inteligencia artificial y el futuro del ecosistema creativo comparte autor con Última Columna: Artículos de opinión, veinticinco años después: ambas obras son de Jesús Rivas Melchor. La primera identifica en su título un asunto tecnológico y creativo, mientras que la segunda reúne artículos de opinión y se sitúa entre el ensayo, las memorias y los relatos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399306019"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ff0309ef47511f5c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410794832",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿A qué suena la paz? se dirige a lectores interesados en la paz como asunto de reflexión y en textos vinculados al ensayo y los relatos. Con 32 páginas, plantea una lectura breve, distinta de una novela extensa o de un manual técnico sobre conflictos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿A qué suena la paz? está disponible en tapa blanda, con 32 páginas en castellano. Es una edición física de extensión reducida que puede transportarse fácilmente y consultarse sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de la vida: 101 relatos cortos con moraleja comparte con ¿A qué suena la paz? la relación con los relatos y la reflexión sobre cuestiones humanas. El primero anuncia 101 relatos con moraleja, mientras que el libro de Sonia París Albert centra su título en la paz y reúne 32 páginas dentro del ensayo y los relatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409939701"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7963ed22020a4162",
+  "origen": "chatgpt-web"
+}

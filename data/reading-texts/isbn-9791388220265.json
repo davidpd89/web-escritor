@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388220265",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de poesía interesados en la obra de Federico García Lorca y en las ediciones ilustradas. También puede atraer a quienes buscan libros relacionados con el arte y el diseño; responde menos a una búsqueda de narrativa contemporánea en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Romancero gitano (edición especial con cantos tintados) (Literatura ilustrada) se distingue por sus cantos tintados y su presentación ilustrada. Publicada por Lunwerg Editores el 11 de noviembre de 2026, reúne 256 páginas en tapa dura y acredita a Federico García Lorca y Ricardo Cavolo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa dura, con 256 páginas y una edición especial de cantos tintados. Su encuadernación permite conservar el volumen en una biblioteca y presentarlo como regalo físico, mientras que el componente ilustrado forma parte de la propuesta editorial.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada) comparte con este volumen la autoría de Federico García Lorca y Ricardo Cavolo, además del tratamiento editorial ilustrado. Romancero gitano (VINTAGE) permite comparar otra presentación de la obra de Federico García Lorca, frente a esta edición especial con cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220272",
+        "isbn-9791388435157"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "57fdf5d8a1e27756",
+  "origen": "chatgpt-web"
+}

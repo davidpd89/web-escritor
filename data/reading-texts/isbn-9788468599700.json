@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788468599700",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Detrás de las Murallas se dirige a lectores de novela histórica que prefieren una extensión contenida. Sus 143 páginas permiten abordar el género sin afrontar una novela de gran volumen; encaja menos con quien busca un ensayo histórico o una lectura de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Detrás de las Murallas está disponible en tapa blanda, con 143 páginas en castellano. La edición de Bubok Publishing reúne el texto en un volumen físico relativamente breve, que puede transportarse y prestarse sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Detrás de las Murallas puede compararse con Al otro lado de la niebla (Novela), de Juan Luis Arsuaga, y Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi. Son alternativas del catálogo para explorar junto a esta novela histórica; la diferencia comprobable está en sus autores y en los asuntos que anuncian sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370849",
+        "isbn-9786287897090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a78bc53424819d65",
+  "origen": "chatgpt-web"
+}

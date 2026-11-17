@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388200144",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo V está dirigido a lectores que buscan publicaciones sobre pop-rock y desean acercarse a una entrega concreta de Daniel Muneta. Sus 66 páginas encajan con una lectura corta, pero menos con quien busque una obra extensa en un único volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de EL POP-ROCK DE LOS 60' - Capítulo V es en tapa blanda, con 66 páginas. Su extensión facilita llevar el ejemplar físico y colocarlo junto a las demás entregas de Daniel Muneta, sin necesidad de un lector digital.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo V puede compararse con EL POP-ROCK DE LOS 60' - Capítulo III y EL POP-ROCK DE LOS 60' - Capítulo IV. Los tres comparten autor, Daniel Muneta, y referencia al mismo periodo musical; los títulos los distinguen por el número de capítulo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388200106",
+        "isbn-9791388200113",
+        "isbn-9791388200120",
+        "isbn-9791388200137",
+        "isbn-9791388200182"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0b9332217ae9f505",
+  "origen": "chatgpt-web"
+}

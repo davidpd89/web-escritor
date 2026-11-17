@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409912940",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Quiero tu alma: Fantasía Urbana Oscura. Ángeles caídos, demonios y mafia en Las Vegas. se dirige a lectores de fantasía urbana oscura con elementos románticos. La combinación de seres sobrenaturales y mafia lo aleja de las historias románticas ambientadas exclusivamente en entornos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Quiero tu alma: Fantasía Urbana Oscura. Ángeles caídos, demonios y mafia en Las Vegas. se presenta en tapa blanda. Sus 320 páginas permiten consultar el volumen físico y conservarlo en una biblioteca de fantasía y romance, con una encuadernación flexible para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte con Quiero tu alma: Fantasía Urbana Oscura. Ángeles caídos, demonios y mafia en Las Vegas. el terreno fantástico, pero presenta a Eira y sus dones ocultos. En la obra de Isabel Santana, el título sitúa el conflicto entre ángeles caídos, demonios y mafia en Las Vegas, frente al secreto personal que plantea el libro de Marta Morillo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "49f8dfe1700b092f",
+  "origen": "chatgpt-web"
+}

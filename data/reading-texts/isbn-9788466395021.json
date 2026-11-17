@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466395021",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de romance que quieran continuar la serie Cincuenta sombras de E.L. James. El título lo identifica como el n.º 3, por lo que quien busque comenzar la serie encontrará una entrada anterior en Cincuenta sombras de Grey (Cincuenta sombras 1) (Best Seller | Ficción).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 656 páginas de esta edición de Penguin Bolsillo en un volumen físico, apropiado para conservarlo junto a los demás títulos de la serie. Kindle permite llevar esa lectura en un dispositivo electrónico sin cargar con el libro de papel.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cincuenta sombras de Grey (Cincuenta sombras 1) (Best Seller | Ficción) y Cincuenta sombras más oscuras (Cincuenta sombras 2) (Best Seller | Ficción) comparten autoría y orientación romántica con este libro. La diferencia es la posición indicada en los títulos: aquellos aparecen como los números 1 y 2, mientras que Cincuenta sombras liberadas (Cincuenta sombras 3) (Best Seller | Ficción) se identifica como el n.º 3.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395038",
+        "isbn-9788466395045"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a1bf336694be3a1d",
+  "origen": "chatgpt-web"
+}

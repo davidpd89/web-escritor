@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los límites al Estado del bienestar: ¿Puede el estado del bienestar sobrevivir al siglo XXI? (Economía) se orienta a lectores interesados en la economía pública y la continuidad de los sistemas de bienestar. No se plantea como una novela ni como una guía práctica de ahorro doméstico, sino como una obra centrada en una cuestión económica y social.",
+      "texto": "Los límites al Estado del bienestar: ¿Puede el estado del bienestar sobrevivir al siglo XXI? (Economía) se dirige a lectores interesados en la sostenibilidad del bienestar público desde una perspectiva económica. Sus 224 páginas y su pregunta central lo orientan hacia el debate sobre políticas económicas, no hacia manuales de gestión empresarial cotidiana.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Debate presenta el libro en tapa blanda, con 224 páginas de extensión. Esta edición permite leerlo y consultar sus argumentos en papel, además de transportarlo sin el volumen propio de una encuadernación rígida.",
-      "evidencias": [
-        "editorial",
-        "formatos_disponibles",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Los límites al Estado del bienestar: ¿Puede el estado del bienestar sobrevivir al siglo XXI? (Economía) se publica en tapa blanda, con 224 páginas editadas por Debate. Es una extensión manejable para leer en papel, subrayar argumentos y volver a los apartados relacionados con la cuestión económica que plantea el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte el interés por la organización económica y política, pero aborda el pensamiento anarcocapitalista en lugar de la supervivencia del Estado del bienestar. Cariño, ¿y este recibo? trata decisiones económicas de pareja, frente al alcance colectivo de la cuestión planteada por Marcos Eguiguren.",
+      "texto": "Antes de liderar: Una mirada interior a un oficio comparte con Los límites al Estado del bienestar: ¿Puede el estado del bienestar sobrevivir al siglo XXI? (Economía) el ámbito económico y profesional, pero se centra en el ejercicio del liderazgo. ANTES DE QUE OCURRA: Vender, formar y proteger el futuro aborda cuestiones de venta, formación y previsión. Marcos Eguiguren dirige su atención a los límites y la continuidad del Estado del bienestar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,13 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457",
-        "isbn-9788402431332"
+        "isbn-9788409921980",
+        "isbn-9788409935604"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "988091e6ff25bf25",
+  "fuente_hash": "41933d1b0a758051",
   "origen": "chatgpt-web"
 }

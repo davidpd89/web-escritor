@@ -4,41 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El poder del fuego nº 06/06: 6 (Fantasía) se dirige a lectores de fantasía juvenil y aventuras que buscan una obra de Robert Kirkman y Chris Samnee. Encaja menos con quienes prefieren narrativa realista o historias ajenas a la fantasía. El título lo identifica como el n.º 6 de 6.",
+      "texto": "El poder del fuego nº 06/06: 6 (Fantasía) se orienta a lectores de fantasía y aventuras juveniles que siguen obras divididas en entregas. El título lo identifica como el n.º 6 de 6, por lo que encaja menos con quienes buscan una obra presentada como volumen independiente.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El poder del fuego nº 06/06: 6 (Fantasía) se publica en tapa dura, con 216 páginas en castellano. Esta edición de Planeta Cómic permite conservar el volumen en formato físico y consultarlo sin depender de dispositivos electrónicos.",
+      "texto": "La tapa dura ofrece las 216 páginas de El poder del fuego nº 06/06: 6 (Fantasía) en una edición física de Planeta Cómic, apropiada para mantener junto a otros volúmenes. Kindle permite leer esta entrega en formato digital y evita ocupar espacio en la estantería.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El poder del fuego nº 06/06: 6 (Fantasía) comparte autoría con El caballero de la capa negra en el sentido de que ambas obras tienen autores identificados, aunque son distintos. Robert Kirkman y Chris Samnee firman El poder del fuego, mientras Carlos J. Sánchez firma El caballero de la capa negra. El primero se encuadra en fantasía y aventuras juveniles y tiene 216 páginas.",
+      "texto": "Void Rivals Vol 5 - Universo Transformers comparte con El poder del fuego nº 06/06: 6 (Fantasía) la autoría de Robert Kirkman y su identificación como entrega numerada. La diferencia está en el segundo autor, Andrei Bressan en Void Rivals Vol 5 - Universo Transformers y Chris Samnee en El poder del fuego nº 06/06: 6 (Fantasía), que además se clasifica como fantasía y aventura juvenil.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399254419"
+        "isbn-9791388484056"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c61aab9d0a7132ee",
+  "fuente_hash": "24b799f5ea0c4107",
   "origen": "chatgpt-web"
 }

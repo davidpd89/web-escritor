@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788499872650",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La gestión educativa con sentido: Planes que inspiran y cambian los centros educativos se dirige a lectores interesados en la planificación y la gestión de centros educativos. Es un ensayo de Joaquín Gairín Sallán y José Luis Muñoz Moreno, por lo que responde a una búsqueda temática sobre educación y no a la de una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La gestión educativa con sentido: Planes que inspiran y cambian los centros educativos se presenta en tapa blanda y tiene 180 páginas. El formato en papel permite consultar sus apartados y volver a ellos durante el trabajo con planes educativos, mientras que su extensión delimita el volumen de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "551a5fae78f42513",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798237729597",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores interesados en los comentarios bíblicos de tradición reformada y en la figura del Buen Pastor. Sus 316 páginas corresponden a una obra religiosa de Julio C. Benitez, por lo que se aleja de las lecturas centradas en espiritualidades ajenas al cristianismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 316 páginas de El Buen Pastor: Seguros en sus manos: 1 (Comentarios Bíblicos Reformados) en un volumen físico. Permite conservar el comentario en una biblioteca de consulta y regresar a sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción comparte con El Buen Pastor: Seguros en sus manos: 1 (Comentarios Bíblicos Reformados) el interés por la teología cristiana. La obra de Sofía Noemy Quintanilla Ramírez se ocupa de la adopción desde una perspectiva bíblica y pastoral, mientras que la de Julio C. Benitez se presenta como comentario bíblico reformado sobre el Buen Pastor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387625535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a752b8efa4104894",
+  "origen": "chatgpt-web"
+}

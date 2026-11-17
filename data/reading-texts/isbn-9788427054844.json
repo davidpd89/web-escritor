@@ -4,18 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra de Mikecrack se dirige a lectores interesados en la fantasía y en historias publicadas dentro de una serie identificada por el número 5 en su título. Sus 176 páginas en castellano ofrecen una lectura de extensión moderada, distinta de los ensayos y las novelas de narrativa realista.",
+      "texto": "Esta obra de Mikecrack se dirige a lectores de fantasía interesados en historias de traición y entregas numeradas. El título la identifica como la n.º 5, por lo que quienes prefieran comenzar por una obra sin numeración pueden optar por otra lectura. Sus 176 páginas ofrecen una extensión concreta para quienes buscan un libro de fantasía relativamente breve.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 176 páginas de esta obra de Mikecrack en una edición física publicada por Ediciones Martínez Roca. Su cubierta rígida permite conservar el ejemplar para posteriores lecturas y presentarlo como regalo, mientras que su extensión facilita organizar la lectura en varias sesiones.",
+      "texto": "La obra de Mikecrack está disponible en tapa dura y Kindle, dos opciones para usos distintos. La edición física de Ediciones Martínez Roca reúne 176 páginas en una encuadernación rígida, adecuada para conservar el ejemplar o regalarlo. Kindle permite llevar la lectura en formato digital y acceder a ella desde dispositivos compatibles sin transportar el libro impreso.",
       "evidencias": [
         "autores",
         "formatos_disponibles",
@@ -27,6 +26,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1e0712c92d019708",
+  "fuente_hash": "5dfbfa2525b69056",
   "origen": "chatgpt-web"
 }

@@ -4,37 +4,21 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El momento es ahora: Un manifiesto contra la resignación (Espasa Ensayo), de Anónimo, está dirigido a lectores interesados en el ensayo político y la reflexión sobre la resignación. Sus 96 páginas plantean una lectura breve, distinta de una novela de ficción o de un tratado jurídico extenso.",
+      "texto": "El momento es ahora: Un manifiesto contra la resignación (Espasa Ensayo) se dirige a lectores de ensayo interesados en política, derecho y reflexión pública. Sus 96 páginas y su planteamiento de manifiesto lo diferencian de una novela o de un tratado jurídico extenso.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El momento es ahora: Un manifiesto contra la resignación (Espasa Ensayo) se presenta en tapa blanda y tiene 96 páginas. Esta edición de Editorial Espasa permite leer el manifiesto en papel, subrayar sus pasajes y volver a ellos sin depender de una pantalla.",
+      "texto": "La edición en tapa blanda de El momento es ahora: Un manifiesto contra la resignación (Espasa Ensayo) reúne 96 páginas en castellano. Su extensión permite llevar el ensayo en papel sin el volumen de una obra de consulta extensa, y facilita conservarlo para revisar sus planteamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El momento es ahora: Un manifiesto contra la resignación (Espasa Ensayo) puede compararse con El Sistema: 7 (Catálogo a ciegas), también firmado por Anónimo, y La formación de España: Una historia de pueblos, costumbres y leyes, de José María Pérez Zúñiga. El primero comparte la atribución anónima y el segundo se relaciona con las leyes, mientras que El momento es ahora se identifica como un manifiesto político contra la resignación de 96 páginas.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788418690846",
-        "isbn-9788430629770"
+        "idioma"
       ]
     }
   ],

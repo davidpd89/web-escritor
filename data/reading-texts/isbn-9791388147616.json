@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791388147616",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la Edad Media, la novela histórica y los conflictos de misterio. Con 512 páginas, responde a quienes buscan una narración histórica extensa, pero no a quienes prefieren una novela contemporánea breve o un romance como eje principal.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición limitada de Black Friday de Penguin Bolsillo reúne 512 páginas en tapa blanda y castellano. Su fecha de publicación editorial es 2026-10-01 y el título la identifica como el n.º 2 de Trilogía Medieval, de Luis Zueco.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "fecha_publicacion",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición se comercializa en tapa blanda de bolsillo, con 512 páginas. Este formato de Penguin Bolsillo facilita guardar y transportar una novela histórica de considerable extensión, aunque mantiene el volumen físico correspondiente a sus páginas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El escalón 33 (edición limitada) (Campaña | Ahora por menos) comparte autoría con La ciudad (edición limitada · Black Friday) (Trilogía Medieval 2) (Campaña | Black Friday), aunque pertenece a otra edición promocional. El asesino de la almarada (Novela Histórica), de Gastón Morata, coincide en el ámbito histórico, mientras que la obra de Luis Zueco añade una identificación explícita con la Edad Media y el misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147531",
+        "isbn-9791370205362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ac315b0d74c3d684",
+  "origen": "chatgpt-web"
+}

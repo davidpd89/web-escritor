@@ -4,35 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La luz que se escapa: 77 (Cadí) se sitúa entre el romance y la narrativa contemporánea, por lo que responde a la búsqueda de ficción centrada en relaciones humanas. No corresponde a quienes buscan principalmente fantasía, ciencia ficción o aventuras ambientadas en mundos imaginarios.",
+      "texto": "La luz que se escapa: 77 (Cadí) encaja con lectores de narrativa contemporánea que buscan una obra vinculada al romance. Sus 245 páginas permiten abordar una novela de extensión intermedia; no se orienta a quienes prefieren fantasía o aventuras como género principal.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La luz que se escapa: 77 (Cadí) está disponible en tapa blanda, con una extensión de 245 páginas. La edición física de Editorial Nazarí S.l. permite leer la obra completa en papel y conservarla en una biblioteca personal, sin necesidad de un dispositivo electrónico.",
+      "texto": "La luz que se escapa: 77 (Cadí) está disponible en tapa blanda, con 245 páginas en castellano. Esta edición física de Editorial Nazarí S.l. permite conservar el ejemplar en papel, prestarlo o regalarlo sin depender de un dispositivo de lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "edicion"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La luz que se escapa: 77 (Cadí) comparte el ámbito romántico con A mil por hora, de Hannah Grace, y Amor en pole position (Dirty Air 3), de Lauren Asher. Estas dos obras vinculan sus relaciones sentimentales al automovilismo, mientras que la de José Antonio Ruiz Reina se identifica como romance y narrativa contemporánea sin esa especialización temática.",
+      "texto": "La luz que se escapa: 77 (Cadí) puede compararse con A mil por hora, de Hannah Grace, por su vinculación con el romance. La obra de José Antonio Ruiz Reina pertenece también a la narrativa contemporánea y tiene 245 páginas. A mil por hora plantea una relación entre un piloto de F1 y una mujer que afronta dificultades para dejar atrás su pasado, mientras que La luz que se escapa se identifica editorialmente como narrativa contemporánea y romántica.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466683449",
-        "isbn-9788427055674"
+        "isbn-9788466683449"
       ]
     }
   ],

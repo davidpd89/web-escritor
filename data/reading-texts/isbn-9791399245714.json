@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399245714",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "REIGN - Ed. Coleccionista 3D, de Bethan Croome, se dirige al público juvenil interesado en la fantasía y las aventuras. Sus 640 páginas corresponden a una novela extensa, por lo que se aleja de las lecturas breves y de la narrativa contemporánea sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "REIGN - Ed. Coleccionista 3D se publica en tapa dura, con 640 páginas y edición de Void en castellano. Este formato permite conservar el volumen en una biblioteca y entregarlo como regalo físico; su extensión requiere más espacio que la de una novela breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "REIGN - Ed. Coleccionista 3D comparte el terreno de la fantasía con La ira del invierno: Reinos de las Estaciones I, de Nuria Mínguez García, y La tiranía de la fe: 2 (Richard Swan), de Richard Swan. La diferencia identificable está en la autoría y en que REIGN - Ed. Coleccionista 3D se presenta como narrativa juvenil de aventuras, mientras que los otros títulos hacen referencia a reinos y a la fe.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409941179",
+        "isbn-9791399227420"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ed5e5d4d7ac24bba",
+  "origen": "chatgpt-web"
+}

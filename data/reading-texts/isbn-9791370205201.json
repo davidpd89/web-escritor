@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791370205201",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en la paleoantropología y en las experiencias profesionales de quienes investigan el pasado humano. Por un puñado de fósiles: Un paleoantropólogo entre la sabana africana y la jungla académica (Arqueología), de Manuel Domínguez-Rodrigo, combina divulgación científica y contenido biográfico en 288 páginas. No está planteado como una novela de aventuras de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro trata la paleoantropología desde la experiencia de un profesional que trabaja entre la investigación sobre el terreno y el entorno académico. Su título contrapone la sabana africana con la jungla académica, señalando dos ámbitos de la actividad científica. La clasificación en divulgación científica y biografías y memorias sitúa el enfoque entre la explicación de una disciplina y la trayectoria personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 288 páginas de Por un puñado de fósiles: Un paleoantropólogo entre la sabana africana y la jungla académica (Arqueología) en un ejemplar físico de Almuzara. Kindle ofrece una alternativa digital para leer el texto en dispositivos compatibles y llevarlo sin cargar con el libro impreso. La elección depende de si se prefiere consultar esta obra de divulgación en papel o en pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por un puñado de fósiles: Un paleoantropólogo entre la sabana africana y la jungla académica (Arqueología) comparte el interés por la ciencia con Historias de la curiosidad cientifica, de Carly Anne York. La obra de Manuel Domínguez-Rodrigo concreta ese interés en la paleoantropología y en la experiencia profesional del investigador, mientras que el otro título plantea la curiosidad científica de manera más general. También se diferencia de El universo espiritual de Einstein: Cómo la ciencia moldeó su visión de Dios, la conciencia y el cosmos (Divulgación científica), de Kieran Fox, cuyo título relaciona ciencia y cuestiones espirituales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388075469",
+        "isbn-9791388075476"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3b53f33246c53aff",
+  "origen": "chatgpt-web"
+}

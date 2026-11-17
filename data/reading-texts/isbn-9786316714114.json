@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9786316714114",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La autopresentacion como motivo de la configuracion de la f está dirigida a lectores interesados en el ensayo filosófico. Sus 72 páginas ofrecen una extensión breve para abordar este ámbito de reflexión; no corresponde a quienes buscan una novela de ficción o una narración romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La autopresentacion como motivo de la configuracion de la f se publica en tapa blanda, con 72 páginas. La edición en castellano de Cactus permite manejar el ensayo de Adolf Portmann como un volumen físico breve, tanto para una lectura seguida como para consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La autopresentacion como motivo de la configuracion de la f y Aforismos para reflexionar y meditar: 109 (Fragmentos) comparten su vinculación con la reflexión filosófica. Adolf Portmann firma un ensayo de 72 páginas, mientras que la obra de Raimon Panikkar se presenta expresamente como una colección de aforismos para reflexionar y meditar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "00bcefac5dce0699",
+  "origen": "chatgpt-web"
+}

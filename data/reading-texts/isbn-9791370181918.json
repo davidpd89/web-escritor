@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370181918",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Biblia (Cómic): 1 se dirige a lectores interesados en los contenidos religiosos presentados mediante el lenguaje del cómic. Por su combinación de religión y novela gráfica, se diferencia de las biografías religiosas escritas en prosa y de los estudios doctrinales convencionales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de La Biblia (Cómic): 1 es de tapa blanda y tiene 64 páginas. El formato físico permite recorrer sus páginas de cómic y volver a ellas sin depender de una pantalla; está publicada en castellano por Editorial Verbum, S.l.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Biblia (Cómic): 1 comparte temática religiosa con Benedicto XVI. El Papa de la razón (vol. III): El pontificado, la renuncia y el retiro (2005-2022): 3 (Biblioteca Ratzinger), pero utiliza el cómic en vez de centrarse en una biografía pontificia. Frente a El diario íntimo del papa Francisco (Biografías y Memorias), también se distingue por su formato gráfico y por abordar un texto religioso en lugar de la figura de un papa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428576116",
+        "isbn-9791388522017"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5176473e1258b503",
+  "origen": "chatgpt-web"
+}

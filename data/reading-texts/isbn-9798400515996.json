@@ -4,51 +4,53 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigida a lectores interesados en textos religiosos y espirituales que prefieren una Biblia en castellano con letra gigante. Por su extensión de 2016 páginas y su presentación en tapa dura, encaja menos con quien busca una lectura breve o un volumen pequeño para transportar a diario.",
+      "texto": "Biblia Letra Gigante Ntv Con Filament, León (Tapa Dura, Letra Roja) está dirigida a lectores interesados en textos religiosos y espirituales en castellano. Su presentación en letra gigante y tapa dura responde a una consulta prolongada de un volumen extenso, más que a la búsqueda de una novela breve o una obra de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
         "idioma",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Biblia Letra Gigante Ntv Con Filament, León (Tapa Dura, Letra Roja) reúne letra gigante, letra roja y la referencia a Filament en su denominación editorial. Publicada por Tyndale House Publishers, tiene 2016 páginas, está encuadernada en tapa dura y figura con fecha de publicación 2027-03-09.",
+      "texto": "Biblia Letra Gigante Ntv Con Filament, León (Tapa Dura, Letra Roja) se distingue por la letra gigante, la letra roja y las referencias a Filament y León presentes en su título. Tyndale House Publishers publica esta edición en tapa dura, con 2016 páginas en castellano. Su ISBN 9798400515996 permite identificar el volumen y diferenciarlo de otras presentaciones.",
       "evidencias": [
         "titulo",
         "editorial",
-        "numero_paginas",
         "edicion",
-        "fecha_publicacion"
+        "numero_paginas",
+        "idioma",
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La opción disponible es la tapa dura, una encuadernación apropiada para mantener un volumen de 2016 páginas en una estantería y consultarlo repetidamente. Su letra gigante favorece la lectura del texto impreso, mientras que la extensión hace menos práctico llevarlo en desplazamientos cotidianos.",
+      "texto": "Biblia Letra Gigante Ntv Con Filament, León (Tapa Dura, Letra Roja) figura en formato de tapa dura. Sus 2016 páginas y la letra gigante indicada en el título hacen de esta edición un volumen físico extenso, pensado para consultar sobre una superficie estable. La encuadernación rígida también resulta pertinente para conservarlo y utilizarlo repetidamente.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "titulo"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparte el interés por la espiritualidad, pero se centra en los fundamentos y la práctica de un camino de liberación. Biblia Letra Gigante Ntv Con Filament, León (Tapa Dura, Letra Roja) se distingue por ser una Biblia de Nueva Traducción Viviente presentada en letra gigante y tapa dura.",
+      "texto": "Biblia Letra Gigante Ntv Con Filament, León (Tapa Dura, Letra Roja) comparte su carácter bíblico con Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft. La primera, de Nueva Traducción Viviente, se presenta con letra gigante, letra roja y tapa dura; la segunda, de Biblia de Jerusalén, identifica una edición católica latinoamericana con acabado símil piel rosada. La diferencia principal está en la traducción identificada y la presentación física.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210088"
+        "isbn-9798890989536"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cf80b820cc70a53d",
+  "fuente_hash": "5ecfaf4f30aac65f",
   "origen": "chatgpt-web"
 }

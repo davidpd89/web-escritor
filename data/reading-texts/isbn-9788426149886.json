@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788426149886",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La inmunología. Explicada por Edward Jenner (CONOCER Y COMPRENDER) se dirige al público infantil y juvenil interesado en acercarse a la inmunología. Pablo Barrecheguren firma esta obra de 48 páginas, centrada en una materia científica; no responde a la búsqueda de narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La inmunología. Explicada por Edward Jenner (CONOCER Y COMPRENDER) se presenta en tapa dura, con 48 páginas en castellano. Esta encuadernación permite conservar el volumen en una biblioteca infantil y consultarlo de nuevo sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d77936c3671556ed",
+  "origen": "chatgpt-web"
+}

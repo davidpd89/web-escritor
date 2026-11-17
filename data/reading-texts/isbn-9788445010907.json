@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788445010907",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Guerra de la Reina Araña nº 02/06 Insurrección: 2 (D&D Reinos Olvidados), de Thomas M. Reid, se dirige a lectores interesados en fantasía, aventuras y relatos. El título lo identifica como el n.º 2, por lo que encaja menos con quienes buscan una obra presentada como independiente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Guerra de la Reina Araña nº 02/06 Insurrección: 2 (D&D Reinos Olvidados) se presenta en tapa blanda, con 368 páginas. Esta edición de Minotauro permite reunir físicamente los volúmenes de la serie y leerlos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Guerra de la Reina Araña nº 02/06 Insurrección: 2 (D&D Reinos Olvidados) puede compararse con El árbol de los cuervos: Los cuentos del fénix II.: 2 por su vinculación con la fantasía y la numeración de sus títulos. Thomas M. Reid firma el primero y Andrea Manfredini Font el segundo; cada uno pertenece a una propuesta narrativa diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399315707"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "02367948ff12ac73",
+  "origen": "chatgpt-web"
+}

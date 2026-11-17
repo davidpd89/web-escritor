@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788418782961",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Palabra de perro: A partir de Cervantes: 79 (Libros robados) se dirige a lectores interesados en la narrativa contemporánea y sus vínculos con el arte. Sus 106 páginas ofrecen una extensión breve; por su clasificación juvenil, se aleja de quienes buscan exclusivamente narrativa para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Palabra de perro: A partir de Cervantes: 79 (Libros robados) se presenta en tapa blanda y reúne 106 páginas. Es un volumen físico de extensión breve, que puede transportarse sin el peso habitual de una novela extensa y colocarse en una estantería junto a otros títulos de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Verborrea: 78 (Libros robados), de Pablo Remón, comparte con Palabra de perro: A partir de Cervantes: 79 (Libros robados) la colección Libros robados, aunque cambia la autoría. Estuche Henrik Ibsen: Teatro I y II (Letras Nórdicas), de Henrik Ibsen, ofrece otra referencia literaria, centrada explícitamente en el teatro y presentada como un estuche de dos tomos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418782930",
+        "isbn-9791388306549"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2221aa5cc818c490",
+  "origen": "chatgpt-web"
+}

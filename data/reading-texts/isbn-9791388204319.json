@@ -4,42 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche EL REY PASTOR (TAPA BLANDA), de Rachel Gillig, está orientado a lectores de fantasía y aventuras que buscan una lectura extensa. Sus 900 páginas suponen una dedicación mayor que la de un libro breve, y su enfoque fantástico lo distancia de quienes prefieren relatos estrictamente realistas.",
+      "texto": "Estuche EL REY PASTOR (TAPA BLANDA), de Rachel Gillig, se orienta a lectores interesados en fantasía y aventuras que buscan una edición agrupada. Con 900 páginas y presentación en estuche, se distancia de las lecturas breves y de quienes prefieren narrativa contemporánea sin elementos fantásticos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Estuche EL REY PASTOR (TAPA BLANDA) se ofrece en tapa blanda, con una extensión indicada de 900 páginas. El formato de estuche permite reunir la edición física para guardarla o regalarla, aunque su volumen requiere más espacio que un libro corto. La publicación corresponde a Editorial Hidra.",
+      "texto": "Estuche EL REY PASTOR (TAPA BLANDA) se comercializa en tapa blanda, con una extensión indicada de 900 páginas. La presentación en estuche permite adquirir la edición agrupada de Rachel Gillig en soporte físico, una opción para regalar o conservar los volúmenes juntos en la biblioteca.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Estuche EL REY PASTOR (TAPA BLANDA), de Rachel Gillig, comparte su orientación fantástica con SIZIGIA: El renacer de la leyenda: 1, de Tamara Allegue. El primero reúne una edición en estuche de tapa blanda con 900 páginas, mientras que el segundo se identifica en su título con el número 1. Ambos se relacionan con la fantasía, pero presentan distintas autorías y formas de identificar sus ediciones.",
+      "texto": "Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean), de Rebecca Yarros, comparte con Estuche EL REY PASTOR (TAPA BLANDA) el ámbito de la fantasía, pero destaca una edición especial con cantos decorados. Estuche Un amor de miedo (Faeris Editorial) coincide en la presentación agrupada, aunque reúne autores distintos, frente a la autoría de Rachel Gillig.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "formatos_disponibles",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399318111"
+        "isbn-9786073950664",
+        "isbn-9791388108198"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9cd99c6eda68b4e4",
+  "fuente_hash": "f133634a36f1902c",
   "origen": "chatgpt-web"
 }

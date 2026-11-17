@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sobrevivir a padres tóxicos: El método japonés para superar las heridas familiares y recuperar tu vida (Bruguera Tendencias) se dirige a quienes buscan herramientas de desarrollo personal relacionadas con las heridas familiares. Su enfoque pertenece a la psicología y la familia, no a la narrativa de ficción ni a un manual general de crianza infantil.",
+      "texto": "Sobrevivir a padres tóxicos: El método japonés para superar las heridas familiares y recuperar tu vida (Bruguera Tendencias) se dirige a lectores interesados en las relaciones familiares difíciles y sus consecuencias psicológicas. Por su enfoque de desarrollo personal, encaja menos con quien busca una novela familiar o un manual centrado exclusivamente en la crianza infantil.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,24 +13,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sobrevivir a padres tóxicos: El método japonés para superar las heridas familiares y recuperar tu vida (Bruguera Tendencias) se ofrece en tapa blanda, con 224 páginas. El ejemplar físico permite conservarlo como material de consulta y volver a sus apartados durante la lectura sobre las relaciones familiares.",
+      "texto": "La edición de Bruguera se publica en tapa blanda y reúne 224 páginas en castellano. Es una opción física de extensión moderada para leer por capítulos, llevar en el bolso o conservar como libro de consulta sobre relaciones familiares y desarrollo personal.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
+        "editorial",
+        "edicion",
         "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) comparte el interés por las relaciones familiares, pero se centra en herramientas para organizar la convivencia. Sobrevivir a padres tóxicos: El método japonés para superar las heridas familiares y recuperar tu vida (Bruguera Tendencias) aborda las heridas causadas por los padres y su superación, desde una perspectiva de desarrollo personal.",
+      "texto": "Cómo criar niños y niñas emocionalmente maduros: Una guía para acompañarlos hacia una vida feliz y plena, de Lindsay C. Gibson, también aborda las relaciones familiares, pero desde el acompañamiento de los hijos. Sobrevivir a padres tóxicos: El método japonés para superar las heridas familiares y recuperar tu vida (Bruguera Tendencias), de Takaaki Kawashiwa, sitúa el foco en las heridas familiares y su superación.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399249682"
+        "isbn-9788410335424"
       ]
     }
   ],

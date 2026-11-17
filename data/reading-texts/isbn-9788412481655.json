@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788412481655",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "De gira con los ramones se dirige a lectores interesados en la música y su relación con el ámbito artístico. Sus 384 páginas y el tema anunciado en el título lo alejan de quienes buscan una introducción breve al arte visual o una novela juvenil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "De gira con los ramones está disponible en tapa blanda, con 384 páginas en castellano. La edición de Banizu Nizuke ofrece una lectura en papel de extensión considerable, adecuada para consultar y conservar físicamente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De gira con los ramones puede compararse con 21 Westerns del siglo XXI (Sílex Cine/Claqueta) por su aproximación a manifestaciones culturales. El primero, firmado por Monte A. Melnick y Frank Meyer, se centra por su título en las giras musicales; el segundo, de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga, anuncia un recorrido por el cine del oeste.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "58d83fb7f37915b9",
+  "origen": "chatgpt-web"
+}

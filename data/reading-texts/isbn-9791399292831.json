@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399292831",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Visión de lejos II: Seguir mirando: 2 se dirige a quienes leen ensayos, memorias y textos relacionados con la divulgación científica. Sus 136 páginas ofrecen una extensión contenida; por su orientación temática, se aleja de las novelas de ficción y de los relatos de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite conservar las 136 páginas de Visión de lejos II: Seguir mirando: 2 en una edición física de Artal Books, apropiada para consultar y guardar en una biblioteca. Kindle ofrece el mismo título en formato digital para leer desde dispositivos compatibles, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Visión de lejos II: Seguir mirando: 2 y Visión de lejos: Miradas con perspectiva: 1 comparten autor, Pablo Artal, y una denominación que los vincula. El título identifica al primero como el n.º 2 y al segundo como el n.º 1. Frente a El universo espiritual de Einstein: Cómo la ciencia moldeó su visión de Dios, la conciencia y el cosmos (Divulgación científica), centrado en ciencia y espiritualidad, Visión de lejos II: Seguir mirando: 2 se presenta como ensayo y memorias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399292879",
+        "isbn-9791388075469"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "71b330c76642e49e",
+  "origen": "chatgpt-web"
+}

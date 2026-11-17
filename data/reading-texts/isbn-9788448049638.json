@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788448049638",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi querida Lucía: Edición limitada a precio especial (Colección Especial) se encuadra en el misterio y el thriller, por lo que responde a la búsqueda de narrativa de ese género. No se presenta como una obra de divulgación ni como una lectura centrada en contenidos históricos o científicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Mi querida Lucía: Edición limitada a precio especial (Colección Especial) es una edición de bolsillo de Booket publicada el 2026-10-07. Reúne 448 páginas en castellano y su título la identifica como una edición limitada a precio especial dentro de una colección especial.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi querida Lucía: Edición limitada a precio especial (Colección Especial) está disponible en tapa blanda, concretamente en edición de bolsillo. Sus 448 páginas quedan reunidas en un volumen físico pensado para transportarlo y leerlo sin necesidad de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El hombre ideal comparte autoría con Mi querida Lucía: Edición limitada a precio especial (Colección Especial), pues ambos títulos son de La Vecina Rubia. El primero plantea la persistencia de los secretos, mientras que el segundo figura como misterio y thriller y cuenta con una edición especial de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049591"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "720b56febe381525",
+  "origen": "chatgpt-web"
+}

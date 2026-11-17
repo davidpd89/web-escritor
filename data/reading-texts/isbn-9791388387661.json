@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388387661",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Libres bajo la gracia: Reflexiones sobre la tradición espiritual que me formó (Ensayo y Pensamiento), de Robert F. Prevost (Papa León XIV), se dirige a lectores interesados en la reflexión religiosa y las tradiciones espirituales. No corresponde a un manual de prácticas esotéricas ni a una novela de ficción religiosa, sino al ámbito del ensayo y la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Libres bajo la gracia: Reflexiones sobre la tradición espiritual que me formó (Ensayo y Pensamiento) se publica en tapa dura, con 552 páginas en castellano. La encuadernación rígida resulta apropiada para conservar un ensayo extenso, mantenerlo en una biblioteca personal o entregarlo como libro físico de regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Libres bajo la gracia: Reflexiones sobre la tradición espiritual que me formó (Ensayo y Pensamiento) comparte el interés por la reflexión espiritual con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar. El primero se presenta como reflexiones sobre una tradición formativa; el segundo propone aforismos para la meditación. Ambos se diferencian de Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, por el enfoque astrológico y mágico anunciado en este último título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278",
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "55fd656c1a4666a2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388078606",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vivienda y crisis habitacional se dirige a lectores interesados en la vivienda y sus problemas desde una perspectiva jurídica. Con 420 páginas, se sitúa en el estudio de una materia concreta del derecho, por lo que encaja menos con quienes buscan ficción o una introducción breve y general a la vivienda.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vivienda y crisis habitacional, de Fernando García Rubio, se presenta en tapa blanda y cuenta con 420 páginas. Esta encuadernación flexible permite manejar el volumen durante la lectura y guardarlo en una mochila, aunque su extensión invita también a consultarlo en una mesa de trabajo o estudio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) comparte con Vivienda y crisis habitacional su pertenencia al ámbito jurídico, pero estudia las sanciones administrativas en lugar de la vivienda. Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) también aborda una cuestión de convivencia, aunque desde la mediación educativa y no desde la crisis habitacional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610562",
+        "isbn-9788429030372"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ddbf9cb6bcbb530e",
+  "origen": "chatgpt-web"
+}

@@ -4,29 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) se orienta a lectores de ciencia ficción, aventuras y misterio. Sus 384 páginas ofrecen una extensión intermedia; por sus géneros, encaja menos con quienes buscan exclusivamente narrativa realista o una lectura centrada en acontecimientos históricos.",
+      "texto": "Artemisa está orientada a lectores que buscan ciencia ficción con elementos de misterio y thriller. La obra de Andy Weir tiene 384 páginas, por lo que encaja menos con quien busca una lectura muy corta o prefiere historias sin componentes especulativos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición limitada de Artemisa incorpora cantos tintados y encuadernación en tapa dura, dos rasgos que distinguen su presentación física. Penguin Bolsillo la publica el 19 de noviembre de 2026 en castellano, con 384 páginas y el ISBN 9791388147470.",
+      "texto": "Esta edición limitada de Artemisa incorpora cantos tintados y una encuadernación en tapa dura bajo el sello Penguin Bolsillo. Cuenta con 384 páginas en castellano, publicación editorial prevista para el 19 de noviembre de 2026 e ISBN 9791388147470.",
       "evidencias": [
         "titulo",
-        "edicion",
         "editorial",
-        "fecha_publicacion",
+        "edicion",
         "numero_paginas",
         "idioma",
+        "fecha_publicacion",
         "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura permite conservar las 384 páginas de Artemisa en un volumen físico con cantos tintados, adecuado para una colección de ediciones especiales. Kindle ofrece el mismo título en formato digital para leerlo en un dispositivo compatible o en el móvil, sin transportar el libro impreso.",
+      "texto": "La tapa dura de Artemisa reúne 384 páginas y añade cantos tintados, un detalle físico para quienes coleccionan libros o buscan un regalo. Kindle permite leer la obra en un dispositivo compatible sin transportar el volumen y prescinde de ese acabado decorativo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -36,21 +37,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) comparte con Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) la autoría de Andy Weir y la presentación de edición limitada. Proyecto Hail Mary (edición deluxe) (Nova) también pertenece al mismo autor, pero se identifica como edición deluxe, frente a los cantos tintados y la tapa dura expresamente indicados para Artemisa.",
+      "texto": "El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) comparte con Artemisa la autoría de Andy Weir, la ciencia ficción y el acabado de cantos tintados, pero se orienta también hacia la aventura. Proyecto Hail Mary (edición deluxe) (Nova) mantiene la misma autoría y ofrece una presentación editorial deluxe distinta.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "edicion"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388147272",
-        "isbn-9788410466876"
+        "isbn-9788410466876",
+        "isbn-9791388147272"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7d2ef791103f3ba7",
+  "fuente_hash": "5a1b7cc34cba2641",
   "origen": "chatgpt-web"
 }

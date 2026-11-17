@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788441553132",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en desarrollar flujos de trabajo con agentes de inteligencia artificial, LLM, MCP y A2A. Su temática técnica lo diferencia de las introducciones generales a la inteligencia artificial y de los libros de divulgación científica sin aplicaciones informáticas concretas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene 408 páginas en castellano y corresponde a la segunda edición publicada por Anaya Multimedia. Permite consultar en papel los apartados dedicados a agentes de IA y flujos de trabajo, con espacio suficiente para una exposición extensa de los conceptos incluidos en el título.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA aborda la inteligencia artificial desde una perspectiva general. Agentes de IA en acción. Segunda Edición: Flujos de trabajo inteligentes con LLM, MCP, A2A y mucho más (TÍTULOS ESPECIALES), de Micheal Lanham, concentra su atención en agentes y flujos de trabajo, frente al planteamiento introductorio del libro de Keith Mansfield.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "058521229fa747e2",
+  "origen": "chatgpt-web"
+}

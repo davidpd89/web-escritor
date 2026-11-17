@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388102226",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inuyasha nº 25/30 (Manga Shonen) se dirige a lectores de manga juvenil que siguen la obra de Rumiko Takahashi. El título lo identifica como el n.º 25 de 30, por lo que resulta menos adecuado para quien busca comenzar una colección desde su primera entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 352 páginas en castellano publicadas por Planeta Cómic. Permite conservar este volumen junto a los demás de la colección y consultar sus páginas en papel.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Inuyasha nº 26/30 (Manga Shonen) es la comparación más directa porque pertenece a la misma colección de Rumiko Takahashi y su título indica el número siguiente. MAO nº 11 comparte autora y formato de manga seriado, pero presenta una investigación sobre un asesino misterioso en lugar de continuar la colección Inuyasha.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103728",
+        "isbn-9791388103612"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6a676572a5eb0ec",
+  "origen": "chatgpt-web"
+}

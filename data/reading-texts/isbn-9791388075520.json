@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791388075520",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de divulgación científica interesados en la energía nuclear y su posible contribución frente al cambio climático. Su enfoque específico encaja menos con quienes buscan una introducción general a la ciencia o una obra de ficción, ya que se concentra en una tecnología debatida y sus implicaciones climáticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina la energía nuclear como una tecnología debatida y su posible contribución a la lucha contra el cambio climático. Marco Visscher aborda esta relación desde la divulgación científica, con una cuestión central: qué papel puede desempeñar la energía nuclear ante el problema climático.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Pinolia se presenta en tapa blanda y tiene 352 páginas. Es una opción física para leer y consultar un texto de divulgación científica sobre energía nuclear, con una encuadernación flexible que facilita su transporte.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con 50 cosas que hay que saber sobre IA por su atención a tecnologías que suscitan preguntas en la sociedad. Mientras Keith Mansfield se ocupa de la inteligencia artificial, Marco Visscher centra su libro en la energía nuclear y su relación con el cambio climático.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa25b8dcfee76017",
+  "origen": "chatgpt-web"
+}

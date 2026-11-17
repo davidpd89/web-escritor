@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387810962",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Wild Eyes: Mirada salvaje: Rose Hill 2 (Contraluz) se dirige a lectores de narrativa romántica interesados en los títulos de Rose Hill. No responde a una búsqueda de ensayo o divulgación, ya que pertenece al género romántico y presenta una extensión de 440 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Wild Eyes: Mirada salvaje: Rose Hill 2 (Contraluz) se publica en tapa blanda y contiene 440 páginas. Esta edición física permite conservar el volumen junto a otros títulos de Rose Hill y leerlo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Wild Side: Lado salvaje: Rose Hill 3 (Contraluz) comparte autora y denominación de serie con Wild Eyes: Mirada salvaje: Rose Hill 2 (Contraluz); los títulos los identifican como los números 3 y 2, respectivamente. 24 historias para enamorarte en navidad: Relatos navideños también trata el romance, pero se presenta como una colección de relatos navideños en lugar de un volumen identificado con Rose Hill.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388337192",
+        "isbn-9788409929177"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "317ba109acb3b6a9",
+  "origen": "chatgpt-web"
+}

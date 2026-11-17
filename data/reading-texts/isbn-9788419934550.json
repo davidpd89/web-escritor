@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419934550",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ordenación territorial. 4a. Edición (Medio Ambiente) se dirige a lectores interesados en la organización del territorio y las cuestiones medioambientales desde una perspectiva de divulgación científica. Sus 312 páginas y su identificación como cuarta edición lo alejan de una lectura narrativa centrada en personajes y acontecimientos ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ordenación territorial. 4a. Edición (Medio Ambiente) se ofrece en tapa blanda, con 312 páginas en castellano. La edición impresa permite consultar el contenido por sesiones, señalar pasajes y mantener una copia física para el trabajo sobre cuestiones de ordenación territorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ordenación territorial. 4a. Edición (Medio Ambiente) y Abonado y fertilización en agricultura ecológica-AGAU001PO, de Elsa Rubio Duce, abordan materias relacionadas con el territorio y su aprovechamiento. El primero trata la ordenación territorial desde un marco medioambiental; el segundo delimita su asunto al abonado y la fertilización en agricultura ecológica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c6d56cad44aa907",
+  "origen": "chatgpt-web"
+}

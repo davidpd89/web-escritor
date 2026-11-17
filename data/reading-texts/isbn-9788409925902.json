@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788409925902",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para quienes quieren aprender a utilizar herramientas digitales en Android mediante instrucciones sencillas y ejemplos prácticos. Trata aplicaciones y servicios cotidianos como WhatsApp, Cl@ve y Bizum, de modo que encaja menos con lectores que buscan programación avanzada o teoría informática.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El manual aborda competencias digitales en Android, con atención a WhatsApp, Cl@ve, Bizum y la seguridad. Elías Fernández Martín plantea un aprendizaje mediante ejemplos sencillos y guías paso a paso, con un enfoque práctico orientado al uso de estas herramientas.",
+      "evidencias": [
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne 126 páginas y permite mantener las instrucciones a la vista mientras se utiliza el móvil. La edición Kindle facilita consultar el manual desde un dispositivo digital, aunque alternar entre las indicaciones y las aplicaciones puede resultar menos cómodo si se usa el mismo teléfono.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, comparte el interés por acercar la tecnología al lector, pero se ocupa de la inteligencia artificial. TECNOLOGÍA SIN MIEDO: Manual práctico de competencias digitales en Android. Explicado con lenguaje humano, ejemplos sencillos y guías paso a paso (WhatsApp, Cl@ve, Bizum y Seguridad) se concentra en tareas digitales cotidianas y en su ejecución mediante instrucciones.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "15ffc9388fdfa036",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409932573",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El perro que me eligió: Lander y la vejez de un Shih Tzu, de José Miguel Barguilla Zamora, se dirige a lectores interesados en las experiencias personales con mascotas y su envejecimiento. Su enfoque biográfico y de bienestar se diferencia de los manuales de educación canina o las guías veterinarias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El perro que me eligió: Lander y la vejez de un Shih Tzu se ofrece en tapa blanda, con 219 páginas en castellano. El ejemplar físico permite seguir la lectura en papel, marcar pasajes relacionados con la vejez del animal y conservarlo para futuras consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El perro que me eligió: Lander y la vejez de un Shih Tzu y 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) coinciden en tratar cuestiones relacionadas con el envejecimiento y el bienestar. José Miguel Barguilla Zamora aborda la vejez de un perro, mientras que Dick Van Dyke plantea consejos sobre longevidad humana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80e6fde1cf695005",
+  "origen": "chatgpt-web"
+}

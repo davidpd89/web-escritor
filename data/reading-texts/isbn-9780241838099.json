@@ -4,38 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dungeons & Dragons. El libro de los dragones se dirige a quienes buscan una lectura sobre dragones dentro del universo de Dungeons & Dragons. Por su temática de fantasía y ocio, se diferencia de los libros dedicados a actividades manuales o a relatos contemporáneos sin elementos fantásticos.",
+      "texto": "Dungeons & Dragons. El libro de los dragones, de Michael Witwer, se dirige a lectores interesados en Dungeons & Dragons y sus dragones. Por su temática y su clasificación dentro del ocio y las aficiones, se diferencia de los libros de pasatiempos matemáticos y de las guías de actividades manuales.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Dungeons & Dragons. El libro de los dragones tiene una edición en tapa dura de 224 páginas, publicada por DK. El formato permite conservar el volumen como libro físico de consulta o incorporarlo a una colección relacionada con Dungeons & Dragons, sin depender de una pantalla.",
+      "texto": "Dungeons & Dragons. El libro de los dragones se ofrece en tapa dura, en una edición de 224 páginas publicada por DK. La encuadernación rígida permite conservar el volumen como libro de consulta y protege sus cubiertas frente al uso habitual.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dungeons & Dragons. El libro de los dragones y Símbolos mágicos: 300 símbolos para descubrir, comprender y vivir la magia (Mistica), de Federica Vanini, comparten el interés por asuntos mágicos. El primero se centra en los dragones de Dungeons & Dragons, mientras que el segundo aborda símbolos y su significado. Frente a ambos, Gatos cuquis para colorear: Colorea un universo de magia felina (Anti-stress coloring), de Varios autores, propone una actividad de coloreado.",
+      "texto": "Dungeons & Dragons. El libro de los dragones, de Michael Witwer, comparte su relación con el ocio con 80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres. El primero se centra en los dragones de Dungeons & Dragons, mientras que el segundo plantea crímenes como problemas que resolver. Son propuestas de aficiones distintas: una vinculada a un universo de fantasía y otra a los enigmas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328803",
-        "isbn-9791387934200"
+        "isbn-9791388015816"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "824a27df751b80a4",
+  "fuente_hash": "f013085842a84142",
   "origen": "chatgpt-web"
 }

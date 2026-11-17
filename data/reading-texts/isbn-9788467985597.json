@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788467985597",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "The end encaja con lectores de cómic y novela gráfica que buscan una obra de 124 páginas en castellano. Quien prefiera narrativa contemporánea en prosa encontrará aquí un tipo de lectura distinto, firmado por Fernando Llor y Alicia Garcia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "The end se presenta en tapa blanda, con 124 páginas y edición en castellano de Astronave. Este formato permite conservar el cómic en papel y transportarlo sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c32e1103fff5401a",
+  "origen": "chatgpt-web"
+}

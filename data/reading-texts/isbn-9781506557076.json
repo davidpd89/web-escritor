@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9781506557076",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Proyectos de investigación 2026 gestion Empresarial: Retos y estrategias para un entorno en transformación se orienta a lectores interesados en la investigación y la gestión empresarial. Su enfoque económico y sus 254 páginas lo alejan de las novelas y de los libros centrados en experiencias personales ajenas al ámbito empresarial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Se trata de una publicación sobre proyectos de investigación en gestión empresarial, con atención a los retos y estrategias de un entorno cambiante. Su clasificación en economía y empresa sitúa la lectura en el análisis de cuestiones empresariales, no en el desarrollo de una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Palibrio está publicada en tapa blanda y reúne 254 páginas. Su presentación física permite trabajar con el volumen durante la lectura y volver a los apartados relacionados con investigación y gestión empresarial.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, comparte el interés por el ámbito profesional, pero sitúa el foco en el liderazgo y su dimensión personal. Proyectos de investigación 2026 gestion Empresarial: Retos y estrategias para un entorno en transformación aborda, en cambio, la investigación sobre retos y estrategias de gestión empresarial.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cc6d2efd90be5bf5",
+  "origen": "chatgpt-web"
+}

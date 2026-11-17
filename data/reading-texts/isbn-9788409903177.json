@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409903177",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El reto del golf: El arte de tener siempre una opción, de Jerónimo Reguera, se dirige a quienes buscan lecturas relacionadas con el golf y las aficiones deportivas. Sus 156 páginas se sitúan en el ámbito del ocio y el tiempo libre, no en el de las historias de fantasía o los relatos de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El reto del golf: El arte de tener siempre una opción cuenta con una edición en tapa blanda de 156 páginas. Publicada en castellano por Jerónimo Reguera de Castro, ofrece un volumen en papel que puede transportarse y consultarse durante la lectura sobre golf.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El reto del golf: El arte de tener siempre una opción y 99 Sudoku (LIBROS SINGULARES) comparten su relación con el ocio y las aficiones. Jerónimo Reguera centra su obra en el golf y la posibilidad de elegir distintas opciones, mientras que el libro de Anónimo se dedica a los sudokus. El primero tiene 156 páginas y aborda una actividad deportiva; el segundo se orienta a los pasatiempos numéricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce18b427d3f02dd5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466395717",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La danza de los tulipanes (Inspectora Ane Cestero 1) (Best Seller | Ficción) se orienta a lectores de misterio y thriller que quieran acercarse a la serie de la inspectora Ane Cestero. El título lo identifica como el n.º 1, a diferencia de las entregas numeradas posteriores; no responde a la búsqueda de una lectura breve, pues tiene 504 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La danza de los tulipanes (Inspectora Ane Cestero 1) (Best Seller | Ficción) se publica en tapa blanda, en una edición de bolsillo de Penguin Bolsillo. Sus 504 páginas reúnen una lectura extensa en un volumen de papel que puede transportarse y conservarse sin recurrir a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La danza de los tulipanes (Inspectora Ane Cestero 1) (Best Seller | Ficción) se relaciona con El ladrón de rostros (Inspectora Ane Cestero 3) (Best Seller | Ficción) y La hora de las gaviotas (Inspectora Ane Cestero 2) (Best Seller | Ficción), ambos de Ibon Martín. Comparten la referencia a la inspectora Ane Cestero, pero sus títulos indican distintas posiciones: n.º 1, n.º 3 y n.º 2, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395755",
+        "isbn-9788466395748"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5edb37a36abca4b8",
+  "origen": "chatgpt-web"
+}

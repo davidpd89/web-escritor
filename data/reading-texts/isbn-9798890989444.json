@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una Familia Moderna / A Modern Family, de Julia Navarro, pertenece a la narrativa contemporánea centrada en la familia. Su temática encaja con lectores interesados en relaciones familiares y se diferencia de las obras cuyo eje es la ciencia ficción, la aventura o el misterio.",
+      "texto": "Una Familia Moderna / A Modern Family encaja con lectores interesados en narrativa contemporánea y relatos sobre la familia. La obra de Julia Navarro se sitúa fuera de los géneros de divulgación práctica y fantasía, por lo que no responde a esas búsquedas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Una Familia Moderna / A Modern Family puede leerse en tapa dura o Kindle y también escucharse como audiolibro. La tapa dura ofrece un ejemplar físico para conservar o regalar; Kindle permite leer en dispositivos digitales, mientras que el audiolibro sirve para seguir la obra mediante escucha.",
+      "texto": "Una Familia Moderna / A Modern Family está disponible en tapa dura, Kindle y audiolibro. La tapa dura ofrece un ejemplar físico para conservar o regalar; Kindle permite leer desde un dispositivo compatible y el audiolibro ofrece una alternativa para escuchar la obra.",
       "evidencias": [
         "titulo",
         "formatos_disponibles"
@@ -21,21 +22,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una Familia Moderna / A Modern Family se relaciona directamente con Una familia moderna, también de Julia Navarro, que presenta a Martha y Thomas como integrantes de una familia moderna. Frente a Amargo, amargo (Literaturas), de Joanna Bator, la primera comparación permite identificar una coincidencia de autoría y de temática familiar, además de una diferencia en la denominación del título.",
+      "texto": "Una Familia Moderna / A Modern Family tiene como lectura afín Una familia moderna, también de Julia Navarro. Ambas entradas comparten autora y título prácticamente idéntico, aunque se distinguen por su presentación en el catálogo: Una Familia Moderna / A Modern Family figura con edición en tapa dura, Kindle y audiolibro. La coincidencia no permite afirmar que sean obras diferentes.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
+        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401033797",
-        "isbn-9791387846558"
+        "isbn-9788401033797"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "418147db213d19df",
+  "fuente_hash": "c5df4dae83125a57",
   "origen": "chatgpt-web"
 }

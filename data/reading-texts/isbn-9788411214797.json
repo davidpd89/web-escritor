@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788411214797",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en relacionar la neurociencia con la sabiduría contemplativa, desde una perspectiva de psicología y bienestar. Por su enfoque temático, se aleja de los manuales centrados exclusivamente en alimentación o ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 344 páginas de Nacemos para florecer: Neurociencia y sabiduría contemplativa: 1 (En órbita). Es una opción física para leer por partes, consultar pasajes y conservar el volumen en una biblioteca de psicología y bienestar.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte el interés por el bienestar con Bienestar: Habitar el equilibrio (Conversaciones con mis hijos), de Silvia Caselles Martínez, aunque Richard J. Davidson y Cortland Dahl incorporan expresamente la neurociencia y la sabiduría contemplativa. Frente a Dormir bien no debería ser un sueño: Reordena tus días para recuperar tus noches (Espasa Bienestar y Salud), de Rafael Guzmán García, su planteamiento abarca cuestiones más amplias que el descanso nocturno.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409915750",
+        "isbn-9788467083651"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f239f8bc361ffdda",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798182960311",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El amor de una madre, de Brian Edlin, se sitúa entre las lecturas relacionadas con la familia, la crianza y las experiencias personales. Con 60 páginas, responde mejor a quien busca un libro corto sobre ese ámbito que a quien necesita un manual extenso centrado exclusivamente en nutrición o bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El amor de una madre cuenta con una edición en tapa blanda de 60 páginas, publicada en castellano. Su extensión permite llevarlo en el bolso o la mochila y leerlo en varias sesiones cortas; también puede entregarse como libro físico sin recurrir a un volumen de gran tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La imaginación de Michael y La sorpresa de Michael comparten autor con El amor de una madre: los tres títulos pertenecen a Brian Edlin. La diferencia identificable está en su enfoque anunciado: los dos primeros remiten a Michael y a situaciones relacionadas con él, mientras que El amor de una madre sitúa la relación materna en el centro de su título y se clasifica también dentro de familia y crianza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798182960182",
+        "isbn-9798182960144"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "654eaaa653665eb2",
+  "origen": "chatgpt-web"
+}

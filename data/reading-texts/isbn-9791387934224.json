@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791387934224",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Recetas con historia (GASTRONOMIA), de James Winter, se dirige a lectores interesados en la cocina y en la dimensión histórica que anuncia su título. Por su orientación gastronómica, se distancia de los libros centrados exclusivamente en técnicas de sumillería o en el estudio de los vinos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Recetas con historia (GASTRONOMIA) presenta la cocina vinculada a su dimensión histórica, según el enfoque expresado en el título. Es una obra de James Winter publicada por Cinco Tintas, con 224 páginas dedicadas al ámbito gastronómico. Puede consultarse como lectura temática sobre recetas y su relación con la historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Recetas con historia (GASTRONOMIA) es en tapa dura y cuenta con 224 páginas. Esta encuadernación ofrece una cubierta rígida para conservar el volumen en una biblioteca de cocina y consultarlo repetidamente. También permite entregarlo como libro físico de regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "formato_edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Recetas con historia (GASTRONOMIA) y Arroz (Comerse el mundo) comparten el ámbito culinario, pero el primero anuncia una relación entre recetas e historia, mientras el segundo identifica un alimento concreto. Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) amplía el foco hacia productos, bebidas y cocina; la obra de James Winter se presenta desde una perspectiva histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293",
+        "isbn-9788419483898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a786bcdac202b104",
+  "origen": "chatgpt-web"
+}

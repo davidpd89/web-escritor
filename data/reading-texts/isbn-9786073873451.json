@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073873451",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Don Florencio de Polvorín y su prodigiosa profesión / Don Florencio of Polvorin and His Prodigious Profession, de Gabriela Riveros, se sitúa entre las lecturas infantiles y de desarrollo personal. Sus 80 páginas pueden encajar con quienes buscan un libro breve para público infantil, pero menos con lectores interesados en narraciones extensas para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Don Florencio de Polvorín y su prodigiosa profesión / Don Florencio of Polvorin and His Prodigious Profession reúne 80 páginas en castellano. Su extensión permite repartir la lectura en sesiones cortas y el formato físico facilita compartir el ejemplar entre lectores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Don Florencio de Polvorín y su prodigiosa profesión / Don Florencio of Polvorin and His Prodigious Profession puede compararse con Nosotras también contamos. Mujeres célebres del México Antiguo / We Matter Too: Famous Women of Ancient Mexico por su orientación infantil y la participación de Gabriela Riveros en ambas obras. El segundo título aborda figuras femeninas históricas, mientras que el primero gira, según su título, alrededor de una profesión singular.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073879088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77544efc39c834c0",
+  "origen": "chatgpt-web"
+}

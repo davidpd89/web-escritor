@@ -4,34 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Primero llegó el escándalo (Titania época) está dirigido a lectores de romance ambientado en un contexto histórico. Por su combinación de novela histórica y romance, se aleja de quienes buscan ficción contemporánea sin ambientación de época o relatos centrados en otros géneros.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "autores"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Primero llegó el escándalo (Titania época) tiene 320 páginas y está disponible en tapa dura y tapa blanda. La tapa dura ofrece una encuadernación rígida para conservar el ejemplar o regalarlo; la tapa blanda resulta más flexible para sujetarlo y transportarlo durante la lectura.",
-      "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Corazón de una bridgerton (Titania época) comparte con Primero llegó el escándalo (Titania época) la autoría de Julia Quinn y la identificación editorial de época. Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE), de Mimi Matthews, ofrece otra referencia de romance con personajes de título nobiliario, pero pertenece a una autoría distinta y su título identifica el n.º 1 de Academia Miriñaque.",
+      "texto": "Primero llegó el escándalo (Titania época) se dirige a lectores de romance ambientado en un contexto histórico. La novela de Julia Quinn tiene 320 páginas y combina las clasificaciones de romance y novela histórica, por lo que se aleja de quienes buscan exclusivamente ficción contemporánea.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Primero llegó el escándalo (Titania época) puede elegirse en tapa dura o tapa blanda. La edición de tapa dura de Titania tiene 320 páginas y resulta adecuada para conservar o regalar; la tapa blanda ofrece una alternativa de encuadernación flexible para la lectura habitual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Primero llegó el escándalo (Titania época) y La otra Miss Bridgerton (Titania época) comparten autora, Julia Quinn, y el sello Titania época. También puede compararse con Corazón de una bridgerton (Titania época), de la misma escritora; la diferencia verificable es que Primero llegó el escándalo (Titania época) cuenta con una edición de tapa dura de 320 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788410391710",
         "isbn-9788410391772",
-        "isbn-9788410481329"
+        "isbn-9788410391697"
       ]
     }
   ],

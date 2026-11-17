@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Kpop Demon Hunters. Fan Book Oficial (Spanish Edition) se dirige a seguidores de Kpop Demon Hunters interesados en un libro oficial relacionado con ese universo de fantasía. Sus 64 páginas y su condición de fan book lo diferencian de una novela extensa, por lo que encaja menos con quien busca una historia larga de ficción.",
+      "texto": "Kpop Demon Hunters. Fan Book Oficial (Spanish Edition) se dirige a lectores interesados en el universo de Kpop Demon Hunters y sus publicaciones oficiales. Su condición de fan book y sus 64 páginas lo distinguen de una novela extensa de fantasía, por lo que encaja menos con quienes buscan una narración larga.",
       "evidencias": [
         "titulo",
-        "categorias",
         "numero_paginas",
-        "afines_catalogo"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Kpop Demon Hunters. Fan Book Oficial (Spanish Edition) se publica en tapa blanda y consta de 64 páginas en castellano. Es una edición física breve, manejable para consultar y guardar junto a otros libros de Kpop Demon Hunters, sin la rigidez de una cubierta dura.",
+      "texto": "Kpop Demon Hunters. Fan Book Oficial (Spanish Edition) se presenta en tapa blanda, con 64 páginas en castellano. Es una edición física de extensión breve, adecuada para consultar y guardar junto a otras publicaciones de Kpop Demon Hunters.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "afines_catalogo"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Kpop Demon Hunters. Libro Oficial de Retos / Kpop Demon Hunters: Official Would You Rather? comparte con el fan book el universo Kpop Demon Hunters y la autoría de Jessica Yoon, pero se centra en retos. Frente a esa propuesta, el fan book es una publicación de 64 páginas para seguidores del mismo universo, clasificada dentro de la fantasía.",
+      "texto": "Kpop Demon Hunters. Libro Oficial de Retos / Kpop Demon Hunters: Official Would You Rather? comparte autora con el fan book de Jessica Yoon, pero se orienta hacia los retos. Ambos pertenecen al mismo universo, aunque el fan book se presenta como una publicación oficial de 64 páginas vinculada a la fantasía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -40,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "047d2549e5a8dca2",
+  "fuente_hash": "c5d4ac5368cf528e",
   "origen": "chatgpt-web"
 }

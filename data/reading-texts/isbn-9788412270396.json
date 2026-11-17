@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788412270396",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bajo el mismo cielo se dirige a lectores interesados en el arte y el diseño, especialmente en publicaciones de este ámbito firmadas por Alberto García-Alix. Sus 208 páginas y su clasificación temática lo alejan de quienes buscan una novela de ficción o un manual de otra disciplina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bajo el mismo cielo se presenta en tapa blanda, con 208 páginas en castellano. Esta encuadernación permite manejar el volumen sin la rigidez de una cubierta dura y facilita su colocación en una estantería dedicada al arte y el diseño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo el mismo cielo y 720 retrats comparten su vinculación con las publicaciones de arte y diseño dentro de esta selección. El primero está firmado por Alberto García-Alix, mientras que 720 retrats corresponde a Xavier Mollà i Revert. También puede compararse con Ahorcados, de Miguel Ávila Cabezas, aunque cada título presenta una autoría diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9791399276725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f499b55fa8dfe78f",
+  "origen": "chatgpt-web"
+}

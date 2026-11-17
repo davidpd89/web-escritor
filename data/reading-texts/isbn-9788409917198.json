@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El monstruo en el castillo: Un romance gótico está orientado a lectores que buscan una combinación de romance, fantasía y ambientación gótica. Quien prefiera una historia ajena a las relaciones románticas encontrará aquí un enfoque distinto, anunciado desde el propio título.",
+      "texto": "El monstruo en el castillo: Un romance gótico encaja con lectores que buscan una combinación de fantasía y romance con una orientación gótica. Por su planteamiento de género, se aleja de las lecturas centradas en el realismo cotidiano o en las relaciones sin elementos fantásticos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,29 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El monstruo en el castillo: Un romance gótico es en tapa blanda y tiene 228 páginas. Su extensión permite llevar el volumen físico en desplazamientos y leerlo por sesiones, sin necesidad de utilizar una pantalla.",
+      "texto": "La tapa blanda permite leer sus 228 páginas en papel y conservar el volumen en una estantería. La edición Kindle ofrece el mismo título en formato digital, con la comodidad de llevar la lectura en un móvil o lector electrónico sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El monstruo en el castillo: Un romance gótico comparte terreno con Alas de escarcha y oro: El canto del cisne por la presencia de elementos fantásticos. La obra de Lau Alma anuncia expresamente un romance gótico, mientras que la de Marta Morillo presenta, en su descripción, a una protagonista que oculta sus dones y debilidades.",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte con El monstruo en el castillo: Un romance gótico el terreno de la fantasía, aunque el primero presenta a Eira y sus dones ocultos, mientras el segundo se identifica por su romance gótico. Alchemised (edición coleccionista limitada) plantea una incógnita relacionada con la mente; aquí el título sitúa el interés en el castillo y el monstruo.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949938"
+        "isbn-9791387949938",
+        "isbn-9791387924386"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "77fc5b61a79e715e",
+  "fuente_hash": "eb17421490862dbd",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,36 @@
+{
+  "id": "isbn-9791399151039",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de ensayo interesados en la memoria colectiva y su representación en la narrativa española contemporánea. Su enfoque literario encaja con quienes estudian las obras de Ramiro Pinilla, Rafael Chirbes y Manuel Longares, pero no con quienes buscan una novela de ficción o una introducción histórica general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Estudia la reivindicación de la memoria colectiva en la narrativa española contemporánea durante el periodo 1986-2006. El enfoque se articula alrededor de Ramiro Pinilla, Rafael Chirbes y Manuel Longares, con la literatura como objeto de análisis.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y subrayar pasajes de esta obra de 440 páginas durante el estudio. Es una edición física que puede utilizarse para tomar notas y localizar referencias en sucesivas sesiones de lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "977262ad96f412e9",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388444166",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la empresa, la creación de riqueza y los riesgos asociados a la actividad empresarial. Su planteamiento sobre la sospecha social hacia los empresarios encaja menos con quienes buscan ficción narrativa o un manual limitado a procedimientos de gestión.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Empresarios, los héroes perseguidos: Crear riqueza, asumir riesgos y vivir bajo una sospecha creciente (Reflejos de Actualidad) se publica en tapa blanda, con 320 páginas en castellano. Esta edición de Sekotia permite una lectura física sin cubierta rígida y tiene una extensión menor que la de otros ensayos de más de quinientas páginas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, aborda desde su título el ejercicio del liderazgo, mientras que Empresarios, los héroes perseguidos: Crear riqueza, asumir riesgos y vivir bajo una sospecha creciente (Reflejos de Actualidad), de Pilar Almagro, se centra en la figura del empresario y su percepción social. Ambos se relacionan con el ámbito profesional, pero parten de asuntos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0d3d8fd04cf738a2",
+  "origen": "chatgpt-web"
+}

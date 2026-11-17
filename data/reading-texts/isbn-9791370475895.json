@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370475895",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Manual sobre protección de consumidores y usuarios está orientado a lectores interesados en el derecho y, particularmente, en las normas relacionadas con el consumo. Por su carácter de manual y sus 422 páginas, responde a una búsqueda de contenido jurídico más que a la de una novela o una lectura recreativa breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Manual sobre protección de consumidores y usuarios se publica en tapa blanda y reúne 422 páginas en castellano. La edición física permite consultar apartados, colocar marcadores y mantener el volumen a mano durante el estudio de cuestiones jurídicas relacionadas con consumidores y usuarios.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manual sobre protección de consumidores y usuarios y Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios), de Tomás Cano Campos, comparten el ámbito jurídico. El primero centra su materia en la protección de consumidores y usuarios; el segundo se ocupa del derecho administrativo sancionador, por lo que sus respectivos títulos delimitan campos de estudio diferentes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610562"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "83748bcfb14926d7",
+  "origen": "chatgpt-web"
+}

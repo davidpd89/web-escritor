@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409916429",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Más mujer, menos drama: Cómo vivir la menopausia sin perderte entre los cambios del cuerpo, las emociones y la pareja aborda la menopausia desde sus dimensiones físicas, emocionales y de pareja. Se dirige a lectores interesados en bienestar y psicología durante esa etapa, no a quienes buscan un manual centrado exclusivamente en nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar las 259 páginas de Más mujer, menos drama: Cómo vivir la menopausia sin perderte entre los cambios del cuerpo, las emociones y la pareja en papel. Kindle facilita llevar la lectura en un dispositivo digital y acceder a ella sin cargar con el libro físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Más mujer, menos drama: Cómo vivir la menopausia sin perderte entre los cambios del cuerpo, las emociones y la pareja y Conectados para el amor / Wired for Love, de Stan Tatkin, comparten el interés por las relaciones de pareja. El libro de Marien Figueredo García sitúa ese aspecto dentro de la menopausia, mientras que el de Stan Tatkin se centra en el vínculo amoroso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "324bf95fdd42ee64",
+  "origen": "chatgpt-web"
+}

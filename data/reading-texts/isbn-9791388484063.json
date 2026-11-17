@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388484063",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yon, de Camille Broutin, se dirige a lectores de cómic y novela gráfica que buscan ciencia ficción combinada con misterio. Su orientación hacia estos géneros encaja menos con quienes prefieren una novela contemporánea realista o una lectura centrada en el romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yon está disponible en tapa blanda, con 480 páginas en castellano publicadas por Moztros Producciones SL. Es una edición física de extensión considerable dentro del cómic y la novela gráfica, pensada para leerse en papel y conservarse en una colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yon Vol. 1, de Camille Broutin, es la comparación más directa por compartir autoría y el nombre Yon. Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados), de Andy Weir, ofrece otra referencia vinculada a la ciencia ficción; Yon se diferencia por combinar ese género con misterio y cómic o novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388484070",
+        "isbn-9791388147470"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1669530703c37572",
+  "origen": "chatgpt-web"
+}

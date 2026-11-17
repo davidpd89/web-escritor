@@ -4,37 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la trayectoria de Manuel Machado y en los libros que relacionan vida y obra de una figura literaria. Por su enfoque biográfico y sus 546 páginas, se aleja de las novelas de ficción breve y de las lecturas centradas exclusivamente en la trama.",
+      "texto": "Se dirige a lectores de biografías y ensayos interesados en la trayectoria personal y literaria de Manuel Machado. Su enfoque en una figura concreta encaja menos con quienes prefieren una historia general de la literatura o una obra de ficción desligada de una vida real.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El eje del libro es la vida y la obra de Manuel Machado, tratadas desde una perspectiva biográfica. Víctor Olmos firma un volumen de 546 páginas que se sitúa entre las biografías, las memorias y el ensayo, con la figura del escritor como asunto central.",
+      "texto": "Víctor Olmos centra el libro en la vida y la obra de Manuel Machado, reuniendo la dimensión biográfica y la literaria bajo un mismo título. Su inclusión en Biblioteca de la Memoria y su clasificación como biografía y ensayo sitúan el tratamiento en el ámbito de la memoria personal y el estudio de una trayectoria.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda, con 546 páginas en castellano publicadas por Editorial Renacimiento. Es una opción física para leer y consultar la trayectoria de Manuel Machado, con una encuadernación flexible frente a la rigidez de una tapa dura.",
+      "texto": "La edición de Editorial Renacimiento se presenta en tapa blanda, con 546 páginas en castellano. Es un volumen físico extenso para consultar distintos pasajes sobre la vida y la obra de Manuel Machado, sin necesidad de un lector electrónico.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
+        "editorial",
+        "edicion",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) comparte el interés por una figura concreta y su memoria, aunque el libro de Víctor Olmos se centra en la vida y obra de Manuel Machado. El tiempo que pasa aborda los recuerdos de la España de posguerra desde una mirada personal, frente al enfoque biográfico de este volumen.",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo), de César Suárez, comparte con Vida y obra de Manuel Machado el interés por una figura identificada por su nombre y un tratamiento ensayístico. Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas), de Miguel Fernández, ofrece otra aproximación vinculada a la memoria personal, mientras que Víctor Olmos centra expresamente su libro en la vida y la obra de Manuel Machado.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,13 +41,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401039898",
-        "isbn-9788401040580"
+        "isbn-9788426433282",
+        "isbn-9788401039898"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4c47cbd48edfe954",
+  "fuente_hash": "9ff451065818ed22",
   "origen": "chatgpt-web"
 }

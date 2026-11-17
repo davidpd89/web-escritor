@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399276824",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Killxote: El sanguinario hidalgo don Quijote de la Mancha se dirige a lectores interesados en obras relacionadas con el arte y en una reinterpretación sugerida por su título. La referencia a un hidalgo sanguinario apunta a un enfoque violento, por lo que encaja menos con quienes evitan esa temática o buscan una lectura extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Killxote: El sanguinario hidalgo don Quijote de la Mancha cuenta con una edición en tapa dura de 160 páginas. La encuadernación rígida de Tomos y Grapas S.l. ofrece mayor protección para conservar el ejemplar y una presentación apropiada para regalarlo en formato físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Killxote: El sanguinario hidalgo don Quijote de la Mancha puede compararse con Ahorcados, de Miguel Ávila Cabezas, por las referencias a la violencia presentes en ambos títulos. Frente a 21 Westerns del siglo XXI (Sílex Cine/Claqueta), de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga, la diferencia es el asunto anunciado: Killxote remite a un hidalgo, mientras que el segundo se centra en el wéstern cinematográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842",
+        "isbn-9791399276725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "165e211cf3157f4a",
+  "origen": "chatgpt-web"
+}

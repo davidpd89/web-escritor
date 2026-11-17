@@ -1,30 +1,31 @@
 {
   "id": "isbn-9786073876773",
-  "familia": "practico",
+  "familia": "narrativa",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Good Rebels (Spanish Edition) está orientado a lectores interesados en narrativa juvenil, familia, nutrición y bienestar. Sus 240 páginas se sitúan entre la narrativa contemporánea y los contenidos relacionados con el ocio y el tiempo libre; no corresponde a una novela de fantasía o romantasy.",
+      "texto": "Good Rebels (Spanish Edition) se dirige a lectores de narrativa juvenil contemporánea que prefieren historias vinculadas a ese público. Sus 240 páginas corresponden a una extensión moderada y la edición está escrita en castellano. No se presenta como una novela de fantasía ni como un ensayo especializado.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "numero_paginas",
-        "categorias"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Good Rebels (Spanish Edition) está disponible en tapa blanda y cuenta con 240 páginas. La edición física permite leerlo en papel y conservarlo en la biblioteca personal; es la alternativa para quien prefiere un libro impreso frente a otros soportes.",
+      "texto": "Good Rebels (Spanish Edition) está disponible en tapa blanda y Kindle. La edición impresa de Penguin Random House Grupo Editorial cuenta con 240 páginas y permite leer sin pantalla; Kindle ofrece la alternativa digital para llevar la obra en el móvil o en un lector compatible. Ambas opciones corresponden a una edición en castellano.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "editorial",
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Good Rebels (Spanish Edition) puede ponerse en relación con Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables, de Marcos Vázquez, Elizabeth Ochoa, por su conexión con la nutrición. El código del rendimiento: La ciencia detrás de lo que el deportista consume, de Eztizen Pérez Díaz, aborda también la alimentación, pero desde su relación específica con el deporte.",
+      "texto": "Bajo la estela de un legado, de Carmen Galvañ Bernabé, figura entre las lecturas relacionadas con Good Rebels (Spanish Edition), aunque corresponde a una autora distinta de Gabby Araya. Alya a veces me susurra en ruso 9 (Shônen - Alya), de SunSunSun, ofrece otra referencia para el público juvenil, pero su título lo identifica como una entrega numerada de una serie. Good Rebels (Spanish Edition) se presenta como narrativa juvenil contemporánea.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466395939",
-        "isbn-9788409934010"
+        "isbn-9791043309670",
+        "isbn-9791399178555"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "deeba74b698e95b6",
+  "fuente_hash": "c6798e832fbe1c75",
   "origen": "chatgpt-web"
 }

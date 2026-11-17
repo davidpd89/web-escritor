@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798888505007",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las llaves de Hékate: Iniciación a su brujería moderna se dirige a quienes buscan una lectura sobre brujería moderna desde una perspectiva espiritual. Por su enfoque de iniciación y sus 256 páginas, se aleja de las lecturas centradas en nutrición o bienestar físico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Las llaves de Hékate: Iniciación a su brujería moderna está disponible en tapa blanda, con 256 páginas en castellano. Este formato permite llevar el volumen en una bolsa y consultar distintos pasajes durante la lectura, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las llaves de Hékate: Iniciación a su brujería moderna comparte con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia el interés por la espiritualidad. La obra de Cyndi Brannen se centra en la iniciación a la brujería moderna, mientras que la de Barbara Hand Clow aborda el desarrollo de la consciencia desde la perspectiva de las nueve dimensiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e529d341beb8807",
+  "origen": "chatgpt-web"
+}

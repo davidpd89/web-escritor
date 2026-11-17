@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788468376950",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Éric (Periscopio) se dirige a lectores de narrativa juvenil contemporánea, dentro de una propuesta alejada de la fantasía y la ciencia ficción. Por su clasificación como novela juvenil, no responde al mismo interés que los ensayos históricos o los cómics de acción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Éric (Periscopio), de Care Santos, se publica en tapa blanda y cuenta con 256 páginas en castellano. La edición de Edebé ofrece una novela juvenil de extensión intermedia, en un volumen de papel que puede llevarse durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Éric (Periscopio) y Bajo la estela de un legado son obras narrativas de Care Santos y Carmen Galvañ Bernabé, respectivamente, aunque sus títulos no permiten establecer un conflicto compartido. Frente a Blue Lock nº 33 (Manga Shonen), Éric (Periscopio) se sitúa en la narrativa juvenil contemporánea, mientras que el otro título pertenece al manga shonen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399178555",
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a5188b41bfcdcde",
+  "origen": "chatgpt-web"
+}

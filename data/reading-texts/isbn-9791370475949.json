@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370475949",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal se dirige a lectores interesados en el estudio jurídico de la agresión sexual cometida mediante actuación conjunta. Sus 330 páginas y su enfoque dogmático y comparado lo alejan de la narrativa de ficción y de los textos de divulgación general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal reúne 330 páginas. El volumen físico permite consultar el análisis jurídico y regresar a apartados anteriores durante el estudio, con el texto íntegro en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal comparte materia jurídica con Argumentacion Juridica, de Carlos Parma. El trabajo de Víctor Rodríguez Alonso delimita su objeto al artículo 180.1.1ª del Código Penal, mientras que el título de Carlos Parma plantea la argumentación jurídica como asunto central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95103788f03deaf6",
+  "origen": "chatgpt-web"
+}

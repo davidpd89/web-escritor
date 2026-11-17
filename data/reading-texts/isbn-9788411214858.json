@@ -4,40 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El monje urbano: Manual de meditación y vida simple (Sabiduría perenne), de Chema Muela, se dirige a lectores interesados en la meditación, la espiritualidad y el desarrollo personal. Su planteamiento gira alrededor de la vida sencilla y la práctica espiritual, por lo que se aleja de los libros centrados exclusivamente en astrología, magia u ocultismo.",
+      "texto": "Está dirigido a lectores interesados en la meditación, la espiritualidad y las prácticas de vida sencilla. Por su planteamiento de manual, encaja menos con quien busca una novela o un estudio centrado exclusivamente en cuestiones económicas y profesionales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 344 páginas en una edición física que permite alternar la lectura con la consulta de sus contenidos sobre meditación. Kindle facilita llevar el manual en formato digital y acceder a él desde un lector electrónico o el móvil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia comparte el interés por la espiritualidad y el trabajo sobre la consciencia. El monje urbano: Manual de meditación y vida simple (Sabiduría perenne), de Chema Muela, se centra en la meditación y la sencillez cotidiana, mientras que el título de Barbara Hand Clow plantea la exploración de nueve dimensiones de la consciencia.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
         "afines_catalogo"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer El monje urbano: Manual de meditación y vida simple (Sabiduría perenne), de Chema Muela, en un volumen físico de 344 páginas. Es la edición disponible para quien prefiera tener el manual en papel y consultarlo sin depender de una pantalla.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "numero_paginas",
-        "formatos_disponibles",
-        "formato_edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El monje urbano: Manual de meditación y vida simple (Sabiduría perenne), de Chema Muela, puede compararse con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. Ambos títulos abordan la práctica espiritual, aunque el primero se centra en la meditación y la vida sencilla, mientras que el segundo incorpora astrología, filosofía y magia.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9798888505335"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6954ac2872a21adf",
+  "fuente_hash": "3a18f4b186ba88b8",
   "origen": "chatgpt-web"
 }

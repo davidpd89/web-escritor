@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388102035",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cult of the Lamb nº 01 (Novela gráfica), de Alex Paknadel y Troy Little, se dirige a lectores de cómic y narrativa gráfica juvenil. Su presentación en viñetas encaja menos con quienes prefieren novelas contadas exclusivamente mediante prosa. El título lo identifica como el n.º 01.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cult of the Lamb nº 01 (Novela gráfica) tiene una edición en tapa dura de 144 páginas, publicada en castellano por Planeta Cómic. La encuadernación rígida protege las páginas durante la consulta y facilita conservar el volumen en una colección de novelas gráficas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blue Lock nº 33 (Manga Shonen) y Cult of the Lamb nº 01 (Novela gráfica) comparten el formato narrativo basado en imágenes y texto. El primero se presenta como manga shonen de Yusuke Nomura y Muneyuki Kaneshiro, mientras que el segundo es una novela gráfica de Alex Paknadel y Troy Little. Sus títulos identifican entregas distintas dentro de sus respectivas publicaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "34414e70e39e7561",
+  "origen": "chatgpt-web"
+}

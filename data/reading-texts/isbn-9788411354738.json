@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788411354738",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Protocolo de actuación para conductores ante un accidente de tráfico-TMVI0028 se dirige a quienes buscan información sobre cómo actuar ante un siniestro vial desde la posición del conductor. Su temática práctica se diferencia de una lectura centrada en mecánica del automóvil, normativa general de circulación o relatos de viajes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Protocolo de actuación para conductores ante un accidente de tráfico-TMVI0028 se publica en tapa blanda y tiene 62 páginas en castellano. La extensión facilita manejarlo como un volumen físico breve y localizar mediante marcadores los apartados que se quieran consultar sobre la actuación ante accidentes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Protocolo de actuación para conductores ante un accidente de tráfico-TMVI0028 comparte autor, Miguel Ángel Cañedo Fernández, y ámbito del transporte con Transporte de viajeros con características especiales-TMVI0023. El primero delimita su contenido a la actuación del conductor ante accidentes; el segundo se ocupa del transporte de pasajeros con necesidades particulares. La elección temática depende de si interesa la respuesta ante un siniestro o las características del servicio de transporte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586415"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "867f7e0816f52d5d",
+  "origen": "chatgpt-web"
+}

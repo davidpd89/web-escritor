@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388441271",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cabezones del universo se dirige a lectores de cómic y novela gráfica que buscan una obra de extensión contenida. Sus 104 páginas y su edición en tapa dura lo diferencian de la narrativa contemporánea en prosa y de los libros de varios centenares de páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cabezones del universo está editado en tapa dura y tiene 104 páginas, una combinación apropiada para conservar el volumen en una estantería o regalarlo en formato físico. La edición de Plan B Publicaciones, S.l. reúne el contenido en castellano dentro de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0e189f0e5aeaa338",
+  "origen": "chatgpt-web"
+}

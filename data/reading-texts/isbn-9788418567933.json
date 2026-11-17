@@ -4,46 +4,45 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Agustín penón y Federico García Lorca se dirige a lectores interesados en la historia literaria, las pesquisas biográficas y los archivos del franquismo. Juan Carlos García de Polavieja reconstruye el trabajo de Agustín Penón para esclarecer el destino de Federico García Lorca, por lo que encaja menos con quienes buscan una antología poética o una narración de ficción.",
+      "texto": "Agustín penón y Federico García Lorca está dirigido a lectores interesados en la historia, la investigación biográfica y la figura de Federico García Lorca. Sus 275 páginas incluyen abundante material documental sobre Agustín Penón; se aleja de quienes buscan una novela de ficción o una antología poética.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Agustín penón y Federico García Lorca reconstruye la investigación que Agustín Penón realizó en Granada desde 1955 sobre el destino del poeta. Juan Carlos García de Polavieja aborda sus entrevistas con personas cercanas y adversarios de Federico García Lorca, la vigilancia policial franquista y las dificultades para publicar el trabajo biográfico.",
+      "texto": "Agustín penón y Federico García Lorca examina las pesquisas realizadas por Agustín Penón para reconstruir la trayectoria y el fallecimiento del poeta. El investigador llegó a Granada en 1955 y habló con personas cercanas y contrarias a Lorca, incluido Ramón Ruiz Alonso, responsable de su detención. La obra aborda también el seguimiento de la policía franquista y reúne más de 200 fotografías y documentos.",
       "evidencias": [
         "titulo",
-        "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Agustín penón y Federico García Lorca se ofrece en tapa blanda, en una edición de Alvarellos Editora de 275 páginas. El volumen incorpora más de 200 fotografías y documentos, por lo que el ejemplar físico permite recorrer el material gráfico junto al texto y volver a las imágenes durante la lectura.",
+      "texto": "Agustín penón y Federico García Lorca se presenta en tapa blanda, con 275 páginas y más de 200 fotografías y documentos. El formato impreso permite alternar la lectura histórica con la consulta del material gráfico y documental reunido en el volumen.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Agustín penón y Federico García Lorca puede compararse con Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor, por su relación con el ámbito artístico. La obra de Juan Carlos García de Polavieja se concentra en una investigación histórica sobre Federico García Lorca, mientras que Amarte plantea desde su título una relación más amplia entre el amor y el arte.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte con Agustín penón y Federico García Lorca el interés por la historia y sus protagonistas, aunque aborda el derrumbe de una democracia en lugar de una investigación biográfica. A sangre y fuego (Clásicos ilustrados), de Manuel Chaves Nogales, ofrece otra aproximación a cuestiones históricas desde una obra de distinta autoría, mientras Juan Carlos García de Polavieja reconstruye el trabajo documental de Agustín Penón.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084122"
+        "isbn-9788411005517",
+        "isbn-9791387752590"
       ]
     }
   ],

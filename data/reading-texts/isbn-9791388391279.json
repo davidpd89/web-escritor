@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388391279",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Breve diario, comentado, de un imbécil se dirige a lectores de narrativa juvenil y contemporánea en castellano. Sus 200 páginas permiten abordar una obra de extensión moderada; por su clasificación editorial, queda fuera de las búsquedas centradas en divulgación científica o ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Breve diario, comentado, de un imbécil está disponible en tapa blanda, con 200 páginas publicadas por Editorial Cuadranta. Esta edición física permite llevar el libro en el bolso o la mochila y conservarlo en papel para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo la estela de un legado, de Carmen Galvañ Bernabé, y Con la mosca detrás de la oreja, de Vera Nómada, son otras lecturas del catálogo que pueden ponerse junto a Breve diario, comentado, de un imbécil. La diferencia verificable está en la autoría: este último pertenece a Carlos Marchena González y se presenta como narrativa juvenil y contemporánea de 200 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399178555",
+        "isbn-9791388391248"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d396567ada71f200",
+  "origen": "chatgpt-web"
+}

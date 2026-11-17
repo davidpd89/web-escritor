@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419819864",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kare Kano 5 (Shôjo) se dirige a lectores de manga que buscan romance y narrativa contemporánea en formato de cómic. Su planteamiento se distancia de la novela tradicional en prosa y de las historias centradas en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kare Kano 5 (Shôjo) está publicado en tapa blanda por Distrito Manga, con 428 páginas en castellano. Esta edición física permite conservar el volumen junto a otros títulos de la colección y consultar sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kare Kano 6 (Shôjo) comparte autora, Masami Tsuda, y pertenece a la misma serie, aunque el título lo identifica como el n.º 6 frente al n.º 5 de Kare Kano 5 (Shôjo). Honey lemon soda 5 (Shôjo), de Mayu Murata, coincide en su orientación hacia el manga romántico, pero corresponde a otra obra y otra autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410305533",
+        "isbn-9791387962685"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e11ba053b077ddc9",
+  "origen": "chatgpt-web"
+}

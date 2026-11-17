@@ -4,33 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La vida en los establecimientos termales de la provincia de Alicante: El balneario de Salinetas de Novelda (Monografías) se dirige a quienes buscan una monografía sobre establecimientos termales y un balneario concreto. Por su delimitación territorial y temática, se distancia de los recetarios de cocina y de las obras de bienestar centradas en hábitos personales.",
+      "texto": "La vida en los establecimientos termales de la provincia de Alicante: El balneario de Salinetas de Novelda (Monografías) se dirige a lectores interesados en el estudio de los espacios termales y su contexto territorial. Por su enfoque monográfico y sus 444 páginas, se distancia de quien busca una guía breve de balnearios o un recetario de cocina.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 444 páginas de La vida en los establecimientos termales de la provincia de Alicante: El balneario de Salinetas de Novelda (Monografías). Publicada en castellano por Publicaciones de la Universidad de Alicante, ofrece un volumen físico extenso para lectura y consulta sobre su materia específica.",
+      "texto": "La vida en los establecimientos termales de la provincia de Alicante: El balneario de Salinetas de Novelda (Monografías) cuenta con una edición en tapa blanda de 444 páginas. El volumen físico de Publicaciones de la Universidad de Alicante permite señalar apartados y mantenerlo como obra de consulta en una biblioteca de estudio.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
+        "formatos_disponibles",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Opiniones cruzadas para la optimización presente y futura del Campus Universitario de Tafira: 1 y La vida en los establecimientos termales de la provincia de Alicante: El balneario de Salinetas de Novelda (Monografías) comparten la atención a espacios concretos. La obra de Vicente Ángel Mirallave Izquierdo y Flora Pescador Monagas trata un campus universitario, mientras que Rosanna Arango Escursà estudia establecimientos termales de la provincia de Alicante.",
+      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas), de Carlos Briones, comparte con La vida en los establecimientos termales de la provincia de Alicante: El balneario de Salinetas de Novelda (Monografías) la relación entre ámbitos científicos y culturales. El primero anuncia un diálogo de alcance general, mientras que la obra de Rosanna Arango Escursà se concentra en un establecimiento termal y su entorno geográfico.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788490425855"
+        "isbn-9788401039287"
       ]
     }
   ],

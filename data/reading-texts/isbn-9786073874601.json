@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073874601",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi Casi Casi Mamá / My Almost-Almost Mom se orienta a lectores infantiles y a quienes buscan libros relacionados con las figuras familiares y la crianza. Con 136 páginas, ofrece una extensión intermedia dentro de la lectura infantil; quienes prefieren una obra técnica sobre educación o una novela adulta encontrarán un enfoque diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi Casi Casi Mamá / My Almost-Almost Mom está editado en tapa blanda y reúne 136 páginas en castellano. La encuadernación flexible facilita transportarlo y compartir su lectura en papel; su extensión permite repartirlo en sesiones sin manejar un volumen especialmente grueso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi Casi Casi Mamá / My Almost-Almost Mom y La casa de acogida de Choco se relacionan por su orientación infantil y su vínculo temático con el entorno familiar. El título de José Ignacio Valenzuela apunta a una figura materna, mientras que el de Lorena Delgado introduce el contexto de una casa de acogida; son dos puntos de partida distintos para abordar las relaciones familiares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410908451"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4cedd0b6255fac7",
+  "origen": "chatgpt-web"
+}

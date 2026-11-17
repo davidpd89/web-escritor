@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9798182985062",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡NO PUEDES HACERME ENOJAR! Porque nadie más puede decidir en quién me convierto está dirigido a lectores interesados en el desarrollo personal, especialmente en la relación entre el enfado y la capacidad de decidir sobre la propia conducta. Con 138 páginas, se aleja de las lecturas de ficción y de los tratados extensos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡NO PUEDES HACERME ENOJAR! Porque nadie más puede decidir en quién me convierto tiene 138 páginas y se ofrece en tapa blanda y Kindle. El papel facilita tenerlo a mano para consultas puntuales; Kindle permite leerlo desde el móvil o un dispositivo compatible, sin cargar con el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡NO PUEDES HACERME ENOJAR! Porque nadie más puede decidir en quién me convierto se aproxima a Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta, de Fausto Alfaro Cádiz, por su interés en la respuesta personal ante las dificultades. El primero pone el foco en el enfado y las decisiones individuales; el segundo plantea diez principios para afrontar momentos difíciles.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938193"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f7d8aed8f6710201",
+  "origen": "chatgpt-web"
+}

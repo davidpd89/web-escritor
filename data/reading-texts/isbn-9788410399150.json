@@ -4,37 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Escuela de mitos y magia. El beso de la ondina: 1 (Inlov Romantasy) encaja con lectores interesados en la fantasía romántica, la magia y las aventuras. Su combinación de romance y elementos fantásticos se aleja de las lecturas realistas o centradas exclusivamente en la ciencia ficción.",
+      "texto": "Escuela de mitos y magia. El beso de la ondina: 1 (Inlov Romantasy) se dirige a lectores que buscan fantasía con componentes románticos y de aventura. Su combinación de géneros se aparta de la narrativa realista y de las historias centradas únicamente en relaciones sentimentales.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible de Escuela de mitos y magia. El beso de la ondina: 1 (Inlov Romantasy) es en tapa blanda, con 416 páginas en castellano. Este formato permite leer una novela extensa en papel sin el peso habitual de una encuadernación rígida.",
+      "texto": "Escuela de mitos y magia. El beso de la ondina: 1 (Inlov Romantasy) está editado en tapa blanda y tiene 416 páginas. Esta presentación permite leer una novela extensa en papel, con una encuadernación flexible para transportarla y guardarla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El rey de los lobos / The Wolf King: 1, de Lauren Palphreyman, comparte con Escuela de mitos y magia. El beso de la ondina: 1 (Inlov Romantasy) su identificación como primera entrega y su presencia entre las lecturas de fantasía romántica del catálogo. La diferencia más visible está en sus referentes: lobos y realeza en un título, escuela y criaturas míticas en el otro.",
+      "texto": "Escuela de mitos y magia. El beso de la ondina: 1 (Inlov Romantasy) puede compararse con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, por su relación con la fantasía y los dones extraordinarios. La novela de Jennifer Alice Jager incorpora romance y aventuras, mientras que la presentación de la obra de Marta Morillo destaca a una protagonista que oculta sus capacidades. También figura como lectura próxima Blanco de niebla y locura (TBR), de Lisette Marshall, aunque se trata de obras de distinta autoría.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073874762"
+        "isbn-9791387949938",
+        "isbn-9788410116221"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e2f5168dec2480a9",
+  "fuente_hash": "cd705189c3cda1d5",
   "origen": "chatgpt-web"
 }

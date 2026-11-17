@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788425375439",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Incel (Grijalbo Narrativa) se orienta a quienes buscan narrativa contemporánea en castellano. La obra de Gema del Castillo tiene 224 páginas y encaja menos con lectores que prefieren cómics, novelas gráficas o relatos de fantasía frente a la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Incel (Grijalbo Narrativa) puede leerse en tapa blanda o en Kindle. La edición impresa de Grijalbo tiene 224 páginas y permite leer sin dispositivos; Kindle facilita llevar el texto en un lector electrónico o en el móvil y ajustar su visualización.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5bef8c921e547f5f",
+  "origen": "chatgpt-web"
+}

@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dead Mount Death Play 9 (Seinen) encaja con lectores de manga que buscan aventuras con elementos de terror y narrativa contemporánea. No responde a las preferencias de quienes evitan el terror o buscan una novela convencional sin lenguaje de cómic.",
+      "texto": "Dead Mount Death Play 9 (Seinen) encaja con lectores de manga que buscan aventuras dentro de una narración contemporánea. Sus 232 páginas desarrollan la lectura mediante el lenguaje del cómic, por lo que no responde a quien busque una novela convencional escrita en prosa.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Dead Mount Death Play 9 (Seinen) tiene una edición en tapa blanda de 232 páginas, publicada en castellano por Distrito Manga. El formato permite conservar el volumen en una colección física y leer sus páginas sin depender de un dispositivo electrónico.",
+      "texto": "Dead Mount Death Play 9 (Seinen) se publica en tapa blanda, con 232 páginas en castellano. Es una edición física de Distrito Manga que permite incorporar el volumen a una colección en papel; su cubierta flexible resulta distinta de una encuadernación rígida destinada a la estantería.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dead Mount Death Play 9 (Seinen) puede compararse con After God 8 (Shônen), de Sumi Eno, por su pertenencia al manga y su identificación con públicos editoriales distintos. También se relaciona con Winter Blood 4 (Uprising Comics), de Antonio Rojo y Jason Michalski, como alternativa de lectura gráfica, aunque corresponde a otra obra y otros autores.",
+      "texto": "Dead Mount Death Play 9 (Seinen) y Wind Breaker 17 (Shônen) comparten el formato narrativo del manga, pero pertenecen a obras de autores distintos: Shinta Fujimoto y Ryohgo Narita frente a Satoru Nii. Galaxias, 1 (Shônen - Galaxias), de Ao Hatesaka, ofrece otra referencia de manga cuyo título identifica un número diferente dentro de su colección.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +32,14 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388003479",
-        "isbn-9791387962647"
+        "isbn-9782811699475",
+        "isbn-9788419819635",
+        "isbn-9791387962623"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "67739f9ca93ef471",
+  "fuente_hash": "d67bb4ee89da01b8",
   "origen": "chatgpt-web"
 }

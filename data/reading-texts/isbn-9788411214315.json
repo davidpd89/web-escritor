@@ -1,31 +1,30 @@
 {
   "id": "isbn-9788411214315",
-  "familia": "practico",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual se dirige a lectores interesados en la reflexión filosófica y las prácticas espirituales. Soledad Davies reúne estos asuntos en una obra de 240 páginas. Quien busque una novela de fantasía con una trama de ficción encontrará aquí un enfoque ensayístico.",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual se dirige a lectores interesados en la espiritualidad, la filosofía y las prácticas relacionadas con la astrología y la magia. Su planteamiento ensayístico lo diferencia de quienes buscan ficción fantástica o narraciones protagonizadas por personajes imaginarios.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual está disponible en tapa blanda y Kindle. La edición en papel de Editorial Kairós SA tiene 240 páginas y permite consultar pasajes sin pantalla; Kindle facilita llevar la lectura en un dispositivo compatible y acceder a ella sin transportar el volumen físico.",
+      "texto": "La tapa blanda reúne las 240 páginas de Astrología, filosofía y magia: Un camino de práctica espiritual en una edición física de Editorial Kairós SA. Kindle permite consultar el contenido en formato digital, una alternativa para leer el ensayo en dispositivos electrónicos sin transportar el libro.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
         "numero_paginas",
+        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual y La cosmovisión de los chamanes / The Worldview of the Shamans comparten el interés por las tradiciones espirituales. Soledad Davies relaciona astrología, filosofía y magia, mientras que Jacobo Grinberg-Zylberbaum centra su obra en la cosmovisión chamánica. Ambas abordan estos asuntos desde autorías diferentes.",
+      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual comparte terreno de reflexión con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar. Mientras el primero vincula astrología, filosofía y magia con una práctica espiritual, el segundo plantea desde su propio título una recopilación de pensamientos para la reflexión y la meditación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073874274"
+        "isbn-9791387548278"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "32e760ddab359cd9",
+  "fuente_hash": "31edf85745bb2ae1",
   "origen": "chatgpt-web"
 }

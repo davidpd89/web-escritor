@@ -4,37 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Kare Kano 6 (Shôjo) se orienta a lectores de manga interesados en el romance, las relaciones de pareja y la narrativa contemporánea. Su enfoque sentimental lo distancia de las lecturas centradas en la fantasía de aventuras o el terror.",
+      "texto": "Kare Kano 6 (Shôjo), de Masami Tsuda, encaja con quienes buscan romance y narrativa contemporánea contados mediante cómic. Su enfoque se aleja de la novela tradicional en prosa, por lo que puede no ajustarse a lectores que prefieran ese tipo de narración.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Kare Kano 6 (Shôjo) puede leerse en tapa blanda o en Kindle, según se prefiera conservar sus 388 páginas en papel o llevar la lectura en un dispositivo compatible. La edición física permite incorporarlo a una colección, mientras que Kindle facilita leerlo sin transportar el volumen.",
+      "texto": "La edición en tapa blanda de Kare Kano 6 (Shôjo) reúne 388 páginas y permite conservar el volumen en papel. Kindle ofrece una alternativa digital para leerlo en un dispositivo compatible sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Honey lemon soda 4 (Shôjo) y Kare Kano 6 (Shôjo) comparten la identificación shôjo y su relación con el manga. Se distinguen por la autoría, Mayu Murata frente a Masami Tsuda, y por los números 4 y 6 que aparecen en sus respectivos títulos.",
+      "texto": "Kare Kano 6 (Shôjo) comparte con Honey lemon soda 4 (Shôjo), de Mayu Murata, el romance y la identificación editorial como shôjo. La diferencia está en la autoría y en el número indicado en cada título: Masami Tsuda firma el primero y Mayu Murata el segundo. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, ofrece otra comparación dentro de esa misma identificación editorial.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791387962494",
         "isbn-9791387962487"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "289b7965ff72b3b0",
+  "fuente_hash": "86ebad5940981048",
   "origen": "chatgpt-web"
 }

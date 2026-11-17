@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La escalera mágica hacia el éxito: Por el autor de piense y hágase rico, de Napoleon Hill, se orienta a lectores interesados en el éxito personal, la autoayuda y su relación con el ámbito económico. Su planteamiento se diferencia de una guía de inversión especializada o de un libro dedicado exclusivamente a cuestiones de salud.",
+      "texto": "La escalera mágica hacia el éxito: Por el autor de piense y hágase rico, de Napoleon Hill, se dirige a lectores interesados en el desarrollo personal y el éxito económico. Su orientación hacia la autoayuda y la empresa la distingue de una guía técnica sobre operaciones financieras concretas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La escalera mágica hacia el éxito: Por el autor de piense y hágase rico está disponible en tapa blanda y reúne 232 páginas. Su extensión permite leerlo de forma continuada o repartir la lectura en varias sesiones, con la posibilidad de subrayar y marcar directamente las páginas del ejemplar físico.",
+      "texto": "La escalera mágica hacia el éxito: Por el autor de piense y hágase rico está disponible en tapa blanda y consta de 232 páginas. Su edición en papel permite subrayar conceptos y recuperar pasajes durante la lectura, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -22,7 +22,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La escalera mágica hacia el éxito: Por el autor de piense y hágase rico comparte autor y temática con La ciencia del éxito / Napoleon Hill's Master Course: The Original Science of Success, de Napoleon Hill. Ambas obras tratan el éxito personal, aunque la primera lo presenta mediante la imagen de una escalera y la segunda lo aborda como objeto de estudio. También puede compararse con El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción), de Rafa Rodrigo, que centra su propuesta en la comunicación personal.",
+      "texto": "La escalera mágica hacia el éxito: Por el autor de piense y hágase rico se relaciona con La ciencia del éxito / Napoleon Hill's Master Course: The Original Science of Success, también de Napoleon Hill. Los dos títulos comparten autor y el éxito como asunto central, aunque el primero utiliza la metáfora de una escalera y el segundo presenta el tema como una ciencia y un curso.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +31,12 @@
       ],
       "enlaces": [
         "isbn-9788466394406",
-        "isbn-9786073875653",
-        "isbn-9791388139239"
+        "isbn-9786073875653"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0be6e5973b6f6b30",
+  "fuente_hash": "5d79bcf1ca184c26",
   "origen": "chatgpt-web"
 }

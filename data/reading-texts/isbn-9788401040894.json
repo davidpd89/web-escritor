@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Y ahora... ¿qué?, de Adam J. Kurtz, se dirige a lectores interesados en el desarrollo personal, la familia y las actividades de ocio. Su enfoque temático lo distingue de los manuales especializados en nutrición o rendimiento deportivo, que abordan ámbitos más concretos.",
+      "texto": "Y ahora... ¿qué? (Obras diversas) se dirige a lectores interesados en el desarrollo personal, el bienestar y las actividades de tiempo libre. Por su orientación práctica, se distancia de las novelas de ficción y de los manuales centrados exclusivamente en una disciplina técnica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda contiene sus 320 páginas en un volumen físico manejable, pensado para leer en papel y conservar en la biblioteca personal. Es el formato disponible para esta edición de Y ahora... ¿qué?, de Adam J. Kurtz.",
+      "texto": "Y ahora... ¿qué? (Obras diversas) está disponible en tapa blanda, con 320 páginas en castellano. Esta edición de Plaza & Janés permite consultar distintas partes del libro en papel y transportarlo sin el peso habitual de una encuadernación rígida.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La obra de Adam J. Kurtz comparte con Cambiar para Vivir, Colección Autoayuda, de Raúl Mir Coll, el interés por el desarrollo personal. En cambio, Gabinete de maravillas para colorear (Somos B), de Carlota Santos, se centra en una actividad creativa de ocio, mientras que la primera se relaciona con la autoayuda, la familia y el bienestar.",
+      "texto": "Cambiar para Vivir, Colección Autoayuda comparte con el libro de Adam J. Kurtz el ámbito del desarrollo personal, aunque su título apunta específicamente al cambio vital. Defiéndete: Claves básicas para fortalecer tu seguridad personal y salir a la calle sin miedo (Alienta) se centra en la seguridad personal, mientras que la obra de Adam J. Kurtz abarca desarrollo personal, bienestar y tiempo libre.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +33,12 @@
       ],
       "enlaces": [
         "isbn-9788415122562",
-        "isbn-9788466685542"
+        "isbn-9788413445373"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "03d36eacca3d89ef",
+  "fuente_hash": "3bd941e3a918c8cc",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388037917",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Guardia del Camino encaja con lectores interesados en novelas históricas que incorporan aventuras y cuestiones religiosas o espirituales. Por su orientación temática, se aleja de quienes buscan narrativa contemporánea sin componente histórico o una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Guardia del Camino está disponible en tapa blanda y Kindle, dos opciones para abordar sus 552 páginas. La edición impresa permite leerlo en papel, mientras que Kindle facilita llevar una novela de esta extensión en un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Guardia del Camino comparte con Astur (Saga de la Reconquista) (Éxitos) su orientación hacia la novela histórica, aunque el libro de Lucas Varona Muñoz también se clasifica dentro de la religión y la espiritualidad. Uno, el todo: En busca del dios primigenio (Novela Histórica) ofrece otra comparación por la combinación de historia y cuestiones religiosas sugerida por sus respectivos títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205782",
+        "isbn-9788401039539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "682d433263843f96",
+  "origen": "chatgpt-web"
+}

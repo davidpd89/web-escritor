@@ -4,25 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Crónica de una esquizofrenia, de Isaac Soler Villanueva, se sitúa entre la psicología, el ensayo, el desarrollo personal y los géneros de ficción especulativa. Puede interesar a quienes buscan una aproximación literaria a cuestiones psicológicas. Por su combinación de enfoques, se aleja de las lecturas dedicadas únicamente a técnicas de bienestar o a la fantasía de aventuras.",
+      "texto": "Crónica de una esquizofrenia se dirige a lectores interesados en la psicología y en textos relacionados con la salud mental. Su clasificación combina ensayo, desarrollo personal y ciencia ficción, por lo que se aleja de quienes buscan exclusivamente una guía clínica o una novela romántica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Crónica de una esquizofrenia se presenta en tapa blanda y tiene 141 páginas. Su extensión es menor que la de muchos volúmenes de consulta, por lo que resulta manejable para transportarlo y leerlo en papel. La edición física permite regresar a pasajes concretos sin depender de una pantalla.",
+      "texto": "Crónica de una esquizofrenia está disponible en tapa blanda y Kindle, con una extensión de 141 páginas. La edición impresa permite conservar y consultar el volumen físicamente; Kindle ofrece una alternativa digital para leerlo en el móvil o en un lector electrónico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Crónica de una esquizofrenia y Abraza a tu niño interior: Nunca es tarde para sanar tu infancia comparten el interés por cuestiones psicológicas y personales. La obra de Isaac Soler Villanueva incorpora también ciencia ficción, fantasía y ensayo, mientras que el título de Victoria Cadarso dirige la atención hacia la infancia y los procesos de sanación personal.",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia y Crónica de una esquizofrenia comparten su relación temática con la psicología y el desarrollo personal. El libro de Victoria Cadarso se centra, desde su título, en la infancia y la recuperación emocional, mientras que el de Isaac Soler Villanueva aborda la esquizofrenia y figura también entre el ensayo y la ciencia ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a4e146455166f1f6",
+  "fuente_hash": "86e71fc018c0bd98",
   "origen": "chatgpt-web"
 }

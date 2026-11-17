@@ -4,36 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores de novela histórica que buscan una obra extensa en castellano. Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general), de Francisca Solar, tiene 640 páginas y se aleja de las lecturas breves o de quienes prefieren otros géneros.",
+      "texto": "Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general) se dirige a lectores de novela histórica que buscan una obra extensa en castellano. Sus 640 páginas y su edición en tapa dura responden a una lectura de largo recorrido; por género, se aleja de quienes prefieren manuales técnicos o narrativa centrada en el presente.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general) se presenta en tapa dura, con 640 páginas en castellano. La encuadernación rígida resulta práctica para conservar un volumen extenso en la biblioteca o regalarlo en formato físico.",
+      "texto": "La edición de Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general) está disponible en tapa dura, con 640 páginas. Es un volumen físico pensado para conservar en la estantería y consultar o releer sin depender de dispositivos electrónicos; su encuadernación rígida también permite regalarlo como libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general) comparte su orientación histórica con Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián. La diferencia está en el enfoque anunciado: Astur se vincula expresamente con la Reconquista, mientras que la obra de Francisca Solar se presenta como novela histórica sin esa delimitación en el título.",
+      "texto": "Buzón de las impuras, el coleccionista TD (Chi) (Narrativa general) comparte el terreno de la novela histórica con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon. La primera obra es de Francisca Solar y tiene 640 páginas; la segunda, de Valerio Massimo Manfredi, identifica en su título una continuación y menciona Amón como referencia histórica.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401039539"
+        "isbn-9786287897090"
       ]
     }
   ],

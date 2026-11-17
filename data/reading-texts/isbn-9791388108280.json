@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388108280",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El exorcismo de las hadas: Perversas realidades: libro 1 (Faeris Editorial) encaja con lectores que buscan fantasía combinada con romance. Su orientación hacia lo fantástico y las relaciones sentimentales lo aleja de quienes prefieren narraciones estrictamente realistas y sin componentes románticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El exorcismo de las hadas: Perversas realidades: libro 1 (Faeris Editorial) se ofrece en tapa blanda, con 416 páginas en castellano. La edición de Faeris permite tener el volumen completo en papel, tanto para leerlo como para incorporarlo a una colección física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El exorcismo de las hadas: Perversas realidades: libro 1 (Faeris Editorial) comparte editorial con Endemoniada (Faeris Editorial), de Laura Thalassa. La diferencia identificable está en la autoría: J.L. Vampa firma el primero, cuyo título lo identifica como libro 1, mientras que el segundo aparece como una obra de otra autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108303"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d127cc1fe872eb8d",
+  "origen": "chatgpt-web"
+}

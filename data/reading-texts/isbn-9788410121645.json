@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410121645",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Archivos de la felicidad: Reflexiones sobre la vida y el trabajo, de Arthur C. Brooks, está dirigido a lectores interesados en la psicología, el desarrollo personal y el ámbito laboral. Su planteamiento de reflexiones sobre la vida y el trabajo se aparta de los manuales centrados exclusivamente en procedimientos empresariales o cuestiones económicas técnicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los Archivos de la felicidad: Reflexiones sobre la vida y el trabajo cuenta con una edición en tapa dura de 264 páginas. La encuadernación rígida ofrece protección al volumen durante su conservación y permite regalar una edición física de las reflexiones de Arthur C. Brooks.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Archivos de la felicidad: Reflexiones sobre la vida y el trabajo puede compararse con Rinde sin perderte: Lo que nadie te dice cuando funcionas por fuera y te vacías por dentro, de Miguel Obradors, por su atención a la experiencia personal relacionada con el trabajo. Arthur C. Brooks plantea reflexiones sobre felicidad, vida y trabajo, mientras que Miguel Obradors pone el foco en el desgaste personal asociado al rendimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409920099"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf7f5fbbe590abde",
+  "origen": "chatgpt-web"
+}

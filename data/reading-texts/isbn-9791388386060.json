@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388386060",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fugitivo de mí se sitúa entre el ensayo y la narrativa contemporánea, por lo que encaja con lectores interesados en esas dos formas de escritura. Con 244 páginas, ofrece una extensión intermedia frente a obras más voluminosas y se aleja de las preferencias centradas exclusivamente en fantasía o manuales técnicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fugitivo de mí cuenta con una edición en tapa blanda de 244 páginas, publicada por Pregunta Ediciones. El formato permite leerlo en papel y conservarlo en una biblioteca personal, con una extensión que facilita repartir la lectura entre distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fugitivo de mí comparte con Alfred y Emily (Narrativa) su vinculación con la narrativa, aunque el libro de Sergio Royo Bueno también se clasifica como ensayo y el de Doris Lessing se presenta como narrativa. Bajo la sombra del Vesubio: Vida de Plinio: 120 (Biblioteca de Ensayo / Serie mayor) permite otra comparación desde el ensayo, pero se centra en la vida de Plinio frente a la combinación de ensayo y narrativa contemporánea de Fugitivo de mí.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515",
+        "isbn-9788418708459"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05452ebcd5d15400",
+  "origen": "chatgpt-web"
+}

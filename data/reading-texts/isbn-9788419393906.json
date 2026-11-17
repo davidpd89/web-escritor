@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419393906",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La guerra de los vecinos: La geopolítica dentro de un edificio se dirige a quienes buscan un cómic o novela gráfica que relacione la convivencia vecinal con cuestiones geopolíticas. Su planteamiento lo diferencia de una obra centrada únicamente en la aventura fantástica o en la explicación académica de la política internacional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La guerra de los vecinos: La geopolítica dentro de un edificio cuenta con una edición en tapa blanda de 176 páginas, publicada por Garbuix Books. El soporte físico permite recorrer sus páginas como cómic o novela gráfica y conservar el volumen para posteriores consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La guerra de los vecinos: La geopolítica dentro de un edificio puede ponerse junto a Andersen: una vida de cuentos (Tiralíneas), de Fran Nuño, por su relación con la narrativa gráfica y las experiencias humanas. Mikko plantea una perspectiva geopolítica a escala vecinal, mientras que el título de Fran Nuño se centra en una figura vinculada a los cuentos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387702274"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b4ff836233d6003d",
+  "origen": "chatgpt-web"
+}

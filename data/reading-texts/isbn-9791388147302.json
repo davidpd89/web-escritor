@@ -4,34 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los tres mundos (Serie Julio César 3) se dirige a lectores de novela histórica interesados en las campañas militares, las disputas políticas y la trayectoria de Julio César. Sus 1040 páginas y la combinación de acontecimientos en Roma, la Galia y Egipto lo alejan de quienes buscan una lectura breve o centrada en un único escenario.",
+      "texto": "Los tres mundos (Serie Julio César 3) se dirige a lectores de novela histórica interesados en las campañas militares de Julio César y las disputas políticas de Roma. La narración también incorpora acontecimientos de Egipto y la Galia, por lo que abarca varios escenarios relacionados entre sí. Sus 1040 páginas y su continuidad con entregas anteriores lo alejan de quienes buscan una lectura breve o independiente de una serie.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Santiago Posteguillo aborda la conquista de las Galias desde una perspectiva que combina historia militar y conflictos de poder. La narración relaciona las campañas de Julio César con las tensiones políticas de Roma y el exilio de Tolomeo XII y Cleopatra en Egipto. Estos acontecimientos forman parte del ciclo dedicado al ascenso político de César.",
+      "texto": "Los tres mundos (Serie Julio César 3) aborda la conquista de las Galias, las rivalidades políticas romanas y el exilio de Tolomeo XII junto a Cleopatra. Santiago Posteguillo articula estos acontecimientos mediante una novela histórica ambientada en el 58 a. C., que relaciona los conflictos de Roma, la Galia y Egipto. La obra cierra la Trilogía del Ascenso dentro de la serie dedicada a Julio César.",
       "evidencias": [
+        "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los tres mundos (Serie Julio César 3) está disponible en tapa dura, tapa blanda, Kindle y audiolibro. Para sus 1040 páginas, la tapa blanda facilita el manejo frente a una edición rígida, mientras que la tapa dura ofrece una encuadernación más resistente para conservar el volumen. Kindle evita transportar un libro tan extenso y el audiolibro permite seguir la narración mediante escucha.",
+      "texto": "Los tres mundos (Serie Julio César 3) está disponible en tapa dura, tapa blanda, Kindle y audiolibro. Sus 1040 páginas hacen de la tapa dura una opción para conservar el volumen y de la tapa blanda una alternativa física; Kindle evita transportar ese grosor y el audiolibro permite seguir la narración mediante escucha.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los tres mundos (Serie Julio César 3) comparte autor y protagonista con las entregas anteriores de la serie de Santiago Posteguillo. Roma soy yo aborda los orígenes de Julio César y Maldita Roma se centra en su ascenso político, mientras que Los tres mundos desarrolla la conquista de las Galias y los conflictos de poder en Roma y Egipto. Las tres obras permiten seguir distintas etapas de la trayectoria del mismo personaje histórico.",
+      "texto": "Los tres mundos (Serie Julio César 3) comparte autor y ambientación histórica romana con Africanus (Trilogía Africanus 1) (edición conmemorativa 20.º aniversario) (Histórica), de Santiago Posteguillo. La diferencia está en la serie: Los tres mundos sigue la trayectoria de Julio César y culmina la Trilogía del Ascenso, mientras que Africanus se identifica como primera entrega de otra trilogía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,8 +41,7 @@
         "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791387871024",
-        "isbn-9788413148335"
+        "isbn-9788466681902"
       ]
     }
   ],

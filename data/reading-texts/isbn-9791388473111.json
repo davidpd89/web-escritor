@@ -4,39 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Lo primero que se rompió fue el corazón (Hispánica) se dirige a lectores de narrativa contemporánea interesados en historias relacionadas con la superación y el duelo. Su orientación temática lo aleja de quienes buscan principalmente fantasía, aventuras o manuales prácticos de desarrollo personal.",
-      "evidencias": [
-        "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Lo primero que se rompió fue el corazón (Hispánica) cuenta con una edición en tapa blanda de 368 páginas, publicada por Alfaguara. Este formato permite llevar la novela en papel y distribuir su lectura en varias sesiones, sin recurrir a un volumen de cubierta rígida.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "La librería de la memoria: El fenómeno coreano sobre el poder mágico de los libros (Áncora & Delfín) ofrece una comparación con Lo primero que se rompió fue el corazón (Hispánica) por su relación temática con la memoria, frente al duelo y la superación asociados a la obra de Julián Delgado Lopera. Vigilia (Biblioteca Formentor), de George Saunders, constituye otra alternativa narrativa con distinta autoría, aunque su título no permite establecer una coincidencia temática más concreta.",
+      "texto": "Lo primero que se rompió fue el corazón (Hispánica), de Julián Delgado Lopera, se dirige a lectores que buscan narrativa contemporánea en castellano. Con 368 páginas, se sitúa en una extensión intermedia y queda fuera de una búsqueda centrada en manuales prácticos o libros de consulta temática.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788423370887",
-        "isbn-9788432251641"
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lo primero que se rompió fue el corazón (Hispánica) está disponible en tapa blanda, con 368 páginas en castellano. Esta edición de Alfaguara permite leer el texto en papel y transportarlo sin la rigidez de una cubierta dura, una diferencia práctica para quienes llevan el libro consigo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5c49c92826b76ec6",
+  "fuente_hash": "5e63f7ff503a30eb",
   "origen": "chatgpt-web"
 }

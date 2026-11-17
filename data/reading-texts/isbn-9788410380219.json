@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Bosco y el otro renacimiento (Arte y diseño) se orienta a lectores interesados en la historia del arte y en el estudio del Renacimiento. Su temática histórica y artística lo diferencia de una novela ambientada en esa época o de un manual práctico para aprender a pintar.",
+      "texto": "El Bosco y el otro renacimiento (Arte y diseño), de Bernard Aikema y Fernando Checa Cremades, está dirigido a lectores interesados en historia y arte. No está planteado como una novela ni como una obra de ficción narrativa, sino dentro del ámbito de los libros de historia y arte.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Bosco y el otro renacimiento (Arte y diseño) cuenta con una edición en tapa dura de 352 páginas. La encuadernación rígida resulta adecuada para conservar el volumen y consultarlo repetidamente, aunque su extensión y formato físico lo hacen menos ligero que un libro de bolsillo.",
+      "texto": "La tapa dura reúne las 352 páginas de El Bosco y el otro renacimiento (Arte y diseño) en una edición física de cubierta rígida. Es el formato disponible en el catálogo y permite conservar el volumen en papel para consultarlo y releerlo.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
-        "numero_paginas"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Bosco y el otro renacimiento (Arte y diseño) puede compararse con Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia), de Kenneth Clark. Ambos relacionan arte e historia, pero Bernard Aikema y Fernando Checa Cremades centran su obra en El Bosco y el Renacimiento, frente al recorrido más amplio por la cultura moderna que anuncia el título de Kenneth Clark.",
+      "texto": "El Bosco y el otro renacimiento (Arte y diseño), de Bernard Aikema y Fernando Checa Cremades, comparte el ámbito artístico con Art for All: Surrealistas, de Andrea Kettenmann, Gilles Néret, Janis Mink, Marcel Paquet y Ulrich Bischoff. El primero incorpora la historia en su propio planteamiento y se centra en El Bosco y el Renacimiento; el segundo identifica expresamente el surrealismo como su objeto de atención.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,7 +31,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387592493"
+        "isbn-9783754401477",
+        "isbn-9783754401514"
       ]
     }
   ],

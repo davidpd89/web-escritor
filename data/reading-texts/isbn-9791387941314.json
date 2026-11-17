@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387941314",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de divulgación científica interesados en explorar cuestiones de ciencia mediante una obra de Antonio Cuesta. Por su orientación divulgativa, encaja menos con quienes buscan exclusivamente un manual profesional de procedimientos técnicos o una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gato del color prohibido (Divulgación Científica) está disponible en tapa blanda, con 288 páginas en castellano. La edición física permite leer sus contenidos científicos y volver a consultar pasajes sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA y El gato del color prohibido (Divulgación Científica) comparten una orientación hacia el conocimiento científico. El libro de Keith Mansfield se ocupa de la inteligencia artificial, mientras que el de Antonio Cuesta presenta una propuesta de divulgación identificada por su título y su colección científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ddecb0a2a2b30a67",
+  "origen": "chatgpt-web"
+}

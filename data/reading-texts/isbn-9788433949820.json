@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Trilogia Nova, la (Compendium), de William S. Burroughs, reúne intereses asociados a la ciencia ficción, la fantasía, el humor y la narrativa contemporánea. Se orienta a lectores que buscan una obra literaria relacionada con esos géneros, más que a quienes prefieren exclusivamente ficción realista o manuales de divulgación práctica.",
+      "texto": "Trilogia Nova, la (Compendium), de William S. Burroughs, se dirige a lectores interesados en obras que relacionan la narrativa contemporánea con la ciencia ficción y el ensayo. Sus 592 páginas plantean una lectura extensa, alejada de quien busque un libro breve o una guía práctica sobre un tema concreto.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Trilogia Nova, la (Compendium) se presenta en tapa blanda, con 592 páginas en castellano y edición de Editorial Anagrama. Por su extensión, permite distribuir la lectura durante varias sesiones; el ejemplar físico también facilita regresar a pasajes concretos sin recurrir a una pantalla.",
+      "texto": "La edición de Trilogia Nova, la (Compendium) reúne 592 páginas en tapa blanda, un formato que permite conservar y consultar el volumen completo en papel. Por su extensión, conviene tener en cuenta el tamaño de la lectura al transportarlo o reservarle espacio en la estantería.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Trilogia Nova, la (Compendium) y 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) tienen en común su vinculación con el humor. La obra de William S. Burroughs se relaciona además con la ciencia ficción, la fantasía y el ensayo, mientras que el libro de Francisco Ibáñez pertenece a una colección identificada expresamente con el humor.",
+      "texto": "Trilogia Nova, la (Compendium) y El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) coinciden en la ciencia ficción, aunque la obra de William S. Burroughs también se relaciona con el ensayo y la narrativa contemporánea. Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados), de Andy Weir, ofrece otra referencia de ciencia ficción, mientras que Trilogia Nova, la (Compendium) combina ese género con una orientación literaria y ensayística.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431790"
+        "isbn-9791388147470",
+        "isbn-9791388147272"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1269ae08779e6cec",
+  "fuente_hash": "9961cbedbee7cb44",
   "origen": "chatgpt-web"
 }

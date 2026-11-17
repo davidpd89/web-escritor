@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788415309079",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Animación y gestión cultural (CFGS ANIMACIÓN SOCIOCULTURAL Y TURÍSTICA) se orienta a lectores interesados en la animación sociocultural y la gestión de actividades culturales. Su enfoque temático se distancia de quienes buscan una historia centrada en relaciones sentimentales o conflictos de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Animación y gestión cultural (CFGS ANIMACIÓN SOCIOCULTURAL Y TURÍSTICA) está disponible en tapa blanda y reúne 304 páginas. La edición de Editorial Altamar permite consultar el contenido en papel y mantener el volumen como referencia física sobre animación y gestión cultural.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Animación y gestión cultural (CFGS ANIMACIÓN SOCIOCULTURAL Y TURÍSTICA) puede compararse con Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación por su relación con la participación en espacios sociales. El primero aborda la animación sociocultural y la gestión cultural desde un contexto formativo, mientras que el segundo se vincula con la adolescencia y la búsqueda de autenticidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781637659380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "715684c3cfcb5a0d",
+  "origen": "chatgpt-web"
+}

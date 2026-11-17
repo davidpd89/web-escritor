@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA) se orienta a lectores de novela histórica que también buscan elementos de aventura. Sus temas históricos la separan de la narrativa contemporánea centrada únicamente en situaciones actuales y de los libros de historia planteados como exposición documental.",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA) se dirige a lectores de novela histórica que también buscan elementos de aventura. Su ambientación histórica, anunciada desde el título, lo aleja de las obras de divulgación académica y de las narraciones centradas en escenarios contemporáneos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,18 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA) cuenta con una edición en tapa dura de Editorial Espasa, con 624 páginas. La encuadernación rígida protege el volumen durante su conservación y permite incorporarlo a una biblioteca física; por su extensión, requiere más espacio de transporte que un libro de bolsillo.",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA) está disponible en tapa dura, con 624 páginas en castellano. La encuadernación rígida protege el volumen durante su conservación y relectura, aunque su extensión hace que resulte menos manejable para transportarlo a diario.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, se relaciona por su componente histórico con Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, y La estocada de Nevers: El jorobado (Zenda-Edhasa), de Paul Féval. Los títulos remiten a referentes históricos distintos: Pompeya, la Reconquista y Nevers, respectivamente. También cambia la autoría de cada obra.",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA) puede compararse con Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián. Ambas obras se sitúan en el terreno de la novela histórica, pero María Reig remite a Pompeya desde el título, mientras que Astur (Saga de la Reconquista) (Éxitos) señala un contexto vinculado a la Reconquista. La diferencia principal está en el periodo histórico que interesa al lector.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788435055871",
         "isbn-9788401039539"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "97679a8f26392c53",
+  "fuente_hash": "bdf8b4f23e4f80df",
   "origen": "chatgpt-web"
 }

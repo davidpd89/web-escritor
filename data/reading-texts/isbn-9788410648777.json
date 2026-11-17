@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "En mi Era Pistacho: Juliette's version se dirige a lectores de romance contemporáneo que también buscan componentes de humor. Su combinación de narrativa actual y relaciones sentimentales se aparta de las novelas históricas y de las historias centradas en la fantasía épica.",
+      "texto": "En mi Era Pistacho: Juliette's version, de Emily Collins, encaja con lectores que buscan romance y narrativa contemporánea. Quien prefiera historia, ensayo, poesía o libros centrados en otros géneros encontrará una propuesta diferente a la de esta novela.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las 400 páginas de En mi Era Pistacho: Juliette's version pueden leerse en tapa blanda o en Kindle. La edición física permite conservar el volumen en la biblioteca o regalarlo, mientras que Kindle facilita llevar la novela completa en un lector electrónico o dispositivo compatible sin transportar el libro.",
+      "texto": "La tapa blanda reúne las 400 páginas de En mi Era Pistacho: Juliette's version en una edición física, mientras que Kindle permite leerlo desde el móvil o un lector electrónico. Ambos formatos están disponibles para esta obra.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "En mi Era Pistacho: Juliette's version comparte el interés por las relaciones románticas con La locura más ardiente: 2 (Novela), de Danielle Lori. La obra de Emily Collins combina romance contemporáneo y humor, mientras que el título de Danielle Lori identifica una entrega numerada de una serie. La diferencia para el lector está entre una propuesta con componentes humorísticos y otra cuya numeración señala una continuidad editorial.",
+      "texto": "En mi Era Pistacho: Juliette's version, de Emily Collins, comparte el romance como punto de partida con A mil por hora, de Hannah Grace. La propuesta de Hannah Grace concreta su historia alrededor de un piloto de F1 y una mujer que no consigue dejar atrás el pasado; el título de Emily Collins presenta una perspectiva propia identificada como Juliette's version.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408331674"
+        "isbn-9788466683449"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d5a5d3cc50e90f56",
+  "fuente_hash": "94b9adb6346474ea",
   "origen": "chatgpt-web"
 }

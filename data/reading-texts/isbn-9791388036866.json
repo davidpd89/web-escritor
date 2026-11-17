@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388036866",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un día, en otra vida se sitúa entre las biografías, las memorias y el ensayo, por lo que encaja con lectores interesados en relatos de vida y escritura reflexiva. Sus 190 páginas corresponden a una obra de extensión moderada; no responde a quien busca específicamente fantasía o una novela de acción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un día, en otra vida cuenta con una edición en tapa blanda de 190 páginas. Es una opción física para leer y conservar el volumen, con una extensión que permite repartir la lectura en varias sesiones sin manejar un libro especialmente largo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un día, en otra vida puede compararse con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes por su relación con la escritura biográfica. La obra de Andrew Paxman identifica en el título a su protagonista y una estructura de 50 episodios, mientras que la de Ana María Alonso Sansano se presenta dentro de las memorias y el ensayo. También se aproxima por su ámbito reflexivo a Asuntos pendientes: Hay historias que terminan, pero no se acaban (Autoconocimiento), de Frish Brandt.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154",
+        "isbn-9788411193795"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e000c83a29f09799",
+  "origen": "chatgpt-web"
+}

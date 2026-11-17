@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pobre gente se dirige a lectores adultos interesados en los clásicos del siglo XIX y en las relaciones humanas condicionadas por la pobreza. Su historia se construye mediante cartas y conflictos sociales, de modo que se aleja de quienes buscan una narración de acción continua o una historia romántica desligada de las diferencias económicas.",
+      "texto": "Pobre gente se dirige a lectores adultos interesados en los clásicos del siglo XIX, las relaciones personales y las consecuencias de la pobreza. Fiódor M. Dostoievski desarrolla el vínculo entre sus protagonistas mediante cartas y conflictos relacionados con la dignidad y la posición social. Encaja menos con quienes prefieren una narración basada en acción continua.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,54 +15,58 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Pobre gente es una novela epistolar centrada en la precariedad, la dignidad personal y los vínculos afectivos. La correspondencia entre Makar Dévushkin y Varvara Dobrosiólova muestra cómo las dificultades económicas y la presión social condicionan sus decisiones y su relación.",
+      "texto": "Pobre gente es una novela epistolar centrada en la pobreza, los afectos y la vulnerabilidad social. La correspondencia entre un funcionario y una joven huérfana permite seguir sus preocupaciones personales y las decisiones que condicionan su relación. Fiódor M. Dostoievski utiliza ese intercambio para explorar la dignidad y las diferencias de posición social.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Pobre gente pertenece a Penguin Clásicos y se publica en formato bolsillo, con 248 páginas en castellano. Incluye traducción de Raquel Marqués y prólogo de Tamara Djermanovic, dos elementos editoriales concretos que ayudan a distinguirla de otras versiones de la obra.",
+      "texto": "Esta edición de Pobre gente pertenece a Penguin Clásicos y se presenta en formato de bolsillo, con 248 páginas en castellano. Incluye una traducción de Raquel Marqués y un prólogo de Tamara Djermanovic que contextualiza la primera novela de Fiódor M. Dostoievski. La fecha de publicación editorial es el 15 de octubre de 2026.",
       "evidencias": [
         "titulo",
+        "autores",
         "editorial",
         "edicion",
         "numero_paginas",
         "idioma",
+        "fecha_publicacion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pobre gente puede leerse en tapa dura, tapa blanda o Kindle. La edición de bolsillo de Penguin Clásicos contiene 248 páginas y facilita transportar el texto en papel; la tapa dura ofrece una encuadernación más rígida para conservarlo, mientras que Kindle evita llevar un ejemplar físico.",
+      "texto": "Pobre gente está disponible en tapa dura, tapa blanda y Kindle. La edición de bolsillo de Penguin Clásicos reúne 248 páginas y resulta más fácil de transportar que un volumen de tapa dura; este último ofrece una encuadernación rígida para conservarlo o regalarlo. Kindle permite leer la novela en el móvil o en un lector electrónico sin llevar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "editorial",
-        "numero_paginas"
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pobre gente comparte autor con El cocodrilo (Austral Esenciales) y Los hermanos Karamázov (Penguin Clásicos | Vintage), ambos de Fiódor M. Dostoievski. Frente a esos títulos, Pobre gente se identifica por su estructura de cartas y por el vínculo entre dos personajes afectados por la pobreza, una diferencia concreta para elegir según el tipo de narración buscado.",
+      "texto": "Pobre gente comparte autoría con Los hermanos Karamázov (Penguin Clásicos | Vintage) y Memorias del subsuelo (edición de lujo ilustrada) (Pensamiento), ambas de Fiódor M. Dostoievski. La diferencia verificable está en la presentación y el enfoque declarado: Pobre gente desarrolla una relación por correspondencia, mientras que Memorias del subsuelo anuncia una edición ilustrada de lujo. Pobre gente se ofrece aquí en bolsillo.",
       "evidencias": [
         "titulo",
         "autores",
+        "edicion",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408331629",
-        "isbn-9788491056287",
-        "isbn-9788491058731"
+        "isbn-9788491058731",
+        "isbn-9788430628742"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3917ca5a66e5837e",
+  "fuente_hash": "34f6f9b1ef97d722",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Diálogos sobre lo desconocido encaja con lectores interesados en el esoterismo y en los testimonios personales sobre experiencias difíciles de explicar. Su planteamiento mediante conversaciones con personalidades de distintos ámbitos se aleja de una novela de ficción con una trama continua.",
+      "texto": "Diálogos sobre lo desconocido se dirige a lectores interesados en las experiencias personales relacionadas con lo inexplicable, el esoterismo y las creencias. Su planteamiento basado en testimonios de personalidades públicas se distancia de la ficción sobrenatural y de los manuales de prácticas espirituales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,42 +13,39 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Diálogos sobre lo desconocido propone una aproximación al esoterismo mediante conversaciones sobre experiencias personales relacionadas con lo inexplicado. David Cuevas reúne testimonios de más de 40 personalidades procedentes de ámbitos como la música, el humor, el cine y la política, con el foco puesto en su relación con lo desconocido.",
+      "texto": "La lectura se articula alrededor de los relatos personales de más de 40 figuras públicas sobre sus encuentros con lo desconocido. David Cuevas reúne voces procedentes de ámbitos como la música, el cine, la justicia y los servicios de inteligencia, con un enfoque testimonial que cruza experiencias personales y cuestiones vinculadas al esoterismo.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Diálogos sobre lo desconocido está disponible en tapa blanda y Kindle. La edición rústica con solapas de Ediciones Luciérnaga reúne 552 páginas para la lectura en papel; Kindle permite consultar el volumen desde un dispositivo electrónico sin cargar con el ejemplar físico.",
+      "texto": "Diálogos sobre lo desconocido tiene 552 páginas en su edición de tapa blanda con solapas, apropiada para conservar y consultar los distintos testimonios en papel. En Kindle permite llevar una lectura extensa en el móvil o en un lector electrónico, sin cargar con el volumen físico.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Diálogos sobre lo desconocido y Pregúntale al universo comparten el interés por cuestiones esotéricas, pero el primero reúne testimonios personales y el segundo plantea preguntas relacionadas con los astros. Tras la pista del mal también explora creencias y fenómenos inquietantes, aunque los vincula al crimen, el mito y los rituales en lugar de a experiencias de distintas personalidades.",
+      "texto": "Tras la pista del mal y Diálogos sobre lo desconocido coinciden en su interés por experiencias que se relacionan con creencias y fenómenos difíciles de interpretar. El libro de Cristian Puig se aproxima al crimen desde sus conexiones con el mito, el ritual y la fe; David Cuevas, en cambio, reúne experiencias personales de figuras públicas vinculadas a lo desconocido.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "autores",
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791387667924",
-        "isbn-9791388279638"
+        "isbn-9791387667924"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5460dcd36260eae0",
+  "fuente_hash": "33fe5f9b007442f2",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788436851946",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan material de psicología centrado en la evaluación de fobias específicas. Por su enfoque en instrumentos de evaluación, se aleja de las lecturas de desarrollo personal que tratan el bienestar psicológico de manera general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 288 páginas en castellano, publicadas por Ediciones Pirámide. Es una opción física para consultar los instrumentos de evaluación y volver a determinados apartados durante el estudio de las fobias específicas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Terapia grupal en la traumatización compleja: Un trabajo de preparación previo al abordaje de las memorias comparte el interés por el trabajo psicológico, aunque se centra en la intervención grupal y las memorias traumáticas. Instrumentos de evaluación para las fobias específicas (Psicología) delimita su asunto a la evaluación de fobias concretas.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399267228"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa3d07828a4c9006",
+  "origen": "chatgpt-web"
+}

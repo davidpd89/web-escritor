@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mil mares de distancia (Grandes novelas), de Nacho Sánchez Carrasco, está orientado a lectores de narrativa contemporánea que buscan una novela extensa. Con 416 páginas, se aleja de las lecturas breves y de quienes prefieren específicamente el cómic o la novela gráfica.",
+      "texto": "Mil mares de distancia (Grandes novelas) se dirige a lectores de narrativa contemporánea en castellano que buscan una obra de cierta extensión. Sus 416 páginas requieren más tiempo de lectura que un libro breve; por su clasificación editorial, no es una elección orientada específicamente a la fantasía o la ciencia ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
+        "idioma",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mil mares de distancia (Grandes novelas) cuenta con una edición en tapa blanda de 416 páginas. El volumen de Ediciones B está publicado en castellano y permite mantener la lectura en papel, con espacio físico para marcar el avance mediante un separador.",
+      "texto": "Mil mares de distancia (Grandes novelas) puede leerse en tapa blanda o Kindle. La edición física reúne sus 416 páginas en un volumen de Ediciones B, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "idioma"
+        "edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ea5fa792207740d8",
+  "fuente_hash": "dd42df2cb035408b",
   "origen": "chatgpt-web"
 }

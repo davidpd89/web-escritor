@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419892812",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ver fútbol, sentir el fútbol (Confluencias) se dirige a quienes buscan una lectura sobre fútbol desde el ámbito de la historia y el tiempo libre. Por su orientación temática, no responde a quien prefiera una novela deportiva de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ver fútbol, sentir el fútbol (Confluencias) está disponible en tapa blanda, con 162 páginas en castellano. Esta edición de Marcial Pons Ediciones de Historia permite leerlo en papel y consultar distintos pasajes sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ver fútbol, sentir el fútbol (Confluencias) puede compararse con Historia del Puerta Bonita. La cantera de Carabanchel por su relación con el fútbol y su tratamiento histórico. El primero plantea el fútbol desde la experiencia de verlo y sentirlo; el segundo centra su título en la historia de una cantera concreta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419355805"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b31ca449bd2b74d4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788412245592",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El campo se despierta se sitúa entre la narrativa contemporánea, la historia y los temas vinculados al tiempo libre. Por esa combinación, puede interesar a lectores que buscan obras relacionadas con esos ámbitos, pero no responde a la búsqueda de una novela identificada expresamente como fantasía o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El campo se despierta cuenta con una edición en tapa blanda de 80 páginas, publicada por Ore. Es un volumen físico breve, manejable para llevarlo fuera de casa y adecuado para quien prefiere leer en papel sin afrontar una obra de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El campo se despierta puede compararse por su clasificación histórica con El príncipe espía: Cosimo III en la España de la Regencia (Ariel), de Lorenzo De Medici. Víctor David López Díez firma una obra cuyo título remite al campo, mientras que la de Lorenzo De Medici identifica a un personaje y un periodo histórico concretos. La primera también figura vinculada a la narrativa contemporánea y al tiempo libre.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441149"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f247bf56a6f5300d",
+  "origen": "chatgpt-web"
+}

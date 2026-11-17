@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791370385545",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en la fisiotecnia vegetal y en publicaciones de temática científica. Su extensión de 102 páginas permite abordar un tema delimitado; resulta menos afín a quienes buscan una obra de divulgación sobre ciencia general o una lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El asunto central es la fisiotecnia vegetal, presentada desde una aproximación introductoria según indica el título. La obra se sitúa en el ámbito científico y reúne 102 páginas en una edición de Tirant Humanidades, que también la clasifica dentro del derecho.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se publica en tapa blanda y reúne 102 páginas en castellano. Por su extensión, el ejemplar físico permite llevar el contenido para consultas o lecturas breves y conservarlo como referencia sobre fisiotecnia vegetal.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manual de derecho de la biotecnología, de Luis Sarrato Martínez, también relaciona cuestiones científicas con un campo especializado, aunque su título sitúa el foco en el derecho. La actividad pericial del ingeniero: Manual práctico para España, de Antonio Armero Martínez, se orienta a una aplicación profesional distinta del estudio de la fisiotecnia vegetal.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399307603",
+        "isbn-9788430995356"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a109d8dd1380d14",
+  "origen": "chatgpt-web"
+}

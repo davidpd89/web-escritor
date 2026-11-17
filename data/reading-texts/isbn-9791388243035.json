@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388243035",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La implantación de la Mediación en España se dirige a lectores interesados en el derecho y los mecanismos de mediación dentro del contexto español. Sus 104 páginas plantean una lectura de extensión contenida, alejada de las novelas de ficción o de los manuales generales de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 104 páginas de La implantación de la Mediación en España en un volumen físico que puede consultarse y conservarse junto a otros textos jurídicos. Kindle ofrece la alternativa digital para leerlo en distintos dispositivos y acceder al contenido sin llevar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) comparte con La implantación de la Mediación en España el interés por la mediación. La obra de Mari Luz Sánchez García-Arista se orienta al ámbito educativo, mientras que la de Aldona Ziaja aborda su implantación en España desde una perspectiva vinculada al derecho.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788429030372"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "369f08ed4cc5c201",
+  "origen": "chatgpt-web"
+}

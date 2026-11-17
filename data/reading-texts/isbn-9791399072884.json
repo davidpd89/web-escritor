@@ -4,42 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El ejército negro 7: Arturo, de Santiago García-Clairac, se dirige al público infantil y juvenil interesado en la fantasía y la ciencia ficción. Sus 608 páginas requieren disposición para una lectura extensa; por su longitud, se aleja de los cuentos breves destinados a las primeras etapas lectoras.",
+      "texto": "El ejército negro 7: Arturo se dirige a lectores infantiles y juveniles interesados en la fantasía y dispuestos a abordar una obra extensa. Sus 608 páginas pueden resultar excesivas para quienes prefieren cuentos breves o lecturas de iniciación; el título lo identifica como el n.º 7.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El ejército negro 7: Arturo se ofrece en tapa blanda, con 608 páginas en castellano. La edición de Serendipias de Tinta reúne una lectura extensa en un único volumen físico; su cubierta flexible facilita manejarlo, aunque el número de páginas supone un tamaño considerable para transportarlo.",
+      "texto": "El ejército negro 7: Arturo está disponible en tapa blanda, con 608 páginas en castellano. Es una edición física de extensión considerable, apropiada para leer por sesiones y conservar en una colección de libros de fantasía.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El ejército negro 7: Arturo, de Santiago García-Clairac, comparte el ámbito de la fantasía juvenil con Brujas y dragones 2: La bruja mala del oeste, de Ledicia Costas y Luis Miguel Pérez. Ambos títulos llevan numeración, pero identifican entregas distintas: el primero como n.º 7 y el segundo como n.º 2. El de Santiago García-Clairac tiene 608 páginas.",
+      "texto": "El ejército negro 7: Arturo comparte el terreno fantástico con Brujas y dragones 2: La bruja mala del oeste, aunque este último anuncia expresamente brujas y dragones en su título. También puede compararse con AVATAR. La leyenda de Aang 5 - Norte y sur, que desarrolla una aventura dentro del universo de una serie. Frente a ambos, el libro de Santiago García-Clairac destaca por sus 608 páginas y por identificarse en el título como el n.º 7.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "numero_paginas",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788448874803",
         "isbn-9791387501877"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "537887c08eda8dfb",
+  "fuente_hash": "57a9d8e7ca200458",
   "origen": "chatgpt-web"
 }

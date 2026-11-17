@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467980967",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Splatoon tintelia 01: 1 encaja con lectores de cómic y novela gráfica interesados en obras de Sankichi Hinodeya en castellano. El título lo identifica como el n.º 1 y sus 160 páginas ofrecen una extensión contenida, aunque resulta menos adecuado para quienes prefieren novelas escritas en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Splatoon tintelia 01: 1 tiene una edición en tapa blanda de 160 páginas, publicada por Norma Editorial. Su extensión facilita llevar el ejemplar físico para leer fuera de casa, sin necesidad de utilizar un móvil o un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16c720a42b00c98b",
+  "origen": "chatgpt-web"
+}

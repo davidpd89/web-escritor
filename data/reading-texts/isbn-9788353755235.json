@@ -1,0 +1,27 @@
+{
+  "id": "isbn-9788353755235",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "100 000 porqués para niños pequeños y preescolares con respuestas sorprendentes está orientado a niños de 2 a 5 años que empiezan a formular preguntas sobre el mundo. Su propuesta de preguntas y respuestas sencillas encaja menos con lectores mayores que buscan explicaciones especializadas o contenidos de mayor complejidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 82 páginas de preguntas y respuestas en un volumen físico que puede utilizarse durante la lectura compartida con niños pequeños. Este formato permite volver a las preguntas y consultar distintas páginas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8f09beb20d85e37d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788413445625",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan lecturas prácticas sobre nutrición, alimentación cotidiana y bienestar. Reset alimentario: Nutrición del futuro para el día a día (Alienta), de Pablo Ojeda, aborda ese ámbito desde la divulgación; no responde a quien prefiera ficción o relatos gastronómicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar las 208 páginas de Reset alimentario: Nutrición del futuro para el día a día (Alienta) en papel, mientras que Kindle facilita llevar el texto en el móvil o lector electrónico. La edición física, publicada por Alienta Editorial, puede mantenerse a mano para volver a consultar cuestiones de alimentación.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alimenta tu vida comparte con Reset alimentario: Nutrición del futuro para el día a día (Alienta) la autoría de Pablo Ojeda y el interés por la alimentación. Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante (Salud natural), de Sarah Ann Macklin, aborda la relación entre alimentación y salud desde una perspectiva humana, mientras que Pablo Ojeda se centra en la nutrición cotidiana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413443522",
+        "isbn-9788411193900"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a29561048ee651c6",
+  "origen": "chatgpt-web"
+}

@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este libro de Dan Gutman encaja con lectores que buscan humor ambientado en una escuela y situaciones relacionadas con la vida familiar. Sus 96 páginas permiten una lectura breve, mientras que su temática lo aleja de los manuales de crianza y de las novelas de suspense.",
+      "texto": "La obra de Dan Gutman se dirige a quienes buscan lecturas relacionadas con el entorno escolar y familiar. Su clasificación en familia y crianza la aleja de los ensayos históricos y los manuales técnicos, mientras que el título identifica una cuarta entrega de Escuela Rara.",
       "evidencias": [
+        "titulo",
         "autores",
-        "categorias",
-        "numero_paginas",
-        "titulo"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Dan Gutman se publica en tapa blanda y reúne 96 páginas en castellano. Su extensión facilita llevarla en la mochila y leerla en trayectos o ratos libres, además de conservarla junto a otros títulos de la colección escolar.",
+      "texto": "La edición de Vintage Espanol está disponible en tapa blanda y contiene 96 páginas en castellano. Su extensión permite organizar sesiones breves de lectura, y el formato físico facilita llevar el ejemplar, prestarlo o conservarlo junto a otros títulos de Escuela Rara.",
       "evidencias": [
-        "autores",
+        "titulo",
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¡La Srta. Lulú no sabe ni la U! / Miss Daisy Is Crazy!: 1 (Una Escuela Rara) comparte autor, Dan Gutman, y ambientación escolar con este título. El Más Gallina / Fight or Flight (Diario del Wimpy Kid), de Jeff Kinney, ofrece otra referencia de humor, aunque pertenece a una serie distinta y tiene otro autor.",
+      "texto": "La obra de Dan Gutman puede compararse con Abuelas Y Abuelos (Álbumes Ilustrados castellano), de Helene Delforge, por su relación con el ámbito familiar. La diferencia está en el enfoque: el libro de Dan Gutman presenta referencias escolares y su título identifica la cuarta entrega de Escuela Rara, mientras que el de Helene Delforge se centra en los abuelos y pertenece a una colección de álbumes ilustrados.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890988515",
-        "isbn-9798890989772"
+        "isbn-9788491429586"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d3b8bc647c58659e",
+  "fuente_hash": "f67dae7b772d8f7a",
   "origen": "chatgpt-web"
 }

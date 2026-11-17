@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Te cuento un secreto?: El momento ha llegado. se sitúa entre las lecturas infantiles relacionadas con la familia y los secretos. Sus 50 páginas permiten abordar una lectura breve en el entorno familiar; quienes busquen una novela juvenil extensa o una obra de temática adulta encontrarán un enfoque diferente.",
+      "texto": "¿Te cuento un secreto?: El momento ha llegado. se dirige a quienes buscan una lectura infantil relacionada con la familia y la crianza. Sus 50 páginas permiten abordar este ámbito en un libro breve; por su temática, queda fuera de las preferencias centradas en aventuras o fantasía juvenil.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Te cuento un secreto?: El momento ha llegado. está disponible en tapa blanda, con 50 páginas en castellano. Su extensión permite manejarlo como un libro físico breve, tanto para leerlo en casa como para llevarlo en una bolsa durante los desplazamientos.",
+      "texto": "¿Te cuento un secreto?: El momento ha llegado. está disponible en tapa blanda, con 50 páginas en castellano. Esta edición permite manejar y consultar el libro en papel sin ocupar el espacio de un volumen extenso, tanto en casa como durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,20 +23,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Te cuento un secreto?: El momento ha llegado. y Abuelas Y Abuelos (Álbumes Ilustrados castellano) coinciden en su vinculación con las lecturas infantiles y el ámbito familiar. Isabel Muñiz Ordieres incorpora los secretos al planteamiento de su libro, mientras que Helene Delforge centra el título de su obra en los abuelos y las abuelas.",
+      "texto": "¿Te cuento un secreto?: El momento ha llegado. comparte el ámbito familiar con Abuelas Y Abuelos (Álbumes Ilustrados castellano), de Helene Delforge, aunque este último se centra en los abuelos. También puede compararse con Bienvenido, bebé: Un libro muy tierno para dar la bienvenida a un nuevo bebé y celebrar el amor que lo rodea: 15 (Álbumes ilustrados), de Jane Chapman, cuyo título sitúa el nacimiento de un bebé en el centro.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788491429586"
+        "isbn-9788491429586",
+        "isbn-9791387948160"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "aee902e8de570030",
+  "fuente_hash": "d6f85148494aa5bc",
   "origen": "chatgpt-web"
 }

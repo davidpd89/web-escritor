@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791399230031",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El lugar de las mareas se orienta a lectores de ensayo y divulgación interesados en las relaciones entre las personas, la naturaleza y los oficios tradicionales. Su atención a las recolectoras de plumón de éider lo aleja de la ficción y de los libros centrados en explicaciones científicas generales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El lugar de las mareas aborda el trabajo de las recolectoras noruegas de plumón de éider. James Rebanks sitúa esta actividad como eje de una obra clasificada entre el ensayo, la divulgación científica y las biografías y memorias, combinando así un tema ligado a la naturaleza con una dimensión humana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El lugar de las mareas cuenta con una edición en tapa blanda de 228 páginas, publicada en castellano por Capitán Swing Libros. El volumen permite seguir el desarrollo del ensayo en papel y regresar a los pasajes dedicados a la actividad de las recolectoras.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Piroceno: Viejo y nuevo orden de los incendios forestales. Vivir en la Edad del fuego: 133 (Ensayo) comparte con El lugar de las mareas el interés por cuestiones vinculadas a la naturaleza. Stephen J. Pyne aborda los incendios forestales, mientras James Rebanks centra su obra en las recolectoras de plumón de éider y su actividad.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410476615"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dcf8fb971e90499c",
+  "origen": "chatgpt-web"
+}

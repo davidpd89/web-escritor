@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388200243",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo XV se ajusta a los intereses de quienes consultan libros relacionados con el pop-rock de los años sesenta y el ámbito del arte y el diseño. Su temática no coincide con la búsqueda de una novela de aventuras ni con lecturas dedicadas a la música contemporánea.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato ofrecido para EL POP-ROCK DE LOS 60' - Capítulo XV, con 98 páginas en castellano. Esta edición de El Séptimo Cielo ocupa un espacio reducido en una colección física y permite llevar el libro para leerlo o consultarlo sin conexión electrónica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo IV y EL POP-ROCK DE LOS 60' - Capítulo IX comparten con este título la referencia al pop-rock de los sesenta y la firma de Daniel Muneta. Se distinguen por el número de capítulo que figura en sus títulos: XV en este libro, IV y IX en los otros dos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388200106",
+        "isbn-9791388200113",
+        "isbn-9791388200120",
+        "isbn-9791388200137",
+        "isbn-9791388200182"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "63df4336fd9fdf87",
+  "origen": "chatgpt-web"
+}

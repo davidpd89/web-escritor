@@ -4,39 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "ATP No. 1 Club. Iconos del tenis masculino (CONOCIMIENTO) está dirigido a lectores interesados en el tenis masculino y sus figuras destacadas. Por su temática deportiva, encaja menos con quienes buscan una novela de ficción o un libro centrado en practicar actividades ajenas al tenis.",
+      "texto": "ATP No. 1 Club. Iconos del tenis masculino (CONOCIMIENTO) se dirige a lectores interesados en el tenis masculino y sus figuras destacadas. Es una obra de Mark Hodgkinson vinculada al ocio y las aficiones, no una novela de ficción ni un manual de práctica deportiva.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Cinco Tintas se presenta en tapa dura, con 304 páginas en castellano. Su encuadernación rígida resulta apropiada para conservar el volumen en una biblioteca personal o entregarlo como regalo a alguien interesado en el tenis.",
+      "texto": "ATP No. 1 Club. Iconos del tenis masculino (CONOCIMIENTO) está disponible en tapa dura, con 304 páginas en castellano. Esta encuadernación permite conservar el volumen en una biblioteca y consultarlo físicamente, tanto de forma continuada como por partes.",
       "evidencias": [
-        "editorial",
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) comparte con ATP No. 1 Club. Iconos del tenis masculino (CONOCIMIENTO) su orientación hacia intereses específicos del tiempo libre. David Villalón y Mario Villalón se ocupan de la gastronomía, mientras Mark Hodgkinson centra su libro en los iconos del tenis masculino.",
+      "texto": "El libro de Mark Hodgkinson sobre figuras del tenis masculino comparte su orientación hacia el ocio con 99 Sudoku (LIBROS SINGULARES), de Anónimo. Mientras el primero aborda un deporte y sus protagonistas, el segundo reúne pasatiempos numéricos. También se diferencia de 80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres, que plantea enigmas criminales en lugar de contenido deportivo.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387934293"
+        "isbn-9791388015816",
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "18d9ef00c4822218",
+  "fuente_hash": "8cc4f6c791b23e34",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370520250",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Son of Violence: 1, de Number 8, se dirige al público juvenil interesado en el misterio y el thriller dentro del cómic y la novela gráfica. Su clasificación como narrativa juvenil lo distingue de las obras de suspense dirigidas exclusivamente a adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Son of Violence: 1 se publica en tapa blanda, con 536 páginas en castellano. Esta edición de Devir reúne el contenido en un volumen físico que puede transportarse y consultarse sin dispositivos electrónicos, aunque su extensión debe tenerse en cuenta para llevarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Son of Violence: 1 y Kakegurui Twin: Jugadores dementes Núm. 12 comparten el misterio, el thriller y la orientación juvenil dentro del cómic y la novela gráfica. Son of Violence: 1, de Number 8, tiene 536 páginas y lleva el número 1 en el título, mientras que la obra de Homura Kawamoto se identifica como el n.º 12.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370520212"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "319ae39136839891",
+  "origen": "chatgpt-web"
+}

@@ -4,39 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) se orienta a quienes buscan estudiar la convivencia y la mediación en el ámbito educativo. Su encuadre en derecho lo separa de las lecturas de ficción y de los manuales centrados en materias ajenas a la resolución de conflictos.",
+      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) se dirige a lectores interesados en la mediación educativa y la resolución de conflictos desde el ámbito jurídico. Sus 236 páginas se centran en esa materia, no en la ficción ni en una guía general de desarrollo personal.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Editorial Reus S.a. tiene 236 páginas y está escrita en castellano. El soporte impreso permite consultar apartados y realizar anotaciones durante el estudio de la mediación educativa.",
+      "texto": "La edición de Editorial Reus S.a. se ofrece en tapa blanda, con 236 páginas en castellano. Este soporte permite consultar físicamente el contenido sobre mediación educativa contextualizada y resolución de conflictos, además de conservar el volumen como material de referencia.",
       "evidencias": [
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma",
         "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) y Blockchain: un desafío legal (Monografía) abordan materias relacionadas con el derecho, pero desde asuntos distintos. Mari Luz Sánchez García-Arista se centra en la mediación educativa y la convivencia, mientras que Ana Isabel Quiroz Ruiz trata un desafío legal asociado a blockchain.",
+      "texto": "Argumentacion Juridica, de Carlos Parma, comparte con Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) su vinculación al derecho. La diferencia está en el objeto de estudio: Carlos Parma trata la argumentación jurídica, mientras Mari Luz Sánchez García-Arista se centra en la mediación educativa y la convivencia.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791370610265"
+        "isbn-9789564078014"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d77b4a69ac058c77",
+  "fuente_hash": "6fb8cf0d74b9a482",
   "origen": "chatgpt-web"
 }

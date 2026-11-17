@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791399023169",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de Federico García Lorca interesados tanto en su poesía como en sus textos en prosa, conferencias y homenajes. Por su extensión de 1386 páginas y la variedad de géneros reunidos, responde menos a quien busca una sola obra breve o una lectura exclusivamente narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Reúne distintas vertientes de la escritura de Federico García Lorca: primeras prosas, impresiones y paisajes, conferencias, alocuciones, homenajes y poesía. El enfoque es recopilatorio y permite recorrer diferentes formas literarias y de intervención pública del autor dentro de un mismo volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición está disponible en tapa dura, con encuadernación en tela y 1386 páginas. Por su volumen, resulta más apropiada para la consulta en una mesa o estantería que para llevarla habitualmente durante los desplazamientos; la cubierta rígida también facilita conservarla como obra de referencia.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a Romancero gitano (VINTAGE), también de Federico García Lorca, este volumen reúne poesía y distintas modalidades de prosa, en lugar de centrarse en un poemario concreto. También puede compararse con Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada), cuya presentación destaca una edición especial de una obra poética específica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220272",
+        "isbn-9791388220265",
+        "isbn-9791388435157"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8a1fb10fccf3da7",
+  "origen": "chatgpt-web"
+}

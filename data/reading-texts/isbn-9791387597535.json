@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Floriografía: Una guía ilustrada del lenguaje victoriano de las flores (VARIOS) está pensada para lectores interesados en las flores, su lenguaje y los libros ilustrados de consulta y ocio. No responde al planteamiento de una novela ni al de un libro de narrativa de ficción.",
+      "texto": "Floriografía: Una guía ilustrada del lenguaje victoriano de las flores (VARIOS) está dirigida a lectores interesados en el simbolismo floral y las guías ilustradas. Jessica Roux trata el lenguaje de las flores desde una perspectiva vinculada a las aficiones, distinta de una novela de época o de un manual de jardinería centrado en el cultivo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,30 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne sus 224 páginas en una edición de Jessica Roux publicada por Errata naturae. Este formato permite conservar el volumen como libro ilustrado de consulta y tenerlo a mano para volver a sus contenidos.",
+      "texto": "Floriografía: Una guía ilustrada del lenguaje victoriano de las flores (VARIOS) se presenta en tapa dura, publicada por Errata naturae. Sus 224 páginas forman una guía ilustrada que puede mantenerse en una estantería y consultarse para buscar referencias al lenguaje floral victoriano.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
+        "editorial",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore, Laura Jayne Ayres, comparte con Floriografía: Una guía ilustrada del lenguaje victoriano de las flores (VARIOS), de Jessica Roux, el formato de libro pensado para consultar y explorar contenidos visuales. La diferencia está en el tema: uno plantea casos criminales y el otro aborda el significado de las flores.",
+      "texto": "Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas comparte con Floriografía: Una guía ilustrada del lenguaje victoriano de las flores (VARIOS) el uso de elementos visuales vinculados a una afición. La obra de Jessica Roux trata los significados de las flores en la época victoriana, mientras que Abecedarios bordados a mano se centra en letras, números y diagramas para bordar.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791388015816"
+        "isbn-9788498748208"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "29e379d7f3683b46",
+  "fuente_hash": "b17d75e09e281e0d",
   "origen": "chatgpt-web"
 }

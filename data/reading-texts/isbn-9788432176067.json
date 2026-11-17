@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788432176067",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Carta pastoral 16.X.2026: Sobre la contemplación (Libros sobre el Opus Dei) está dirigida a lectores interesados en la espiritualidad y la contemplación dentro del ámbito del Opus Dei. Sus 52 páginas corresponden a una carta pastoral breve, no a una novela ni a un tratado extenso de religión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Carta pastoral 16.X.2026: Sobre la contemplación (Libros sobre el Opus Dei) se publica en tapa blanda, con 52 páginas en castellano. Su extensión permite leer la carta completa en pocas sesiones y conservarla como volumen de consulta para volver a sus reflexiones sobre la contemplación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparte con Carta pastoral 16.X.2026: Sobre la contemplación (Libros sobre el Opus Dei) el interés por la práctica espiritual, aunque remite al Dharma en lugar del Opus Dei. AKITA: Las lágrimas y el mensaje de María ofrece otra lectura religiosa, centrada por su título en María y no específicamente en la contemplación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e76438187c1a067",
+  "origen": "chatgpt-web"
+}

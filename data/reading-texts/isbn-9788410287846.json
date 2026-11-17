@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788410287846",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kabuki (Novela Gráfica) se orienta a lectores de cómic, novela gráfica y narrativa juvenil. La obra de Tiago Minamisawa tiene 152 páginas y se presenta en una edición ilustrada propia del formato de novela gráfica, por lo que se diferencia de una novela compuesta únicamente por texto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kabuki (Novela Gráfica) cuenta con una edición en tapa dura de 152 páginas, publicada por Nuevo Nueve Editores, S.l. La encuadernación rígida permite conservar el volumen y consultar sus páginas en papel, una característica pertinente para una obra de cómic y novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kabuki (Novela Gráfica) comparte el ámbito del cómic con Cult of the Lamb nº 01 (Novela gráfica), de Alex Paknadel y Troy Little. La obra de Tiago Minamisawa tiene 152 páginas en tapa dura, mientras que el título de Alex Paknadel y Troy Little se identifica como nº 01. También puede compararse con Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura y Muneyuki Kaneshiro, que se presenta expresamente como manga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991",
+        "isbn-9791388102035"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f2e564f7f4e4dc2",
+  "origen": "chatgpt-web"
+}

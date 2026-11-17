@@ -4,42 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a quienes buscan una aproximación biográfica a Roberto Iniesta mediante el cómic y la novela gráfica. El trabajo de Nacho Nava Laiz se aleja de la biografía exclusivamente textual y de los manuales generales de historia musical.",
+      "texto": "El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica) se dirige a lectores interesados en la trayectoria de Roberto Iniesta y en las biografías vinculadas al cómic. Por su clasificación como biografía y novela gráfica, se aleja de una novela de ficción centrada en personajes inventados.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El eje del libro es la vida de Roberto Iniesta, abordada desde una perspectiva biográfica y gráfica. Nacho Nava Laiz sitúa su trabajo en el terreno de las memorias y la novela gráfica, con una dimensión visual vinculada al arte y el diseño.",
+      "texto": "La vida de Roberto Iniesta constituye el asunto central de esta obra de Nacho Nava Laiz. El libro combina el enfoque biográfico con el ámbito del cómic y la novela gráfica, dentro de una edición de 172 páginas. El título lo identifica con el n.º 7 de Marea gráfica.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 172 páginas de esta biografía gráfica en un volumen encuadernado con cubierta rígida. Es una opción para conservar en papel, consultar sus páginas ilustradas y regalar una edición física de Altamarea Ediciones.",
+      "texto": "El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica) está disponible en tapa dura. Sus 172 páginas forman un volumen físico apropiado para consultar sus contenidos gráficos y conservarlo en una biblioteca personal, sin necesidad de un dispositivo de lectura.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "categorias",
-        "editorial"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Guns N' Roses: La banda más peligrosa del planeta (Alianza Pop) también aborda figuras del ámbito musical, pero se centra en una banda, mientras que El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica) presenta una trayectoria individual en formato gráfico. Ambos permiten acercarse a protagonistas de la música desde enfoques diferentes.",
+      "texto": "Bad Bunny: Un icono: sin permiso, sin límite, sin miedo (No ficción) también aborda una figura vinculada a la música, pero desde la perspectiva de Jaime Valero. El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica), de Nacho Nava Laiz, se centra en Roberto Iniesta y pertenece al ámbito de la biografía gráfica.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370093174"
+        "isbn-9791388139482"
       ]
     }
   ],

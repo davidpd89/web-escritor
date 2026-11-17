@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388349621",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ciudad como materialización de los derechos humanos se orienta a lectores de ensayo interesados en la relación entre el espacio urbano y los derechos humanos. Mayra Angélica Sánchez Grajeda firma un volumen de 350 páginas cuyo planteamiento temático se aleja de la narrativa de ficción y de las lecturas breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ciudad como materialización de los derechos humanos se ofrece en tapa blanda, con 350 páginas en castellano. La edición de Liberlibro.com A.c. reúne el ensayo en un volumen físico que puede consultarse por partes, subrayarse y mantenerse a mano para volver sobre sus contenidos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "072228b4a25f1b78",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399320732",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a trabajadores, mandos y empresas que necesitan abordar situaciones de acoso laboral, sexual, por razón de sexo o LGTBI. Incluye 50 casos y sentencias, test y protocolos; su orientación jurídica y preventiva lo aleja de los libros de desarrollo personal centrados en cuestiones ajenas al trabajo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar físicamente las 332 páginas de esta guía, incluidos sus casos, test y protocolos. La edición Kindle ofrece la alternativa de lectura digital para revisar el contenido desde un dispositivo compatible, sin transportar el volumen impreso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Burnout en el trabajo: Guía práctica para trabajadores, mandos y empresas: prevenirlo, detectarlo y actuar. Con casos, 170 test y modelos para fotocopiar comparte autor y destinatarios profesionales con esta guía de José Luis Efraín Zeballos. La diferencia es el problema tratado: aquel aborda el burnout y este se ocupa del acoso laboral, sexual, por razón de sexo y LGTBI, con 50 casos y sentencias, test y protocolos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399320725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2969dc51faa3975d",
+  "origen": "chatgpt-web"
+}

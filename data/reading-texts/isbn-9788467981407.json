@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467981407",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hombre y el gato 13 se dirige a lectores de cómic y novela gráfica que buscan una obra de Umi Sakurai en castellano. El título lo identifica como el n.º 13, por lo que encaja menos con quien prefiere empezar por una entrega numerada como primera.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El hombre y el gato 13 está disponible en tapa blanda, con 174 páginas en castellano. Esta edición física de Norma Editorial permite incorporarlo a una colección impresa y leerlo sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3d171aec9e4f0e58",
+  "origen": "chatgpt-web"
+}

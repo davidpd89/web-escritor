@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388244025",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La lógica del capital (GENERAL) se dirige a lectores interesados en la economía y su relación con las estructuras de poder y la política. Sus 516 páginas y su orientación temática lo sitúan lejos de la narrativa de ficción y de las introducciones breves a cuestiones económicas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La lógica del capital (GENERAL) está editado en tapa blanda y consta de 516 páginas. El formato físico permite abordar su contenido sobre economía y política en sesiones sucesivas y consultar de nuevo los pasajes durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo ganar una guerra comercial, de Soumaya Keynes y Chad P. Bown, comparte con La lógica del capital (GENERAL) el interés por la economía, pero se concentra en los conflictos comerciales y los cambios del comercio global. La batalla por la vivienda, de Michael Byrne, aborda la economía política desde el problema específico de la vivienda, mientras que el título de Roberto Fineschi plantea una perspectiva centrada en el capital.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441051",
+        "isbn-9788449346187"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c7c99f0c9a84f7dd",
+  "origen": "chatgpt-web"
+}

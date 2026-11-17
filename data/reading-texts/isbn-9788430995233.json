@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788430995233",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aportaciones del exilio español a la esfera pública francesa (Ciencia Política - Semilla y Surco) se dirige a lectores interesados en la historia del exilio y en las relaciones entre sociedad y política. Su enfoque histórico y político se aparta de la ficción y de los manuales prácticos sobre campañas electorales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda la contribución del exilio español a la esfera pública francesa desde un marco relacionado con la historia y la ciencia política. Su título sitúa el análisis en la relación entre una comunidad exiliada y el espacio público del país de acogida. Reúne una autoría colectiva y pertenece a la colección Ciencia Política - Semilla y Surco.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aportaciones del exilio español a la esfera pública francesa (Ciencia Política - Semilla y Surco) se presenta en tapa blanda, con 200 páginas en castellano. El volumen físico permite consultar el contenido y volver a pasajes concretos durante el estudio. La edición corresponde a Tecnos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comunistas bajo el franquismo: Culturas militantes, símbolos e identidades: 29 (Base Hispánica) comparte con Aportaciones del exilio español a la esfera pública francesa (Ciencia Política - Semilla y Surco) el interés por la historia política española, aunque sus títulos delimitan objetos de estudio distintos. A sangre y fuego (Clásicos ilustrados) ofrece otra aproximación a la historia española desde una obra de Manuel Chaves Nogales, frente a la autoría colectiva del volumen sobre el exilio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752590",
+        "isbn-9791388439124"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "854b50f4923f7426",
+  "origen": "chatgpt-web"
+}

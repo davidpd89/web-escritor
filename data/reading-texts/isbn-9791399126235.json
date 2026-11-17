@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de ciencia ficción interesados en las utopías, las distopías y la representación de las mujeres en entornos conectados. Su combinación de relatos y ensayo se aleja de lo que busca quien prefiere una única novela de fantasía con una trama continuada.",
+      "texto": "Tecnomusas: Utopías y distopías de mujeres conectadas: 1 se dirige a quienes buscan relatos de ciencia ficción sobre mujeres y tecnología, con una dimensión reflexiva. Su combinación de relatos y ensayo se aparta de la estructura de una novela única y continuada.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,32 +12,32 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Explora las relaciones entre mujeres, tecnología y modelos de sociedad imaginados desde la utopía y la distopía. Tecnomusas: Utopías y distopías de mujeres conectadas: 1 reúne perspectivas de varios autores y se sitúa entre la ciencia ficción, los relatos y el ensayo.",
+      "texto": "El libro plantea la relación entre mujeres y tecnología a través de las posibilidades utópicas y distópicas de la conexión. Reúne una perspectiva de ciencia ficción con componentes de relato y ensayo, de modo que el tema puede abordarse desde registros narrativos y reflexivos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tecnomusas: Utopías y distopías de mujeres conectadas: 1 se presenta en tapa blanda, con 180 páginas. Su extensión permite alternar la lectura de relatos con otros libros, y el volumen físico reúne las aportaciones de sus distintos autores en una misma edición.",
+      "texto": "Apache Libros publica Tecnomusas: Utopías y distopías de mujeres conectadas: 1 en tapa blanda, con 180 páginas en castellano. Es una edición física de extensión contenida, adecuada para alternar la lectura de sus distintos textos y volver a ellos sin depender de una pantalla.",
       "evidencias": [
         "titulo",
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "autores",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) comparte el interés por las sociedades distópicas, pero sitúa la individualidad en el centro de su planteamiento. Arde Talía: Una pieza teatral sobre el infierno de la creación artística coincide con Tecnomusas: Utopías y distopías de mujeres conectadas: 1 en la participación de Ana Saiz, aunque la primera es una obra teatral sobre la creación y la segunda aborda mujeres conectadas mediante ciencia ficción, relatos y ensayo.",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) comparte el interés por las sociedades distópicas, pero sitúa la individualidad en el centro, mientras Tecnomusas: Utopías y distopías de mujeres conectadas: 1 destaca a las mujeres y la conexión tecnológica. Arde Talía: Una pieza teatral sobre el infierno de la creación artística comparte la presencia de Ana Saiz entre sus autores, aunque utiliza el teatro y trata la creación artística.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791399289510",
@@ -47,6 +47,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9001b5ea31023c2e",
+  "fuente_hash": "83806aa70064e437",
   "origen": "chatgpt-web"
 }

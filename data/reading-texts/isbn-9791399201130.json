@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Idolatría de lo plano: 46 (CHAMÁN ANTE EL FUEGO), de Pedro Serrano, se dirige a lectores de poesía en castellano. Sus 86 páginas permiten abordar una obra breve, frente a quienes buscan una novela extensa o una narración centrada en una trama.",
+      "texto": "Idolatría de lo plano: 46 (CHAMÁN ANTE EL FUEGO), de Pedro Serrano, está dirigido a lectores de poesía en castellano. Con 86 páginas, presenta una extensión breve frente a las novelas largas; no corresponde a quienes buscan una narración clasificada como romance o thriller.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "idioma",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Idolatría de lo plano: 46 (CHAMÁN ANTE EL FUEGO) está disponible en tapa blanda. Sus 86 páginas ofrecen un volumen físico breve, fácil de transportar y consultar en papel, con una encuadernación flexible que ocupa poco espacio.",
+      "texto": "Idolatría de lo plano: 46 (CHAMÁN ANTE EL FUEGO) está disponible en tapa blanda. La edición de Chamán Ediciones reúne 86 páginas en papel, un formato que permite consultar y releer los textos sin utilizar un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Idolatría de lo plano: 46 (CHAMÁN ANTE EL FUEGO) puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, por su pertenencia al ámbito poético. También comparte ese terreno con Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña; la diferencia comprobable entre estas lecturas está en la autoría y en los títulos de cada obra.",
+      "texto": "Idolatría de lo plano: 46 (CHAMÁN ANTE EL FUEGO), de Pedro Serrano, puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, dentro del ámbito de la poesía. También comparte ese marco literario con A solas, de María Jesús Martínez Ramos; las diferencias identificables están en la autoría, los títulos y la identificación editorial de cada obra.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,7 +34,7 @@
       ],
       "enlaces": [
         "isbn-9788412988833",
-        "isbn-9791388299421"
+        "isbn-9788410907539"
       ]
     }
   ],

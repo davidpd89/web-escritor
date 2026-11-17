@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387995485",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yo quise pilotar a mazinger z. Sueños coleccionables de una generación de acero se orienta a lectores interesados en Mazinger Z, los recuerdos generacionales y el coleccionismo. Vicente Pizarro aborda estos referentes dentro del ámbito editorial del cómic y la novela gráfica, por lo que su temática se aparta de la fantasía medieval o la novela romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yo quise pilotar a mazinger z. Sueños coleccionables de una generación de acero cuenta con una edición en tapa dura de 260 páginas. El volumen de Diabolo Ediciones está publicado en castellano y su encuadernación rígida permite guardarlo como libro de colección o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4c6291627a271454",
+  "origen": "chatgpt-web"
+}

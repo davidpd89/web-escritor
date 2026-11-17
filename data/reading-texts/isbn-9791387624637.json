@@ -4,39 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este volumen de José Sanchis Sinisterra se dirige a lectores interesados en el teatro y en conocer distintas piezas de un mismo dramaturgo. Reúne cinco títulos teatrales y encaja menos con quienes buscan una novela de estructura narrativa continua.",
+      "texto": "Este volumen de José Sanchis Sinisterra se dirige a lectores interesados en el teatro y las artes escénicas. Reúne Ñaque, ¡Ay, Carmela!, El retablo de Eldorado, Lope de Aguirre, traidor y Los figurantes en 432 páginas, por lo que no responde a la búsqueda de una novela breve con una única trama.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Punto de Vista Editores reúne 432 páginas en castellano. El formato permite consultar las distintas obras en un único volumen físico y marcar pasajes durante el estudio o la preparación de una representación.",
+      "texto": "La edición de Punto de Vista Editores ofrece 432 páginas en tapa blanda. Este formato permite consultar en papel las obras reunidas de José Sanchis Sinisterra y conservarlas juntas para su lectura o estudio.",
       "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "editorial",
-        "titulo"
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Arde Talía: Una pieza teatral sobre el infierno de la creación artística comparte con este volumen su relación con el teatro. La obra de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano aborda la creación artística, mientras que José Sanchis Sinisterra reúne varias piezas de su autoría. La diferencia está entre una pieza centrada en la creación y una recopilación de obras teatrales.",
+      "texto": "Ahorcados, de Miguel Ávila Cabezas, es otra referencia del ámbito artístico, mientras que 21 Westerns del siglo XXI (Sílex Cine/Claqueta), de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga, se centra por su título en el cine. El volumen de José Sanchis Sinisterra se diferencia por reunir varias obras teatrales en 432 páginas, frente al enfoque cinematográfico anunciado en la segunda lectura.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399289510"
+        "isbn-9791388205842",
+        "isbn-9791399276725"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d0366fbd45fd28e7",
+  "fuente_hash": "682e17603b9ffb58",
   "origen": "chatgpt-web"
 }

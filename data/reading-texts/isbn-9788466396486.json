@@ -4,44 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se orienta a lectores interesados en relaciones familiares, narrativa contemporánea y misterios vinculados a una saga. La historia de Maia, de Lucinda Riley, combina esas líneas temáticas; no responde tanto a la búsqueda de un thriller centrado únicamente en delitos y procedimientos policiales.",
+      "texto": "Encaja con lectores de narrativa contemporánea que buscan una historia centrada en Maia y vinculada a una serie familiar. Por su clasificación editorial, se aleja de las lecturas orientadas específicamente al misterio criminal o la divulgación.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Penguin Bolsillo presenta esta edición limitada en castellano, con encuadernación de tapa blanda y tamaño de bolsillo. El volumen contiene 560 páginas y se identifica mediante el ISBN 9788466396486. Su denominación incluye Las Siete Hermanas 1 y La historia de Maia, que distinguen esta entrega de las demás obras de Lucinda Riley pertenecientes a la serie.",
+      "texto": "Esta edición limitada de Las siete hermanas se publica en formato de bolsillo bajo el sello Penguin Bolsillo. Reúne 560 páginas en castellano, con fecha de publicación 2027-02-04 e ISBN 9788466396486, datos que permiten identificar esta presentación frente a otras ediciones de la obra.",
       "evidencias": [
         "titulo",
-        "autores",
-        "editorial",
         "edicion",
+        "editorial",
         "numero_paginas",
-        "formato_edicion",
         "idioma",
+        "fecha_publicacion",
         "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Para esta edición se ofrece tapa blanda, con una extensión de 560 páginas. El formato de bolsillo concentra la lectura en un solo volumen físico y facilita llevarlo en una bolsa durante los desplazamientos. También permite incorporarlo a una colección en papel de Las Siete Hermanas.",
+      "texto": "La opción disponible es la tapa blanda, en una edición de bolsillo que facilita transportar sus 560 páginas sin recurrir a un volumen de tapa dura. Es una presentación física pensada para llevar en el bolso o la mochila y conservar en la estantería después de leerla.",
       "evidencias": [
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "titulo"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La hermana sombra (edición limitada) (Las Siete Hermanas 3): La historia de Star (Campaña | Ahora por menos), también de Lucinda Riley, comparte la serie y el interés por las historias familiares. La diferencia visible está en el personaje central y la numeración: el título identifica Las siete hermanas (edición limitada) (Las Siete Hermanas 1): La historia de Maia (Campaña | Ahora por menos) como el n.º 1 y el de Star como el n.º 3.",
+      "texto": "La hermana sombra (edición limitada) (Las Siete Hermanas 3): La historia de Star (Campaña | Ahora por menos) comparte autoría con este libro: ambos son de Lucinda Riley y pertenecen a la misma serie identificada en sus títulos. La diferencia está en la protagonista anunciada, Maia frente a Star, y en que los títulos los identifican como el n.º 1 y el n.º 3, respectivamente.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -51,6 +47,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b4f0501d456b1c88",
+  "fuente_hash": "a821b5926efaf56b",
   "origen": "chatgpt-web"
 }

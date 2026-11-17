@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido al público infantil interesado en la magia y los hechizos del universo Harry Potter. Sus 40 páginas se centran en una guía para aprendices de magia, por lo que se aleja de las novelas extensas de aventuras.",
+      "texto": "Duelo con varitas (Harry Potter): Guía oficial de hechizos para aprendices de magia está dirigido al público infantil y juvenil interesado en la magia de Harry Potter. Sus 40 páginas y su carácter de guía lo diferencian de las novelas largas de la serie, por lo que encaja menos con quien busca una narración extensa.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -14,32 +14,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Salamandra se presenta en tapa dura y reúne 40 páginas en castellano. Este formato permite conservar la guía en una estantería y consultarla físicamente, además de servir como regalo relacionado con Harry Potter.",
+      "texto": "Duelo con varitas (Harry Potter): Guía oficial de hechizos para aprendices de magia se publica en tapa dura, con 40 páginas y edición de Salamandra. Su extensión breve y presentación física permiten utilizarlo como libro de consulta sobre hechizos o como regalo relacionado con Harry Potter.",
       "evidencias": [
-        "edicion",
-        "editorial",
-        "numero_paginas",
-        "idioma",
+        "titulo",
         "formatos_disponibles",
-        "titulo"
+        "numero_paginas",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter) comparte con esta guía la autoría de J.K. Rowling y su vinculación con Harry Potter. Mientras aquel título se ocupa de animales fantásticos, Duelo con varitas (Harry Potter): Guía oficial de hechizos para aprendices de magia se centra en los hechizos y consta de 40 páginas.",
+      "texto": "Duelo con varitas (Harry Potter): Guía oficial de hechizos para aprendices de magia comparte universo y autoría de J.K. Rowling con Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter). La primera obra se centra en hechizos y duelos con varitas; la segunda, en criaturas fantásticas. Harry Potter y el misterio del príncipe (Harry Potter edición con ilustraciones de Xavier Bonet 6) se diferencia de ambas por desarrollar una historia narrativa situada durante el sexto curso de Harry en Hogwarts.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
-        "afines_catalogo"
+        "afines_catalogo",
+        "numero_paginas"
       ],
       "enlaces": [
+        "isbn-9788419275851",
         "isbn-9788466395687"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e7508dd717578bc7",
+  "fuente_hash": "17762daf3e030022",
   "origen": "chatgpt-web"
 }

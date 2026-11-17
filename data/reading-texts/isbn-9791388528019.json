@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388528019",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Espacios liminales: 48 (Letra Bastarda), de Nacho Pérez Cerón, se dirige a lectores de poesía que buscan una obra breve en castellano. Sus 56 páginas lo distinguen de una novela extensa o de un ensayo desarrollado en numerosos capítulos; el título lo identifica con el n.º 48 de Letra Bastarda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Espacios liminales: 48 (Letra Bastarda) se publica en tapa blanda y consta de 56 páginas. El formato físico y la extensión permiten llevarlo consigo y volver a sus textos poéticos en distintas sesiones de lectura, sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Espacios liminales: 48 (Letra Bastarda) y 223 esquinas: 16 (La garza roja) se relacionan por su pertenencia al ámbito poético y por aparecer identificados con colecciones numeradas. Nacho Pérez Cerón firma el primero, señalado como n.º 48 de Letra Bastarda, mientras que Antonio Fernández Lera firma el segundo, cuyo título indica el n.º 16 de La garza roja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "023e088a54c9aebd",
+  "origen": "chatgpt-web"
+}

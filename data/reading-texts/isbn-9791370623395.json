@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370623395",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a quienes buscan un temario específico relacionado con el puesto de auxiliar cuidador en el ámbito autonómico. Por su planteamiento como material de estudio, se diferencia de los ensayos de lectura general y de los manuales destinados a otras especialidades administrativas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Auxiliar cuidador temario parte especifica 2 comunidad auton se publica en tapa blanda, con 530 páginas en castellano. El soporte físico permite subrayar, marcar apartados y volver a ellos durante el estudio de un temario de esta extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Administrativo/a seguridad social 2027 temario especifico 1 también se presenta como un temario específico y comparte la autoría de Varios autores. La diferencia está en la especialidad: Auxiliar cuidador temario parte especifica 2 comunidad auton se refiere al auxiliar cuidador en el ámbito autonómico, mientras que el otro título se dirige al área administrativa de la seguridad social.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370623111"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "59c96c5d2e2169e0",
+  "origen": "chatgpt-web"
+}

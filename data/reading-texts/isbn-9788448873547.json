@@ -4,37 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pandilla Paloma 3 - El misterio del ladrón de nidos está pensado para lectores infantiles y juveniles que buscan humor, animales protagonistas y misterios. Andrew McDonald y Ben Wood presentan tres casos relacionados con desapariciones y secretos. No encaja con quien busque una investigación criminal realista o un relato de tono adulto.",
+      "texto": "Pandilla Paloma 3 - El misterio del ladrón de nidos se dirige al público infantil y juvenil que disfruta de los misterios con humor y elementos de cómic. Sus tres casos, protagonizados por una pandilla de palomas, se alejan del thriller adulto y de las historias centradas en un único enigma.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pandilla Paloma 3 - El misterio del ladrón de nidos está disponible en tapa blanda y Kindle. La edición de papel de Beascoa tiene 224 páginas y reúne tres misterios en un volumen que puede prestarse o regalarse. Kindle permite llevar esos mismos casos en formato digital y leerlos desde un dispositivo compatible.",
+      "texto": "Pandilla Paloma 3 - El misterio del ladrón de nidos ofrece 224 páginas y puede leerse en tapa blanda o Kindle. La primera permite conservar y regalar el volumen físico; Kindle facilita llevar los tres misterios en un dispositivo de lectura sin transportar el libro en papel.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pandilla Paloma 3 - El misterio del ladrón de nidos comparte con Abre el misterio 1 - El robo de las croquetas una intriga construida alrededor de una desaparición. Frente al robo de comida del segundo, el libro de Andrew McDonald y Ben Wood reúne tres misterios protagonizados por palomas. También se acerca a Agente Stitch 5. Los roedores de Roswell por sus protagonistas no humanos y su investigación en equipo, aunque este último introduce elementos intergalácticos.",
+      "texto": "Pandilla Paloma 3 - El misterio del ladrón de nidos comparte personajes y autoría con Pandilla Paloma 1 - El misterio de las migas de pan (Mi primer cómic). El título del primero lo identifica como el n.º 3 y reúne tres misterios, mientras que el otro se identifica como el n.º 1 y centra su título en las migas de pan.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788427256644",
-        "isbn-9791387901943"
+        "isbn-9788448873554"
       ]
     }
   ],

@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vuela, extraña alma se orienta a lectores de literatura juvenil que también buscan poesía. Su clasificación combina narrativa juvenil y expresión poética, por lo que se distancia de quienes prefieren exclusivamente novela adulta o textos de carácter informativo.",
+      "texto": "Vuela, extraña alma, de Emilio Arnaiz López, se sitúa entre la poesía y la literatura juvenil. Puede encajar con lectores que buscan textos poéticos vinculados al ámbito juvenil, pero menos con quienes prefieren exclusivamente novelas de intriga o manuales prácticos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Vuela, extraña alma se publica en tapa blanda, con una extensión de 118 páginas. Es un volumen físico relativamente breve que permite alternar sesiones cortas de lectura y volver a los pasajes de interés sin depender de un dispositivo electrónico.",
+      "texto": "Vuela, extraña alma se presenta en tapa blanda, con 118 páginas en castellano. Su extensión permite alternar sesiones cortas de lectura y relectura; el ejemplar físico resulta cómodo para consultar pasajes concretos y conservarlo en una biblioteca personal.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Vuela, extraña alma comparte el terreno poético con s-t técnica mixta: (colección de poemas), de Aldo Sanz. La obra de Emilio Arnaiz López también figura entre la literatura juvenil y la narrativa juvenil, mientras que el título de Aldo Sanz identifica expresamente su contenido como una colección de poemas.",
+      "texto": "Heridas: 45 (Libros inútiles), de Regina Fiz Santos, y La muerte de Penélope (Poesía), de Carolina Corvillo, permiten comparar Vuela, extraña alma con otras obras de títulos vinculados a la expresión emocional o poética. La diferencia explícita es que el libro de Emilio Arnaiz López figura también en literatura juvenil, mientras que La muerte de Penélope (Poesía) identifica la poesía en su propio título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,7 +31,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788498277500"
+        "isbn-9788418782954",
+        "isbn-9791387838928"
       ]
     }
   ],

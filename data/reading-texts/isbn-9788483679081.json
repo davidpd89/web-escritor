@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788483679081",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Toda esa mierda a fake american novel se dirige a lectores de narrativa contemporánea que buscan una obra extensa en castellano. Eduardo Lagar firma un volumen de 432 páginas, por lo que encaja menos con quienes prefieren lecturas breves o buscan específicamente un ensayo, un manual o una obra de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Toda esa mierda a fake american novel se presenta en tapa blanda, una opción física para leer y conservar sus 432 páginas. La edición de KRK Ediciones permite utilizar un marcapáginas y retomar la lectura sin depender de una pantalla; también puede prestarse o regalarse como ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a5365fb468141443",
+  "origen": "chatgpt-web"
+}

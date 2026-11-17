@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388108266",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La estela de los naufragios: La maga y la sirena: libro 2 (Faeris Editorial) se dirige a lectores de fantasía con componentes románticos. Su combinación de magia y romance encaja menos con quienes buscan narrativa realista sin elementos fantásticos; el título lo identifica como el n.º 2 de La maga y la sirena.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La estela de los naufragios: La maga y la sirena: libro 2 (Faeris Editorial) está disponible en tapa blanda, con una extensión de 480 páginas. El formato físico permite mantener el volumen en una colección de fantasía y consultar pasajes anteriores durante una lectura repartida en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adversaria del villano (Faeris Editorial), de Hannah Nicole Maehrer, y El exorcismo de las hadas: Perversas realidades: libro 1 (Faeris Editorial), de J.L. Vampa, comparten sello editorial con la obra de Kalie Cassidy. Esta última combina fantasía y romance y lleva el n.º 2 en el título, mientras que El exorcismo de las hadas se identifica como libro 1 y sitúa a las hadas en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108327",
+        "isbn-9791388108280"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "208e46f2ae78766e",
+  "origen": "chatgpt-web"
+}

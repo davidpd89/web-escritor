@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El linaje de Pierre se dirige a lectores adultos interesados en la memoria familiar, las biografías y la historia europea del siglo XX. Su investigación sobre varias generaciones y la relación entre una hija y su padre encaja menos con quienes buscan una narración centrada en una sola época o en conflictos exclusivamente ficticios.",
+      "texto": "El linaje de Pierre se dirige a lectores adultos interesados en la memoria familiar y la novela histórica. Anne Berest aborda la relación entre padres e hijos mediante una investigación sobre generaciones anteriores; encaja menos con quien busca una ficción desligada de acontecimientos históricos.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,39 +15,22 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El linaje de Pierre aborda la memoria familiar, la relación entre padres e hijos y la transmisión de experiencias entre generaciones. Anne Berest parte de los cuadernos escritos por su abuelo para investigar sus raíces en Finistère y relacionar la historia de su familia con las luchas campesinas, la ocupación alemana y los cambios sociales del siglo XX.",
+      "texto": "La herencia familiar y las relaciones entre generaciones articulan El linaje de Pierre. Anne Berest utiliza los cuadernos de su abuelo para reconstruir una trayectoria que atraviesa conflictos agrícolas, ocupación militar y transformaciones sociales, mientras examina cuánto conoce una hija de su padre.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El linaje de Pierre se publica en tapa blanda y Kindle. La edición de Lumen contiene 448 páginas y solapas, un soporte físico para seguir las distintas generaciones familiares; Kindle permite leer el volumen completo en formato digital sin cargar con el ejemplar impreso.",
+      "texto": "El linaje de Pierre está disponible en tapa blanda y Kindle. La edición física de Lumen tiene solapas y 448 páginas, una opción para conservar el volumen en papel; Kindle permite leer esa misma extensión desde un dispositivo compatible sin transportar el libro.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El linaje de Pierre puede compararse con El niño (Andanzas), de Fernando Aramburu, dentro de la narrativa dirigida a lectores adultos, aunque la obra de Anne Berest se centra específicamente en reconstruir una genealogía familiar. Frente a Los tres mundos (Serie Julio César 3), de Santiago Posteguillo, comparte el interés histórico, pero aborda el siglo XX desde memorias personales en lugar de la conquista de las Galias.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "edad_recomendada",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788411074445",
-        "isbn-9791388147302"
       ]
     }
   ],

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791388147562",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Independencia financiera de la A a la Z (edición limitada): Jubílate cuando quieras... y como te mereces (Campaña | Ahora por menos) se dirige a lectores interesados en la independencia financiera y la planificación de su jubilación. Su enfoque de economía y desarrollo personal se aleja de los libros centrados exclusivamente en nutrición o bienestar físico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Penguin Bolsillo se presenta en tapa blanda y tiene 288 páginas. Su publicación está prevista para enero de 2027 y pertenece a la línea de libros de bolsillo de la editorial. El título incorpora la indicación de edición limitada y una referencia a una campaña promocional.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para este libro de Gregorio Hernández. Sus 288 páginas se presentan en una edición de bolsillo de Penguin Bolsillo, pensada para manejarse y transportarse con facilidad. También permite consultar distintos apartados durante la lectura sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tu plan vital para tu Independencia Financiera: Solo si crees que es posible, será inevitable (Vergara) comparte autor y asunto central con este libro: Gregorio Hernández y la independencia financiera. Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA), de Renato Antinori, aborda una vía financiera más concreta, mientras que el título de Gregorio Hernández plantea la jubilación como objetivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788494898365",
+        "isbn-9788411724357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "57e0e32fddaceebc",
+  "origen": "chatgpt-web"
+}

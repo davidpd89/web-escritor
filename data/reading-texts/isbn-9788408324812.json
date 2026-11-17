@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408324812",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "España en moto: 13 676 km en rutas de un día + Camino de Santiago (Nómadas), de Pedro Pardo, está dirigido a quienes buscan recorridos en moto por España y propuestas de viaje de un día. Su planteamiento de rutas y desplazamientos no corresponde a una novela ni a una guía centrada en una sola ciudad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar sobre papel las 280 páginas de España en moto: 13 676 km en rutas de un día + Camino de Santiago (Nómadas), mientras que Kindle facilita llevar la lectura en el móvil durante los desplazamientos. La edición física de Geoplaneta puede utilizarse para preparar rutas antes de salir.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Costa amalfitana (VIAJES), de Natasha Penot, comparte con España en moto: 13 676 km en rutas de un día + Camino de Santiago (Nómadas) el interés por los destinos y los desplazamientos, pero se centra en otra zona geográfica. Córcega de cerca 1 (Guías De cerca Lonely Planet), de Claire Angot, Élodie Lecadieu y Clara Jaeger, también aborda viajes, frente a las rutas españolas en moto de Pedro Pardo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934156",
+        "isbn-9788408328056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90dc127bae35fca2",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La Reliquia Escarlata, de Rocío JM, se dirige a lectores de fantasía y aventuras que buscan una obra extensa con elementos de ciencia ficción. Sus 532 páginas se alejan de la lectura breve y de los libros centrados exclusivamente en situaciones cotidianas.",
+      "texto": "La Reliquia Escarlata está dirigida a lectores que buscan fantasía y aventuras, con una extensión de 532 páginas. Su planteamiento editorial se sitúa en la ficción fantástica, por lo que no corresponde a quienes prefieren ensayos, biografías o lecturas centradas en hechos reales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La Reliquia Escarlata se publica en tapa blanda y reúne 532 páginas en castellano. Esta encuadernación permite leer la obra en papel y conservarla como un único volumen, aunque su extensión exige transportar un libro de considerable tamaño.",
+      "texto": "La Reliquia Escarlata ofrece tres posibilidades: tapa dura, tapa blanda y Kindle. Sus 532 páginas permiten elegir entre una encuadernación física más rígida, una edición en papel más flexible o la lectura digital desde dispositivos electrónicos.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "edicion"
+        "formato_edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La Reliquia Escarlata puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su relación con la fantasía, aunque sus autorías son distintas. Frente al título de Tracy Wolff, que incorpora el número 1, la obra de Rocío JM se presenta con un título sin numeración; además, combina fantasía, aventuras y ciencia ficción.",
+      "texto": "A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria), de Sergio Sánchez Morán, comparte con La Reliquia Escarlata su relación con la fantasía, aunque su título introduce un contexto de enseñanza mágica. Alas de escarcha y oro: El canto del cisne, de Marta Morillo, también se sitúa en el ámbito fantástico y presenta una protagonista identificada por sus dones y debilidades.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324102"
+        "isbn-9791399305517",
+        "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "182c80bea6cd0735",
+  "fuente_hash": "c49682022e8033bc",
   "origen": "chatgpt-web"
 }

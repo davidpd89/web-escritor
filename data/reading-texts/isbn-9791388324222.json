@@ -4,39 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mítica: Una nueva historia del mundo de Homero a través de las mujeres: 125 (Ático Historia), de Emily Hauser, se dirige a lectores interesados en la historia y el papel de las mujeres. Su enfoque histórico, con referencias a Homero, se aparta de la ficción de aventuras y de las novelas románticas.",
+      "texto": "Mítica: Una nueva historia del mundo de Homero a través de las mujeres: 125 (Ático Historia), de Emily Hauser, se orienta a lectores interesados en la historia antigua y en las perspectivas femeninas sobre el mundo de Homero. Su enfoque histórico lo distingue de una novela de ficción mitológica, mientras que sus 552 páginas plantean una lectura de cierta extensión.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Mítica: Una nueva historia del mundo de Homero a través de las mujeres: 125 (Ático Historia) es de tapa dura y contiene 552 páginas. Publicada por Atico de los Libros en castellano, su encuadernación rígida permite mantener un volumen extenso como libro de consulta o de lectura continuada.",
+      "texto": "Mítica: Una nueva historia del mundo de Homero a través de las mujeres: 125 (Ático Historia) está disponible en tapa dura. Esta edición de Atico de los Libros reúne 552 páginas en castellano, por lo que constituye un volumen extenso para conservar y consultar en papel. La encuadernación rígida también resulta práctica para una biblioteca personal.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "editorial",
+        "numero_paginas",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mítica, de Emily Hauser, y Mujeres que la liaron, de Tatiana Gómez Montero, comparten el interés por recuperar el protagonismo femenino en la historia. La primera parte del mundo de Homero, mientras que la segunda abarca 3000 años de historia feminista, desde Hipatia de Alejandría hasta Simone de Beauvoir.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) y Mítica: Una nueva historia del mundo de Homero a través de las mujeres: 125 (Ático Historia) comparten el interés por el pasado, pero abordan periodos y protagonistas diferentes. El libro de Timothy W. Ryback se centra en la caída de una democracia, mientras que Emily Hauser propone una mirada histórica al mundo de Homero desde las mujeres.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788403527041"
+        "isbn-9788411005517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2a41517df9dd9280",
+  "fuente_hash": "185fa8643dc744e7",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388425073",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sherlock Holmes Escape Book. Aventura de los escoceses voladores (Ecléctica) se orienta a lectores que buscan aventuras vinculadas al misterio y la fantasía. Por su identificación como Escape Book y sus 152 páginas, se distingue de las novelas extensas y de las lecturas centradas en conflictos realistas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sherlock Holmes Escape Book. Aventura de los escoceses voladores (Ecléctica) cuenta con una edición en tapa blanda de 152 páginas. Su extensión permite manejar el volumen en papel durante sesiones de lectura y conservarlo junto a otros títulos de aventuras y misterio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coraline, de Neil Gaiman, comparte con Sherlock Holmes Escape Book. Aventura de los escoceses voladores (Ecléctica) su vinculación con lo fantástico y el misterio, pero parte de una puerta hacia una versión alternativa del hogar. El mundo perdido, de Michael Crichton, también presenta una aventura con elementos inquietantes, aunque sitúa su conflicto alrededor de dinosaurios en una isla, frente al enfoque detectivesco anunciado por Sherlock Holmes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "lib-0001",
+        "isbn-9788466392143"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d75cc7e74537d4d2",
+  "origen": "chatgpt-web"
+}

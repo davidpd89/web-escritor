@@ -4,41 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Brianna se supera / Becoming Brianna: 4 (Emmie & Amigos) encaja con lectores que buscan humor, amistad e historias en formato de cómic. Sus 352 páginas lo alejan de las lecturas ilustradas muy breves y de quienes prefieren narraciones sin componentes gráficos.",
+      "texto": "Brianna se supera / Becoming Brianna: 4 (Emmie & Amigos), de Terri Libenson, se dirige a lectores de cómic y novela gráfica, dentro del catálogo de Alfaguara Infantil. Su clasificación lo separa de las novelas exclusivamente narrativas; el título lo identifica como el n.º 4 de Emmie & Amigos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 352 páginas en un volumen flexible de Alfaguara Infantil, adecuado para llevarlo y leerlo fuera de casa. Es la opción disponible para quien prefiere una edición física frente a la lectura en pantalla.",
+      "texto": "Brianna se supera / Becoming Brianna: 4 (Emmie & Amigos) está disponible en tapa blanda, con 352 páginas en castellano. Esta edición física de Alfaguara Infantil permite consultar las páginas directamente y conservar el volumen junto a otros libros de la colección.",
       "evidencias": [
         "titulo",
-        "autores",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El diario de una princesa desastrosa (Diarios), de Maidy, coincide con Brianna se supera / Becoming Brianna: 4 (Emmie & Amigos) en su orientación hacia el público infantil y en el protagonismo de personajes. La diferencia está en el formato: Brianna se supera / Becoming Brianna: 4 (Emmie & Amigos) se encuadra en el cómic y la novela gráfica, mientras que el título de Maidy se presenta como un diario.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408331148"
+        "idioma",
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9d7334a6a4586b2d",
+  "fuente_hash": "0ad2861f55bdfd3d",
   "origen": "chatgpt-web"
 }

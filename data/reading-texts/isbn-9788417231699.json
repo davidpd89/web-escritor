@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788417231699",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una vuelta al panteón grecolatino: 12 (Colección Aleteo de Mercurio) se dirige a lectores interesados en las divinidades grecolatinas y en su tratamiento desde el ensayo, la filosofía y la religión. Su planteamiento no corresponde al de una novela de aventuras mitológicas, sino al de una obra de reflexión sobre ese ámbito cultural.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una vuelta al panteón grecolatino: 12 (Colección Aleteo de Mercurio) cuenta con una edición en tapa blanda de 206 páginas. Este volumen físico permite leer y consultar el ensayo sobre el panteón grecolatino, así como regresar a cuestiones concretas sin recurrir a una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una vuelta al panteón grecolatino: 12 (Colección Aleteo de Mercurio) y Astrología, filosofía y magia: Un camino de práctica espiritual comparten el interés por cuestiones filosóficas y religiosas. María Correa Riviere centra su libro en el panteón grecolatino, mientras que Soledad Davies plantea un camino de práctica espiritual relacionado con la astrología y la magia. La diferencia principal está entre el objeto cultural del primero y la orientación práctica anunciada por el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7cb8e83210268684",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399153392",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Con las manos en la masa, de Shinsuke Yoshitake, pertenece al ámbito de la literatura infantil y juvenil. Sus 32 páginas permiten plantear sesiones de lectura breves, tanto individuales como compartidas. Por su público y extensión, encaja menos con quienes buscan una novela extensa destinada a adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Con las manos en la masa se publica en tapa dura, con 32 páginas en castellano. La cubierta rígida aporta resistencia al manejo frecuente, una característica útil en libros infantiles que pasan por distintas manos. Esta edición física pertenece a Libros del Zorro Rojo y puede guardarse o regalarse como volumen independiente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3bae69ba1dadfd84",
+  "origen": "chatgpt-web"
+}

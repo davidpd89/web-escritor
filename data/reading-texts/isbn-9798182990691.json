@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798182990691",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tratado Completo de Electrónica Libro II - se dirige a lectores interesados en la electrónica desde una perspectiva de divulgación científica y ensayo. Sus 684 páginas encajan con quienes buscan una lectura extensa sobre esta materia, más que con quienes prefieren relatos de ficción o libros breves.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tratado Completo de Electrónica Libro II - está disponible en tapa blanda, con 684 páginas en castellano. Esta edición de Editorial Regina permite consultar el contenido en papel y volver a distintos apartados durante el estudio, aunque su extensión puede resultar menos cómoda para transportarla a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tratado Completo de Electrónica Libro II - puede compararse con Abonado y fertilización en agricultura ecológica-AGAU001PO por su orientación hacia materias técnicas, aunque uno trata de electrónica y el otro de agricultura ecológica. Arquitectura cognitivo-neuro sistémica de los falsos recuerdos (Plural -México-) ofrece otra temática científica, centrada en los falsos recuerdos frente al ámbito electrónico del libro de Eugenio Roque de Escobar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586422",
+        "isbn-9791370384968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a0fb618ae882a7e9",
+  "origen": "chatgpt-web"
+}

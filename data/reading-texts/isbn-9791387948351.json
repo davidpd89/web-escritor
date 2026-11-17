@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387948351",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Golazos 04 - La maldición de la trenza negra: ¡Nunca el fútbol había sido tan divertido! Un equipo de fútbol insólito que lo rompe, amistad y mucho humor.: 4 se dirige al público infantil interesado en el fútbol, la amistad y el humor. Su temática deportiva lo aleja de las lecturas que buscan aventuras sin relación con equipos o competiciones de fútbol.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 140 páginas de Golazos 04 - La maldición de la trenza negra: ¡Nunca el fútbol había sido tan divertido! Un equipo de fútbol insólito que lo rompe, amistad y mucho humor.: 4. Es un volumen físico en castellano que puede guardarse junto a otros libros infantiles y consultarse sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Murdoku (edición especial SORTEO) y Golazos 04 - La maldición de la trenza negra comparten su relación con el ocio, pero el primero propone acertijos de lógica y el segundo aborda el fútbol, la amistad y el humor. Murdoku: Vuelta al mundo también plantea desafíos de lógica, mientras la obra de Alberto Casamayor se dirige al público infantil mediante una historia sobre un equipo de fútbol.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279386",
+        "isbn-9791388279720"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c4709238dc2ee0b",
+  "origen": "chatgpt-web"
+}

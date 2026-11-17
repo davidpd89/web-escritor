@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791387694395",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la historia de la Transición y en la participación ciudadana a través del movimiento vecinal almeriense. Su enfoque territorial y político lo aleja de las lecturas centradas en la historia de otros periodos o en relatos de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es la extensión del movimiento vecinal almeriense durante la Transición. Aborda la lucha ciudadana desde una perspectiva histórica y territorial, con atención al desarrollo de la organización vecinal y su relación con ese periodo de cambio político.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición se presenta en tapa blanda y reúne 466 páginas en castellano. Este formato permite consultar una obra histórica extensa sin recurrir a una encuadernación rígida, tanto para una lectura continuada como para volver a pasajes concretos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), porque ambos títulos se ocupan de procesos políticos desde la historia. La diferencia está en el objeto de estudio: uno se centra en el movimiento vecinal almeriense durante la Transición y el otro en el derribo de una democracia por Hitler.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9cc3e19703a0622f",
+  "origen": "chatgpt-web"
+}

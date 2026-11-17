@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788408328636",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Madame Borges (Autores Españoles e Iberoamericanos), de Florencia Etcheves, encaja con lectores que buscan narrativa contemporánea en castellano. La edición cuenta con 264 páginas, una extensión intermedia para una obra de ficción; no está orientada a quienes prefieren manuales de consulta o libros de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Madame Borges (Autores Españoles e Iberoamericanos) está disponible en tapa blanda, Kindle y audiolibro. La edición impresa de Editorial Planeta contiene 264 páginas y puede transportarse sin la rigidez de una tapa dura; Kindle permite leer en digital y el audiolibro ofrece la alternativa de escuchar la obra.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14fd6dd1ce56a435",
+  "origen": "chatgpt-web"
+}

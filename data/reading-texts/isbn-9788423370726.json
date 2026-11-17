@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788423370726",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los nuevos (Novela), de Pedro Mairal, se dirige a lectores de narrativa contemporánea que buscan una novela de cierta extensión. Sus 448 páginas encajan menos con quienes prefieren lecturas breves o libros de ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los nuevos (Novela) está disponible en tapa blanda, en una edición de bolsillo de Booket. Sus 448 páginas se presentan en un volumen físico que puede llevarse en el bolso o la mochila, frente a la lectura en pantalla o la escucha.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e7cf558df5733e06",
+  "origen": "chatgpt-web"
+}

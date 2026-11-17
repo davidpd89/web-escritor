@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791370650544",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Santo Toribio de Mogrovejo, un jurista en los altares: La aplicación práctica de la Escuela de Salamanca (monografico) se orienta a lectores de historia jurídica y pensamiento religioso. Su enfoque especializado resulta menos afín a quienes buscan una biografía divulgativa sin contenido relacionado con el derecho.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro estudia la figura de Santo Toribio de Mogrovejo desde su dimensión jurídica y religiosa. El eje del análisis es la aplicación práctica de la Escuela de Salamanca, con una perspectiva que conecta historia, derecho y espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Santo Toribio de Mogrovejo, un jurista en los altares: La aplicación práctica de la Escuela de Salamanca (monografico) es de tapa blanda y tiene 146 páginas. Este formato físico permite consultar apartados y volver a cuestiones jurídicas o históricas durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El ocaso del Consejo Real de Castilla (1808-1834) (Derecho Histórico) comparte el estudio de instituciones y cuestiones jurídicas desde una perspectiva histórica. Santo Toribio de Mogrovejo, un jurista en los altares: La aplicación práctica de la Escuela de Salamanca (monografico) se distingue por relacionar el derecho con una figura religiosa y la Escuela de Salamanca.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788434031616"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a2e64791fc0eecef",
+  "origen": "chatgpt-web"
+}

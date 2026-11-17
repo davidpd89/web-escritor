@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788410476660",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Río rojo: 22 (Artes escénicas), de Ernesto Is, se sitúa entre las biografías y memorias y los libros de arte y diseño. Sus 144 páginas en castellano responden a una búsqueda de lectura relacionada con esos campos, más que a una de ficción de género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Río rojo: 22 (Artes escénicas) cuenta con una edición en tapa blanda de 144 páginas, publicada por Pepitas de calabaza. Es un volumen impreso de extensión contenida, que puede consultarse por pasajes y conservarse en una biblioteca dedicada al arte o las memorias.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Río rojo: 22 (Artes escénicas), de Ernesto Is, puede compararse con Bad Bunny: Un icono: sin permiso, sin límite, sin miedo (No ficción), de Jaime Valero, y Desde que era un crío, de Locus. Los tres títulos figuran entre las lecturas relacionadas con el ámbito biográfico y artístico, aunque corresponden a autores distintos. Río rojo: 22 (Artes escénicas) se clasifica en biografías y memorias y arte y diseño, mientras que el libro de Jaime Valero identifica expresamente a una figura musical.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139482",
+        "isbn-9791399084894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6efdfd62aa29a13b",
+  "origen": "chatgpt-web"
+}

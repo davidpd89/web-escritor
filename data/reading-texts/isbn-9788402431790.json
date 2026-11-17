@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) se dirige a lectores de historietas humorísticas que buscan aventuras narradas mediante cómic. Su clasificación incluye humor, fantasía y ciencia ficción, por lo que se aleja de la narrativa realista presentada únicamente en prosa.",
+      "texto": "7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) está dirigido a lectores de cómic humorístico interesados en las obras de Francisco Ibáñez y las aventuras de la colección Súper Humor. No responde a la búsqueda de una novela convencional en prosa ni de un ensayo sobre humor gráfico.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) se ofrece en tapa dura y Kindle. La edición física de Bruguera contiene 192 páginas y proporciona una encuadernación rígida para conservar las historietas; Kindle permite leerlas en formato digital sin ocupar espacio en la estantería.",
+      "texto": "La tapa dura de Bruguera presenta sus 192 páginas en un volumen encuadernado para conservar en una colección de cómics. Kindle permite acceder a la edición digital y leerla sin ocupar espacio físico, aunque la experiencia de visualización depende de la pantalla utilizada.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) comparte autor y sello de colección con Mi primer Mortadelo y Filemón - ¡Detectives del montón! (Bruguera Clásica). Ambas obras están vinculadas al cómic de Francisco Ibáñez, pero la primera pertenece a la línea Súper Humor Mortadelo, mientras que la segunda se presenta como una introducción a Mortadelo y Filemón.",
+      "texto": "Mortadeluxe comparte la autoría de Francisco Ibáñez y el humor asociado a sus personajes Mortadelo y Filemón, mientras que 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica) pertenece a la colección Súper Humor. Resuelve el caso con Mortadelo y Filemón incorpora una propuesta de resolución de casos, distinta de la lectura de historietas que identifica el formato de cómic de esta obra.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402432148"
+        "isbn-9788402432063",
+        "isbn-9788402431578"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ffe9a0ba9aa5e893",
+  "fuente_hash": "77e57213a3a5f3f9",
   "origen": "chatgpt-web"
 }

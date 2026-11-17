@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9788420132853",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Revista imago critica 11 encaja con lectores interesados en publicaciones de ensayo en castellano y obras de autoría colectiva. La firma de Varios autores la distingue de los ensayos atribuidos a una sola persona; quien busque una novela o una narración gráfica encontrará aquí otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Revista imago critica 11 puede compararse con Empoderar a las personas en las organizaciones por su autoría colectiva, atribuida en ambos casos a Varios autores. La primera se presenta como una revista de ensayo, mientras que la segunda centra su título en las personas y las organizaciones. También comparte la firma colectiva de Joyas, poder y magnificencia., aunque sus títulos apuntan a asuntos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788497991872",
+        "isbn-9788413204284"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f0463e143f520e8f",
+  "origen": "chatgpt-web"
+}

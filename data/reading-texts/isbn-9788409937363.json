@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sol ardiente (La elección de Rehsed) encaja con lectores que buscan aventuras dentro de la fantasía y la ciencia ficción. La combinación de estos géneros lo distancia de las novelas realistas centradas exclusivamente en conflictos cotidianos.",
+      "texto": "Sol ardiente (La elección de Rehsed) se dirige a lectores que buscan fantasía con aventuras y elementos de ciencia ficción. Por su combinación de géneros, encaja menos con quienes prefieren historias realistas o narraciones centradas exclusivamente en conflictos cotidianos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,31 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sol ardiente (La elección de Rehsed) se presenta en tapa blanda, con 316 páginas en castellano. El ejemplar físico permite distribuir la lectura de esta obra de fantasía y aventuras en distintas sesiones, sin necesidad de utilizar una pantalla.",
+      "texto": "Sol ardiente (La elección de Rehsed) está disponible en tapa dura, tapa blanda y Kindle. La tapa dura permite conservar sus 316 páginas en una encuadernación rígida; la blanda ofrece una alternativa física flexible y Kindle facilita llevar la lectura en un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sol ardiente (La elección de Rehsed) comparte el terreno de la ficción especulativa con Artemisa (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados), de Andy Weir. La obra de Dani G. combina fantasía, aventuras y ciencia ficción, mientras que Artemisa se vincula especialmente con la ciencia ficción y presenta una edición limitada con cantos tintados.",
+      "texto": "Sol ardiente (La elección de Rehsed) comparte el terreno de la aventura y la ciencia ficción con El mundo perdido, de Michael Crichton, aunque este último sitúa su conflicto en una isla con dinosaurios. También puede compararse con Barbie dreamscape, de Alex Aster, por su componente especulativo, si bien este plantea una historia relacionada con futuros escritos, mientras que Sol ardiente (La elección de Rehsed) combina fantasía, aventuras y ciencia ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388147470"
+        "isbn-9791388277481",
+        "isbn-9788466392143"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3229b4956c7f1dc6",
+  "fuente_hash": "f82457307fd3444a",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788411354677",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Producción, transporte, almacenaje y aplicaciones del hidrógeno verde-ENAE0008 está dirigido a lectores interesados en la energía del hidrógeno verde y sus distintas etapas de utilización. Por su orientación hacia la divulgación científica y el ensayo, se aleja de las lecturas de ficción o de los manuales centrados exclusivamente en otras fuentes renovables.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Producción, transporte, almacenaje y aplicaciones del hidrógeno verde-ENAE0008 es en tapa blanda y contiene 368 páginas. Este soporte permite mantener el volumen a mano para consultas sobre producción, transporte, almacenaje y aplicaciones, además de utilizar marcadores físicos para localizar apartados durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Producción, transporte, almacenaje y aplicaciones del hidrógeno verde-ENAE0008 puede compararse con Energías renovables: Especialidad biomasa-ENAE010PO, también de Elsa Rubio Duce. Ambos títulos se ocupan de fuentes energéticas, pero uno aborda el hidrógeno verde y sus aplicaciones, mientras que el otro se centra en la biomasa. La coincidencia de autoría permite distinguirlos principalmente por la tecnología energética tratada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586279"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0615073f4b0ab67d",
+  "origen": "chatgpt-web"
+}

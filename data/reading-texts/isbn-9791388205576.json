@@ -4,24 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) se dirige a lectores interesados en el arte, su circulación comercial y su regulación en España. Por su enfoque temático, se aleja de los manuales de creación artística y de los libros centrados en técnicas de dibujo o diseño.",
+      "texto": "La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad), de Patricia Labrador Ballestero, se dirige a lectores interesados en la gestión y regulación de bienes culturales. Sus 289 páginas y su enfoque sobre normativa y mercado encajan menos con quien busca una introducción práctica al dibujo.",
       "evidencias": [
         "titulo",
+        "autores",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) se presenta en tapa blanda y tiene 289 páginas. Este soporte permite consultar distintos apartados en papel, marcar páginas y conservar anotaciones durante el estudio de la materia.",
+      "texto": "La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) se publica en tapa blanda, con 289 páginas en castellano. El ejemplar físico permite consultar apartados sobre tipologías, exportación y normativa, así como señalar páginas para volver a ellas durante el estudio.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "España en la escena global. Redes de poder, comercio y cultura (siglos XV-XXI): 1 (Plural) comparte con La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) el interés por España, el comercio y la cultura. El libro de Patricia Labrador Ballestero delimita su objeto a los bienes culturales, su exportación, normativa y mercado; el otro título abarca también las redes de poder y una perspectiva histórica.",
+      "texto": "España en la escena global. Redes de poder, comercio y cultura (siglos XV-XXI): 1 (Plural) comparte con La adquisición de bienes culturales en España: Tipologías, exportación, normativa y mercado (Sílex Universidad) el interés por España y la cultura. La primera aborda redes de poder y comercio en distintos periodos; la segunda delimita su objeto a los bienes culturales, su exportación y su regulación, y ambas incluyen a Patricia Labrador Ballestero entre sus autores.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5c802796205949eb",
+  "fuente_hash": "be76551caf307753",
   "origen": "chatgpt-web"
 }

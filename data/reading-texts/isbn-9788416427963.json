@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788416427963",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido al público infantil y a quienes buscan lecturas breves relacionadas con el afecto. Nos queremos mucho (Lejano Oriente), de Yusuke Yonezu, presenta ese tema desde su título y reúne 20 páginas en una edición de cartón, frente a las novelas extensas destinadas a lectores de mayor edad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Nos queremos mucho (Lejano Oriente) puede utilizarse para compartir una lectura breve entre un adulto y un niño, pasando sus 20 páginas de cartón. El título permite introducir una conversación sobre el cariño y las relaciones afectivas, sin necesidad de convertir la lectura en una actividad con reglas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nos queremos mucho (Lejano Oriente) se presenta en una edición de cartón de 20 páginas, identificada también como tapa dura. Este soporte permite manipular físicamente las páginas durante la lectura compartida; Pastel de Luna publica el volumen en castellano.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "85077d9e374f129e",
+  "origen": "chatgpt-web"
+}

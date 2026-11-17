@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399238020",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ramones. El ataque relámpago del punk: 24 (Elepé) se dirige a lectores interesados en los Ramones, el punk y las publicaciones culturales sobre música. Sus 160 páginas y su enfoque musical encajan menos con quien busca una novela de ficción o una historia general de todas las corrientes artísticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ramones. El ataque relámpago del punk: 24 (Elepé) tiene una edición en tapa blanda de 160 páginas. El volumen de Efe Eme, escrito por Raúl Tamarit, permite leer y consultar en papel una obra centrada en los Ramones y el punk, con una extensión delimitada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ramones. El ataque relámpago del punk: 24 (Elepé) y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) se relacionan con el ámbito del arte y la cultura. Raúl Tamarit centra su obra en los Ramones y el punk, mientras que Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga se ocupan de los wésterns del siglo XXI. El primero se dirige a quienes buscan una temática musical concreta; el segundo, a quienes prefieren explorar el género wéstern.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ca11c96981048fc1",
+  "origen": "chatgpt-web"
+}

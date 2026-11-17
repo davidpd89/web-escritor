@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388613111",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cervezasofía: Filosofía del pan líquido se dirige a lectores interesados en relacionar la filosofía con asuntos cotidianos como la cerveza y el ocio. Es un ensayo de María del Carmen Bengoechea Bernal, por lo que su enfoque se aparta de la narrativa de ficción y de los manuales técnicos sobre elaboración de bebidas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cervezasofía: Filosofía del pan líquido está disponible en tapa dura, con 187 páginas en castellano. La encuadernación rígida permite conservar el volumen en una biblioteca y consultarlo de nuevo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El vino filosófico: Cuida tu identidad, bebe en libertad comparte con Cervezasofía: Filosofía del pan líquido la autoría de María del Carmen Bengoechea Bernal y la relación entre filosofía y bebidas, aunque cambia el vino por la cerveza. Dinerosofía: Conoce y cuida la Economía con Filosofía mantiene esa conexión con la reflexión filosófica, pero desplaza el asunto hacia la economía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388613050",
+        "isbn-9791388613098"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a8a6331652194fd",
+  "origen": "chatgpt-web"
+}

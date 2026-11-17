@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los amores paralelos (Novela), de Mayte Uceda, encaja con lectores interesados en las relaciones familiares, la historia y la narrativa ambientada en el siglo XX. Sus 544 páginas la alejan de las lecturas cortas y de quienes buscan principalmente fantasía o ciencia ficción.",
+      "texto": "Los amores paralelos (Novela), de Mayte Uceda, se orienta a lectores de narrativa contemporánea interesados también en la historia. Por esa combinación, encaja menos con quienes buscan exclusivamente fantasía, terror o una obra de divulgación científica.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los amores paralelos (Novela) ofrece tapa dura para conservar el ejemplar o regalarlo, y tapa blanda para transportar una lectura de 544 páginas con menos rigidez. Kindle permite llevar el texto en un lector electrónico o móvil, mientras que el audiolibro ofrece la posibilidad de escucharlo sin mantener el libro abierto.",
+      "texto": "Los amores paralelos (Novela) tiene 544 páginas y permite elegir entre tapa dura, tapa blanda, Kindle y audiolibro. La tapa dura resulta práctica para conservar o regalar un volumen extenso; la blanda facilita transportarlo, Kindle permite leerlo digitalmente y el audiolibro sustituye la lectura visual por la escucha.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -23,20 +22,22 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los amores paralelos (Novela) comparte el terreno de la narrativa con Corazón de oro: Edición limitada a precio especial (Colección Especial), de Luz Gabás. La obra de Mayte Uceda se vincula expresamente con la familia y el siglo XX, mientras que la de Luz Gabás se distingue en este catálogo por presentarse como una edición limitada de colección.",
+      "texto": "Los amores paralelos (Novela) puede compararse con Corazón de oro: Edición limitada a precio especial (Colección Especial), de Luz Gabás, dentro de una selección de lecturas afines. Frente a Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas), de Lev Tolstoi, presenta una autoría diferente y ofrece también opciones digitales y de escucha.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "formatos_disponibles"
       ],
       "enlaces": [
+        "isbn-9788491058397",
         "isbn-9788408328353"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7b5d3edf689850cc",
+  "fuente_hash": "9a349131d9ced455",
   "origen": "chatgpt-web"
 }

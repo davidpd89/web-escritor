@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786287878242",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Suficiente / Enough se dirige a lectores interesados en el desarrollo personal, el bienestar y las memorias. Por su clasificación temática, se aleja de quienes buscan ficción o un manual dedicado exclusivamente a la nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Suficiente / Enough está disponible en tapa blanda, con 280 páginas en castellano. Esta edición física permite consultar y retomar pasajes sobre desarrollo personal y bienestar sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Suficiente / Enough comparte el ámbito del desarrollo personal con Camino a la felicidad: Segunda parte, de Maria de los Angelres De Leon Mesa. También puede compararse con 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, aunque este último plantea expresamente consejos sobre longevidad y optimismo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290",
+        "isbn-9788409941506"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0269b1d66f466257",
+  "origen": "chatgpt-web"
+}

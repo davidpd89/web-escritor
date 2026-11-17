@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cincuenta sombras más oscuras (Cincuenta sombras 2) (Best Seller | Ficción) se dirige a lectores de romance interesados en continuar una serie. El título lo identifica como el n.º 2, por lo que quien busque una historia independiente puede preferir otra lectura.",
+      "texto": "Se dirige a lectores de romance interesados en la serie Cincuenta sombras de E.L. James. El título lo identifica como el n.º 2, por lo que no responde a la búsqueda de una historia presentada como entrega inicial o independiente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,10 +13,8 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de tapa blanda de Penguin Bolsillo reúne las 592 páginas de Cincuenta sombras más oscuras (Cincuenta sombras 2) (Best Seller | Ficción). Su presentación de bolsillo permite llevar el volumen en el bolso o la mochila y leerlo en papel sin recurrir a un dispositivo electrónico.",
+      "texto": "La tapa blanda ofrece una edición de bolsillo de 592 páginas, pensada para llevar el libro en papel sin recurrir a una encuadernación rígida. Kindle permite leer esa misma obra en un dispositivo electrónico o en el móvil, sin transportar el volumen físico.",
       "evidencias": [
-        "titulo",
-        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles"
@@ -24,20 +22,19 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A la deriva contigo (Best Seller | Ficción) comparte con Cincuenta sombras más oscuras (Cincuenta sombras 2) (Best Seller | Ficción) su vinculación con la narrativa romántica. La diferencia identificable está en la autoría: Beth O'Leary firma el primero y E.L. James el segundo, cuyo título lo identifica como el n.º 2 de una serie.",
+      "texto": "Cincuenta sombras liberadas (Cincuenta sombras 3) (Best Seller | Ficción) comparte autoría con esta entrega: ambas son de E.L. James. La diferencia está en su posición dentro de la serie, ya que los títulos las identifican como los números 3 y 2, respectivamente.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466390200"
+        "isbn-9788466395021"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "de600165294afeb5",
+  "fuente_hash": "57456c531eda711a",
   "origen": "chatgpt-web"
 }

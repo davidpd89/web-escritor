@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410907843",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La última princesa de Troya, de Paco Belda, se orienta a lectores que buscan aventuras con elementos de misterio y suspense. Su clasificación combina ambos géneros, por lo que se distancia de las novelas centradas exclusivamente en relaciones románticas o conflictos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La última princesa de Troya cuenta con una edición en tapa blanda de 450 páginas, publicada por Editorial Letra Minúscula. Es una opción de lectura en papel para quien prefiera manejar un volumen extenso con cubierta flexible y conservarlo después en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La última princesa de Troya coincide en el componente de misterio con Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, aunque este último plantea una desaparición concreta. También puede compararse con Amanda Black 15 - El laberinto del minotauro (Juan Gómez-Jurado y Bárbara Montes), de Juan Gómez-Jurado y Bárbara Montes, por su vinculación con la aventura. La obra de Paco Belda reúne misterio y aventuras sin identificarse como entrega numerada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9791387994426"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8666e6b6df35bbfb",
+  "origen": "chatgpt-web"
+}

@@ -4,41 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El gran libro de los juguetes (Obras diversas), de Petter OKKA, se dirige a quienes buscan una lectura sobre juguetes dentro del ámbito del ocio y el tiempo libre. Por su temática, se aleja de los libros centrados en la investigación criminal o la gastronomía.",
+      "texto": "El gran libro de los juguetes (Obras diversas) se dirige a lectores interesados en los juguetes y las aficiones relacionadas con el tiempo libre. La obra de Petter OKKA, de 216 páginas, se aleja de los manuales económicos y de la narrativa de ficción para situarse en el ámbito del ocio.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El gran libro de los juguetes (Obras diversas) está disponible en tapa blanda, con 216 páginas en castellano. Esta edición de Plaza & Janés permite consultar el contenido en papel y transportarlo sin el peso habitual de una encuadernación rígida.",
+      "texto": "El gran libro de los juguetes (Obras diversas) está disponible en tapa blanda y Kindle. Sus 216 páginas pueden consultarse en la edición física de Plaza & Janés, mientras que Kindle permite leerlo en dispositivos electrónicos sin necesidad de llevar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El gran libro de los juguetes (Obras diversas) puede compararse con 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), por su relación con el entretenimiento. La diferencia está en el enfoque: el libro de Varios autores se presenta expresamente como una actividad para colorear, mientras que el de Petter OKKA se centra en los juguetes. Ambos se distinguen de las propuestas dedicadas a resolver crímenes.",
+      "texto": "El gran libro de los juguetes (Obras diversas) y 99 Sudoku (LIBROS SINGULARES), de Anónimo, se relacionan con el tiempo libre, pero sus títulos distinguen el interés por los juguetes de la resolución de sudokus. También comparte ese ámbito de ocio con Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas, de Varios autores, aunque este último se orienta al bordado y sus patrones.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328384"
+        "isbn-9788411724425",
+        "isbn-9788498748208"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5f9228ed225ea13f",
+  "fuente_hash": "b3f00e0b2666396f",
   "origen": "chatgpt-web"
 }

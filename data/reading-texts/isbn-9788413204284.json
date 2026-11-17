@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788413204284",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Joyas, poder y magnificencia., de Varios autores, se dirige a lectores interesados en historia y ensayo, especialmente en las relaciones entre objetos valiosos y poder que plantea su título. No responde a la búsqueda de una novela de ficción ni de una narración centrada en una trama inventada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Joyas, poder y magnificencia. tiene una edición en tapa blanda de 272 páginas, publicada por Universidad de Valladolid. El formato físico permite consultar el texto por apartados, señalar páginas y conservar el volumen como material de lectura o estudio histórico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Joyas, poder y magnificencia. y Redes transnacionales en la cultura arquitectónica: Italia-España 1976-2006 (ARQUITECTURA) comparten la autoría colectiva y una orientación hacia el estudio de asuntos culturales e históricos. El primero relaciona joyas y poder desde su título; el segundo delimita su asunto a la cultura arquitectónica entre Italia y España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387634674"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1d9200a3fd91917b",
+  "origen": "chatgpt-web"
+}

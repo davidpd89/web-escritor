@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419670397",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Avni 6. ¡Una vida rosa chicle! (Txikiberri) encaja con lectores infantiles y juveniles que prefieren la fantasía contada mediante cómic. Su planteamiento gráfico lo aleja de las novelas extensas en prosa y de las lecturas centradas en el realismo cotidiano.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Avni 6. ¡Una vida rosa chicle! (Txikiberri) se publica en tapa blanda y tiene 64 páginas. Es una edición física de extensión breve, apropiada para manejar el libro durante la lectura y volver a sus páginas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La comparación más directa para esta entrega es Avni 1. Animal verdaderamente no identificado (Txikiberri), que comparte la autoría de Romain Pujol y pertenece a la misma serie. Ambos títulos se relacionan con el cómic infantil de fantasía, pero el primero se identifica con el número 1 y el libro de esta ficha con el 6.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788417575847"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5dbc409ee0027cd4",
+  "origen": "chatgpt-web"
+}

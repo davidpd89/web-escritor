@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467981261",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Killer peter 02: 2, de Junghyun Kim y Lina Lim, se dirige a lectores de cómic y novela gráfica interesados en entregas numeradas. El título lo identifica como el n.º 2, de modo que resulta menos apropiado para quien busque una obra presentada como independiente; cuenta con 304 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Killer peter 02: 2 está editado en tapa blanda y contiene 304 páginas en castellano. Esta presentación de Norma Editorial permite conservar la entrega en papel; la encuadernación flexible facilita sujetar el volumen durante sesiones de lectura prolongadas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3c87a87dcc0ce180",
+  "origen": "chatgpt-web"
+}

@@ -4,40 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Muchos, muchos animales (Otros Infantil), de Marlène Normand, se orienta a lectores interesados en los animales y la naturaleza, dentro de una colección identificada como infantil. Su temática se aparta de las historias centradas en personajes humanos o en conflictos propios de otros géneros narrativos.",
+      "texto": "Muchos, muchos animales (Otros Infantil), de Marlène Normand, se sitúa en el ámbito de la lectura infantil y juvenil, con los animales como tema anunciado en el título. Sus 96 páginas lo distinguen de las novelas extensas y de las lecturas dirigidas específicamente a un público adulto.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa dura ofrece una encuadernación rígida para las 96 páginas de Muchos, muchos animales (Otros Infantil). Este formato permite guardar el libro en una biblioteca infantil y volver a consultarlo físicamente, además de ofrecer una cubierta resistente para su manipulación habitual.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Animales, de Susaeta Ediciones, y Muchos, muchos animales (Otros Infantil), de Marlène Normand, coinciden en situar a los animales en el centro de la lectura. El primero reúne seis cuentos ilustrados protagonizados por animales; el segundo se presenta como una obra infantil vinculada a la naturaleza, con 96 páginas publicadas por Lectio Ediciones.",
+      "modulo": "que_formato_elegir",
+      "texto": "Muchos, muchos animales (Otros Infantil) se publica en tapa dura, una encuadernación rígida que protege las cubiertas durante la manipulación y el almacenamiento. La edición de Lectio Ediciones reúne 96 páginas en castellano y puede guardarse en una biblioteca infantil para sucesivas consultas.",
       "evidencias": [
         "titulo",
-        "autores",
-        "afines_catalogo",
-        "categorias",
+        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "editorial"
-      ],
-      "enlaces": [
-        "isbn-9791370341589"
+        "idioma"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8a22c44325e8de6c",
+  "fuente_hash": "7f35d390b75bc31c",
   "origen": "chatgpt-web"
 }

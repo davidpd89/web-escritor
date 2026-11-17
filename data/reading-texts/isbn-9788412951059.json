@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788412951059",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vecovurt, de Alba Ramírez Guijarro, pertenece a la narrativa contemporánea y se dirige a quienes buscan ficción de ese género. No responde a la búsqueda de un ensayo histórico o de una obra de divulgación, ya que su clasificación editorial corresponde a narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vecovurt se presenta en tapa blanda, con 174 páginas en la edición de Ápeiron Ediciones. Es una opción de lectura en papel que permite conservar el ejemplar y prestarlo sin depender de un dispositivo electrónico; su extensión también sirve para distinguirlo de una novela de varios centenares de páginas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a6dc90f48f4245a",
+  "origen": "chatgpt-web"
+}

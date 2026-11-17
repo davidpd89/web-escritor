@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788467965919",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hikaru no GO 13 encaja con lectores que siguen narraciones gráficas publicadas en volúmenes numerados. El título identifica esta entrega con el número 13, de modo que se diferencia de un cómic presentado como historia independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hikaru no GO 13 se publica en tapa blanda con 252 páginas, una extensión que permite leer el volumen como unidad física. Este formato facilita conservarlo junto a otros tomos y volver a consultar sus páginas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hikaru no GO 13 puede compararse con Bakuman. Edición coleccionista 01: 1 por la participación de Takeshi Obata en ambas obras. La primera está firmada junto a Yumi Hotta y su título indica el volumen 13; la segunda reúne a Tsugumi Ohba y Takeshi Obata y se presenta como edición coleccionista 01.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467982732"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "010285834db9befd",
+  "origen": "chatgpt-web"
+}

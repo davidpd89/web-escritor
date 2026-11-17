@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419043887",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vintage Rolex: La mayor colección del mundo (CONOCIMIENTO), de David Silver, se dirige a quienes buscan libros sobre relojería desde una perspectiva de arte, diseño y coleccionismo. Su enfoque temático se aleja de la narrativa de ficción y de los manuales generales de ocio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite consultar las 432 páginas de Vintage Rolex: La mayor colección del mundo (CONOCIMIENTO) como volumen físico de referencia. Es una edición de Cinco Tintas que puede conservarse en una biblioteca personal o entregarse como regalo relacionado con el interés por la relojería.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vintage Rolex: La mayor colección del mundo (CONOCIMIENTO) comparte con Cómo crear y consolidar tu propia marca de joyería el interés por los objetos vinculados al diseño. David Silver se centra en una colección de relojes, mientras que Jose Luis Fettolini aborda la creación y consolidación de una marca de joyería.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410650534"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5128f2e4ade2a0a3",
+  "origen": "chatgpt-web"
+}

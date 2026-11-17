@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387546748",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El sentido, lo social y la semiosis: Teoría Crítica y Análisis del Discurso (Filosofía y Teoría Políticas), de Leandro Paolicchi, se orienta a lectores de ensayo filosófico interesados en la teoría crítica y el análisis del discurso. Su planteamiento conceptual encaja menos con quienes buscan consejos cotidianos de desarrollo personal o narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El sentido, lo social y la semiosis: Teoría Crítica y Análisis del Discurso (Filosofía y Teoría Políticas) es en tapa blanda y reúne 200 páginas. El soporte impreso facilita subrayar conceptos y regresar a pasajes durante el estudio de la teoría crítica y el análisis del discurso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El sentido, lo social y la semiosis: Teoría Crítica y Análisis del Discurso (Filosofía y Teoría Políticas) puede compararse con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta. Ambos se sitúan en el terreno de las ideas políticas, pero Leandro Paolicchi aborda el discurso y la semiosis, mientras que la otra obra se centra en las raíces del anarcocapitalismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b4556bf371fa7b28",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399319903",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Kraus desconocido se sitúa entre las biografías, las memorias y el ámbito artístico, por lo que se dirige a lectores interesados en esas materias. Su clasificación encaja menos con quienes buscan ficción o manuales técnicos de arte y diseño.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Kraus desconocido se publica en tapa blanda y tiene 158 páginas. Esta edición en castellano de Isis Hathor Publishing permite una lectura en papel y resulta manejable para transportarla o conservarla en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Kraus desconocido puede compararse con Bad Bunny: Un icono: sin permiso, sin límite, sin miedo (No ficción) por su proximidad a las lecturas sobre figuras personales y cultura. La obra de Octavio Kraus está clasificada como biografía, memorias y arte, mientras que el título de Jaime Valero identifica expresamente a una figura musical. Son libros de distinta autoría y con protagonistas identificados de manera diferente en sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139482"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3bbd262f30fa4f37",
+  "origen": "chatgpt-web"
+}

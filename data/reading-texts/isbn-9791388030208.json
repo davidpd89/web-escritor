@@ -4,40 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La pequeña mariposa que sí pudo (Miau) pertenece a la literatura infantil y combina referencias a la naturaleza con el humor. Su planteamiento se dirige a lectores de cuentos infantiles y se aleja de las obras de divulgación científica sobre animales o de las novelas extensas para adultos.",
+      "texto": "La pequeña mariposa que sí pudo (Miau), de Ross Burach, se dirige al público infantil y a quienes buscan una lectura breve en castellano. Sus 48 páginas la distinguen de las novelas juveniles extensas, por lo que encaja menos con lectores que prefieren historias largas.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Ediciones Jaguar publica La pequeña mariposa que sí pudo (Miau) en tapa dura, con 48 páginas en castellano. La encuadernación rígida facilita conservar el ejemplar y manejarlo durante lecturas compartidas, mientras que su extensión permite distribuir el cuento en sesiones breves.",
-      "evidencias": [
-        "editorial",
-        "titulo",
-        "formatos_disponibles",
+        "autores",
+        "categorias",
         "numero_paginas",
         "idioma"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "El lago de los monstruos (INFANTIL), de Leo Timmers, y El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles), de Steve Smallman, ofrecen otras lecturas infantiles del catálogo. Frente a los monstruos del primero y el mono del segundo, La pequeña mariposa que sí pudo (Miau), de Ross Burach, sitúa a una mariposa en el centro de su título y se vincula también con el humor y la naturaleza.",
+      "modulo": "que_formato_elegir",
+      "texto": "La pequeña mariposa que sí pudo (Miau) se presenta en tapa dura, con 48 páginas en castellano. Esta encuadernación permite conservar el volumen en una estantería y utilizarlo en lecturas compartidas, sin depender de un dispositivo electrónico.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias"
-      ],
-      "enlaces": [
-        "isbn-9791387884260",
-        "isbn-9788448874056"
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7a905754d558311a",
+  "fuente_hash": "431606169fc505b1",
   "origen": "chatgpt-web"
 }

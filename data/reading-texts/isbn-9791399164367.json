@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399164367",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El vacío de una fiera: 17 (Piezas poéticas) se dirige a lectores de poesía en castellano que buscan una publicación de extensión breve. Con 92 páginas, se diferencia de una novela extensa y de los libros centrados en desarrollar una historia mediante capítulos narrativos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El vacío de una fiera: 17 (Piezas poéticas) está editado en tapa blanda y tiene 92 páginas. Su extensión permite llevar el volumen en papel y volver a poemas concretos mediante la consulta directa de las páginas, sin utilizar un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El vacío de una fiera: 17 (Piezas poéticas) puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, por su vinculación con la poesía y la presencia de una numeración editorial en ambos títulos. Pilar Trol firma el primero y Antonio Fernández Lera el segundo. También comparte el ámbito poético con Advenir, de Jose Eceolaza, aunque se trata de obras de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1bc5d99038023c1f",
+  "origen": "chatgpt-web"
+}

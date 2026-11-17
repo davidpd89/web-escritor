@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798182960182",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La imaginación de Michael, de Brian Edlin, se orienta al público infantil y juvenil y también se relaciona con el ámbito familiar. Sus 60 páginas permiten una lectura de extensión moderada dentro de ese público; no responde a la búsqueda de una novela adulta extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La imaginación de Michael se presenta en tapa blanda, con 60 páginas en castellano. Es un volumen físico que puede leerse por partes y guardarse junto a otros libros infantiles, con más extensión que un cuento de apenas unas páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La sorpresa de Michael, de Brian Edlin, comparte autor y personaje mencionado en el título con La imaginación de Michael. Ambos se relacionan con la lectura infantil, pero sus títulos proponen focos distintos: La imaginación de Michael destaca la imaginación del personaje, mientras que La sorpresa de Michael anuncia un acontecimiento inesperado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798182960144"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5de837db5bb0891b",
+  "origen": "chatgpt-web"
+}

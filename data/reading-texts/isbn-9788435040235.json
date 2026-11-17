@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788435040235",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los hechos del rey Arturo y sus nobles caballeros (Narrativas Históricas) se dirige a lectores de aventuras vinculadas a personajes legendarios y ambientaciones históricas. Por su planteamiento narrativo, queda fuera de las preferencias de quien busca una investigación académica o una biografía documental.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El rey Arturo y sus caballeros constituyen el centro de una narración relacionada con la tradición histórica y la aventura. John Steinbeck trabaja este material desde la literatura narrativa, con personajes caballerescos como referencia, en lugar de plantearlo como un tratado de historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Los hechos del rey Arturo y sus nobles caballeros (Narrativas Históricas) contiene 384 páginas, una extensión que permite leerlo por etapas y conservarlo en papel. Kindle facilita llevar la misma obra en formato digital y continuar la lectura desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los hechos del rey Arturo y sus nobles caballeros (Narrativas Históricas) puede compararse con La estocada de Nevers: El jorobado (Zenda-Edhasa), de Paul Féval, por su relación con la aventura y los conflictos de tradición histórica. John Steinbeck sitúa el foco en Arturo y sus caballeros, mientras que la obra de Paul Féval remite desde su título a una estocada y a la figura del jorobado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788435055871"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3200956bfe140710",
+  "origen": "chatgpt-web"
+}

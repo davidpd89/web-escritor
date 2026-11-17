@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se orienta a lectores de clásicos juveniles que prefieren relatos de aventuras frente a la narrativa exclusivamente adulta. Su pertenencia a la literatura juvenil y clásica encaja menos con quienes buscan una novela de actualidad centrada en problemas contemporáneos.",
+      "texto": "Se orienta a lectores de narrativa juvenil y clásicos interesados en una obra de George MacDonald. Por su clasificación y sus 400 páginas, se distingue de las lecturas breves y de quienes buscan específicamente narrativa adulta ajena al ámbito juvenil.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición limitada de Ático de los Libros combina tapa dura y cantos pintados, dos características señaladas expresamente en el título. Contiene 400 páginas en castellano y está fechada para el 30 de noviembre de 2026.",
+      "texto": "Esta edición de Más allá del viento del norte se identifica expresamente como limitada, con tapa dura y cantos pintados. Ático de los Libros la publica en castellano con 400 páginas, de modo que sus rasgos distintivos incluyen tanto la encuadernación rígida como el acabado decorativo de los bordes.",
       "evidencias": [
         "titulo",
         "editorial",
-        "formato_edicion",
+        "edicion",
         "numero_paginas",
-        "idioma",
-        "fecha_publicacion"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es la presentación disponible de esta obra de 400 páginas. Los cantos pintados distinguen el ejemplar físico y hacen que esta edición tenga un componente material específico para regalar o conservar.",
+      "texto": "La opción recogida es la tapa dura, en una edición limitada de 400 páginas con cantos pintados. La encuadernación rígida y el acabado de los bordes tienen especial relevancia para quien busca conservar el ejemplar o regalar una edición con características físicas diferenciadas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -33,19 +34,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El caballero de la capa negra puede servir de comparación para quien busca otra lectura de aventuras. Más allá del viento del norte se distingue por su adscripción a los clásicos juveniles y por esta edición limitada con cantos pintados, mientras que el título de Carlos J. Sánchez plantea otra referencia narrativa desde su propio protagonista.",
+      "texto": "Comparte el ámbito de la narrativa juvenil con Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday), aunque el libro de George MacDonald se presenta también como un clásico. Ambos títulos identifican ediciones limitadas, pero Más allá del viento del norte destaca específicamente la tapa dura con cantos pintados.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399254419"
+        "isbn-9788466395816"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a5d92957b6827fae",
+  "fuente_hash": "26c50b9616c277ce",
   "origen": "chatgpt-web"
 }

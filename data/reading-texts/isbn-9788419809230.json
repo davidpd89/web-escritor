@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419809230",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El reloj del Apocalipsis: Cómo sobrevivir a los últimos tiempos se orienta a lectores interesados en la religión, la espiritualidad y las cuestiones relacionadas con el final de los tiempos. Su planteamiento se aleja de los manuales centrados exclusivamente en hábitos cotidianos o bienestar físico, aunque también figura dentro del ámbito de la salud.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El reloj del Apocalipsis: Cómo sobrevivir a los últimos tiempos se publica en tapa blanda, con 288 páginas en castellano. La edición de Harper Bolsillo permite leerlo y consultarlo en papel sin manejar un volumen especialmente extenso, además de facilitar su transporte habitual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche José María Zavala: Últimas noticias de Jesús + Los Doce (Espasa Religión) comparte autor y temática religiosa con El reloj del Apocalipsis: Cómo sobrevivir a los últimos tiempos. El estuche reúne dos obras vinculadas a Jesús y los Doce, mientras que El reloj del Apocalipsis: Cómo sobrevivir a los últimos tiempos concentra su enfoque en el final de los tiempos y la supervivencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084511"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f478dfcbedce07a",
+  "origen": "chatgpt-web"
+}

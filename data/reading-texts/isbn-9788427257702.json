@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) se dirige a lectores de ciencia ficción, aventuras y supervivencia que buscan conflictos vinculados al peligro. Su combinación de fantasía y terror se aleja de las lecturas centradas exclusivamente en relaciones cotidianas.",
+      "texto": "Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) se sitúa entre la ciencia ficción, la fantasía y las aventuras. Su combinación de géneros encaja con lectores interesados en mundos imaginarios y conflictos de aventura, pero menos con quienes buscan narrativa realista sin elementos especulativos. El título lo identifica como el n.º 5 de Los Juegos del Hambre.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,28 +12,32 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición especial de Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) está publicada por Molino en tapa dura y castellano. Reúne 496 páginas, lleva el ISBN 9788427257702 y tiene fecha de publicación del 5 de noviembre de 2026.",
+      "texto": "Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial), de Suzanne Collins, se presenta en una edición especial de Molino. Es un volumen en tapa dura, en castellano y con 496 páginas, publicado el 5 de noviembre de 2026. Su identificación bibliográfica es el ISBN 9788427257702, útil para distinguir esta presentación de otras del mismo título.",
       "evidencias": [
         "titulo",
+        "autores",
         "editorial",
         "edicion",
-        "numero_paginas",
         "idioma",
-        "isbn13",
-        "fecha_publicacion"
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura ofrece una encuadernación rígida para conservar y releer sus 496 páginas; la tapa blanda facilita el manejo del volumen. Kindle permite llevar la misma lectura en un dispositivo electrónico sin transportar el ejemplar físico.",
+      "texto": "Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) figura con opciones de tapa dura, tapa blanda y Kindle. La tapa dura corresponde a la edición especial de Molino de 496 páginas y ofrece una encuadernación rígida para conservarla o regalarla. La tapa blanda permite optar por una cubierta flexible, mientras que Kindle facilita transportar la lectura en formato digital.",
       "evidencias": [
-        "numero_paginas",
-        "formatos_disponibles"
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) comparte el terreno fantástico con Una corte de alas y ruina: Edición limitada a precio especial (Colección Especial), aunque incorpora ciencia ficción y supervivencia. Frente a Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff, la obra de Suzanne Collins se presenta también bajo las etiquetas de aventuras y terror.",
+      "texto": "Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) puede compararse con El mundo perdido por su vinculación con la ciencia ficción y las aventuras. La obra de Suzanne Collins se identifica con una serie de fantasía y ciencia ficción, mientras que la de Michael Crichton plantea una amenaza relacionada con dinosaurios en una isla de Costa Rica. Ambas se alejan de la narrativa cotidiana, aunque parten de escenarios y conflictos diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,13 +45,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328582",
-        "isbn-9788408324102"
+        "isbn-9788466392143"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d340a894f05921d5",
+  "fuente_hash": "11a7ec9079be2ac2",
   "origen": "chatgpt-web"
 }

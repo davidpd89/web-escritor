@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) se dirige a lectores interesados en sociedades distópicas y conflictos relacionados con la identidad individual. La obra de David Karp se sitúa en la ciencia ficción, por lo que no responde a la búsqueda de una novela realista centrada exclusivamente en experiencias cotidianas.",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción), de David Karp, se dirige a lectores interesados en la ciencia ficción y las distopías. Su planteamiento temático se distancia de quienes prefieren ensayos alejados de la ficción o relatos sin componentes especulativos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de UNO: Una distopía sobre la individualidad (Ciencia Ficción) ofrece sus 312 páginas en una edición física de Minotauro. Kindle permite leer esta obra de David Karp en formato digital, una opción para alternar dispositivos o evitar transportar el volumen impreso.",
+      "texto": "La tapa blanda ofrece sus 312 páginas en un volumen físico de Minotauro. La edición Kindle permite leer UNO: Una distopía sobre la individualidad (Ciencia Ficción) en un dispositivo electrónico, mientras que el formato impreso conserva el soporte tradicional de lectura.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
+        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción) comparte el interés por las sociedades alternativas con Tecnomusas: Utopías y distopías de mujeres conectadas: 1, aunque el título de David Karp sitúa la individualidad en el centro. Frente a Al despertar, rompe el cascarón (Runas), de Becky Chambers, la comparación se orienta hacia la ciencia ficción y sus distintas formas de abordar la experiencia individual.",
+      "texto": "UNO: Una distopía sobre la individualidad (Ciencia Ficción), de David Karp, puede compararse con Tecnomusas: Utopías y distopías de mujeres conectadas: 1, de Celia Corral-Vázquez, Berta Bas, Jordi Escoin Homs, Raquel S. Cambronero, Pruden Rodríguez, Carlos Calleja, Alejandro Marín, Benko Albeza y Ana Saiz. Ambos títulos abordan escenarios distópicos, pero el primero pone el foco en la individualidad y el segundo identifica expresamente a las mujeres conectadas como eje temático.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370093488",
         "isbn-9791399126235"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "61f976eced74b108",
+  "fuente_hash": "3194c08006b3fa54",
   "origen": "chatgpt-web"
 }

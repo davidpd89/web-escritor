@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788418985928",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los que viven en mí: 55 encuentros, de Javier Fernández Aguado, está dirigido a lectores interesados en biografías, memorias y relatos vinculados a experiencias personales. Por su clasificación, se aparta de la ficción fantástica y de las novelas centradas en mundos imaginarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los que viven en mí: 55 encuentros cuenta con una edición en tapa blanda de 188 páginas. El volumen de El Club de la Niebla está publicado en castellano y permite leer o consultar sus páginas en un soporte físico manejable. Su extensión es inferior a la de una obra de varios centenares de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los que viven en mí: 55 encuentros se relaciona con Al andar: Vivencias del Camino de Santiago por su orientación hacia las experiencias personales. El título de Carlos Díaz Ballesta sitúa esas vivencias en el Camino de Santiago, mientras que el de Javier Fernández Aguado identifica 55 encuentros. Admirados Soñadores, de Juan Salazar Larraz, ofrece otra referencia de distinta autoría dentro de las lecturas afines.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412972573",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "970a38c20bec4de1",
+  "origen": "chatgpt-web"
+}

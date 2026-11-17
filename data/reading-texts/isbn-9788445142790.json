@@ -4,41 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un camino de Romero, de Sandra Carmona, se encuentra en el ámbito del arte y el diseño. Su extensión de 52 páginas responde a una lectura breve dentro de ese campo; encaja menos con quienes buscan una novela extensa o una obra clasificada como thriller.",
+      "texto": "Un camino de Romero se dirige a quienes buscan publicaciones de arte y diseño en castellano. Sus 52 páginas lo sitúan entre las obras breves de este ámbito, no entre las novelas extensas ni los manuales de gran volumen.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un camino de Romero se ofrece en tapa dura, con 52 páginas. La encuadernación rígida aporta protección al ejemplar durante su conservación y consulta, mientras que la extensión permite manejarlo sin el volumen de un libro de arte de gran tamaño.",
+      "texto": "Un camino de Romero está disponible en tapa dura, con 52 páginas en castellano. Esta encuadernación permite conservar el volumen en una estantería y consultarlo repetidamente sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un camino de Romero comparte el ámbito del arte con 720 retrats, de Xavier Mollà i Revert, cuyo título identifica los retratos como asunto. También puede compararse con Arde Talía: Una pieza teatral sobre el infierno de la creación artística, de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano, centrada en la creación teatral, mientras que Un camino de Romero es una publicación de 52 páginas editada en tapa dura.",
+      "texto": "Un camino de Romero comparte el ámbito del arte y el diseño con 720 retrats, de Xavier Mollà i Revert. La diferencia identificable está en la autoría y en el enfoque anunciado por los títulos: Sandra Carmona firma una obra cuyo título alude a un camino, mientras que Xavier Mollà i Revert presenta una colección de retratos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas",
-        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412678802",
-        "isbn-9791399289510"
+        "isbn-9788412678802"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "327f9c8923b5e12b",
+  "fuente_hash": "84e027dbcd33b81c",
   "origen": "chatgpt-web"
 }

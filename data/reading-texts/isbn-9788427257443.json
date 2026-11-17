@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788427257443",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores interesados en resolver un asesinato dentro de una historia planteada alrededor de 25 días. La combinación de investigación y aventura se aleja de las lecturas centradas exclusivamente en relaciones cotidianas o conflictos sin componente criminal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 224 páginas y presenta una historia articulada alrededor de un plazo de 25 días para resolver un asesinato. Su extensión permite abordar el libro en varias sesiones de lectura, y la encuadernación flexible facilita transportarlo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi diario de viajes, de Paige Towler, comparte con Mueren y mueren y vuelven a morir el interés por las aventuras, pero propone actividades y un registro de experiencias personales. El libro de Richard Wolfrik Galland plantea resolver un asesinato en 25 días, mientras que el de Paige Towler se centra en los viajes y sus actividades. La diferencia principal está entre seguir una historia con un conflicto criminal y utilizar un diario relacionado con las experiencias de viaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408319337"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "76f0ebcf576b6437",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788410943896",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El perdón: Una sabiduría silenciosa (ENSAYO) se dirige a lectores que buscan reflexionar sobre el perdón desde el ensayo, el desarrollo personal y la espiritualidad. Rafael Domingo Osle firma un volumen de 200 páginas en castellano. Su orientación temática lo distancia de las novelas de ficción y de los manuales exclusivamente prácticos sobre salud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El perdón: Una sabiduría silenciosa (ENSAYO) está disponible en tapa blanda y contiene 200 páginas. La edición en castellano de La Esfera de los Libros permite leer el ensayo en papel, señalar fragmentos y volver a sus páginas durante consultas posteriores. Su extensión supera la de otros volúmenes breves de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El perdón: Una sabiduría silenciosa (ENSAYO) puede compararse con El principio Zen / The Zen Principle, de Osho, por su orientación hacia cuestiones espirituales. La diferencia está en el asunto anunciado: Rafael Domingo Osle se centra en el perdón, mientras que el otro título remite al zen. El origen. La raíz invisible de lo que dirige tu vida, de Graciela del Campo Vara, plantea las constelaciones familiares y la historia personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388038372",
+        "isbn-9786073874342"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8bbdc614ebe34786",
+  "origen": "chatgpt-web"
+}

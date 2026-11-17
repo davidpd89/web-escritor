@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791399249248",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El fin de las lágrimas: 2 (Literatura Femenina) se sitúa en la narrativa contemporánea y puede encajar con lectores que buscan una obra de extensión moderada. Sus 210 páginas la distinguen de las novelas especialmente largas; el título la identifica con el n.º 2, aunque no determina por sí solo el orden de lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El fin de las lágrimas: 2 (Literatura Femenina) tiene una edición en tapa blanda de 210 páginas, publicada por Ediciones Orígenes, SL. Su extensión permite manejar un volumen físico relativamente contenido, tanto para leer en casa como para llevarlo durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80cedf31c741ea1e",
+  "origen": "chatgpt-web"
+}

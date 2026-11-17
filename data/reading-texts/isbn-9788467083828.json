@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Luces de emergencia: Contra los populismos y el frentismo (Espasa Política Nacional) se dirige a lectores interesados en política y en posiciones críticas ante el populismo y el enfrentamiento entre bloques. Su enfoque político, firmado por Emiliano García-Page, se aleja de las lecturas centradas en ficción, aventuras o divulgación científica.",
+      "texto": "Luces de emergencia: Contra los populismos y el frentismo (Espasa Política Nacional) se dirige a lectores interesados en la política y las memorias de figuras públicas. Por su enfoque en los populismos y el frentismo, se aleja de las lecturas centradas en la ficción o el entretenimiento narrativo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Luces de emergencia: Contra los populismos y el frentismo (Espasa Política Nacional) cuenta con una edición en tapa blanda de 288 páginas, publicada en castellano por Editorial Espasa. El formato permite llevar el volumen y consultar pasajes concretos en papel, además de subrayar o anotar las reflexiones políticas durante la lectura.",
+      "texto": "La tapa blanda permite leer y consultar en papel las 288 páginas de Luces de emergencia: Contra los populismos y el frentismo (Espasa Política Nacional). La edición Kindle ofrece la alternativa digital para llevar el texto en el móvil o en un lector electrónico, sin ocupar espacio físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Luces de emergencia: Contra los populismos y el frentismo (Espasa Política Nacional) puede compararse con Antes de irme (Espasa Actualidad), de Miguel Ángel Revilla, por su vinculación con la política y las experiencias personales. El libro de Emiliano García-Page plantea expresamente una crítica al populismo y al frentismo, mientras que el título de Miguel Ángel Revilla apunta a una mirada retrospectiva. Ambos se diferencian de Crónica de un desafío al Estado, centrado en los acontecimientos del Procés.",
+      "texto": "Antes de irme (Espasa Actualidad) comparte con Luces de emergencia: Contra los populismos y el frentismo (Espasa Política Nacional) su vinculación con una figura política, aunque el segundo anuncia expresamente una reflexión contra los populismos y el frentismo. Crónica de un desafío al Estado se centra en los acontecimientos del Procés narrados en primera persona, frente al planteamiento político más general del libro de Emiliano García-Page.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5d42028adbcbf961",
+  "fuente_hash": "a879c624c81f3ddb",
   "origen": "chatgpt-web"
 }

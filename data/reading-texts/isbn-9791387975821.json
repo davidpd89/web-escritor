@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El ecosistema (Hispánica), de Nacho Carretero, encaja con lectores que buscan narrativa contemporánea. Su clasificación editorial lo sitúa en la ficción narrativa actual, no en el ensayo ni en géneros como la fantasía.",
+      "texto": "El ecosistema (Hispánica) está dirigido a lectores de narrativa contemporánea que buscan una obra de extensión media. Con 336 páginas, el libro de Nacho Carretero exige más tiempo de lectura que una narración breve y se aleja de las preferencias centradas en fantasía o ensayo científico.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 336 páginas de El ecosistema (Hispánica) en un ejemplar físico publicado por Alfaguara. Es el formato disponible para quien prefiere leer en papel y conservar el libro en su biblioteca.",
+      "texto": "El ecosistema (Hispánica) está disponible en tapa blanda y Kindle. La edición en papel de Alfaguara contiene 336 páginas y permite conservar un ejemplar físico; Kindle ofrece la misma elección de título en formato digital, sin necesidad de transportar el volumen impreso.",
       "evidencias": [
-        "numero_paginas",
-        "formatos_disponibles",
         "titulo",
+        "formatos_disponibles",
         "edicion",
-        "editorial"
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a9c34870bb5c3644",
+  "fuente_hash": "6b887529a389c3f5",
   "origen": "chatgpt-web"
 }

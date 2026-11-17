@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798183007329",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Work English Now: Exercise for CDL Students se dirige, por su título, a estudiantes de CDL que buscan ejercicios de inglés relacionados con su formación. Es una publicación de Brenda Salinas de 138 páginas, alejada de la narrativa de ficción y de los manuales centrados en otras disciplinas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Work English Now: Exercise for CDL Students está disponible en tapa blanda, con 138 páginas en castellano. El formato físico permite consultar los ejercicios y volver a páginas anteriores durante el estudio, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Work English Now: Exercise for CDL Students y Abonado y fertilización en agricultura ecológica-AGAU001PO comparten una orientación hacia materias de formación específicas. El libro de Brenda Salinas se centra, según su título, en ejercicios de inglés para estudiantes de CDL, mientras que el de Elsa Rubio Duce aborda el abonado y la fertilización en agricultura ecológica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b192e1e99935d833",
+  "origen": "chatgpt-web"
+}

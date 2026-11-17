@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El último pase (Los casos de Inés Robles) se dirige a lectores de misterio y thriller que buscan una novela vinculada a una serie de casos. Su planteamiento de intriga se aparta de las historias centradas en la fantasía o el desarrollo personal.",
+      "texto": "El último pase (Los casos de Inés Robles) encaja con lectores de misterio y thriller que buscan una obra de extensión intermedia. Sus 273 páginas y su clasificación temática lo separan de las lecturas centradas en la fantasía o de los ensayos de no ficción.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El último pase (Los casos de Inés Robles) está editado en tapa blanda, con 273 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones y conservar el ejemplar físico junto a otras novelas de misterio.",
+      "texto": "El último pase (Los casos de Inés Robles) puede leerse en tapa blanda o en Kindle. La primera opción reúne sus 273 páginas en un ejemplar físico que puede prestarse o conservarse; Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El último pase (Los casos de Inés Robles) puede compararse con Donde callan los niños (Imágica Intriga), de Eva Zamora Zamora, por su vinculación con el misterio y la intriga. Carlos Polo Araujo identifica su obra con Los casos de Inés Robles, mientras que el título de Eva Zamora Zamora aparece asociado a Imágica Intriga.",
+      "texto": "El último pase (Los casos de Inés Robles) comparte el terreno del misterio con Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves. La diferencia está en la autoría y la identificación de las obras: Carlos Polo Araujo presenta su título bajo Los casos de Inés Robles, mientras que el de Ann Cleeves remite a Shetland.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210729"
+        "isbn-9788410424524"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6b6c5faffd21fc90",
+  "fuente_hash": "4efcf759180b6590",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388613050",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El vino filosófico: Cuida tu identidad, bebe en libertad se orienta a lectores de ensayo que quieren relacionar la filosofía con el vino, la identidad y la libertad personal. Su planteamiento reflexivo se aparta de los manuales técnicos de elaboración vinícola y de las novelas con una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El vino filosófico: Cuida tu identidad, bebe en libertad cuenta con una edición en tapa blanda de 332 páginas. Su extensión permite dedicarle varias sesiones de lectura y la cubierta flexible facilita manejar el volumen durante la consulta o el traslado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El vino filosófico: Cuida tu identidad, bebe en libertad puede compararse con Cervezasofía: Filosofía del pan líquido, también de María del Carmen Bengoechea Bernal. Ambos relacionan una bebida con la reflexión filosófica, pero el primero sitúa el vino junto a la identidad y la libertad, mientras que el segundo toma la cerveza como asunto central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388613111"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ab510006bc51a76",
+  "origen": "chatgpt-web"
+}

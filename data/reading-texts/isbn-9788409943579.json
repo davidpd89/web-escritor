@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta libreta está dirigida a quienes quieren organizar información sobre sus mascotas para consultarla en una emergencia en España. Su enfoque es práctico y familiar, no el de una obra narrativa ni el de un tratado sobre salud animal.",
+      "texto": "Por si acaso: Libreta de las mascotas · España: Encuentra la información que necesitas en una emergencia. está dirigida a personas que desean organizar información relacionada con sus mascotas para situaciones imprevistas. Su función de libreta práctica la diferencia de los libros sobre crianza, bienestar o cuidado animal destinados a una lectura continuada.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,32 +12,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 72 páginas en castellano y está publicada por Libretas Por Si Acaso. El formato físico permite conservar la libreta junto a otros documentos domésticos y tenerla a mano cuando sea necesario consultar información.",
+      "texto": "La tapa blanda ofrece las 72 páginas de Por si acaso: Libreta de las mascotas · España: Encuentra la información que necesitas en una emergencia. en un soporte físico. Permite mantener la libreta junto a otros documentos domésticos y localizarla cuando sea necesario consultar información relacionada con las mascotas.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Por si acaso: Libreta de la casa comparte autoría y finalidad de consulta ante emergencias con la libreta dedicada a las mascotas, pero se centra en la vivienda. CONECTANDO CON MI BEBÉ aborda otro ámbito del cuidado familiar mediante relatos y actividades relacionados con el embarazo, mientras que esta libreta está destinada a organizar información sobre animales domésticos.",
+      "texto": "Por si acaso: Libreta de la casa · España: Encuentra la información que necesitas en una emergencia. es la comparación más directa: ambas libretas son de Libretas Por si acaso y se orientan a reunir información para emergencias. La diferencia está en su objeto: una se ocupa de la casa y Por si acaso: Libreta de las mascotas · España: Encuentra la información que necesitas en una emergencia. se centra en las mascotas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409938124",
-        "isbn-9788409936465"
+        "isbn-9788409938124"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f044a96cd98881f2",
+  "fuente_hash": "4ec51462be64758e",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una distorsión narrativa encaja con lectores de poesía contemporánea interesados en la reflexión cultural, la ironía y las perspectivas alejadas del centro. Su recorrido por poemas de distintas épocas se aparta de la lectura de una historia lineal con personajes y desenlace.",
+      "texto": "Una distorsión narrativa se dirige a lectores de poesía contemporánea interesados en la relación entre cultura, pensamiento y cambios sociales. Sus poemas recorren espacios marginales y una mirada irónica sobre el tiempo reciente; no responde a quien busque una novela con una trama continua, pese a la palabra «narrativa» del título.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,52 +13,53 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Una distorsión narrativa reúne poemas de Alberto Santamaría escritos durante veinticinco años y vinculados a la experiencia cultural del primer cuarto del siglo XXI. Su enfoque concede importancia a los márgenes, los restos y los espacios poco habituales, con una relación constante entre pensamiento y extrañamiento.",
+      "texto": "Una distorsión narrativa reúne poesía escrita durante veinticinco años y propone una lectura de las transformaciones culturales y estéticas del primer cuarto del siglo XXI. Los poemas desplazan la atención hacia las ruinas, los márgenes y aquello que suele quedar fuera del centro. La ironía y el extrañamiento forman parte de su enfoque.",
       "evidencias": [
         "titulo",
-        "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición de Visor Libros de Una distorsión narrativa se publicó el 21 de octubre de 2026 en castellano y consta de 156 páginas. Se presenta en tapa blanda, con ISBN 9791387745479, y reúne textos poéticos de Alberto Santamaría procedentes de un periodo prolongado de escritura.",
+      "texto": "Una distorsión narrativa, de Alberto Santamaría, está publicada por Visor Libros en tapa blanda y castellano. Esta edición contiene 156 páginas, tiene el ISBN 9791387745479 y figura con fecha de publicación editorial del 21 de octubre de 2026. Se presenta como una recopilación de poemas escritos a lo largo de veinticinco años.",
       "evidencias": [
         "titulo",
         "autores",
         "editorial",
-        "fecha_publicacion",
-        "numero_paginas",
-        "formatos_disponibles",
-        "isbn13",
+        "edicion",
         "idioma",
+        "numero_paginas",
+        "isbn13",
+        "fecha_publicacion",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Una distorsión narrativa está disponible en tapa blanda y tiene 156 páginas. Su extensión permite llevar el volumen en papel y alternar la lectura de poemas con pausas para volver sobre sus referencias culturales y sus imágenes.",
+      "texto": "Una distorsión narrativa se ofrece en tapa blanda, con 156 páginas publicadas por Visor Libros. El volumen físico permite alternar poemas, volver a pasajes anteriores y consultar la recopilación sin seguir necesariamente una lectura continua. Su extensión facilita llevarlo para leer textos individuales en distintos momentos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una distorsión narrativa comparte el ámbito de la poesía con Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña. Frente a ese título de otra autoría, el libro de Alberto Santamaría reúne poemas de veinticinco años y propone una mirada irónica sobre la cultura contemporánea.",
+      "texto": "223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, y A solas, de María Jesús Martínez Ramos, aparecen como lecturas afines a Una distorsión narrativa. La diferencia identificable es el enfoque de esta última: Alberto Santamaría reúne poemas de veinticinco años que examinan la cultura reciente desde sus márgenes. Frente a los otros títulos, aquí el recorrido temporal y la mirada cultural están expresamente definidos.",
       "evidencias": [
         "titulo",
         "autores",
+        "afines_catalogo",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9791388299421"
+        "isbn-9788412988833",
+        "isbn-9788410907539"
       ]
     }
   ],

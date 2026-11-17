@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388154706",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Divina comedia liberada. Purgatorio (Clásicos Liberados) se dirige a lectores interesados en los clásicos literarios de Dante Alighieri. Su clasificación también incluye el humor, aunque no responde a quien busque específicamente una novela romántica contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Divina comedia liberada. Purgatorio (Clásicos Liberados) se presenta en tapa dura, con 496 páginas en castellano. La encuadernación rígida resulta práctica para conservar un volumen extenso, colocarlo en una biblioteca personal o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Divina comedia liberada. Purgatorio (Clásicos Liberados) comparte con El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) la presencia del humor en una propuesta literaria. La obra de Dante Alighieri pertenece al ámbito de los clásicos, mientras que la de Steven Lukes se presenta expresamente como una comedia filosófica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078696"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5718c31e9350d95",
+  "origen": "chatgpt-web"
+}

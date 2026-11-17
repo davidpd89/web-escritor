@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388154935",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Si en esta noche lluviosa tu techo fuera el cielo se dirige a lectores de narrativa contemporánea que buscan una obra firmada por varias autoras. Batool Abu Akleen, Nahil Mohana, Ala'a Obaid y Sondos Sabra figuran en la autoría; sus 288 páginas lo alejan de las lecturas infantiles breves y de los manuales de no ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Si en esta noche lluviosa tu techo fuera el cielo está editado en tapa dura, con 288 páginas en castellano. La encuadernación rígida resulta adecuada para conservar el volumen, colocarlo en una biblioteca o regalarlo; la extensión permite repartir la lectura en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08baa29777799a32",
+  "origen": "chatgpt-web"
+}

@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores infantiles que disfrutan de la fantasía, las aventuras y las historias sobre amistad. Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño reúne tres cuentos en un volumen de 84 páginas, frente a las novelas extensas o las lecturas de carácter realista.",
+      "texto": "Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño, de Laura Naiara Aldana Ramaker, se dirige al público infantil que disfruta de la fantasía, las aventuras y los relatos ambientados en las fiestas navideñas. Sus tres cuentos sobre magia y amistad encajan menos con quienes prefieren historias realistas o alejadas de la temática festiva.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño se presenta en tapa blanda, con 84 páginas en castellano. La edición reúne tres cuentos en un volumen físico manejable, que puede utilizarse para leer las historias por separado o compartirlas durante las fiestas.",
+      "texto": "Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño se ofrece en tapa blanda. Sus 84 páginas reúnen tres cuentos en un volumen de papel que puede utilizarse para leer durante las fiestas o regalar como libro navideño.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Iris y Luna: cuidadoras de cachorritos mágicos 8 - ¡Un reno en apuros!: ¡Un libro con purpurina en la cubierta! (Primeras lecturas), de Aurora Quirón, comparte la magia y los motivos navideños con Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño. La obra de Laura Naiara Aldana Ramaker reúne tres cuentos sobre los Mimosaurios; la de Aurora Quirón gira en torno a un reno en apuros.",
+      "texto": "Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño comparte la fantasía infantil con Iris y Luna: cuidadoras de cachorritos mágicos 8 - ¡Un reno en apuros!: ¡Un libro con purpurina en la cubierta! (Primeras lecturas), de Aurora Quirón. Ambos títulos incorporan motivos mágicos y navideños, pero Laura Naiara Aldana Ramaker reúne tres cuentos sobre amistad, mientras que el de Aurora Quirón se identifica como una entrega de primeras lecturas centrada en un reno.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4d868f23608c836c",
+  "fuente_hash": "5bb9007119d2cd11",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399273106",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El tonaya no perdona (piel de zapa), de Edson Lechuga, se sitúa en la narrativa contemporánea. Sus 202 páginas ofrecen una extensión intermedia dentro de la narrativa en libro, mientras que su clasificación lo separa de las búsquedas centradas en cómics y novelas gráficas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El tonaya no perdona (piel de zapa) se publica en tapa blanda, con 202 páginas en castellano. La edición de Piel de Zapa utiliza una cubierta flexible, una opción para quienes prefieren manejar un libro físico sin la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d72d5e980d1eeec2",
+  "origen": "chatgpt-web"
+}

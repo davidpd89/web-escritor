@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399237733",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Noche de panteras: 25 (Narrativa), de Encarna Castillo, encaja con lectores que buscan narrativa contemporánea en castellano y libros breves. Con 119 páginas, responde mejor a una preferencia por extensiones reducidas que a la búsqueda de una novela larga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Noche de panteras: 25 (Narrativa) está disponible en tapa blanda, con una extensión de 119 páginas. La edición de Carpe Noctem ofrece un volumen físico breve, cómodo para transportar y para leer en sesiones cortas, sin necesidad de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc7050bf7a78066a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788467985139",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Unholy Blood 01: 1 encaja con lectores interesados en cómic y novela gráfica que quieran leer a Lim Lina en castellano. El título lo identifica como el n.º 1, mientras que sus 304 páginas pueden resultar menos adecuadas para quien busca una lectura gráfica breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Unholy Blood 01: 1 se presenta en tapa blanda y reúne 304 páginas. Es un volumen físico publicado por Norma Editorial, pensado para la lectura en papel y para conservarlo en una estantería junto a otros cómics.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77fb41898e847e9a",
+  "origen": "chatgpt-web"
+}

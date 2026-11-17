@@ -4,32 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Piensa como los ricos: 64 píldoras para dominar la psicología del dinero (GROU) se dirige a lectores interesados en desarrollo personal, economía y comportamiento ante el dinero. Sus 64 píldoras plantean un enfoque dividido por temas; encaja menos con quien busca una novela o un manual centrado exclusivamente en operaciones financieras.",
+      "texto": "Está dirigido a quienes quieren abordar el dinero desde la psicología y el desarrollo personal, con una orientación hacia la economía. Sus 344 páginas y su planteamiento en 64 píldoras lo distinguen de una lectura de ficción o de un manual dedicado exclusivamente a procedimientos contables.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Piensa como los ricos: 64 píldoras para dominar la psicología del dinero (GROU) cuenta con una edición en tapa blanda de 344 páginas. El papel permite consultar las 64 píldoras por separado y regresar a determinados apartados, una forma de uso distinta de la lectura continuada de principio a fin.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Piensa como los ricos: 64 píldoras para dominar la psicología del dinero (GROU) comparte el ámbito económico con Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA), de Renato Antinori. La diferencia está en el enfoque anunciado: Kim Kyungil aborda la psicología del dinero, mientras que Renato Antinori se centra en generar ingresos mediante opciones financieras.",
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, publicada por Montena y con 344 páginas. Es una opción física para leer, conservar o consultar por partes, especialmente por la organización en 64 píldoras que anuncia el título.",
       "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "COMO SER MILLONARIO: Una historia verídica. Tú también puedes serlo aborda también la riqueza, pero se presenta como una historia real, mientras que Piensa como los ricos: 64 píldoras para dominar la psicología del dinero (GROU) propone un enfoque psicológico dividido en píldoras. Son dos maneras distintas de acercarse al dinero, con Antonio Prieto y Kim Kyungil como respectivos autores.",
+      "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788411724357"
+        "isbn-9788409859313"
       ]
     }
   ],

@@ -4,39 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una soledad familiar (Áncora & Delfín), de Marcos Díez, se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares. Por su temática, se distingue de las novelas centradas en aventuras, investigaciones criminales o mundos fantásticos.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Una soledad familiar (Áncora & Delfín) está disponible en tapa blanda y Kindle, con una edición impresa de 256 páginas. La tapa blanda permite leer y conservar el ejemplar físico; Kindle facilita llevar el texto en un dispositivo compatible sin transportar el volumen.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Una soledad familiar (Áncora & Delfín) puede compararse con Amargo, amargo (Literaturas), de Joanna Bator, y Celestino antes del alba (Andanzas), de Reinaldo Arenas, dentro de la narrativa literaria. La obra de Marcos Díez se identifica expresamente con la familia y la narrativa contemporánea; las otras dos pertenecen a autores distintos y presentan títulos y colecciones diferentes.",
+      "texto": "Una soledad familiar (Áncora & Delfín), de Marcos Díez, pertenece a la narrativa contemporánea y se dirige a lectores que buscan ficción de este género. Con 256 páginas, presenta una extensión intermedia dentro de la novela. No responde al planteamiento de un manual práctico ni al de una obra de divulgación.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387846558",
-        "isbn-9788411078535"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una soledad familiar (Áncora & Delfín) está disponible en tapa blanda y Kindle. La edición física de Ediciones Destino tiene 256 páginas y permite leer en papel; la versión Kindle ofrece la alternativa digital para llevar la novela en un dispositivo compatible. Ambas opciones corresponden al mismo título de Marcos Díez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fa41db5e1974bbf3",
+  "fuente_hash": "ad609233a6d4fbab",
   "origen": "chatgpt-web"
 }

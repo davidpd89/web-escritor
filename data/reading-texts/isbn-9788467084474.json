@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467084474",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche de Vicente Vallés (ESPASA NARRATIVA) encaja con lectores interesados en la narrativa contemporánea y en asuntos relacionados con la historia y el poder político. Su presentación como estuche y su extensión de 984 páginas lo alejan de quienes buscan una lectura breve en un único volumen de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche de Vicente Vallés (ESPASA NARRATIVA) se comercializa en tapa dura y tiene una extensión editorial de 984 páginas. Esta presentación resulta apropiada para conservarlo en una biblioteca o entregarlo como regalo, mientras que su volumen aconseja tener en cuenta el espacio disponible y el peso al transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche de Vicente Vallés (ESPASA NARRATIVA) comparte autor con La caza del ejecutor: Edición limitada a precio especial (Colección Especial), también de Vicente Vallés, pero se presenta como estuche en lugar de como edición especial de un título individual. Frente a 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, combina referencias a narrativa contemporánea, historia y política, mientras que el otro título delimita un episodio histórico concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084382",
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db05b7f2379f1005",
+  "origen": "chatgpt-web"
+}

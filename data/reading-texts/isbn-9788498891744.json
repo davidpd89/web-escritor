@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788498891744",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La plaga de Midas y otras distopías contra el capitalismo: 133 (Alamut Serie Fantástica), de Frederik Pohl, se dirige a lectores de ciencia ficción interesados en las distopías sobre sistemas económicos. El capitalismo aparece expresamente en el título, por lo que su planteamiento temático se aleja de quienes buscan exclusivamente aventuras sin conflictos sociales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La plaga de Midas y otras distopías contra el capitalismo: 133 (Alamut Serie Fantástica) se presenta en tapa dura, con 352 páginas en castellano. Esta edición de Alamut permite conservar el volumen encuadernado en una biblioteca física y consultar o releer sus textos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La plaga de Midas y otras distopías contra el capitalismo: 133 (Alamut Serie Fantástica) y Aunque se acabe el mundo pertenecen a la ciencia ficción. Frederik Pohl plantea distopías vinculadas al capitalismo, mientras que Clara Duarte parte de una transformación de la humanidad provocada por la aparición de una cúpula sobre la Tierra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427255968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e1bc0b6dab43355f",
+  "origen": "chatgpt-web"
+}

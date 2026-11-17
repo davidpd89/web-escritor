@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798182861359",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ifá es supremo se dirige a quienes buscan una lectura breve vinculada a Ifá, dentro de un catálogo que lo sitúa entre el bienestar y el cómic. Con 50 páginas, se diferencia de los manuales extensos de nutrición y de las novelas gráficas de mayor recorrido.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 50 páginas de Ifá es supremo en una edición física publicada por Nubala Publishing. Su extensión permite manejarlo como un volumen breve y conservarlo para consultas o relecturas sin necesidad de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guía completa de Mudras: El secreto para sentirse bien en 3 minutos está en tus manos (No ficción) se aproxima a Ifá es supremo por su relación temática con el bienestar. La obra de David Muñoz Moreno y Lourdes Muñoz Anaya se centra en los mudras y su práctica, mientras que el título de Babalawo Ifadahunsi Obafemi sitúa a Ifá como asunto principal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f325c5915266b2fe",
+  "origen": "chatgpt-web"
+}

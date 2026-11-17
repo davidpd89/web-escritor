@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en mejorar su salud a partir de los 40 años, con una perspectiva que va más allá de la alimentación y el ejercicio. Por su enfoque de desarrollo personal y bienestar, encaja menos con quien busca una novela o una guía dedicada exclusivamente a la nutrición.",
+      "texto": "Dirigido a quienes desean mejorar su salud a partir de los 40 años y buscan un enfoque que vaya más allá de la alimentación y el ejercicio. Su orientación hacia el bienestar y el desarrollo personal lo aleja de los manuales centrados exclusivamente en dietas o rutinas deportivas.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,28 +12,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 162 páginas en un volumen físico que puede consultarse por apartados y guardarse en una estantería de salud y bienestar. Es una opción para quien prefiere leer en papel y volver a determinados contenidos durante su lectura.",
+      "texto": "La tapa blanda reúne las 162 páginas de esta obra de Dra. Dora Navarro Torné en un volumen físico que permite consultar y marcar los apartados de interés. La edición Kindle ofrece el mismo título en formato digital para leerlo desde un dispositivo compatible, sin necesidad de llevar el ejemplar impreso.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
+        "autores",
         "numero_paginas",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte con 100 formas de cambiar tu vida el interés por la salud y los cambios personales, aunque la obra de Dra. Dora Navarro Torné delimita su enfoque a la mejora de la salud a partir de los 40 años. El libro de Liz Moody también aborda la felicidad, las relaciones y el éxito, por lo que plantea un abanico de asuntos más amplio.",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, aborda el bienestar desde la longevidad y el optimismo. Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta, de Anca Martínez, trata cuestiones generales de la vida adulta. La obra de Dra. Dora Navarro Torné se distingue por centrarse en la mejora de la salud a partir de los 40 años, más allá de la nutrición y el ejercicio.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9791387852290",
+        "isbn-9788409938490"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6513f99ad0168141",
+  "fuente_hash": "5405bf57c1f8accc",
   "origen": "chatgpt-web"
 }

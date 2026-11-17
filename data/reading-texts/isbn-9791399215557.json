@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399215557",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ciencia de escalar: Haz crecer tu empresa más y más rápido de lo que crees posible se dirige a lectores interesados en el crecimiento empresarial y la expansión de negocios. Su enfoque económico lo distancia de las lecturas centradas en ficción, historia o entretenimiento ajeno a la gestión de empresas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene las 230 páginas de La ciencia de escalar: Haz crecer tu empresa más y más rápido de lo que crees posible. Es una opción física para leer y consultar sus contenidos sobre crecimiento empresarial, con una encuadernación flexible que facilita transportarlo.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ciencia de escalar: Haz crecer tu empresa más y más rápido de lo que crees posible puede compararse con Antes de liderar: Una mirada interior a un oficio, por su relación con el ámbito empresarial. Dr. Benjamin Hardy y Blake Erickson se centran en el crecimiento de la empresa, mientras que Miguel Reinoso plantea una mirada hacia el ejercicio del liderazgo. La diferencia está entre ampliar un negocio y examinar el papel de quien lo dirige.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c1e666146bcb69b",
+  "origen": "chatgpt-web"
+}

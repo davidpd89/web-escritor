@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399265804",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El club de los asesinos de letras (Narrativa), de Sigismund Krzyzanowski, está clasificado como narrativa contemporánea. Con 204 páginas, se ajusta a una búsqueda de narrativa de extensión moderada, pero no a una centrada específicamente en cómic o novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El club de los asesinos de letras (Narrativa) cuenta con una edición en tapa blanda de 204 páginas. Ediciones del Subsuelo lo publica en castellano con cubierta flexible, un formato físico que facilita sostener el volumen durante la lectura y guardarlo en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6441040a04539e2c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387953874",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Valiant Beyond: Relatos de Shadowman vol. 2 se dirige a lectores de cómic y novela gráfica que buscan una entrega identificada como parte de una serie. El título la presenta como el volumen 2, mientras que sus 80 páginas pueden quedarse cortas para quien prefiera obras gráficas extensas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Valiant Beyond: Relatos de Shadowman vol. 2 es en tapa blanda y reúne 80 páginas en castellano. Su cubierta flexible facilita llevar el cómic en una bolsa y guardarlo junto a otros volúmenes; la extensión permite distinguirlo de recopilaciones gráficas de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a9fd79c860dc360e",
+  "origen": "chatgpt-web"
+}

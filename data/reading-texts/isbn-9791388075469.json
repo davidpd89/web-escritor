@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791388075469",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El universo espiritual de Einstein: Cómo la ciencia moldeó su visión de Dios, la conciencia y el cosmos (Divulgación científica) se orienta a lectores interesados en la relación entre pensamiento científico, espiritualidad y biografía intelectual. Su planteamiento ensayístico se distancia de los libros centrados exclusivamente en fórmulas físicas o explicaciones técnicas del universo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Kieran Fox aborda la relación entre las ideas científicas de Einstein y sus reflexiones sobre Dios, la conciencia y el cosmos. El enfoque combina divulgación científica, ensayo y dimensión biográfica para examinar cómo se relacionan esas cuestiones en su pensamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El universo espiritual de Einstein: Cómo la ciencia moldeó su visión de Dios, la conciencia y el cosmos (Divulgación científica) se presenta en tapa blanda y tiene 352 páginas. El formato físico permite avanzar por sus cuestiones científicas y filosóficas y volver a los pasajes que se quieran consultar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El universo espiritual de Einstein: Cómo la ciencia moldeó su visión de Dios, la conciencia y el cosmos (Divulgación científica) comparte con Somos como dioses: Un manual de supervivencia para la era de la abundancia (Deusto) el interés por cuestiones amplias relacionadas con la ciencia y sus implicaciones. El primero se centra en la visión de Dios, la conciencia y el universo de Einstein, mientras que el segundo plantea la supervivencia en un contexto de abundancia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441228"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14c0227478eeb1d2",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Elsa. La huella de Oesterheld (Sillón Orejero), de Javier Mora e IÑAKET, se dirige a lectores interesados en la historia del siglo XX contada mediante cómic y novela gráfica. Su orientación histórica lo distancia de quienes buscan una narración centrada en mundos fantásticos.",
+      "texto": "Elsa. La huella de Oesterheld (Sillón Orejero) se orienta a lectores de cómic y novela gráfica interesados en contenidos históricos. La combinación de historia y narración gráfica lo diferencia de una novela escrita únicamente en prosa o de un manual de historia convencional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Elsa. La huella de Oesterheld (Sillón Orejero) se presenta en tapa dura, con 136 páginas en castellano. La encuadernación rígida protege el volumen durante su conservación y resulta adecuada para mantenerlo en una colección de novelas gráficas.",
+      "texto": "Elsa. La huella de Oesterheld (Sillón Orejero) se publica en tapa dura, con 136 páginas en castellano. La encuadernación rígida protege las páginas durante las consultas y facilita conservar esta obra gráfica de Javier Mora e IÑAKET en una colección física.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "categorias"
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Elsa. La huella de Oesterheld (Sillón Orejero) comparte el terreno histórico y gráfico con La balada del norte 03 (nueva edición) (Sillón Orejero). Javier Mora e IÑAKET firman la primera, mientras que Alfonso Zapico es el autor de la segunda; sus títulos sitúan el foco en referentes históricos distintos.",
+      "texto": "La balada del norte. Tomo 1 (Sillón Orejero) comparte con Elsa. La huella de Oesterheld (Sillón Orejero) la combinación de historia y narración gráfica, además de su pertenencia a la colección Sillón Orejero. La primera obra lleva la firma de Alfonso Zapico, mientras que la segunda está realizada por Javier Mora e IÑAKET y presenta en su título la figura de Elsa y su relación con Oesterheld.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419670373"
+        "isbn-9788410332195"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1e606846ea46894c",
+  "fuente_hash": "2b0664d757270965",
   "origen": "chatgpt-web"
 }

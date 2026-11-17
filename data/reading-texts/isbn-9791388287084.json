@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pesadilla bajo el muérdago (VR YA) está dirigido a lectores interesados en fantasía y aventuras dentro de la narrativa juvenil. Sara Raasch firma una novela de 496 páginas, por lo que ofrece una lectura de mayor extensión; encaja menos con quien busca historias breves o narrativa contemporánea sin elementos fantásticos.",
+      "texto": "Pesadilla bajo el muérdago (VR YA) encaja con lectores que buscan fantasía y aventuras en una novela extensa. Sara Raasch firma una obra de 496 páginas que también se sitúa en la narrativa contemporánea; no responde a quien prefiere un ensayo o una lectura breve.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,22 +14,21 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer Pesadilla bajo el muérdago (VR YA) en una edición física de 496 páginas. Es una opción para quien prefiere tener la novela completa en papel y conservarla en su biblioteca, aunque su extensión requiere más espacio que el de una lectura breve.",
+      "texto": "Pesadilla bajo el muérdago (VR YA) puede leerse en tapa blanda o Kindle. La edición física reúne sus 496 páginas en un volumen de papel que se puede prestar o regalar; Kindle permite llevar esa misma extensión en un lector electrónico o en el móvil sin cargar con el libro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "formato_edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pesadilla bajo el muérdago (VR YA), de Sara Raasch, comparte con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett, la presencia de elementos fantásticos en una historia de ficción. Se diferencian en el planteamiento que sugieren sus títulos: el primero se presenta como una pesadilla vinculada al muérdago, mientras que el segundo sitúa su historia en un refugio de gatos.",
+      "texto": "Pesadilla bajo el muérdago (VR YA) comparte el terreno fantástico con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa). La primera está firmada por Sara Raasch y se presenta también como una obra de aventuras y narrativa contemporánea; la segunda, de Heather Fawcett, identifica en su título un refugio mágico de gatos. La comparación permite distinguir dos puntos de partida dentro de la fantasía.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791387749316"
@@ -38,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "573c8de8b82b2590",
+  "fuente_hash": "0b35e080b4901f68",
   "origen": "chatgpt-web"
 }

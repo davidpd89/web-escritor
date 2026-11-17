@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399305159",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Donde las grietas dejan entrar la luz, de Penélope Balaguer Gracia, se sitúa entre la narrativa contemporánea y la historia. Se dirige a lectores interesados en esas dos áreas, más que a quienes buscan cómic, fantasía juvenil o una obra de consulta técnica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Donde las grietas dejan entrar la luz tiene una edición en tapa blanda de 296 páginas, publicada en castellano por Castellón Digital SL. Es un volumen físico de extensión intermedia que puede leerse por sesiones y conservarse en una biblioteca personal sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde las grietas dejan entrar la luz puede compararse con Corazón de oro: Edición limitada a precio especial (Colección Especial) por su relación con la narrativa y la historia. La primera obra está firmada por Penélope Balaguer Gracia y tiene 296 páginas; la segunda es de Luz Gabás y se presenta como una edición limitada dentro de una colección especial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328353"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc30bbdbadfae8f8",
+  "origen": "chatgpt-web"
+}

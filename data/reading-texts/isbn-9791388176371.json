@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388176371",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Redimidos: Un itinerario a través de La Pasión de Cristo de Mel Gibson se dirige a lectores interesados en la religión cristiana y en el tratamiento cinematográfico de la Pasión de Cristo. Sus 326 páginas corresponden a una obra de temática religiosa, alejada de las expectativas de quien busca ficción de aventuras o narrativa infantil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Redimidos: Un itinerario a través de La Pasión de Cristo de Mel Gibson cuenta con una edición en tapa dura de 326 páginas. El volumen de Bibliotheca Homo Legens está pensado para la lectura en papel y puede conservarse como libro de consulta sobre su temática religiosa y cinematográfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Redimidos: Un itinerario a través de La Pasión de Cristo de Mel Gibson comparte temática cristiana con AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda. Pablo A. Marini centra su obra en la Pasión de Cristo a través del referente de Mel Gibson, mientras que Teiji Yasuda aborda las lágrimas y el mensaje de María. Ambos tratan asuntos religiosos, pero sus títulos señalan figuras y enfoques diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "83a5ee65cb04a1ba",
+  "origen": "chatgpt-web"
+}

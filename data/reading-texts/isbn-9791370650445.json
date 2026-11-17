@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370650445",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Casos prácticos de Derecho Tributario: COLECCIÓN «TRANSFERENCIA DE CONOCIMIENTO» (monografico) está dirigido a quienes buscan trabajar con casos del ámbito tributario. Su planteamiento jurídico y práctico lo separa de la narrativa de ficción y de los libros de divulgación general ajenos al derecho.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 246 páginas de Casos prácticos de Derecho Tributario: COLECCIÓN «TRANSFERENCIA DE CONOCIMIENTO» (monografico). El soporte impreso permite consultar los casos, señalar páginas y alternar apartados durante el estudio sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casos prácticos de Derecho Tributario: COLECCIÓN «TRANSFERENCIA DE CONOCIMIENTO» (monografico) y Argumentacion Juridica, de Carlos Parma, se sitúan en el ámbito del derecho. El primero se centra, desde su título, en casos tributarios; el segundo aborda la argumentación jurídica, una materia de alcance distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "22d26290a3425603",
+  "origen": "chatgpt-web"
+}

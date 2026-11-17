@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9788410178960",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dormida: 372 (Libros del Asteroide), de Honor Jones, está dirigida a lectores de narrativa contemporánea que prefieren una obra de extensión media. Sus 312 páginas en castellano la sitúan entre las lecturas que requieren varias sesiones. Por su clasificación editorial, no corresponde a un manual especializado ni a un libro infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dormida: 372 (Libros del Asteroide) cuenta con una edición en tapa blanda de 312 páginas publicada por Libros del Asteroide. Este formato permite leer la obra completa en papel y conservarla en la estantería sin recurrir a un volumen de tapa dura. La edición en castellano de Honor Jones tiene fecha de publicación del 21 de septiembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "fecha_publicacion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "402ad620381a65ce",
+  "origen": "chatgpt-web"
+}

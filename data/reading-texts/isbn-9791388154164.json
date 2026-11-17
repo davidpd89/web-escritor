@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9791388154164",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Banquete / Symposium, de Muriel Spark, se dirige a lectores de narrativa contemporánea que buscan una novela de extensión intermedia. Sus 208 páginas en castellano permiten situarla frente a obras más largas del mismo género. No está planteada como un manual ni como una lectura de carácter técnico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Banquete / Symposium se presenta en tapa blanda, con 208 páginas, en la edición en castellano de Blackie Books. Es un volumen físico de extensión intermedia que puede transportarse para leer fuera de casa o conservarse en una biblioteca personal. La edición corresponde a la obra de Muriel Spark publicada el 22 de septiembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "fecha_publicacion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fd1c4b981271bfa2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788437650487",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Canciones de inocencia y de experiencia (Letras Universales) se dirige a lectores interesados en la poesía de William Blake y en su relación con la historia y el arte. Quien busque una narración extensa en prosa encontrará una propuesta distinta, organizada alrededor de la escritura poética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Canciones de inocencia y de experiencia (Letras Universales) está disponible en tapa blanda, con 272 páginas en castellano. La encuadernación permite manejar el volumen durante la lectura y volver a los poemas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Canciones de inocencia y de experiencia (Letras Universales) comparte el terreno poético con Fuego y raíz: Cancionero (Primera persona), de Gata Cattana. La diferencia principal es la autoría: William Blake firma el primero y Gata Cattana el segundo, por lo que permiten acercarse a voces poéticas distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788403524996"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3f47c87324d6a4cf",
+  "origen": "chatgpt-web"
+}

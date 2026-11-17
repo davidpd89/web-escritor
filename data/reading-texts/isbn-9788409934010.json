@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El código del rendimiento: La ciencia detrás de lo que el deportista consume está orientado a lectores interesados en la alimentación deportiva y la relación entre nutrición y rendimiento. Su enfoque se concentra en lo que consume el deportista, por lo que no corresponde a una búsqueda de narrativa de ficción o de ocio desvinculado de la salud.",
+      "texto": "El código del rendimiento: La ciencia detrás de lo que el deportista consume se dirige a lectores interesados en la nutrición deportiva y la relación entre alimentación y rendimiento. Su enfoque temático se aleja de los recetarios de cocina y de las obras generales de entretenimiento.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El código del rendimiento: La ciencia detrás de lo que el deportista consume tiene 108 páginas y está disponible en tapa blanda y Kindle. El papel permite conservarlo como libro de consulta, mientras que Kindle facilita revisar su contenido desde el móvil o un lector electrónico durante los desplazamientos.",
+      "texto": "La tapa blanda reúne las 108 páginas de El código del rendimiento: La ciencia detrás de lo que el deportista consume en un volumen físico que permite consultar y señalar pasajes. La edición Kindle facilita llevar el texto en un lector electrónico o consultarlo desde el móvil, sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -21,7 +21,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El código del rendimiento: La ciencia detrás de lo que el deportista consume, de Eztizen Pérez Díaz, comparte el interés por la ciencia aplicada al deporte con La escalera del músculo: Ponte fuerte usando la ciencia (Fitness), de Jeff Nippard. El primero se centra en la alimentación del deportista, mientras que el segundo aborda el desarrollo muscular desde una perspectiva científica. Ambos tratan aspectos del rendimiento físico, aunque sus temas principales son diferentes.",
+      "texto": "Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante (Salud natural) comparte con El código del rendimiento: La ciencia detrás de lo que el deportista consume el interés por la alimentación y la salud. La obra de Sarah Ann Macklin plantea una reflexión sobre la cultura de la optimización constante, mientras que Eztizen Pérez Díaz centra su libro en la relación entre el consumo del deportista y el rendimiento.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +29,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387936594"
+        "isbn-9788411193900"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "98211d790a6a88ab",
+  "fuente_hash": "9da0f1cb51ec934f",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370632373",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en viajes, aventuras y relatos vinculados a experiencias familiares. Paticarbook: Dos viajes reveladores junto a mi mamá: 01 (Viajes y aventuras), de Constanza Cáceres Carvajal, tiene 442 páginas y se distancia de las lecturas breves o centradas exclusivamente en mundos imaginarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 442 páginas de Paticarbook: Dos viajes reveladores junto a mi mamá: 01 (Viajes y aventuras) en un volumen físico. Kindle permite llevar esa misma lectura en un dispositivo compatible, sin cargar con el libro de papel durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Paticarbook: Dos viajes reveladores junto a mi mamá: 01 (Viajes y aventuras) y Pedalazos de un contador de cuentos: 01 (Viajes y aventuras) comparten el interés por los viajes, aunque sus títulos plantean perspectivas diferentes: experiencias junto a una madre frente a relatos asociados al pedaleo. 33 islas: Un periplo mediterráneo. De Marettimo a Venecia. delimita un recorrido geográfico concreto, mientras que Paticarbook destaca dos viajes y su dimensión familiar.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370633196",
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f42e2bd9c67de71e",
+  "origen": "chatgpt-web"
+}

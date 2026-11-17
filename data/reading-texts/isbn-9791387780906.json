@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387780906",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dragon Quest: The Adventure OF Dai n? 10/25 (Manga Shonen) se dirige a lectores de manga shonen que siguen una colección identificada por números. El título lo identifica como el n.º 10 de 25, por lo que se diferencia de un tomo único pensado para una lectura independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dragon Quest: The Adventure OF Dai n? 10/25 (Manga Shonen) se publica en tapa blanda, con 408 páginas en castellano. La edición de Planeta Cómic permite incorporarlo físicamente a una colección numerada y consultar sus páginas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dragon Quest: The Adventure OF Dai n? 10/25 (Manga Shonen) puede compararse directamente con Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen), ambos de Koji Inada. Los títulos los identifican como los números 10 y 11 de una colección de 25, respectivamente. La diferencia para el lector es su posición dentro de la misma serie, no un cambio de autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387920838",
+        "isbn-9791387920852"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "63761ac01f3e6061",
+  "origen": "chatgpt-web"
+}

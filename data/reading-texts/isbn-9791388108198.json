@@ -1,0 +1,34 @@
+{
+  "id": "isbn-9791388108198",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Un amor de miedo (Faeris Editorial) encaja con lectores que buscan fantasía, aventuras y relatos en una edición conjunta. La obra reúne la autoría de Ali Hazelwood, Christina Lauren, J.T. Geissinger, Ruby Dixon, Katee Robert y Kimberly Lemming. Su clasificación como relatos la distingue de una novela presentada como narración única y continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Un amor de miedo (Faeris Editorial) puede compararse con Alfa (Romantasy) y Mortal & Inmortal: Dos romances paranormales (Faeris Editorial), ambos de Ali Hazelwood. Comparten autoría con el estuche, pero este incorpora también a otras cinco firmas y se presenta dentro de la fantasía, las aventuras y los relatos. Mortal & Inmortal: Dos romances paranormales (Faeris Editorial) identifica expresamente dos romances paranormales, mientras que el estuche reúne una propuesta de autoría más amplia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387739638",
+        "isbn-9791388108341"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3d2d0e5636ca9fc",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788433875884",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "RECONSTRUYENDO LA MEMORIA: Un mural dedicado a Federico García Lorca en la Universidad de Granada: 21 (Cuadernos Técnicos de Patrimonio) se dirige a lectores interesados en arte, patrimonio y memoria cultural. Su objeto es un mural dedicado a Federico García Lorca en la Universidad de Granada, por lo que no corresponde a quien busca una biografía general del poeta o una recopilación de sus obras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "RECONSTRUYENDO LA MEMORIA: Un mural dedicado a Federico García Lorca en la Universidad de Granada: 21 (Cuadernos Técnicos de Patrimonio) tiene 91 páginas y se publica en tapa blanda. Es un volumen físico de extensión breve para consultar un tema concreto de patrimonio artístico y conservarlo como referencia.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "RECONSTRUYENDO LA MEMORIA: Un mural dedicado a Federico García Lorca en la Universidad de Granada: 21 (Cuadernos Técnicos de Patrimonio) comparte con 720 retrats, de Xavier Mollà i Revert, su vinculación con las artes visuales. El libro de José Ignacio Barrera Maturana aborda un mural dedicado a Federico García Lorca, mientras que 720 retrats remite desde su título al retrato. Frente a All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, se presenta como un estudio sobre una obra artística concreta y no como un cuaderno.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9789879871119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b723c7d62de3b505",
+  "origen": "chatgpt-web"
+}

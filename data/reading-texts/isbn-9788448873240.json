@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788448873240",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido al público infantil que empieza a acercarse a cuestiones de autoestima y desarrollo personal. Me quiero mucho (libro de cartón): . (Pequeñas manitas) se centra en ese ámbito, por lo que no responde a quien busque una narración juvenil extensa o un ensayo de autoayuda para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se puede compartir en sesiones breves de lectura acompañada y utilizar su título como punto de partida para hablar del cariño hacia uno mismo. Sus 24 páginas y la encuadernación de cartón permiten pasar las hojas físicamente y volver a ellas durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa dura, presentada como libro de cartón por Beascoa. Sus 24 páginas forman un volumen breve y manejable para la lectura compartida y la consulta repetida, con un soporte físico que permite pasar las hojas sin depender de una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) comparte el acercamiento infantil a las emociones, aunque pone el foco en la felicidad y no en el afecto hacia uno mismo. Érase una (y otra) vez: Todo lo que no sabías sobre los cuentos clásicos (Cuentos infantiles) es también de Lucía Serrano, pero trata los cuentos tradicionales en lugar del desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875022",
+        "isbn-9788000079806"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f6758d2c95f1584f",
+  "origen": "chatgpt-web"
+}

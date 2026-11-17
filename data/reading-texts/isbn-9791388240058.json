@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388240058",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una visita de San Nicolás: o Era la Nochebuena: 1 (Fuera de colección) se dirige a lectores de poesía interesados en una obra vinculada a la Nochebuena. Sus 64 páginas permiten abordar el volumen en sesiones breves; quien busque una novela extensa o una narración ajena a la temática navideña encontrará una propuesta diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una visita de San Nicolás: o Era la Nochebuena: 1 (Fuera de colección) tiene una edición en tapa blanda de 64 páginas, publicada por Ofelia Editora. Su extensión facilita llevar el libro y leerlo en papel durante desplazamientos o reuniones navideñas. El texto se presenta en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una visita de San Nicolás: o Era la Nochebuena: 1 (Fuera de colección) y A solas, de María Jesús Martínez Ramos, pertenecen al terreno de la poesía. La obra de Clement Clarke Moore se identifica expresamente con la Nochebuena y tiene 64 páginas; A solas presenta otra autoría y un título sin referencia navideña.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2f6ee2acf866b816",
+  "origen": "chatgpt-web"
+}

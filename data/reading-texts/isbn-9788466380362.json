@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466380362",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El vuelo de la cometa (Best Seller | Ficción) se dirige a lectores de narrativa contemporánea interesados también en temas relacionados con la historia. Con 208 páginas, se aparta de las novelas extensas y de las lecturas centradas en fantasía o contenidos técnicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El vuelo de la cometa (Best Seller | Ficción) cuenta con una edición de bolsillo en tapa blanda de 208 páginas. Su presentación facilita transportarlo y leerlo fuera de casa, además de guardarlo en espacios reducidos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El vuelo de la cometa (Best Seller | Ficción) comparte con La trenza (Best Seller | Ficción) la autoría de Laetitia Colombani, la narrativa contemporánea y una extensión de 208 páginas. La diferencia editorial está en su clasificación: El vuelo de la cometa (Best Seller | Ficción) figura también en historia, mientras que La trenza (Best Seller | Ficción) se identifica como novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394598"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7feb82312fad30b3",
+  "origen": "chatgpt-web"
+}

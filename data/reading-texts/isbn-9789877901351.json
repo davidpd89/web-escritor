@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9789877901351",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kwaidan: Historias y estudios de cosas extrañas (ZONA ESTE) se orienta a quienes buscan historias y estudios sobre asuntos extraños, tal como anuncia su título. Con 160 páginas, ofrece una extensión breve frente a las novelas largas; por su planteamiento, queda más alejado de quien busca exclusivamente una narración extensa.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kwaidan: Historias y estudios de cosas extrañas (ZONA ESTE) se presenta en tapa blanda, con 160 páginas en castellano. La edición de Interzona reúne en un volumen físico de extensión reducida las historias y estudios anunciados en el título, una opción manejable para transportarlo y consultar sus textos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1918929b953b9da9",
+  "origen": "chatgpt-web"
+}

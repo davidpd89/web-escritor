@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9783754401514",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en el surrealismo desde la historia del arte y el diseño. Sus 504 páginas corresponden a una obra de temática artística, por lo que no responde a quien busque una novela surrealista ni un manual de creación de prendas u objetos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Taschen se publica en tapa dura y reúne 504 páginas en castellano. Es un formato físico para consultar y conservar una obra extensa sobre surrealistas, tanto en una biblioteca personal como para regalar a alguien interesado en historia del arte.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Art for All: Surrealistas y Art for All: Arquitectura californiana comparten una colección dedicada al arte, pero abordan disciplinas distintas: el surrealismo y la arquitectura. Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION) también relaciona arte e historia, aunque se centra en la prehistoria y su relación con los tiempos modernos, frente al enfoque surrealista de Art for All: Surrealistas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9783754401477",
+        "isbn-9791399236422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f22fb0f47dd089a",
+  "origen": "chatgpt-web"
+}

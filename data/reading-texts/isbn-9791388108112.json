@@ -4,52 +4,50 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Asistente del villano (edición especial limitada) (Faeris Editorial) se sitúa entre la fantasía, el romance y la narrativa juvenil, con elementos asociados a la romantasy. Se dirige a quienes buscan esa combinación de géneros y encaja menos con lectores interesados exclusivamente en narrativa realista sin componentes fantásticos.",
+      "texto": "Asistente del villano (edición especial limitada) se dirige a lectores de fantasía juvenil que también buscan componentes románticos. Su combinación de fantasía, romantasy y romance la distingue de la narrativa realista y de las novelas centradas exclusivamente en relaciones sentimentales sin elementos fantásticos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta versión de Asistente del villano (edición especial limitada) (Faeris Editorial) se identifica expresamente como una edición especial limitada. Faeris la publica en castellano, en tapa dura y con 488 páginas, bajo el ISBN 9791388108112, que permite distinguirla de otras ediciones de la obra.",
+      "texto": "Esta edición especial limitada de Asistente del villano, de Hannah Nicole Maehrer, se publica en tapa dura y reúne 488 páginas. La identificación como edición especial limitada y su encuadernación distinguen esta presentación física de otras posibles ediciones del mismo título.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "idioma",
+        "autores",
         "edicion",
         "numero_paginas",
-        "isbn13"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La opción disponible es la tapa dura de Faeris, con 488 páginas y texto en castellano. Su encuadernación rígida resulta apropiada para conservar el ejemplar en una colección física o entregarlo como regalo, aunque ocupa más espacio que una edición digital.",
+      "texto": "La tapa dura ofrece las 488 páginas de Asistente del villano (edición especial limitada) en un volumen físico resistente, pensado para conservar y regalar. El audiolibro permite acceder a la obra mediante escucha, sin depender de la lectura en papel.",
       "evidencias": [
-        "formatos_disponibles",
-        "edicion",
+        "titulo",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Asistente del villano (edición especial limitada) (Faeris Editorial) comparte editorial con El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, pero se identifica además con la fantasía romántica juvenil. También se relaciona con Saciar a la bestia - libro 1 (Faeris Editorial), de Tamara Molina, aunque este último señala expresamente su posición mediante el título, mientras que Asistente del villano destaca por su edición especial limitada.",
+      "texto": "Asistente del villano (edición especial limitada) comparte con El hechizo más oscuro el terreno de la fantasía juvenil. La diferencia está en la combinación de géneros: Asistente del villano incorpora también romantasy y romance, mientras que el título de Wanda Hellmund se presenta dentro de la fantasía.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388108419",
-        "isbn-9791388108365"
+        "isbn-9791388108419"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5797e91748336591",
+  "fuente_hash": "cfc70fc39f7e6fd4",
   "origen": "chatgpt-web"
 }

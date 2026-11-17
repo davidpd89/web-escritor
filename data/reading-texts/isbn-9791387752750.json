@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sudokus Originales Nikoli Nivel 1 (Sudokus Nikoli) está destinado a quienes prefieren resolver pasatiempos numéricos durante su tiempo libre. El nivel indicado en el título orienta hacia una dificultad inicial, por lo que no responde a la búsqueda de un recopilatorio expresamente identificado como avanzado.",
+      "texto": "Sudokus Originales Nikoli Nivel 1 (Sudokus Nikoli) está dirigido a quienes buscan pasatiempos de lógica y prefieren comenzar por el nivel identificado como 1. Su propuesta se centra en resolver sudokus, por lo que no responde a la búsqueda de una novela, un libro de conocimientos generales o actividades de manualidades.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,16 +12,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sudokus Originales Nikoli Nivel 1 (Sudokus Nikoli) se presenta en tapa blanda, con 160 páginas. El formato físico permite trabajar directamente sobre el papel y consultar los ejercicios sin depender de una pantalla, tanto en casa como durante desplazamientos.",
+      "texto": "La edición de tapa blanda tiene 160 páginas y permite resolver los sudokus directamente sobre papel. Este formato resulta práctico para llevar los ejercicios a distintos lugares, escribir las respuestas y retomar los pasatiempos sin utilizar dispositivos electrónicos.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sudokus Originales Nikoli Nivel 1 (Sudokus Nikoli) comparte su orientación al ocio activo con 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos). La propuesta de NIKOLI se centra en resolver sudokus numéricos, mientras que el libro de Varios autores plantea una actividad de coloreado vinculada a los videojuegos.",
+      "texto": "Sudokus Originales Nikoli Nivel 4 (Sudokus Nikoli) y Sudokus Originales Nikoli Nivel 8 (Sudokus Nikoli) pertenecen a la misma colección y comparten la autoría de NIKOLI. Frente al Nivel 1, sus títulos identifican niveles 4 y 8, respectivamente, lo que permite distinguir las entregas según la numeración de dificultad. Los tres se centran en sudokus como actividad de ocio.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +29,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328384"
+        "isbn-9791387752767",
+        "isbn-9791387752774"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "60b7424bdfd3056a",
+  "fuente_hash": "779eee869162b20a",
   "origen": "chatgpt-web"
 }

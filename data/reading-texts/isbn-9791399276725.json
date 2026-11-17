@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399276725",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ahorcados, de Miguel Ávila Cabezas, se sitúa en el ámbito del arte y el diseño, por lo que encaja con lectores que exploran publicaciones de esa temática. Quien busque específicamente una novela de aventuras o una historia de fantasía encontrará una orientación temática distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ahorcados se presenta en tapa blanda, con 190 páginas en castellano. Esta encuadernación permite manejar el volumen sin una cubierta rígida y facilita guardarlo junto a otras publicaciones de arte y diseño; también sirve para consultarlo en papel sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats, de Xavier Mollà i Revert, comparte con Ahorcados su vinculación al arte y el diseño, aunque sus títulos apuntan a enfoques diferentes. Frente a la referencia explícita a los retratos en la obra de Xavier Mollà i Revert, Ahorcados presenta otro título y una autoría distinta, la de Miguel Ávila Cabezas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6843bc08c9eebf3e",
+  "origen": "chatgpt-web"
+}

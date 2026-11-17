@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388306518",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos de Navidad (Otras Latitudes) encaja con lectores de clásicos y narrativa juvenil que buscan relatos vinculados a la Navidad. Reúne textos atribuidos a Nikolái Gógol, E.t.a. Hoffmann y Dylan Thomas, por lo que se aleja de la lectura de una novela centrada en un único autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuentos de Navidad (Otras Latitudes) se ofrece en tapa dura y Kindle, dos opciones para sus 256 páginas. La tapa dura de Nórdica Libros permite conservarlo como volumen físico o regalarlo; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuentos de Navidad (Otras Latitudes) y Las almas muertas comparten la autoría de Nikolái Gógol, aunque el primero reúne también a E.t.a. Hoffmann y Dylan Thomas. Frente a la obra individual Las almas muertas, Cuentos de Navidad (Otras Latitudes) propone una selección de relatos de distintos escritores con un vínculo navideño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410180604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0fd1ef0a3027f8a8",
+  "origen": "chatgpt-web"
+}

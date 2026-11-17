@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419026378",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La esfera de lo divino: 3 (Tema Local) se dirige a lectores de novela histórica y narrativa contemporánea que prefieren obras de cierta extensión. Sus 400 páginas permiten una lectura prolongada; no responde a la búsqueda de un ensayo histórico documental ni de una colección de relatos breves.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La esfera de lo divino: 3 (Tema Local) está editada en tapa blanda, con 400 páginas en castellano. La edición de Ulises permite leer la novela en papel y transportarla sin la rigidez de una cubierta dura. Su extensión también permite distribuir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La esfera de lo divino: 3 (Tema Local) comparte el terreno de la novela histórica con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi. La obra de María Regla Prieto también se sitúa en la narrativa contemporánea, mientras que el título de Manfredi identifica expresamente a Aléxandros y las arenas de Amón.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c202b515384448c1",
+  "origen": "chatgpt-web"
+}

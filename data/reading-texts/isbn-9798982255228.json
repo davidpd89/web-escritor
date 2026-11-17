@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798982255228",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Felipe y Macio el Elefante Descubren París: A Torre Eiffel, Crepes e um Museu Famoso - Uma História de Viagem para Ler em Voz Alta, para Crianças que ... Paris: 3 (Las Aventuras de Felipe y Macio) se orienta a lectores infantiles interesados en aventuras de viaje y lecturas compartidas. Sus 68 páginas sitúan París y sus lugares emblemáticos en el centro de la propuesta, en lugar de un misterio o una aventura intergaláctica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Five Explorers Press, LLC tiene 68 páginas y se ofrece en tapa blanda. Su presentación física permite leer en voz alta la aventura ambientada en París y utilizar el ejemplar para lecturas compartidas, sin depender del móvil.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Felipe y Macio el Elefante Exploran Holanda: Molinos, Tulipanes y Canales - Una Aventura de Viaje para Leer en Voz Alta, para Niños que Exploran los Países Bajos: 2 (Las Aventuras de Felipe y Macio) comparte protagonistas y autoría de Five Explorers Press con la aventura de París. La diferencia está en el destino: Holanda y sus canales frente a París, la Torre Eiffel y sus museos; el título de esta última la identifica como el n.º 3.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798982255211"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df50d8be3c9c0c82",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Finanzas conscientes (EMPRESA ACTIVA) se dirige a lectores interesados en economía y en cuestiones financieras. Es una obra de Elizabeth Wakefield de 264 páginas, distinta de una lectura de ficción o de un manual centrado exclusivamente en liderazgo empresarial.",
+      "texto": "Finanzas conscientes (EMPRESA ACTIVA), de Elizabeth Wakefield, encaja con lectores interesados en cuestiones financieras dentro del ámbito de la economía y la empresa. Sus 264 páginas ofrecen una extensión intermedia para abordar esta materia; no corresponde a quien busca una novela de ficción o una obra centrada en acontecimientos históricos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,30 +14,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y señalar pasajes de sus 264 páginas en papel. La edición Kindle ofrece el mismo título en formato digital para leerlo en un dispositivo compatible, sin necesidad de transportar el volumen físico.",
+      "texto": "Finanzas conscientes (EMPRESA ACTIVA) está disponible en tapa blanda y Kindle. La primera permite consultar y señalar físicamente sus 264 páginas, mientras que Kindle facilita llevar la lectura en un móvil o lector electrónico y acceder a ella sin transportar el volumen impreso.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "titulo"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Finanzas conscientes (EMPRESA ACTIVA) puede compararse con Inversiones conscientes (EMPRESA ACTIVA), ambos de Elizabeth Wakefield. El primero plantea las finanzas como asunto general, mientras que el segundo delimita su enfoque a las inversiones. Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, desplaza el interés hacia el ejercicio del liderazgo.",
+      "texto": "Inversiones conscientes (EMPRESA ACTIVA) es la comparación más directa con Finanzas conscientes (EMPRESA ACTIVA): ambos títulos pertenecen al ámbito financiero y están firmados por Elizabeth Wakefield, aunque uno señala específicamente las inversiones. ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, desplaza el interés hacia las ideas y su influencia, en lugar de centrarse en las finanzas.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788418308406",
-        "isbn-9788409921980"
+        "isbn-9791399087222"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b838efbf32b31cca",
+  "fuente_hash": "f05c5c28566294ab",
   "origen": "chatgpt-web"
 }

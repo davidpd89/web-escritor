@@ -1,29 +1,29 @@
 {
   "id": "isbn-9791370610500",
-  "familia": "practico",
+  "familia": "narrativa",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La salud laboral ante los riesgos emergentes: Digitalización, vulnerabilidad, clima y tutela preventiva (Monografía) se orienta a lectores interesados en el derecho laboral y la prevención de riesgos profesionales. Su enfoque jurídico sobre digitalización, vulnerabilidad y clima se aleja de los manuales de bienestar personal o alimentación.",
+      "texto": "Esta monografía se dirige a quienes estudian la protección jurídica de la salud laboral frente a la digitalización, la vulnerabilidad y los riesgos climáticos. Su enfoque en la tutela preventiva resulta menos adecuado para lectores que buscan consejos generales de bienestar o una narración sobre el trabajo.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La salud laboral ante los riesgos emergentes: Digitalización, vulnerabilidad, clima y tutela preventiva (Monografía) se publica en tapa blanda, con 300 páginas en castellano. Es un volumen físico que permite marcar apartados y consultar cuestiones jurídicas durante el estudio o el trabajo, sin necesidad de pantalla.",
+      "texto": "La tapa blanda ofrece las 300 páginas de esta monografía sobre riesgos laborales emergentes en un volumen físico. Permite subrayar y consultar el texto en papel, una opción para quienes estudian cuestiones de digitalización, vulnerabilidad, clima y prevención desde el ámbito jurídico.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "titulo",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La salud laboral ante los riesgos emergentes: Digitalización, vulnerabilidad, clima y tutela preventiva (Monografía) y Blockchain: un desafío legal (Monografía) comparten el enfoque jurídico ante cuestiones actuales, aunque uno aborda los riesgos laborales y el otro la tecnología blockchain. Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) trata la gestión de conflictos en el ámbito educativo, frente a la tutela preventiva laboral del libro de Maria Olaya Martin Rodriguez.",
+      "texto": "Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) comparte el interés por el derecho, pero se ocupa de la materia administrativa sancionadora. La obra de Maria Olaya Martin Rodriguez concentra su atención en la salud laboral y la prevención de riesgos emergentes, frente al enfoque sancionador del anuario.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788429030372",
-        "isbn-9791370610265"
+        "isbn-9791370610562"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e7463882605e9be6",
+  "fuente_hash": "5ae35cc556cb58bc",
   "origen": "chatgpt-web"
 }

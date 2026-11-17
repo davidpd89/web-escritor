@@ -4,31 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "DONDE AÚN NADIE MIRABA: Origen e historia de la​ Fundación Emet Arco Iris (Memorias y biografías) se dirige a quienes buscan conocer la trayectoria de una entidad desde sus orígenes. Su clasificación como memorias y biografías lo sitúa en la no ficción, lejos de las historias protagonizadas por personajes inventados.",
+      "texto": "DONDE AÚN NADIE MIRABA: Origen e historia de la​ Fundación Emet Arco Iris (Memorias y biografías) está dirigido a lectores interesados en la historia de una institución y en los relatos de carácter documental. Su clasificación como biografía y memoria lo diferencia de una novela de ficción o de una guía de consejos prácticos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de DONDE AÚN NADIE MIRABA: Origen e historia de la​ Fundación Emet Arco Iris (Memorias y biografías) tiene 298 páginas y está publicada por Almuzara. El soporte impreso permite consultar diferentes momentos de la trayectoria de la fundación y volver a ellos sin depender de un dispositivo electrónico.",
+      "texto": "DONDE AÚN NADIE MIRABA: Origen e historia de la​ Fundación Emet Arco Iris (Memorias y biografías) tiene 298 páginas y está disponible en tapa blanda y Kindle. El papel facilita la consulta física de sus capítulos; Kindle permite llevar el texto completo en un dispositivo sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Al andar: Vivencias del Camino de Santiago comparte con DONDE AÚN NADIE MIRABA: Origen e historia de la​ Fundación Emet Arco Iris (Memorias y biografías) su vinculación con experiencias y hechos reales. Carlos Díaz Ballesta aborda vivencias relacionadas con el Camino de Santiago, mientras que Alfonso Fernández Zamorano reconstruye el origen y la historia de la Fundación Emet Arco Iris.",
+      "texto": "DONDE AÚN NADIE MIRABA: Origen e historia de la​ Fundación Emet Arco Iris (Memorias y biografías), de Alfonso Fernández Zamorano, puede compararse con Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta. Ambos títulos remiten a experiencias e historias reales, pero el primero se centra en el origen y trayectoria de una fundación, mientras que el segundo anuncia vivencias vinculadas a un recorrido.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791388099496"
@@ -37,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2ab08daf0fc3ce06",
+  "fuente_hash": "725372d2a0fda4a1",
   "origen": "chatgpt-web"
 }

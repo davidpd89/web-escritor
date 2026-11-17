@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370631642",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Despierta!: Viaja hacia tu propio AMANECER. Descubriendo el PODER que hay en TI: 01 (Desarrollo Personal) se dirige a lectores interesados en el desarrollo personal, el bienestar y la reflexión sobre las propias capacidades. La obra de Rebeca Pérez se sitúa en la autoayuda, por lo que no responde a quien busque una novela o una guía centrada en una disciplina profesional concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Despierta!: Viaja hacia tu propio AMANECER. Descubriendo el PODER que hay en TI: 01 (Desarrollo Personal) está disponible en tapa blanda y tiene 162 páginas. Su extensión permite llevar el ejemplar en papel y volver a los pasajes de desarrollo personal que el lector quiera revisar, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Despierta!: Viaja hacia tu propio AMANECER. Descubriendo el PODER que hay en TI: 01 (Desarrollo Personal) comparte el interés por el cambio personal con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. El primero plantea el poder personal como eje, mientras que el segundo anuncia un enfoque científico sobre distintos aspectos de la vida; Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta, de Anca Martínez, delimita su asunto a la vida adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776",
+        "isbn-9788409938490"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cd2073c259d70805",
+  "origen": "chatgpt-web"
+}

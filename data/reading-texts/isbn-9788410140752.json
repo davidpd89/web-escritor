@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788410140752",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche se dirige a lectores de novela histórica y narrativa contemporánea interesados en historias de amor y superación durante épocas difíciles. Sus 1144 páginas lo orientan hacia una lectura extensa, menos ajustada a quienes buscan un libro breve o una única novela de menor extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El conjunto aborda el amor y la superación personal en circunstancias difíciles mediante dos historias reunidas en un estuche. Zapatos de lluvia y Vientos de ira, de Mayte Magdalena, se sitúan editorialmente entre la novela histórica, la narrativa contemporánea y la historia, con una extensión conjunta de 1144 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche se presenta en tapa dura y reúne dos historias de Mayte Magdalena con una extensión total de 1144 páginas. Es una opción física para conservar ambos títulos juntos, organizar su lectura por separado o entregar el conjunto como regalo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El pintor de almas (edición limitada · Black Friday) (Campaña | Black Friday), de Ildefonso Falcones, comparte el ámbito de la narrativa histórica, pero se presenta como una obra individual frente al estuche de dos historias de Mayte Magdalena. La península de las casas vacías: 529 (Nuevos Tiempos), de David Uclés, ofrece otra referencia de narrativa histórica con distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393102",
+        "isbn-9788419942319"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8f96656794bcfb15",
+  "origen": "chatgpt-web"
+}

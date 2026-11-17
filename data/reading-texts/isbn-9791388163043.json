@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hacia otro lugar (SUMA) encaja con lectores de narrativa contemporánea que buscan asuntos familiares vinculados a la novela histórica. La obra de Mónica Rocha combina esas líneas temáticas en una extensión de 448 páginas. Se aparta de la lectura de ensayo y del cómic humorístico.",
+      "texto": "Hacia otro lugar (SUMA) encaja con lectores de narrativa contemporánea que también buscan una novela histórica. Su clasificación la aleja de quienes prefieren ensayos, manuales prácticos o relatos centrados exclusivamente en mundos fantásticos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hacia otro lugar (SUMA) se publica en tapa blanda y cuenta con 448 páginas en castellano. La edición de Suma de Letras ofrece una novela extensa en un volumen físico de cubierta flexible, que puede guardarse en la biblioteca o llevarse durante los desplazamientos.",
+      "texto": "Hacia otro lugar (SUMA) se publica en tapa blanda y tiene 448 páginas en castellano. Es una edición física de extensión considerable, adecuada para quien prefiera leer una novela larga en papel y transportarla sin el peso habitual de una encuadernación rígida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Hacia otro lugar (SUMA), de Mónica Rocha, puede compararse con Amargo, amargo (Literaturas), de Joanna Bator, por su presencia en una selección de lecturas afines. La primera se sitúa entre la narrativa contemporánea y la novela histórica, con la familia entre sus temas. Se trata de obras de autoras diferentes, con títulos y enfoques editoriales propios.",
+      "texto": "Hacia otro lugar (SUMA) puede compararse con Amargo, amargo (Literaturas), de Joanna Bator, dentro de una selección de lecturas narrativas. Hacia otro lugar (SUMA), de Mónica Rocha, se clasifica como novela histórica y narrativa contemporánea, mientras que Amargo, amargo (Literaturas) presenta una referencia literaria más general en su título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f44f06b7aee15800",
+  "fuente_hash": "05367fb08758ccb8",
   "origen": "chatgpt-web"
 }

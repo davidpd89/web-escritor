@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Interfé: La búsqueda de identidad espiritual en tiempos posmodernos se dirige a lectores interesados en la identidad religiosa y espiritual en el contexto contemporáneo. Su temática se aparta de quienes buscan una narración de aventuras o un tratamiento exclusivamente histórico de una tradición religiosa.",
+      "texto": "Interfé: La búsqueda de identidad espiritual en tiempos posmodernos se dirige a quienes desean leer sobre identidad y espiritualidad en el contexto contemporáneo. Su orientación temática se distancia de la ficción de aventuras y de las lecturas centradas exclusivamente en una trama narrativa.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,19 +12,21 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Interfé: La búsqueda de identidad espiritual en tiempos posmodernos dispone de una edición en tapa blanda de 224 páginas. El formato físico facilita retomar apartados sobre identidad espiritual y conservar el volumen para consultas posteriores, sin necesidad de pantalla.",
+      "texto": "Interfé: La búsqueda de identidad espiritual en tiempos posmodernos cuenta con una edición en tapa blanda de 224 páginas, publicada por Editorial Espacio Ronda. El papel permite leer y revisar sus planteamientos sobre identidad espiritual sin recurrir a una pantalla.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
-        "numero_paginas"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Interfé: La búsqueda de identidad espiritual en tiempos posmodernos puede ponerse junto a Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación por su interés en la espiritualidad. Elías González Gómez plantea la búsqueda de identidad en tiempos posmodernos, mientras que Tsondru Yeshe se centra en los fundamentos y la práctica del Dharma.",
+      "texto": "Interfé: La búsqueda de identidad espiritual en tiempos posmodernos y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparten el interés por la espiritualidad. Elías González Gómez plantea la identidad espiritual en la posmodernidad, mientras que Tsondru Yeshe se centra, según el título de su obra, en los fundamentos y la práctica del Dharma.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -34,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6db81b38e1fc4456",
+  "fuente_hash": "11ebb2e453ab507e",
   "origen": "chatgpt-web"
 }

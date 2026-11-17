@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788423369515",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los privilegios del ángel (Novela), de Dolores Redondo, se dirige a lectores de narrativa vinculada con la historia. Su clasificación también comprende el cómic y la novela gráfica, por lo que quien busque exclusivamente una obra práctica de divulgación encontrará aquí otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los privilegios del ángel (Novela) está disponible en tapa blanda, en una edición de bolsillo de Booket. Sus 304 páginas reúnen el texto en un volumen físico que puede transportarse y guardarse sin el espacio que suele requerir una edición de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esperando al diluvio (Crimen y misterio) comparte con Los privilegios del ángel (Novela) la autoría de Dolores Redondo. El primero se presenta expresamente como crimen y misterio, mientras que el segundo figura vinculado a historia y cómic y novela gráfica. La comparación permite distinguir sus clasificaciones editoriales sin atribuirles una trama común.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423369492"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "15d19bdf2ae270f7",
+  "origen": "chatgpt-web"
+}

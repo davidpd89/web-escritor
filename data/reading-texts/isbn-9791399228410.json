@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399228410",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Monte Grande: 37 (Poesía Ultramarina) se dirige a quienes buscan poesía en castellano y prefieren volúmenes breves. La obra de Natalí Aranda tiene 68 páginas y pertenece a la colección indicada en su título. Por su género, no responde a la búsqueda de una novela de intriga o aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Monte Grande: 37 (Poesía Ultramarina) se presenta en tapa blanda, con 68 páginas. Su extensión permite llevar el volumen en el bolso o consultar distintos pasajes sin depender de una pantalla. La edición en castellano está publicada por Editorial Ultramarina C&d.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "223 esquinas: 16 (La garza roja) y Monte Grande: 37 (Poesía Ultramarina) comparten el género poético y la identificación de una colección mediante el título. La primera obra corresponde a Antonio Fernández Lera y la segunda a Natalí Aranda. También puede compararse con Advenir, de Jose Eceolaza, como otra opción de autoría diferente dentro de la poesía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c45672b1a825cb5d",
+  "origen": "chatgpt-web"
+}

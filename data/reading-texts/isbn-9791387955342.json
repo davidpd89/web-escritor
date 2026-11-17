@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Moneyfútbol: big data y analítica de datos en el fútbol: Cómo los clubes de fútbol optimizan el rendimiento deportivo y minimizan los costes ... evaluación objetiva, científica y estadística se dirige a lectores interesados en la gestión deportiva y el análisis cuantitativo. El libro de Jorge Quintana Ortí se aleja de las biografías de futbolistas y de los manuales dedicados a enseñar jugadas sobre el terreno de juego.",
+      "texto": "Está orientado a quienes quieren comprender cómo se aplican los datos a la gestión de clubes de fútbol. Moneyfútbol: big data y analítica de datos en el fútbol, de Jorge Quintana Ortí, relaciona el rendimiento deportivo con la optimización de costes y la evaluación estadística. Su enfoque empresarial y analítico se aparta de las crónicas de partidos y las biografías de futbolistas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Moneyfútbol: big data y analítica de datos en el fútbol: Cómo los clubes de fútbol optimizan el rendimiento deportivo y minimizan los costes ... evaluación objetiva, científica y estadística se presenta en tapa blanda, con 204 páginas. El formato físico permite consultar apartados durante el estudio de la gestión deportiva y guardar el volumen junto a otros libros sobre economía y fútbol.",
+      "texto": "Moneyfútbol: big data y analítica de datos en el fútbol se publica en tapa blanda, con 204 páginas en castellano. El formato físico permite consultar de nuevo los apartados relacionados con el análisis de datos y la gestión deportiva, además de llevar el libro entre distintos lugares de lectura. La edición corresponde a Libros de Ruta.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La ciencia del fútbol para niños: El libro de los porqués del fútbol: 145 curiosidades, preguntas y retos para niños y niñas futboleros de 8 a 12 años (La ciencia del deporte para niños) comparte con Moneyfútbol el interés por comprender el fútbol mediante explicaciones. Angel Manuel Montero Anaya se dirige a niños de 8 a 12 años mediante preguntas y retos, mientras que Jorge Quintana Ortí aborda los datos, el rendimiento y los costes de los clubes.",
+      "texto": "Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, comparte con Moneyfútbol: big data y analítica de datos en el fútbol el interés por la gestión y la toma de decisiones. La diferencia es el ámbito: Jorge Quintana Ortí se centra en clubes deportivos, datos y costes, mientras que Miguel Reinoso aborda el liderazgo desde una perspectiva más general. El primero incorpora expresamente el fútbol como objeto de análisis.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409925155"
+        "isbn-9788409921980"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "29d992b96f8dbad0",
+  "fuente_hash": "1f2313c160bf8952",
   "origen": "chatgpt-web"
 }

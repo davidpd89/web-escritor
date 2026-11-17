@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399056921",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Me da que les encantas: (I Think They Love You) (KAKAO+) se dirige a lectores interesados en el romance y en las relaciones afectivas. La clasificación editorial también lo sitúa en el ensayo, por lo que su perfil temático se distingue del de las obras dedicadas exclusivamente a la aventura o al misterio.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Me da que les encantas: (I Think They Love You) (KAKAO+) tiene una edición en tapa blanda de 372 páginas, publicada en castellano. El volumen de Kakao Books - Libros Por la Diversidad permite una lectura continuada en papel y ofrece una extensión considerable dentro de las obras de temática romántica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Me da que les encantas: (I Think They Love You) (KAKAO+) puede compararse con A cinco segundos de ti, de Sandra Miró, y A medio salto (Romántica), de Valera Gomalva, por su vinculación con las relaciones sentimentales. La obra de Julian Winters figura clasificada tanto en romance como en ensayo, mientras que A medio salto (Romántica) se identifica expresamente con la narrativa romántica. Las tres obras tienen distinta autoría y presentan títulos que sugieren enfoques diferentes de las relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055735",
+        "isbn-9791388365089"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "55fe1a8b14460d78",
+  "origen": "chatgpt-web"
+}

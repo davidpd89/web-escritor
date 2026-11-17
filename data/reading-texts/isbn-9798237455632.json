@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9798237455632",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Como Si El Amor No Fuera Ciego, de Edgar Sehuincho Mamani, se sitúa entre la novela histórica y las aventuras. Su extensión de 46 páginas lo distingue de las novelas largas, por lo que responde a una búsqueda de narrativa breve antes que a la de una obra extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Como Si El Amor No Fuera Ciego se presenta en tapa blanda y reúne 46 páginas en castellano. Es una edición física de extensión reducida, que puede transportarse y leerse sin dispositivo, además de guardarse junto a otras obras del autor.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Caída De Los Fantasmas y Sensaciones Antes De Asesinar comparten autor con Como Si El Amor No Fuera Ciego: los tres títulos están firmados por Edgar Sehuincho Mamani. Este último se clasifica como novela histórica y aventuras, una orientación temática que permite distinguirlo dentro de la obra del mismo escritor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798235701908",
+        "isbn-9798237863215"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9b5019c0202c7753",
+  "origen": "chatgpt-web"
+}

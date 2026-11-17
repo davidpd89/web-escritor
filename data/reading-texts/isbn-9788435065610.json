@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788435065610",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El anillo y la máscara (Narrativas históricas), de José Luis González García, se orienta a lectores de novela histórica interesados en relatos vinculados al pasado. Su clasificación combina historia y ficción narrativa, por lo que se diferencia de los manuales históricos centrados exclusivamente en la exposición documental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El anillo y la máscara (Narrativas históricas) tiene una edición encuadernada en tapa dura, con 264 páginas. La cubierta rígida protege el ejemplar durante su conservación y permite incorporarlo a una colección física de narrativa histórica. El texto está en castellano y la publicación corresponde a Editora y Distribuidora Hispano Americana, S.a.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El anillo y la máscara (Narrativas históricas) puede compararse con Ave César (Narrativas Históricas) y Bajo las cenizas de Pompeya (ESPASA NARRATIVA) por su pertenencia a la narrativa histórica. José Luis González García, Rex Warner y María Reig ofrecen autorías distintas dentro de ese ámbito. Los títulos de las otras obras remiten respectivamente a César y Pompeya, mientras que El anillo y la máscara presenta otros motivos en su denominación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788435064125",
+        "isbn-9788467084870"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cc56220162f14c13",
+  "origen": "chatgpt-web"
+}

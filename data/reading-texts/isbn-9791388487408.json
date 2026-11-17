@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388487408",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Leviathan. aguas profundas. vol.05 se dirige a lectores de cómic y novela gráfica que buscan continuar una colección identificada por volúmenes. El título lo identifica como el n.º 05 y reúne 300 páginas; encaja menos con quienes buscan exclusivamente narrativa en prosa o una lectura independiente de una serie.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Leviathan. aguas profundas. vol.05 se publica en tapa blanda de tipo bunko, con 300 páginas en castellano. Esta edición de Ivrea permite conservar el volumen en papel y consultar sus páginas directamente, con una encuadernación flexible en lugar de cubiertas rígidas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b3806753e5cecaee",
+  "origen": "chatgpt-web"
+}

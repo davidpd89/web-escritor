@@ -4,37 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO) se dirige a quienes buscan una aproximación a las runas desde su historia y su utilización práctica. Su temática esotérica lo diferencia de los manuales generales de bienestar y de las novelas de fantasía, por lo que encaja menos con lectores que buscan ficción narrativa.",
+      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO) se dirige a lectores interesados en las runas y en su tratamiento dentro de la magia y el ocultismo. Su enfoque anunciado combina historia, creación y uso, por lo que no responde a quien busca exclusivamente una novela de ficción fantástica.",
       "evidencias": [
-        "titulo",
-        "categorias"
+        "titulo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO) está disponible en tapa blanda y contiene 248 páginas. El volumen en papel permite consultar los apartados dedicados a la historia, la creación y el uso de las runas durante una lectura de estudio o una actividad práctica.",
+      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO) está disponible en tapa blanda, con 248 páginas en castellano. La edición física de Ediciones Obelisco S.l. permite consultar en papel los apartados relacionados con la historia, la creación y el uso de las runas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO) puede compararse con Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida por su proximidad al ámbito del desarrollo personal. Josephine Winter y Jason Tremain abordan las runas desde su historia y práctica, mientras que Kelly Ann Street se centra en las heridas personales y el equilibrio emocional.",
+      "texto": "44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life se aproxima a Las runas de las brujas: Historia, creación y uso (MAGIA Y OCULTISMO) por su temática espiritual o esotérica. Tania Karam aborda los mensajes espirituales cotidianos, mientras que Josephine Winter y Jason Tremain se ocupan de la historia, la creación y el uso de las runas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410451988"
+        "isbn-9786073881388"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6cb71a6fc751b119",
+  "fuente_hash": "d27cb450558e39b7",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370093983",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ciudad del bienestar: Cuidados y territorios (Sendas), de Carlos Moreno, se dirige a lectores de ensayo interesados en los cuidados, el territorio y su relación con la ciudad. Su clasificación en ensayo y arte y diseño lo sitúa fuera de la narrativa de ficción y de las guías turísticas centradas en itinerarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ciudad del bienestar: Cuidados y territorios (Sendas) está disponible en tapa blanda, con 176 páginas en castellano, en una edición de Alianza Editorial. Es un volumen de extensión contenida para leer en papel, llevar en una bolsa y consultar posteriormente por sus temas de ciudad y territorio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ciudad del bienestar: Cuidados y territorios (Sendas) puede contrastarse con Cartas de Ciudad Reloj, de Roberto Barragán Pineda, por la presencia de la ciudad en ambos títulos, aunque la obra de Carlos Moreno aborda expresamente los cuidados y el territorio desde el ensayo. Bella ciao: Historia de un himno popular: 32 (Tascabili), de Marcello Flores, también trata un asunto cultural, pero se centra en la historia de un himno y no en el espacio urbano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410435292",
+        "isbn-9791399134414"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0a195e920675f03a",
+  "origen": "chatgpt-web"
+}

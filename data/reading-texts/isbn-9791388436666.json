@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388436666",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Álvaro se siente diferente (MEVES), de Adrián Gras-Velázquez, aborda desde su título la experiencia de sentirse diferente y figura dentro del ensayo. Sus 40 páginas lo sitúan entre las lecturas breves, por lo que encaja menos con quienes buscan un ensayo extenso o un estudio desarrollado en varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Álvaro se siente diferente (MEVES) está editado en tapa dura, con 40 páginas en castellano. La extensión facilita una lectura breve y la encuadernación rígida permite mantener el ejemplar como libro físico para futuras consultas o lecturas compartidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6bdaa62410a65951",
+  "origen": "chatgpt-web"
+}

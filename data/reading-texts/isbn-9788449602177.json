@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788449602177",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Senos de mujeres y diosas: Una iconografía: los enos en la Historia del Arte se dirige a lectores interesados en la representación del cuerpo femenino dentro de la historia del arte. Por su enfoque iconográfico y sus 204 páginas, se orienta más a la consulta y al estudio artístico que a quienes buscan una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Senos de mujeres y diosas: Una iconografía: los enos en la Historia del Arte se publica en tapa blanda y tiene 204 páginas. La edición en castellano de Tanais.architecta permite conservar el volumen en una biblioteca de arte y volver a sus contenidos durante la consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Senos de mujeres y diosas: Una iconografía: los enos en la Historia del Arte puede compararse con 720 retrats, de Xavier Mollà i Revert, por su relación con la representación de figuras humanas. El primero delimita su asunto a los senos femeninos en la historia del arte, mientras que el segundo se presenta como una colección de retratos. La diferencia principal está en el objeto de estudio anunciado por cada título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d1640f5aaeb44885",
+  "origen": "chatgpt-web"
+}

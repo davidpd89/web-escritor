@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788410907539",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A solas, de María Jesús Martínez Ramos, se dirige a quienes buscan poesía contemporánea en castellano. Sus 262 páginas ofrecen una extensión concreta para valorar la lectura; no corresponde a quien prefiera exclusivamente narrativa de terror o guías prácticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A solas cuenta con una edición en tapa blanda de 262 páginas, publicada por Editorial Letra Minúscula. Este formato permite leer los poemas en papel y volver a pasajes concretos mediante el manejo directo de las páginas, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A solas puede ponerse junto a Advenir, de Jose Eceolaza, y 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, como referencias del mismo ámbito poético. La distinción más clara para el lector está en la autoría y la extensión conocida de A solas, que reúne 262 páginas firmadas por María Jesús Martínez Ramos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "653fce16fd31a74b",
+  "origen": "chatgpt-web"
+}

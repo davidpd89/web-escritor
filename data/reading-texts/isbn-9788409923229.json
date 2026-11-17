@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409923229",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Testigo silencioso, de Alejandro Cuervo González, se sitúa en el ámbito del desarrollo personal y el bienestar. Sus 590 páginas lo orientan hacia lectores dispuestos a dedicar tiempo a un volumen extenso de estas materias, más que a quienes buscan una guía breve o una novela juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Testigo silencioso puede leerse en tapa blanda o Kindle, dos opciones para sus 590 páginas. La tapa blanda ofrece un ejemplar físico para conservar y consultar; Kindle permite llevar el mismo título en un lector electrónico o en el móvil sin transportar un volumen de esa extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Testigo silencioso comparte el ámbito del desarrollo personal con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta, de Anca Martínez. También se aproxima a 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, por su relación con el bienestar; estos títulos explicitan sus asuntos en el nombre, mientras que Testigo silencioso utiliza un título más abierto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776",
+        "isbn-9788409938490"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d755568efc97a6e4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388236044",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nosotras (Narrativa), de Vicente Luis Mora, reúne referencias a narrativa contemporánea, misterio y ensayo. Sus 216 páginas encajan con lectores que buscan esas líneas literarias, pero menos con quienes prefieren exclusivamente fantasía épica o aventuras juveniles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nosotras (Narrativa) permite elegir entre tapa blanda y Kindle. La edición impresa de Galaxia Gutenberg tiene 216 páginas y sirve para leer en papel; Kindle permite llevar el libro en un dispositivo compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nosotras (Narrativa) puede compararse con Lynchianas, obra colectiva en la que también participa Vicente Luis Mora; la diferencia está en la autoría individual frente a la compartida. Otra referencia es La chica del puente, de Marc Sans, aunque Nosotras (Narrativa) combina en su clasificación narrativa contemporánea, misterio y ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399146950",
+        "isbn-9791399297546"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6db9608c7bca0b10",
+  "origen": "chatgpt-web"
+}

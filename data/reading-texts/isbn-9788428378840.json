@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788428378840",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientación profesional en los Grados A/B/C 1707 (Servicios Socioculturales y a la Comunidad) se dirige a lectores interesados en la orientación profesional dentro del ámbito indicado en su título. La obra de Amaranta Lara Iglesias y Pablo Matamala Jordan tiene 228 páginas y responde a un interés formativo, por lo que encaja menos con quienes buscan narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Orientación profesional en los Grados A/B/C 1707 (Servicios Socioculturales y a la Comunidad) está disponible en tapa blanda. Sus 228 páginas permiten consultar el volumen físico durante el estudio y volver a distintos apartados en papel; la edición corresponde a Ediciones Paraninfo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f1176521280c197",
+  "origen": "chatgpt-web"
+}

@@ -4,43 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores interesados en las relaciones entre paisaje, conocimiento e identidad desde el ámbito de la historia. Paisaje, conocimiento e identidad. Visiones emergentes entrelazadas: 25 (Vestigios de un mismo mundo), de J. Roca I Albert, se orienta hacia cuestiones conceptuales e históricas, no hacia una trama de ficción.",
+      "texto": "Está orientado a lectores de historia interesados en las relaciones entre paisaje, conocimiento e identidad. Su planteamiento temático y su publicación universitaria lo alejan de las lecturas centradas en acontecimientos históricos concretos, biografías individuales o narraciones de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El eje del libro es la relación entre el paisaje, las formas de conocimiento y la construcción de la identidad. J. Roca I Albert presenta estas cuestiones como visiones entrelazadas y emergentes, dentro de una obra de historia perteneciente a la colección Vestigios de un mismo mundo.",
+      "texto": "El libro examina el paisaje, el conocimiento y la identidad como cuestiones relacionadas entre sí. La expresión «visiones emergentes entrelazadas» plantea una aproximación que conecta estos ámbitos, dentro de una obra clasificada en historia y publicada por Editum. Ediciones de la Universidad de Murcia.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 191 páginas y permite consultar en papel las relaciones entre paisaje, conocimiento e identidad. Editum. Ediciones de la Universidad de Murcia publica este volumen, cuyo formato facilita subrayar conceptos y recuperar pasajes durante una lectura de estudio.",
+      "texto": "La tapa blanda es la opción disponible para esta obra histórica de 191 páginas. Su extensión permite consultar los contenidos en papel, señalar pasajes y recuperar fragmentos durante el estudio. La edición pertenece al catálogo de Editum, sello de la Universidad de Murcia.",
       "evidencias": [
-        "numero_paginas",
         "formatos_disponibles",
-        "editorial",
-        "titulo"
+        "numero_paginas",
+        "categorias",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor, también propone relacionar conceptos, aunque su título vincula el amor con el arte. Paisaje, conocimiento e identidad. Visiones emergentes entrelazadas: 25 (Vestigios de un mismo mundo), de J. Roca I Albert, desplaza esa mirada hacia el paisaje, el conocimiento y la identidad desde el ámbito histórico.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte el ámbito histórico, pero se concentra en un proceso político delimitado. Paisaje, conocimiento e identidad. Visiones emergentes entrelazadas: 25 (Vestigios de un mismo mundo) aborda, en cambio, la relación entre territorio, conocimiento e identidad desde un planteamiento temático.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788467084122"
+        "isbn-9788411005517"
       ]
     }
   ],

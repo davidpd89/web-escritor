@@ -4,50 +4,47 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a lectores de historia interesados en los debates sobre la superioridad inglesa y las interpretaciones de la Gran Armada. Sus 516 páginas y su planteamiento de réplica lo alejan de quienes buscan una introducción breve o una narración histórica sin discusión de otras obras.",
+      "texto": "EL MITO DE LA SUPERIORIDAD INGLESA: Una réplica la Gran Armada de Colin Martin y Geoffrey Parker: 5 (Salamina Series) está orientado a lectores de historia interesados en debates sobre interpretaciones de acontecimientos militares. No responde al planteamiento de una novela histórica, pues se presenta como una réplica a una obra de otros autores.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Cuestiona la idea de superioridad inglesa mediante una réplica a la obra sobre la Gran Armada de Colin Martin y Geoffrey Parker. Antonio Luis Gómez Beltrán adopta un enfoque de discusión histórica, desarrollado en 516 páginas y vinculado a Salamina Series.",
+      "texto": "Antonio Luis Gómez Beltrán examina la idea de la superioridad inglesa mediante una réplica relacionada con la Gran Armada y el trabajo de Colin Martin y Geoffrey Parker. El enfoque es de discusión historiográfica: el propio título plantea una interpretación histórica que se pretende cuestionar.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda y contiene 516 páginas en castellano. Se trata de un volumen físico extenso que permite consultar y releer los argumentos de esta réplica histórica, publicado por Ediciones Salamina.",
+      "texto": "Ediciones Salamina ofrece esta obra en tapa blanda, con 516 páginas en castellano. Su extensión permite una lectura prolongada y la consulta de distintos pasajes del debate histórico en un único volumen físico.",
       "evidencias": [
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "titulo",
-        "editorial"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "76, de Felipe Pigna, comparte su vinculación con la historia, aunque su título no plantea una réplica a una interpretación de la Gran Armada. Agustín penón y Federico García Lorca aborda una investigación sobre la vida y la muerte de Federico García Lorca; aquí el centro es una controversia historiográfica sobre la superioridad inglesa.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) también estudia un asunto histórico de carácter político, aunque se ocupa de la caída de una democracia y no de la Gran Armada. Ambos títulos permiten acercarse a interpretaciones del pasado, con protagonistas, periodos y preguntas históricas diferentes.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329695",
-        "isbn-9788418567933"
+        "isbn-9788411005517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bbbebf9f6629169c",
+  "fuente_hash": "9fcc9afa7b8b70f8",
   "origen": "chatgpt-web"
 }

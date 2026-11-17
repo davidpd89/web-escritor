@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786630572872",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Libro de Preguntas del Examen Mir: Recopilación Oficial de Preguntas por Bloques de ContenidoConvocatorias 2020 - 2025 está dirigido a quienes buscan preguntas de convocatorias del examen MIR organizadas por materias. Su carácter de recopilación lo diferencia de un manual de medicina desarrollado mediante explicaciones teóricas continuas.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra reúne preguntas del examen MIR correspondientes a las convocatorias 2020 - 2025, con una organización por bloques de contenido. Su planteamiento se centra en el material de examen y permite trabajar las preguntas por áreas, en lugar de seguir una exposición narrativa de conocimientos médicos.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Libro de Preguntas del Examen Mir: Recopilación Oficial de Preguntas por Bloques de ContenidoConvocatorias 2020 - 2025 está disponible en tapa blanda. La edición de 56 páginas en castellano permite consultar las preguntas en papel y utilizar el volumen durante sesiones de repaso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Libro de Preguntas del Examen Mir: Recopilación Oficial de Preguntas por Bloques de ContenidoConvocatorias 2020 - 2025 puede contrastarse con (ENAC0019) Herramientas de análisis coste/beneficio aplicadas a la eficiencia energética por su orientación hacia contenidos específicos. El primero recopila preguntas de un examen médico; el segundo trata herramientas de análisis económico aplicadas a la energía.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388334627"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90529d06906e8595",
+  "origen": "chatgpt-web"
+}

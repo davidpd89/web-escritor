@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9787000001589",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Revista mongolia 158 octubre 2026 se dirige a quienes buscan una publicación periódica en castellano, identificada por número y mes. Con 49 páginas, se diferencia de los libros extensos y no responde a quien busque específicamente una novela o una guía de viaje centrada en un destino.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Revista mongolia 158 octubre 2026 se ofrece en tapa blanda, con 49 páginas editadas por Editorial Mong. Su extensión permite manejarla como una publicación breve en papel, y la identificación del número y el mes facilita conservarla ordenada junto a otras entregas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Revista mongolia 158 octubre 2026 puede compararse con Revista de occidente 546: Encuentros de Mexico y España, también atribuida a Varios autores. Ambas identifican un número de revista, pero la segunda anuncia un asunto geográfico y cultural en su título, mientras que la primera destaca su entrega de octubre de 2026.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409930371"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05c37a0b2bed2836",
+  "origen": "chatgpt-web"
+}

@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "poemas de amor (Los Tres Mundos) se dirige a lectores interesados en poesía sobre el amor y las relaciones de pareja. Por su género y temática, se aparta de quienes buscan una novela de trama continuada o un ensayo centrado en el análisis de un asunto.",
+      "texto": "poemas de amor (Los Tres Mundos), de rupi kaur, se dirige a quienes buscan poesía centrada en el amor. Sus 144 páginas corresponden a una obra poética, por lo que no responde a la búsqueda de una novela extensa con una trama narrativa continuada.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "poemas de amor (Los Tres Mundos) está disponible en tapa dura, con 144 páginas en castellano publicadas por Seix Barral. El formato físico permite conservar el volumen en una biblioteca personal, consultarlo por páginas y entregarlo como regalo sin depender de un dispositivo electrónico.",
+      "texto": "La edición de poemas de amor (Los Tres Mundos) se presenta en tapa dura, con 144 páginas en castellano. Este formato permite conservar el volumen en una biblioteca y consultar poemas concretos sin seguir necesariamente una lectura continua.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por la presencia del amor y la poesía en ambos títulos. poemas de amor (Los Tres Mundos) es una obra de rupi kaur, mientras que la otra reúne una antología amorosa atribuida a Pedro Salinas.",
+      "texto": "poemas de amor (Los Tres Mundos) puede compararse con El hacha de raskolnikov: 54 (Poesía - los libros del mississippi), de Teresa Sánchez Ruiz, por su vinculación con la poesía. La diferencia identificable está en el enfoque amoroso del primero, mientras que el título del segundo no delimita ese mismo tema.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9791399132656"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "660f90c7da29bdf5",
+  "fuente_hash": "1ccbda2fbe1ae4c6",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788412804751",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las lágrimas del bodhisattva: Enseñanzas budistas sobre el consumo de carne animal. se dirige a lectores interesados en el pensamiento budista y sus planteamientos sobre la alimentación de origen animal. Su enfoque filosófico y espiritual lo diferencia de una guía de nutrición centrada en dietas, recetas o planificación de comidas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las lágrimas del bodhisattva: Enseñanzas budistas sobre el consumo de carne animal. se presenta en tapa blanda, con 124 páginas en castellano. Su extensión permite abordar el tema en pocas sesiones y conservar el ejemplar para revisar las enseñanzas sobre el consumo de carne animal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las lágrimas del bodhisattva: Enseñanzas budistas sobre el consumo de carne animal. comparte el ámbito de la reflexión espiritual con Aforismos para reflexionar y meditar: 109 (Fragmentos), aunque este último se presenta como una colección de aforismos. Frente a Astrología, filosofía y magia: Un camino de práctica espiritual, el libro de Shabkar Tsogdruk Rangdrol delimita su asunto a las enseñanzas budistas relacionadas con el consumo de carne animal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278",
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e3401c770a17e445",
+  "origen": "chatgpt-web"
+}

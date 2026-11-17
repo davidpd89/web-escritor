@@ -4,39 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Régimen de responsabilidad objetiva del Estado en atentados terroristas en Colombia: 01 (Derecho) se dirige a lectores interesados en el derecho público, la responsabilidad estatal y las consecuencias jurídicas del terrorismo. Sus 534 páginas y su enfoque jurídico lo alejan de quienes buscan una introducción breve a la política o una narración sobre atentados.",
+      "texto": "Dirigido a lectores interesados en el derecho público y la responsabilidad del Estado ante atentados terroristas en Colombia. Su enfoque jurídico y político se aleja de la narrativa de ficción y de los libros centrados en experiencias personales.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Régimen de responsabilidad objetiva del Estado en atentados terroristas en Colombia: 01 (Derecho) se edita en tapa blanda y contiene 534 páginas en castellano. La edición impresa permite trabajar con un texto jurídico extenso, consultar distintos pasajes y conservar referencias dentro del mismo volumen.",
+      "texto": "La edición de Régimen de responsabilidad objetiva del Estado en atentados terroristas en Colombia: 01 (Derecho) se presenta en tapa blanda y reúne 534 páginas. El soporte impreso permite consultar apartados y volver sobre cuestiones jurídicas durante el estudio.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La formación de España: Una historia de pueblos, costumbres y leyes, de José María Pérez Zúñiga, comparte el interés por las leyes y el Estado, pero adopta una perspectiva histórica. Temario Administrativo C1: Oposiciones Administrativo del Estado (AGE, C1). Volumen 1: Organización del Estado, oficinas públicas y derecho administrativo. Temas, esquemas y 553 tests con soluciones, de José Antonio Moreno Moreno, se orienta a oposiciones, frente al estudio de la responsabilidad estatal por atentados terroristas en Colombia.",
+      "texto": "La implantación de la Mediación en España comparte el ámbito jurídico, pero aborda la mediación en lugar de la responsabilidad estatal por atentados terroristas. Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal también estudia cuestiones legales, aunque desde el derecho penal y un supuesto distinto.",
       "evidencias": [
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629770",
-        "isbn-9788409927166"
+        "isbn-9791388243035",
+        "isbn-9791370475949"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d064f411e3807bae",
+  "fuente_hash": "ffa857462ca3a6e5",
   "origen": "chatgpt-web"
 }

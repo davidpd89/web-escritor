@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798182924788",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fractalidad e incertidumbre está orientado a lectores interesados en cuestiones científicas y filosóficas tratadas desde el ensayo. La obra de Joan Gener y Jesús Devesa encaja menos con quienes buscan una narración de ficción o un manual dedicado exclusivamente a ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fractalidad e incertidumbre se publica en tapa blanda, con 140 páginas en castellano. Su extensión permite abordar en papel los conceptos que anuncia el título y regresar a ellos durante la lectura de este ensayo de orientación filosófica y científica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fractalidad e incertidumbre se aproxima a Ciencia, tecnología y política en la era de la posnormalidad: Una mirada filosófica: 578 (Investigación y Debate), de Eva Álvarez Martino y Marta I. González García, por el cruce entre ciencia y filosofía. Joan Gener y Jesús Devesa ponen el foco en la fractalidad y la incertidumbre; la otra obra incorpora expresamente la tecnología y la política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410677555",
+        "isbn-9780241856574"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df9c80fcb38f86eb",
+  "origen": "chatgpt-web"
+}

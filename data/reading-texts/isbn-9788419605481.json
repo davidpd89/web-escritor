@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cabeza Cabaña y Cabeza Árbol 2. ¡Días felices! (Primeros cómics), de Scott Campbel, encaja con lectores infantiles interesados en el humor y las historias contadas mediante cómic. Su orientación juvenil y gráfica lo distingue de las novelas para adultos y de los libros de ensayo; el título lo identifica como el n.º 2.",
+      "texto": "Es un cómic infantil para lectores que prefieren historias narradas mediante viñetas y personajes gráficos. Su pertenencia a Primeros cómics lo sitúa en el ámbito de las lecturas infantiles; encaja menos con quien busca una novela extensa escrita únicamente en prosa.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cabeza Cabaña y Cabeza Árbol 2. ¡Días felices! (Primeros cómics) se ofrece en tapa dura, con 100 páginas en castellano. La encuadernación rígida favorece su conservación ante consultas frecuentes y permite regalar una edición física de este cómic infantil.",
+      "texto": "La edición de Andana Gráfica tiene 100 páginas en tapa dura, un formato físico que protege el volumen durante su manejo y conservación. Al tratarse de un cómic infantil, permite consultar las páginas ilustradas directamente en papel y resulta adecuado para compartir la lectura.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "idioma",
+        "formatos_disponibles",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cabeza Cabaña y Cabeza Árbol 2. ¡Días felices! (Primeros cómics) comparte el terreno del cómic humorístico con La vida según Joselito: 14 (Policán), de Dav Pilkey. También puede compararse con Superpatata 10 - Viaje a la Edad Media (nueva edición), de Artur Laperla, aunque este último presenta una propuesta de superhéroes y el libro de Scott Campbel se identifica como parte de Primeros cómics.",
+      "texto": "Animal Jack 2 la montaña mágica y Cabeza Cabaña y Cabeza Árbol 2. ¡Días felices! (Primeros cómics) comparten la identificación numérica de sus títulos y su vinculación con personajes de ficción. El primero anuncia una montaña mágica, mientras que el segundo pertenece a la línea Primeros cómics y se presenta como cómic infantil de Scott Campbel.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410557710",
-        "isbn-9788448874926"
+        "isbn-9791387744410"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9bcebfcd050be496",
+  "fuente_hash": "5f364675b29c5862",
   "origen": "chatgpt-web"
 }

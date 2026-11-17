@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410435292",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bella ciao: Historia de un himno popular: 32 (Tascabili) se dirige a lectores interesados en la historia de la música popular y su dimensión cultural. Por su enfoque histórico y ensayístico, encaja menos con quien busca una novela o un manual de interpretación musical.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Bella ciao: Historia de un himno popular: 32 (Tascabili) está disponible en tapa blanda, con 88 páginas en castellano. Su extensión permite transportarla fácilmente y consultar pasajes concretos sin manejar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bella ciao: Historia de un himno popular: 32 (Tascabili) comparte con El mito del genio: Historia de una ficción (Artes) el interés por examinar históricamente una construcción cultural. Marcello Flores centra su libro en un himno popular, mientras Eugenia Tenenbaum aborda la figura del genio en el ámbito artístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430628803"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c7736605b8e0d7ee",
+  "origen": "chatgpt-web"
+}

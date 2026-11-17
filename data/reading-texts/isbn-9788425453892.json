@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788425453892",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Teología de la esperanza (Biblioteca Herder) está orientado a lectores interesados en la reflexión teológica y en la esperanza como asunto religioso. Por su enfoque y sus 168 páginas, se aleja de quienes buscan una novela de aventuras o una narración centrada en personajes y acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Teología de la esperanza (Biblioteca Herder) se presenta en tapa blanda, con 168 páginas en castellano. Es una edición física de extensión contenida, apropiada para consultar y releer apartados sobre su tema religioso sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Teología de la esperanza (Biblioteca Herder) y Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción comparten el interés por cuestiones teológicas. Emmanuel Durand sitúa la esperanza en el centro de su obra, mientras que Sofía Noemy Quintanilla Ramírez aborda la adopción desde una perspectiva bíblica y pastoral. Frente a ambas, Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se ocupa de fundamentos y prácticas de otra tradición espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387625535",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b7a15dec1a3a5d3",
+  "origen": "chatgpt-web"
+}

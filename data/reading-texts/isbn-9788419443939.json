@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419443939",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "SUPERTATO Martes se dirige a lectores interesados en relatos de fantasía y aventuras. Sus 128 páginas lo sitúan entre las obras de extensión contenida, frente a quienes buscan novelas extensas o libros de contenido técnico y divulgativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "SUPERTATO Martes se presenta en tapa blanda, con 128 páginas en castellano y edición de Mr. Momo. Su extensión permite transportarlo como libro físico de lectura y conservarlo en papel junto a otros relatos de fantasía y aventuras.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "SUPERTATO Martes y El árbol de los cuervos: Los cuentos del fénix II.: 2 aparecen entre las lecturas relacionadas con la fantasía y los relatos. SUPERTATO Martes está firmado por Tomás Medina y se clasifica también como aventura, mientras que El árbol de los cuervos: Los cuentos del fénix II.: 2 pertenece a la obra de Andrea Manfredini Font. El segundo título incorpora una numeración de serie que no aparece en SUPERTATO Martes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399315707"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a6b11a03d092087",
+  "origen": "chatgpt-web"
+}

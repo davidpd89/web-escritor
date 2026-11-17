@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a terapeutas interesados en la terapia de procesamiento cognitivo aplicada al TEPT. Por su enfoque de manual profesional y sus 448 páginas, responde a una necesidad distinta de la lectura divulgativa sobre bienestar o desarrollo personal.",
+      "texto": "Terapia de procesamiento cognitivo para el TEPT. Un manual completo para el terapeuta: 308 (Biblioteca de Psicología) está orientado a lectores interesados en la intervención psicológica y, especialmente, a terapeutas. Su carácter de manual profesional y sus 448 páginas lo alejan de quienes buscan una introducción breve al bienestar cotidiano.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,18 +13,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda, publicada por Desclée de Brouwer en castellano. Sus 448 páginas permiten consultar el manual por partes y volver a apartados concretos durante el trabajo terapéutico.",
+      "texto": "La obra se ofrece en tapa blanda, con 448 páginas destinadas a la consulta en papel. Esta extensión permite trabajar con el manual por apartados y mantenerlo como volumen de referencia durante el estudio o la práctica terapéutica.",
       "evidencias": [
         "formatos_disponibles",
-        "editorial",
-        "idioma",
         "numero_paginas",
         "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, comparte el interés por el bienestar psicológico, pero su título se centra en la infancia y la recuperación personal. Terapia de procesamiento cognitivo para el TEPT. Un manual completo para el terapeuta: 308 (Biblioteca de Psicología) se distingue por dirigirse expresamente al terapeuta y centrarse en un tratamiento concreto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7ad11f6ff35d2b89",
+  "fuente_hash": "3e298520120335a6",
   "origen": "chatgpt-web"
 }

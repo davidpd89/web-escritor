@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399232165",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El niño que llegó después: Por qué juzgamos mal a los niños, y cómo aprender a mirarlos se dirige a adultos interesados en la crianza y en revisar sus juicios sobre el comportamiento infantil. Es un ensayo de Nacor Camps, de 277 páginas, menos orientado a quien busca una novela o un manual centrado exclusivamente en nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y consultar las 277 páginas de El niño que llegó después: Por qué juzgamos mal a los niños, y cómo aprender a mirarlos en papel. Kindle ofrece la alternativa digital para llevar el ensayo en un lector electrónico o en el móvil, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El niño que llegó después: Por qué juzgamos mal a los niños, y cómo aprender a mirarlos comparte autor con La brújula del cuerpo: Tres historias de Isla Clara, también de Nacor Camps, aunque este último anuncia tres historias y el primero aborda el juicio hacia los niños. CONECTANDO CON MI BEBÉ: Relatos y actividades para vivir el embarazo con presencia, conexión y conciencia. Regalo para embarazadas., de Paula S. Acuña, se centra en el embarazo y propone relatos y actividades, frente al enfoque de crianza y ensayo de Nacor Camps.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399232189",
+        "isbn-9788409936465"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3d847d8b44a781e",
+  "origen": "chatgpt-web"
+}

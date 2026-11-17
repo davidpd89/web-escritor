@@ -4,37 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Con lo que queda, de Calixto Torres, se dirige a lectores de poesía que prefieren un volumen breve frente a una obra extensa. Sus 90 páginas lo sitúan en una extensión reducida; no responde al formato de una novela larga ni al de un ensayo argumentativo.",
+      "texto": "Con lo que queda está dirigido a quienes buscan poesía en castellano y prefieren volúmenes de extensión breve. Sus 90 páginas lo distinguen de las novelas largas y de los ensayos extensos, por lo que no responde a una búsqueda de narrativa continuada.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Con lo que queda se publica en tapa blanda, con 90 páginas en castellano. Esta edición de Calixto Torres Perales ofrece un volumen de poesía de extensión breve, manejable para llevar en el bolso y consultar o releer en papel sin cargar con un libro voluminoso.",
+      "texto": "Con lo que queda se ofrece en tapa blanda, con 90 páginas. Es una edición física de extensión reducida, manejable para leer en desplazamientos, guardar en una estantería o regalar a lectores de poesía.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Con lo que queda, de Calixto Torres, puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, dentro de la lectura poética. La segunda obra anuncia expresamente una selección amorosa, mientras que el título de Calixto Torres no delimita su poesía a ese tema.",
+      "texto": "Con lo que queda puede compararse con A solas y Advenir dentro de la poesía en castellano. Calixto Torres firma el primero, de 90 páginas, mientras que María Jesús Martínez Ramos y Jose Eceolaza son los autores de los otros títulos; la diferencia comprobable está en la autoría y la extensión conocida del primero.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
+        "idioma",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788410907539",
+        "isbn-9788410212749"
       ]
     }
   ],

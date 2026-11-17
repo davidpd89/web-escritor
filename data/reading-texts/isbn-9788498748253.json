@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788498748253",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el dibujo artístico del cuerpo femenino, especialmente en su estructura y sus líneas esenciales. El desnudo femenino. De la estructura a la forma: La búsqueda de las líneas esenciales del dibujo se centra en una materia de arte y diseño, por lo que no responde a quien busca narrativa o actividades ajenas al dibujo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El desnudo femenino. De la estructura a la forma: La búsqueda de las líneas esenciales del dibujo está editado en tapa blanda. Sus 288 páginas ofrecen un volumen físico para consultar durante el estudio del dibujo, con posibilidad de regresar a los apartados sobre estructura y forma.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo crear y consolidar tu propia marca de joyería comparte el ámbito del diseño, pero trata la creación de una marca comercial en vez del dibujo del cuerpo femenino. El gen lúdico: Un recorrido personal y profesional por el diseño de juegos serios aborda otra aplicación del diseño, centrada en juegos y no en representación anatómica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410650534",
+        "isbn-9791399278613"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5d876bcf451addd",
+  "origen": "chatgpt-web"
+}

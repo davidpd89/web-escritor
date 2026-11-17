@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791370623111",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Administrativo/a seguridad social 2027 temario especifico 1 está orientado a quienes buscan material de estudio sobre el temario específico de administrativo de la Seguridad Social. Su enfoque de preparación temática encaja menos con lectores interesados en ensayos de reflexión general o narrativa de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Administrativo/a seguridad social 2027 temario especifico 1 se publica en tapa blanda y contiene 344 páginas. El ejemplar físico permite trabajar el temario con subrayados, notas al margen y separadores para localizar las materias durante los repasos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Auxiliar cuidador temario parte especifica 2 comunidad auton comparte con Administrativo/a seguridad social 2027 temario especifico 1 la orientación hacia temarios específicos y la autoría colectiva de Varios autores. Se diferencian por el ámbito de estudio: uno se refiere al auxiliar cuidador y el otro al personal administrativo de la Seguridad Social.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370623395"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "016edca97aed5838",
+  "origen": "chatgpt-web"
+}

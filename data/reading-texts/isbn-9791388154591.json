@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388154591",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El orden natural del mundo, de Ben Brooks, encaja con lectores interesados en narrativa contemporánea vinculada a la familia, la crianza y el bienestar. Su clasificación también abarca la nutrición, por lo que reúne ámbitos distintos de los de una novela centrada exclusivamente en la aventura o la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El orden natural del mundo es de tapa dura y tiene 408 páginas. Publicada por Blackie Books en castellano, ofrece una encuadernación rígida para conservar el volumen en una biblioteca personal o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El orden natural del mundo comparte el ámbito familiar con Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción), de Carmen López Suárez. La diferencia es que el libro de Ben Brooks también se clasifica como narrativa contemporánea, mientras que el de Carmen López Suárez se centra en prevenir el acoso y el abuso durante la adolescencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410274600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3fc1afad3f55e663",
+  "origen": "chatgpt-web"
+}

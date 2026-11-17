@@ -4,17 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Regina de Miguel: Aguas intoxicadas se dirige a lectores interesados en publicaciones de arte y diseño. La obra del Instituto Valenciano de Arte Moderno, con 260 páginas, responde a ese ámbito y no al de quienes buscan una novela de ficción.",
+      "texto": "Regina de Miguel: Aguas intoxicadas se dirige a lectores interesados en el arte y el diseño, especialmente en publicaciones centradas en una figura artística concreta. Su orientación temática lo aleja de los manuales generales de ocio y de las novelas de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Regina de Miguel: Aguas intoxicadas se presenta en tapa blanda, con 260 páginas en castellano. Esta edición de Generalitat Valenciana permite consultar el volumen en papel y colocarlo en una biblioteca dedicada al arte y el diseño.",
+      "texto": "Regina de Miguel: Aguas intoxicadas se edita en tapa blanda, con 260 páginas en castellano. El volumen publicado por Generalitat Valenciana puede conservarse como referencia física dentro de una colección de libros de arte y diseño.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -26,12 +24,12 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Regina de Miguel: Aguas intoxicadas comparte el ámbito del arte y el diseño con 720 retrats, de Xavier Mollà i Revert. Mientras este último sitúa los retratos en el centro de su título, la publicación del Instituto Valenciano de Arte Moderno se centra en Regina de Miguel. Son obras de distinta autoría dentro del ámbito artístico.",
+      "texto": "720 retrats, de Xavier Mollà i Revert, permite establecer una comparación dentro de las publicaciones relacionadas con el arte y la representación visual. Mientras su título remite a una colección de retratos, Regina de Miguel: Aguas intoxicadas, de Instituto Valenciano de Arte Moderno, identifica una figura artística y un tema concreto como eje de la publicación.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
         "isbn-9788412678802"
@@ -40,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2236ff49231b3276",
+  "fuente_hash": "cd5a528b9247ae44",
   "origen": "chatgpt-web"
 }

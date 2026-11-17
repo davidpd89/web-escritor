@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788415309093",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Contexto de la animación sociocultural (CFGS ANIMACIÓN SOCIOCULTURAL Y TURÍSTICA) está orientado a lectores interesados en el estudio de la animación sociocultural y turística. Su vinculación con un ciclo formativo de grado superior lo distingue de las lecturas recreativas o de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Contexto de la animación sociocultural (CFGS ANIMACIÓN SOCIOCULTURAL Y TURÍSTICA) tiene una edición en tapa blanda de 140 páginas, publicada por Editorial Altamar. Su extensión permite manejarlo como volumen de consulta física y transportarlo con otros materiales de estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Actividades de ocio y tiempo libre (CFGS ENSEÑANZA Y ANIMACIÓN SOCIODEPORTIVA) y Contexto de la animación sociocultural (CFGS ANIMACIÓN SOCIOCULTURAL Y TURÍSTICA) pertenecen a ámbitos formativos relacionados con la animación. P. Figueras figura en ambas autorías, aunque el primer título se centra en actividades de ocio y tiempo libre y el segundo en el contexto sociocultural y turístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788417872038"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f9ea28683b2dc60d",
+  "origen": "chatgpt-web"
+}

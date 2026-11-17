@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387752842",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las mil y una noches (Panorama) encaja con lectores que buscan una obra clásica vinculada a la fantasía y las aventuras. Sus 480 páginas la sitúan entre las lecturas de cierta extensión, por lo que se aleja de los libros breves y de quienes prefieren una obra de no ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las mil y una noches (Panorama) se publica en tapa dura, con 480 páginas en castellano. La edición de Editorial Alma ofrece un volumen físico de extensión considerable, que puede conservarse en una biblioteca personal y utilizarse para sucesivas lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las mil y una noches (Panorama) comparte la autoría atribuida a Anónimo con El Sistema: 7 (Catálogo a ciegas). La diferencia identificable está en su presentación: el primero pertenece a los clásicos de fantasía y aventuras, mientras que el segundo se identifica mediante su título y su pertenencia a Catálogo a ciegas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418690846"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a1009a50e2dcfddc",
+  "origen": "chatgpt-web"
+}

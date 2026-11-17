@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788401042140",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores que disfrutan resolviendo enigmas criminales mediante la observación de escenas y la búsqueda de pistas. Su propuesta de investigar doce casos encaja menos con quien prefiere una novela policíaca de lectura continua, sin tener que intervenir en la resolución.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición manejable de 224 páginas para examinar los casos en papel; la tapa dura aporta una encuadernación más rígida para las consultas repetidas. Kindle permite llevar los enigmas en un dispositivo de lectura, aunque para observar las escenas conviene tener en cuenta el tamaño de su pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crímenes ilustrados - ¿Quién es el asesino?: Resuelve este y otros once casos examinando la escena del crimen (Obras diversas), también de Modesto García, comparte la investigación de doce casos mediante escenas del crimen. Mientras aquel plantea identificar al asesino, este parte de distinguir entre suicidio y asesinato. 80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres, amplía el número de enigmas propuestos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788401042157",
+        "isbn-9791388015816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c46fbf93673048b",
+  "origen": "chatgpt-web"
+}

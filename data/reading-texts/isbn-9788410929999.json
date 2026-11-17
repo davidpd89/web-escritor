@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan se orienta a lectores interesados en el desarrollo personal y los factores que influyen en la conducta. Sus temas también se relacionan con el bienestar y la familia, por lo que se aleja de una lectura centrada en la ficción y la aventura.",
+      "texto": "Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan se orienta a lectores interesados en los condicionamientos de la conducta y las cuestiones relacionadas con el bienestar. Su planteamiento temático se distancia de quien busca específicamente un recetario, una guía de ejercicio físico o una novela de ficción.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,17 +12,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de tapa blanda reúne 358 páginas en castellano, una extensión que permite distribuir la lectura en varias sesiones. El formato físico facilita volver a apartados anteriores y señalar pasajes relacionados con los mecanismos que aborda el título.",
+      "texto": "Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan está disponible en tapa blanda, con 358 páginas en castellano. Esta edición de Bod - Books On Demand permite leer en papel, marcar pasajes y volver a ellos durante una consulta posterior.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "titulo"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparte con Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan el interés por el desarrollo personal. La obra de Liz Moody anuncia cambios en distintos ámbitos de la vida, mientras que la de Josep María Soldevila Miró pone el foco en mecanismos que condicionan la conducta.",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, aborda el cambio personal desde la salud y las relaciones. Anatomía de la Inconsciencia Cautiva: Los mecanismos invisibles que nos gobiernan, de Josep María Soldevila Miró, centra su propuesta en los mecanismos que condicionan la conducta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c2dbfd433129997f",
+  "fuente_hash": "5d7dcc5707e26dfa",
   "origen": "chatgpt-web"
 }

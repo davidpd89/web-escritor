@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Conspiración en Londres, de Felipe Pigna, se orienta a lectores de novela histórica interesados en conflictos de poder y política. Sus 344 páginas y su clasificación como narrativa contemporánea la diferencian de los ensayos históricos y de las obras centradas en explicar hechos sin una estructura novelística.",
+      "texto": "Conspiración en Londres se dirige a lectores de novela histórica y narrativa contemporánea que buscan ficción vinculada a un contexto histórico. Con 344 páginas, ofrece una extensión intermedia; no corresponde a quien prefiere un ensayo filosófico o una lectura infantil ilustrada.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Conspiración en Londres puede leerse en tapa blanda o Kindle; la edición impresa tiene 344 páginas en castellano. La tapa blanda permite conservar el libro y prestarlo físicamente, mientras que Kindle facilita continuar la novela en un lector electrónico o en el móvil.",
+      "texto": "Conspiración en Londres está disponible en tapa blanda y Kindle. La edición física de Editorial Planeta reúne 344 páginas para leer y conservar en papel, mientras que Kindle permite llevar la novela en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Conspiración en Londres y 76 comparten autor, Felipe Pigna, pero se diferencian por su enfoque: la primera es una novela histórica sobre poder y política, mientras que la segunda pertenece al ámbito de la historia. También puede compararse con Un caballero en Moscú (Salamandra Narrativa), de Amor Towles, por su carácter narrativo y la presencia de una ciudad en el título, aunque presentan escenarios y autorías diferentes.",
+      "texto": "Conspiración en Londres puede compararse con 76 porque ambos títulos están firmados por Felipe Pigna. También se relaciona con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon por su vinculación con la novela histórica. La diferencia visible está en los referentes de sus títulos: Londres en el primero y Amón en la obra de Valerio Massimo Manfredi.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +33,12 @@
       ],
       "enlaces": [
         "isbn-9788408329695",
-        "isbn-9791387928131"
+        "isbn-9786287897090"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "de29fac2d7620d02",
+  "fuente_hash": "ed9c223e77f30492",
   "origen": "chatgpt-web"
 }

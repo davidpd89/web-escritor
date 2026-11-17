@@ -4,41 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El viento del Este (Faeris Editorial), de Alexandria Warwick, encaja con lectores que buscan fantasía con elementos románticos y presencia del terror. Sus 504 páginas ofrecen una lectura extensa dentro de la romantasy, menos ajustada a quienes prefieren historias breves o alejadas de lo fantástico.",
+      "texto": "El viento del Este (Faeris Editorial) está dirigido a lectores que buscan fantasía con componentes románticos. La novela de Alexandria Warwick combina ambos géneros, por lo que se distancia de las historias realistas y de la fantasía sin interés por las relaciones sentimentales.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El viento del Este (Faeris Editorial) se publica en tapa blanda y Kindle. La edición en papel de 504 páginas permite conservar el volumen en la estantería, mientras que Kindle facilita leer una obra de esta extensión en el móvil o en un lector electrónico compatible.",
+      "texto": "El viento del Este (Faeris Editorial) puede leerse en tapa blanda o Kindle. La edición física de Faeris tiene 504 páginas y permite conservar el volumen en papel, mientras que Kindle facilita llevar esa misma lectura en un dispositivo compatible sin transportar el libro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El viento del Este (Faeris Editorial) puede compararse con El hechizo más oscuro (Faeris Editorial) por su vinculación editorial con Faeris y su presentación dentro de la ficción fantástica. La obra de Alexandria Warwick reúne fantasía, romance y terror, mientras que el título de Wanda Hellmund destaca el componente mágico. Son libros de autoras diferentes.",
+      "texto": "El viento del Este (Faeris Editorial) comparte su orientación hacia la fantasía romántica con Alas de escarcha y oro: El canto del cisne. La obra de Alexandria Warwick se presenta como fantasía y romance, mientras que la de Marta Morillo introduce expresamente a una protagonista que oculta sus dones y debilidades. Son títulos de autoras diferentes, con puntos de partida narrativos distintos.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388108419"
+        "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7e6610c5868e3349",
+  "fuente_hash": "fdd9dcc5fbe39d81",
   "origen": "chatgpt-web"
 }

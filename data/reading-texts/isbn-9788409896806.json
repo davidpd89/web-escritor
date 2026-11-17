@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409896806",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Batalla y corazón (Fulgor Oscuro nº3) Novela de romance gay, homoerótica y fantasía épica se dirige a lectores que buscan relaciones entre hombres dentro de una ambientación fantástica. Su componente homoerótico la aleja de la fantasía centrada exclusivamente en la aventura y del romance sin elementos épicos. El título la identifica como el n.º 3.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Batalla y corazón (Fulgor Oscuro nº3) Novela de romance gay, homoerótica y fantasía épica cuenta con una edición en tapa blanda de 362 páginas. Este formato permite leer una novela de extensión considerable en papel, transportarla y conservarla junto a otros volúmenes de la misma serie. Está publicada en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Batalla y corazón (Fulgor Oscuro nº3) Novela de romance gay, homoerótica y fantasía épica comparte con Alfa (Romantasy) la combinación de fantasía y relaciones románticas. La obra de Andrea de Pablo Rodríguez concreta además un enfoque gay y homoerótico, mientras que el título de Ali Hazelwood identifica expresamente su pertenencia al romantasy. Alas de escarcha y oro: El canto del cisne también incorpora elementos fantásticos, pero presenta a una protagonista que oculta sus dones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9791387739638"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "abcbbf8b0079bb65",
+  "origen": "chatgpt-web"
+}

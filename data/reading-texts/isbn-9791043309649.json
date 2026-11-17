@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791043309649",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orient. Samurai Quest, 11 (Shônen - Orient) se dirige a lectores de cómic y novela gráfica con interés por la fantasía y los relatos de samuráis. El título lo identifica como el n.º 11, por lo que encaja menos con quienes prefieren empezar una serie desde su primera entrega o buscan narrativa exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Orient. Samurai Quest, 11 (Shônen - Orient) se publica en tapa dura, con 192 páginas. Este formato permite conservar el volumen en papel y consultarlo como parte de una colección de cómics, con una cubierta rígida para protegerlo durante el uso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Orient. Samurai Quest, 11 (Shônen - Orient) puede compararse con After God 7 (Shônen) por su pertenencia al ámbito del cómic japonés y la fantasía. Shinobu Ohtaka firma una obra identificada con los samuráis, mientras que Sumi Eno presenta otra serie con una referencia a lo divino en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962388"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e6851990c1eca86c",
+  "origen": "chatgpt-web"
+}

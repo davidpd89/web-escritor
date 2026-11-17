@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410907461",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Personajes sin autor en la mente, de Arquímedes Rivera Olazábal, encaja con lectores interesados en la fantasía y la narrativa contemporánea, con una vertiente relacionada con el arte. Sus 130 páginas lo sitúan entre las lecturas breves; no corresponde a quien busca un ensayo técnico o una novela de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Personajes sin autor en la mente se ofrece en tapa blanda, con 130 páginas en castellano. La edición de Editorial Letra Minúscula concentra la obra en un volumen relativamente corto, cómodo para transportar y guardar sin ocupar tanto espacio como un libro extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Personajes sin autor en la mente y Cómic Moztruos 1: Un amigo muy espacial se relacionan con propuestas de ficción alejadas del realismo estricto. La obra de Arquímedes Rivera Olazábal combina fantasía y narrativa contemporánea en 130 páginas; la de Pedro Mañas Romero se identifica expresamente como cómic y presenta una historia de amistad en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410558618"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "950384f9804cc40c",
+  "origen": "chatgpt-web"
+}

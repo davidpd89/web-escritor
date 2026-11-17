@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408326724",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está lloviendo y te quiero (Novela) se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares y su vínculo con la historia. Por su enfoque narrativo, encaja menos con quienes buscan manuales prácticos de crianza o estudios históricos especializados.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Está lloviendo y te quiero (Novela) está disponible en tapa blanda, en una edición de bolsillo de Booket. Sus 512 páginas permiten una lectura extensa en un volumen pensado para llevar en el bolso o la mochila, sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Está lloviendo y te quiero (Novela) puede compararse con Al faro: Nueva traducción al español: 82 (Clásicos en español) por su relación con la narrativa y los asuntos familiares. La diferencia está en la autoría y el enfoque editorial: Antonio Mercero firma una obra contemporánea, mientras que Virginia Woolf aparece en una edición de clásicos traducidos al español.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781836472568"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e30fbfc51d928a7",
+  "origen": "chatgpt-web"
+}

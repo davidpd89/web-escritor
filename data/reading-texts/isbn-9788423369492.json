@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788423369492",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esperando al diluvio (Crimen y misterio), de Dolores Redondo, se dirige a lectores de misterio y thriller que buscan una novela extensa. Sus 576 páginas requieren una lectura más prolongada que un relato breve y, por género, se aparta de la narrativa centrada exclusivamente en conflictos cotidianos sin intriga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esperando al diluvio (Crimen y misterio) se publica en tapa blanda, con 576 páginas, bajo el sello Booket. Esta edición reúne una lectura extensa en un solo volumen de papel, adecuado para quien prefiere pasar páginas físicas y conservar el ejemplar tras terminarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esperando al diluvio (Crimen y misterio) comparte autora con Las que no duermen NASH: Edición limitada a precio especial (Colección Especial) y Los privilegios del ángel (Novela), ambos de Dolores Redondo. La diferencia editorial visible está en las denominaciones: el primero de los títulos afines identifica una edición limitada, mientras que Esperando al diluvio (Crimen y misterio) aparece en tapa blanda de Booket y tiene 576 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788423371273",
+        "isbn-9788423369515"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "25af81632da5be1e",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408320500",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mis primeras canciones en inglés. Con 7 melodías (Libros con sonido) está pensado para acercarse a las canciones en inglés mediante un libro con sonido. Su formato de cartón y sus 14 páginas responden a una experiencia breve de exploración musical, no a la lectura de una historia extensa o a un curso completo del idioma.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mis primeras canciones en inglés. Con 7 melodías (Libros con sonido) se presenta en tapa dura, como libro de cartón de 14 páginas. El soporte físico permite manipular sus páginas y utilizar las siete melodías anunciadas en el título durante la actividad musical.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mis primeras canciones en inglés. Con 7 melodías (Libros con sonido) comparte autoría y propuesta sonora con Mi primer Carnaval de los animales. Con 7 melodías (Libros con sonido). Ambos títulos son de Séverine Cordier e incluyen siete melodías, pero uno se centra en canciones en inglés y el otro toma como referencia el Carnaval de los animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408320524"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "298133056738735d",
+  "origen": "chatgpt-web"
+}

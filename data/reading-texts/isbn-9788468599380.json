@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788468599380",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando ya no está se dirige a lectores interesados en el desarrollo personal, la autoayuda y el bienestar. Por su orientación práctica, se aparta de las lecturas centradas en una trama de ficción o en una investigación narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando ya no está se presenta en tapa blanda, con 178 páginas en castellano. Esta edición de Bubok Publishing permite consultar distintos pasajes en papel y transportarla sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando ya no está comparte el ámbito del desarrollo personal con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta, de Anca Martínez. Mientras este último anuncia cuestiones relacionadas con la vida adulta, el libro de Cristina Martínez Segura O. P. se presenta dentro de la autoayuda y la salud, sin delimitar un asunto tan concreto en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938490"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "858904c85fcaa6ca",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798237236330",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sexo ardiente, amor y romance se dirige a lectores interesados en historias de temática amorosa y sexual. Por su orientación romántica y sus 74 páginas, se diferencia de las novelas extensas de otros géneros y no responde a la búsqueda de una lectura centrada en el misterio o la aventura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Sexo ardiente, amor y romance se presenta en tapa blanda, con 74 páginas en castellano. Es un volumen físico de extensión reducida, adecuado para llevar en el bolso o consultar sin pantalla, con el texto reunido en un único ejemplar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sexo ardiente, amor y romance y A medio salto (Romántica) coinciden en su orientación hacia la literatura romántica. La primera obra está firmada por Tatiana Evans y tiene 74 páginas, mientras que la segunda pertenece a Valera Gomalva; la diferencia comprobable entre ambas reside en su autoría y en el enfoque amoroso y sexual anunciado por el primer título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388365089"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cc250bc3efc01b05",
+  "origen": "chatgpt-web"
+}

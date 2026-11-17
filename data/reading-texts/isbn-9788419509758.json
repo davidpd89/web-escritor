@@ -4,17 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro de la selva: Walt Disney. La creación de una obra maestra. (NeoPerson Club), de Andreas Deja, se dirige a lectores interesados en el arte, el diseño y la creación de obras vinculadas a Walt Disney. Por su enfoque artístico y sus 192 páginas, responde a una búsqueda distinta de la de quien quiere leer una novela de aventuras.",
+      "texto": "El libro de la selva: Walt Disney. La creación de una obra maestra. (NeoPerson Club) está dirigido a quienes se interesan por el arte, el diseño y la creación de obras vinculadas a Walt Disney. Por su planteamiento, encaja menos con lectores que busquen una novela de aventuras o una narración literaria de la historia de la selva.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El libro de la selva: Walt Disney. La creación de una obra maestra. (NeoPerson Club) se publica en tapa dura, con 192 páginas en castellano. La encuadernación rígida favorece su conservación y su uso como libro de consulta o regalo relacionado con el arte y el diseño.",
+      "texto": "El libro de la selva: Walt Disney. La creación de una obra maestra. (NeoPerson Club) se publica en tapa dura, con 192 páginas en castellano. Esta encuadernación ofrece una presentación rígida para conservar y consultar el volumen, además de resultar adecuada para regalar un libro dedicado al arte y al diseño.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -25,7 +23,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El libro de la selva: Walt Disney. La creación de una obra maestra. (NeoPerson Club) y 720 retrats comparten su vinculación con el arte y la creación visual. Andreas Deja aborda una obra de Walt Disney, mientras que Xavier Mollà i Revert presenta un título centrado en retratos, con un enfoque distinto del estudio de una creación concreta.",
+      "texto": "El libro de la selva: Walt Disney. La creación de una obra maestra. (NeoPerson Club) y 720 retrats se relacionan con el ámbito artístico, aunque sus títulos señalan objetos de estudio diferentes. Andreas Deja se centra en la creación de una obra vinculada a Walt Disney, mientras que Xavier Mollà i Revert presenta un trabajo identificado por sus retratos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8605f767b8bd1ba6",
+  "fuente_hash": "d23e7fa9af72346c",
   "origen": "chatgpt-web"
 }

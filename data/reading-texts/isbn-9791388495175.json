@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388495175",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La nobleza de las flores, vol 20, de Saka Mikami, se dirige a lectores de cómic y novela gráfica en castellano. El título lo identifica como el volumen 20, de modo que se orienta a quien busca esa entrega concreta y no a quien pretende comenzar por un primer volumen. Tiene 192 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La nobleza de las flores, vol 20 está disponible en tapa blanda, con 192 páginas en castellano. Esta edición física de Milky Way Ediciones permite incorporar el volumen 20 a una colección en papel; la cubierta flexible facilita guardarlo y transportarlo junto a otros tomos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2dc3817e64fdd007",
+  "origen": "chatgpt-web"
+}

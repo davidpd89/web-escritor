@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791388439308",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes buscan conocer la historia de la camiseta del Sevilla Fútbol Club desde una perspectiva vinculada al deporte y al tiempo libre. Por su temática, se aleja de los libros centrados en tácticas de juego, entrenamiento o análisis estadístico del fútbol.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne las 464 páginas de Benditos colores. La historia de la camiseta del Sevilla Fútbol Club: Producto oficial del Sevilla FC (Base Deportes) en un volumen físico. Esta encuadernación permite conservarlo en una biblioteca deportiva y consultarlo de nuevo sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Benditos colores. La historia de la camiseta del Sevilla Fútbol Club: Producto oficial del Sevilla FC (Base Deportes) y Moneyfútbol: big data y analítica de datos en el fútbol: Cómo los clubes de fútbol optimizan el rendimiento deportivo y minimizan los costes ... comparten el fútbol como asunto central. José Manuel Cordero García se ocupa de la historia de una camiseta, mientras que Jorge Quintana Ortí aborda la utilización de datos para estudiar el rendimiento deportivo y los costes de los clubes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387955342"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "061e036263912944",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387937195",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mis hijos preguntan, la historia responde se encuadra en la narrativa juvenil y está dirigido a lectores interesados en ese tipo de obras. Por su clasificación editorial, encaja menos con quienes buscan manuales especializados o novelas de misterio para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mis hijos preguntan, la historia responde se publica en tapa blanda, con 90 páginas en castellano. Su extensión permite manejar el libro completo en un volumen físico relativamente breve, tanto para lectura seguida como para consultar pasajes impresos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mis hijos preguntan, la historia responde y Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación se relacionan por su orientación hacia cuestiones juveniles, aunque sus títulos plantean enfoques diferentes. Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas aborda expresamente la prevención del acoso y el abuso, mientras que la obra de Aday Lorenzo Oliva está clasificada como narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781637659380",
+        "isbn-9788410274600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f017ba0295b24e2",
+  "origen": "chatgpt-web"
+}

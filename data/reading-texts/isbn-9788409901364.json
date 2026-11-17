@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788409901364",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "CONCIENCIA PRIMERA: La Revelación Empírica de un Más Allá, de Roberto Lloreda, se dirige a lectores interesados en la espiritualidad, las creencias sobre el más allá y el desarrollo personal. Por su enfoque temático y sus 828 páginas, se aleja de las lecturas breves y de los manuales centrados exclusivamente en hábitos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "CONCIENCIA PRIMERA: La Revelación Empírica de un Más Allá está disponible en tapa blanda, con 828 páginas en castellano. Esta edición reúne el contenido en un volumen físico que puede consultarse por partes y conservarse en una biblioteca dedicada a espiritualidad y desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "CONCIENCIA PRIMERA: La Revelación Empírica de un Más Allá puede compararse con El principio Zen / The Zen Principle, de Osho, por su vinculación con cuestiones espirituales. También comparte ese ámbito con Caminando a través de la sombra, de Calvin Amandus. El título de Roberto Lloreda plantea expresamente la cuestión del más allá y cuenta con 828 páginas, mientras que los otros títulos presentan enfoques distintos desde sus propios planteamientos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798182903509",
+        "isbn-9786073874342"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "70dd5aae678625c2",
+  "origen": "chatgpt-web"
+}

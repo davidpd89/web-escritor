@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419431721",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Discípulo: 17 (Didaskalos Literatura) se orienta a lectores interesados en literatura vinculada a cuestiones religiosas y espirituales. Su pertenencia a la colección Didaskalos Literatura lo distingue de los manuales prácticos y de las lecturas centradas exclusivamente en actividades recreativas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Discípulo: 17 (Didaskalos Literatura) se publica en tapa blanda, con 272 páginas en castellano. Esta edición de Didaskalos permite una lectura continuada sobre papel y la consulta posterior de fragmentos, sin necesidad de utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Discípulo: 17 (Didaskalos Literatura) y AKITA: Las lágrimas y el mensaje de María se relacionan por su orientación religiosa y espiritual. El primero, firmado por Paul Bourget, se presenta dentro de una colección literaria; el segundo, de Teiji Yasuda, anuncia expresamente un contenido relacionado con María.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9740d027577186e1",
+  "origen": "chatgpt-web"
+}

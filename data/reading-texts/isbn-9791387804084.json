@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387804084",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado al público infantil y juvenil interesado en los cómics de fantasía y en KPop Demon Hunters. La edición ampliada y especial del cómic de la película, atribuida a Netflix, responde a ese interés concreto y se aleja de las novelas realistas o de los libros sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 704 páginas presentada como estuche deluxe oficial y edición ampliada del cómic de la película. Kindle permite acceder al título digitalmente sin transportar un volumen de esa extensión, aunque la tapa blanda conserva el formato físico del conjunto.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AVATAR. La leyenda de Aang 5 - Norte y sur, de Nickelodeon, comparte con KPop Demon Hunters - Estuche deluxe oficial: Edición ampliada y especial del cómic de la película (Random Cómics) la fantasía juvenil vinculada a una producción audiovisual. El primero amplía las aventuras de Aang y sus compañeros, mientras que el título de Netflix presenta una edición especial del cómic de una película.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874803"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "78f27d15ff007323",
+  "origen": "chatgpt-web"
+}

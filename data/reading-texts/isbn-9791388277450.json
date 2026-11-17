@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) se dirige a lectores de romance interesados en historias centradas en las relaciones amorosas. Alexandra Moody firma esta novela de 352 páginas; el título la identifica como el n.º 3 de Los diabólicos Darling, por lo que se distingue de una historia presentada como independiente.",
+      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites), de Alexandra Moody, se dirige a lectores de romance interesados en títulos vinculados a una serie. El título lo identifica como el n.º 3 de Los diabólicos Darling; no responde a la búsqueda de una novela de misterio independiente.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) se presenta en tapa blanda, con 352 páginas en castellano. Esta edición de Alfaguara permite leer la novela en papel y colocarla junto a otros volúmenes de la serie identificada en el título. Su encuadernación flexible facilita transportarla.",
+      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) se presenta en tapa blanda, con 352 páginas en castellano. Esta edición de Alfaguara permite conservar el volumen en papel junto a otros títulos de la serie y utilizarlo para una lectura sin pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -25,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites) comparte el género romántico con Amor en pole position (Dirty Air 3), de Lauren Asher. Ambos títulos llevan el número 3, aunque pertenecen a series diferentes: Los diabólicos Darling y Dirty Air. La obra de Lauren Asher sitúa el romance en la Fórmula 1, mientras que la de Alexandra Moody se identifica por su pertenencia a Los diabólicos Darling.",
+      "texto": "Mi querido rebelde (Los diabólicos Darling 3) (Sin límites), de Alexandra Moody, comparte el género romántico con A cinco segundos de ti, de Sandra Miró. La diferencia está en su presentación: el título de Alexandra Moody lo identifica como el n.º 3 de Los diabólicos Darling, mientras que A cinco segundos de ti plantea una historia vinculada a las exigencias de perfección personal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055674"
+        "isbn-9788427055735"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f65c1da1c007cf0f",
+  "fuente_hash": "1c46069782869221",
   "origen": "chatgpt-web"
 }

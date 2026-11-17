@@ -4,33 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche Abismo Lovecraft (Minotauro Ilustrados) encaja con lectores de terror, relatos y fantasía que buscan una edición ilustrada vinculada a H. P. Lovecraft. Su planteamiento se aparta de las novelas románticas y de las lecturas realistas, al situarse en el terreno de la ficción de terror y ciencia ficción.",
+      "texto": "Estuche Abismo Lovecraft (Minotauro Ilustrados) se dirige a lectores de terror, ciencia ficción y relatos interesados en H. P. Lovecraft y Tomás Hijo. Por su combinación de géneros, encaja menos con quienes buscan una novela realista o una narración centrada en conflictos cotidianos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El estuche se presenta en tapa dura y reúne una edición de 192 páginas publicada por Minotauro. Su pertenencia a Minotauro Ilustrados y la encuadernación rígida lo convierten en una opción física para conservar, consultar las ilustraciones y regalar a lectores interesados en H. P. Lovecraft.",
+      "texto": "La edición de Estuche Abismo Lovecraft (Minotauro Ilustrados) se presenta en tapa dura y reúne 192 páginas en castellano. Este formato permite conservar el volumen en una estantería y utilizarlo como regalo físico, con una encuadernación rígida frente a las cubiertas flexibles de una edición de bolsillo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "autores"
+        "idioma",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Necronomicón comparte con Estuche Abismo Lovecraft (Minotauro Ilustrados) la autoría de H. P. Lovecraft y el vínculo con el terror y la fantasía oscura. El estuche incorpora también a Tomás Hijo entre sus autores y pertenece a una colección ilustrada, una diferencia relevante para quien busca una edición de carácter visual.",
+      "texto": "Necronomicón comparte con Estuche Abismo Lovecraft (Minotauro Ilustrados) la autoría de H. P. Lovecraft y su relación con el terror. El estuche incorpora también a Tomás Hijo y está clasificado entre los relatos, el terror y la ciencia ficción, mientras que Necronomicón se presenta como una obra vinculada al terror y la fantasía oscura.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791387574536"
@@ -39,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "39160f4866e79927",
+  "fuente_hash": "081f3bc6b895662b",
   "origen": "chatgpt-web"
 }

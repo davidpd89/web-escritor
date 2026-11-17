@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Aquí tu libertad: Nueve lugares para el rock argentino: 53 (Ensayo), de Alejandro Droznes, se dirige a lectores interesados en el ensayo y en acercarse al rock argentino desde una perspectiva vinculada a este género. No encaja tanto con quien busca narrativa de ficción o una novela como lectura principal.",
+      "texto": "Aquí tu libertad: Nueve lugares para el rock argentino: 53 (Ensayo), de Alejandro Droznes, se orienta a lectores interesados en el rock argentino y en su relación con distintos lugares. Su clasificación como ensayo lo distingue de una novela de ficción, por lo que no responde a quien busca una trama narrativa convencional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,16 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne sus 144 páginas en un volumen físico de extensión contenida. Es el formato disponible para quien prefiere leer en papel y conservar el ensayo en su biblioteca.",
+      "texto": "Aquí tu libertad: Nueve lugares para el rock argentino: 53 (Ensayo) está disponible en tapa blanda y Kindle. Las 144 páginas de la edición de Altamarea Ediciones permiten consultar el ensayo en un volumen físico relativamente breve; Kindle ofrece acceso digital al texto y evita llevar el ejemplar impreso.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "editorial",
+        "categorias"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4f25f5998dc8d6cb",
+  "fuente_hash": "2ab3da8dc63a34ff",
   "origen": "chatgpt-web"
 }

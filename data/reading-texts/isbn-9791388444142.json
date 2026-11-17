@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores de historia española interesados en el final del Imperio español y en las figuras militares vinculadas al Desastre del 98. Su orientación histórica y biográfica lo aleja de quienes buscan una novela de ficción o una introducción general a otras épocas.",
+      "texto": "Se dirige a lectores interesados en la historia del Imperio español, especialmente en su final y en la perspectiva del Almirante Cervera sobre el Desastre del 98. Su orientación histórica y biográfica lo aleja de quienes buscan una novela de aventuras navales.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,31 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La cuestión central es la interpretación del Desastre del 98 desde la perspectiva del Almirante Cervera. El enfoque anunciado vincula ese episodio con el final del Imperio español y sitúa a una figura histórica concreta como eje de la lectura.",
+      "texto": "Examina el Desastre del 98 y el final del Imperio español desde la visión del Almirante Cervera. El enfoque anunciado combina historia y perspectiva biográfica, con la figura del almirante como eje para abordar ese episodio histórico.",
       "evidencias": [
-        "titulo"
+        "titulo",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 480 páginas en castellano, publicadas por Sekotia. Es una opción física para consultar y releer pasajes sobre el periodo histórico tratado, sin depender de un dispositivo electrónico.",
+      "texto": "La tapa blanda reúne las 480 páginas de este estudio histórico en un volumen físico. Es una opción para leer por secciones, consultar pasajes y conservar el libro en una biblioteca dedicada a la historia.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Puede compararse con Corona Nostra: De Felipe VI a Felipe V, de Nieves Concostrina, por su atención a la historia española. Mientras ese título anuncia un recorrido entre figuras de la monarquía, El Desastre del 98 y el fin del Imperio español: Visión inédita del Almirante Cervera (Biblioteca de Historia) delimita su asunto a una crisis imperial y a la perspectiva de un almirante.",
+      "texto": "El Desastre del 98 y el fin del Imperio español: Visión inédita del Almirante Cervera (Biblioteca de Historia) comparte con Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo el interés por episodios históricos vinculados al ámbito marítimo. El primero se centra en el final de un imperio y la perspectiva de un almirante; el segundo identifica una expedición y su enfrentamiento con el hielo como asuntos principales.",
       "evidencias": [
         "titulo",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788410944176"
+        "isbn-9791387873141"
       ]
     }
   ],

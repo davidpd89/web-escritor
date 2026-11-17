@@ -4,40 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Guía completa de Mudras: El secreto para sentirse bien en 3 minutos está en tus manos (No ficción) se dirige a lectores interesados en desarrollo personal, bienestar y espiritualidad. Sus 320 páginas y su clasificación también en cómic y novela gráfica amplían el perfil temático; no es una propuesta de narrativa de ficción convencional.",
+      "texto": "Guía completa de Mudras: El secreto para sentirse bien en 3 minutos está en tus manos (No ficción) se orienta a lectores interesados en los mudras, el bienestar y la espiritualidad. Su planteamiento práctico la diferencia de una novela y de los libros centrados exclusivamente en la alimentación.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 320 páginas de Guía completa de Mudras: El secreto para sentirse bien en 3 minutos está en tus manos (No ficción) en un ejemplar físico que permite consultarlo sin pantalla. Kindle ofrece la alternativa digital para quienes prefieren acceder al contenido desde un dispositivo electrónico y prescindir del libro impreso.",
+      "texto": "La guía de David Muñoz Moreno y Lourdes Muñoz Anaya se ofrece en tapa blanda y Kindle. La edición de Roca Editorial tiene 320 páginas en papel, mientras que la versión Kindle permite consultar el contenido desde un dispositivo compatible sin transportar el volumen físico.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "formato_edicion",
-        "formatos_disponibles"
+        "autores",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud), de Isabel Bautista, comparte con Guía completa de Mudras: El secreto para sentirse bien en 3 minutos está en tus manos (No ficción) el interés por el bienestar. La diferencia está en el tema que identifica cada título: uno se centra en los mudras y el otro en el ayurveda, por lo que abordan caminos distintos dentro del ámbito del cuidado personal y la espiritualidad.",
+      "texto": "Guía completa de Mudras: El secreto para sentirse bien en 3 minutos está en tus manos (No ficción) comparte el interés por la espiritualidad con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow. La primera centra su propuesta en los mudras y el bienestar; la segunda anuncia un enfoque sobre las dimensiones y la consciencia. Ambas se sitúan fuera de la narrativa de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214834"
+        "isbn-9798888505335"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6f0e469e46d71f5f",
+  "fuente_hash": "bc2b26e3bb71c413",
   "origen": "chatgpt-web"
 }

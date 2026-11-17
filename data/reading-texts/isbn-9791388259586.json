@@ -4,32 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) se dirige a lectores interesados en la literatura clásica y en una selección de textos vinculados a esa tradición. Su enfoque literario se aparta de los manuales prácticos, los cuadernos de actividades y las lecturas centradas en juegos.",
-      "evidencias": [
-        "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) cuenta con una edición en tapa blanda de 128 páginas. Su extensión permite llevar el volumen en una bolsa y consultarlo en papel, mientras que la cubierta flexible ocupa menos espacio que una encuadernación rígida.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) puede compararse con Antología final: 282 (LITORAL) por reunir ambos títulos una propuesta literaria firmada por Varios autores. El primero se presenta bajo la referencia a los clásicos, mientras que el segundo se identifica expresamente como una antología.",
+      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto), de Varios autores, se dirige a lectores interesados en obras clásicas y narrativa en castellano. Sus 128 páginas ofrecen una extensión contenida, aunque su orientación literaria no coincide con la búsqueda de manuales prácticos o divulgación científica.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) se ofrece en tapa blanda, con 128 páginas. Esta edición de Newton Compton Editores permite tener el texto en papel, guardarlo en una biblioteca o entregarlo como regalo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los clásicos que hay que leer al menos una vez en la vida (Cofanetto) comparte la autoría colectiva con Surtido 1+1 (Duomo bolsillo), firmado también por Varios autores. El primero se presenta bajo una denominación centrada en los clásicos y cuenta con 128 páginas; el segundo se identifica como un surtido de bolsillo. La diferencia visible está en el enfoque anunciado por cada título, no en una equivalencia de contenidos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412931075"
+        "isbn-9791388042911"
       ]
     }
   ],

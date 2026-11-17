@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9789507548062",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Experiencias de placer en la infancia en educación y terapia se orienta a lectores interesados en la infancia desde perspectivas educativas y terapéuticas. Su temática conecta con el desarrollo personal y el bienestar; no está planteado como un manual de nutrición ni como una historia de aventuras juveniles.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Experiencias de placer en la infancia en educación y terapia tiene una edición en tapa blanda de 160 páginas, publicada por Libros Indie. Su extensión facilita una lectura en papel relativamente breve y permite volver a los apartados relacionados con la educación y la terapia infantil durante la consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción) comparte el interés por el bienestar durante las etapas de crecimiento, pero se ocupa de prevenir la violencia en la adolescencia. Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación también aborda una etapa del desarrollo, mientras que Experiencias de placer en la infancia en educación y terapia se centra en la infancia y sus contextos educativo y terapéutico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410274600",
+        "isbn-9781637659380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6d6ec6c2d2018404",
+  "origen": "chatgpt-web"
+}

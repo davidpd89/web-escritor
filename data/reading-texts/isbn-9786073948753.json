@@ -4,25 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de novela negra que siguen los misterios de Camilla Läckberg y los títulos de Crímenes de Fjällbacka. El título lo identifica como el n.º 12, por lo que quien busque una historia ajena a esa colección puede preferir otra lectura.",
+      "texto": "El Llanto de Los Muertos (Novela Negra) / The Weeper (Noir): 12 (Crímenes de Fjällbacka) se dirige a lectores de misterio, thriller y novela negra. Su extensión de 560 páginas encaja con quienes buscan una lectura larga, pero menos con quienes prefieren relatos breves o géneros alejados de la intriga criminal.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite manejar con flexibilidad las 560 páginas de esta entrega de Crímenes de Fjällbacka. Su cubierta facilita sujetar el ejemplar durante sesiones largas, mientras que la extensión invita a distribuir la lectura en varios días.",
+      "texto": "El Llanto de Los Muertos (Novela Negra) / The Weeper (Noir): 12 (Crímenes de Fjällbacka) dispone de tapa dura, tapa blanda, Kindle y audiolibro. La edición en tapa blanda tiene 560 páginas; la tapa dura favorece la conservación, Kindle permite leer en dispositivos electrónicos y el audiolibro ofrece la opción de escucharlo.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "titulo"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La sombra de la sirena (Los crímenes de Fjällbacka) (Biblioteca Camilla Läckberg) comparte autora y colección con El Llanto de Los Muertos (Novela Negra) / The Weeper (Noir): 12 (Crímenes de Fjällbacka). Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves, ofrece otra referencia de narrativa criminal, aunque vinculada a Shetland y a una autora distinta.",
+      "texto": "El Llanto de Los Muertos (Novela Negra) / The Weeper (Noir): 12 (Crímenes de Fjällbacka) se relaciona con La sombra de la sirena (Los crímenes de Fjällbacka) (Biblioteca Camilla Läckberg) por su autora, Camilla Läckberg, y la referencia compartida a Fjällbacka. Frente a 25 días hasta Navidad, de Per Jacobsen, que plantea un thriller de adviento, el primero se identifica expresamente con la novela negra y una serie de crímenes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
       ],
       "enlaces": [
         "isbn-9788408329015",
-        "isbn-9788410424524"
+        "isbn-9788427055063"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "078e52b0666f33dc",
+  "fuente_hash": "de3011d37e33a09d",
   "origen": "chatgpt-web"
 }

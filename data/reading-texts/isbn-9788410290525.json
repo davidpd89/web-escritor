@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en el arte, el diseño y la historia, especialmente en publicaciones centradas en una creadora concreta. Magali Lara: Robar lo que me pertenece (ARTE) se diferencia de los estudios históricos generales por identificar a Magali Lara como figura central.",
+      "texto": "Magali Lara: Robar lo que me pertenece (ARTE) se orienta a lectores interesados en Magali Lara y en publicaciones relacionadas con el arte y su historia. Sus 144 páginas corresponden a una obra de extensión contenida, menos ajustada a quien busca una narración de ficción o un manual general de técnicas artísticas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de RM se presenta en tapa dura y reúne 144 páginas en castellano. Su encuadernación rígida permite conservar el volumen en una biblioteca de arte y consultarlo de nuevo, mientras que su extensión facilita organizar la lectura en varias sesiones.",
+      "texto": "Magali Lara: Robar lo que me pertenece (ARTE) se presenta en tapa dura, con 144 páginas en castellano. La encuadernación rígida de esta edición de RM favorece su conservación y su uso como libro de consulta en una biblioteca de arte, aunque ocupa más espacio que una cubierta flexible.",
       "evidencias": [
-        "editorial",
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Arte Matrio, de Sara Rubayo, comparte el interés por el arte y su dimensión histórica, pero se centra en la historia del arte español. Mujeres que la liaron, de Tatiana Gómez Montero, también aborda el papel de las mujeres en la historia, aunque desde una perspectiva feminista más amplia, mientras que Magali Lara: Robar lo que me pertenece (ARTE) se centra en una creadora concreta.",
+      "texto": "Magali Lara: Robar lo que me pertenece (ARTE) puede compararse con Art for All: Surrealistas por su relación con las artes visuales, aunque el primero se identifica con Magali Lara y el segundo aborda el surrealismo. Otra lectura relacionada es Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION), de Maria Stavrinaki, que vincula el estudio del arte con distintas épocas históricas. La diferencia principal reside en el objeto de estudio: una figura artística concreta frente a movimientos y periodos de la historia del arte.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +33,14 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788403527041",
-        "isbn-9788449346095"
+        "isbn-9783754401477",
+        "isbn-9783754401514",
+        "isbn-9791399236422"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ba44ba2827901d90",
+  "fuente_hash": "b86c7b7c8f725b22",
   "origen": "chatgpt-web"
 }

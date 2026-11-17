@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rosalía de Castro (Españoles Eminentes) se dirige a lectores interesados en las biografías, las memorias y la narrativa contemporánea. La autoría de María Xesus Lama sitúa el libro en el ámbito de las obras dedicadas a figuras literarias, mientras que su clasificación también permite identificarlo como una lectura de no ficción.",
+      "texto": "Rosalía de Castro (Españoles Eminentes) se dirige a lectores interesados en las biografías de figuras literarias y en las memorias como género. La obra de María Xesus Lama se sitúa en la no ficción biográfica, por lo que responde a una búsqueda distinta de la de quien prefiere novelas de ficción con personajes inventados.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,15 +13,15 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El largo regreso de Josefina Carabias (Ensayo), de César Suárez, comparte con Rosalía de Castro (Españoles Eminentes) el interés por las figuras vinculadas al ámbito literario y cultural. La diferencia está en sus protagonistas y autorías: María Xesus Lama firma una obra sobre Rosalía de Castro, mientras César Suárez firma un ensayo dedicado a Josefina Carabias.",
+      "texto": "Rosalía de Castro (Españoles Eminentes) y Dostoievski, mi marido comparten el interés por las vidas de figuras vinculadas a la literatura. La primera es una biografía de María Xesus Lama centrada en Rosalía de Castro; la segunda presenta, desde su título, una relación matrimonial con Dostoievski y está firmada por Ana G. Dostoievskaia. Ambas se relacionan con la escritura desde perspectivas biográficas diferentes.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788426433282"
+        "isbn-9791399078251"
       ]
     }
   ],

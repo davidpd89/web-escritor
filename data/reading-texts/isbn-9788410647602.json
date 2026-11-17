@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La cena de las ánimas se dirige a lectores que buscan una combinación de fantasía, misterio y narrativa contemporánea. También se relaciona con las aventuras y los temas familiares; quienes prefieren relatos estrictamente realistas y ajenos a elementos fantásticos encontrarán un enfoque distinto.",
+      "texto": "La cena de las ánimas se dirige a lectores adultos interesados en la fantasía, el misterio y la narrativa contemporánea. Su clasificación reúne tres géneros distintos, por lo que encaja con quienes buscan ficción que combine elementos fantásticos y de intriga; no está presentada como literatura infantil o juvenil.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La cena de las ánimas está disponible en tapa blanda, con 320 páginas publicadas por Harpercollins, para quienes prefieren leer y conservar una edición física. Kindle permite acceder al libro en formato electrónico, llevarlo en el móvil y adaptar el tamaño de letra según el dispositivo.",
+      "texto": "La tapa blanda reúne sus 320 páginas en un volumen físico manejable para leer fuera de casa o conservar en la biblioteca. Kindle permite llevar La cena de las ánimas en el móvil o en un lector electrónico, sin ocupar espacio físico.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
-        "editorial",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La cena de las ánimas comparte la fantasía con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, aunque este último presenta a una protagonista que oculta sus dones. También se aproxima a Clara Nox 4. La última tormenta, de Isabel Álvarez, por los elementos fantásticos y de aventura; este otro título plantea una batalla que afecta a dos mundos.",
+      "texto": "La comparación con Coraline, de Neil Gaiman, permite situar dos propuestas con presencia de lo fantástico: en Coraline, el punto de partida es una puerta hacia una versión alternativa del hogar. La cena de las ánimas incorpora también el misterio y la narrativa contemporánea entre sus géneros, mientras que la descripción de Coraline se centra en ese descubrimiento fantástico; sus autores también son distintos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949938",
-        "isbn-9788408331230"
+        "lib-0001"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "81063fb947177737",
+  "fuente_hash": "ff1c06d716ffaa69",
   "origen": "chatgpt-web"
 }
