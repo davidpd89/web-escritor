@@ -3,8 +3,10 @@ name: Ortografía de los textos propios
 # Empleado gratuito: cspell con el diccionario de español sobre las páginas escritas a mano (portada, autor,
 # novelas, cuaderno, universo...). No mira las fichas de recomendaciones ni las editoriales: sus sinopsis son
 # de terceros. Las exclusiones están en qa/cspell.json; los nombres propios, en qa/cspell-propios.txt.
-# Informativo: deja las palabras desconocidas en el resumen y no bloquea. Una palabra correcta que no conoce
-# el diccionario se añade a qa/cspell-propios.txt; una errata se corrige en la página.
+# Línea base 0 (17/11/2026: 49 páginas, 0 palabras desconocidas; detecta «prueva», «escrivir»...). Por eso la
+# comprobación queda en rojo si aparece alguna: así se ve en la PR que la introduce, no en un resumen que nadie
+# abre. No es check requerido. Una palabra correcta que no conoce el diccionario se añade a
+# qa/cspell-propios.txt; una errata se corrige en la página.
 on:
   pull_request:
     paths:
@@ -56,7 +58,7 @@ jobs:
         if: always()
         run: |
           {
-            echo "## Ortografía (cspell, informativo)"
+            echo "## Ortografía (cspell)"
             echo
             echo "Resultado: ${{ steps.cspell.outcome }}."
             if [ -s cspell.txt ]; then
@@ -70,3 +72,8 @@ jobs:
             echo
             echo "Errata: corregirla en la página. Palabra correcta: añadirla a qa/cspell-propios.txt."
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Palabras desconocidas
+        if: steps.cspell.outcome == 'failure'
+        run: |
+          echo "::error::cspell encontró palabras desconocidas: ver el resumen."
+          exit 1
