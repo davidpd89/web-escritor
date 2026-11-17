@@ -86,8 +86,13 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
             return json.dumps({'ahead_by': 0, 'files': []})  # main no movió entradas de los builders
         if args[:2] == ('pr','merge') and conflict:
             raise subprocess.CalledProcessError(1, ['gh', *args], stderr='Pull request is not mergeable')
-        if args[:2] == ('workflow','run'):
-            dispatched.add(args[2])
+        if args[0] == 'api' and args[1:3] == ('--method', 'POST') and args[3].endswith('/dispatches'):
+            # R5-14: despacho por la API; devuelve el id de la ejecución creada, que se sigue por id.
+            name = args[3].split('/')[-2]
+            dispatched.add(name)
+            return json.dumps({'workflow_run_id': 20 if name == 'deploy-pages.yml' else 2})
+        if args[:3] == ('run', 'view', '20'):
+            return json.dumps({'databaseId': 20, 'headSha': 'merged-sha', 'status': 'completed', 'conclusion': 'success'})
         if args[0] == 'api' and args[-1].endswith('/jobs'):
             if lag['left']:
                 # Run already completed, job record not yet closed.
@@ -116,7 +121,10 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
         else:
             module.run('automation/radar-clock-test')
     merges = [call for call in calls if call[:2] == ('pr','merge')]
-    deployments = [call for call in calls if call[:3] == ('workflow','run','deploy-pages.yml')]
+    despachos = [call[3].split('/')[-2] for call in calls if call[0] == 'api' and call[1:3] == ('--method', 'POST')
+                 and call[3].endswith('/dispatches')]
+    assert not any(call[:2] == ('workflow','run') for call in calls), 'R5-14: nada se despacha sin id'
+    deployments = [name for name in despachos if name == 'deploy-pages.yml']
     successes = [call for call in calls if call[0] == 'api' and 'state=success' in call]
     if conflict:
         assert not deployments
@@ -127,7 +135,7 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
     else:
         assert len(merges) == len(deployments) == 1
         # Workflows already running for the PR's exact commit are reused, never dispatched twice.
-        assert {call[2] for call in calls if call[:2] == ('workflow','run')} == set(module.WORKFLOWS) - set(pr_runs) | {'deploy-pages.yml'}
+        assert sorted(despachos) == sorted(set(module.WORKFLOWS) - set(pr_runs) | {'deploy-pages.yml'}), despachos
         assert '--match-head-commit' in merges[0] and 'expected-sha' in merges[0]
         assert '--admin' not in merges[0]
         assert len(successes) == len(module.REQUIRED_JOBS)

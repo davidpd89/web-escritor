@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+from html import escape
 from urllib.parse import urlsplit
 
 UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36'
@@ -135,7 +136,25 @@ def quarantined(result: dict, active: dict[str, dict]) -> dict | None:
     return active.get((urlsplit(result['url']).hostname or '').lower()) if unreachable else None
 
 
-def run(report: Path, output: Path, quarantine: Path | None = None, today: date | None = None) -> int:
+# Pre-existing links (2026-11-17): the nightly catalogue PR regenerates pages
+# that already carried external links, and umbrieleditores.com (503) plus
+# reddebibliotecas.castillalamancha.es (000) going down that morning left the
+# whole load unpublished. A host that is down says nothing about a PR that did
+# not add the link, so on a PR an unreachable/5xx external URL that already
+# exists in the base tree is a warning. Links the PR introduces, our own
+# domain, 404s and DNS/TLS errors stay fatal, and push/schedule scans of main
+# (no base ref) keep failing, so a host that stays down is still caught there.
+def in_base(url: str, base: str) -> bool:
+    for needle in dict.fromkeys((url, escape(url, quote=False))):
+        found = subprocess.run(['git', 'grep', '-q', '-F', '-e', needle, base, '--'],
+                               capture_output=True)
+        if found.returncode == 0:
+            return True
+    return False
+
+
+def run(report: Path, output: Path, quarantine: Path | None = None, today: date | None = None,
+        base: str | None = None) -> int:
     try:
         text = report.read_text(encoding='utf-8')
         urls = timeout_urls(text)
@@ -160,12 +179,21 @@ def run(report: Path, output: Path, quarantine: Path | None = None, today: date 
             result['quarantine'] = entry
             warnings.append(f'- `{result["url"]}` HTTP {result.get("status") or "000"}: '
                             f'{entry["reason"]} (cuarentena hasta {entry["expires"]})')
+    preexisting = []
+    for result in results:
+        unreachable = re.fullmatch(r'(?:000|5\d\d)?', str(result.get('status') or ''))
+        if (base and not result['ok'] and 'quarantine' not in result and unreachable
+                and not own_url(result['url']) and in_base(result['url'], base)):
+            result['preexisting'] = base
+            preexisting.append(f'- `{result["url"]}` HTTP {result.get("status") or "000"}: '
+                               f'el enlace ya estaba en {base}; esta PR no lo añade')
     external = []
     for result in results:
         status = str(result.get('status') or '000')
         # The curl recheck must confirm the same fault: a 403 that now answers 404 is a gone page, not a block.
         confirmed = status == '403' if third_party.get(result['url'], '').startswith('HTTP 403') else status == '000'
-        if not result['ok'] and 'quarantine' not in result and result['url'] in third_party and confirmed:
+        if (not result['ok'] and 'quarantine' not in result and 'preexisting' not in result
+                and result['url'] in third_party and confirmed):
             result['third_party'] = third_party[result['url']]
             external.append(f'- `{result["url"]}`: {result["third_party"]} (recomprobado: HTTP '
                             f'{result.get("status") or "000"})')
@@ -173,10 +201,11 @@ def run(report: Path, output: Path, quarantine: Path | None = None, today: date 
     output.write_text(json.dumps(results, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     for result in results:
         label = ('PASS' if result['ok'] else 'WARN quarantined' if 'quarantine' in result
+                 else 'WARN preexisting' if 'preexisting' in result
                  else 'WARN third-party' if 'third_party' in result else 'FAIL')
         print(f'{label} native recheck: {result["url"]} HTTP {result.get("status", "unavailable")}')
     summary = os.environ.get('GITHUB_STEP_SUMMARY')
-    if summary and (warnings or external):
+    if summary and (warnings or external or preexisting):
         with open(summary, 'a', encoding='utf-8') as handle:
             if warnings:
                 handle.write('## Hosts externos en cuarentena (no bloquean hasta que caduque)\n\n' + '\n'.join(warnings) + '\n')
@@ -185,7 +214,8 @@ def run(report: Path, output: Path, quarantine: Path | None = None, today: date 
                              + '\n'.join(external) + '\n')
     for line in warnings + external:
         print(f'::warning::{line}')
-    return 0 if all(result['ok'] or 'quarantine' in result or 'third_party' in result for result in results) else 1
+    return 0 if all(result['ok'] or 'quarantine' in result or 'preexisting' in result or 'third_party' in result
+                    for result in results) else 1
 
 
 if __name__ == '__main__':
@@ -193,5 +223,6 @@ if __name__ == '__main__':
     parser.add_argument('--report', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--quarantine', type=Path)
+    parser.add_argument('--base-ref', default='', help='PR base (origin/main): links already there only warn when down')
     args = parser.parse_args()
-    raise SystemExit(run(args.report, args.output, args.quarantine))
+    raise SystemExit(run(args.report, args.output, args.quarantine, base=args.base_ref or None))
