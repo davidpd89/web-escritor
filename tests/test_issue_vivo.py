@@ -58,6 +58,7 @@ class IssueVivo(unittest.TestCase):
     def test_checkout_disperso_trae_el_modulo(self):
         """Un checkout disperso sin scripts/issue_vivo.py rompe el import en Actions aunque en local pase."""
         usuarios = [p.name for p in (ROOT / 'scripts').glob('*.py') if 'import issue_vivo' in p.read_text(encoding='utf-8')]
+        usuarios.append('issue_vivo.py')  # también se llama directamente desde los workflows en bash
         self.assertGreaterEqual(len(usuarios), 2)
         for wf in sorted((ROOT / '.github' / 'workflows').glob('*.yml')):
             texto = wf.read_text(encoding='utf-8')
@@ -65,7 +66,9 @@ class IssueVivo(unittest.TestCase):
                 continue
             for nombre in usuarios:
                 if f'scripts/{nombre}' in texto:
-                    self.assertIn('scripts/issue_vivo.py', texto, f'{wf.name} ejecuta {nombre} sin traer issue_vivo.py')
+                    # En la lista del checkout, no en un comentario que lo nombre.
+                    self.assertRegex(texto, r'(?m)^\s+/?scripts/issue_vivo\.py$',
+                                     f'{wf.name} ejecuta {nombre} sin traer issue_vivo.py')
 
 
 if __name__ == '__main__':

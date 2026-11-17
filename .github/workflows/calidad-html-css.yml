@@ -2,17 +2,11 @@ name: Calidad de HTML y CSS
 
 # Dos empleados gratuitos: HTML-validate (HTML mal formado en portada y en una muestra fija de fichas) y
 # Stylelint (errores reales en el CSS propio: propiedades desconocidas, duplicados, colores inválidos).
-# Informativo: deja el resultado en el resumen y no bloquea. Cuando una herramienta quede limpia, se le
-# quita el «continue-on-error» y pasa a ser obligatoria.
+# Informativo: no bloquea. Lo encontrado va a un issue vivo con la etiqueta «calidad-html» (scripts/issue_vivo.py),
+# que se cierra solo cuando las dos herramientas vuelven a estar limpias.
 # La muestra es 1 de cada 150 fichas por orden alfabético: crece con el catálogo sin descargar el sitio entero.
+# Sin pull_request: escribe issues y R5-8 prohíbe escrituras en workflows de PR.
 on:
-  pull_request:
-    paths:
-      - "styles.css"
-      - "assets/**/*.css"
-      - "qa/htmlvalidate.json"
-      - "qa/stylelint.json"
-      - ".github/workflows/calidad-html-css.yml"
   workflow_dispatch:
   schedule:
     - cron: '53 6 * * 3'
@@ -21,14 +15,17 @@ permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
 
 jobs:
   html-css:
     name: HTML-validate y Stylelint
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: read
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -42,6 +39,7 @@ jobs:
             /assets/**/*.css
             /qa/htmlvalidate.json
             /qa/stylelint.json
+            /scripts/issue_vivo.py
       - name: Elegir la muestra de fichas
         id: muestra
         continue-on-error: true
@@ -72,7 +70,19 @@ jobs:
             echo "Muestra: $MUESTRA ($(wc -l < muestra.txt 2>/dev/null || echo 0) páginas)."
             echo "## HTML-validate: $HTML"; echo '```'; tail -n 120 html-validate.txt 2>/dev/null; echo '```'
             echo "## Stylelint: $CSS"; echo '```'; tail -n 120 stylelint.txt 2>/dev/null; echo '```'
-          } >> "$GITHUB_STEP_SUMMARY"
+          } > calidad.md
+          cat calidad.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Aviso en el issue «calidad-html»
+        if: always() && steps.html.outcome != 'skipped'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HTML: ${{ steps.html.outcome }}
+          CSS: ${{ steps.css.outcome }}
+        run: |
+          aviso=0; { [ "$HTML" = failure ] || [ "$CSS" = failure ]; } && aviso=1
+          python scripts/issue_vivo.py --etiqueta calidad-html --titulo "Calidad de HTML y CSS: HTML $HTML, CSS $CSS" \
+            --cuerpo calidad.md --aviso "$aviso" --cierre "HTML-validate y Stylelint vuelven a estar limpios." \
+            --descripcion "HTML mal formado o CSS con errores (HTML-validate, Stylelint)" --color D93F0B
       - name: Guardar informes
         if: always()
         uses: actions/upload-artifact@v6
