@@ -138,7 +138,8 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
         assert sorted(despachos) == sorted(set(module.WORKFLOWS) - set(pr_runs) | {'deploy-pages.yml'}), despachos
         assert '--match-head-commit' in merges[0] and 'expected-sha' in merges[0]
         assert '--admin' not in merges[0]
-        assert len(successes) == len(module.REQUIRED_JOBS)
+        # R4-9: el estado a mano solo va en las ejecuciones despachadas; las pull_request ya figuran en la PR.
+        assert len(successes) == len([w for w in module.REQUIRED_JOBS if w not in pr_runs]), successes
         assert all('job/1' in str(call) for call in successes)
 
 scenario()

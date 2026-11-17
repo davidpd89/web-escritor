@@ -70,38 +70,14 @@ jobs:
             !/assets/no usadas/
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: '3.12'
-          cache: pip
-          cache-dependency-path: scripts/requirements.txt
-
-      # La cadena (build-reading-catalogue.py) importa Pillow: en un runner limpio no está.
-      - name: Dependencias Python
-        run: python -m pip install -r scripts/requirements.txt
-
-      - name: Materializar generados
-        uses: ./.github/actions/materializar
-
       # Lo que depende del día (portal, páginas, próximos, ofertas, descuentos caducados) se rehace con la fecha
       # de Madrid de hoy, no con la de los datos del último commit: así el día cambia aunque una noche no haya
       # carga. Toda la cadena (shell, sitemap, Pagefind) para que nada quede del día anterior.
-      # Pagefind (último eslabón de la cadena) se ejecuta con `npx --no-install pagefind`: hace falta Node y el
-      # node_modules del lockfile. Sin scripts de instalación: el binario de Pagefind va en un paquete opcional.
-      - name: Set up Node
-        uses: actions/setup-node@v5
+      # La misma acción la usa postdeploy-deep-audit para comparar producción con lo que de verdad se publicó.
+      - name: Construir como el despliegue (día de Madrid)
+        uses: ./.github/actions/construir-como-despliegue
         with:
-          node-version: '22'
-          cache: npm
-
-      - name: Instalar Pagefind (lockfile)
-        run: npm ci --ignore-scripts --no-audit --no-fund
-
-      - name: Rehacer lo generado con el día de hoy
-        env:
-          CATALOGO_HOY: ${{ needs.dia.outputs.hoy }}
-        run: python scripts/materializar_generados.py --solo-construir
+          hoy: ${{ needs.dia.outputs.hoy }}
 
       - name: Build public artifact (allowlist-first)
         run: python scripts/build-public-dist.py --out .preview-dist

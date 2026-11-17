@@ -59,7 +59,9 @@ class AccionMaterializar(unittest.TestCase):
         spec.loader.exec_module(adoptar)
         self.assertEqual(adoptar.pendientes(ROOT), [])
         flujo = (ROOT / '.github/workflows/deploy-pages.yml').read_text(encoding='utf-8')
-        self.assertLess(flujo.index(ACCION), flujo.index('build-public-dist.py --out .preview-dist'))
+        comun = './.github/actions/construir-como-despliegue'
+        self.assertLess(flujo.index(comun), flujo.index('build-public-dist.py --out .preview-dist'))
+        self.assertIn(ACCION, (ROOT / comun[2:] / 'action.yml').read_text(encoding='utf-8'))
         self.assertIn('materializar_generados.py --asegurar', flujo.split('git worktree add')[1].split('build-public-dist')[0])
 
     def test_versionado_la_accion_no_guarda_cache(self):
