@@ -74,8 +74,9 @@ class StaleMerge(RuntimeError):
 TRANSIENT_GH = ('Something went wrong', 'HTTP 500', 'HTTP 502', 'HTTP 503', 'HTTP 504', 'Bad Gateway',
                 'Service Unavailable', 'Gateway Timeout', 'timed out', 'connection reset', 'TLS handshake timeout')
 GH_ATTEMPTS = 4
-# Solo lecturas y `pr create` (que antes de repetir busca la PR): repetir un `workflow run`, `pr merge` o
-# `pr close` cuyo primer intento sí llegó a GitHub duplicaría ejecuciones o fallaría tras haber funcionado.
+# Lecturas y `pr create` (que antes de repetir busca la PR) se repiten tal cual. Las escrituras solo con una
+# comprobación previa (_comprobacion_escritura): repetir a ciegas un `workflow run` o un `pr merge` que sí llegó a
+# GitHub duplicaría ejecuciones o fallaría tras haber funcionado.
 READ_ONLY_GH = {('pr', 'view'), ('pr', 'list'), ('pr', 'checks'), ('pr', 'diff'), ('run', 'list'), ('run', 'view'),
                 ('repo', 'view'), ('workflow', 'view'), ('pr', 'create')}
 
@@ -96,7 +97,78 @@ def _existing_pr(args):
     return found.stdout.strip() or None if found.returncode == 0 else None
 
 
+def _flag(args, nombre):
+    return args[args.index(nombre) + 1] if nombre in args and args.index(nombre) + 1 < len(args) else None
+
+
+def _comprobacion_escritura(args):
+    """F7 (Fable R4-10): para una escritura, (foto previa, ¿ya ocurrió?) o None si no se sabe comprobar.
+
+    Antes de repetir una escritura cuyo primer intento dio un 5xx se mira si sí llegó a GitHub: un `pr merge` que
+    fusionó, un `workflow run` que creó la ejecución, un `run rerun` que subió el número de intento, un `pr close` o
+    un `run cancel` que ya tienen efecto. Un status (POST) es idempotente: se repite sin comprobar nada
+    (`(None, None)`) y tras su último fallo no se espera. `update-branch` con `expected_head_sha` llegó si la cabeza
+    nueva de la PR es un merge de dos padres: la cabeza esperada y una base que contiene la punta que tenía la rama
+    base justo antes del PUT (foto previa). main puede avanzar mientras se espera el reintento: compararlo con la punta
+    de ahora daría la actualización por no llegada y el reintento, un 422 (repetirlo daría 422; un merge con un main
+    anterior a la foto no es esta actualización). Un push lineal sobre la cabeza esperada u otro movimiento no prueban nada y
+    se repite (su 422 es el StaleMerge de siempre). `workflow run` no se
+    repite: sin el id de la ejecución, una ejecución nueva en la misma rama puede ser de otro despacho (R5-14 usará
+    `return_run_details`). Sin comprobación, la escritura no se repite (como antes).
+    """
+    a = tuple(args)
+    if a[:2] == ('pr', 'merge') and len(a) > 2:
+        return None, lambda _: json.loads(gh('pr', 'view', a[2], '--json', 'state'))['state'] == 'MERGED'
+    if a[:2] == ('pr', 'close') and len(a) > 2:
+        return None, lambda _: json.loads(gh('pr', 'view', a[2], '--json', 'state'))['state'] != 'OPEN'
+    if a[:2] == ('run', 'cancel') and len(a) > 2:
+        return None, lambda _: json.loads(gh('run', 'view', a[2], '--json', 'status'))['status'] == 'completed'
+    if a[:2] == ('run', 'rerun') and len(a) > 2:
+        def intento():
+            return json.loads(gh('run', 'view', a[2], '--json', 'attempt'))['attempt']
+        return intento(), lambda antes: intento() > antes
+    if a[:1] == ('api',) and _flag(a, '--method') in ('POST', 'PUT'):
+        ruta = next((x for x in a[1:] if x.startswith('repos/')), '')
+        if re.fullmatch(r'repos/[^/]+/[^/]+/statuses/[0-9a-f]{7,40}', ruta):
+            return None, None
+        pr = re.fullmatch(r'repos/([^/]+/[^/]+)/pulls/(\d+)/update-branch', ruta)
+        previa = next((x.split('=', 1)[1] for x in a if x.startswith('expected_head_sha=')), None)
+        if pr and previa:
+            def datos_pr():
+                return json.loads(gh('api', f'repos/{pr[1]}/pulls/{pr[2]}', '--jq', '{cabeza: .head.sha, base: .base.ref}'))
+
+            def punta(base):
+                return gh('api', f'repos/{pr[1]}/git/ref/heads/{base}', '--jq', '.object.sha')
+
+            try:
+                foto = punta(datos_pr()['base'])
+            except (subprocess.CalledProcessError, ValueError, KeyError):
+                foto = None  # sin foto solo vale la punta de después
+
+            def aplicado(foto):
+                datos = datos_pr()
+                cabeza = datos['cabeza']
+                if cabeza.startswith(previa) or previa.startswith(cabeza):
+                    return False
+                padres = json.loads(gh('api', f'repos/{pr[1]}/commits/{cabeza}', '--jq', '[.parents[].sha]'))
+                otros = [p for p in padres if not p.startswith(previa)]
+                if len(padres) != 2 or len(otros) != 1:
+                    return False
+                if otros[0] in (foto, punta(datos['base'])):
+                    return True
+                return bool(foto) and gh('api', f'repos/{pr[1]}/compare/{foto}...{otros[0]}', '--jq', '.status') in ('ahead', 'identical')
+            return foto, aplicado
+    return None
+
+
+# Lo que devuelve gh() cuando un intento falló pero la escritura sí llegó a GitHub: no hay salida de gh que dar, y
+# '' parecería una salida vacía real (Fable R5-14, hallazgo 27). Quien lo use como JSON o URL falla a la vista.
+YA_APLICADA = '<escritura ya aplicada en GitHub>'
+
+
 def gh(*args: str):
+    comprobacion = None if _retryable(args) else _comprobacion_escritura(args)
+    efecto = comprobacion[1] if comprobacion else None  # None: no hay efecto que comprobar
     for attempt in range(1, GH_ATTEMPTS + 1):
         try:
             result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
@@ -105,12 +177,43 @@ def gh(*args: str):
             # capture_output hides gh's own explanation; surface it in the job log.
             stderr = (exc.stderr or '').strip()
             print(f'gh {" ".join(args[:3])} failed: {stderr}', file=sys.stderr, flush=True)
-            if attempt == GH_ATTEMPTS or not _retryable(args) or not any(m.lower() in stderr.lower() for m in TRANSIENT_GH):
+            repetible = _retryable(args) or comprobacion is not None
+            if not repetible or not any(m.lower() in stderr.lower() for m in TRANSIENT_GH):
+                raise
+            # Tras el último intento solo se espera si hay un efecto que comprobar; una lectura se rinde ya.
+            if attempt == GH_ATTEMPTS and efecto is None and tuple(args[:2]) != ('pr', 'create'):
                 raise
             time.sleep(5 * attempt)
+            # El efecto se comprueba también tras el último intento: un merge que llegó con 502 no es un fallo.
             created = _existing_pr(args)
             if created:
                 return created
+            if efecto is not None and efecto(comprobacion[0]):
+                print(f'gh {" ".join(args[:3])}: el intento fallido sí llegó a GitHub; no se repite', flush=True)
+                return YA_APLICADA
+            if attempt == GH_ATTEMPTS:
+                raise
+
+
+def despachar(repo, workflow, ref, **inputs):
+    """R5-14 (hallazgos 26-29, E14): despacha y devuelve el id de LA ejecución creada (`return_run_details`).
+
+    Sin listados de antes y después: la ejecución se crea de forma asíncrona (a los 5 s puede no estar listada y se
+    despacharía dos veces) y un despacho ajeno en medio daba un falso «ya llegó». Con el id se sigue esa ejecución y
+    ninguna otra. Un fallo del POST no se repite a ciegas (gh() no tiene comprobación para él): sin id no se sabe si
+    llegó, y una carga que falla se reintenta entera mejor que duplicar despliegues.
+    """
+    campos = [x for k, v in inputs.items() for x in ('-f', f'inputs[{k}]={v}')]
+    respuesta = gh('api', '--method', 'POST', f'repos/{repo}/actions/workflows/{workflow}/dispatches',
+                   '-f', f'ref={ref}', '-F', 'return_run_details=true', *campos)
+    try:
+        return int(json.loads(respuesta)['workflow_run_id'])
+    except (ValueError, KeyError, TypeError):
+        raise RuntimeError(f'El despacho de {workflow} no devolvió el id de su ejecución: {respuesta[:200]!r}') from None
+
+
+def ejecucion(run_id):
+    return json.loads(gh('run', 'view', str(run_id), '--json', 'databaseId,headSha,status,conclusion'))
 
 
 def superseding_pages(repo, merged_sha, after_id):
@@ -246,10 +349,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         if workflow in source:
             print(f'REUSE pull_request run {pinned[workflow]} of {workflow} @ {sha}', flush=True)
             continue
-        runs = json.loads(gh('run', 'list', '--workflow', workflow, '--branch', branch,
-                             '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId'))
-        source[workflow] = ('workflow_dispatch', frozenset(item['databaseId'] for item in runs))
-        gh('workflow', 'run', workflow, '--ref', branch)
+        # Se fija la ejecución despachada por su id: nunca una anterior verde ni una de otro despacho.
+        source[workflow], pinned[workflow] = ('workflow_dispatch', frozenset()), despachar(repo, workflow, branch)
 
     deadline = time.monotonic() + timeout
     pending = set(workflows)
@@ -359,12 +460,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         raise RuntimeError('PR was not merged; refusing to deploy')
     # A GITHUB_TOKEN merge does not fire push CI/Pages either. Dispatch Pages
     # explicitly; its workflow_run starts the existing live production audits.
-    before_runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId'))
-    before_ids = {r['databaseId'] for r in before_runs}
-    args = ['workflow', 'run', 'deploy-pages.yml', '--ref', 'main']
-    if deploy_before:
-        args += ['-f', f'before_sha={pr["baseRefOid"]}']
-    gh(*args)
+    propio = despachar(repo, 'deploy-pages.yml', 'main', **({'before_sha': pr['baseRefOid']} if deploy_before else {}))
     merged_sha = merged['mergeCommit']['oid']
     print(f'Dispatched Pages after validated merge {merged_sha}', flush=True)
     if deploy_before:
@@ -372,11 +468,12 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         followed = None  # deploy posterior que contiene merged_sha, tras cancelarse el nuestro por concurrencia
         while time.monotonic() < deadline:
             if followed is None:
-                runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--event', 'workflow_dispatch', '--limit', '100', '--json', 'databaseId,headSha,status,conclusion'))
-                exact = [r for r in runs if r['databaseId'] not in before_ids and r['headSha'] == merged_sha]
-                # `--ref main` despacha desde la punta: si main avanzó tras la fusión no hay run con el SHA exacto, y
-                # vale un deploy posterior que contenga el merge (#1312, Codex y CodeRabbit).
-                current = exact[0] if exact else superseding_pages(repo, merged_sha, max(before_ids, default=0))
+                # Nuestro deploy, por su id. `ref main` despacha desde la punta: si main avanzó tras la fusión su
+                # commit es posterior y debe contener el merge (#1312); si no lo contiene, no valida nada.
+                current = ejecucion(propio)
+                if current['headSha'] != merged_sha and gh(
+                        'api', f'repos/{repo}/compare/{merged_sha}...{current["headSha"]}', '--jq', '.status') not in ('ahead', 'identical'):
+                    raise RuntimeError(f'Pages {propio} @ {current["headSha"]} no contiene el merge {merged_sha}')
             else:
                 current = superseding_pages(repo, merged_sha, followed)
             if current and current['status'] == 'completed':
