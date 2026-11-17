@@ -1,5 +1,6 @@
 {
   "minLines": 15,
+  "threshold": 1,
   "minTokens": 100,
   "format": [
     "python",

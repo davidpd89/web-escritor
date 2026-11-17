@@ -3,7 +3,9 @@ name: Código duplicado
 # Empleado gratuito: jscpd busca bloques copiados (15 líneas o más) en scripts/, qa/ y assets/*.js.
 # Semanal e informativo: deja la cifra y la lista de clones en el resumen y no bloquea. No corre en las PR
 # (SonarCloud ya mide la duplicación de lo nuevo); este mira lo heredado. Configuración: qa/jscpd.json.
-# Medido el 16/11/2026: 35 clones, 0,8 % de líneas duplicadas en 604 ficheros, unos 30 segundos.
+# Medido el 17/11/2026: 35 clones, 0,79 % de líneas duplicadas en 610 ficheros, unos 30 segundos.
+# Umbral 1 % (qa/jscpd.json, threshold): si se supera, abre o actualiza el issue vivo «codigo-duplicado»
+# (scripts/issue_vivo.py) con la lista de clones; se cierra solo al volver por debajo. Escribe issues: sin pull_request (R5-8).
 on:
   workflow_dispatch:
   schedule:
@@ -21,6 +23,9 @@ jobs:
     name: jscpd
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -32,6 +37,7 @@ jobs:
             /scripts/
             /qa/
             /assets/*.js
+            /scripts/issue_vivo.py
       - name: jscpd
         id: jscpd
         continue-on-error: true
@@ -40,7 +46,7 @@ jobs:
       - name: Resumen
         if: always()
         run: |
-          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          python3 - <<'PY' > duplicados.md
           import json
           from pathlib import Path
           informe = Path('jscpd-informe/jscpd-report.json')
@@ -59,3 +65,14 @@ jobs:
                   a, b = c['firstFile'], c['secondFile']
                   print(f"| {c['lines']} | `{a['name']}:{a['start']}` | `{b['name']}:{b['start']}` |")
           PY
+          cat duplicados.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Aviso en el issue «codigo-duplicado»
+        if: always() && steps.jscpd.outcome != 'skipped'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JSCPD: ${{ steps.jscpd.outcome }}
+        run: |
+          aviso=0; [ "$JSCPD" = failure ] && aviso=1
+          python3 scripts/issue_vivo.py --etiqueta codigo-duplicado --titulo "Código duplicado por encima del 1 %" \
+            --cuerpo duplicados.md --aviso "$aviso" --cierre "La duplicación vuelve a estar por debajo del 1 %." \
+            --descripcion "jscpd: duplicación de código por encima del umbral" --color C5DEF5
