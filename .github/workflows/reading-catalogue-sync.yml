@@ -84,6 +84,10 @@ jobs:
     # 2026-11-05: la ejecución 41937351508 se cortó a los 135 min en el segundo ciclo con 22 libros listos.
     timeout-minutes: 240
     steps:
+      # El publicador recorta todas sus esperas a este límite (limite_del_job): mejor soltar con informe que
+      # dejar que GitHub cancele el job a mitad de una espera. Minutos = timeout-minutes - 10.
+      - name: Límite del job para el publicador
+        run: echo "PUBLICAR_HASTA=$(( $(date +%s) + 230 * 60 ))" >> "$GITHUB_ENV"
       - uses: actions/checkout@v5
         with:
           filter: blob:none
