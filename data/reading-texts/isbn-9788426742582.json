@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788426742582",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de Heikala: reinos de la imaginación (ARTBOOKS) está dirigido a lectores interesados en el arte, el diseño y los libros dedicados a la obra de un artista. Por su enfoque artístico y sus 168 páginas, responde a una búsqueda distinta de la de quien quiere una novela de fantasía con una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El arte de Heikala: reinos de la imaginación (ARTBOOKS) se presenta en tapa dura, con 168 páginas dedicadas al ámbito artístico. La encuadernación rígida permite conservar el volumen en una biblioteca de arte y consultarlo físicamente, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats comparte con El arte de Heikala: reinos de la imaginación (ARTBOOKS) su relación con la creación artística y la presentación de obras visuales. El título de Xavier Mollà i Revert apunta al retrato, mientras que el de Heikala sitúa el foco en reinos imaginarios; ambos se distinguen por su autoría y su tema.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a274b727d5a32eda",
+  "origen": "chatgpt-web"
+}

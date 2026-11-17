@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388054556",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Coser y cantar: Interpretar la Odisea como si fuera un standard de jazz (Textos y Pretextos), de Jorge Brioso, está dirigido a lectores interesados en la interpretación de obras clásicas y sus relaciones con otras expresiones artísticas. Su planteamiento ensayístico encaja menos con quien busca una narración de aventuras independiente del análisis literario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Coser y cantar: Interpretar la Odisea como si fuera un standard de jazz (Textos y Pretextos) reúne 140 páginas en castellano. El formato físico permite consultar y releer las reflexiones sobre la Odisea y el jazz, en un volumen publicado por Editorial Pre-Textos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor, comparte con Coser y cantar: Interpretar la Odisea como si fuera un standard de jazz (Textos y Pretextos) el interés por relacionar manifestaciones culturales, aunque uno vincula amor y arte y el otro literatura clásica y jazz. Amor y sexo en España contado para escépticos (Historia), de Juan Eslava Galán, se aproxima desde el ensayo histórico, con un asunto distinto del análisis de la Odisea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788467084122",
+        "isbn-9788408326441"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0bd169b94bb7157f",
+  "origen": "chatgpt-web"
+}

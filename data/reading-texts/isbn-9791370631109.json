@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791370631109",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Niño de noche, de Encarna Hernández Vizcaíno, está dirigido a lectores de novela histórica que prefieren una extensión de 200 páginas. Su clasificación lo vincula a la ficción de ambientación histórica, por lo que no corresponde a quien busca específicamente un ensayo académico o una guía práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Niño de noche cuenta con una edición en tapa blanda de 200 páginas, publicada por Letrame Grupo Editorial. Su extensión permite llevar la lectura en papel sin el volumen de una novela histórica de muchas más páginas. El texto está editado en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Niño de noche se relaciona por género con Africanus (Trilogía Africanus 1) (edición conmemorativa 20.º aniversario) (Histórica), de Santiago Posteguillo. Ambos pertenecen al ámbito de la novela histórica, pero el título de Posteguillo identifica expresamente una trilogía y una edición conmemorativa, mientras que Niño de noche, de Encarna Hernández Vizcaíno, se presenta como una novela de 200 páginas. También puede compararse por género con Al otro lado de la niebla (Novela), de Juan Luis Arsuaga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466681902",
+        "isbn-9788423370849"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2b402877b72b6379",
+  "origen": "chatgpt-web"
+}

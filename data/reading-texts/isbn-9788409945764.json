@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La España por venir y otros textos se dirige a lectores interesados en las ideas políticas y los debates sobre el poder en España. El título anuncia una reunión de textos de Miguel Argaya Roca, no una novela centrada en personajes y una trama de ficción.",
+      "texto": "La España por venir y otros textos, de Miguel Argaya Roca, se dirige a quienes buscan lecturas sobre política, poder y cuestiones relacionadas con España. Sus 240 páginas corresponden a una publicación de temática política; no encaja con quien busque una novela de aventuras o una guía de ficción juvenil.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La España por venir y otros textos cuenta con una edición en tapa blanda de 240 páginas, publicada por Amadís Ediciones. Su presentación en papel permite alternar entre los distintos textos anunciados en el título y recuperar pasajes durante una consulta posterior.",
+      "texto": "La España por venir y otros textos se publica en tapa blanda, con 240 páginas en castellano. La edición de Amadís Ediciones permite consultar y releer los textos en papel, sin depender de una pantalla; su encuadernación flexible facilita transportarla frente a un volumen rígido.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los fundamentos de la Falange y otros textos es la comparación más directa con La España por venir y otros textos por su autoría compartida y su atención a cuestiones políticas. Ambos están firmados por Miguel Argaya Roca, pero el primero identifica expresamente a la Falange y el segundo plantea desde su título una reflexión sobre el futuro de España.",
+      "texto": "La España por venir y otros textos guarda una relación directa de autoría y temática política con Los fundamentos de la Falange y otros textos, también de Miguel Argaya Roca. El primero anuncia una reflexión sobre la España futura, mientras que el segundo identifica expresamente a la Falange como objeto de sus textos; ambos se diferencian de A la sombra del Estado, de Luis de la Corte Ibáñez, centrado en espionaje y poder clandestino.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409940585"
+        "isbn-9788409940585",
+        "isbn-9788434441057"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6a475d9310f4270a",
+  "fuente_hash": "4aee4e38425ecbb6",
   "origen": "chatgpt-web"
 }

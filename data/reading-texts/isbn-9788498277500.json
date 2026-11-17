@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788498277500",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "s-t técnica mixta: (colección de poemas) está orientado a quienes buscan poesía en castellano, dentro de una clasificación que también incluye literatura juvenil. Sus 382 páginas y su condición de colección poética lo distinguen de una novela juvenil construida alrededor de una trama continua.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "s-t técnica mixta: (colección de poemas) se publica en tapa blanda, con 382 páginas, bajo el sello Editorial Dilema. Esta edición física permite recorrer la colección de poemas de forma continuada o regresar a sus distintas partes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "s-t técnica mixta: (colección de poemas) puede compararse con La muerte de Penélope (Poesía), de Carolina Corvillo, por su vinculación explícita con la poesía. La obra de Aldo Sanz se identifica como una colección de poemas de 382 páginas, mientras que el título de Carolina Corvillo señala una referencia concreta a Penélope y pertenece a otra autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387838928"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "671560fab12a91b1",
+  "origen": "chatgpt-web"
+}

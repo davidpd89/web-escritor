@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791370650346",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Basura espacial: desafíos técnico-jurídicos (monografico) se dirige a lectores interesados en el derecho aplicado a los problemas técnicos y jurídicos de la basura espacial. Su carácter monográfico y sus 318 páginas lo alejan de quienes buscan una novela de ficción o una introducción general a la astronomía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "Basura espacial: desafíos técnico-jurídicos (monografico) plantea el estudio de la basura espacial desde sus dimensiones técnicas y jurídicas. Se presenta como una obra colectiva de derecho, con 318 páginas y autoría compartida por especialistas identificados en la ficha, en lugar de una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Basura espacial: desafíos técnico-jurídicos (monografico) se ofrece en tapa blanda, con 318 páginas. El ejemplar impreso permite consultar el estudio jurídico y volver a sus apartados durante el trabajo académico o profesional, sin necesidad de utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) comparte con Basura espacial: desafíos técnico-jurídicos (monografico) su orientación jurídica, pero se centra en el derecho administrativo sancionador. Argumentacion Juridica, de Carlos Parma, aborda por su título la argumentación en derecho, frente al asunto técnico-jurídico específico de la basura espacial tratado en la obra colectiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610562",
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4ec035dcc7c801ba",
+  "origen": "chatgpt-web"
+}

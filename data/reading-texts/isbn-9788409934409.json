@@ -4,31 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Historia de un lambfe (Lunático) se orienta a lectores de fantasía que también buscan elementos de narrativa histórica y contemporánea. Sus 74 páginas permiten una lectura de extensión reducida, distinta de una novela larga centrada exclusivamente en acontecimientos realistas.",
+      "texto": "Historia de un lambfe (Lunático), de Nhoa Galán, encaja con lectores interesados en fantasía que también buscan elementos de narrativa contemporánea y novela histórica. Sus 74 páginas ofrecen una extensión breve; resulta menos adecuado para quien prefiera novelas largas o relatos centrados únicamente en el realismo.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Historia de un lambfe (Lunático) puede leerse en tapa blanda o Kindle. La edición física contiene 74 páginas, una extensión que facilita transportar el ejemplar; Kindle permite leerlo desde dispositivos electrónicos sin llevar el volumen impreso.",
+      "texto": "Historia de un lambfe (Lunático) puede leerse en tapa blanda o Kindle. Sus 74 páginas hacen que la edición impresa sea un volumen breve y fácil de transportar, mientras que Kindle permite leerlo desde un dispositivo compatible sin llevar un ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Historia de un lambfe (Lunático) comparte autora y referencia a Lunático con LUNÁTICO: Primera Parte e Historia de una elfa (LUNÁTICO), de Nhoa Galán. Los tres títulos mantienen una vinculación nominal, pero Historia de un lambfe (Lunático) se distingue por sus 74 páginas y su combinación de fantasía, narrativa contemporánea y novela histórica. LUNÁTICO: Primera Parte incorpora expresamente una división en partes desde el título.",
+      "texto": "Historia de un lambfe (Lunático) comparte autoría y referencia a Lunático con LUNÁTICO: Primera Parte y Historia de una elfa (LUNÁTICO), de Nhoa Galán. La diferencia está en que Historia de un lambfe (Lunático) tiene 74 páginas y combina fantasía, narrativa contemporánea y novela histórica. LUNÁTICO: Primera Parte se identifica expresamente como una primera parte, mientras que Historia de una elfa (LUNÁTICO) destaca la figura de una elfa desde su título.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
+        "numero_paginas",
         "categorias",
-        "numero_paginas"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788409929757",
@@ -38,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b8810bfca512ea97",
+  "fuente_hash": "2fcd24ce7d794be6",
   "origen": "chatgpt-web"
 }

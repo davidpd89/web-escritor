@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370520205",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Villano de vacaciones Núm. 08: 8 se dirige a lectores juveniles de cómic y novela gráfica. Esta obra de Yuu Morikawa tiene 130 páginas y el título la identifica como el n.º 08, por lo que se diferencia de las publicaciones que comienzan una colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Villano de vacaciones Núm. 08: 8 se ofrece en tapa blanda, con 130 páginas en castellano. Su extensión permite transportar este volumen de cómic juvenil en papel, mientras que la cubierta flexible facilita guardarlo junto a otras entregas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Villano de vacaciones Núm. 08: 8 comparte el ámbito del cómic con Blue Lock nº 33 (Manga Shonen). El libro de Yuu Morikawa está clasificado como narrativa juvenil, mientras que el de Yusuke Nomura y Muneyuki Kaneshiro se identifica como manga shonen; ambos títulos señalan entregas numeradas distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50697056660629b9",
+  "origen": "chatgpt-web"
+}

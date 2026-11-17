@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788410428522",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No estoy bien y no sé por qué: Cómo dejar de vivir en piloto automático y superar la ansiedad silenciosa (Kitaeru Libros) se dirige a lectores interesados en el desarrollo personal y la ansiedad que puede pasar inadvertida. Su planteamiento de autoayuda y ensayo se aparta de la ficción y de los libros dedicados exclusivamente a la salud física.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y consultar en papel las 288 páginas de No estoy bien y no sé por qué: Cómo dejar de vivir en piloto automático y superar la ansiedad silenciosa (Kitaeru Libros). La edición Kindle ofrece una alternativa digital para llevar la lectura en el móvil o en un lector electrónico sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta comparte con No estoy bien y no sé por qué: Cómo dejar de vivir en piloto automático y superar la ansiedad silenciosa (Kitaeru Libros) el interés por afrontar dificultades personales. El primero se ocupa de los aprendizajes de la vida adulta; el segundo delimita su atención a la ansiedad silenciosa y los hábitos automáticos.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938490"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e667f4cbf27bdea",
+  "origen": "chatgpt-web"
+}

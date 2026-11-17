@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores de historia y relatos biográficos interesados en las condenas judiciales y las experiencias de un jornalero. No responde al planteamiento de una novela histórica de ficción ni al de una biografía centrada en personajes de la realeza.",
+      "texto": "Esta obra de Silvestre Linares López se dirige a lectores de historia y relatos biográficos interesados en condenas judiciales y experiencias personales. Su asunto central, un jornalero condenado a treinta años por una supuesta conversación de nueve minutos, encaja menos con quienes buscan ficción histórica o memorias centradas en la vida cotidiana.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El libro examina el caso de un jornalero condenado a treinta años por una supuesta conversación de nueve minutos. Su enfoque biográfico e histórico sitúa en primer plano la relación entre una acusación concreta y sus consecuencias penales.",
+      "texto": "El libro aborda una condena de treinta años impuesta a un jornalero a partir de una supuesta conversación de nueve minutos. Presenta el caso como una historia verdadera y lo sitúa en el ámbito de la memoria biográfica y la historia, con el contraste entre la brevedad del hecho atribuido y la duración de la pena como cuestión central.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -20,18 +21,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 188 páginas en castellano y está publicada por Silvestre Linares López. Su extensión permite abordar el relato histórico en un volumen físico relativamente breve, que también puede consultarse para localizar los episodios del caso.",
+      "texto": "La tapa blanda es el formato disponible para esta obra de 188 páginas, publicada en castellano. Su extensión permite abordar el relato histórico en un volumen físico relativamente breve, que puede transportarse y consultarse sin recurrir a dispositivos electrónicos.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "titulo"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, comparte con UN ELEMENTO PELIGROSO: La verdadera historia de un jornalero condenado a treinta años por una supuesta conversación de nueve minutos el interés por experiencias personales vinculadas a situaciones de privación de libertad. El libro de Silvestre Linares López se concentra en la condena de un jornalero, mientras que el de Eduardo de Ontañón remite desde su título al ámbito de los campos de concentración.",
+      "texto": "Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, ofrece un punto de comparación por su vinculación con experiencias históricas de privación de libertad. Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978), de Tomeu Canyelles Canyelles, comparte el interés por reconstruir una vida concreta, mientras que la obra de Silvestre Linares López se centra en una condena judicial.",
       "evidencias": [
         "afines_catalogo",
         "titulo",
@@ -39,12 +39,13 @@
         "categorias"
       ],
       "enlaces": [
+        "isbn-9788417645311",
         "isbn-9788410148659"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b9de0a9f940e0fe6",
+  "fuente_hash": "6ab7918d4af7b8f0",
   "origen": "chatgpt-web"
 }

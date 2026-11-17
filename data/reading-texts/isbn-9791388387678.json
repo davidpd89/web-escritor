@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388387678",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El tercer chimpancé: Origen y futuro del animal humano (Ciencia y Tecnología) se dirige a lectores de divulgación científica interesados en el origen de la humanidad y su futuro. Sus 544 páginas y su orientación ensayística lo alejan de quienes buscan una introducción breve o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El tercer chimpancé: Origen y futuro del animal humano (Ciencia y Tecnología) se presenta en tapa blanda, con 544 páginas en castellano. Su extensión favorece una lectura por sesiones y la consulta posterior de pasajes sobre el origen y el futuro humanos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El tercer chimpancé: Origen y futuro del animal humano (Ciencia y Tecnología) puede compararse con Reyes, jefes, ases y dioses: ¿Cuándo marcan diferencias los líderes? (Historia), también de Jared Diamond. Ambos plantean preguntas sobre la humanidad, pero el primero aborda sus orígenes y futuro desde la divulgación científica, mientras que el segundo se concentra en el papel histórico de los líderes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387600617"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2934ad9efc46e089",
+  "origen": "chatgpt-web"
+}

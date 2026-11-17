@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409947775",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Volver al Cuerpo: El cuerpo es el camino se dirige a lectores interesados en el desarrollo personal y el bienestar corporal. Su enfoque de autoayuda y salud lo distingue de los libros centrados en la ficción o en el estudio de enfermedades concretas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Volver al Cuerpo: El cuerpo es el camino está disponible en tapa blanda, con 166 páginas en castellano. Esta edición permite consultar distintos pasajes en papel y volver a ellos durante la lectura, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Volver al Cuerpo: El cuerpo es el camino comparte el ámbito del bienestar con Aliméntate según tus genes / Eat According to Your Genes, de Alejandra Ponce. Mientras el libro de Elsa Sánchez Ortín sitúa el cuerpo en el centro de su propuesta de desarrollo personal, el de Alejandra Ponce plantea la alimentación desde la perspectiva genética anunciada en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073872935"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41b8ad7b3011e86d",
+  "origen": "chatgpt-web"
+}

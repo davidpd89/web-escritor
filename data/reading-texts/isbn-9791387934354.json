@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387934354",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Devocionario (MISTICA), de Joanna Gray, se dirige a lectores interesados en la religión y la espiritualidad. Por su temática, queda fuera de las búsquedas centradas en novela histórica, aventuras o ficción romántica; sus 384 páginas corresponden a una edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Devocionario (MISTICA) se presenta en tapa dura, con 384 páginas en castellano. Esta encuadernación ofrece una cubierta rígida para conservar el volumen en una biblioteca personal o entregarlo como regalo; la edición está publicada por Cinco Tintas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Devocionario (MISTICA) puede compararse con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación por su relación con la espiritualidad. El primero se presenta como devocionario, mientras que el segundo anuncia fundamentos y práctica de un camino de liberación; sus títulos plantean aproximaciones distintas al ámbito espiritual.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8f8f8854e4004f91",
+  "origen": "chatgpt-web"
+}

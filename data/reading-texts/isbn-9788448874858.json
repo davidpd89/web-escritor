@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bluey. Un cuento - La noche antes de Navidad (Cuentos infantiles) está orientado a lectores infantiles interesados en aventuras y relatos navideños. Con 32 páginas, responde a una lectura breve vinculada al personaje Bluey, en lugar de ofrecer una novela juvenil extensa o un manual de actividades.",
+      "texto": "Bluey. Un cuento - La noche antes de Navidad (Cuentos infantiles), de Bluey, está dirigido al público infantil que busca aventuras relacionadas con la Navidad. Por su orientación hacia los cuentos infantiles y sus 32 páginas, se distancia de las novelas juveniles largas y de las lecturas centradas en conflictos adultos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,31 +14,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 32 páginas de Bluey. Un cuento - La noche antes de Navidad (Cuentos infantiles) en un volumen físico que puede compartirse durante la lectura familiar o regalarse en Navidad. Kindle permite acceder al cuento en formato digital desde un dispositivo compatible, sin llevar el libro de papel.",
+      "texto": "La tapa dura de Bluey. Un cuento - La noche antes de Navidad (Cuentos infantiles) resulta adecuada para conservar el cuento y compartir su lectura en papel durante las fiestas. La edición Kindle permite llevar sus 32 páginas en un dispositivo compatible y acceder al cuento sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El cuento navideño de Bluey comparte personaje y autoría con Bluey. Un cuento con solapas - Fiesta de pijamas (Cuentos infantiles), de Bluey. La primera obra tiene 32 páginas y trata la noche anterior a Navidad, mientras que la segunda incorpora solapas y gira en torno a una fiesta de pijamas. Ambas son lecturas infantiles, pero ofrecen temáticas y formas de interacción diferentes.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "numero_paginas",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788448875541"
+        "formatos_disponibles"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "lecturas_afines: más de cuatro frases",
+    "faltan módulos: lecturas_afines"
+  ],
   "version": 3,
-  "fuente_hash": "20784c586926081d",
+  "fuente_hash": "f861d2b04df161f6",
   "origen": "chatgpt-web"
 }

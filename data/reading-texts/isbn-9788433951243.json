@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Querida Sharik se dirige a lectores de narrativa contemporánea interesados en la identidad, la memoria familiar y las relaciones entre generaciones de mujeres. Margarita García Robayo utiliza cartas, recuerdos y escenas cotidianas para explorar una herencia vinculada al Caribe colombiano y Angola; se distancia de las novelas centradas en la acción o el suspense.",
+      "texto": "Querida Sharik, de Margarita García Robayo, se dirige a lectores de narrativa contemporánea interesados en la memoria familiar, la identidad y las relaciones entre generaciones. Su combinación de cartas, recuerdos dolorosos, ironía y referencias a la esclavitud puede no encajar con quienes buscan una historia de aventuras o una lectura centrada exclusivamente en el humor.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Querida Sharik es una novela contemporánea construida alrededor de una correspondencia imaginada con una antepasada y otras mujeres de la familia. Un test genético impulsa la búsqueda de los orígenes de la narradora, mientras las cartas permiten examinar la esclavitud, los vínculos familiares y los recuerdos desde una voz que combina intimidad e ironía.",
+      "texto": "Querida Sharik propone una novela contemporánea construida alrededor de una correspondencia familiar y ancestral. Una prueba genética lleva a la narradora a investigar sus raíces africanas y, durante una estancia en una isla caribeña, las cartas dirigidas a distintas mujeres de su familia conectan experiencias personales con la memoria de la esclavitud, la maternidad y los vínculos heredados.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -23,12 +23,10 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Querida Sharik está disponible en tapa blanda, con 208 páginas publicadas por Editorial Anagrama. El formato permite leer y releer en papel las cartas que articulan la novela, así como alternar sus recuerdos familiares con los episodios de la vida cotidiana en la isla.",
+      "texto": "Querida Sharik puede leerse en tapa blanda o Kindle, y también está disponible como audiolibro. La edición impresa reúne 208 páginas para seguir las cartas y volver a pasajes concretos; Kindle permite llevar la novela en un lector electrónico o móvil, mientras que el audiolibro ofrece la posibilidad de escuchar su narración durante otras actividades.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "editorial",
-        "edicion",
         "formatos_disponibles",
         "sinopsis_editorial"
       ]
@@ -36,6 +34,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "305533e81a34f6e9",
+  "fuente_hash": "6dce20121644838b",
   "origen": "chatgpt-web"
 }

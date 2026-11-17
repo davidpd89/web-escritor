@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387995492",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La calavera de skeletor. El gran villano en la cultura pop. se dirige a lectores interesados en Skeletor y en la representación de los villanos dentro de la cultura popular. Fernando López-Guisado trata este referente en una publicación clasificada como cómic y novela gráfica, distinta por su temática de las novelas románticas o de ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La calavera de skeletor. El gran villano en la cultura pop. se presenta en tapa dura y reúne 312 páginas en castellano. La edición de Diabolo Ediciones ofrece un volumen físico de encuadernación rígida, apropiado para conservar en una colección dedicada al cómic y la cultura popular.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "10e6f4d722108558",
+  "origen": "chatgpt-web"
+}

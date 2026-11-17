@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791370408084",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la ciencia de datos y en su relación con las propuestas de accesibilidad. Su orientación hacia cuestiones científicas y aplicaciones prácticas se distancia de la narrativa juvenil de ficción y de los libros dedicados exclusivamente a historias de la naturaleza.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra relaciona dos ámbitos: el tratamiento de datos y la accesibilidad. El término «propuestas» del título señala una dimensión aplicada junto al componente científico, de modo que el asunto no queda reducido a la descripción general de la ciencia de datos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para esta publicación de 398 páginas, editada en castellano por Editorial Tirant Lo Blanch. Permite consultar el contenido científico en papel y señalar apartados durante una lectura de estudio.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Así es la vida de los animales: Historias de crueldad, amor y supervivencia en la naturaleza (Imago Mundi) coincide en su vinculación con la divulgación científica, pero se ocupa de la vida animal. Ciencia de datos y propuestas para la accesibilidad (Monografías Maior) desplaza el foco hacia los datos y la accesibilidad, con una orientación temática distinta de la divulgación sobre naturaleza.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423370979"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa8027ed6b102cdc",
+  "origen": "chatgpt-web"
+}

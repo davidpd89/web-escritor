@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Por la gracia de Dios encaja con lectores de novela histórica interesados en el poder político, la memoria y los conflictos del siglo XX. Su atención a los recuerdos y la psicología de Francisco Franco lo aleja de las novelas históricas centradas principalmente en aventuras o batallas.",
+      "texto": "Por la gracia de Dios encaja con lectores de novela histórica interesados en el siglo XX, la historia política y la psicología de sus protagonistas. Su planteamiento se dirige especialmente a quienes prefieren observar los recuerdos y la perspectiva de una figura histórica antes que seguir una trama centrada exclusivamente en la acción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Por la gracia de Dios propone una novela histórica construida alrededor de la memoria de Francisco Franco. José Antonio Fortea sitúa el punto de partida en 1973, cuando el dictador recuerda episodios de su trayectoria desde los jardines de El Pardo. La guerra civil, el ejercicio del poder y las tensiones políticas forman parte de ese recorrido retrospectivo.",
+      "texto": "Por la gracia de Dios propone una novela histórica construida alrededor de los recuerdos de Francisco Franco en 1973. La narración aborda su memoria personal, la guerra civil y la consolidación del poder, con especial atención a sus recuerdos y a su dimensión psicológica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,28 +23,11 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Por la gracia de Dios puede leerse en tapa dura o Kindle. La edición de Istoría reúne 592 páginas con sobrecubierta, adecuada para una biblioteca personal o como regalo; Kindle evita transportar ese volumen físico y permite continuar la lectura en distintos dispositivos compatibles.",
+      "texto": "La tapa dura con sobrecubierta reúne sus 592 páginas en un ejemplar físico, pensado para quien prefiere conservar el libro en papel. Kindle permite llevar la misma lectura en formato digital y consultarla desde un dispositivo compatible, sin depender del volumen impreso.",
       "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Por la gracia de Dios y Ave César (Narrativas Históricas) comparten su vinculación con la novela histórica y las figuras de poder. José Antonio Fortea centra su relato en los recuerdos de Francisco Franco durante 1973, mientras que el título de Rex Warner remite al ámbito romano. Astur (Saga de la Reconquista) (Éxitos) ofrece otra referencia histórica, asociada por su título a la Reconquista en lugar de al siglo XX.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788401039539",
-        "isbn-9788435064125"
+        "formatos_disponibles",
+        "edicion"
       ]
     }
   ],

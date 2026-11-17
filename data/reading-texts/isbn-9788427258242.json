@@ -4,29 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cómo decirte que te quiero: Porque el amor está en las pequeñas cosas (Serres), de Jess Bircham, está dirigido a quienes buscan una lectura sobre las formas cotidianas de expresar afecto. Sus temas se relacionan con el amor, la pareja y los vínculos familiares. No corresponde a quien busca un tratado especializado de psicología ni una novela romántica extensa.",
+      "texto": "Cómo decirte que te quiero: Porque el amor está en las pequeñas cosas (Serres), de Jess Bircham, se orienta a lectores interesados en las relaciones afectivas y el entorno familiar. Su enfoque en el cariño cotidiano lo diferencia de los libros centrados en aventuras, intrigas o conflictos de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cómo decirte que te quiero: Porque el amor está en las pequeñas cosas (Serres) se ofrece en tapa dura, con 128 páginas en castellano. Su extensión permite leerlo en sesiones relativamente cortas, mientras que la cubierta rígida favorece su conservación como libro de regalo. Molino publica esta edición de Jess Bircham.",
+      "texto": "Cómo decirte que te quiero: Porque el amor está en las pequeñas cosas (Serres) está editado en tapa dura y tiene 128 páginas. La encuadernación rígida de Molino permite conservarlo como libro físico y presentarlo como regalo relacionado con los vínculos familiares.",
       "evidencias": [
         "titulo",
-        "autores",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Bienvenido, bebé: Un libro muy tierno para dar la bienvenida a un nuevo bebé y celebrar el amor que lo rodea: 15 (Álbumes ilustrados), de Jane Chapman, comparte con Cómo decirte que te quiero: Porque el amor está en las pequeñas cosas (Serres), de Jess Bircham, el interés por expresar afecto. El primero se centra en la llegada de un bebé y el entorno familiar; el segundo aborda los pequeños gestos con los que se comunica el amor.",
+      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano), de Helene Delforge, comparte con Cómo decirte que te quiero: Porque el amor está en las pequeñas cosas (Serres) el interés por los vínculos familiares, aunque centra su título en los abuelos. Amar no duele (No ficción), de Júlia Martí, aborda el amor desde otra perspectiva, mientras que la obra de Jess Bircham pone el acento en los pequeños gestos de afecto.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387948160"
+        "isbn-9788491429586",
+        "isbn-9791388139017"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "19117d2e7e1c83bb",
+  "fuente_hash": "fa69e2fc0cfece23",
   "origen": "chatgpt-web"
 }

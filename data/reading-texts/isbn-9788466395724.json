@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche Biblioteca de Hogwarts: contiene: Animales fantásticos | Los cuentos de Beedle el bardo | Quidditch a través de los tiempos (Harry Potter) encaja con lectores interesados en el universo fantástico de Harry Potter y en ampliar sus lecturas con relatos y contenidos relacionados con la naturaleza. Reúne tres títulos de J.K. Rowling; puede interesar menos a quien busque una novela independiente o narrativa alejada de la fantasía.",
+      "texto": "Este estuche de J.K. Rowling se dirige a lectores de fantasía interesados en los relatos y libros complementarios del universo Harry Potter. Reúne Animales fantásticos, Los cuentos de Beedle el bardo y Quidditch a través de los tiempos en una edición de bolsillo; no está planteado como un estuche de las novelas principales.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los cuentos de Beedle el bardo (Un libro de la biblioteca de Hogwarts) (Harry Potter), de J.K. Rowling y Animales fantásticos y dónde encontrarlos (Un libro de la biblioteca de Hogwarts) (Harry Potter), de J.K. Rowling son las dos referencias más directas: ambos títulos forman parte del contenido del estuche. La diferencia está en que esta edición reúne también Quidditch a través de los tiempos en un único conjunto.",
+      "texto": "Los cuentos de Beedle el bardo (Un libro de la biblioteca de Hogwarts) (Harry Potter) comparte autoría y contenido con este estuche, que lo reúne junto a otros libros. En cambio, Harry Potter Envío especial - Correo por Lechuza (estuche con la SAGA COMPLETA) (Harry Potter [edición con la portada ilustrada por Jonny Duddle]) agrupa la saga completa, mientras que la Biblioteca de Hogwarts reúne tres obras complementarias.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,12 +22,12 @@
       ],
       "enlaces": [
         "isbn-9788466395694",
-        "isbn-9788466395687"
+        "isbn-9788466393614"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d84805cb2bc07efa",
+  "fuente_hash": "9a4d7d0f47045a45",
   "origen": "chatgpt-web"
 }

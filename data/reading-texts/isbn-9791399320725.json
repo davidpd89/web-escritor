@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399320725",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Burnout en el trabajo: Guía práctica para trabajadores, mandos y empresas: prevenirlo, detectarlo y actuar. Con casos, 170 test y modelos para fotocopiar está orientado a trabajadores, responsables de equipos y empresas que necesitan abordar el desgaste laboral. Su planteamiento práctico, con casos, pruebas y modelos, se aleja de la lectura narrativa y de los libros centrados únicamente en reflexión personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 222 páginas de esta guía y permite consultar en papel los casos, los 170 test y los modelos para fotocopiar. Kindle ofrece una alternativa de lectura digital para revisar el contenido desde dispositivos compatibles, aunque la edición impresa resulta más directa cuando se quieren utilizar los modelos en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Burnout en el trabajo comparte autor y destinatarios laborales con Acoso en el trabajo: Guía práctica para trabajadores, mandos y empresas: reconocerlo, prevenirlo y actuar. Laboral, sexual, por razón de sexo y LGTBI. Con 50 casos y sentencias, test y protocolos. José Luis Efraín Zeballos aborda el burnout en el primero, con 170 test y modelos para fotocopiar, mientras que el segundo trata el acoso laboral y otras modalidades de acoso mediante casos, test y protocolos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399320732"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05d5cefaabc5816c",
+  "origen": "chatgpt-web"
+}

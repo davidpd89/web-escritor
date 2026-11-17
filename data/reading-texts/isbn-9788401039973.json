@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788401039973",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La deuda del bosque (Éxitos), de Wesley King, se dirige a lectores que buscan terror combinado con misterio. Sus 368 páginas ofrecen una extensión intermedia; por su clasificación temática, queda fuera de las preferencias de quienes quieren evitar el terror o buscan una novela exclusivamente romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La deuda del bosque (Éxitos) se publica en tapa blanda, con 368 páginas en castellano bajo el sello Plaza & Janés. La cubierta flexible permite manejar el volumen sin la rigidez de una encuadernación en tapa dura, tanto durante la lectura como al transportarlo; esta es la presentación incluida para la novela.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La deuda del bosque (Éxitos) puede compararse con Carrie (edición serie), de Stephen King, y Coraline, de Neil Gaiman, por su proximidad al terror y a las situaciones inquietantes. La obra de Wesley King combina terror y misterio; Carrie (edición serie) parte del acoso escolar y una convivencia familiar marcada por el fanatismo religioso, mientras que Coraline presenta una casa con una versión alternativa de su interior.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396806",
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "46fd45027b3a1d20",
+  "origen": "chatgpt-web"
+}

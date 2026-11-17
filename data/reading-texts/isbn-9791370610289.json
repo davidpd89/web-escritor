@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en los criptoactivos desde su consideración como instrumentos financieros y su dimensión jurídica. Encaja menos con quienes buscan una guía práctica de inversión o una explicación tecnológica general, porque su planteamiento corresponde a una monografía de derecho.",
+      "texto": "Se orienta a lectores interesados en los criptoactivos desde su consideración como instrumentos financieros dentro del derecho. Sus 200 páginas corresponden a una monografía jurídica, por lo que su enfoque difiere del de una guía de inversión personal o una introducción general a la tecnología.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los criptoactivos: instrumento financiero (Monografía) cuenta con una edición en tapa blanda de 200 páginas. Publicada por Aranzadi en castellano, permite consultar físicamente el tratamiento de los criptoactivos como instrumentos financieros y señalar los apartados que se quieran revisar.",
+      "texto": "Los criptoactivos: instrumento financiero (Monografía) se publica en tapa blanda y consta de 200 páginas en castellano. La edición física permite consultar sus contenidos jurídicos en papel y manejar un volumen más corto que otras monografías de mayor extensión.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) comparte el interés por las implicaciones jurídicas de tecnologías vinculadas al entorno digital. Joel Fernandez Diez centra su monografía en los criptoactivos como instrumentos financieros, mientras Ana Isabel Quiroz Ruiz aborda los desafíos legales del blockchain. La distinción principal está entre el instrumento financiero y la tecnología desde una perspectiva jurídica más general.",
+      "texto": "Los criptoactivos: instrumento financiero (Monografía) puede compararse con Basura espacial: desafíos técnico-jurídicos (monografico), ya que ambos títulos vinculan cuestiones técnicas con el derecho. Joel Fernandez Diez aborda los criptoactivos como instrumentos financieros, mientras que la otra obra se ocupa de los desafíos técnico-jurídicos de la basura espacial. La primera tiene un único autor y la segunda presenta una autoría colectiva.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610265"
+        "isbn-9791370650346"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "61e57fe3ff47cdd1",
+  "fuente_hash": "3d7bf783ffd9edd9",
   "origen": "chatgpt-web"
 }

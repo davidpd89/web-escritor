@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399280807",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Obras completas de Félix Francisco Casanova: Edición 50 aniversario (EDICIONES ESPECIALES) se orienta a lectores interesados en la narrativa contemporánea y juvenil y en reunir la obra de un autor. Sus 696 páginas plantean una lectura más extensa que la de quien busca un libro breve e independiente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Obras completas de Félix Francisco Casanova: Edición 50 aniversario (EDICIONES ESPECIALES) se publica en tapa blanda, con 696 páginas. Es un volumen físico extenso, apropiado para consultar diferentes partes de la obra y mantenerlas reunidas en una misma edición conmemorativa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Obras completas de Félix Francisco Casanova: Edición 50 aniversario (EDICIONES ESPECIALES) se relaciona con Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday) por su vinculación con la narrativa juvenil. La diferencia editorial es que el primero reúne obras de Félix Francisco Casanova en una edición conmemorativa, mientras el segundo presenta un título de John Green en edición limitada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6e448885ef4db5ec",
+  "origen": "chatgpt-web"
+}

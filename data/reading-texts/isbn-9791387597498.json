@@ -4,44 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hija del Norte (Los pequeños salvajes) se orienta a lectores de fantasía infantil y juvenil que buscan una obra de cierta extensión. Sus 448 páginas la alejan de los cuentos breves para primeros lectores y de quienes prefieren una historia realista ajena a los elementos fantásticos.",
+      "texto": "Hija del Norte (Los pequeños salvajes) se dirige a lectores infantiles y juveniles interesados en la fantasía. Sus 448 páginas suponen una lectura extensa dentro de este ámbito, por lo que encaja menos con quienes buscan cuentos breves o libros de pocas páginas.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hija del Norte (Los pequeños salvajes) se presenta en tapa blanda, con 448 páginas en castellano y edición de Errata naturae. Este formato permite leer la obra en papel y transportarla sin la rigidez de una cubierta de cartón, aunque su extensión requiere reservar espacio en la mochila.",
+      "texto": "La edición de Errata naturae ofrece 448 páginas en tapa blanda y en castellano. Permite leer la obra de Edith Pattou en papel, marcar el punto de lectura y conservar el ejemplar para posteriores lecturas, aunque su extensión requiere más espacio que un cuento breve.",
       "evidencias": [
-        "titulo",
+        "edicion",
         "numero_paginas",
         "idioma",
-        "edicion",
-        "editorial",
+        "autores",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Brujas y dragones 2: La bruja mala del oeste comparte con Hija del Norte (Los pequeños salvajes) el ámbito de la fantasía para lectores infantiles, aunque el primero identifica una entrega numerada y el segundo no indica una posición concreta. Acurrúcate a mi lado (Cuentos para peques) se orienta hacia los cuentos para los más pequeños, frente a las 448 páginas de la obra de Edith Pattou.",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste, de Ledicia Costas y Luis Miguel Pérez, comparte con Hija del Norte (Los pequeños salvajes) el ámbito de la fantasía infantil y juvenil, aunque su título identifica expresamente una segunda entrega. AVATAR. La leyenda de Aang 5 - Norte y sur, de Nickelodeon, también presenta una ambientación fantástica, pero continúa las aventuras de personajes de un universo ya establecido, mientras que Hija del Norte (Los pequeños salvajes) es una obra de Edith Pattou.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9781836066385",
+        "isbn-9788448874803",
         "isbn-9791387501877"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9b8a94b3c81ad9c0",
+  "fuente_hash": "c82d6d1f1230e551",
   "origen": "chatgpt-web"
 }

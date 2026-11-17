@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las aventuras de Pinocho (ed. especial bicentenario) (Ilustrados), de Carlo Collodi, se dirige a lectores de clásicos y relatos de aventuras. Su edición ilustrada también interesa a quienes prefieren una presentación visual del texto, mientras que no corresponde a una novela centrada en la ciencia ficción o el terror.",
+      "texto": "Las aventuras de Pinocho (ed. especial bicentenario) (Ilustrados), de Carlo Collodi, se dirige a lectores interesados en los clásicos literarios y las narraciones de aventuras. Esta edición ilustrada también responde a quienes buscan una presentación especial de una obra clásica, en lugar de una novela contemporánea de nueva creación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,27 +13,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición especial bicentenario de Las aventuras de Pinocho (ed. especial bicentenario) (Ilustrados) se presenta en tapa dura y reúne 196 páginas. Publicada por Nórdica Libros, combina una encuadernación rígida con su identificación como edición ilustrada, dos características relevantes para conservarla o regalarla.",
+      "texto": "Las aventuras de Pinocho (ed. especial bicentenario) (Ilustrados) se publica en tapa dura, con 196 páginas en castellano. La edición de Nórdica Libros reúne una presentación ilustrada y una encuadernación rígida, características pertinentes para conservar el clásico en una biblioteca o regalarlo.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "editorial",
-        "edicion"
+        "numero_paginas",
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las aventuras de Pinocho (ed. especial bicentenario) (Ilustrados) puede compararse con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett, por su relación con la narrativa de elementos mágicos. La obra de Carlo Collodi pertenece a los clásicos de aventuras y se presenta en una edición ilustrada de tapa dura, mientras que la de Heather Fawcett se identifica como narrativa de temática mágica.",
+      "texto": "Las aventuras de Pinocho (ed. especial bicentenario) (Ilustrados) comparte el ámbito de las aventuras narrativas con Aquellos marineros de Elcano: La novela del buque escuela de la Armada Española (Narrativa con Valores). La obra de Carlo Collodi es un clásico presentado en edición ilustrada, mientras que la de Blanco Corredoira se identifica como una novela sobre un buque escuela, con un asunto vinculado al mundo naval.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387749316"
+        "isbn-9791388444159"
       ]
     }
   ],

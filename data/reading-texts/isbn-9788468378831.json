@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788468378831",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Academia de ingeniería. Inteligencia artificial y robots (Juegos), de Max Wainewright, se orienta al público infantil interesado en la ingeniería, la inteligencia artificial y los robots. Sus 64 páginas y su identificación como libro de juegos lo distinguen de una novela juvenil extensa o de una lectura centrada en personajes de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Academia de ingeniería. Inteligencia artificial y robots (Juegos) plantea el acercamiento a la inteligencia artificial y los robots mediante un libro identificado como de juegos. Sus 64 páginas en tapa blanda permiten recorrer el contenido por escrito y volver a las páginas anteriores para consultar los temas tratados.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Academia de ingeniería. Inteligencia artificial y robots (Juegos) se presenta en tapa blanda, con 64 páginas en castellano publicadas por Edebé. Es un volumen físico de extensión reducida que puede llevarse en una mochila y consultarse directamente sobre papel, tanto durante la lectura como al volver a sus contenidos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ab6b18973d7351c",
+  "origen": "chatgpt-web"
+}

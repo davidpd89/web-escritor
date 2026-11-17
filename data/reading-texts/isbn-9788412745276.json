@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788412745276",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "ImbécilArte, de Daniel Torrado Medina, se dirige a quienes buscan publicaciones de arte y diseño en castellano. Con 64 páginas, encaja con quien prefiere una obra breve frente a un volumen de lectura extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "ImbécilArte está disponible en tapa dura, con una extensión de 64 páginas. Esta encuadernación permite conservarlo en una estantería o entregarlo como regalo en formato físico, sin necesidad de elegir entre distintas ediciones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ImbécilArte y 720 retrats, de Xavier Mollà i Revert, figuran entre las publicaciones relacionadas con el ámbito artístico. La diferencia identificable está en la autoría y en el enfoque que sugieren sus títulos: ImbécilArte presenta una denominación general, mientras que 720 retrats remite al retrato.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "75a76e4300c1bf3a",
+  "origen": "chatgpt-web"
+}

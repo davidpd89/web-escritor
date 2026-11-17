@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La imagen de España a través de sus invenciones se dirige a lectores interesados en las invenciones españolas y su relación con la imagen del país. Por su temática y su clasificación en arte y diseño, se aparta de quienes buscan una novela de ficción con una trama protagonizada por personajes.",
+      "texto": "La imagen de España a través de sus invenciones se dirige a quienes se interesan por la representación de España mediante sus creaciones e inventos, desde una perspectiva vinculada al arte y el diseño. Sus 450 páginas la alejan de una consulta breve; tampoco corresponde a quien busca una novela de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La imagen de España a través de sus invenciones cuenta con una edición en tapa blanda de 450 páginas. Es un volumen extenso para consultar por partes o leer de forma continuada; la cubierta flexible facilita manejarlo sin la rigidez de una encuadernación de tapa dura.",
+      "texto": "La imagen de España a través de sus invenciones cuenta con una edición en tapa blanda de 450 páginas. Por su extensión, el formato en papel permite mantener el volumen como obra de consulta y regresar a distintas partes del contenido sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -22,7 +22,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "720 retrats y La imagen de España a través de sus invenciones se relacionan con la representación visual, aunque abordan asuntos diferentes. El libro de Xavier Mollà i Revert se centra, según su título, en retratos; el de O.A. Oficina Española de Patentes y Marcas trata la imagen de España mediante sus invenciones.",
+      "texto": "La imagen de España a través de sus invenciones puede compararse con 720 retrats por su vinculación con el ámbito visual y artístico. La obra de O.A. Oficina Española de Patentes y Marcas se centra, según su título, en las invenciones y la imagen de España; la de Xavier Mollà i Revert sitúa los retratos en primer plano. También difieren en su autoría, institucional en el primer caso e individual en el segundo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2a4ee6ea294e98a9",
+  "fuente_hash": "6b979a7457736d58",
   "origen": "chatgpt-web"
 }

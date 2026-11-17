@@ -4,51 +4,50 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La caza del ejecutor: Edición limitada a precio especial (Colección Especial) se dirige a lectores de misterio, thriller y narraciones relacionadas con el poder político y la historia del siglo XX. Sus 560 páginas corresponden a una lectura extensa, alejada de los ensayos breves o los libros de consulta temática.",
+      "texto": "La caza del ejecutor: Edición limitada a precio especial (Colección Especial) se dirige a lectores interesados en el misterio, el thriller y los elementos históricos dentro de la narrativa contemporánea. Por esa combinación temática, se distancia de quienes buscan romance o fantasía como componentes principales.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta versión de La caza del ejecutor: Edición limitada a precio especial (Colección Especial) se identifica expresamente como una edición limitada de la Colección Especial. Booket la publica en tapa dura, en castellano y con 560 páginas. El título incorpora la indicación de precio especial, sin que ello implique un formato diferente del señalado para esta edición.",
+      "texto": "La edición de Booket forma parte de la Colección Especial y se anuncia como limitada a precio especial. Publicada el 11 de noviembre de 2026, contiene 560 páginas en castellano, encuadernadas en tapa dura, con ISBN 9788467084382.",
       "evidencias": [
         "titulo",
         "editorial",
-        "edicion",
-        "idioma",
+        "fecha_publicacion",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma",
+        "edicion",
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura ofrece las 560 páginas de La caza del ejecutor: Edición limitada a precio especial (Colección Especial) en un volumen físico, una opción para conservar o regalar esta edición. El audiolibro permite escuchar la obra durante desplazamientos u otras actividades sin mantener el libro abierto.",
+      "texto": "La caza del ejecutor: Edición limitada a precio especial (Colección Especial) está disponible en tapa dura y audiolibro. La tapa dura permite conservar físicamente sus 560 páginas y consultar pasajes, mientras que el audiolibro permite seguir la narración durante desplazamientos o actividades que no requieren atención visual.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El vuelo de los gansos, de Ángel Boixadós, comparte con La caza del ejecutor: Edición limitada a precio especial (Colección Especial), de Vicente Vallés, el interés por los conflictos relacionados con el poder. La obra de Vicente Vallés combina misterio, aventuras e historia del siglo XX, mientras que El vuelo de los gansos plantea el enfrentamiento al poder como una cuestión de principios.",
+      "texto": "Bajo tierra seca: Edición limitada a precio especial (Colección Especial), de César Pérez Gellida, comparte con La caza del ejecutor: Edición limitada a precio especial (Colección Especial), de Vicente Vallés, su presentación editorial como edición limitada de colección especial. La segunda obra se sitúa expresamente entre el misterio, la narrativa contemporánea y la historia, mientras que la coincidencia comprobable con la primera es su tipo de edición.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788425375040"
+        "isbn-9788423371259"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1426d1c0d6565575",
+  "fuente_hash": "6221e3a08cf45c65",
   "origen": "chatgpt-web"
 }

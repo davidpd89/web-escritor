@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410016668",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gigante de la nieve (ILUSTRADOS), de Pep Molist, se dirige a lectores de literatura infantil y juvenil que buscan un libro de extensión breve. Sus 56 páginas lo distinguen de las lecturas largas; encaja menos con quien prefiere narrativa contemporánea para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gigante de la nieve (ILUSTRADOS) está disponible en tapa dura, con 56 páginas en castellano. La encuadernación rígida permite conservar el ejemplar entre lecturas y utilizarlo como regalo físico; su extensión facilita repartir la lectura en sesiones cortas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d55a48f9bf94d5cd",
+  "origen": "chatgpt-web"
+}

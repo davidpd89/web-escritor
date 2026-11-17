@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Escape room para resolver mientras haces caca (Voces de hoy) está orientado a quienes buscan pasatiempos con un planteamiento humorístico. Su propuesta de entretenimiento y resolución de retos se aparta de la lectura narrativa convencional y de los libros de consulta.",
+      "texto": "Escape room para resolver mientras haces caca (Voces de hoy) está dirigido a quienes buscan entretenimiento mediante retos de resolución y actividades de ocio. Su planteamiento encaja menos con lectores que prefieren una novela convencional o una lectura centrada en el desarrollo de personajes.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Escape room para resolver mientras haces caca (Voces de hoy) se ofrece en tapa blanda, con 272 páginas en castellano. El formato físico permite tener el libro a mano para abordar sus retos de entretenimiento sin depender de una pantalla.",
+      "texto": "Escape room para resolver mientras haces caca (Voces de hoy) cuenta con una edición en tapa blanda de 272 páginas. El papel permite tener los retos a mano y consultar páginas anteriores durante su resolución, sin utilizar una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Escape room para resolver mientras haces caca (Voces de hoy) comparte el terreno de los pasatiempos con El crimen de la Navidad. El cuaderno de pasatiempos de Crímenes ilustrados, de Modesto García. El primero plantea retos de escape room con humor, mientras que el segundo utiliza un crimen navideño como punto de partida para sus actividades.",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres, comparte con Escape room para resolver mientras haces caca (Voces de hoy) la propuesta de resolver desafíos, aunque centra sus retos en crímenes. 99 Sudoku (LIBROS SINGULARES), de Anónimo, ofrece pasatiempos numéricos, frente al planteamiento de escape room del libro de Crispin Fenwick.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401040740"
+        "isbn-9791388015816",
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "93f73b925619c807",
+  "fuente_hash": "ca2422dce9567f1f",
   "origen": "chatgpt-web"
 }

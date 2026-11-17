@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El incidente Darwin 9 (Seinen), de Shun Umezawa, se dirige a lectores de ciencia ficción que prefieren seguir sus historias mediante el cómic. Su combinación de fantasía y ciencia ficción lo aleja de quienes buscan narrativa realista sin elementos especulativos.",
+      "texto": "El incidente Darwin 9 (Seinen) encaja con lectores de ciencia ficción que prefieren contar sus historias mediante cómic y novela gráfica. Su identificación como seinen orienta hacia ese tipo de manga, por lo que se aleja de quien busca una novela convencional escrita únicamente en prosa.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El incidente Darwin 9 (Seinen) está disponible en tapa blanda, con 160 páginas en castellano. Este formato permite conservar el volumen en una colección física de cómics y consultarlo sin depender de dispositivos electrónicos.",
+      "texto": "El incidente Darwin 9 (Seinen) se publica en tapa blanda, con 160 páginas en castellano. Es una edición física de Distrito Manga que permite consultar las viñetas directamente sobre papel y conservar el volumen junto a otros títulos de la colección.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
+        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El incidente Darwin 1 (Seinen): Universo Manga comparte autoría con El incidente Darwin 9 (Seinen), pues ambos son de Shun Umezawa. En cambio, 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), de Francisco Ibáñez, ofrece otra línea de cómic, identificada por su título con el humor, frente a la ciencia ficción del volumen de Shun Umezawa.",
+      "texto": "El incidente Darwin 1 (Seinen): Universo Manga comparte autor, Shun Umezawa, y denominación de serie con El incidente Darwin 9 (Seinen). Sus títulos identifican entregas distintas, la primera y la novena. El mesias de Dune. La novela grafica libro 01 también pertenece al terreno de la ciencia ficción gráfica, pero se presenta como una obra de autoría diferente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +34,12 @@
       ],
       "enlaces": [
         "isbn-9791387962791",
-        "isbn-9788402431790"
+        "isbn-9788467986174"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "33e5766de6a6ea3e",
+  "fuente_hash": "fe8d782ba04b2312",
   "origen": "chatgpt-web"
 }

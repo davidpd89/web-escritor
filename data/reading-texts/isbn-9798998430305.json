@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "MADAME IVONNE: Poesía popular, de Alberto Julián Pérez, se dirige a lectores interesados en la poesía popular y su relación con la expresión escrita. Por su orientación poética, se diferencia de los libros centrados en una narración extensa o en instrucciones prácticas.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "MADAME IVONNE: Poesía popular se publica en tapa blanda, con 184 páginas en castellano. Esta extensión permite tener el contenido reunido en un volumen manejable y volver a sus textos durante distintas sesiones de lectura.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Fuego y raíz: Cancionero (Primera persona) y MADAME IVONNE: Poesía popular comparten su vinculación con la expresión poética. La primera obra se presenta como cancionero de Gata Cattana, mientras la segunda, de Alberto Julián Pérez, se identifica expresamente con la poesía popular y reúne 184 páginas.",
+      "texto": "MADAME IVONNE: Poesía popular, de Alberto Julián Pérez, se dirige a lectores interesados en la poesía y en obras vinculadas también al ensayo. Sus 184 páginas ofrecen una extensión intermedia; quienes busquen específicamente una novela narrativa encontrarán aquí una propuesta de otro género.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo",
         "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 184 páginas de MADAME IVONNE: Poesía popular en un volumen físico que permite consultar y releer pasajes sobre papel. Kindle facilita llevar el título en un lector electrónico o en el móvil y acceder a él sin cargar con el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MADAME IVONNE: Poesía popular y El hacha de raskolnikov: 54 (Poesía - los libros del mississippi) coinciden en su vinculación con la poesía, aunque pertenecen a autores distintos: Alberto Julián Pérez y Teresa Sánchez Ruiz. Estética del dharma: Tratados filosófico-poéticos (II) (Ensayo), de Jorge Gimeno, añade una referencia explícita a la filosofía y al ensayo, mientras que MADAME IVONNE: Poesía popular se presenta desde la poesía popular.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788403524996"
+        "isbn-9791399132656",
+        "isbn-9791388054587"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "884a996095bdaf48",
+  "fuente_hash": "a6e1f3d1387ed7ec",
   "origen": "chatgpt-web"
 }

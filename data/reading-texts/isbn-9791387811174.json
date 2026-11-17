@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Miseria (Conrad), de María Zabay, se sitúa entre el misterio, las aventuras y la narrativa contemporánea. Puede encajar con lectores que buscan ficción relacionada con esas vertientes, mientras que quienes prefieren ensayos o relatos centrados únicamente en asuntos cotidianos encontrarán aquí una orientación distinta.",
+      "texto": "Miseria (Conrad), de María Zabay, encaja con lectores interesados en el misterio dentro de la narrativa contemporánea y con elementos de aventura. Por su orientación temática, se distancia de quienes buscan exclusivamente ensayo, divulgación o una historia centrada en la fantasía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Miseria (Conrad) se publica en tapa blanda, con 264 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones y el formato facilita llevar el ejemplar en una bolsa o mochila, sin depender de un dispositivo electrónico.",
+      "texto": "Miseria (Conrad) se presenta en tapa blanda, con 264 páginas, para una lectura en papel. Esta edición de Editorial Berenice permite conservar el ejemplar físico y volver a sus páginas sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Miseria (Conrad) y La caza del ejecutor: Edición limitada a precio especial (Colección Especial) comparten su vinculación con el misterio. La obra de María Zabay combina ese ámbito con narrativa contemporánea y aventuras, mientras que la de Vicente Vallés plantea desde su título una persecución como elemento diferenciador.",
+      "texto": "Miseria (Conrad) comparte el misterio con Abre el misterio 1 - El robo de las croquetas, aunque este último plantea un caso concreto alrededor de unas croquetas desaparecidas. También coincide en el componente de intriga con Agente Stitch 5. Los roedores de Roswell, que sitúa su misterio en un contexto intergaláctico, frente a la combinación de narrativa contemporánea, misterio y aventuras de la obra de María Zabay.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,7 +31,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084382"
+        "isbn-9788427256644",
+        "isbn-9791387901943"
       ]
     }
   ],

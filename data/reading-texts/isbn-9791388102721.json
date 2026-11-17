@@ -4,43 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este estuche de Quique Palomo e Ian Gibson se dirige a lectores interesados en biografías, historia del siglo XX y cómic documental. Sus 392 páginas abordan figuras creativas mediante narrativa gráfica; encaja menos con quienes buscan ficción histórica en prosa o relatos de aventuras.",
+      "texto": "Está dirigido a lectores interesados en biografías, historia y cómic, especialmente a quienes prefieren acercarse a personajes y acontecimientos mediante la novela gráfica. Su edición reúne cinco creadores en un volumen de tapa dura, dentro del ámbito de las biografías y memorias.",
       "evidencias": [
-        "autores",
+        "titulo",
         "categorias",
-        "numero_paginas",
-        "titulo"
+        "formato_edicion",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Planeta Cómic está disponible en tapa dura, con 392 páginas en castellano. La encuadernación rígida permite conservar el conjunto en una biblioteca o entregarlo como regalo físico; el estuche reúne contenido biográfico e histórico presentado mediante narrativa gráfica.",
+      "texto": "La tapa dura reúne las 392 páginas del estuche en un único volumen físico. Es la opción disponible para quien quiera conservarlo en papel y consultar sus contenidos sin depender de una pantalla.",
       "evidencias": [
-        "editorial",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "titulo",
-        "categorias"
+        "formatos_disponibles",
+        "formato_edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La obra de Quique Palomo e Ian Gibson comparte el interés por la memoria histórica con Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques, aunque se centra en creadores y no en testimonios de resistencia. Frente a Campo de concentración: 82 (Biblioteca del Exilio), relacionado con el exilio y los campos de concentración, utiliza el formato de novela gráfica para abordar contenidos biográficos.",
+      "texto": "Los jacobinos negros: La novela gráfica (GENERAL) comparte con este estuche el uso del cómic para abordar contenidos históricos. Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques también se relaciona con la memoria y la historia, aunque su título sitúa el relato en torno a dos personajes concretos.",
       "evidencias": [
-        "autores",
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388439148",
-        "isbn-9788410148659"
+        "isbn-9788410344433",
+        "isbn-9791388439148"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4109e435afbbf325",
+  "fuente_hash": "a5d7aab7af142b6c",
   "origen": "chatgpt-web"
 }

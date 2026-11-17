@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788418011689",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Capitán: La conquista del liderazgo (Crecimiento personal), de Jaime Nava, se orienta a lectores interesados en liderazgo y desarrollo personal. Su clasificación también lo aproxima a las biografías y memorias, mientras que resulta menos afín a quienes buscan una novela de misterio o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Capitán: La conquista del liderazgo (Crecimiento personal) está disponible en tapa blanda y tiene 192 páginas. Esta edición de Diëresis en castellano permite llevar el libro en papel y volver a consultar sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Capitán: La conquista del liderazgo (Crecimiento personal) comparte el ámbito del desarrollo personal con Camino a la felicidad: Segunda parte, de Maria de los Angelres De Leon Mesa. También se aproxima a Deja de actuar: ya interpretaste demasiado tiempo quién deberías ser, ahora atrévete a ser tú., de Marìa Fernanda Salas. El libro de Jaime Nava sitúa el liderazgo en el centro, mientras los otros títulos destacan la felicidad y la identidad personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409941506",
+        "isbn-9791399207873"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b3469d0a9cc8c8b",
+  "origen": "chatgpt-web"
+}

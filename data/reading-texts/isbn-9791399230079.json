@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399230079",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Traed la guerra a casa: El resurgimiento de la ultraderecha y el supremacismo blanco (Ensayo), de Kathleen Belew, se dirige a lectores interesados en historia política y movimientos extremistas. Su enfoque ensayístico y sus 416 páginas lo alejan de quienes buscan ficción, entretenimiento narrativo o una introducción muy breve a estos asuntos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Traed la guerra a casa: El resurgimiento de la ultraderecha y el supremacismo blanco (Ensayo) ofrece 416 páginas impresas para una lectura con consultas y anotaciones en papel. Kindle permite transportar el ensayo digitalmente y retomarlo desde un lector electrónico o un móvil, sin cargar con el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A sangre y fuego (Clásicos ilustrados), de Manuel Chaves Nogales, comparte con Traed la guerra a casa: El resurgimiento de la ultraderecha y el supremacismo blanco (Ensayo) el interés por asuntos históricos, aunque este último delimita su objeto al supremacismo blanco y la ultraderecha. Los pilares de la historia, de Javier Fernández Sebastián, plantea una reflexión sobre la capacidad explicativa de la historia, frente al tema político concreto que aborda Kathleen Belew.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752590",
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04ae453a2e492586",
+  "origen": "chatgpt-web"
+}

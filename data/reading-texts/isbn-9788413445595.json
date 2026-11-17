@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788413445595",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sintoniza: Claves para encontrar el equilibrio emocional (Alienta), de Xavier Sempere, está dirigido a quienes buscan contenidos sobre bienestar psicológico y desarrollo personal. Su enfoque de ensayo y psicología lo diferencia de una novela o de una lectura de entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Sintoniza: Claves para encontrar el equilibrio emocional (Alienta) es de tapa blanda y reúne 264 páginas en castellano. El papel permite subrayar conceptos y volver a apartados concretos sobre equilibrio emocional; su extensión también facilita distribuir la lectura entre varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sintoniza: Claves para encontrar el equilibrio emocional (Alienta) comparte con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia el interés por el bienestar psicológico. Xavier Sempere centra su obra en el equilibrio emocional, mientras que Victoria Cadarso aborda la infancia y su relación con el bienestar personal. Ambos títulos se orientan al desarrollo personal, pero parten de cuestiones distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "232f0af75f0f7534",
+  "origen": "chatgpt-web"
+}

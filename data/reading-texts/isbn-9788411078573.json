@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788411078573",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El fin de la Guerra Fría (Andanzas), de Juan Trejo, se dirige a lectores de narrativa contemporánea interesados en una obra cuyo título remite a un periodo histórico. Sus 360 páginas corresponden a una lectura de extensión intermedia; encaja menos con quien busca un ensayo histórico en lugar de narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El fin de la Guerra Fría (Andanzas) está editado en tapa blanda, con 360 páginas en castellano. Esta edición de Tusquets Editores ofrece la obra completa en un volumen físico de extensión intermedia, para lectores que prefieren pasar páginas en papel y conservar el libro tras terminarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa1083b268d55d81",
+  "origen": "chatgpt-web"
+}

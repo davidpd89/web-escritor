@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788401039065",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en el desarrollo personal y los mensajes inspiradores asociados a Mr Skelly, el personaje de redes sociales que protagoniza el libro. Por su enfoque y sus 128 páginas, encaja menos con quien busca un manual extenso de nutrición o un estudio técnico de salud.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura presenta las 128 páginas en una encuadernación rígida, apropiada para conservar el libro o regalarlo a alguien que siga a Mr Skelly. Kindle permite leer la obra de Christian Watson en formato digital, sin necesidad de transportar el ejemplar físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "autores",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cambiar para Vivir, Colección Autoayuda, de Raúl M. Mir Coll, comparte el interés por el desarrollo personal, mientras que Qué suerte la mía se articula alrededor de Mr Skelly, un personaje conocido en redes. Defiéndete: Claves básicas para fortalecer tu seguridad personal y salir a la calle sin miedo (Alienta), de María Cabas, aborda una cuestión más concreta: la seguridad personal.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788415122562",
+        "isbn-9788413445373"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05b977198313b92f",
+  "origen": "chatgpt-web"
+}

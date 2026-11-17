@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788420461571",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El reino y el poder (Narrativa basada en hechos reales), de Gay Talese, se orienta a lectores de no ficción interesados en relatos documentales, biografías y ensayo. Sus 632 páginas requieren disposición para una lectura extensa y encajan menos con quienes buscan una novela breve de argumento ficticio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El reino y el poder (Narrativa basada en hechos reales) tiene 632 páginas en castellano y está publicada por Alfaguara. Por su extensión, resulta más apropiada para sesiones de lectura prolongadas o para mantenerla en una biblioteca personal que para llevar un volumen ligero en desplazamientos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El reino y el poder (Narrativa basada en hechos reales) y Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes comparten el interés por las personas y los hechos reales. La obra de Andrew Paxman identifica una biografía organizada en episodios, mientras que la de Gay Talese se presenta como narrativa documental y ensayo, con una extensión de 632 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "37c089bd3cdf5a38",
+  "origen": "chatgpt-web"
+}

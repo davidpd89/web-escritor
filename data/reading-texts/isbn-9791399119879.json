@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791399119879",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Patologías: La caía de Johan van Vere de With, de Jacob Israël de Haan, se dirige a lectores de narrativa contemporánea en castellano. Sus 236 páginas ofrecen una extensión intermedia; por su clasificación editorial, encaja menos con quienes buscan específicamente literatura infantil o cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Patologías: La caía de Johan van Vere de With se presenta en tapa blanda, con 236 páginas. Esta encuadernación permite llevar el ejemplar en una bolsa y leerlo sin depender de dispositivos electrónicos; su extensión admite repartir la lectura entre varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eebc9fc1dcfabb36",
+  "origen": "chatgpt-web"
+}

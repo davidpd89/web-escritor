@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387929855",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Modelo unificado de honestidad textual y entropia en la traducción automatica PO se orienta a lectores interesados en el análisis de la traducción automática y sus aspectos textuales. Su planteamiento de ensayo técnico encaja menos con quienes buscan una guía práctica de idiomas o una narración literaria.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Modelo unificado de honestidad textual y entropia en la traducción automatica PO está publicada por Sinderesis en castellano y en tapa blanda. Su fecha de publicación editorial es el 28 de octubre de 2026 y se identifica mediante el ISBN 9791387929855, útil para localizar exactamente esta referencia bibliográfica.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "formatos_disponibles",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aeb7861f71c95e5b",
+  "origen": "chatgpt-web"
+}

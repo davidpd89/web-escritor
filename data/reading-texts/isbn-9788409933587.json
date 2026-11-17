@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409933587",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Beyond the Channels: La activación se dirige a lectores interesados en economía y empresa que buscan una obra extensa sobre la temática anunciada por su título. Con 522 páginas, requiere una dedicación mayor que una guía breve y se aleja de las lecturas centradas en ficción o entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Beyond the Channels: La activación está disponible en tapa blanda y tiene 522 páginas. Es un volumen físico de extensión considerable, apropiado para mantenerlo como libro de consulta o leerlo por sesiones, con la posibilidad de regresar a capítulos anteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Beyond the Channels: La activación puede compararse con Beyond the Channels: Los canales y Beyond the Channels: Los cimientos, ambos de José Javier Nicolás Tejedor. Los tres comparten autoría y denominación principal, pero cada título señala un foco diferente: la activación, los canales o los cimientos. Esta distinción permite identificarlos dentro del conjunto sin atribuirles un orden de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409933570",
+        "isbn-9788409918768"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e758e2d5caf74a98",
+  "origen": "chatgpt-web"
+}

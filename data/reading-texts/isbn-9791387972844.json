@@ -4,25 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un sueño por cumplir (Montena) se dirige a lectores interesados en el desarrollo personal, las relaciones y la amistad, con el arte y el diseño también entre sus ámbitos temáticos. No es una propuesta centrada exclusivamente en contenidos técnicos o empresariales.",
+      "texto": "Un sueño por cumplir (Montena), de Violeta Madel, se dirige a lectores interesados en desarrollo personal y arte y diseño. Sus 160 páginas permiten abordar esos ámbitos en un volumen de extensión contenida. No corresponde a quien busque una novela de aventuras o una historia romántica.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa dura y reúne 160 páginas. Este formato permite conservarlo en papel y utilizarlo como libro de consulta o lectura pausada; también resulta adecuado para quien prefiera una encuadernación rígida frente a una cubierta flexible.",
+      "texto": "Un sueño por cumplir (Montena) se presenta en tapa dura, con 160 páginas en castellano. La encuadernación rígida permite conservar el volumen en una estantería o entregarlo como regalo. Esta edición pertenece al catálogo de Montena.",
       "evidencias": [
-        "edicion",
+        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma",
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena), de Soledad Gutiérrez Puerto, comparte el interés por el desarrollo personal. La diferencia está en el enfoque: ese título pone el acento en la autoestima de las niñas, mientras que Un sueño por cumplir (Montena), de Violeta Madel, también abarca el amor, la amistad y el arte.",
+      "texto": "Dentro de casa. Rituales de bienestar / Inside the Home: Rituals of Well-Being, de Laura Casas, comparte con Un sueño por cumplir (Montena) el ámbito del bienestar y el desarrollo personal, aunque su título se centra en los rituales domésticos. Pack El acto de crear (Autoconocimiento), de Rick Rubin, introduce una referencia explícita a la creación. Un sueño por cumplir (Montena), de Violeta Madel, reúne desarrollo personal y arte y diseño.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +34,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387724368"
+        "isbn-9786287832657",
+        "isbn-9788411191951"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8bd65edf9a914ee1",
+  "fuente_hash": "2421b445df765d3d",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788417231705",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en las sentencias de la Grecia antigua y en la filosofía expresada mediante formulaciones breves. Su temática histórica y filosófica lo distancia de quienes buscan una novela contemporánea o un manual práctico de aplicación inmediata.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 154 páginas en castellano, una extensión que permite alternar la lectura con la consulta de pasajes concretos. Es una opción física para conservar en una biblioteca de filosofía o tener a mano durante el estudio de las sentencias antiguas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una lengua parca: (Sentencias en la Grecia antigua) puede compararse con ¿Qué dijo?: Diccionario mexicano - español, de Soledad Burgaleta, por su atención al lenguaje. La diferencia está en el objeto de consulta: José Luis Trullo Herrera y Anastasia Vakouftsi se centran en sentencias de la Grecia antigua, mientras que el otro título plantea una correspondencia entre usos lingüísticos mexicanos y españoles.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388424199"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ad0fb54d1ccc6cd4",
+  "origen": "chatgpt-web"
+}

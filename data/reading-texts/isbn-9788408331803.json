@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nocturnos, de Javier Pérez Campos, se sitúa en el ámbito del esoterismo y la espiritualidad, con la noche y la supervivencia hasta el amanecer como referencias de su título. Encaja con lectores interesados en esos asuntos, pero no con quienes buscan específicamente una guía de salud, crianza o desarrollo personal.",
+      "texto": "Nocturnos: Nada nos hace sentir más vivos que ver salir el sol y saber que hemos sobrevivido a otra noche (Esoterismo) se sitúa en el ámbito del esoterismo y la espiritualidad. Sus 400 páginas se dirigen a lectores interesados en esas materias, no a quienes buscan específicamente un manual de psicología o una novela romántica.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Nocturnos se presenta en tapa blanda, dentro de la colección de bolsillo de Booket. Sus 400 páginas forman un volumen físico que permite leer, señalar pasajes y conservar el ejemplar en papel; es la opción de lectura recogida entre sus formatos disponibles.",
+      "texto": "Nocturnos: Nada nos hace sentir más vivos que ver salir el sol y saber que hemos sobrevivido a otra noche (Esoterismo) cuenta con una edición en tapa blanda de Booket. Es un libro de bolsillo de 400 páginas, una presentación física que facilita llevarlo consigo y guardarlo en una estantería sin el volumen de una cubierta rígida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Nocturnos y Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia se aproximan desde el interés por lo espiritual y lo esotérico. Javier Pérez Campos utiliza la noche y la supervivencia como ejes de su título, mientras que Barbara Hand Clow centra el suyo en la consciencia y sus dimensiones.",
+      "texto": "AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, permite comparar una obra de temática religiosa con Nocturnos: Nada nos hace sentir más vivos que ver salir el sol y saber que hemos sobrevivido a otra noche (Esoterismo), de Javier Pérez Campos. Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, se centra en fundamentos y práctica espiritual, frente al enfoque esotérico indicado en el título de Nocturnos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798888505335"
+        "isbn-9791388176357",
+        "isbn-9791399210088"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a3ea9481d8b57060",
+  "fuente_hash": "e148d72ebc67cb7c",
   "origen": "chatgpt-web"
 }

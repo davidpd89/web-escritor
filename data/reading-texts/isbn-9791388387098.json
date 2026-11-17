@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La emperatriz de las Galápagos: Aventuras alemanas en América Latina (Historia), de Michi Strausfeld, está dirigida a lectores interesados en la historia, el siglo XX y las aventuras vinculadas a América Latina. Su planteamiento se sitúa en el ensayo histórico, no en la ficción narrativa ni en los manuales de filosofía.",
+      "texto": "La emperatriz de las Galápagos: Aventuras alemanas en América Latina (Historia) se dirige a lectores interesados en la historia, el ensayo y las experiencias alemanas en América Latina. Su orientación histórica y ensayística se distancia de quien busca una aventura de ficción sin componente divulgativo.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda presenta las 256 páginas de La emperatriz de las Galápagos: Aventuras alemanas en América Latina (Historia), de Michi Strausfeld, en un volumen físico. Su extensión permite tener reunido el contenido en un único ejemplar de papel, sin necesidad de dispositivos de lectura.",
+      "texto": "La emperatriz de las Galápagos: Aventuras alemanas en América Latina (Historia) está disponible en tapa blanda, con 256 páginas en castellano. La edición de Debate permite leer el volumen en papel y conservarlo para futuras consultas sobre el asunto histórico que anuncia el título.",
       "evidencias": [
         "titulo",
-        "autores",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma",
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La emperatriz de las Galápagos: Aventuras alemanas en América Latina (Historia), de Michi Strausfeld, comparte el interés por el pasado con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig. La diferencia está en su enfoque: el primero se presenta como ensayo histórico sobre aventuras alemanas en América Latina, mientras que el segundo se identifica como narrativa.",
+      "texto": "La emperatriz de las Galápagos: Aventuras alemanas en América Latina (Historia) y Bajo las cenizas de Pompeya (ESPASA NARRATIVA) comparten una referencia histórica y geográfica en sus títulos. Michi Strausfeld aborda aventuras alemanas en América Latina desde el ensayo histórico, mientras que María Reig sitúa su obra en el ámbito narrativo asociado a Pompeya.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a779601f8aa51e64",
+  "fuente_hash": "aaeac76fafe1a97f",
   "origen": "chatgpt-web"
 }

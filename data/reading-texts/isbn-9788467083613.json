@@ -4,34 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Preparados, listos, ¡llegó el bebé! se dirige a familias que buscan orientación sobre el embarazo, la llegada del recién nacido y los primeros años de crianza. Aborda cuestiones cotidianas como la lactancia, el sueño, la alimentación y las rabietas; no está planteado como una lectura de ficción ni como una guía centrada exclusivamente en el parto.",
+      "texto": "Preparados, listos, ¡llegó el bebé! está pensado para familias que buscan orientación sobre el embarazo, el nacimiento y los primeros años de crianza. Laura Álvarez (La pediatra Laura) trata cuestiones como el sueño, la lactancia, la alimentación y las rabietas; no es una obra centrada exclusivamente en el embarazo.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Editorial Espasa tiene 272 páginas y se presenta en rústica con solapas, apropiada para consultar y marcar apartados en papel. La versión Kindle permite llevar la guía en un dispositivo de lectura o en el móvil y acceder a sus contenidos sin transportar el volumen físico.",
+      "texto": "Preparados, listos, ¡llegó el bebé! se publica en tapa blanda, en una edición rústica con solapas de 272 páginas que permite consultar y marcar cuestiones de crianza. Kindle facilita acceder a la guía desde el móvil o un lector electrónico cuando surge una duda cotidiana.",
       "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
+        "titulo",
         "edicion",
-        "editorial"
+        "numero_paginas",
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "CONECTANDO CON MI BEBÉ: Relatos y actividades para vivir el embarazo con presencia, conexión y conciencia. Regalo para embarazadas., de Paula S. Acuña, comparte el interés por la etapa previa al nacimiento, pero propone relatos y actividades. Preparados, listos, ¡llegó el bebé!, de Laura Álvarez (La pediatra Laura), amplía el recorrido a los primeros años de infancia y responde a dudas prácticas sobre salud, alimentación y desarrollo.",
+      "texto": "Preparados, listos, ¡llegó el bebé! y Convertirse en padre: 02 (Psicologia) coinciden en abordar la experiencia de la maternidad y la paternidad. Laura Álvarez (La pediatra Laura) ofrece orientación pediátrica sobre los cuidados y el desarrollo infantil, mientras Patricia Catalá Mesón, Cecilia Peñacoba Puente y María P. Huertas-Vieco sitúan su obra en el ámbito psicológico de convertirse en padre.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409936465"
+        "isbn-9791370550288"
       ]
     }
   ],

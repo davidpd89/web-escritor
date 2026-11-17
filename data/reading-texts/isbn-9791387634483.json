@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387634483",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fin de temporada (Arquitectura) se dirige a lectores interesados en la arquitectura y las publicaciones sobre arte y diseño. La obra de Leonor Martín Taibo y Aida Navarro Redón pertenece a ese ámbito temático, por lo que se distancia de las novelas de ficción y de los manuales de materias ajenas a la arquitectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fin de temporada (Arquitectura) se publica en tapa blanda, con 148 páginas en castellano. La edición de Ediciones Asimetricas,s.l ofrece un volumen físico que puede consultarse por separado de otros materiales de estudio sobre arquitectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fin de temporada (Arquitectura) y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) se relacionan con disciplinas artísticas, aunque sus asuntos son diferentes. Leonor Martín Taibo y Aida Navarro Redón firman una obra identificada con la arquitectura, mientras Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga se ocupan del western cinematográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e105f1c3a4670f6f",
+  "origen": "chatgpt-web"
+}

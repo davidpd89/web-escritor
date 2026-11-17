@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi amor no muere está dirigido a lectores adultos interesados en historias de mujeres, relaciones sentimentales y violencia mafiosa vinculadas a hechos reales. La desaparición de una joven y el enfrentamiento entre clanes forman parte de su contenido, por lo que encaja menos con quien busca una historia amorosa sin violencia ni consecuencias trágicas.",
+      "texto": "Mi amor no muere está dirigido a lectores adultos interesados en historias de mujeres, relaciones sentimentales y violencia vinculada a acontecimientos reales. Su tratamiento de la mafia, la desaparición y las consecuencias del crimen lo aleja de las lecturas románticas centradas exclusivamente en la relación de pareja.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,18 +14,19 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Roberto Saviano aborda la relación entre amor, autonomía personal y criminalidad organizada a través de la historia de Rossella Casini. La reconstrucción sitúa su desaparición en 1981 dentro de la violencia de la mafia calabresa y examina cómo los vínculos familiares y sentimentales pueden quedar sometidos al poder de los clanes.",
+      "texto": "Mi amor no muere aborda la relación entre el amor personal y la violencia organizada mediante la reconstrucción novelada de la historia de Rossella Casini. Roberto Saviano sitúa los hechos en la Italia de 1977 y sigue las consecuencias de los vínculos mafiosos hasta la desaparición de la joven en 1981. El enfoque combina memoria individual y contexto social.",
       "evidencias": [
+        "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mi amor no muere dispone de tapa blanda, Kindle y audiolibro, tres formas de acceder a su relato de 352 páginas. La edición de Alfaguara incorpora solapas para la lectura en papel; Kindle facilita llevarlo en un dispositivo y el audiolibro permite seguir la historia mediante escucha.",
+      "texto": "Mi amor no muere se publica en tapa blanda con solapas y tiene 352 páginas, una extensión que permite repartir la lectura en varias sesiones. La edición Kindle facilita leerlo en dispositivos electrónicos sin transportar el volumen físico, mientras que el audiolibro permite seguir el relato mediante escucha.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
         "numero_paginas",
         "formatos_disponibles"
@@ -33,7 +34,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mi amor no muere y La porteadora, de Ilaria Tuti, comparten el interés por experiencias femeninas situadas en Italia, aunque Roberto Saviano reconstruye una historia relacionada con la mafia y la desaparición de una joven. También se aproxima a Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania por su atención a mujeres afectadas por la violencia, pero aborda un caso individual ligado al crimen organizado.",
+      "texto": "Mi amor no muere comparte con La porteadora el interés por las experiencias de mujeres situadas en un contexto histórico italiano. Roberto Saviano reconstruye una relación atravesada por la violencia mafiosa, mientras que Ilaria Tuti parte de una comunidad alpina donde permanecen únicamente mujeres. La diferencia principal está en el conflicto criminal frente al escenario comunitario.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,8 +43,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788420477046",
-        "isbn-9791388406256"
+        "isbn-9788420477046"
       ]
     }
   ],

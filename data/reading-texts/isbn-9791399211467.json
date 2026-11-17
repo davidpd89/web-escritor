@@ -4,26 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hasta que no queden más fantasmas: 2, de Nerea Franco, pertenece al romance y se dirige a lectores interesados en historias de ese género. El título lo identifica como el n.º 2, un detalle que conviene tener en cuenta frente a quien busca una lectura romántica identificada como primera entrega.",
+      "texto": "Hasta que no queden más fantasmas: 2 está dirigido a lectores que buscan romance en castellano. Nerea Franco firma una obra de 272 páginas cuyo título incorpora el número 2, por lo que se aleja de quienes prefieren lecturas de otros géneros o buscan específicamente una novela sin numeración en el título.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hasta que no queden más fantasmas: 2 cuenta con una edición en tapa blanda de 272 páginas, publicada por Romantic Ediciones. Es un volumen físico de extensión intermedia que puede transportarse y leerse sin dispositivo electrónico, con una encuadernación flexible.",
+      "texto": "Hasta que no queden más fantasmas: 2 puede leerse en tapa blanda o Kindle. La edición física contiene 272 páginas y permite conservar el libro en papel; Kindle facilita transportarlo digitalmente y leerlo desde el móvil sin llevar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hasta que no queden más fantasmas: 2 comparte el género romántico con A medio salto (Romántica) y 24 historias para enamorarte en navidad: Relatos navideños. Frente al formato de relatos navideños que anuncia el segundo título, la obra de Nerea Franco se presenta como un libro numerado, identificado con el 2. Cada uno tiene una autoría distinta: Nerea Franco, Valera Gomalva y Patricia Bonet.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409929177",
+        "isbn-9791388365089"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "77f188a51c3cd836",
+  "fuente_hash": "f9cce9f1aeb87837",
   "origen": "chatgpt-web"
 }

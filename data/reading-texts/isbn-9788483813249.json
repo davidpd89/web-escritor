@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788483813249",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fango y anhelo (Episodios nacionales), de Juan Vilá, pertenece a la narrativa contemporánea y se dirige a lectores interesados en este tipo de literatura. Con 192 páginas, plantea una extensión relativamente contenida; por su clasificación, no responde a una búsqueda centrada en ensayo o literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fango y anhelo (Episodios nacionales) tiene una edición en tapa blanda de 192 páginas, publicada por Lengua de Trapo. Este formato permite mantener el ejemplar en una estantería o transportarlo para leer fuera de casa, sin necesitar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e1a3e4619f5544f1",
+  "origen": "chatgpt-web"
+}

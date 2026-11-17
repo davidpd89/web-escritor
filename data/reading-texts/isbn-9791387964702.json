@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387964702",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Noche y niebla: 401 (Narrativa del Acantilado) encaja con lectores que buscan obras situadas entre la narrativa contemporánea, la historia y el ensayo. Sus 240 páginas ofrecen una extensión intermedia para quien prefiera una lectura de este ámbito. Resulta menos afín a quienes buscan manuales prácticos o divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Noche y niebla: 401 (Narrativa del Acantilado) está disponible en tapa blanda, con 240 páginas en castellano. La encuadernación flexible permite transportarlo y leerlo en distintos lugares sin el volumen añadido de unas cubiertas rígidas. Esta edición pertenece al catálogo de Editorial Acantilado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Noche y niebla: 401 (Narrativa del Acantilado) puede compararse con A sangre y fuego (Clásicos ilustrados) por su vinculación con la narrativa y la historia. Danilo Kis firma el primero, mientras que Manuel Chaves Nogales es el autor del segundo. La diferencia editorial visible está en sus colecciones: Narrativa del Acantilado frente a Clásicos ilustrados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752590"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "316357ca51cd6a27",
+  "origen": "chatgpt-web"
+}

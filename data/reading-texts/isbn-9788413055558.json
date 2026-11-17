@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788413055558",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia de las religiones, sus ritos, mitos y divinidades. El recorrido desde los pueblos primitivos hasta las grandes religiones responde a una búsqueda histórica y comparativa, no a quien prefiera una guía de práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es la edición disponible de Introducción a la historia de las religiones: Ritos, mitos y dioses desde los pueblos primitivos hasta las grandes religiones (El velo de Isis). Sus 587 páginas permiten abordar el recorrido histórico por partes y consultar distintos periodos en el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparte el interés por las tradiciones religiosas, pero se centra en los fundamentos y la práctica de un camino concreto. Introducción a la historia de las religiones: Ritos, mitos y dioses desde los pueblos primitivos hasta las grandes religiones (El velo de Isis) adopta un alcance histórico más amplio, desde los pueblos primitivos hasta las grandes religiones.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d803694cec5933b1",
+  "origen": "chatgpt-web"
+}

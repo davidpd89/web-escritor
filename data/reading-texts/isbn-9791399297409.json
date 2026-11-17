@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399297409",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cerebro enjaulado está dirigido a lectores de psicología y divulgación científica interesados en cuestiones relacionadas con el cerebro. David Molina Zuquin aborda este ámbito en 134 páginas, por lo que no corresponde a quien busca una novela de ficción o un tratado extenso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cerebro enjaulado se ofrece en tapa blanda y Kindle, con una extensión de 134 páginas. La edición impresa de Siglantana permite conservarlo y consultarlo físicamente; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cerebro enjaulado comparte el estudio del cerebro con Cerebro y estilo de vida: 1107 (Mayor), de José Luis Trejo, aunque este último relaciona expresamente el cerebro con los hábitos cotidianos. Aparece un mundo, de Michael Pollan, se centra en la conciencia, mientras que El cerebro enjaulado se sitúa en el ámbito de la psicología y la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387904456",
+        "isbn-9788410673410"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d7c35f1a45398ea2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791370330446",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Date tiempo!: Consideraciones filosóficas para una temporalidad con presente (FILOSOFIA HOY) se dirige a quienes buscan reflexionar filosóficamente sobre el tiempo y el presente. Por su planteamiento ensayístico, se aleja de las lecturas centradas en una trama de ficción o en consejos prácticos de organización cotidiana.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 152 páginas de ¡Date tiempo!: Consideraciones filosóficas para una temporalidad con presente (FILOSOFIA HOY). Su extensión permite leer el ensayo en varias sesiones y volver a los pasajes sobre la temporalidad sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aforismos para reflexionar y meditar: 109 (Fragmentos) también propone una lectura orientada a la reflexión, aunque su título plantea un formato de aforismos y fragmentos. ¡Date tiempo!: Consideraciones filosóficas para una temporalidad con presente (FILOSOFIA HOY), de Alfredo Marcos, delimita su reflexión al tiempo y al presente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a15e75801d324b6a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370404543",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Liderar organizaciones en la era de la Inteligencia Artificial. Dirección Inteligente Colectiva (DIC-IAC) (Empresas) se orienta a lectores interesados en la dirección de organizaciones y la inteligencia artificial aplicada al ámbito empresarial. Su enfoque temático encaja menos con quienes buscan una lectura centrada exclusivamente en ficción y entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Liderar organizaciones en la era de la Inteligencia Artificial. Dirección Inteligente Colectiva (DIC-IAC) (Empresas) se ofrece en tapa blanda, con 388 páginas en castellano. El volumen físico permite consultar y releer apartados sobre dirección empresarial, aunque su extensión supone una lectura más prolongada que la de un manual breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Liderar organizaciones en la era de la Inteligencia Artificial comparte con Trabajo gris el interés por el mundo laboral y la organización del trabajo. La primera obra aborda el liderazgo y la inteligencia artificial, mientras que Trabajo gris se centra en la pérdida de sentido del trabajo. Migración y agricultura en el sistema-mundo ofrece otra perspectiva económica y social, centrada en las relaciones entre migración y agricultura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370382568"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f09ec33444e93b92",
+  "origen": "chatgpt-web"
+}

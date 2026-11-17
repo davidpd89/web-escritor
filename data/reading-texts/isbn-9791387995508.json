@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387995508",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El hombre enmascarado. La historia de el fantasma que camina, de Francisco Saez de Adana, encaja con lectores interesados en el cómic y la novela gráfica, especialmente en una obra centrada en la figura anunciada por su título. Su clasificación editorial lo separa de la narrativa contemporánea convencional y de las búsquedas de novelas exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El hombre enmascarado. La historia de el fantasma que camina se presenta en tapa dura, con 230 páginas y edición en castellano de Diabolo Ediciones. La encuadernación rígida resulta práctica para conservar el volumen en una estantería y ofrecerlo como ejemplar físico; su extensión también permite calcular el espacio que ocupará frente a libros más breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e4be27e9f08b7f3e",
+  "origen": "chatgpt-web"
+}

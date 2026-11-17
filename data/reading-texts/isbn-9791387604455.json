@@ -4,36 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Charles Wright Poesía -3 (ESENCIALES) encaja con lectores que buscan poesía y prefieren los volúmenes de gran extensión. Sus 816 páginas ofrecen una edición amplia dedicada a la obra poética de Charles Wright; no es una opción pensada para quien busca narrativa o una lectura breve.",
+      "texto": "Charles Wright Poesía -3 (ESENCIALES) está dirigido a lectores de poesía que buscan una edición extensa de Charles Wright en castellano. Sus 816 páginas responden a una lectura de largo recorrido, mientras que quien prefiera una novela con argumento y personajes encontrará aquí otro género literario.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 816 páginas de Charles Wright Poesía -3 (ESENCIALES) en una edición de gran extensión. Es la opción disponible para conservar el volumen y consultarlo en papel; por su número de páginas, conviene tener en cuenta su tamaño antes de elegirlo para llevarlo habitualmente.",
+      "texto": "Charles Wright Poesía -3 (ESENCIALES) se publica en tapa dura y reúne 816 páginas. La encuadernación rígida resulta práctica para conservar un volumen de esta extensión, colocarlo en una biblioteca personal o regalar una edición física de poesía. Vaso Roto Ediciones lo presenta en castellano.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "editorial",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, comparte con Charles Wright Poesía -3 (ESENCIALES) el formato de lectura poética. La diferencia está en el planteamiento que anticipan sus títulos: el volumen de Pedro Salinas se identifica con la poesía amorosa, mientras que el de Charles Wright reúne una propuesta poética de 816 páginas.",
+      "texto": "Charles Wright Poesía -3 (ESENCIALES) puede compararse con A solas, de María Jesús Martínez Ramos, por su pertenencia al ámbito poético. La diferencia identificable está en la autoría y en la edición: Charles Wright firma un volumen de 816 páginas en tapa dura, mientras que A solas corresponde a María Jesús Martínez Ramos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
         "numero_paginas",
+        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788410907539"
       ]
     }
   ],

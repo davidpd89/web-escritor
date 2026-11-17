@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Si decides quedarte / If You Decide to Stay se dirige a lectores de romance interesados también en las relaciones de pareja, familia y amistad. La obra de Samara Cadenas se aleja de las búsquedas centradas en ciencia ficción o aventuras sin componente sentimental.",
+      "texto": "Si decides quedarte / If You Decide to Stay está dirigido a quienes buscan una novela romántica extensa. Sus 528 páginas ofrecen una lectura de mayor recorrido que un relato breve; no responde a la búsqueda de una obra centrada en historia o divulgación.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Si decides quedarte / If You Decide to Stay está disponible en tapa blanda y tiene 528 páginas en castellano. Esta edición de Penguin Random House Grupo Editorial permite leer una obra extensa en papel, con una cubierta flexible para transportarla y guardarla.",
+      "texto": "Si decides quedarte / If You Decide to Stay se presenta en tapa blanda y tiene 528 páginas. La edición en castellano de Penguin Random House Grupo Editorial permite leerla en papel y dividir su lectura en varias sesiones, sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,21 +24,22 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Vértigos (MatchStories Ficción) puede compararse con Si decides quedarte / If You Decide to Stay desde el terreno de la ficción, aunque son obras de Raquel Pérez Sierra y Samara Cadenas, respectivamente. Tíos y Tías (AMOR DE FAMILIA) introduce explícitamente el ámbito familiar en su título, un punto de contacto con los temas de familia y relaciones presentes en la clasificación de Si decides quedarte / If You Decide to Stay.",
+      "texto": "Si decides quedarte / If You Decide to Stay comparte el género romántico con A medio salto (Romántica), de Valera Gomalva. También puede compararse con 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, aunque esta última obra reúne relatos navideños, mientras que el libro de Samara Cadenas tiene 528 páginas y se presenta como una lectura romántica extensa.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410438491",
-        "isbn-9788408331025"
+        "isbn-9788409929177",
+        "isbn-9791388365089"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ade5e44c5845af1c",
+  "fuente_hash": "389fb3b84636dc78",
   "origen": "chatgpt-web"
 }

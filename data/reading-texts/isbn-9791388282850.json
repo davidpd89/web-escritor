@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388282850",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LAIdership: Gestiona como una máquina, lidera como un humano se dirige a lectores interesados en la gestión empresarial y en la relación entre tecnología y liderazgo. Sus 130 páginas plantean una extensión breve dentro de la divulgación económica y científica; no responde al enfoque de quien busca una novela o un tratado académico extenso.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LAIdership: Gestiona como una máquina, lidera como un humano está disponible en tapa blanda, con 130 páginas en castellano. Su extensión permite llevarlo al trabajo o leerlo por sesiones breves, y el formato físico facilita consultar de nuevo los apartados relacionados con la gestión y el liderazgo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LAIdership: Gestiona como una máquina, lidera como un humano y Asistentes y agentes empresariales con IA comparten el interés por la tecnología aplicada al entorno empresarial. Francesc Xavier Galván París vincula la gestión con el liderazgo humano, mientras que Iván Rodríguez centra su título en asistentes y agentes de inteligencia artificial para empresas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426742704"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f6d9c01e2d564675",
+  "origen": "chatgpt-web"
+}

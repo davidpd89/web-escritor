@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9781806072842",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El lago de los cisnes (Grandes piezas musicales para peques), de Micaela Tapsell, se dirige a quienes buscan un primer acercamiento infantil a los clásicos musicales. Sus 10 páginas de cartón responden a una lectura breve, frente a quienes prefieren historias extensas o libros centrados en el texto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El lago de los cisnes (Grandes piezas musicales para peques) se presenta en tapa dura, como libro de cartón de 10 páginas. Este formato permite manejarlo físicamente durante lecturas breves y conservarlo en una estantería infantil; también puede elegirse como regalo relacionado con la música clásica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El lago de los cisnes (Grandes piezas musicales para peques) puede compararse con 124 zarzuelas montañesas en la cueva del olvido: Escritas entre 1853 y 1958 por su relación con la música. El primero es un libro de cartón de 10 páginas orientado a los peques, mientras que el segundo se centra, desde su título, en un repertorio de zarzuelas históricas. Son aproximaciones distintas al ámbito musical.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399183030"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f7a949df1be5965",
+  "origen": "chatgpt-web"
+}

@@ -4,40 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Flaminquita (Premio Mercè Llimona i Raymat): 2 se dirige al público infantil interesado en historias relacionadas con la naturaleza, la amistad y los vínculos afectivos. Sus 40 páginas sitúan la obra en una extensión breve, distinta de la de una novela juvenil larga. El título la identifica como el n.º 2.",
+      "texto": "Flaminquita (Premio Mercè Llimona i Raymat): 2, de Nieves Poudereux, se sitúa en el ámbito de la lectura infantil y el desarrollo personal. Sus 40 páginas permiten abordarlo como una lectura corta, mientras que quienes busquen una novela juvenil extensa encontrarán aquí un formato de menor longitud.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Flaminquita (Premio Mercè Llimona i Raymat): 2 está disponible en tapa dura y tiene 40 páginas en castellano. La encuadernación rígida permite manipular el libro durante lecturas compartidas y conservarlo para posteriores relecturas. Es una edición física de Carambuco Ediciones.",
+      "texto": "Flaminquita (Premio Mercè Llimona i Raymat): 2 se presenta en tapa dura y reúne 40 páginas en castellano. Su encuadernación rígida resulta práctica para conservar el ejemplar, compartirlo durante la lectura infantil o entregarlo como regalo físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Flaminquita (Premio Mercè Llimona i Raymat): 2 y El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) se sitúan en el ámbito de la lectura infantil y presentan referencias al mundo animal. La obra de Nieves Poudereux se relaciona además con la amistad y los afectos; la de Steve Smallman plantea desde su título la llegada de un mono a cenar.",
+      "texto": "Flaminquita (Premio Mercè Llimona i Raymat): 2 puede compararse con Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español), de Rocio Bonilla, por su vinculación con la lectura infantil y el desarrollo personal. El primero tiene 40 páginas y está firmado por Nieves Poudereux; el segundo identifica en su título una serie infantil relacionada con la felicidad.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448874056"
+        "isbn-9788000079806"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c996d34fb93a5301",
+  "fuente_hash": "823f3d108d09c68e",
   "origen": "chatgpt-web"
 }

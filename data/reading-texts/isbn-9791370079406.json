@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370079406",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pierre Cardin | Colección Leyendas de la Moda | Libro LXX se dirige a lectores que buscan contenidos sobre moda desde una perspectiva de arte, diseño y ensayo. Sus 128 páginas corresponden a una publicación de extensión breve, distinta de una novela o de un tratado extenso sobre otros ámbitos culturales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pierre Cardin | Colección Leyendas de la Moda | Libro LXX está editado en tapa dura y reúne 128 páginas en castellano. Esta presentación de RBA Coleccionables permite conservarlo como parte de una colección de libros físicos y utilizarlo para consultas o lecturas puntuales sin manejar un volumen especialmente extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pierre Cardin | Colección Leyendas de la Moda | Libro LXX pertenece a la misma colección que Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII y Donna Karan | Colección Leyendas de la Moda | Libro LX. Los tres llevan la firma de RBA Coleccionables España y se distinguen por el nombre de moda al que se dedica cada volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079321",
+        "isbn-9791370077914"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4bd7d7d537510842",
+  "origen": "chatgpt-web"
+}

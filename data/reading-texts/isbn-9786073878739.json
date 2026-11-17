@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un Otoño Para Ser Feliz / If It Makes You Happy, de Julie Olivia, encaja con lectores de romance que también buscan elementos de humor. Sus 560 páginas plantean una lectura extensa dentro de estos géneros; no está orientado a quienes prefieren ensayos, manuales prácticos o novelas especialmente breves.",
+      "texto": "Un Otoño Para Ser Feliz / If It Makes You Happy, de Julie Olivia, está dirigido a lectores que buscan una novela centrada en el romance. Sus 560 páginas corresponden a una lectura extensa, menos ajustada a quienes prefieren relatos breves o historias cuyo género principal no sea el romántico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,16 +14,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las 560 páginas de Un Otoño Para Ser Feliz / If It Makes You Happy están disponibles en tapa blanda para quienes prefieren leer en papel y conservar el volumen. La edición Kindle permite llevar una novela de esa extensión en el móvil o lector electrónico, sin cargar con el ejemplar físico.",
+      "texto": "Un Otoño Para Ser Feliz / If It Makes You Happy está disponible en tapa blanda y Kindle, con una extensión de 560 páginas. La edición física permite conservar el volumen en papel, mientras que Kindle facilita llevar una novela de esta longitud en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un Otoño Para Ser Feliz / If It Makes You Happy, de Julie Olivia, comparte el interés por las relaciones románticas con 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet. La diferencia está en la extensión y la estructura: la obra de Julie Olivia tiene 560 páginas, mientras que la de Patricia Bonet se presenta como una colección de relatos navideños. Un Otoño Para Ser Feliz / If It Makes You Happy también incorpora el humor entre sus géneros.",
+      "texto": "Un Otoño Para Ser Feliz / If It Makes You Happy comparte el género romántico con 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet. La diferencia está en la presentación: el libro de Julie Olivia reúne 560 páginas bajo un título de referencia otoñal, mientras que el de Patricia Bonet anuncia una colección de relatos ambientados en Navidad.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6eeba23756f4c381",
+  "fuente_hash": "499c1619a296fe49",
   "origen": "chatgpt-web"
 }

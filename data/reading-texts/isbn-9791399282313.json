@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399282313",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuerpo sin Dolor: Libro 2 de la serie MenopausiaVital, de Eva Lerié, se dirige a lectores interesados en el bienestar corporal y el desarrollo personal dentro del ámbito de la menopausia. Su enfoque temático se diferencia del de los libros de nutrición general que no abordan esta etapa vital. El título lo identifica como el libro 2 de la serie MenopausiaVital.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuerpo sin Dolor: Libro 2 de la serie MenopausiaVital se publica en tapa blanda, con 160 páginas en castellano. El volumen puede consultarse por partes y mantenerse a mano como lectura física sobre bienestar y desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuerpo sin Dolor: Libro 2 de la serie MenopausiaVital se relaciona con Aliméntate según tus genes / Eat According to Your Genes, de Alejandra Ponce, por su atención a la salud y el bienestar. Eva Lerié sitúa su libro en una serie dedicada a la menopausia, mientras que el título de Alejandra Ponce vincula la alimentación con la genética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073872935"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1dc2faf01d08fa4d",
+  "origen": "chatgpt-web"
+}

@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Siete hermanas: María Antonieta y el legado de los Habsburgo (Historia), de Veronica Buckley, está dirigido a lectores de historia y biografías interesados en figuras históricas y legados familiares. Su planteamiento de no ficción encaja menos con quienes buscan una novela de aventuras o una trama de misterio.",
+      "texto": "Siete hermanas: María Antonieta y el legado de los Habsburgo (Historia), de Veronica Buckley, está dirigido a quienes buscan historia y biografías relacionadas con figuras y dinastías históricas. Sus 608 páginas corresponden a una obra extensa, alejada de la novela romántica o de las lecturas breves de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Taurus se presenta en tapa blanda y tiene 608 páginas en castellano. Su extensión supone un volumen considerable para transportar, pero permite mantener la obra completa en papel para una lectura prolongada y consultas posteriores.",
+      "texto": "Siete hermanas: María Antonieta y el legado de los Habsburgo (Historia) cuenta con una edición en tapa blanda de 608 páginas. La encuadernación flexible permite manejar este volumen de historia sin cubierta rígida; Taurus lo publica en castellano.",
       "evidencias": [
-        "editorial",
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Siete hermanas: María Antonieta y el legado de los Habsburgo (Historia) y Cesar La conquista de la eternidad, de Alberto Angela, comparten el interés por personajes del pasado. Veronica Buckley centra su obra en María Antonieta y el legado de los Habsburgo, mientras que Alberto Angela aborda la trayectoria de un general romano. Ambos se sitúan en el terreno histórico, aunque tratan protagonistas y contextos distintos.",
+      "texto": "Siete hermanas: María Antonieta y el legado de los Habsburgo (Historia) puede compararse con Cesar La conquista de la eternidad por su atención a personajes del pasado. Veronica Buckley aborda en su título a María Antonieta y los Habsburgo, mientras que la obra de Alberto Angela se centra en un general romano; cambian así la figura histórica y el contexto tratado.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0c2d3c8fd1437c47",
+  "fuente_hash": "41e286c5024eba62",
   "origen": "chatgpt-web"
 }

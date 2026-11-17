@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788467084269",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Secretos y mentiras: Crónica sentimental de la Transición (Espasa Periodismo) se dirige a lectores interesados en la Transición desde una perspectiva política, memorialística y personal. Su orientación hacia la crónica y el ensayo lo separa de las novelas históricas que reconstruyen acontecimientos mediante personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Secretos y mentiras: Crónica sentimental de la Transición (Espasa Periodismo) puede leerse en tapa blanda o en Kindle. La edición física de Editorial Espasa tiene 312 páginas y permite conservar el volumen en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro. Ambas opciones responden a hábitos de lectura distintos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Secretos y mentiras: Crónica sentimental de la Transición (Espasa Periodismo) puede compararse con El alba, la tarde, o la noche (Crónica y Periodismo) por su vinculación con la crónica. Nativel Preciado sitúa su libro en la Transición y su dimensión sentimental, mientras el título de Yasmina Reza se presenta dentro del ámbito periodístico. La diferencia explícita está en el asunto histórico anunciado por la primera obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387600679"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9928b277ebe939bb",
+  "origen": "chatgpt-web"
+}

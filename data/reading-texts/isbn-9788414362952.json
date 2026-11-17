@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Levísima (LITERATURA INFANTIL - Premio Ciudad de Málaga) se dirige al público infantil interesado en relatos de terror y elementos fantásticos. Sus 104 páginas permiten una lectura relativamente breve, aunque su orientación hacia el terror puede encajar menos con quienes buscan historias exclusivamente humorísticas.",
+      "texto": "Levísima (LITERATURA INFANTIL - Premio Ciudad de Málaga) se dirige al público infantil interesado en historias de terror. Sus 104 páginas ofrecen una extensión contenida dentro de este género; quienes busquen una lectura infantil ajena al miedo encontrarán una temática diferente a la que prefieren.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,17 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Levísima (LITERATURA INFANTIL - Premio Ciudad de Málaga) reúne 104 páginas en una encuadernación rígida, adecuada para conservar el libro o entregarlo como regalo. Kindle permite leer la obra de Miguel Rojo en formato digital, sin necesidad de llevar el ejemplar físico.",
+      "texto": "La edición en tapa dura de Levísima (LITERATURA INFANTIL - Premio Ciudad de Málaga) reúne 104 páginas en un volumen de cubierta rígida, apropiado para conservar en una biblioteca infantil. Kindle permite leer el mismo título en formato digital y prescindir del libro físico durante los desplazamientos.",
       "evidencias": [
         "titulo",
-        "autores",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Levísima (LITERATURA INFANTIL - Premio Ciudad de Málaga) puede compararse con El lago de los monstruos (INFANTIL) por su orientación hacia lectores infantiles y su relación con elementos inquietantes. La obra de Miguel Rojo figura dentro del terror y la fantasía, mientras que el título de Leo Timmers sitúa a los monstruos en el centro de su propuesta.",
+      "texto": "El lago de los monstruos (INFANTIL) comparte con Levísima (LITERATURA INFANTIL - Premio Ciudad de Málaga) el ámbito infantil y la presencia del miedo o lo monstruoso en su propuesta. Mieditos Tiernos / Spooky Cutie: Coloring Book for Adults and Kids (Coco Wyo) ofrece, en cambio, una actividad de colorear para adultos y niños, frente a la lectura literaria de Miguel Rojo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387884260"
+        "isbn-9791387884260",
+        "isbn-9798890989901"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b6a4eefde848937b",
+  "fuente_hash": "15d7d1354431add2",
   "origen": "chatgpt-web"
 }

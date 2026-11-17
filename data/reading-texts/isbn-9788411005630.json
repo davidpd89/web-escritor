@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788411005630",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Buffett: La construcción de un capitalista (IMPULSA) se dirige a lectores interesados en las biografías vinculadas al mundo económico y empresarial. Roger Lowenstein firma una obra de 640 páginas; su enfoque biográfico la distingue de los manuales prácticos de finanzas o las novelas sobre negocios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Buffett: La construcción de un capitalista (IMPULSA) está disponible en tapa dura, con 640 páginas en castellano. La encuadernación rígida resulta apropiada para conservar una biografía extensa, consultarla en distintas sesiones o regalar una edición física de Ediciones Península.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Buffett: La construcción de un capitalista (IMPULSA) y Enzo Ferrari: Velocidad, sangre y gloria. La biografía definitiva sobre Ferrari y su legado en el mundo del automovilismo. (No ficción) comparten el enfoque biográfico sobre figuras vinculadas a actividades empresariales. Roger Lowenstein se ocupa de Buffett y Luca dal Monte de Ferrari; el primero se sitúa en el ámbito económico y el segundo en el automovilismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412955835"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80365822f561a434",
+  "origen": "chatgpt-web"
+}

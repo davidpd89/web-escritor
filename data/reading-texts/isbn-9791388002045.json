@@ -4,41 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La maldición del amor verdadero -edición especial ilustrada (#Fantasy) se orienta a lectores interesados en la fantasía y las historias relacionadas con el amor. Su edición ilustrada también responde a quienes buscan una presentación física diferenciada, mientras que se aleja de la narrativa realista sin elementos fantásticos.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La maldición del amor verdadero -edición especial ilustrada (#Fantasy) puede leerse en tapa dura o en Kindle. La edición física de Puck tiene 336 páginas y se presenta como especial ilustrada, mientras que Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el volumen encuadernado.",
-      "evidencias": [
-        "titulo",
-        "editorial",
-        "numero_paginas",
-        "formatos_disponibles",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Alas de escarcha y oro: El canto del cisne comparte con La maldición del amor verdadero -edición especial ilustrada (#Fantasy) el terreno de la fantasía, aunque su planteamiento presenta a Eira y sus dones ocultos. Amarte hasta perder el aliento 1 (Shôjo) ofrece otra aproximación al amor desde el formato shôjo, frente a la edición especial ilustrada de fantasía firmada por Stephanie Garber.",
+      "texto": "La maldición del amor verdadero -edición especial ilustrada (#Fantasy), de Stephanie Garber, se orienta a lectores de fantasía que buscan una edición con ilustraciones. Sus 336 páginas corresponden a una obra de extensión media; por género y presentación, se aleja de quien prefiera narrativa realista sin elementos fantásticos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387949938",
-        "isbn-9791387962494"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La maldición del amor verdadero -edición especial ilustrada (#Fantasy) puede elegirse en tapa dura o Kindle. La tapa dura corresponde a la edición especial ilustrada de Puck, con 336 páginas, y permite conservarla como volumen físico; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a03c19f9a448ddba",
+  "fuente_hash": "9fdf6bfee95a69f7",
   "origen": "chatgpt-web"
 }

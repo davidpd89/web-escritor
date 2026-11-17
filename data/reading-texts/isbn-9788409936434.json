@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409936434",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Dilema de la Dualidad: Un llamamiento a la unidad y a la integración para resolver conflictos en los tiempos que corren se orienta a lectores interesados en psicología, desarrollo personal y relaciones humanas. Su planteamiento gira alrededor de la unidad y la integración ante los conflictos, no de la ficción ni de la formación jurídica especializada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de La Brújula del Pensador está publicada en tapa blanda y tiene 187 páginas. Es una opción física para leer y consultar las reflexiones sobre dualidad, unidad e integración que anuncia el título, sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conectados para el amor / Wired for Love, de Stan Tatkin, permite comparar el interés por las relaciones humanas con el enfoque de El Dilema de la Dualidad: Un llamamiento a la unidad y a la integración para resolver conflictos en los tiempos que corren. El primero se centra en el amor, mientras que Pablo García-Crovetto plantea la unidad y la integración como respuesta a los conflictos desde un ámbito más general.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e3cafd102bcf3a2",
+  "origen": "chatgpt-web"
+}

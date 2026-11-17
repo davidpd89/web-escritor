@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las cuatro olas de la IA y el futuro del trabajo se dirige a quienes buscan una lectura sobre inteligencia artificial y empleo desde el ámbito de la economía y la empresa. Su enfoque temático lo distingue de una novela o de un libro dedicado exclusivamente a técnicas de programación.",
+      "texto": "Se dirige a lectores interesados en la inteligencia artificial y sus implicaciones para el trabajo desde una perspectiva económica y empresarial. Las cuatro olas de la IA y el futuro del trabajo, de Isidoro Sanchez, se aparta de los libros centrados exclusivamente en la tecnología para situar el empleo y su futuro en el centro del tema.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las cuatro olas de la IA y el futuro del trabajo se publica en tapa blanda, con 216 páginas en castellano. La edición de LID Editorial ofrece un volumen físico que puede consultarse por partes y utilizarse para revisar cuestiones relacionadas con la inteligencia artificial y el trabajo.",
+      "texto": "Las cuatro olas de la IA y el futuro del trabajo está disponible en tapa blanda, con 216 páginas en castellano. La edición de LID Editorial permite leer en papel y consultar posteriormente los contenidos relacionados con la inteligencia artificial, la economía y el futuro laboral.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las cuatro olas de la IA y el futuro del trabajo puede compararse con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, por su relación con el ámbito profesional. El libro de Isidoro Sanchez centra su asunto en la inteligencia artificial y el futuro laboral, mientras que el de Miguel Reinoso pone el foco en el liderazgo como oficio.",
+      "texto": "Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, comparte el ámbito empresarial con Las cuatro olas de la IA y el futuro del trabajo, de Isidoro Sanchez. El primero dirige su atención al liderazgo y al ejercicio de ese oficio; el segundo relaciona la inteligencia artificial con el futuro del empleo. Ambos permiten abordar cuestiones profesionales desde asuntos distintos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1ce8c286deca1e3c",
+  "fuente_hash": "098e466e51f5c07b",
   "origen": "chatgpt-web"
 }

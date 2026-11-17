@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399267693",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "De la subvención a la elección: Una reforma económico-fiscal del mecenazgo en España se dirige a lectores interesados en la financiación mediante mecenazgo y en las propuestas de reforma fiscal. Su orientación económica lo separa de los manuales de gestión empresarial cotidiana y de las obras de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "De la subvención a la elección: Una reforma económico-fiscal del mecenazgo en España se publica en tapa blanda. Sus 44 páginas permiten consultar la propuesta en un volumen físico breve, fácil de transportar y de utilizar como referencia durante el estudio de cuestiones económicas y fiscales.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De la subvención a la elección: Una reforma económico-fiscal del mecenazgo en España y ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido comparten un interés por las ideas aplicadas a decisiones económicas. Patricia Carrera Arocha y Roxana Nicula Tanase se centran en la reforma fiscal del mecenazgo, mientras que Rory Sutherland aborda el poder de las ideas aparentemente ilógicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399087222"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "803129a129f97589",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399108255",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El monje y la isla serena.: 3 (Tradición Theravada), de Master Maitri, se dirige a lectores interesados en espiritualidad, religión y reflexión filosófica vinculadas a la tradición Theravada. Por su orientación temática, se aleja de las lecturas centradas en economía, ciencia aplicada o ficción de misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El monje y la isla serena.: 3 (Tradición Theravada) cuenta con una edición en tapa blanda de 130 páginas, publicada por Www.edicionesamara.com. Su extensión permite distribuir la lectura en sesiones breves y conservar el ejemplar en papel para volver a los pasajes de interés.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El monje y la isla serena.: 3 (Tradición Theravada) comparte el interés espiritual con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. La diferencia está en el enfoque anunciado: Master Maitri se vincula a la tradición Theravada, mientras que Soledad Davies reúne astrología, filosofía y magia como vías de práctica espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c8e39dc6badd614",
+  "origen": "chatgpt-web"
+}

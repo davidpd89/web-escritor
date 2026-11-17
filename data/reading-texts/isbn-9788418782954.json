@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788418782954",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Heridas: 45 (Libros inútiles), de Regina Fiz Santos, se sitúa entre las lecturas de poesía y literatura juvenil. Sus 66 páginas encajan con quien busca un libro breve dentro de esos ámbitos, pero menos con lectores que prefieren novelas largas o exclusivamente narrativas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Heridas: 45 (Libros inútiles) se ofrece en tapa blanda, en una edición de Ediciones la Uña Rota. Sus 66 páginas hacen que el volumen resulte manejable para llevarlo en papel y volver a consultar sus textos, sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La muerte de Penélope (Poesía), de Carolina Corvillo, y Heridas: 45 (Libros inútiles), de Regina Fiz Santos, comparten su vinculación con la poesía. La primera identifica expresamente ese género en el título; la segunda aparece también vinculada a la literatura juvenil. Son libros de autoras distintas y con títulos de orientación temática diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387838928"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "49fb1955d708bb0e",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788468599113",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Transporte Marítimo Balear Moderno: Del Motovelero al Superferry se dirige a lectores interesados en la historia del transporte marítimo y su evolución tecnológica. Su enfoque específico en el ámbito balear lo distancia de las historias generales sobre acontecimientos políticos o conflictos militares.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Transporte Marítimo Balear Moderno: Del Motovelero al Superferry está editado en tapa blanda y tiene 294 páginas. La versión impresa permite conservar una obra de consulta sobre la evolución del transporte marítimo balear, desde los motoveleros hasta los superferris.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Transporte Marítimo Balear Moderno: Del Motovelero al Superferry puede compararse con Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días), de Jacob Mikanowski, por su enfoque histórico y geográfico. El libro de Antonio Amatller Tudurí aborda la evolución del transporte marítimo balear, mientras que el de Jacob Mikanowski se centra en la historia de una región europea dividida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "560984b0912dcbc5",
+  "origen": "chatgpt-web"
+}

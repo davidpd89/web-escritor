@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788428576147",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nacido de mujer: Intrahistoria de María (Caminos) se dirige a lectores interesados en la religión, la espiritualidad y la figura de María. Por su enfoque religioso, queda fuera de las preferencias de quienes buscan una novela de fantasía o un manual técnico ajeno a cuestiones de fe.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nacido de mujer: Intrahistoria de María (Caminos) tiene una edición en tapa blanda de 174 páginas, publicada por Editorial San Pablo. El formato impreso permite consultar pasajes sobre María y conservar el ejemplar como lectura de temática religiosa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nacido de mujer: Intrahistoria de María (Caminos) y AKITA: Las lágrimas y el mensaje de María coinciden en abordar a María desde el ámbito religioso. El primero anuncia una intrahistoria de esta figura, mientras el segundo centra su título en sus lágrimas y su mensaje; ambos se diferencian de Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción, dedicado a la adopción desde la teología.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387625535",
+        "isbn-9791388176357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cab8277a2778c284",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9781806075768",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abuelita, dame las buenas noches (Libros sonoros grabables) está orientado a familias interesadas en compartir un libro sonoro relacionado con la hora de dormir. Su presentación en cartón y sus 10 páginas lo distinguen de las guías extensas de crianza o de desarrollo personal para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Abuelita, dame las buenas noches (Libros sonoros grabables) se ofrece en tapa dura, en una edición de cartón de 10 páginas. El formato físico de Ediciones Usborne permite manejar el libro durante la lectura compartida, mientras que su título lo identifica como parte de una colección de libros sonoros grabables.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abuelita, dame las buenas noches (Libros sonoros grabables) y Buenas noches, Conejito (Llena de luz tus sueños) comparten la referencia a la hora de dormir. El libro de Joanne Parry pertenece a una colección de libros sonoros grabables, mientras que el de Anna Milbourne se presenta bajo el título de colección Llena de luz tus sueños. Ambos se distinguen de Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación, centrado por su título en otra etapa vital.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781637659380",
+        "isbn-9781806072798"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c6ba9da0258573e",
+  "origen": "chatgpt-web"
+}

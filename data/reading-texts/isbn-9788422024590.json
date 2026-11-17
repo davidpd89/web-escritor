@@ -4,33 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Obras completas IX/1, de Joseph Ratzinger, se dirige a lectores interesados en religión y espiritualidad que buscan una obra extensa en castellano. Sus 736 páginas la alejan de quienes prefieren lecturas breves o libros de otras temáticas.",
+      "texto": "Obras completas IX/1 está orientado a lectores interesados en la religión y la espiritualidad que buscan una obra extensa de Joseph Ratzinger. Sus 736 páginas responden mejor a una lectura prolongada que a quien necesite una introducción breve a estas materias.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Obras completas IX/1 se publica en tapa blanda y reúne 736 páginas en castellano. Por su extensión, resulta más manejable para consultar sobre una mesa que para transportar a diario; el formato físico permite marcar páginas y volver a pasajes concretos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
         "idioma"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "Obras completas IX/1 se publica en tapa blanda, con 736 páginas editadas por BAC. El formato físico permite consultar distintos pasajes y conservar el volumen en una biblioteca dedicada a religión y espiritualidad.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
-        "categorias"
-      ]
-    },
-    {
       "modulo": "lecturas_afines",
-      "texto": "Obras completas IX/1 comparte el ámbito espiritual con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe. La obra de Joseph Ratzinger reúne 736 páginas dentro de sus obras completas, mientras que el otro título presenta fundamentos y práctica de un camino de liberación.",
+      "texto": "Obras completas IX/1 y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación coinciden en su orientación hacia cuestiones religiosas y espirituales. Joseph Ratzinger firma una obra identificada como parte de unas obras completas, mientras que Tsondru Yeshe aborda los fundamentos y la práctica del Dharma, una tradición diferente.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
         "categorias",
         "afines_catalogo"
       ],
@@ -41,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bee8655c197c3bad",
+  "fuente_hash": "49aced830ef74236",
   "origen": "chatgpt-web"
 }

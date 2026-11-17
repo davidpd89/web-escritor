@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788413393025",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Robert Barron se dirige a lectores interesados en la persecución de los cristianos en la actualidad, desde una perspectiva vinculada al ensayo y la historia. Su temática resulta menos adecuada para quienes buscan ficción de aventuras o prefieren evitar lecturas sobre conflictos religiosos y violencia.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 118 páginas del ensayo de Robert Barron en un volumen físico que puede consultarse y conservarse en papel. La versión Kindle permite leerlo en el móvil o en un lector electrónico compatible, sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Robert Barron y La escuela de salamanca.: Antecedentes, raíces europeas y vocación teológica: 192 (Nuevo Ensayo) comparten el interés por cuestiones relacionadas con el cristianismo y la historia religiosa. Robert Barron aborda la persecución contemporánea de los cristianos, mientras que José María Pardo de Santayana se centra en los antecedentes y las raíces europeas de una tradición teológica. La diferencia está entre examinar un conflicto religioso actual y estudiar sus antecedentes históricos e intelectuales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413393001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0b1055a0dd53cbb1",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788445022726",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Reino de magia oscura nº 01 Un pacto sangriento: 1 (Romantasy), de Vasilisa Drake, se dirige a quienes buscan fantasía con romance y aventuras. Por su combinación de géneros, encaja menos con lectores interesados exclusivamente en narrativa realista o histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Reino de magia oscura nº 01 Un pacto sangriento: 1 (Romantasy) está disponible en tapa blanda, con 424 páginas en castellano. Esta edición de Minotauro permite leer la novela en papel y conservarla en la estantería sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte con Reino de magia oscura nº 01 Un pacto sangriento: 1 (Romantasy) el terreno fantástico, aunque presenta a Eira como un personaje que oculta sus dones y debilidades. Ciudad de dioses y monstruos (DARK ROMANCE) ofrece otra referencia vinculada al romance oscuro, mientras que la obra de Vasilisa Drake combina fantasía, romance y aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9788415955559"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b99b450f0edeb037",
+  "origen": "chatgpt-web"
+}

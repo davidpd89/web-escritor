@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387600679",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El alba, la tarde, o la noche (Crónica y Periodismo), de Yasmina Reza, encaja con lectores interesados en la crónica, el ensayo y las cuestiones políticas. Sus 176 páginas ofrecen una extensión breve dentro de la no ficción; no responde a la búsqueda de una novela de fantasía o de una historia construida principalmente desde la ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El alba, la tarde, o la noche (Crónica y Periodismo) cuenta con una edición en tapa blanda de 176 páginas, publicada en castellano por Debate. Su extensión facilita llevar el volumen consigo y consultar pasajes concretos durante una lectura centrada en la crónica y el ensayo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El alba, la tarde, o la noche (Crónica y Periodismo) comparte autoría con Teatro inédito (Literaturas) y Hammerklavier y Ninguna parte, de Yasmina Reza. La diferencia está en el tipo de lectura: el primero se sitúa en la crónica y el periodismo, el segundo se relaciona con el teatro y el tercero con la ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466382298",
+        "isbn-9788410496569"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2b4751be2dc368af",
+  "origen": "chatgpt-web"
+}

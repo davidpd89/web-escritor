@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410407800",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando era pequeña - Ahora que soy mayor (Infantil i juvenil), de Marina Sáez Rubio, se orienta al público infantil y juvenil interesado en cuestiones de crecimiento y desarrollo personal. Con 44 páginas, propone una lectura breve; no está dirigido a quienes buscan una novela adulta extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuando era pequeña - Ahora que soy mayor (Infantil i juvenil) está disponible en tapa dura, con 44 páginas en castellano. La edición de MTM Editores permite mantener el libro en una biblioteca infantil y utilizarlo como regalo físico, con una extensión reducida para su manejo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando era pequeña - Ahora que soy mayor (Infantil i juvenil) puede compararse con Amigos de verdad por su relación con el desarrollo personal en edades infantiles. El primero contrapone etapas de crecimiento desde su título, mientras que el segundo aborda la amistad y su papel en la formación de niños y adolescentes. También se aproxima a Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) por su atención a experiencias personales, aunque este último destaca la felicidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994532",
+        "isbn-9788000079806"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "273c8e15493b3772",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hacia lo azul: \"Embriagadora\", Taylor Jenkins Reid, autora de Los siete maridos de Evelyn Hugo (CONTEMPORÁNEA), de Emma Brodie, pertenece a la narrativa contemporánea. Sus 480 páginas lo sitúan entre las novelas extensas; no responde a una búsqueda de lecturas breves ni de cómics.",
+      "texto": "Hacia lo azul, de Emma Brodie, pertenece a la narrativa contemporánea y tiene una extensión de 480 páginas. Se dirige a lectores que buscan una novela larga de este género, más que a quienes prefieren relatos breves o libros de ensayo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,19 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hacia lo azul: \"Embriagadora\", Taylor Jenkins Reid, autora de Los siete maridos de Evelyn Hugo (CONTEMPORÁNEA) se presenta en tapa blanda. La edición de Stefano Books contiene 480 páginas en castellano, por lo que la elección corresponde a un volumen físico de extensión considerable y cubierta flexible.",
+      "texto": "Hacia lo azul puede leerse en tapa blanda o en Kindle. La edición impresa de Stefano Books tiene 480 páginas y permite conservar el volumen físico; Kindle facilita llevar la lectura en un dispositivo compatible sin cargar con el libro de papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "editorial",
         "numero_paginas",
-        "idioma",
-        "formato_edicion"
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7e25ae5c4aa757e4",
+  "fuente_hash": "26e02860c77b5a31",
   "origen": "chatgpt-web"
 }

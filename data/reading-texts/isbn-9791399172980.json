@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399172980",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi mamá está cansada (Kairat), de Rocío Fariña Seoane, se sitúa en la literatura infantil y juvenil y plantea desde su título el cansancio materno. Sus 32 páginas ofrecen una extensión breve, diferente de la narrativa larga destinada al público adulto. El tema familiar permite identificar el asunto central antes de elegir la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi mamá está cansada (Kairat) se publica en tapa dura, con 32 páginas en castellano. La cubierta rígida protege el ejemplar durante las lecturas repetidas y facilita conservarlo en una biblioteca infantil. Esta edición física pertenece al sello Kairat.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "771a4c9d08928c99",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Presencias en escena: El arte de actuar: 4 (Artes escénicas), de Ernesto Caballero, está dirigido a lectores interesados en el teatro, la interpretación y la reflexión sobre las artes. Su planteamiento se aleja de la narrativa de ficción y se sitúa en el terreno del ensayo y el arte.",
+      "texto": "Presencias en escena: El arte de actuar: 4 (Artes escénicas), de Ernesto Caballero, se dirige a lectores interesados en el arte, el ensayo y las artes escénicas. Su enfoque en el arte de actuar lo sitúa en el ámbito del estudio de la interpretación, no en el de la narrativa de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece un volumen de 240 páginas para leer en papel y consultar durante el estudio o la reflexión sobre la interpretación. Es la edición de Punto de Vista Editores disponible para este título.",
+      "texto": "La tapa blanda reúne las 240 páginas de Presencias en escena: El arte de actuar: 4 (Artes escénicas), de Ernesto Caballero, en un volumen físico para la lectura y consulta. Es el formato disponible de esta edición de Punto de Vista Editores.",
       "evidencias": [
+        "titulo",
+        "autores",
         "numero_paginas",
         "formatos_disponibles",
-        "edicion",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Presencias en escena: El arte de actuar: 4 (Artes escénicas), de Ernesto Caballero, puede compararse con De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen), de Noël Burch, por su interés en la reflexión sobre las artes. La diferencia está en el objeto de atención: el primero se centra en la interpretación y el segundo aborda la estética vinculada al cine.",
+      "texto": "124 zarzuelas montañesas en la cueva del olvido: Escritas entre 1853 y 1958 comparte con Presencias en escena: El arte de actuar: 4 (Artes escénicas), de Ernesto Caballero, el interés por las artes escénicas. El primero se centra en obras de zarzuela escritas entre 1853 y 1958, mientras que el segundo aborda el arte de actuar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,7 +32,7 @@
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788437650586"
+        "isbn-9791399183030"
       ]
     }
   ],

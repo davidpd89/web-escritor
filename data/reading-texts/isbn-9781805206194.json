@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9781805206194",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de misterio y thriller policíaco británico, con interés por la serie de la inspectora Stephanie Broadbent. El título identifica esta entrega como la n.º 6, por lo que quien busque una novela ajena a una serie encontrará aquí una obra vinculada a otras entregas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Piedra, Papel, Tijera se presenta en tapa blanda y contiene 354 páginas en castellano. Este formato reúne la novela policíaca de Jack Probyn en un volumen físico que permite leer sin dispositivos electrónicos y conservar el ejemplar en papel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Palos y Piedras y Tres en Raya pertenecen a la misma serie policíaca que Piedra, Papel, Tijera, protagonizada por la inspectora Stephanie Broadbent. Jack Probyn firma las tres obras, cuyos títulos las identifican como las entregas n.º 5, n.º 4 y n.º 6, respectivamente. La diferencia entre ellas es su posición dentro de la serie, mientras que comparten autoría, protagonista y género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781805206224",
+        "isbn-9781805203902"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "acb825c0de19dbf7",
+  "origen": "chatgpt-web"
+}

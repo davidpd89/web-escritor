@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388103230",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dragon Quest Emblem of Roto II nº 01: 1 (Manga Shonen) se dirige a lectores de cómic infantil y juvenil interesados en las aventuras. Sus 416 páginas lo alejan de quienes buscan una lectura breve o una novela escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Dragon Quest Emblem of Roto II nº 01: 1 (Manga Shonen) es en tapa blanda y reúne 416 páginas en castellano. Es una opción física para leer y conservar en papel, con una cubierta flexible que facilita su manejo frente a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dragon Quest Emblem of Roto II nº 01: 1 (Manga Shonen) comparte el formato de cómic y la orientación juvenil con Book of Clash nº 07/08: 7 (Cómic infantil juvenil). La primera obra pertenece al manga de aventuras de Kamui Fujiwara, mientras que la segunda está firmada por Gene Luen Yang, Alison Acton y Les McClaine. También puede compararse con MOBS: La vida secreta de los monstruos de Minecraft. Este último centra su propuesta en las criaturas de Minecraft, frente a la identificación de Dragon Quest en el título del primero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102004"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6799212409d0b440",
+  "origen": "chatgpt-web"
+}

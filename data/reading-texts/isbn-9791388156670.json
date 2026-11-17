@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388156670",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entre dos sonidos encaja con lectores interesados en el cómic, la novela gráfica y el arte visual. Es una obra de 224 páginas de Joonas Sildre, menos orientada a quien busca exclusivamente narrativa en prosa o un manual práctico de diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Entre dos sonidos se presenta en tapa dura, con 224 páginas en castellano. La encuadernación rígida permite conservar el volumen para posteriores consultas y facilita su colocación en una biblioteca de cómic y arte, aunque ocupa más espacio que una edición flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Entre dos sonidos comparte el ámbito del cómic con El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica). La diferencia está en la autoría y el enfoque anunciado: Joonas Sildre firma una obra vinculada también al arte y el diseño, mientras que el título de Nacho Nava Laiz se presenta como una obra sobre Roberto Iniesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938499"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21720eb6a15e3aaf",
+  "origen": "chatgpt-web"
+}

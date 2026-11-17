@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Meditaciones (I): Adviento, Navidad, Cuaresma, Semana Santa y Pascua (Religión. Fuera de Colección) se dirige a lectores interesados en la reflexión religiosa vinculada al calendario cristiano. Su contenido se centra en esos periodos litúrgicos, por lo que no responde a la búsqueda de una novela de ficción o de espiritualidad ajena a ese marco.",
+      "texto": "Meditaciones (I): Adviento, Navidad, Cuaresma, Semana Santa y Pascua (Religión. Fuera de Colección) está orientado a lectores interesados en la reflexión religiosa vinculada al calendario cristiano. Sus 696 páginas abarcan periodos litúrgicos concretos, por lo que se aparta de los libros de espiritualidad centrados en tradiciones ajenas a ese marco.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 696 páginas de Meditaciones (I): Adviento, Navidad, Cuaresma, Semana Santa y Pascua (Religión. Fuera de Colección) en un volumen físico para consultar durante los distintos periodos religiosos. Kindle permite acceder al texto digitalmente y evitar transportar un libro de esa extensión.",
+      "texto": "La edición en tapa blanda reúne las 696 páginas de Meditaciones (I): Adviento, Navidad, Cuaresma, Semana Santa y Pascua (Religión. Fuera de Colección) para su consulta en papel durante los distintos periodos litúrgicos. Kindle facilita llevar el volumen completo en el móvil o en un lector electrónico y consultar sus meditaciones sin transportar el libro físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -21,19 +22,19 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Meditaciones (I): Adviento, Navidad, Cuaresma, Semana Santa y Pascua (Religión. Fuera de Colección) y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparten el ámbito espiritual, pero siguen tradiciones y enfoques distintos. El primero organiza sus temas alrededor de celebraciones cristianas; el libro de Tsondru Yeshe aborda los fundamentos y la práctica del Dharma.",
+      "texto": "Meditaciones (I): Adviento, Navidad, Cuaresma, Semana Santa y Pascua (Religión. Fuera de Colección) comparte su orientación religiosa con AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda. El primero organiza su temática alrededor de Adviento, Navidad, Cuaresma, Semana Santa y Pascua, mientras que el segundo concentra su asunto en María y su mensaje.",
       "evidencias": [
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210088"
+        "isbn-9791388176357"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "540ce2ee2703e8af",
+  "fuente_hash": "cd9e5b0b1625ff5d",
   "origen": "chatgpt-web"
 }

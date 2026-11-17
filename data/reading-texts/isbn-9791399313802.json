@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399313802",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "INA: El sentido de mi movimiento, de Sharon Fridman y Melania Olcina Yuguero, se dirige a lectores interesados en el arte y el movimiento como asunto de reflexión. Con 116 páginas, se ajusta a una lectura breve de temática artística y se distancia de quienes buscan una novela de aventuras o un manual de informática.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "INA: El sentido de mi movimiento se publica en tapa blanda y tiene 116 páginas. Esta edición de Ediciones Moy permite consultar el contenido en papel y transportarlo sin el peso habitual de un volumen extenso. Está escrita en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "INA: El sentido de mi movimiento comparte el ámbito artístico con 720 retrats, de Xavier Mollà i Revert, y 21 Westerns del siglo XXI (Sílex Cine/Claqueta), de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga. El primero remite al retrato y el segundo al cine del oeste, mientras que INA: El sentido de mi movimiento sitúa el movimiento en el centro de su título. Las tres obras tienen autorías diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842",
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b7cf8fa90c639515",
+  "origen": "chatgpt-web"
+}

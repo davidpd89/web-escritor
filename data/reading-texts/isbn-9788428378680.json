@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788428378680",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes estudian o trabajan con la gestión de materiales y recursos didácticos en el ámbito de los servicios socioculturales y a la comunidad. Su contenido se orienta a la organización de medios educativos, no a la lectura de narrativa ni al estudio de una materia escolar concreta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es la gestión de materiales, medios y recursos didácticos. Su pertenencia a Servicios Socioculturales y a la Comunidad sitúa esa gestión dentro de un contexto formativo y profesional, con atención a los recursos empleados en la enseñanza.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 342 páginas de esta edición de Ediciones Paraninfo. Es una opción física para consultar contenidos sobre recursos didácticos, localizar apartados y realizar anotaciones durante la preparación de actividades formativas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "1705 Programación didáctica de los Grados A/B/C (Servicios Socioculturales y a la Comunidad) comparte autoría y ámbito formativo, pero trata la programación en lugar de la gestión de recursos. Por su parte, 1783 Evaluación del proceso enseñanza-aprendizaje (Servicios Socioculturales y a la Comunidad) se centra en evaluar la enseñanza y el aprendizaje, otra fase del trabajo educativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428378673",
+        "isbn-9788428378710"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bea4e2ba6051241a",
+  "origen": "chatgpt-web"
+}

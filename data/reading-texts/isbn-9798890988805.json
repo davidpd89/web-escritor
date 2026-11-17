@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798890988805",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este cómic de Barbara Park está dirigido al público infantil que disfruta de las historias contadas mediante viñetas. Con 160 páginas, se diferencia de las novelas infantiles escritas únicamente en prosa y no responde a quien busque una lectura de narrativa adulta.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Beascoa está disponible en tapa blanda y contiene 160 páginas en castellano. Este formato permite leer las viñetas sobre papel, transportar el volumen sin una cubierta rígida y guardarlo junto a otros cómics infantiles.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Junie B. Jones Espía Un Poquitín (El Cómic) / Junie B. Jones and Some Sneaky Peeky Spying: The Graphic Novel comparte protagonista, autoría de Barbara Park y formato gráfico con este volumen, aunque sus títulos anuncian situaciones distintas. Animal Jack 2 la montaña mágica también se dirige al público del cómic infantil, pero presenta otro protagonista y está firmado por Kid Toussaint.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989765",
+        "isbn-9791387744410"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b216366d4da04b6e",
+  "origen": "chatgpt-web"
+}

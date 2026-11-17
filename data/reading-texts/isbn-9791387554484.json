@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387554484",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mamá Viento del Oeste: 02 (Hojalatinos), de Thornton W. Burgess, pertenece al ámbito de la literatura infantil y juvenil. Sus 144 páginas ofrecen una lectura de mayor extensión que un libro infantil breve; el título lo identifica como el n.º 02, sin que ello establezca su posición dentro de una saga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mamá Viento del Oeste: 02 (Hojalatinos) se publica en tapa blanda, con 144 páginas en castellano. El formato permite transportarlo y leerlo en papel sin recurrir a una pantalla, con una cubierta flexible que se adapta al manejo cotidiano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0599510e949a1210",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9798235135239",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Resistencia Sensible, de Ever Daniel, se dirige a quienes buscan lecturas de ensayo en lugar de narrativa de ficción. Sus 210 páginas permiten abordar el libro como una lectura de no ficción de extensión media; no encaja con quien busca específicamente una novela, un cuento o una historia de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Resistencia Sensible cuenta con una edición en tapa blanda de 210 páginas, publicada en castellano. El formato físico permite llevar el ensayo durante los desplazamientos, marcar pasajes y volver a ellos durante la lectura; también puede guardarse en una biblioteca personal de no ficción.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b78d34ded9364e36",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409923106",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Camino a la felicidad se sitúa entre las lecturas sobre experiencias personales, familia y bienestar. Por su clasificación temática, se orienta a quienes buscan estos asuntos y no a lectores interesados exclusivamente en ficción fantástica o novelas de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Camino a la felicidad tiene una edición en tapa blanda de 177 páginas, publicada por Asociación Alenda. El formato permite mantener el libro en papel para volver a determinados pasajes y ofrece una extensión inferior a la de numerosos volúmenes de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Camino a la felicidad puede compararse con El amor de una madre por su vinculación con el ámbito familiar, aunque el segundo título centra expresamente su asunto en la maternidad. También se aproxima a 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito por el bienestar, mientras que este último anuncia un enfoque científico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798182960311",
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4ae82cb8233c636d",
+  "origen": "chatgpt-web"
+}

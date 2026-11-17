@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399056877",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Terrible monstruo enorme (LIBRE ALBEDRIO) se dirige a lectores infantiles interesados en historias de monstruos y terror. Por su clasificación infantil y juvenil, encaja menos con quienes buscan terror dirigido exclusivamente a adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Terrible monstruo enorme (LIBRE ALBEDRIO) está disponible en tapa dura, con 40 páginas en castellano. Esta edición permite conservar el libro en formato físico y consultar sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Terrible monstruo enorme (LIBRE ALBEDRIO) y El lago de los monstruos (INFANTIL) comparten la presencia de monstruos en sus títulos y su orientación infantil. El primero está clasificado también como terror, mientras que el segundo sitúa a los monstruos en un lago. Mieditos Tiernos / Spooky Cutie: Coloring Book for Adults and Kids (Coco Wyo) ofrece otra aproximación: un libro para colorear dirigido a adultos y niños.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387884260",
+        "isbn-9798890989901"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c1f0ee1ec44cb2f7",
+  "origen": "chatgpt-web"
+}

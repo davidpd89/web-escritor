@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788468598727",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tranqueando se dirige a lectores que buscan obras relacionadas con la narrativa contemporánea, la poesía o las cuestiones familiares. Por sus materias, queda fuera de las búsquedas centradas exclusivamente en manuales técnicos, divulgación científica o literatura de género fantástico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tranqueando está publicado por Bubok Publishing en tapa blanda, con 166 páginas en castellano. Su extensión permite llevar el ejemplar para leer durante desplazamientos o conservarlo en una biblioteca doméstica sin ocupar el espacio de un volumen de gran formato.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tranqueando comparte el terreno de la narrativa con Al faro: Nueva traducción al español: 82 (Clásicos en español), aunque el título de Virginia Woolf se presenta como una traducción de un clásico. También se aproxima por su clasificación narrativa a Dime, niña bonita (Narrativa), de Laura Galve, mientras que Tranqueando incorpora además las materias de poesía y familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781836472568",
+        "isbn-9791387605964"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e58ee3b6fe8cbe7a",
+  "origen": "chatgpt-web"
+}

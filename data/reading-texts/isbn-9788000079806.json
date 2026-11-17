@@ -4,29 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) se sitúa en la lectura infantil vinculada al desarrollo personal y al bienestar emocional. Su formato de cartón y sus 20 páginas responden a una experiencia de lectura breve y física, distinta de los manuales extensos de desarrollo personal o las novelas juveniles.",
+      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) se dirige al público infantil y aborda la felicidad desde una propuesta vinculada al desarrollo personal. Su extensión de 20 páginas y su presentación en cartón la diferencian de las novelas juveniles extensas o de los ensayos de autoayuda para adultos.",
       "evidencias": [
         "titulo",
         "categorias",
-        "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) puede utilizarse como libro infantil de lectura compartida, pasando sus páginas de cartón y conversando sobre la felicidad que anuncia el título. Sus 20 páginas permiten recorrer el volumen en sesiones breves y volver a él sin necesidad de seguir una narración extensa.",
+      "texto": "El libro permite acercarse al tema de la felicidad mediante una lectura infantil breve, individual o compartida. Sus 20 páginas de cartón facilitan pasar las hojas y detenerse en ellas para conversar sobre el tema que anuncia el título, sin necesitar una sesión de lectura prolongada.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
+        "edicion",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) se ofrece en tapa dura, concretamente como libro de cartón de 20 páginas. Este formato proporciona páginas rígidas para la manipulación durante la lectura infantil y permite conservar el volumen como objeto físico, en lugar de depender de una pantalla.",
+      "texto": "La opción disponible es la tapa dura, presentada como libro de cartón de 20 páginas. Este soporte físico permite manipular las páginas durante la lectura compartida y conservar el ejemplar en una biblioteca infantil; no requiere pantalla ni dispositivo de reproducción.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "edicion",
         "numero_paginas",
@@ -35,17 +34,16 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Emociones: Cuentos infantiles para comprender lo que sentimos: 2 (APRENDE) se relaciona con Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) por su orientación infantil hacia el mundo emocional. El primero se presenta como un libro de cuentos sobre sentimientos, mientras que Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español), de Rocio Bonilla, se identifica por la felicidad y adopta un formato de cartón de 20 páginas.",
+      "texto": "Coco y Lilu: ¿Un abrazo?, de Ed Vere, comparte con Babymoni: ¡Soy Feliz!: 5 (Babymoni en Español) el interés por experiencias afectivas expresadas en sus títulos. El primero plantea el abrazo como cuestión central, mientras que el libro de Rocio Bonilla sitúa la felicidad en primer plano y se presenta en cartón con 20 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo",
-        "categorias",
         "edicion",
         "numero_paginas"
       ],
       "enlaces": [
-        "isbn-9791388410109"
+        "isbn-9791399090222"
       ]
     }
   ],

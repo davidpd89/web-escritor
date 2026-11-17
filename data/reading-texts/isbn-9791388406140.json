@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388406140",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Generación Pantalla: Comprender y educar a tus hijos en la era digital se dirige a familias interesadas en la crianza y la educación de sus hijos ante el uso de pantallas. Por su enfoque familiar, no responde a quien busca una guía técnica sobre dispositivos digitales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar en papel las 200 páginas de Generación Pantalla: Comprender y educar a tus hijos en la era digital y volver a los apartados que interesen durante la crianza. La edición Kindle permite llevar el texto en el móvil o en un lector electrónico, sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción) comparte con Generación Pantalla: Comprender y educar a tus hijos en la era digital el interés por la educación familiar. El primero aborda la prevención del acoso y el abuso, mientras que el libro de Adoración Díaz se centra en la relación entre crianza y pantallas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410274600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc73b70599046003",
+  "origen": "chatgpt-web"
+}

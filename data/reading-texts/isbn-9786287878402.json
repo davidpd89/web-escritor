@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Teorías conspirativas / Conspiracy Theories se dirige a lectores interesados en el ensayo histórico y las teorías conspirativas, especialmente dentro de temáticas relacionadas con el siglo XX. Por su clasificación como historia y ensayo, se aleja de quienes buscan una novela de ficción o un relato de aventuras.",
+      "texto": "Teorías conspirativas / Conspiracy Theories está dirigido a lectores interesados en las teorías conspirativas desde el ámbito del ensayo y la historia. Con 144 páginas, ofrece una extensión breve frente a obras de estudio más voluminosas y no pertenece a la narrativa de ficción.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Teorías conspirativas / Conspiracy Theories está editado en tapa blanda y tiene 144 páginas. Su extensión permite abordar el contenido en un volumen físico relativamente breve, que puede transportarse y consultarse sin necesidad de dispositivos electrónicos.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Teorías conspirativas / Conspiracy Theories se publica en tapa blanda, con 144 páginas en castellano. Su extensión permite manejar un volumen físico relativamente breve, mientras que la encuadernación flexible facilita transportarlo para leerlo o consultarlo fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Teorías conspirativas / Conspiracy Theories y Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados) se aproximan a relatos y creencias desde ámbitos distintos de la no ficción. Gabriel León trata las teorías conspirativas en un ensayo de orientación histórica, mientras que Javier Prado Coronel se centra en los mitos y leyendas de España.",
+      "texto": "Amor y sexo en España contado para escépticos (Historia) comparte con Teorías conspirativas / Conspiracy Theories el ámbito histórico, aunque se centra en el amor y la sexualidad en España, frente a las teorías conspirativas. A sangre y fuego (Clásicos ilustrados), de Manuel Chaves Nogales, ofrece otra aproximación a asuntos históricos, pero desde una obra identificada como clásico ilustrado, no como ensayo sobre conspiraciones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949976"
+        "isbn-9791387752590",
+        "isbn-9788408326441"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bdbe5c5f824c0be4",
+  "fuente_hash": "58a22aed9f99ef73",
   "origen": "chatgpt-web"
 }

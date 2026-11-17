@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399298901",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "VOLVER AL ÁRBOL: Árboles, sombra y futuro en un mundo que se calienta está dirigido a lectores de divulgación científica interesados en los árboles y su relación con un planeta que se calienta. Su temática ambiental lo distingue de los manuales de tecnología o de los libros de viajes centrados en recorrer lugares.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "VOLVER AL ÁRBOL: Árboles, sombra y futuro en un mundo que se calienta cuenta con una edición en tapa blanda de 308 páginas, publicada en castellano. Su extensión permite dedicar varias sesiones a la lectura y utilizar el ejemplar físico para consultar de nuevo cuestiones relacionadas con los árboles y el calentamiento del planeta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "VOLVER AL ÁRBOL: Árboles, sombra y futuro en un mundo que se calienta y Abonado y fertilización en agricultura ecológica-AGAU001PO comparten el interés por el entorno vegetal, pero el segundo se concentra en prácticas de fertilización agrícola. También puede contrastarse con (ENAC0019) Herramientas de análisis coste/beneficio aplicadas a la eficiencia energética: ambos se relacionan con cuestiones ambientales, aunque este último aborda el análisis económico de la eficiencia energética.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388334627",
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5ab0c126dccf8fac",
+  "origen": "chatgpt-web"
+}

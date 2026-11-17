@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399267228",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan una lectura de psicología sobre el trabajo grupal ante la traumatización compleja. Por su enfoque en la preparación previa al abordaje de las memorias, se aleja de los libros de desarrollo personal centrados en consejos generales para la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 380 páginas en castellano, publicadas por Imaya Editorial, S.l. Es una opción física para consultar distintos pasajes durante el estudio del trabajo grupal, con una extensión que permite dedicar varias sesiones a su lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo bueno de tener un mal día: Cómo cuidar de nuestras emociones para estar mejor. Edición limitada a precio especial (Colección Especial) comparte autoría con este libro de Anabel Gonzalez y aborda el cuidado emocional desde una perspectiva más general. Terapia grupal en la traumatización compleja: Un trabajo de preparación previo al abordaje de las memorias se centra, en cambio, en el trabajo grupal preparatorio ante las memorias traumáticas.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408331865"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "be80e4d438b966ad",
+  "origen": "chatgpt-web"
+}

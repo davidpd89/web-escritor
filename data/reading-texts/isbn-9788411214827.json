@@ -4,39 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) se dirige a lectores interesados en la espiritualidad y las interpretaciones del bienestar desde el chamanismo. Sus 256 páginas abordan ese ámbito desde el ensayo, por lo que no responde a quien busque una novela o un manual de tratamientos médicos basados en pruebas clínicas.",
+      "texto": "Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) se dirige a lectores interesados en la espiritualidad, el chamanismo y su relación con el bienestar actual. Su perspectiva espiritual lo diferencia de los manuales clínicos de salud y de las obras de ficción.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 256 páginas de Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) en un volumen físico que permite marcar y consultar pasajes. La edición Kindle ofrece el mismo título en formato digital para leerlo en un dispositivo compatible o llevarlo en el móvil sin transportar el libro impreso.",
+      "texto": "La edición en tapa blanda reúne las 256 páginas de Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) en un volumen para leer y consultar en papel. La versión Kindle permite acceder al texto desde un dispositivo electrónico y facilita llevarlo sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La cosmovisión de los chamanes / The Worldview of the Shamans comparte el interés por el chamanismo, pero pone el acento en su visión del mundo, mientras que Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) relaciona esa tradición con el bienestar contemporáneo. Astrología, filosofía y magia: Un camino de práctica espiritual aborda otras vías de espiritualidad y amplía el contraste hacia la astrología y la magia.",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow, comparte con Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne) el interés por la espiritualidad, pero se centra en la consciencia y las dimensiones. Caminando a través de la sombra, de Calvin Amandus, plantea desde su título un recorrido relacionado con la sombra, mientras que Ana María Llamazares aborda específicamente el chamanismo y su dimensión sanadora en la sociedad contemporánea.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315",
-        "isbn-9786073874274"
+        "isbn-9798888505335",
+        "isbn-9798182903509"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b6e492722f3a5c2d",
+  "fuente_hash": "ec12a2bebc38bd80",
   "origen": "chatgpt-web"
 }

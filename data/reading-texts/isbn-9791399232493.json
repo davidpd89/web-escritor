@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399232493",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Y ahora ya eres el dueño del puente de Brooklyn: 48 (Diástole), de Luis García Montero, se dirige a lectores que buscan poesía en castellano. No encaja tanto con quien prefiere novelas narrativas, tramas de ficción o relatos con personajes y conflictos desarrollados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 74 páginas en una edición física manejable, adecuada para leer poesía sin depender de una pantalla. Es el único formato disponible en el catálogo para Y ahora ya eres el dueño del puente de Brooklyn: 48 (Diástole).",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Y ahora ya eres el dueño del puente de Brooklyn: 48 (Diástole), de Luis García Montero, puede ponerse en relación con Advenir, de Jose Eceolaza, y A solas, de María Jesús Martínez Ramos. Los tres títulos forman parte de las lecturas afines del catálogo; el libro de Luis García Montero se identifica expresamente con la poesía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6990d124a6ef89e3",
+  "origen": "chatgpt-web"
+}

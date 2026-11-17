@@ -4,40 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Breve Historia del Siglo de Oro Vol. II: Historia, sociedad, cultura y arte está dirigido a lectores interesados en historia y en el estudio de la sociedad, la cultura y el arte. Sus 336 páginas en castellano lo sitúan entre las lecturas de no ficción, no entre las novelas de entretenimiento.",
+      "texto": "Está dirigido a lectores interesados en la historia, la sociedad, la cultura y el arte del Siglo de Oro. Breve Historia del Siglo de Oro Vol. II: Historia, sociedad, cultura y arte, de Juan Bravo Castillo, aborda ese periodo desde varias perspectivas; no responde a una búsqueda centrada exclusivamente en historia política.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "idioma"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Breve Historia del Siglo de Oro Vol. II: Historia, sociedad, cultura y arte se publica en tapa blanda, con 336 páginas. La edición de Ediciones Nowtilus ofrece un ejemplar físico que puede transportarse y consultarse por sus distintos asuntos históricos, sociales, culturales y artísticos.",
+      "texto": "La edición en tapa blanda reúne las 336 páginas de Breve Historia del Siglo de Oro Vol. II: Historia, sociedad, cultura y arte en un volumen físico. Es una opción para leer en papel, consultar distintos apartados y conservar el libro en una biblioteca de historia.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Breve Historia del Siglo de Oro Vol. II: Historia, sociedad, cultura y arte y 76, de Felipe Pigna, son referencias de lectura histórica dentro del catálogo. El primero anuncia un recorrido por historia, sociedad, cultura y arte, mientras que el segundo se identifica mediante un título numérico. También cambia la autoría: Juan Bravo Castillo firma el primero y Felipe Pigna el segundo.",
+      "texto": "Breve Historia del Siglo de Oro Vol. II: Historia, sociedad, cultura y arte y 53 días: Cómo Hitler derribó una democracia (HISTORIA) comparten el interés por la historia, pero estudian periodos y asuntos diferentes. El libro de Juan Bravo Castillo abarca historia, sociedad, cultura y arte del Siglo de Oro; el de Timothy W. Ryback se centra en la caída de una democracia bajo Hitler.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "afines_catalogo",
-        "autores"
+        "autores",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329695"
+        "isbn-9788411005517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5adac4901c2b43d6",
+  "fuente_hash": "b94b02c89bc357f9",
   "origen": "chatgpt-web"
 }

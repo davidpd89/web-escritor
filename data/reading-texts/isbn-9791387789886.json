@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387789886",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El viaje traducido: Autoras de habla alemana por España e Hispanoamérica (Babélica) se dirige a lectores interesados en el ensayo y en la relación entre autoras germanohablantes y territorios hispanohablantes. Por su enfoque, se aleja de las lecturas que buscan ficción narrativa o manuales de aplicación práctica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de El viaje traducido: Autoras de habla alemana por España e Hispanoamérica (Babélica) está publicada por Guillermo Escolar Editor, con fecha de publicación 2026-11-04. Tiene 252 páginas en castellano, encuadernación en tapa blanda y está firmada por María-José Gómez Perales y Mireia Vives Martínez.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El viaje traducido: Autoras de habla alemana por España e Hispanoamérica (Babélica) está disponible en tapa blanda, con 252 páginas. El soporte impreso permite consultar y volver a pasajes concretos de este ensayo sobre autoras de habla alemana y su relación con España e Hispanoamérica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1997242f39a25508",
+  "origen": "chatgpt-web"
+}

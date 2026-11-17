@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387775599",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rosalía: Un icono del pop mundial (Tendencias y Aficiones) se dirige a quienes buscan una biografía relacionada con la música pop, el arte y la cultura contemporánea. Por su enfoque biográfico, encaja menos con lectores interesados en novelas de ficción o manuales prácticos de creación artística.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Rosalía: Un icono del pop mundial (Tendencias y Aficiones) reúne 256 páginas en una edición física apropiada para conservar o regalar. La versión Kindle permite consultar el libro desde un dispositivo compatible sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rosalía: Un icono del pop mundial (Tendencias y Aficiones) y Bingo musical: Dale al play y que empiece la fiesta (Voces de hoy) comparten el interés por la música, pero el primero es una biografía y el segundo plantea una actividad musical. Frente a Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros), el libro de Adrian Besley se centra en una figura del pop en lugar de abordar la creatividad cotidiana mediante inspiraciones de artistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279478",
+        "isbn-9791388324239"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60471844c5c7ecf1",
+  "origen": "chatgpt-web"
+}

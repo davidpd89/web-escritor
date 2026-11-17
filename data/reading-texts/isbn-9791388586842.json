@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388586842",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Planes de emergencia y evacuación en locales de ocio nocturno-SEAD307PO, de Elsa Rubio Duce, se centra en la planificación de emergencias y evacuaciones en establecimientos nocturnos. Su temática encaja con el interés profesional por la seguridad en estos locales, pero no con la búsqueda de narrativa de ficción o divulgación general sin aplicación sectorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Planes de emergencia y evacuación en locales de ocio nocturno-SEAD307PO se publica en tapa blanda y consta de 98 páginas. La edición de Ediciones Playa Blanca reúne el contenido en un volumen físico de extensión acotada, que puede consultarse sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Planes de emergencia y evacuación en locales de ocio nocturno-SEAD307PO comparte autoría con Investigación de incendios forestales-AGAR002PO, de Elsa Rubio Duce, y ambos títulos se relacionan con situaciones de riesgo. El primero se ocupa de emergencias y evacuación en locales nocturnos, mientras que el segundo se centra en investigar incendios en el ámbito forestal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586316"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f005f8ac9fb19e59",
+  "origen": "chatgpt-web"
+}

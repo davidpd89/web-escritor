@@ -4,29 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de fantasía juvenil que buscan una combinación de romance, romantasy y elementos de terror. No responde a las expectativas de quien prefiere narrativa realista sin componentes fantásticos; el título lo identifica como el n.º 2 de Zodiac Academy.",
+      "texto": "Zodiac Academy 2. Despiadados: Edición rústica (Ficción) se dirige a lectores de fantasía juvenil que buscan una historia con componentes románticos. El título lo identifica como el n.º 2 de Zodiac Academy, por lo que quien prefiera empezar una serie desde su primera entrega puede optar antes por Zodiac Academy 1. El despertar.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda presenta las 592 páginas de Zodiac Academy 2. Despiadados: Edición rústica (Ficción) en un volumen físico de cubierta flexible. Kindle permite leer esa extensión en el móvil o en un lector electrónico, sin transportar el ejemplar impreso.",
+      "texto": "La tapa blanda reúne las 592 páginas de Zodiac Academy 2. Despiadados: Edición rústica (Ficción) en una edición física de Crossbooks. Kindle permite leer el mismo título en un dispositivo electrónico o en el móvil, sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
+        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Zodiac Academy 1. El despertar, de Caroline Peckham y Susanne Valenti, comparte autoría y serie con Zodiac Academy 2. Despiadados: Edición rústica (Ficción), pero el título identifica al primero como el n.º 1 y al segundo como el n.º 2. La edición especial con cantos tintados de Despiadados corresponde al mismo número de la serie y se diferencia de la edición rústica por su presentación física.",
+      "texto": "Zodiac Academy 1. El despertar comparte autoría y serie con este segundo volumen, pero corresponde a la entrega inicial. Ambos títulos son de Caroline Peckham y Susanne Valenti y pertenecen a la fantasía juvenil con componentes románticos. Esta edición de Despiadados se presenta en tapa blanda con 592 páginas, frente al primer título de la serie.",
       "evidencias": [
         "titulo",
         "autores",
-        "edicion",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
       ],
       "enlaces": [
         "isbn-9788408324317"
@@ -35,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e8839e7ca729badc",
+  "fuente_hash": "24d62266eddb0da6",
   "origen": "chatgpt-web"
 }

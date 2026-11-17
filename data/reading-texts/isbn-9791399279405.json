@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399279405",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "BLINDADOS EN EL DESIERTO VOL II: de Gazala a Túnez, 1942-43: 6 (Salamina Selección) se dirige a lectores interesados en la historia militar y en el estudio de campañas con vehículos blindados. Sus 420 páginas se ajustan a una lectura histórica extensa, no a quien busca ficción bélica o una introducción general y breve a la historia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "BLINDADOS EN EL DESIERTO VOL II: de Gazala a Túnez, 1942-43: 6 (Salamina Selección) está editado en tapa blanda, con 420 páginas en castellano. El soporte impreso permite consultar el volumen y regresar a distintos pasajes durante la lectura de este estudio histórico, además de conservarlo como libro de referencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "BLINDADOS EN EL DESIERTO VOL II: de Gazala a Túnez, 1942-43: 6 (Salamina Selección) puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su enfoque histórico. Robert Forczyk centra su obra en operaciones militares con blindados, mientras que el otro título aborda el derrumbe de una democracia. También existe una afinidad temática con A sangre y fuego (Clásicos ilustrados), de Manuel Chaves Nogales, aunque se trata de obras de distinta autoría y con asuntos históricos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9791387752590"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f62a6a313eb31843",
+  "origen": "chatgpt-web"
+}

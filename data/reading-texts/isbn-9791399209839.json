@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399209839",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Stephen King se sitúa entre el terror y el arte y diseño, por lo que encaja con lectores interesados en ambas materias. Sus 104 páginas lo distinguen de obras más extensas; quienes busquen específicamente una novela larga de terror encontrarán aquí una propuesta editorial de menor extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Stephen King está editado en tapa dura por Maldragon Editorial, con 104 páginas en castellano. La encuadernación rígida ofrece protección para conservarlo en una estantería o entregarlo como regalo, mientras que su extensión permite manejarlo sin el volumen de una obra de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Stephen King puede compararse con Anatomía del miedo, de Rubin Editorial, por su relación temática con el terror y el miedo. También se aproxima a A la luz de la oscuridad (La pequeña Salamandra), de Aitor Saraiba, desde la vertiente artística del catálogo; Stephen King reúne las materias de terror y arte y diseño en una edición de 104 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387906023",
+        "isbn-9786316730589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "118dba204ddb04ce",
+  "origen": "chatgpt-web"
+}

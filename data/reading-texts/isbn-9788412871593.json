@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788412871593",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la historia del montañismo y en las primeras ascensiones documentadas a grandes cumbres. Su enfoque histórico se aleja de los manuales prácticos de senderismo y de las guías de rutas actuales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda las primeras ascensiones documentadas a la pique longue del vignemale y al aneto. Agustí Falcón sitúa el interés en los antecedentes históricos de estas ascensiones, con un enfoque centrado en su documentación y no en la práctica deportiva contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 208 páginas de Primeras ascensiones documentadas a la pique longue del vignemale y al aneto en un volumen físico. Este formato permite consultar y releer sus contenidos históricos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Primeras ascensiones documentadas a la pique longue del vignemale y al aneto y Crónicas desde el sur de África: Segunda edición revisada y ampliada comparten el interés por lugares concretos y su representación escrita. La obra de Agustí Falcón se centra en ascensiones históricas, mientras que la de Francesc Castanyer Castellví se presenta como una recopilación de crónicas sobre el sur de África.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788420307404"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60598b2567629a8f",
+  "origen": "chatgpt-web"
+}

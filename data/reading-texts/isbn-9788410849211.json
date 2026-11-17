@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Viajes y descubrimientos se dirige a lectores interesados en la historia de las exploraciones y en cómo los desplazamientos han transformado las sociedades. Su recorrido desde las expediciones históricas hasta el turismo contemporáneo encaja menos con quien necesita itinerarios, alojamientos o indicaciones prácticas para preparar unas vacaciones.",
+      "texto": "Viajes y descubrimientos encaja con lectores interesados en la historia de las exploraciones y en cómo los desplazamientos han transformado las sociedades. Su recorrido desde las expediciones históricas hasta el turismo contemporáneo lo distingue de una guía destinada a organizar unas vacaciones concretas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Viajes y descubrimientos plantea una lectura divulgativa sobre la evolución histórica y cultural de los viajes. Gianni Palitta y Giorgio Bergamino relacionan expediciones como las de Alejandro Magno y Cristóbal Colón con los cambios entre civilizaciones, antes de abordar el turismo de masas y las formas actuales de desplazarse.",
+      "texto": "Viajes y descubrimientos aborda el viaje como fenómeno histórico y social, además de experiencia personal. Gianni Palitta y Giorgio Bergamino relacionan las expediciones de Alejandro Magno y Cristóbal Colón con los cambios entre civilizaciones, antes de situar el turismo de masas en la evolución de los desplazamientos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Viajes y descubrimientos y Allí donde fueres... se aproximan al viaje desde perspectivas culturales, pero el primero examina su evolución histórica y el libro de Patrick Kinsella plantea cuestiones de costumbres, como los saludos en Japón. Frente a Amsterdam de cerca 2027-2028, de Catherine Le Nevez, la obra de Gianni Palitta y Giorgio Bergamino no se concentra en una ciudad, sino en las exploraciones y el turismo a lo largo del tiempo.",
+      "texto": "Viajes y descubrimientos y Austria 7 comparten el interés por los territorios y su dimensión histórica, pero Gianni Palitta y Giorgio Bergamino examinan los desplazamientos a través de distintas épocas, mientras que Anthony Haywood se centra en Austria. Amsterdam de cerca 2027-2028, de Catherine Le Nevez, también aborda una ciudad con pasado histórico, aunque desde una perspectiva geográfica más delimitada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324331",
-        "isbn-9788408320890"
+        "isbn-9788408320890",
+        "isbn-9788408322221"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "68f126404e33df9f",
+  "fuente_hash": "d39bfbac65ca8307",
   "origen": "chatgpt-web"
 }

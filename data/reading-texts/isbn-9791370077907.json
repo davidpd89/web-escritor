@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370077907",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marine Serre | Colección Leyendas de la Moda | Libro LIX se orienta a lectores interesados en moda, arte y diseño desde una perspectiva de ensayo. Sus 128 páginas ofrecen una extensión contenida; no responde a la búsqueda de una novela de ficción o una historia de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de Marine Serre | Colección Leyendas de la Moda | Libro LIX es en tapa dura y tiene 128 páginas. El volumen de RBA Coleccionables puede incorporarse a una colección física de libros sobre moda o regalarse como ejemplar de la serie.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Marine Serre | Colección Leyendas de la Moda | Libro LIX comparte colección y autoría editorial con Donna Karan | Colección Leyendas de la Moda | Libro LX. Ambos se centran en nombres distintos de la moda, lo que permite elegir según la figura de interés. También guarda esa relación con Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII, otro volumen de RBA Coleccionables España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079321",
+        "isbn-9791370077914"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1521f5fd44abc794",
+  "origen": "chatgpt-web"
+}

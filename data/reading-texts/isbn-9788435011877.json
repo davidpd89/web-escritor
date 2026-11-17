@@ -4,30 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Muerte a crédito (Edhasa Literaria) se orienta a lectores de narrativa contemporánea interesados en obras vinculadas al siglo XX y a la historia. Sus 576 páginas suponen una lectura extensa, distinta de un ensayo histórico breve o de una obra concebida como consulta temática.",
+      "texto": "Muerte a crédito (Edhasa Literaria), de Louis-Ferdinand Céline, se dirige a lectores de narrativa contemporánea con interés por obras relacionadas con la historia. Sus 576 páginas requieren más tiempo de lectura que una novela breve, por lo que encaja menos con quien busca un libro de extensión reducida.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Muerte a crédito (Edhasa Literaria) puede elegirse en tapa dura o Kindle. La edición física tiene 576 páginas y una encuadernación rígida para conservarla y releerla; Kindle permite llevar el texto en un dispositivo compatible sin transportar ese volumen de papel.",
+      "texto": "La tapa dura de Muerte a crédito (Edhasa Literaria) contiene 576 páginas y ofrece una encuadernación rígida para conservar el volumen y consultarlo de nuevo. Kindle permite llevar esta obra extensa en un lector electrónico o dispositivo compatible sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "formato_edicion"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Muerte a crédito (Edhasa Literaria) puede compararse con David Copperfield (edición especial en tapa dura) (Ediciones Conmemorativas) por su pertenencia a la narrativa literaria. La primera obra, de Louis-Ferdinand Céline, se vincula al siglo XX, mientras que la segunda, de Charles Dickens, se presenta en una edición especial conmemorativa.",
+      "texto": "David Copperfield (edición especial en tapa dura) (Ediciones Conmemorativas), de Charles Dickens, comparte con Muerte a crédito (Edhasa Literaria) la presentación en tapa dura y su pertenencia a la narrativa. Se diferencian por la autoría y la identificación editorial: Charles Dickens figura en una edición conmemorativa y Louis-Ferdinand Céline en Edhasa Literaria.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "edicion",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -37,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "60ecc75e04043578",
+  "fuente_hash": "d23731da8cf87d92",
   "origen": "chatgpt-web"
 }

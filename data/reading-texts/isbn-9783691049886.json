@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9783691049886",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a hombres interesados en conocer el uso del tadalafilo ante la disfunción eréctil y su relación con la intimidad en pareja. Trata también la próstata (HBP), por lo que se aleja de los libros de bienestar general que no abordan cuestiones farmacológicas concretas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Tadalafilo sin tabúes: Guía para hombres sobre el tadalafilo, la disfunción eréctil, la dosis diaria de 5 mg o a demanda, efectos secundarios, próstata (HBP) e intimidad en pareja se presenta en tapa blanda. Sus 114 páginas permiten consultar en papel los apartados sobre dosis, efectos secundarios y salud íntima.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aliméntate según tus genes / Eat According to Your Genes, de Alejandra Ponce, comparte el interés por cuestiones relacionadas con la salud, aunque se centra en la alimentación. El libro de Mateo Villarreal aborda específicamente el tadalafilo, sus pautas de uso y la intimidad masculina, frente al enfoque nutricional del otro título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073872935"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0a0d12fc14dc7f88",
+  "origen": "chatgpt-web"
+}

@@ -4,11 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dragon Quest: The Adventure of Dai nº 12/25 se dirige a lectores de fantasía en cómic que buscan enfrentamientos entre ejércitos, entrenamiento de héroes y conflictos entre reinos. Encaja menos con quien prefiere historias independientes o narraciones alejadas de las batallas, pues el título lo identifica como el n.º 12 de una colección.",
+      "texto": "Dragon Quest: The Adventure of Dai nº 12/25 está dirigido a lectores de fantasía que siguen el manga y la narrativa gráfica. Sus 328 páginas y su identificación como entrega 12 de 25 lo sitúan dentro de una colección numerada, por lo que también interesa a quienes siguen esta serie en orden.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dragon Quest: The Adventure of Dai nº 12/25 está disponible en tapa blanda, con 328 páginas en una edición física de Planeta Cómic. Este formato permite conservar el volumen como parte de la colección y leer sus páginas en papel; es la opción disponible para esta entrega.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dragon Quest: The Adventure of Dai nº 12/25 comparte serie y autor con Dragon Quest: The Adventure of Dai nº 11/25 (Manga Shonen), de Koji Inada. La diferencia entre ambos títulos está en la numeración: el primero corresponde al n.º 12 y el segundo al n.º 11; After God 7 (Shônen), de Sumi Eno, ofrece otra referencia de manga identificada como shônen, pero con título y autoría diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387920838",
+        "isbn-9791387962388"
       ]
     },
     {
@@ -18,33 +44,12 @@
         "categorias",
         "sinopsis_editorial"
       ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 328 páginas y utiliza una encuadernación rústica sin solapas con sobrecubierta. Es una opción física para leer y conservar este volumen de la colección, con un formato que permite transportarlo sin la rigidez de una cubierta de cartón.",
-      "evidencias": [
-        "numero_paginas",
-        "formatos_disponibles",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "After God 8 (Shônen) comparte con Dragon Quest: The Adventure of Dai nº 12/25 su pertenencia al cómic japonés, aunque corresponde a otra obra y está firmado por Sumi Eno. Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic), de Steve Smallman, también incorpora elementos fantásticos, pero su presentación como primer cómic contrasta con la continuidad de una colección ya avanzada.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387962647",
-        "isbn-9788448875381"
-      ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "encaje_documentado: repite otro bloque",
+    "faltan módulos: encaje_documentado"
+  ],
   "version": 3,
   "fuente_hash": "b56a08a5179b5f9e",
   "origen": "chatgpt-web"

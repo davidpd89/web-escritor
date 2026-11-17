@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788466392723",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en conocer a escritores reconocidos mediante conversaciones y testimonios relacionados con su trayectoria literaria. Su enfoque biográfico y ensayístico encaja menos con quienes buscan una novela de ficción o una antología de relatos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Recoge conversaciones con treinta y dos escritores distinguidos por la Academia Sueca. Xavi Ayén aborda el ámbito literario mediante el diálogo con sus protagonistas, en una obra de 384 páginas situada entre el ensayo y los testimonios biográficos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Penguin Bolsillo se presenta en tapa blanda y reúne 384 páginas en castellano. Su formato de bolsillo facilita transportar el libro y leer las conversaciones en distintos momentos, sin recurrir a un volumen de mayor tamaño.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Palabra de Nobel: Conversaciones con treinta y dos escritores laureados por la Academia Sueca (Best Seller | Ficción), de Xavi Ayén, puede compararse con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes, de Andrew Paxman. Ambos se aproximan a figuras reales, pero el primero reúne conversaciones con escritores y el segundo presenta una biografía organizada en episodios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073873154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3400c987801320ab",
+  "origen": "chatgpt-web"
+}

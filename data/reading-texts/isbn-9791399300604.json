@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399300604",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la investigación matemática, especialmente en el álgebra y las conjeturas. Una conjetura de brauer: Investigación en álgebra, de Gabriel Navarro Ortega, concentra su asunto en 44 páginas, por lo que su enfoque es más específico que el de una introducción general a las ciencias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una conjetura de brauer: Investigación en álgebra está disponible en tapa blanda, con 44 páginas en castellano. Su extensión permite manejarlo como un volumen físico breve y conservarlo para consultar el tema algebraico que anuncia su título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, y Una conjetura de brauer: Investigación en álgebra, de Gabriel Navarro Ortega, tratan materias científicas desde asuntos distintos. El primero se orienta a conocimientos sobre inteligencia artificial, mientras que el segundo se concentra en una conjetura matemática relacionada con el álgebra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "442f678849bde3e4",
+  "origen": "chatgpt-web"
+}

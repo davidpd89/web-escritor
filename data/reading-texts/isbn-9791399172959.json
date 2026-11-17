@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399172959",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sé tú misma (Kairat), de Maria R. Rodríguez Campos, se dirige al público infantil interesado en el desarrollo personal. Sus 32 páginas sitúan la obra en una extensión breve; quien busque una novela juvenil de largo recorrido encontrará aquí otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sé tú misma (Kairat) se presenta en tapa dura, con 32 páginas en castellano. Esta encuadernación permite conservar el ejemplar en una biblioteca infantil y utilizarlo en lecturas compartidas, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sé tú misma (Kairat) comparte con Amigos de verdad el interés por cuestiones relacionadas con el desarrollo personal durante la infancia. La obra de Iris Pérez-Bonaventura se centra en la amistad y su papel en la construcción de la personalidad, mientras que el libro de Maria R. Rodríguez Campos se presenta dentro del desarrollo personal infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994532"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb783c727ecad54c",
+  "origen": "chatgpt-web"
+}

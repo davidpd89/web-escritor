@@ -4,37 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las diosas que hay en MÍ / les deesses que HI ha en mi, de Amalia Sanchís, se dirige a lectores interesados en poesía. Sus 90 páginas ofrecen una extensión breve y no responden a la búsqueda de una novela larga o de una narración de aventuras.",
+      "texto": "Las diosas que hay en MÍ / les deesses que HI ha en mi, de Amalia Sanchís, se dirige a lectores de poesía que buscan un volumen breve. Sus 90 páginas en castellano encajan con la lectura de poesía en papel, pero no con quien prefiere una novela extensa.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Las diosas que hay en MÍ / les deesses que HI ha en mi es de tapa blanda y tiene 90 páginas. Su extensión permite transportar el volumen físico con facilidad y conservarlo en una biblioteca de poesía.",
+      "texto": "Las diosas que hay en MÍ / les deesses que HI ha en mi se publica en tapa blanda, con 90 páginas. La edición de In-verso Ediciones de Poesía permite leer y conservar el volumen en papel, con una extensión manejable para transportarlo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las diosas que hay en MÍ / les deesses que HI ha en mi comparte el ámbito poético con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La obra de Amalia Sanchís presenta un título en dos formulaciones lingüísticas, mientras que la de Pedro Salinas se identifica expresamente como antología amorosa.",
+      "texto": "Las diosas que hay en MÍ / les deesses que HI ha en mi, de Amalia Sanchís, comparte su clasificación poética con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, y A solas, de María Jesús Martínez Ramos. Se diferencia por su autoría, su título bilingüe y una extensión documentada de 90 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "numero_paginas"
       ],
       "enlaces": [
-        "isbn-9788466396288",
-        "isbn-9791370140908"
+        "isbn-9788412988833",
+        "isbn-9788410907539"
       ]
     }
   ],

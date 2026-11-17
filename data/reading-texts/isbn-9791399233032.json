@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399233032",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cementerio de Gaucín se dirige a lectores de poesía en castellano que buscan un volumen de 122 páginas. Por su género, se diferencia de las lecturas centradas en novelas, ensayos explicativos o manuales prácticos, y responde a una preferencia por la expresión poética.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cementerio de Gaucín está disponible en tapa blanda, en una edición de 122 páginas publicada por Aesc Editores. Su extensión permite llevar el volumen en papel y regresar a sus páginas en diferentes momentos, sin necesitar un dispositivo de lectura digital.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cementerio de Gaucín puede compararse con A solas y Advenir dentro de la lectura poética, aunque se trata de obras de autores distintos: Jesús Cánovas Martínez, María Jesús Martínez Ramos y Jose Eceolaza, respectivamente. El título de Cementerio de Gaucín introduce una referencia geográfica y funeraria, mientras que A solas apunta a la soledad y Advenir a la idea de llegada o porvenir.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c6f465b6b7e71466",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388381485",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ahora que te has ido: Corona poética en homenaje a José Manuel de Lara: 249 (Otros títulos) encaja con lectores de poesía interesados en los homenajes literarios y la escritura vinculada al recuerdo. Por su planteamiento poético y conmemorativo, se distancia de quienes prefieren una narración centrada en una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ahora que te has ido: Corona poética en homenaje a José Manuel de Lara: 249 (Otros títulos) es de tapa blanda y tiene 156 páginas. Su extensión permite transportarlo para leer poemas en distintos momentos, mientras que la encuadernación flexible facilita su manejo durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ahora que te has ido: Corona poética en homenaje a José Manuel de Lara: 249 (Otros títulos) puede compararse con Antología final: 282 (LITORAL) por su relación con la poesía. La diferencia está en la presentación: el primero se identifica como una corona poética de homenaje firmada por Manuel José de Lara Ródenas, mientras que Antología final: 282 (LITORAL) figura como obra de Varios autores. Donde el alma se asoma, de Isabel Toledo Gómez y Juan Martín García, ofrece otra referencia de autoría compartida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412931075",
+        "isbn-9791388066573"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d99ea20c214cbc3c",
+  "origen": "chatgpt-web"
+}

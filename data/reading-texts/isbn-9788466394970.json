@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Chamán (Trilogía de la familia Cole 2) (Best Seller) se orienta a quienes leen novela histórica con aventuras y relaciones familiares. Sus 640 páginas requieren una lectura prolongada; encaja menos con quien busca una novela corta o una historia ajena a los conflictos familiares.",
+      "texto": "Chamán (Trilogía de la familia Cole 2) (Best Seller) se dirige a lectores de novela histórica que también buscan aventuras y narrativa contemporánea. Sus 640 páginas corresponden a una lectura extensa; el título lo identifica como el n.º 2 de la trilogía, por lo que se diferencia de una novela presentada como independiente.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,17 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 640 páginas de Chamán (Trilogía de la familia Cole 2) (Best Seller) en un volumen físico de bolsillo, aunque su extensión añade grosor. Kindle permite llevar la misma obra en un lector electrónico o en el móvil, sin cargar con el libro impreso.",
+      "texto": "La edición de bolsillo en tapa blanda de Debolsillo contiene 640 páginas en castellano y permite leer la novela en papel. Kindle ofrece una alternativa digital para llevar una obra de esta extensión en el móvil o en un lector electrónico, sin transportar el volumen físico.",
       "evidencias": [
-        "titulo",
         "edicion",
+        "editorial",
         "numero_paginas",
+        "idioma",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Chamán (Trilogía de la familia Cole 2) (Best Seller) comparte autor y pertenencia a una trilogía familiar con El médico (Trilogía de la familia Cole 1) (Best Seller) y La doctora Cole (Trilogía de la familia Cole 3) (Best Seller). Los títulos los identifican respectivamente como entregas 2, 1 y 3, lo que permite distinguir su posición dentro de la serie.",
+      "texto": "El médico (Trilogía de la familia Cole 1) (Best Seller) y La doctora Cole (Trilogía de la familia Cole 3) (Best Seller) comparten con Chamán (Trilogía de la familia Cole 2) (Best Seller) la autoría de Noah Gordon y la familia Cole. Los títulos identifican respectivamente los números 1, 3 y 2 de la trilogía, lo que permite distinguir su posición dentro del conjunto.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a9cf2cef03dc7056",
+  "fuente_hash": "54fdf6d7ab3561b7",
   "origen": "chatgpt-web"
 }

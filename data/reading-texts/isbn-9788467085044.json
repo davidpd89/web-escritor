@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Antes de irme (Espasa Actualidad), de Miguel Ángel Revilla, se dirige a lectores interesados en las memorias personales y en cuestiones relacionadas con el poder y la política. Por su clasificación temática, se aleja tanto de la ficción política como de los manuales técnicos sobre instituciones y administración.",
+      "texto": "Está dirigido a lectores interesados en las memorias personales y en los asuntos relacionados con el poder y la política. Por su clasificación como biografía y memoria, encaja menos con quienes buscan una novela de ficción o un estudio exclusivamente técnico de las instituciones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,19 +13,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Antes de irme (Espasa Actualidad) cuenta con una edición en tapa dura de 356 páginas, publicada en castellano por Editorial Espasa. La cubierta rígida protege el volumen durante su conservación y permite incorporarlo a una colección de libros de memorias y actualidad política.",
+      "texto": "Antes de irme (Espasa Actualidad), de Miguel Ángel Revilla, se ofrece en tapa dura, con 356 páginas en castellano. La encuadernación rígida aporta protección a las cubiertas durante el uso y resulta apropiada para conservar el ejemplar en una biblioteca personal.",
       "evidencias": [
         "titulo",
+        "autores",
         "edicion",
         "numero_paginas",
-        "idioma",
         "formatos_disponibles",
-        "categorias"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes, de Andrew Paxman, comparte con Antes de irme (Espasa Actualidad), de Miguel Ángel Revilla, el interés por las figuras públicas y sus trayectorias. La diferencia está en el enfoque anunciado: el primero es una biografía organizada en episodios, mientras que el segundo pertenece al ámbito de las memorias y la política. Crónica de un desafío al Estado, de Javier Alberto Zaragoza Aguado, aborda en cambio acontecimientos políticos concretos narrados en primera persona.",
+      "texto": "Crónica de un desafío al Estado, de Javier Alberto Zaragoza Aguado, comparte con Antes de irme (Espasa Actualidad), de Miguel Ángel Revilla, el interés por la política. La primera se centra en los acontecimientos del Procés narrados en primera persona, mientras que la segunda está clasificada como biografía y memorias, además de abordar el poder y la política.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,7 +33,6 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073873154",
         "isbn-9788423441303"
       ]
     }

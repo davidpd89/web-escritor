@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788498756296",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿De verdad quieres una empresa familiar?: Claves para que la continuidad deje de ser destino y se convierta en elección (Gestión 2000) se dirige a lectores interesados en la gestión empresarial y las decisiones sobre continuidad familiar. Su enfoque económico y organizativo lo aleja de quienes buscan ficción o una introducción general a las finanzas personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Gestión 2000 contiene 288 páginas en castellano. El soporte impreso permite señalar pasajes y volver a las cuestiones relacionadas con la continuidad de una empresa familiar durante su consulta.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, comparte con ¿De verdad quieres una empresa familiar?: Claves para que la continuidad deje de ser destino y se convierta en elección (Gestión 2000) el interés por las decisiones profesionales y empresariales. El primero aborda el liderazgo desde su propio título, mientras que Carlos García Pont y Carlos Folle Estrada se centran en la continuidad de la empresa familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26a20ec96eeba765",
+  "origen": "chatgpt-web"
+}

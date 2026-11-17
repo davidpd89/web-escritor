@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas), de Carlos Briones, se dirige a quienes buscan conexiones entre divulgación científica y creación artística. Su clasificación también incluye historia, por lo que encaja menos con lectores interesados exclusivamente en ficción o en manuales de aplicación técnica.",
+      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas), de Carlos Briones, se dirige a quienes buscan divulgación científica relacionada con el arte y la historia. Sus 280 páginas plantean una lectura de no ficción, distinta de una novela centrada en personajes y conflictos imaginarios.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) se presenta en tapa blanda, con 280 páginas en castellano. El volumen físico permite consultar de nuevo apartados durante la lectura y conservarlo en una biblioteca dedicada a ciencia y arte.",
+      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) se ofrece en tapa blanda y Kindle. La edición física de Plaza & Janés tiene 280 páginas y permite consultar el volumen en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) se relaciona con Manual de ilustración científica - Nueva edición con láminas (Ilustrados) por el encuentro entre ciencia y expresión visual. El libro de Carlos Briones plantea un diálogo amplio entre ciencia y arte, mientras que el manual de Varios autores se centra, desde su propio título, en la ilustración científica. La diferencia principal está entre una aproximación divulgativa y una obra presentada como manual.",
+      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) comparte el interés por el arte con Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION), de Maria Stavrinaki. El libro de Carlos Briones vincula ciencia y arte desde el cosmos hasta la vida, mientras que el de Maria Stavrinaki delimita su investigación a la prehistoria, el arte y los tiempos modernos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328117"
+        "isbn-9791399236422"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "67b94ba02faadfb9",
+  "fuente_hash": "312576960c844ab4",
   "origen": "chatgpt-web"
 }

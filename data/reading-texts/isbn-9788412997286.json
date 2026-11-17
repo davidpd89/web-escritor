@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788412997286",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El segador de almas: Los crímenes del agua II se dirige a lectores interesados en el misterio y el thriller, con una clasificación que también incluye el ensayo. Sus 408 páginas lo alejan de las lecturas breves, y su orientación temática encaja menos con quien busca exclusivamente narrativa infantil o humorística.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El segador de almas: Los crímenes del agua II cuenta con una edición en tapa blanda de 408 páginas. El volumen de Uzanza Editorial permite conservar la obra en papel, aunque su extensión supone un libro más voluminoso para transportar y leer fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El segador de almas: Los crímenes del agua II puede compararse con La chica del puente, de Marc Sans, dentro de las lecturas afines del catálogo. La diferencia verificable está en la presentación: el título de Samuel Vernal identifica la obra como Los crímenes del agua II y su clasificación combina misterio, thriller y ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399297546"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f234b2603d51ba37",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388200106",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo I, de Daniel Muneta, se dirige a quienes buscan una publicación sobre el pop-rock del periodo señalado en su título. Con 89 páginas, responde a una preferencia por obras de extensión contenida, no por lecturas extensas alejadas de la temática musical.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo I figura entre los formatos disponibles como tapa blanda, mientras que la edición de El Séptimo Cielo se describe con encuadernación en espiral. Sus 89 páginas pueden consultarse en papel, y la espiral permite mantener el ejemplar abierto durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo I se relaciona con EL POP-ROCK DE LOS 60' - Capítulo II y EL POP-ROCK DE LOS 60' - Capítulo III por su autor, Daniel Muneta, y su temática musical. El título lo identifica como el capítulo I, mientras que los otros títulos señalan entregas numeradas posteriores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388200113",
+        "isbn-9791388200120",
+        "isbn-9791388200137",
+        "isbn-9791388200182",
+        "isbn-9791388200144"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "20c6f088bf39adb4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788418299551",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Carlos Franco: Por el lomo de un paisaje con patas se dirige a lectores interesados en el arte y en publicaciones centradas en una figura artística concreta. Por su enfoque temático y sus 124 páginas, se distancia de las novelas de ficción y de los manuales generales de dibujo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Carlos Franco: Por el lomo de un paisaje con patas se presenta en tapa blanda y reúne 124 páginas. Es una opción física para consultar el volumen, guardarlo en una biblioteca dedicada al arte o regalar una publicación vinculada al trabajo de Carlos Franco.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats, de Xavier Mollà i Revert, permite establecer una comparación por su referencia al retrato, mientras que Carlos Franco: Por el lomo de un paisaje con patas identifica a una figura artística concreta. All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, pertenece también al ámbito artístico, pero se presenta como cuaderno y no como una publicación centrada en Carlos Franco.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788412678802",
+        "isbn-9789879871119"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b3bb35367538d89b",
+  "origen": "chatgpt-web"
+}

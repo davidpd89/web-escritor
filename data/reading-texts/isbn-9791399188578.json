@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399188578",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orlando enamorado, Orlando furioso (El Bosque Viejo) se dirige a lectores interesados en los clásicos literarios y en obras de Matteo Maria Boiardo y Ludovico Ariosto. Sus 152 páginas ofrecen una extensión más breve que la de una novela larga; encaja menos con quien busca exclusivamente narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Orlando enamorado, Orlando furioso (El Bosque Viejo) está disponible en tapa blanda, con 152 páginas en castellano. Esta edición de Gadir Editorial, S.l. permite tener el texto en papel en un volumen relativamente breve, tanto para leerlo como para incorporarlo a una colección de clásicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f1305a3351005e8",
+  "origen": "chatgpt-web"
+}

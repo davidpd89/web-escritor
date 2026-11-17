@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399246322",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El placer de sonar juntos: La insólita vida dentro de una orquesta se orienta a quienes desean leer sobre la actividad musical colectiva desde el ensayo. Roberto Álvarez aborda un ámbito artístico concreto, por lo que se aleja de las lecturas centradas en la ficción narrativa o en manuales de aprendizaje instrumental.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El placer de sonar juntos: La insólita vida dentro de una orquesta puede leerse en tapa blanda o Kindle. La edición en papel de Editorial Rosamerón tiene 240 páginas y permite consultar el texto físicamente; Kindle facilita llevar el ensayo en un lector electrónico o en el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El placer de sonar juntos: La insólita vida dentro de una orquesta y 124 zarzuelas montañesas en la cueva del olvido: Escritas entre 1853 y 1958 comparten el interés por la música, pero el libro de Roberto Álvarez se centra en la vida orquestal y el de Juan Antonio Prieto identifica un repertorio de zarzuelas y un periodo histórico. Bella ciao: Historia de un himno popular: 32 (Tascabili), de Marcello Flores, desplaza el foco hacia la historia de una canción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399183030",
+        "isbn-9788410435292"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2db2b140dc89a3bd",
+  "origen": "chatgpt-web"
+}

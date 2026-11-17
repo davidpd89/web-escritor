@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mentalidad ganadora se dirige a lectores interesados en las memorias deportivas y el desarrollo personal a través de experiencias reales. Juan Carlos Ferrero aborda su trayectoria en el tenis desde dos posiciones, jugador y entrenador; no es una novela ni un manual centrado exclusivamente en ejercicios prácticos.",
+      "texto": "Mentalidad ganadora se dirige a lectores interesados en el tenis, las trayectorias deportivas y el aprendizaje personal a partir de experiencias reales. Juan Carlos Ferrero cuenta su recorrido como jugador y entrenador; no es una novela deportiva ni un manual dedicado exclusivamente a técnicas de juego.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mentalidad ganadora está disponible en tapa blanda y Kindle. La edición física de Ediciones Península tiene 288 páginas y encuadernación rústica con solapas, adecuada para conservarla en papel o regalarla; Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el volumen.",
+      "texto": "La tapa blanda de Mentalidad ganadora ofrece 288 páginas en una edición rústica con solapas para leer y conservar. Kindle permite seguir el relato en el móvil o lector electrónico, mientras que el audiolibro ofrece la posibilidad de escucharlo durante desplazamientos u otras actividades.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mentalidad ganadora y David Summers: en persona se aproximan a trayectorias de figuras públicas, aunque el primero se centra en el tenis y el segundo en la música. Dustin Hoffman: look at me también aborda una carrera reconocida, pero desde la biografía cinematográfica y con una autoría distinta del relato personal de Juan Carlos Ferrero.",
+      "texto": "Mentalidad ganadora puede compararse con David Summers: en persona por su atención a una trayectoria profesional reconocible. Juan Carlos Ferrero relata en primera persona su experiencia en el tenis y como entrenador, mientras que Javier Menéndez Flores aborda la figura de un músico desde una perspectiva biográfica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448049379",
-        "isbn-9788448049843"
+        "isbn-9788448049379"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7eb07a419275b76b",
+  "fuente_hash": "6ff8e6da904e9f24",
   "origen": "chatgpt-web"
 }

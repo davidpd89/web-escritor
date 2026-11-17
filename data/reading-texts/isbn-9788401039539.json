@@ -4,32 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, se dirige a lectores interesados en la novela histórica ambientada en la Edad Media, las aventuras y las historias con componente romántico. Su temática histórica la diferencia de quienes buscan narrativa contemporánea, fantasía o ficción centrada en otros periodos.",
+      "texto": "Astur (Saga de la Reconquista) (Éxitos) se dirige a lectores de novela histórica que también buscan aventuras y romance. Su combinación de géneros se aleja de la narrativa contemporánea sin ambientación histórica y de los ensayos dedicados exclusivamente al análisis del pasado.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible para Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, y reúne sus 536 páginas en un volumen físico. Esta edición permite conservar el libro como parte de una biblioteca personal y consultar su contenido en papel.",
+      "texto": "La edición en tapa dura de Astur (Saga de la Reconquista) (Éxitos) reúne 536 páginas y ofrece una encuadernación rígida para conservar el libro o regalarlo. Kindle permite leer la obra en un dispositivo electrónico sin transportar ese volumen físico. La edición impresa está publicada por Plaza & Janés.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
         "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La visigoda (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, es la comparación más directa con Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián: ambos títulos comparten autora y la identificación de la Saga de la Reconquista. Astur aparece clasificado dentro de la novela histórica, las aventuras y el romance, con la Edad Media como marco temático.",
+      "texto": "La visigoda (Saga de la Reconquista) (Éxitos) es la comparación más directa con Astur (Saga de la Reconquista) (Éxitos): ambas pertenecen a la Saga de la Reconquista y están firmadas por Isabel San Sebastián. Se diferencian por el título y la obra concreta, aunque comparten autora y marco de serie. Para quien busca continuidad de autoría y temática histórica, la relación entre ambas resulta explícita.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
         "isbn-9788401037658"
@@ -38,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3c016855c6b297cf",
+  "fuente_hash": "6d2009d161639a20",
   "origen": "chatgpt-web"
 }

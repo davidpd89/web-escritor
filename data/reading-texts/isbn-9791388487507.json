@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791388487507",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tu Lado Oculto 02: 02 está dirigido a quienes leen cómic y novela gráfica en castellano y buscan títulos de Flowerchild. El título lo identifica como el n.º 02, con 200 páginas; no responde a la búsqueda de una novela convencional escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tu Lado Oculto 02: 02 se publica en tapa blanda y reúne 200 páginas en castellano. El volumen de Editorial Ivrea puede leerse en papel y guardarse junto a otros cómics; su encuadernación flexible facilita manipularlo y transportarlo sin la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "01a22d91b525cd2e",
+  "origen": "chatgpt-web"
+}

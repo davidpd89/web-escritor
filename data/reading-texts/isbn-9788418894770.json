@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788418894770",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Drácula: La maldición del Vampiro: 2 (ACE Gamebooks) se dirige a lectores interesados en el terror y en obras vinculadas al cómic y la novela gráfica. Su temática vampírica encaja menos con quienes buscan lecturas alejadas del horror o centradas exclusivamente en asuntos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Drácula: La maldición del Vampiro: 2 (ACE Gamebooks) se ofrece en tapa blanda y tiene 748 páginas en castellano. Es un volumen extenso para lectura física, cuya cubierta flexible permite manejarlo sin la rigidez de una tapa dura, aunque su número de páginas condiciona el transporte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Drácula: La maldición del Vampiro: 2 (ACE Gamebooks) comparte el género de terror con Creepy nº 11/29 y Creepy nº 25/29. Mientras estos títulos reúnen relatos de horror y situaciones inquietantes, la obra de Jonathan Green se identifica por su título con la figura de Drácula y pertenece a la colección ACE Gamebooks.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406130",
+        "isbn-9788411406277"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "25e4fdb46ded472e",
+  "origen": "chatgpt-web"
+}

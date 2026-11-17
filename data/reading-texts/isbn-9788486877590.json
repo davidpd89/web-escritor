@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788486877590",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Al hollywood parisino la produccion hispana de paramount en se dirige a lectores interesados en el cine y su estudio desde una perspectiva cultural. La obra de Santiago Aguilar y Felipe Cabrerizo, publicada por Filmoteca Española, se aleja de quienes buscan una novela de ficción o una narración centrada en personajes inventados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al hollywood parisino la produccion hispana de paramount en y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) comparten el interés por el cine. El título de Santiago Aguilar y Felipe Cabrerizo apunta a la producción hispana de Paramount, mientras que el de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga delimita su asunto al western contemporáneo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60ce931245ac569c",
+  "origen": "chatgpt-web"
+}

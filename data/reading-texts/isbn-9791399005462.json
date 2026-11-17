@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399005462",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo que puede un cura hoy está dirigido a lectores interesados en la religión, la espiritualidad y el papel del sacerdote. La obra de San Manuel González García encaja menos con quien busca ficción ajena a cuestiones religiosas o una lectura centrada en otras tradiciones espirituales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lo que puede un cura hoy se presenta en tapa blanda y tiene 394 páginas. Esta edición en castellano permite leer y consultar en papel una obra de temática religiosa, con una extensión que admite repartir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo que puede un cura hoy puede compararse con Un sueño pastoral, también de San Manuel González García, por su autoría y su orientación religiosa. El primero sitúa al sacerdote en el centro de su título, mientras que el segundo anuncia una perspectiva pastoral. Ambos se distinguen de Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción, de Sofía Noemy Quintanilla Ramírez, centrado en la adopción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399005479",
+        "isbn-9791387625535"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e87a188bca25f726",
+  "origen": "chatgpt-web"
+}

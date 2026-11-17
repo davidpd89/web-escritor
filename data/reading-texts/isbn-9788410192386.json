@@ -4,35 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Isiltasunaren aldarria = El clamor del silencio: 1 (Kontakizunak) se dirige a lectores interesados en publicaciones de historia. Por su clasificación y sus 140 páginas, se aleja de quienes buscan una novela de aventuras o una obra de ficción extensa.",
+      "texto": "Isiltasunaren aldarria = El clamor del silencio: 1 (Kontakizunak), de Ione Zuloaga, se dirige a lectores interesados en publicaciones de historia. Por su clasificación temática, queda más lejos de quienes buscan manuales prácticos, fantasía o novelas de intriga.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Isiltasunaren aldarria = El clamor del silencio: 1 (Kontakizunak) se presenta en tapa blanda, con 140 páginas en castellano. Es una opción física de extensión contenida que permite consultar el texto en papel y guardarlo sin el volumen de una edición más larga.",
+      "texto": "Isiltasunaren aldarria = El clamor del silencio: 1 (Kontakizunak) se ofrece en tapa blanda y reúne 140 páginas. La edición de Sociedad de Ciencias Aranzadi está catalogada en castellano y proporciona un volumen de papel relativamente breve para lectura y consulta.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA comparte con Isiltasunaren aldarria = El clamor del silencio: 1 (Kontakizunak) su vinculación con la historia. La obra de Juan Carlos García de Polavieja aborda una investigación sobre Federico García Lorca, mientras que la de Ione Zuloaga se presenta como una publicación histórica de 140 páginas.",
+      "texto": "Isiltasunaren aldarria = El clamor del silencio: 1 (Kontakizunak) comparte clasificación histórica con 76, de Felipe Pigna. Otra referencia es Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días), de Jacob Mikanowski, cuyo título señala una perspectiva territorial e histórica. El libro de Ione Zuloaga se diferencia por su título bilingüe y su edición de Sociedad de Ciencias Aranzadi.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "afines_catalogo"
+        "afines_catalogo",
+        "editorial"
       ],
       "enlaces": [
-        "isbn-9788418567933"
+        "isbn-9788408329695",
+        "isbn-9791399165142"
       ]
     }
   ],

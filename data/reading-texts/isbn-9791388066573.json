@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388066573",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Donde el alma se asoma se dirige a lectores de poesía y relatos que buscan una obra de extensión breve. Sus 116 páginas y su clasificación literaria lo separan de las novelas extensas y de los libros de carácter práctico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y conservar físicamente las 116 páginas de Donde el alma se asoma, de Isabel Toledo Gómez y Juan Martín García. La edición Kindle ofrece el mismo título como opción de lectura digital, sin necesidad de transportar el volumen impreso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde el alma se asoma y Estar (Rhēma) comparten su vinculación con la poesía y la participación de varios autores. Frente a la autoría de Isabel Toledo Gómez y Juan Martín García, Estar (Rhēma) reúne a Emily Roberts, Marina Casado, Juan Ángel Asensio y Francisco José Martínez Morán. La primera obra también figura entre los relatos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419243812"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "565fc70017c218f0",
+  "origen": "chatgpt-web"
+}

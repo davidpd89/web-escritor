@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370650308",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan orientación jurídica para reclamar por negligencias médicas y obtener indemnizaciones. Su enfoque práctico sobre la defensa del paciente se aleja de la lectura narrativa y de los contenidos sanitarios centrados en tratamientos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 252 páginas en castellano. Este formato permite consultar la guía en papel, volver a los apartados sobre reclamaciones e indemnizaciones y llevarla a reuniones relacionadas con la defensa del paciente.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría y orientación jurídica con Casos prácticos sobre el despido (Supuestos prácticos), del Departamento de Documentación Iberley. Mientras este último aborda conflictos laborales, la guía sobre negligencias sanitarias se concentra en las reclamaciones de pacientes y las indemnizaciones médicas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e1ff530d93a9b693",
+  "origen": "chatgpt-web"
+}

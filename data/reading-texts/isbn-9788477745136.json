@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la estética desde la filosofía y el ensayo, con el arte como eje de reflexión. Por su orientación temática, se distancia de quienes buscan una guía práctica de técnicas artísticas o un recorrido turístico por museos.",
+      "texto": "La estética como si fuera arte: 246 (La balsa de la Medusa), de Arturo Leyte, está orientado a lectores interesados en la filosofía, el ensayo y las cuestiones estéticas. Sus 208 páginas corresponden a una obra de reflexión sobre el arte; no es una elección equivalente a una novela de ficción o un manual de técnicas artísticas.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de A. Machado Libros tiene 208 páginas en castellano. Su extensión permite abordar el ensayo por sesiones y regresar a los apartados dedicados a la relación entre estética y arte sin depender de un dispositivo electrónico.",
+      "texto": "La estética como si fuera arte: 246 (La balsa de la Medusa) se presenta en tapa blanda, con 208 páginas publicadas por A. Machado Libros. Es una edición física que permite consultar pasajes, volver sobre argumentos y trabajar con el texto en papel durante su lectura.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "idioma",
         "editorial",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen), de Noël Burch, comparte el interés por la estética, pero lo vincula expresamente al cine y la política. Mirar el Prado: 18 obras para entender el arte (Varios), de Alejandro Vergara, se aproxima al arte mediante obras concretas, mientras que Arturo Leyte plantea una reflexión filosófica sobre la estética.",
+      "texto": "La estética como si fuera arte: 246 (La balsa de la Medusa) comparte con El oscuro mito del arte: Cuestiones disputadas sobre arte y estética el interés por la reflexión filosófica sobre el arte. Arturo Leyte aborda la relación entre estética y arte, mientras que Luis Carlos Martín Jiménez plantea cuestiones disputadas sobre ambos conceptos; la diferencia está en el enfoque anunciado por cada título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,8 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788437650586",
-        "isbn-9788408325406"
+        "isbn-9788478486656"
       ]
     }
   ],

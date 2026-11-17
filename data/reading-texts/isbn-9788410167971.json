@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410167971",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ochoa Y Madrid: 11 (Biografía, Historia y Pensamiento) se dirige a lectores interesados en las biografías y en la historia, especialmente cuando ambas perspectivas aparecen vinculadas. Sus 136 páginas y su orientación histórica lo alejan de las novelas de ficción y de los manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ochoa Y Madrid: 11 (Biografía, Historia y Pensamiento) se presenta en tapa blanda, con 136 páginas en castellano. Es una opción física para leer, consultar y conservar el texto, sin el volumen que tendría una obra histórica de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978), de Tomeu Canyelles Canyelles, permite comparar dos libros vinculados a las vidas personales y la historia. Ochoa Y Madrid: 11 (Biografía, Historia y Pensamiento), de Javier Sanz, señala una relación con Madrid, mientras que el título de Tomeu Canyelles Canyelles sitúa su asunto en Palma y delimita un periodo biográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788417645311"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f3664ed683764278",
+  "origen": "chatgpt-web"
+}

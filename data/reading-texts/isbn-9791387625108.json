@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nuevo Diccionario Internacional Conciso de Teología y Exégesis del Nuevo Testamento: 0 está orientado a lectores que necesitan consultar conceptos teológicos y cuestiones de interpretación del Nuevo Testamento. Por su naturaleza de diccionario y sus 1520 páginas, responde a una búsqueda de referencia especializada más que a la lectura de una narración religiosa.",
+      "texto": "Nuevo Diccionario Internacional Conciso de Teología y Exégesis del Nuevo Testamento: 0 está orientado a quienes estudian teología o necesitan consultar términos relacionados con el Nuevo Testamento. Su planteamiento como diccionario y sus 1520 páginas lo alejan de una lectura narrativa breve o de una introducción ligera a la espiritualidad.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es la presentación de Nuevo Diccionario Internacional Conciso de Teología y Exégesis del Nuevo Testamento: 0, publicado por Clie. Sus 1520 páginas hacen de esta edición un volumen extenso, pensado para mantenerse en una biblioteca y consultarse por entradas, en lugar de transportarse habitualmente.",
+      "texto": "Nuevo Diccionario Internacional Conciso de Teología y Exégesis del Nuevo Testamento: 0 se presenta en tapa dura, con 1520 páginas en castellano. La encuadernación rígida resulta práctica para mantener en una estantería un volumen extenso destinado a consultas frecuentes, aunque su tamaño puede hacerlo menos cómodo para transportar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Nuevo Diccionario Internacional Conciso de Teología y Exégesis del Nuevo Testamento: 0 y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación abordan asuntos religiosos desde perspectivas diferentes: el primero se centra en términos e interpretación del Nuevo Testamento, mientras que el segundo anuncia fundamentos y práctica de un camino espiritual. También se diferencia de Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, cuyo título plantea vivencias personales en vez de una obra de consulta teológica.",
+      "texto": "Nuevo Diccionario Internacional Conciso de Teología y Exégesis del Nuevo Testamento: 0 comparte el ámbito religioso con Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft. El libro de Christopher A Beetham se plantea como diccionario de teología y exégesis, mientras que el otro título corresponde a una edición bíblica. Frente a Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, cambia también el objeto de estudio: el Nuevo Testamento frente al Dharma.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496",
-        "isbn-9791399210088"
+        "isbn-9791399210088",
+        "isbn-9798890989536"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "10c5323c4f22807d",
+  "fuente_hash": "76135acc23988def",
   "origen": "chatgpt-web"
 }

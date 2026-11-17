@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788410192348",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Irulegitik Pompelora = De Irulegi a Pompelo: 5 (Nafarroa Arkeologia Auzolana) se dirige a lectores interesados en la historia vinculada a los lugares mencionados en su título. Por su orientación histórica, resulta menos afín a quienes buscan narrativa de ficción o manuales de actividades prácticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda un ámbito histórico delimitado por Irulegi y Pompelo, los dos lugares que figuran en su denominación. Está firmada por Mattin Aiestaran, Oihane Mendizabal, Javier Velaza y Joaquín Gorrochategui, y pertenece a la colección Nafarroa Arkeologia Auzolana, cuyo título la identifica con el n.º 5.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La presentación disponible es en tapa dura, con 144 páginas en castellano. Este formato permite conservar el volumen como obra de consulta histórica y facilita su colocación en una biblioteca personal junto a otros títulos de la misma colección.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pirenaeus: La calzada romana del Pirineo occidental: 6 (Nafarroa Arkeologia Auzolana) comparte colección y las firmas de Oihane Mendizabal y Mattin Aiestaran. Mientras que Irulegitik Pompelora = De Irulegi a Pompelo: 5 (Nafarroa Arkeologia Auzolana) delimita su asunto mediante dos lugares, Pirenaeus señala expresamente una calzada romana; sus títulos los identifican con los números 5 y 6.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410192355"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "da6da70f70a3c01d",
+  "origen": "chatgpt-web"
+}

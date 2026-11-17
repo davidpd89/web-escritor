@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788411078405",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un pájaro herido (Andanzas), de Aki Shimazaki, encaja con lectores de narrativa contemporánea que buscan una novela de extensión breve. Sus 160 páginas permiten distinguirla de obras considerablemente más largas. No responde a la búsqueda de un ensayo, un manual práctico o una novela de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un pájaro herido (Andanzas) puede leerse en tapa blanda o Kindle, y también está disponible como audiolibro. La edición física reúne 160 páginas en un volumen manejable; Kindle permite llevar la lectura en el móvil o un lector electrónico sin cargar con el libro. El audiolibro ofrece la alternativa de escucharlo durante desplazamientos u otras actividades.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5510aa2fd725371",
+  "origen": "chatgpt-web"
+}

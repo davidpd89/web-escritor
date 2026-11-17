@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La Biblia: Una enciclopedia ilustrada está dirigida a lectores adultos interesados en estudiar los textos bíblicos desde una perspectiva religiosa, histórica y visual. Su organización mediante mapas, cronologías y referencias la diferencia de una novela de temática espiritual o de una lectura exclusivamente narrativa.",
+      "texto": "La Biblia: Una enciclopedia ilustrada está orientada a lectores adultos interesados en estudiar los relatos bíblicos desde una perspectiva religiosa, histórica y visual. Su estructura de consulta, con mapas y cronologías, encaja menos con quienes buscan una narración de ficción continua o una lectura exclusivamente devocional.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,46 +15,42 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La Biblia: Una enciclopedia ilustrada ofrece una aproximación visual e histórica a los relatos bíblicos, desde el Génesis hasta el Apocalipsis. Sus 512 páginas combinan mapas, imágenes de piezas arqueológicas, cronologías y explicaciones sobre personajes y lugares, con citas y referencias que permiten localizar episodios concretos en los textos religiosos.",
+      "texto": "La Biblia: Una enciclopedia ilustrada recorre el Antiguo y el Nuevo Testamento mediante explicaciones históricas, imágenes y recursos de consulta. Sus 512 páginas incluyen mapas, materiales arqueológicos, cronologías, referencias a pasajes bíblicos y citas seleccionadas para relacionar acontecimientos, personajes y lugares.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La Biblia: Una enciclopedia ilustrada se presenta en tapa dura, con 512 páginas en castellano publicadas por DK. El volumen físico reúne mapas, imágenes de objetos históricos, cronologías y paneles explicativos, recursos que permiten alternar entre la lectura continuada y la consulta de pasajes concretos.",
+      "texto": "La Biblia: Una enciclopedia ilustrada se presenta en tapa dura y reúne 512 páginas. La encuadernación física permite mantener juntos los mapas, las cronologías y los materiales visuales de una obra concebida para consultar diferentes episodios y referencias bíblicas.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
-        "editorial",
-        "idioma",
         "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La Biblia: Una enciclopedia ilustrada y Antigua Roma (Civilizaciones antiguas para niños) comparten la autoría de DK y el interés por el pasado, pero la primera aborda los textos bíblicos para adultos y la segunda presenta una civilización al público infantil. La luna: Una historia ilustrada (La guía visual definitiva) también utiliza una perspectiva histórica y cultural, aunque su objeto de estudio es el satélite terrestre y no la tradición bíblica.",
+      "texto": "La Biblia: Una enciclopedia ilustrada y Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual) comparten autoría de DK y formato enciclopédico visual, aunque la primera estudia los textos bíblicos y la segunda se centra en una civilización antigua. Mitos y leyendas (Mundo 3D): Héroes, dioses y monstruos como nunca antes los habías visto (Enciclopedia visual juvenil) también es de DK, pero se dirige al público juvenil y aborda relatos mitológicos.",
       "evidencias": [
         "titulo",
         "autores",
         "edad_recomendada",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9780241839362",
-        "isbn-9780241837597"
+        "isbn-9780241839355",
+        "isbn-9780241837610"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d72abb38c314ed68",
+  "fuente_hash": "fb07923630eab0a3",
   "origen": "chatgpt-web"
 }

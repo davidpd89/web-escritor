@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Negro casi blanco (VANDALIA), de José Mateos, se dirige a lectores de poesía en castellano que prefieren libros de extensión contenida. Sus 96 páginas lo diferencian de una novela larga y no encaja con quien busque una narración extensa de misterio o aventuras.",
+      "texto": "Negro casi blanco (VANDALIA), de José Mateos, se dirige a lectores de poesía en castellano que prefieren un volumen breve. Sus 96 páginas lo distinguen de una novela extensa y su clasificación poética lo aleja de quienes buscan una narración de ficción en prosa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,27 +15,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Negro casi blanco (VANDALIA) se publica en tapa blanda, con 96 páginas en la edición de Fundación José Manuel Lara. Su extensión permite transportarlo con facilidad y volver a poemas concretos en papel, sin necesidad de un lector electrónico.",
+      "texto": "La edición en tapa blanda de Fundación José Manuel Lara reúne 96 páginas, una extensión que facilita llevar el libro y volver a determinados textos. Es un volumen físico en castellano, adecuado para guardar en una colección de poesía.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "editorial",
-        "formato_edicion"
+        "numero_paginas",
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Negro casi blanco (VANDALIA) comparte su ámbito poético con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. El título de Pedro Salinas señala expresamente el amor como eje de su antología, mientras que Negro casi blanco (VANDALIA), de José Mateos, se presenta como un volumen de poesía de 96 páginas.",
+      "texto": "A solas, de María Jesús Martínez Ramos, figura entre las lecturas afines a Negro casi blanco (VANDALIA), de José Mateos, dentro del ámbito de la poesía. La diferencia identificable está en la autoría, mientras que Negro casi blanco (VANDALIA) ofrece una edición de 96 páginas en tapa blanda.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo",
-        "numero_paginas"
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788410907539"
       ]
     }
   ],

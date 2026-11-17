@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788418700248",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran Gatsby: Mapa Literario 1913-1922 encaja con lectores interesados en los clásicos literarios y en materiales relacionados con la lectura y el tiempo libre. Sus 40 páginas lo distinguen de las novelas extensas, por lo que resulta menos adecuado para quien busca una narración larga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gran Gatsby: Mapa Literario 1913-1922 se ofrece en tapa blanda y consta de 40 páginas. La edición en castellano de Aventuras Literarias tiene una extensión reducida, manejable para consultar en papel o guardar junto a otros materiales literarios.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran Gatsby: Mapa Literario 1913-1922 y Good Rebels (Spanish Edition) comparten su vinculación con la narrativa, aunque presentan propuestas distintas. La obra de F. Scott Fitzgerald se identifica como mapa literario, pertenece al ámbito de los clásicos y tiene 40 páginas, mientras que Good Rebels (Spanish Edition), de Gabby Araya, se presenta como una obra independiente con otro título y autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876773"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "184ca75cf21f288c",
+  "origen": "chatgpt-web"
+}

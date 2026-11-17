@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La llorería (Mapa de las lenguas) (Hispánica) se dirige a lectores adultos que buscan narrativa contemporánea de Martín Sivak. Sus 288 páginas ofrecen una novela en formato de libro físico, pero no está planteada como ensayo ni como obra de consulta.",
+      "texto": "La llorería (Mapa de las lenguas) (Hispánica), de Martín Sivak, se dirige a lectores interesados en la narrativa contemporánea escrita en castellano. Por su clasificación editorial, encaja menos con quienes buscan específicamente manuales prácticos o libros de divulgación.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 288 páginas en un volumen físico publicado por Alfaguara. Es el formato disponible para quien prefiere leer en papel y guardar el libro en su biblioteca, con una extensión intermedia dentro de la narrativa contemporánea.",
+      "texto": "La llorería (Mapa de las lenguas) (Hispánica) ofrece una edición en tapa blanda de 288 páginas para leer en papel, además de Kindle para llevar el texto en un dispositivo electrónico. El audiolibro permite optar por la escucha durante actividades cotidianas, sin necesidad de sostener el libro.",
       "evidencias": [
-        "edicion",
-        "editorial",
+        "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f85cfeca4a986f58",
+  "fuente_hash": "df0974eb00b4280e",
   "origen": "chatgpt-web"
 }

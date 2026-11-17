@@ -4,25 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) se dirige a lectores interesados en poesía, espiritualidad y textos vinculados a la experiencia personal. Por sus temas y su planteamiento, se diferencia de una novela de ficción o de un manual centrado en procedimientos prácticos.",
+      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias), de Matthew McConaughey, se dirige a lectores interesados en la poesía, la espiritualidad y los textos de reflexión personal. Por su combinación de poemas y oraciones, se aleja de una novela de ficción o de una biografía exclusivamente cronológica.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) se ofrece en tapa dura, con 208 páginas en la edición de Libros Cúpula. Este formato permite conservar el volumen y volver a consultar sus poemas y oraciones en papel, además de utilizarlo como libro de regalo.",
+      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) tiene una edición en tapa dura de 208 páginas. Su extensión y la división temática entre poemas y oraciones permiten utilizar el volumen tanto para una lectura seguida como para consultas puntuales.",
       "evidencias": [
         "titulo",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias), de Matthew McConaughey, comparte el ámbito poético con Esas muchachas que escriben poemas, de Alba Donati, aunque este último pone el foco en mujeres que escriben poesía. También se aproxima a Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, por su relación con las experiencias vitales; este último se identifica expresamente con las vivencias del Camino de Santiago, mientras que el libro de Matthew McConaughey combina poemas y oraciones.",
+      "texto": "Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) puede compararse con San Juan de la Cruz: Poesía divina (Caminos), de Javier Manso Osuna, por la relación entre poesía y espiritualidad. El primero combina poemas y oraciones orientados a la vida personal; el segundo presenta desde su título un enfoque de poesía divina.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,8 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788426434272",
-        "isbn-9791388099496"
+        "isbn-9788428576154"
       ]
     }
   ],

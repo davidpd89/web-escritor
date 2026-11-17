@@ -4,37 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La puerta de fuego (Serie ENDEBATE): Sin casa y sin hijos: dónde poner el amor está dirigida a quienes buscan un ensayo sobre el amor, la pareja y la familia fuera de los modelos asociados a la vivienda y la descendencia. Su planteamiento reflexivo se distancia de la ficción romántica y de las narraciones construidas alrededor de una pareja protagonista.",
-      "evidencias": [
-        "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La puerta de fuego (Serie ENDEBATE): Sin casa y sin hijos: dónde poner el amor ofrece 144 páginas y puede leerse en tapa blanda o Kindle. La edición impresa permite marcar y consultar pasajes en papel, mientras que Kindle facilita llevar el ensayo en un lector electrónico o en el móvil.",
-      "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología) comparte el interés por las relaciones afectivas, pero se centra en el enamoramiento y el desenamoramiento. La puerta de fuego (Serie ENDEBATE): Sin casa y sin hijos: dónde poner el amor, de Alba Muñoz, plantea en cambio el lugar del amor cuando se cuestionan la vivienda y los hijos como proyectos vitales.",
+      "texto": "La puerta de fuego (Serie ENDEBATE): Sin casa y sin hijos: dónde poner el amor está dirigida a lectores de ensayo interesados en el lugar que ocupa el amor cuando no se tiene vivienda ni descendencia. Alba Muñoz plantea esta cuestión en una obra de 144 páginas. No está orientada a quienes buscan una historia romántica de ficción.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387534370"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La puerta de fuego (Serie ENDEBATE): Sin casa y sin hijos: dónde poner el amor está disponible en tapa blanda y Kindle. Sus 144 páginas forman un ensayo de extensión contenida: en papel permite conservar el volumen y volver a sus pasajes; en Kindle puede leerse sin transportar el ejemplar físico. La edición impresa pertenece a Debate.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2224ffca33475a73",
+  "fuente_hash": "e6eff5c27004a3d8",
   "origen": "chatgpt-web"
 }

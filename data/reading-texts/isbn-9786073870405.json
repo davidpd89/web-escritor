@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073870405",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Y Así Yo Cuido El Planeta / This Is How I Care for Our Planet, de Charlotte Brum, encaja con lectores interesados en el cuidado del planeta y en lecturas relacionadas con el bienestar y el tiempo libre. Por su orientación temática, se aleja de quienes buscan una novela de aventuras o una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Y Así Yo Cuido El Planeta / This Is How I Care for Our Planet está disponible en tapa blanda, con 224 páginas. La edición en castellano de Aguilar permite leer en papel y volver a consultar apartados sin depender de una pantalla; su extensión ofrece una referencia concreta para valorar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Y Así Yo Cuido El Planeta / This Is How I Care for Our Planet comparte con Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante (Salud natural) el entorno temático del cuidado y el bienestar. Charlotte Brum sitúa el planeta en el centro de su título, mientras que Sarah Ann Macklin aborda expresamente la alimentación y la salud. La diferencia está en el objeto de atención: el entorno frente al cuidado personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411193900"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5aa66c67c85fcb4",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La seducción (Reservoir Narrativa), de Sara Torres, se dirige a lectores de romance y narrativa contemporánea interesados también en el cómic y la novela gráfica. Su clasificación combina esos tres ámbitos, por lo que se aleja del perfil de quien busca exclusivamente fantasía, aventuras o narrativa histórica.",
+      "texto": "La seducción (Reservoir Narrativa), de Sara Torres, encaja con lectores interesados en el romance y la narrativa contemporánea, así como en publicaciones relacionadas con la novela gráfica. Quien busque una obra juvenil identificada expresamente como tal encontrará una orientación temática distinta en este título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 168 páginas de La seducción (Reservoir Narrativa), de Sara Torres, en una edición física de Reservoir Books. Kindle permite optar por la lectura digital; también figura la tapa blanda y el audiolibro entre los formatos disponibles.",
+      "texto": "La seducción (Reservoir Narrativa) ofrece tapa dura, tapa blanda, Kindle y audiolibro. La edición de Reservoir Books en tapa dura tiene 168 páginas y sirve para conservarla en papel; la tapa blanda facilita el transporte, Kindle permite leer en dispositivos compatibles y el audiolibro ofrece escucha en lugar de lectura visual.",
       "evidencias": [
         "titulo",
-        "autores",
+        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La seducción (Reservoir Narrativa), de Sara Torres, comparte el ámbito romántico con Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, y La luna en una noche de lluvia 1 (Yuri): Universo Manga, de Kuzushiro. La diferencia está en su clasificación como narrativa contemporánea y cómic y novela gráfica, frente a las identificaciones shôjo y yuri de esos títulos.",
+      "texto": "La seducción (Reservoir Narrativa) comparte el ámbito del romance y la narrativa gráfica con Amarte hasta perder el aliento 1 (Shôjo). La obra de Sara Torres se presenta como narrativa contemporánea, mientras que el título de Keiko Iwashita se identifica expresamente como Shôjo y señala una entrega en su propio nombre.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,8 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962494",
-        "isbn-9791387962814"
+        "isbn-9791387962494"
       ]
     }
   ],

@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788412925487",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la cocina canaria y en los recetarios vinculados a la memoria gastronómica. Sus 176 páginas lo sitúan entre los libros de cocina y tiempo libre, por lo que encaja menos con quien busca ficción narrativa o un manual dedicado exclusivamente a bebidas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "Recetas de memoria canaria se centra en la cocina y en las recetas vinculadas a la memoria gastronómica canaria. Sus 176 páginas permiten utilizarlo como lectura culinaria o como libro de consulta, en una edición de tapa dura publicada por Ediciones Remotas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa dura de Ediciones Remotas, con 176 páginas en castellano. La cubierta rígida ofrece una presentación apropiada para conservar el recetario en una biblioteca de cocina o regalarlo a alguien interesado en la gastronomía canaria.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arroz (Comerse el mundo), de Tove Nilsson, comparte el interés por la cocina, pero se centra en un alimento concreto, frente al enfoque canario de Recetas de memoria canaria. Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, incorpora también bebidas y productos de la huerta, mientras que Recetas de memoria canaria se identifica por su temática culinaria regional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293",
+        "isbn-9788419483898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5acfe882a692e18",
+  "origen": "chatgpt-web"
+}

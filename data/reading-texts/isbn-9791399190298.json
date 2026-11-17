@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "EL NIÑO PERDIDO DE LYCHFORD: Las brujas de Lychford 2 (FANTASIA BREVE) se dirige a lectores de fantasía y aventuras interesados en historias de extensión contenida. Sus 190 páginas permiten abordar una obra más corta que una novela de gran volumen. El título la identifica como la entrega 2, por lo que no es la primera de la serie indicada.",
+      "texto": "EL NIÑO PERDIDO DE LYCHFORD: Las brujas de Lychford 2 (FANTASIA BREVE) se dirige a lectores de fantasía y aventuras que buscan una obra de extensión contenida. Sus 190 páginas plantean una lectura distinta de la narrativa realista o de los libros centrados en cuestiones prácticas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,19 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "EL NIÑO PERDIDO DE LYCHFORD: Las brujas de Lychford 2 (FANTASIA BREVE) está disponible en tapa blanda y tiene 190 páginas. Su extensión y encuadernación flexible facilitan llevar el ejemplar en una bolsa y leerlo fuera de casa. Duermevela Ediciones lo publica en castellano como volumen físico.",
+      "texto": "La edición de EL NIÑO PERDIDO DE LYCHFORD: Las brujas de Lychford 2 (FANTASIA BREVE) está disponible en tapa blanda. Reúne 190 páginas en un volumen físico de Duermevela Ediciones, una opción para quien prefiere leer en papel y transportar el libro sin la rigidez de una cubierta dura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion",
-        "editorial",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "EL NIÑO PERDIDO DE LYCHFORD: Las brujas de Lychford 2 (FANTASIA BREVE) comparte elementos de fantasía con Pipoka y la Fábrica del Desastre y Onin 1 - Onin y la isla del tesoro. La obra de Jose Such incorpora criaturas legendarias y una marioneta mágica, mientras que la de Ibon Martín plantea misterios y aventuras con magia. La de Paul Cornell se distingue por su referencia a las brujas de Lychford y su identificación como segunda entrega.",
+      "texto": "A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria) comparte con EL NIÑO PERDIDO DE LYCHFORD: Las brujas de Lychford 2 (FANTASIA BREVE) el interés por la magia que anuncian sus títulos. La diferencia está en el marco: el primero remite a una enseñanza mágica, mientras que el segundo presenta a las brujas de Lychford dentro de una obra de fantasía y aventuras de Paul Cornell.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387994549",
-        "isbn-9791388277085"
+        "isbn-9791399305517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "16c2beb6bb4ff298",
+  "fuente_hash": "6be290fc1eb86f7a",
   "origen": "chatgpt-web"
 }

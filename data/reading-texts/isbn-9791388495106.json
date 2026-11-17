@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388495106",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los misterios de la residencia kaika vol. 4 se dirige a quienes buscan cómic y novela gráfica con una referencia explícita al misterio en el título. El título lo identifica como el n.º 4, de modo que encaja menos con lectores que quieran comenzar por una primera entrega o busquen narrativa escrita exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los misterios de la residencia kaika vol. 4 tiene una edición en tapa blanda de 178 páginas, publicada en castellano por Milky Way Ediciones. Su extensión permite llevar el volumen en una mochila o guardarlo junto a otras entregas; la cubierta flexible facilita manejarlo durante la lectura y ocupa menos espacio que una encuadernación rígida equivalente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "811227e75e3272f6",
+  "origen": "chatgpt-web"
+}

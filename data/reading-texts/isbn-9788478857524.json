@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788478857524",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guía del Desprescripto Stahl, de Jeffrey R. Strawn y Stephen M Stahl, se orienta a lectores interesados en la divulgación científica y la desprescripción. Sus 524 páginas corresponden a una obra extensa, menos adecuada para quienes buscan ficción o una introducción científica de pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Guía del Desprescripto Stahl está editada en tapa blanda y contiene 524 páginas en castellano. El formato físico publicado por Grupo Aula Médica, S.l. permite consultar el volumen por partes y mantenerlo a mano para regresar a sus páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guía del Desprescripto Stahl puede contrastarse con 50 cosas que hay que saber sobre IA, de Keith Mansfield, por su orientación hacia conocimientos científicos. Jeffrey R. Strawn y Stephen M Stahl se centran en la desprescripción, mientras que Keith Mansfield aborda la inteligencia artificial; son materias distintas dentro de la divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ae995cf20c71e6f",
+  "origen": "chatgpt-web"
+}

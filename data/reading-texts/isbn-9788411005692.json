@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788411005692",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un pais entre costuras, de Santiago Fernandez Muñoz, se dirige a lectores interesados en libros de divulgación científica en castellano. Su clasificación editorial lo diferencia de las novelas de ficción y de los relatos narrativos, por lo que no responde a una búsqueda centrada en esos géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un pais entre costuras comparte con 50 cosas que hay que saber sobre IA su orientación hacia la divulgación de conocimientos. El libro de Keith Mansfield se centra en la inteligencia artificial, mientras que el de Santiago Fernandez Muñoz aparece clasificado de forma general como divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6fe94b66e6cef8e",
+  "origen": "chatgpt-web"
+}

@@ -4,41 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Memento Penal 2027 se dirige a lectores que necesitan una obra extensa sobre derecho penal, especialmente para estudio o consulta jurídica. Sus 2274 páginas lo alejan de una introducción breve al derecho y de las lecturas narrativas destinadas al ocio.",
+      "texto": "Memento Penal 2027, de Lefebvre-El Derecho, está orientado a lectores que trabajan o estudian materias de derecho penal. Sus 2274 páginas responden a un uso de consulta jurídica extensa, más que a quien busca una introducción breve o una lectura divulgativa general.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Memento Penal 2027 se ofrece en tapa blanda y reúne 2274 páginas en castellano. Por su extensión, resulta más apropiado para mantenerlo en un lugar fijo de estudio o consulta que para transportarlo a diario; el papel permite localizar y revisar apartados durante el trabajo.",
+      "texto": "Memento Penal 2027 se ofrece en tapa blanda, con 2274 páginas en castellano. Por su volumen, resulta más adecuado para mantenerlo en una mesa de trabajo y consultar apartados concretos que para transportarlo habitualmente durante desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Memento Penal 2027 puede compararse con Casos prácticos sobre el despido (Supuestos prácticos), de Departamento de Documentación Iberley, porque ambos se sitúan en el ámbito jurídico. El primero se identifica con el derecho penal y reúne 2274 páginas; el segundo se centra en supuestos prácticos de despido, una materia laboral distinta.",
+      "texto": "Memento Penal 2027 comparte autoría editorial y orientación jurídica con Memento Procedimiento Laboral 2027-2028, de Lefebvre-El Derecho, pero aborda el ámbito penal en lugar del procedimiento laboral. También se diferencia de Memento Inspección de Hacienda 2027-2028, de Lefebvre-El Derecho, centrado por su título en la inspección tributaria.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370651749"
+        "isbn-9791388366239",
+        "isbn-9791388366260"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "73012790ad994f45",
+  "fuente_hash": "56856f79058052d6",
   "origen": "chatgpt-web"
 }

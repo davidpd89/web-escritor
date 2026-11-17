@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370079390",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Patou | Colección Leyendas de la Moda | Libro LXIX se dirige a lectores interesados en la moda desde la perspectiva del arte y el diseño. Es una obra de ensayo de 128 páginas, no una novela de ficción ni un manual de confección.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Patou | Colección Leyendas de la Moda | Libro LXIX está disponible en tapa dura, con 128 páginas en castellano. Esta encuadernación permite conservar el volumen en una estantería junto a otros títulos de la colección y utilizarlo como libro de consulta física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Patou | Colección Leyendas de la Moda | Libro LXIX comparte colección y autoría editorial con Emilio Pucci | Colección Leyendas de la Moda | Libro LXVI y Junya Watanabe | Colección Leyendas de la Moda | Libro LXVII. La diferencia está en la figura de la moda que identifica cada título; los tres pertenecen a la misma serie de RBA Coleccionables España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079369",
+        "isbn-9791370079376"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d6fa43a81756c2ca",
+  "origen": "chatgpt-web"
+}

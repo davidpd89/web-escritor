@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388102462",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Junji Ito: Un estudio profundo (Novela gráfica) encaja con lectores interesados en Junji Ito, el terror y las publicaciones de narrativa gráfica. Su identificación como estudio lo distingue de una novela de terror convencional, por lo que responde menos a quienes buscan únicamente una historia de ficción en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Junji Ito: Un estudio profundo (Novela gráfica) se presenta en tapa dura y cuenta con 360 páginas en castellano. La edición de Planeta Cómic permite conservar este volumen dedicado a Junji Ito en formato físico, con una encuadernación rígida adecuada para consultas y relecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Junji Ito: Un estudio profundo (Novela gráfica) puede compararse con Sensor (Novela gráfica) porque ambos títulos están firmados por Junji Ito y se relacionan con el terror gráfico. La diferencia principal es su presentación: uno se identifica como estudio profundo y consta de 360 páginas, mientras que Sensor (Novela gráfica) se presenta como novela gráfica. También comparten autoría, aunque sus títulos señalan enfoques editoriales distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102332"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5cd130bfd2a31165",
+  "origen": "chatgpt-web"
+}

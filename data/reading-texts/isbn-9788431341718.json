@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788431341718",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No olvides que estamos aquí para siempre: Una nueva generación a la búsqueda de la religión (Fuera de Colección) se dirige a quienes quieren explorar la relación de las nuevas generaciones con la religión. Por su temática espiritual y biográfica, no responde a la búsqueda de una novela de ficción ni de un manual de prácticas religiosas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El asunto central es la búsqueda de la religión por parte de una nueva generación. Lamorna Ash aborda este interés en una obra situada entre las biografías, las memorias y la espiritualidad, con atención a la experiencia humana de la creencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No olvides que estamos aquí para siempre: Una nueva generación a la búsqueda de la religión (Fuera de Colección) se presenta en tapa blanda, con 412 páginas en castellano. La extensión permite una lectura repartida en varias sesiones y la edición impresa facilita recuperar fragmentos para su consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, comparte el interés por la experiencia personal relacionada con la espiritualidad, pero sitúa esa vivencia en el Camino de Santiago. No olvides que estamos aquí para siempre: Una nueva generación a la búsqueda de la religión (Fuera de Colección), de Lamorna Ash, centra su propuesta en la relación de una nueva generación con la religión, sin limitarla a una experiencia de peregrinación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ba33ea751042f4a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399220315",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "HIERBAS. Atlas gastronómico de las plantas silvestres del Mediterráneo: Cómo reconocerlas, recolectarlas y cocinarlas se dirige a lectores interesados en la cocina con plantas silvestres y su identificación. Sus 416 páginas se centran en el entorno mediterráneo y en el aprovechamiento gastronómico, frente a los libros dedicados únicamente a recetas convencionales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "HIERBAS. Atlas gastronómico de las plantas silvestres del Mediterráneo: Cómo reconocerlas, recolectarlas y cocinarlas se ofrece en tapa blanda, con 416 páginas en castellano. El volumen físico permite consultar los contenidos sobre reconocimiento, recolección y cocina de plantas silvestres, tanto durante la preparación de recetas como en el estudio de las especies.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "HIERBAS. Atlas gastronómico de las plantas silvestres del Mediterráneo: Cómo reconocerlas, recolectarlas y cocinarlas, de Andrea Pieroni, comparte el interés por la alimentación mediterránea con El gran libro de la dieta mediterránea: Hábitos, ciencia y salud para prevenir enfermedades (No Ficción), de Miguel Ángel Martínez-González y Miguel Ruiz-Canela. El primero aborda el reconocimiento, la recolección y la cocina de plantas silvestres; el segundo se centra en los hábitos alimentarios, la ciencia y la prevención de enfermedades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "096bbc56800fb768",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788468378848",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un poco Lola. Más grande que un hada: 1, de Kiah Thomas, pertenece a la literatura infantil y juvenil, por lo que se orienta a lectores de ese ámbito. Sus 96 páginas ofrecen una extensión breve frente a las novelas juveniles largas; quienes busquen narrativa dirigida a adultos encontrarán aquí otro tipo de propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un poco Lola. Más grande que un hada: 1 está disponible en tapa blanda, con 96 páginas en castellano. Es una edición física de extensión reducida, manejable para transportar o guardar en una estantería infantil. La publica Edebé.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "abcb0a4ed57d3c4e",
+  "origen": "chatgpt-web"
+}

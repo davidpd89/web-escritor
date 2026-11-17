@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los mundos de Ángeles se dirige a quienes buscan ficción breve relacionada con la fantasía, la aventura y la ciencia ficción. Sus 106 páginas ofrecen una extensión reducida frente a novelas más largas, mientras que su orientación fantástica encaja menos con lectores interesados únicamente en relatos realistas.",
+      "texto": "Los mundos de Ángeles se dirige a lectores de fantasía y aventuras que también se interesan por la narrativa contemporánea. Con 106 páginas, ofrece una extensión menor que la de una novela larga; quien busque una lectura histórica o un ensayo encontrará aquí una propuesta de ficción de otro género.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,24 +13,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Los mundos de Ángeles contiene 106 páginas, una extensión que facilita llevar el libro en el bolso o la mochila. Publicada por Avant Editorial, permite leer la obra completa en papel sin recurrir a un volumen de gran tamaño.",
+      "texto": "Los mundos de Ángeles está disponible en tapa blanda, con 106 páginas en castellano. Es una edición física de extensión breve que puede transportarse y leerse sin dispositivo electrónico; también permite conservar el ejemplar o entregarlo como regalo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los mundos de Ángeles comparte el ámbito de la fantasía con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett, aunque sus títulos plantean escenarios distintos: varios mundos frente a un refugio de gatos. También puede compararse con Estuche Las crónicas de Emily Wilde (Umbriel narrativa), de Heather Fawcett, pero la obra de David Márquez Bouzeran se presenta como un volumen de 106 páginas, mientras que la otra reúne libros en un estuche.",
+      "texto": "El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett, permite comparar otra obra de ficción vinculada a la fantasía. Estuche Las crónicas de Emily Wilde (Umbriel narrativa), también de Heather Fawcett, plantea una opción agrupada en estuche, frente a las 106 páginas de Los mundos de Ángeles, de David Márquez Bouzeran, publicado como libro individual en tapa blanda.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "afines_catalogo",
         "numero_paginas",
-        "formatos_disponibles",
-        "afines_catalogo"
+        "formatos_disponibles"
       ],
       "enlaces": [
         "isbn-9791387749316",
@@ -40,6 +40,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "77e20ed35051815e",
+  "fuente_hash": "cee3e2109279c70c",
   "origen": "chatgpt-web"
 }

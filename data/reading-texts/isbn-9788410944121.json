@@ -4,44 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Prado invisible se dirige a lectores interesados en la historia del arte contada a través de sucesos, personajes y espacios vinculados a un museo. Su enfoque divulgativo encaja menos con quien busca un manual técnico de pintura o un catálogo centrado exclusivamente en el análisis visual de las obras.",
+      "texto": "El Prado invisible se dirige a quienes buscan historia del arte contada mediante episodios relacionados con un museo. Su atención a accidentes, personajes y espacios del Museo del Prado lo aleja de los manuales centrados exclusivamente en analizar pinturas y técnicas artísticas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El Prado invisible aborda la historia del Museo del Prado a partir de acontecimientos que rodean sus colecciones y sus instalaciones. Fernando Plaza Ponce recupera accidentes, desplazamientos de obras, personajes y episodios poco conocidos, desplazando la atención desde el contenido de los cuadros hacia la vida del museo.",
+      "texto": "Fernando Plaza Ponce examina la historia menos visible del Museo del Prado a través de acontecimientos ocurridos alrededor de sus colecciones. Entre las cuestiones tratadas figuran los incidentes en el edificio, los desplazamientos de obras, las dependencias del museo y las personas vinculadas a su trayectoria.",
       "evidencias": [
-        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Prado invisible puede leerse en tapa blanda o Kindle. La edición impresa reúne 256 páginas para consultar los episodios históricos en papel; Kindle permite llevar el texto en el móvil y retomar la lectura sin transportar el libro físico.",
+      "texto": "La tapa blanda permite consultar las 256 páginas de El Prado invisible en un volumen físico, apropiado para tenerlo en una estantería o regalarlo. La edición Kindle ofrece el mismo título en formato digital para leerlo en un dispositivo compatible sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "sinopsis_editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Prado invisible y El infinito en un junco (edición limitada · cantos tintados): La invención de los libros en el mundo antiguo (Campaña | Edición con cantos tintados) comparten el interés por la historia del patrimonio cultural. Fernando Plaza Ponce aborda los acontecimientos y personajes vinculados al Museo del Prado, mientras Irene Vallejo se centra en la historia de los libros y su invención en el mundo antiguo.",
+      "texto": "El Prado invisible y Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION) comparten el interés por el arte desde una perspectiva histórica. Fernando Plaza Ponce se concentra en los sucesos relacionados con el Museo del Prado, mientras que Maria Stavrinaki aborda la relación entre la prehistoria y el arte moderno.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466393041"
+        "isbn-9791399236422"
       ]
     }
   ],

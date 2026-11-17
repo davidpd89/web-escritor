@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370610562",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a quienes estudian o trabajan con el derecho administrativo sancionador y buscan estudios y comentarios sobre esta materia. Sus 1000 páginas responden a una consulta jurídica extensa, no a una lectura introductoria breve ni a una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) está editado en tapa dura por Civitas. Con 1000 páginas, su extensión favorece la consulta en un escritorio o biblioteca frente al transporte cotidiano; la cubierta rígida resulta práctica para conservar un volumen de estas dimensiones.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Argumentacion Juridica, de Carlos Parma, comparte el ámbito del derecho, pero se orienta a la argumentación jurídica en lugar del derecho administrativo sancionador. Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal, de Víctor Rodríguez Alonso, trata una cuestión penal específica, frente al enfoque de estudios y comentarios de este anuario.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370475949",
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fa051a5abf79f441",
+  "origen": "chatgpt-web"
+}

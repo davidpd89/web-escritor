@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419964533",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los restos del naufragio: 12 (SEISDOBLE), de Nieves Abarca, se dirige a quienes buscan misterio dentro de la narrativa juvenil. Por su clasificación, resulta menos afín a lectores interesados exclusivamente en poesía, ensayo o literatura práctica. Su extensión es de 176 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los restos del naufragio: 12 (SEISDOBLE) cuenta con una edición en tapa blanda de 176 páginas. Es una opción física manejable para llevar en el bolso o la mochila, y permite prestar el ejemplar o regalarlo sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asesino del metro, de Andrew Reid, y El acantilado de cristal, de Alberto Muriel Pina, aparecen entre las lecturas afines a Los restos del naufragio: 12 (SEISDOBLE). Los tres pueden compararse desde el interés por el misterio y la intriga, aunque el libro de Nieves Abarca se distingue por su clasificación explícita como narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388290718",
+        "isbn-9791399227406"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ba06054eb69b9733",
+  "origen": "chatgpt-web"
+}

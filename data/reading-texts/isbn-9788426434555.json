@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados) reúne intereses vinculados al desarrollo personal, la fantasía y el amor. Sus 96 páginas lo sitúan entre las lecturas breves, frente a quienes buscan una obra extensa o un tratado especializado en una disciplina académica.",
+      "texto": "Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados) se orienta a lectores interesados en el desarrollo personal y la autoayuda. Es una obra de Albert Espinosa de 96 páginas, por lo que se distingue de quienes buscan una novela extensa de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,22 +14,23 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura de Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados) contiene 96 páginas y ofrece una encuadernación rígida para conservar o regalar. Kindle permite leer la misma obra en un dispositivo electrónico, sin ocupar espacio físico en la estantería.",
+      "texto": "La tapa dura ofrece una edición física de 96 páginas publicada por Lumen, adecuada para conservar en papel o regalar. Kindle permite llevar el mismo título en un lector electrónico o en el móvil, sin depender del espacio que ocupa el volumen impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
+        "editorial",
         "formatos_disponibles",
         "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados) y El universo amarillo (edición limitada): La luz siempre vuelve si esperas lo suficiente (Campaña | Libros firmados) comparten autoría: Albert Espinosa. El primero se presenta como una obra de 96 páginas vinculada al desarrollo personal, mientras que el segundo se distingue en su título como edición limitada.",
+      "texto": "El universo amarillo (edición limitada): La luz siempre vuelve si esperas lo suficiente (Campaña | Libros firmados) comparte con Escamas doradas: La fuerza más grande del universo (Lumen Ilustrados) la autoría de Albert Espinosa. La diferencia está en la presentación: el primero es una edición limitada, mientras que el segundo pertenece a la colección Lumen Ilustrados, aborda el desarrollo personal y tiene 96 páginas.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -39,6 +40,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ed092a030a797fdc",
+  "fuente_hash": "054f24e132c3a86f",
   "origen": "chatgpt-web"
 }

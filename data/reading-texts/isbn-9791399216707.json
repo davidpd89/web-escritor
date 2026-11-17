@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791399216707",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Subir la dosis: 23 (Letra Caniche) está dirigido a lectores de poesía contemporánea en castellano. Laura Sam firma un volumen de 96 páginas; por su clasificación poética, se aparta de las novelas narrativas y de los libros centrados en una trama extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Subir la dosis: 23 (Letra Caniche) cuenta con una edición en tapa blanda de 96 páginas. Su extensión facilita llevar el libro en papel y volver a sus páginas durante distintas sesiones de lectura; lo publica Caniche Editorial en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Subir la dosis: 23 (Letra Caniche) puede compararse con 223 esquinas: 16 (La garza roja) y A solas por su presencia entre las lecturas vinculadas a la poesía. La diferencia más clara está en la autoría: Laura Sam firma el primero, Antonio Fernández Lera el segundo y María Jesús Martínez Ramos el tercero; Subir la dosis: 23 (Letra Caniche) tiene 96 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410907539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8b12c6557740563",
+  "origen": "chatgpt-web"
+}

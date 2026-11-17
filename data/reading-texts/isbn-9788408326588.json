@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788408326588",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de gastar dinero: Pequeñas decisiones para una vida más rica (Empresa y Talento) está dirigido a lectores interesados en las decisiones económicas cotidianas y el desarrollo personal. Su enfoque sobre el gasto y la vida personal se diferencia del de un manual dedicado exclusivamente a inversiones o instrumentos financieros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El arte de gastar dinero: Pequeñas decisiones para una vida más rica (Empresa y Talento) se publica en tapa blanda, en una edición de bolsillo de Booket. Sus 288 páginas permiten llevar el volumen para leerlo fuera de casa y volver a los apartados relacionados con las decisiones de gasto.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de gastar dinero: Pequeñas decisiones para una vida más rica (Empresa y Talento), de Morgan Housel, se relaciona con El arte de elegir: Relatos sobre decisiones, pérdidas y nuevos comienzos (Acción Empresarial), de Antonio Bonet, por el interés en las decisiones personales. El primero las sitúa en el uso del dinero, mientras que el segundo las aborda mediante relatos sobre elecciones y pérdidas. Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA), de Renato Antinori, se centra en una actividad financiera más específica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724357",
+        "isbn-9791388130397"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4ee2bc12d4fb50fb",
+  "origen": "chatgpt-web"
+}

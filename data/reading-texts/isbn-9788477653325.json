@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788477653325",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las desobedientes (Biografías), de Elisabetta Rasy, se orienta a lectores de biografías, memorias y ensayos vinculados al arte. Sus 272 páginas responden a una lectura de no ficción; encaja menos con quien busca una novela de ficción o un manual práctico de técnicas artísticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las desobedientes (Biografías) se publica en tapa blanda y tiene 272 páginas. Esta edición en castellano de Circe Ediciones, S.l.u. permite leer y consultar el volumen en papel, con una extensión intermedia para una obra relacionada con las biografías y el ensayo artístico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Elisabeth Vigée-Le Brun. Pintora de reinas: 23 (Biblioteca de la Memoria) y Las desobedientes (Biografías) coinciden en el ámbito biográfico y artístico. La obra de Carlota O'Neill identifica a una pintora concreta, mientras que el libro de Elisabetta Rasy se presenta como una obra de biografías y ensayo. Rafael Moneo, construir las ideas: 530 (El Acantilado) amplía la comparación hacia la arquitectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388381430",
+        "isbn-9791387964177"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c05786473a7c14ab",
+  "origen": "chatgpt-web"
+}

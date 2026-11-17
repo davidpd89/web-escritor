@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387625450",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Visión de efesios, la: La tarea de la Iglesia y la gloria de dios (Colección n. T. Wright) se dirige a lectores interesados en la religión cristiana, la Iglesia y su dimensión espiritual. Por su temática, encaja menos con quienes buscan ficción o una lectura ajena a las cuestiones religiosas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Visión de efesios, la: La tarea de la Iglesia y la gloria de dios (Colección n. T. Wright) está disponible en tapa blanda. Sus 192 páginas permiten consultar distintos pasajes en papel y volver a ellos durante el estudio; Clie publica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Wright comparte el ámbito religioso con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe. La primera trata sobre la tarea de la Iglesia y la gloria de Dios, mientras que la segunda aborda los fundamentos y la práctica del dharma. La diferencia principal está en sus tradiciones espirituales y en los temas que anuncian sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "333c4ad62eb7fdc9",
+  "origen": "chatgpt-web"
+}

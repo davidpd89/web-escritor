@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388032608",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de ensayo interesados en la naturaleza y en los límites que plantea al ser humano. Por su orientación temática, queda lejos de quienes buscan una novela de aventuras o un manual de actividades al aire libre.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 192 páginas en castellano, publicadas por Ediciones Siruela. Es una opción física para leer y conservar un ensayo de extensión moderada, con una cubierta flexible que facilita su transporte.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cervezasofía: Filosofía del pan líquido, de María del Carmen Bengoechea Bernal, comparte el interés por abordar un asunto concreto desde la reflexión. Mientras ese título relaciona filosofía y cerveza, Los pilares del mar: Un desafío a los límites de la naturaleza: 163 (Biblioteca de Ensayo / Serie mayor), de Sylvain Tesson, sitúa la naturaleza en el centro de su planteamiento.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388613111"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e919eac8092fe38",
+  "origen": "chatgpt-web"
+}

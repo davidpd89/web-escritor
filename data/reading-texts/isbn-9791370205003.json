@@ -4,29 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El maestro armero: Iniciación al cuidado, el ajuste, la reparación y la puesta a punto de las armas de caza y tiro deportivo (Cinegética) se dirige a lectores interesados en el mantenimiento de armas utilizadas en actividades cinegéticas y deportivas. Su orientación técnica lo separa de las lecturas recreativas centradas en relatos o ficción.",
+      "texto": "El maestro armero: Iniciación al cuidado, el ajuste, la reparación y la puesta a punto de las armas de caza y tiro deportivo (Cinegética) está dirigido a lectores interesados en el mantenimiento de armas destinadas a estas actividades. Su orientación práctica lo aleja de los libros de entretenimiento basados en acertijos, juegos o relatos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El maestro armero: Iniciación al cuidado, el ajuste, la reparación y la puesta a punto de las armas de caza y tiro deportivo (Cinegética) se ofrece en tapa blanda, con 312 páginas en castellano. La edición física de Almuzara permite consultar apartados concretos y utilizar separadores de papel para volver a ellos sin necesidad de una pantalla.",
+      "texto": "El maestro armero: Iniciación al cuidado, el ajuste, la reparación y la puesta a punto de las armas de caza y tiro deportivo (Cinegética) cuenta con 312 páginas en tapa blanda. La edición física de Almuzara permite consultar el volumen por apartados y manejarlo sin depender de una pantalla.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
+        "formatos_disponibles",
         "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El maestro armero: Iniciación al cuidado, el ajuste, la reparación y la puesta a punto de las armas de caza y tiro deportivo (Cinegética) comparte con Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas la orientación hacia una actividad manual concreta. José Luis Varona aborda el mantenimiento de armas de caza y tiro deportivo, mientras que el título de Varios autores se ocupa del bordado mediante letras, números y diagramas. Son materias distintas dentro de las aficiones prácticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498748208"
       ]
     }
   ],
-  "descartados": [
-    "que_formato_elegir: repite otro bloque",
-    "faltan módulos: que_formato_elegir"
-  ],
+  "descartados": [],
   "version": 3,
-  "fuente_hash": "2d3ca39ceae4a224",
+  "fuente_hash": "a3c7deb7df883323",
   "origen": "chatgpt-web"
 }

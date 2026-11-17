@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388392108",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Psicología forense se orienta a lectores interesados en esta disciplina que buscan una obra extensa, de 500 páginas, dentro del ámbito del desarrollo personal. Por su temática y extensión, encaja menos con quienes prefieren una introducción breve a la psicología general o una lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Psicología forense es en tapa blanda y contiene 500 páginas en castellano. Por su extensión, puede utilizarse como ejemplar físico de consulta continuada, con posibilidad de señalar páginas y retomar apartados durante distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Psicología forense parte 1 y Psicología forense parte 2 comparten con Psicología forense tanto la autoría de Evimeria Editorial como la materia indicada en sus títulos. La diferencia visible está en la organización: las dos primeras se identifican como partes numeradas, mientras que Psicología forense aparece sin esa división y reúne 500 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388392115",
+        "isbn-9791388392122"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fca09b1d297fdb9f",
+  "origen": "chatgpt-web"
+}

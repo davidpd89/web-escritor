@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La última octava (EDICIÓN ESPECIAL LIMITADA) (SIREN ROMANCE) se dirige a lectores de romance que buscan una novela extensa, de 716 páginas. Por su género y longitud, se distancia de las lecturas centradas en otros temas y de quienes prefieren relatos breves.",
+      "texto": "La última octava (EDICIÓN ESPECIAL LIMITADA) (SIREN ROMANCE) se dirige a lectores de romance que buscan una novela extensa. Sus 716 páginas la alejan de los relatos breves y de las lecturas centradas en géneros distintos del romántico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La última octava (EDICIÓN ESPECIAL LIMITADA) (SIREN ROMANCE) se presenta como una edición especial limitada dentro de la línea SIREN ROMANCE. Siren Books publica esta versión en castellano, con encuadernación en tapa blanda y una extensión de 716 páginas.",
+      "texto": "El título identifica expresamente esta versión como EDICIÓN ESPECIAL LIMITADA, dentro de SIREN ROMANCE. Siren Books la publica en castellano, en tapa blanda y con 716 páginas, una combinación que permite distinguir esta referencia editorial mediante sus datos de edición.",
       "evidencias": [
         "titulo",
         "editorial",
@@ -24,25 +24,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Con 716 páginas, la tapa blanda permite conservar la novela en papel y colocarla junto a otros títulos de romance. La edición Kindle evita transportar un volumen de esa extensión y facilita continuar la lectura desde un dispositivo electrónico o el móvil.",
+      "texto": "La tapa blanda ofrece las 716 páginas en un ejemplar físico, apropiado para conservar o regalar esta edición identificada como especial limitada. Kindle permite llevar la novela en un lector electrónico o en el móvil sin cargar con el volumen impreso.",
       "evidencias": [
+        "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A mil por hora comparte con La última octava (EDICIÓN ESPECIAL LIMITADA) (SIREN ROMANCE) su pertenencia al romance, aunque el libro de Hannah Grace sitúa su planteamiento en el entorno de la F1. La novela de Ashley Jade se distingue por sus 716 páginas y su identificación como edición especial limitada.",
+      "texto": "La última octava (EDICIÓN ESPECIAL LIMITADA) (SIREN ROMANCE), de Ashley Jade, comparte temática romántica con A cinco segundos de ti, de Sandra Miró, aunque son obras de distintas autoras. Frente a 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, que reúne relatos de temática navideña, la obra de Ashley Jade se presenta como una novela romántica extensa de 716 páginas.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466683449"
+        "isbn-9788409929177",
+        "isbn-9788427055735"
       ]
     }
   ],

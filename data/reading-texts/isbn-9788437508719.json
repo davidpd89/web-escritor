@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788437508719",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia del diablo: Siglos XII-XX está dirigido a lectores interesados en la historia y en las representaciones religiosas a lo largo del tiempo. Su marco histórico encaja menos con quienes buscan una narración de terror sobrenatural o una guía de prácticas espirituales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historia del diablo: Siglos XII-XX se presenta en tapa blanda, con 360 páginas en castellano. El volumen permite recorrer el periodo histórico indicado en el título y consultar pasajes concretos en papel, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historia del diablo: Siglos XII-XX puede compararse con Dios: Una Historia Humana / God: A Human History por su interés en las figuras religiosas desde una perspectiva histórica. Mientras Robert Muchembled delimita su estudio a la figura del diablo y al periodo señalado en el título, la obra de Reza Aslan plantea una historia humana de Dios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877565"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "02b20519115c50d3",
+  "origen": "chatgpt-web"
+}

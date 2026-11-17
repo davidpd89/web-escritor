@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Exquisita supplicia: Libido moriendi (POESIA) se dirige a lectores que buscan poesía en lugar de narrativa en prosa. Con 104 páginas, tiene una extensión relativamente breve y permite una lectura fragmentada; no responde a quien prefiere novelas extensas con una trama desarrollada a lo largo de numerosos capítulos.",
+      "texto": "Exquisita supplicia: Libido moriendi (POESIA) se dirige a lectores de poesía en castellano que buscan una obra de César Antonio Molina. Por su género y sus 104 páginas, se diferencia de una novela extensa o de un manual práctico, por lo que no responde a esas preferencias de lectura.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Exquisita supplicia: Libido moriendi (POESIA) se publica en tapa blanda, con 104 páginas editadas por Vaso Roto Ediciones. Su extensión permite llevar el poemario en papel y regresar a textos concretos durante distintas sesiones de lectura; también facilita conservarlo como volumen físico en una colección de poesía.",
+      "texto": "Exquisita supplicia: Libido moriendi (POESIA) está disponible en tapa blanda y reúne 104 páginas. Es una edición física de Vaso Roto Ediciones que permite transportar el volumen y regresar a sus páginas durante distintas sesiones de lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Exquisita supplicia: Libido moriendi (POESIA) puede situarse junto a Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por su pertenencia al ámbito poético. El título de César Antonio Molina remite a la muerte, mientras que el de Pedro Salinas señala el amor como asunto central; la diferencia temática permite distinguir ambas lecturas sin confundir sus autores.",
+      "texto": "Exquisita supplicia: Libido moriendi (POESIA) y A solas, de María Jesús Martínez Ramos, se encuentran en el ámbito de la poesía. La diferencia identificable está en la autoría: César Antonio Molina firma el primero y María Jesús Martínez Ramos el segundo. Ambos se distinguen de una lectura narrativa convencional por su clasificación poética.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +33,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788410907539"
       ]
     }
   ],

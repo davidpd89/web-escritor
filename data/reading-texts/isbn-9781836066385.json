@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Acurrúcate a mi lado (Cuentos para peques) se orienta a lectores infantiles y a quienes buscan cuentos para compartir con niños pequeños. Su planteamiento como libro de cuentos se distancia de las lecturas juveniles centradas en sagas extensas o conflictos de adolescentes.",
+      "texto": "Acurrúcate a mi lado (Cuentos para peques) está orientado al público infantil y a quienes buscan cuentos relacionados con la fantasía y los clásicos. La obra de Rosie Dickins se presenta como una propuesta de lectura para peques, no como una novela de fantasía destinada específicamente al público adulto.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Acurrúcate a mi lado (Cuentos para peques) está editado en tapa dura y tiene 128 páginas en castellano. La encuadernación rígida resulta práctica para conservarlo en una biblioteca infantil y utilizarlo en sesiones de lectura compartida.",
+      "texto": "Acurrúcate a mi lado (Cuentos para peques) se ofrece en tapa dura y cuenta con 128 páginas. Esta encuadernación proporciona cubiertas rígidas para un libro infantil que puede compartirse durante la lectura y conservarse después en una biblioteca familiar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "edicion",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Acurrúcate a mi lado (Cuentos para peques) y Cacahuete, el elfo pedorrete (Libros ilustrados) se sitúan en el ámbito de las lecturas infantiles. Rosie Dickins presenta una propuesta de cuentos para pequeños, mientras Rafael Ordóñez identifica desde el título a un elfo y un componente humorístico, con un enfoque distinto para elegir la siguiente lectura.",
+      "texto": "Acurrúcate a mi lado (Cuentos para peques) y Buenas noches, hada comparten su orientación hacia historias infantiles con elementos fantásticos. El libro de Rosie Dickins se presenta como una colección de cuentos para peques vinculada también a los clásicos, mientras que el de Jeffrey Burton y Zoe Waring plantea una experiencia centrada en un mundo de hadas y magia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410318526"
+        "isbn-9788491459347"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "38a0478e78f1d358",
+  "fuente_hash": "79fa5e67e4285cdb",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410907263",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Veneno de terciopelo, de Julia Martínez, se encuadra en desarrollo personal, familia y crianza, y nutrición y bienestar. Por esa orientación temática, se dirige a lectores interesados en estos ámbitos, no a quienes buscan específicamente una novela de aventuras o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Veneno de terciopelo se presenta en tapa blanda, con 218 páginas en castellano. El formato impreso permite consultar pasajes y volver a ellos mediante marcas físicas, una forma de uso habitual en lecturas relacionadas con el desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Veneno de terciopelo coincide en el ámbito del desarrollo personal y las relaciones familiares con Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida, de David C, y La culpa materna: 01 (Psicologia), de Cecilia Peñacoba Puente y Patricia Catalá Mesón. Los títulos afines delimitan asuntos concretos, las relaciones tóxicas y la culpa materna, mientras que Veneno de terciopelo se clasifica también en nutrición y bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409923595",
+        "isbn-9791370550240"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fe614c2c7d83c62",
+  "origen": "chatgpt-web"
+}

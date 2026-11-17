@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791370330453",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inteligencia Artificial, tecnología y discurso en la Educación Superior (ENSE?AR Y APRENDER) se dirige a lectores interesados en la relación entre tecnología, lenguaje y enseñanza universitaria. Por su temática y clasificación como divulgación científica, se distancia de los manuales centrados en aprender a utilizar aplicaciones informáticas concretas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la inteligencia artificial, la tecnología y el discurso dentro de la educación superior. La combinación de estos asuntos sitúa el foco en el ámbito universitario y en las relaciones entre herramientas tecnológicas y comunicación. Está clasificado como divulgación científica y cuenta con tres autores.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa blanda, publicada por Editorial Comares en castellano. Sus 248 páginas permiten consultar el contenido en papel, subrayar pasajes y volver a los apartados relacionados con tecnología y educación superior. Es una opción física para quien prefiera estudiar o tomar notas sin utilizar una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA comparte con este libro el interés por la inteligencia artificial, aunque su título plantea una introducción general y no un enfoque universitario. España en la escena global. Redes de poder, comercio y cultura (siglos XV-XXI): 1 (Plural) coincide en la autoría de Natalia Candorcio Rodríguez, pero se ocupa de relaciones históricas, comerciales y culturales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370380779",
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "67d20745ab512c6d",
+  "origen": "chatgpt-web"
+}

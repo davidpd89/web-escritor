@@ -4,39 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Reconciliación se orienta a lectores interesados en las memorias personales y la historia vinculada a la monarquía. La obra de Juan Carlos I tiene 560 páginas y se sitúa en la no ficción, por lo que no responde a la búsqueda de una novela histórica con personajes ficticios.",
+      "texto": "Está orientado a lectores de biografías, memorias e historia interesados en una obra firmada por Juan Carlos I. Por su clasificación como memoria histórica y personal, encaja menos con quienes buscan una novela de ficción o un manual de historia general.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta versión de Reconciliación se identifica como Edición limitada a precio especial (Colección Especial). Booket la publica en castellano, con encuadernación de tapa dura y 560 páginas, el 11 de noviembre de 2026; esos datos permiten distinguirla de otras presentaciones de la obra.",
+      "texto": "Reconciliación: Edición limitada a precio especial (Colección Especial) se presenta expresamente como una edición limitada dentro de una colección especial. Booket la publica en tapa dura, con 560 páginas en castellano y fecha de publicación del 11 de noviembre de 2026.",
       "evidencias": [
         "titulo",
         "editorial",
-        "edicion",
-        "fecha_publicacion",
+        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura ofrece una encuadernación rígida para las 560 páginas de Reconciliación, apropiada para conservar el volumen en una biblioteca o entregarlo como regalo. Es una edición física de Booket que requiere más espacio de transporte que un libro digital, especialmente por su extensión.",
+      "texto": "La edición en tapa dura contiene 560 páginas y pertenece a una colección identificada como especial y limitada. El formato físico permite conservar el volumen en una biblioteca personal y consultarlo durante una lectura prolongada de sus contenidos biográficos e históricos.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "titulo"
+        "titulo",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Corona Nostra: De Felipe VI a Felipe V, de Nieves Concostrina, comparte con Reconciliación el interés por la monarquía y la historia, pero aborda ese ámbito desde otra autoría. Frente a ese recorrido histórico, Juan Carlos I firma una obra situada en las biografías y memorias, con una perspectiva personal asociada a su propia figura.",
+      "texto": "Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978), de Tomeu Canyelles Canyelles, comparte el interés por reconstruir una trayectoria personal vinculada a un periodo histórico. Reconciliación: Edición limitada a precio especial (Colección Especial) se diferencia por estar firmada por Juan Carlos I y presentarse como una obra de memorias en edición especial.",
       "evidencias": [
         "afines_catalogo",
         "titulo",
@@ -44,7 +43,7 @@
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788410944176"
+        "isbn-9788417645311"
       ]
     }
   ],

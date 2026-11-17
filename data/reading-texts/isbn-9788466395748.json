@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466395748",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La hora de las gaviotas (Inspectora Ane Cestero 2) (Best Seller | Ficción) se dirige a lectores de misterio y thriller interesados en la inspectora Ane Cestero. El título lo identifica como el n.º 2, por lo que quienes prefieran comenzar por el primer libro pueden acudir antes a La danza de los tulipanes (Inspectora Ane Cestero 1) (Best Seller | Ficción).",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta edición de La hora de las gaviotas (Inspectora Ane Cestero 2) (Best Seller | Ficción) ofrece 464 páginas en tapa blanda y tamaño de bolsillo. Publicada por Penguin Bolsillo, permite llevar una novela extensa en un formato de papel pensado para transportarse y guardarse con facilidad.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La hora de las gaviotas (Inspectora Ane Cestero 2) (Best Seller | Ficción) comparte autor y protagonista con La danza de los tulipanes (Inspectora Ane Cestero 1) (Best Seller | Ficción), de Ibon Martín. Los títulos identifican respectivamente los números 2 y 1 de la serie; La hora de las gaviotas tiene 464 páginas en su edición de bolsillo, mientras que La danza de los tulipanes se distingue por su posición anterior en la numeración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788466395717"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b86b542f46735ac0",
+  "origen": "chatgpt-web"
+}

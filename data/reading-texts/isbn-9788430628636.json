@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sinónimos insólitos: Historias de palabras para enriquecer tu lenguaje (Lengua y Literatura) se dirige a quienes buscan un ensayo sobre vocabulario, palabras y sus historias. Por su enfoque lingüístico y sus 320 páginas, se aparta de las lecturas centradas en una trama de ficción y sus personajes.",
+      "texto": "Sinónimos insólitos: Historias de palabras para enriquecer tu lenguaje (Lengua y Literatura) se dirige a lectores interesados en el vocabulario y las historias relacionadas con las palabras. Es un ensayo de 320 páginas, por lo que su planteamiento difiere del de una novela de ficción centrada en personajes y acontecimientos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,17 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Sinónimos insólitos: Historias de palabras para enriquecer tu lenguaje (Lengua y Literatura) es de tapa dura y reúne 320 páginas en castellano. La encuadernación rígida resulta práctica para conservar el volumen y volver a consultar palabras durante la lectura o después de terminarlo.",
+      "texto": "Sinónimos insólitos: Historias de palabras para enriquecer tu lenguaje (Lengua y Literatura) está disponible en tapa dura y Kindle. La edición de Taurus reúne 320 páginas en un volumen físico adecuado para conservar y consultar en papel; Kindle permite acceder al texto desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma"
+        "edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "75c290dbc8f5d5db",
+  "fuente_hash": "0eb6cfcdc497bcf8",
   "origen": "chatgpt-web"
 }

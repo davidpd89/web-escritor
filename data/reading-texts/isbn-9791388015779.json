@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pacto de sangre (ROMÁNTICA), de N.E. Davenport, encaja con lectores de fantasía y aventuras que buscan una obra de 448 páginas. Por su clasificación también puede interesar a quienes leen ciencia ficción, pero no responde a una búsqueda centrada en narrativa realista.",
+      "texto": "Pacto de sangre (ROMÁNTICA) se orienta a lectores que buscan fantasía con componentes de aventura. Sus 448 páginas permiten una lectura de largo recorrido; por su clasificación, se aleja de las novelas centradas exclusivamente en situaciones cotidianas y realistas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pacto de sangre (ROMÁNTICA) está disponible en tapa dura, con 448 páginas en castellano. Esta edición de Newton Compton Editores ofrece una encuadernación rígida para conservar el volumen en la estantería y utilizarlo en sucesivas lecturas.",
+      "texto": "Pacto de sangre (ROMÁNTICA) está disponible en tapa dura y Kindle. La edición física reúne 448 páginas y permite conservar el volumen en papel, mientras que Kindle facilita llevar la misma obra en un lector electrónico o dispositivo compatible sin cargar con el libro.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pacto de sangre (ROMÁNTICA) puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su relación con la fantasía. La obra de N.E. Davenport también incorpora aventuras y ciencia ficción, mientras que el título de Tracy Wolff sitúa su referencia fantástica en los dioses.",
+      "texto": "Pacto de sangre (ROMÁNTICA) puede compararse con Alas de escarcha y oro: El canto del cisne por su orientación hacia la fantasía y los conflictos ligados a capacidades extraordinarias. La obra de N.E. Davenport se clasifica también como aventura, mientras que el texto de Marta Morillo presenta a una protagonista que oculta sus dones y debilidades.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324102"
+        "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5f704a3e28b7e76e",
+  "fuente_hash": "bdecbe1ee7e68f46",
   "origen": "chatgpt-web"
 }

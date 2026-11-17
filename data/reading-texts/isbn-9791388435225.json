@@ -4,28 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cacadoku (FUERA DE ESCENA) El sudoku nunca había sido tan estimulante se dirige a quienes buscan pasatiempos de lógica y entretenimiento individual. Su planteamiento centrado en el sudoku se aleja de la lectura narrativa y de los libros de actividades artísticas.",
+      "texto": "Cacadoku (FUERA DE ESCENA) El sudoku nunca había sido tan estimulante, de Hugh Jassburn, se dirige a quienes buscan entretenimiento basado en el sudoku. Por su planteamiento de pasatiempo, no responde a la búsqueda de una novela con personajes y una trama narrativa continuada.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 128 páginas en castellano y permite resolver los pasatiempos directamente sobre papel. Es una opción física para llevar las actividades consigo o conservarlas una vez completadas.",
+      "texto": "Cacadoku (FUERA DE ESCENA) El sudoku nunca había sido tan estimulante se publica en tapa blanda y reúne 128 páginas. El formato físico permite trabajar sobre las páginas directamente y llevar el libro para resolver sudokus en distintos momentos del día.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Frente a 80 crímenes imposibles de resolver (FUERA DE ESCENA), centrado en enigmas criminales, Cacadoku (FUERA DE ESCENA) El sudoku nunca había sido tan estimulante propone el sudoku como actividad principal. Ambos se sitúan en el terreno de los pasatiempos, pero plantean distintos tipos de retos.",
+      "texto": "Cacadoku (FUERA DE ESCENA) El sudoku nunca había sido tan estimulante puede compararse con 80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres. Ambos se relacionan con el entretenimiento mediante desafíos, pero Hugh Jassburn parte del sudoku y Gareth Moore y Laura Jayne Ayres proponen crímenes que resolver.",
       "evidencias": [
         "titulo",
-        "afines_catalogo",
-        "categorias"
+        "autores",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791388015816"
@@ -34,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fa4bd5b4f28285d3",
+  "fuente_hash": "8d8a52da36fb3254",
   "origen": "chatgpt-web"
 }

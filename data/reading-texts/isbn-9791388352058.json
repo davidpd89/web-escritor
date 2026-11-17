@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Orientado a lectores interesados en la historia de la arquitectura y la conservación del patrimonio artístico de edificios concretos. Su atención al colegio de Montesión de Palma lo distancia de los libros de historia del arte que recorren múltiples épocas y territorios.",
+      "texto": "Se dirige a lectores interesados en la arquitectura histórica y el patrimonio artístico de edificios concretos. Su atención al colegio de Montesión de Palma y sus 452 páginas encajan menos con quien busca una panorámica breve del arte sin un lugar central de estudio.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Estudia el colegio de Montesión de Palma desde sus dimensiones arquitectónica y patrimonial. La combinación de historia y arte sitúa el edificio como objeto central de estudio, en lugar de plantear una panorámica general de estilos artísticos.",
+      "texto": "El colegio de Montesión de Palma: Arquitectura y patrimonio artístico (Plural) aborda el edificio desde dos perspectivas relacionadas: su arquitectura y su patrimonio artístico. El enfoque combina historia y arte mediante el estudio de un conjunto patrimonial localizado en Palma.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -21,25 +21,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Documenta Balear S.l. tiene 452 páginas en castellano. Su extensión permite abordar la lectura por apartados y consultar el volumen como referencia sobre la arquitectura y el patrimonio artístico del colegio.",
+      "texto": "La tapa blanda permite consultar las 452 páginas en un volumen físico sin cubierta rígida. Es una opción para quien prefiera trabajar con un libro impreso sobre arquitectura y patrimonio artístico, tanto en lecturas continuadas como en consultas puntuales.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma",
         "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia) comparte el interés por la historia artística, pero adopta una perspectiva amplia sobre arte y cultura. El colegio de Montesión de Palma: Arquitectura y patrimonio artístico (Plural) concentra su estudio en el patrimonio de una institución concreta.",
+      "texto": "Art for All: Arquitectura californiana comparte con El colegio de Montesión de Palma: Arquitectura y patrimonio artístico (Plural) el interés por la arquitectura. La diferencia está en el ámbito: el primero se centra en la arquitectura californiana, mientras que el segundo estudia un colegio concreto y su patrimonio artístico en Palma.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
+        "afines_catalogo",
         "categorias"
       ],
       "enlaces": [
-        "isbn-9791387592493"
+        "isbn-9783754401477",
+        "isbn-9783754401514"
       ]
     }
   ],

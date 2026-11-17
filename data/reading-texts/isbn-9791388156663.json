@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388156663",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dos vueltas de noria pertenece a la narrativa contemporánea y se dirige a lectores interesados en ese tipo de ficción. La obra de Tobi Chanfreut tiene 215 páginas; por su clasificación literaria, se distancia de las lecturas de desarrollo personal y de los manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dos vueltas de noria se ofrece en tapa blanda, con 215 páginas en castellano. La edición de Jot Down Books permite leer la obra en papel, llevarla de viaje o prestarla después; su extensión queda reunida en un único volumen físico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e670e4444a2f7893",
+  "origen": "chatgpt-web"
+}

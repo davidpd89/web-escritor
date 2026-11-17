@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370650827",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a quienes necesitan estudiar la normativa y la aplicación práctica de la jubilación contributiva y los planes de pensiones. Su enfoque jurídico, desarrollado por Departamento de Documentación Iberley, responde a consultas sobre pensiones y no a la búsqueda de una narración de ficción o una introducción general al ahorro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 234 páginas dedicadas al análisis normativo y práctico de las pensiones de jubilación y los planes de pensiones. El soporte impreso permite subrayar apartados, añadir anotaciones y volver a consultar cuestiones jurídicas concretas durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría y orientación jurídica con Beneficios fiscales para mayores de 65 años impuesto a impuesto. Paso a paso: Estudio de las principales ventajas fiscales en el IRPF, el IVA y otros ... para este colectivo y su entorno más próximo. Ambos son trabajos de Departamento de Documentación Iberley, pero uno aborda jubilación y planes de pensiones, mientras que el otro estudia ventajas tributarias para mayores de 65 años.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650728"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "feccaa5611dc3435",
+  "origen": "chatgpt-web"
+}

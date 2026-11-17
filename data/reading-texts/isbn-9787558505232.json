@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9787558505232",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entorno al amor violentado se dirige a lectores interesados en el amor y sus conflictos desde ámbitos vinculados con la psicología, el ensayo y la espiritualidad. La obra de Francisco José Audije Pacheco tiene 214 páginas y no corresponde a quien busca una novela romántica o una historia de ficción presentada como tal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Entorno al amor violentado cuenta con una edición en tapa blanda de 214 páginas, publicada por Punto Rojo Libros S.l. El volumen permite mantener la lectura en papel y regresar físicamente a los pasajes que interesen, una opción pertinente para quien utiliza libros de ensayo como material de consulta personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Entorno al amor violentado puede ponerse en relación con A.C.T.I.V.A.: 8 etapas para construir dirección, capacidad y libertad en tiempos de cambio, de Jul Ore, por su proximidad a cuestiones de reflexión personal. Francisco José Audije Pacheco parte del amor violentado y de un ámbito que incluye psicología y espiritualidad; Jul Ore plantea un recorrido de cambio articulado en etapas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789560848819"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "58ef53c22c7e94f2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388107313",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fernando Giner. El chufa se dirige a lectores interesados en biografías y memorias centradas en una persona concreta. Sus 204 páginas y su clasificación como biografía lo diferencian de los manuales de actividades o de la ficción, por lo que encaja menos con quienes buscan instrucciones prácticas o una novela.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fernando Giner. El chufa se publica en tapa blanda, con 204 páginas en castellano. Este formato permite conservar y consultar físicamente la biografía de Conrado Valle, editada por Editorial Sargantana, sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fernando Giner. El chufa comparte su carácter biográfico con Espíritu salvaje: La llamada de África a una veterinaria (Obras diversas), de Fabiola Quesada Fernández. La obra de Conrado Valle se centra en Fernando Giner, mientras que la segunda presenta una experiencia vinculada a la veterinaria en África. Ambas pertenecen a la no ficción, aunque sus protagonistas y ámbitos son diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401041662"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c0212e878079695",
+  "origen": "chatgpt-web"
+}

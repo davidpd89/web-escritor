@@ -4,27 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los templarios de la Tabla Redonda (Enigma) se dirige a lectores interesados en la historia medieval. Es una obra de Manuel Fernández Muñoz centrada en un ámbito histórico, por lo que no responde a la búsqueda de una novela de ficción contemporánea.",
+      "texto": "Los templarios de la Tabla Redonda (Enigma) se orienta a lectores interesados en la historia y en los temas asociados a los templarios y la Tabla Redonda. Por su clasificación histórica, se distingue de una novela de fantasía que utilice esos mismos referentes para construir una ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los templarios de la Tabla Redonda (Enigma) está disponible en tapa blanda, con 224 páginas en castellano. Esta edición de Almuzara permite consultar el contenido en papel y transportarlo sin el peso habitual de un volumen de tapa dura.",
+      "texto": "Los templarios de la Tabla Redonda (Enigma) está disponible en tapa blanda, con 224 páginas para leer y consultar en papel. Kindle permite llevar la obra en formato digital y acceder a ella desde un móvil o dispositivo de lectura compatible. La elección depende de si se prefiere conservar el volumen físico o utilizar una biblioteca electrónica.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los templarios de la Tabla Redonda (Enigma) y 53 días: Cómo Hitler derribó una democracia (HISTORIA) comparten el interés por la historia, aunque el primero se sitúa en el ámbito medieval y el segundo aborda el ascenso de Hitler. También puede compararse con 76, de Felipe Pigna, por su orientación histórica y su distinta autoría.",
+      "texto": "Los templarios de la Tabla Redonda (Enigma) comparte el ámbito histórico con 53 días: Cómo Hitler derribó una democracia (HISTORIA), aunque sus asuntos son diferentes. Manuel Fernández Muñoz se centra en los templarios y la Tabla Redonda, mientras Timothy W. Ryback aborda la caída de una democracia vinculada a Hitler. La comparación permite distinguir entre el interés por referentes históricos medievales y el estudio de la historia política contemporánea.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +29,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411005517",
-        "isbn-9788408329695"
+        "isbn-9788411005517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2ae375e47a2e7d9b",
+  "fuente_hash": "621ec5625d2bbef3",
   "origen": "chatgpt-web"
 }

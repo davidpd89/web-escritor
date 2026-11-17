@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788426433930",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El error (Narrativa) se dirige a quienes leen narrativa contemporánea y buscan una extensión intermedia. Domenico Starnone firma esta obra de 208 páginas en castellano, por lo que se distancia tanto de los ensayos como de las lecturas de ficción especialmente extensas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El error (Narrativa) tiene una edición en tapa blanda de 208 páginas, publicada por Lumen. Para quien lee en desplazamientos o alterna lugares de lectura, esta encuadernación resulta más manejable que una tapa dura; el texto está editado en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f3cd7f56b1d5984d",
+  "origen": "chatgpt-web"
+}

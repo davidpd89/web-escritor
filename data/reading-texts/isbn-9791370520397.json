@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370520397",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las memorias de Xiaolan Núm. 01: 1 se dirige a lectores juveniles interesados en el cómic y en obras relacionadas con las memorias. Sus 184 páginas permiten distinguirlo de los volúmenes gráficos extensos, mientras que su formato lo aleja de quienes buscan una biografía escrita solo en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las memorias de Xiaolan Núm. 01: 1 tiene una edición en tapa blanda de 184 páginas, publicada en castellano por Devir. La extensión permite manejar un volumen físico relativamente breve, y la cubierta flexible facilita transportarlo y leerlo sin el peso añadido de unas tapas rígidas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las memorias de Xiaolan Núm. 01: 1 comparte la autoría de Hyuganatsu con Los diarios de la boticaria (la novela original) 1. La primera obra es un cómic juvenil de 184 páginas, mientras que la segunda es una novela sobre Maomao, una joven vendida como sirvienta al palacio imperial. Ambas pertenecen al ámbito de la narrativa juvenil, pero se diferencian por su formato y por el planteamiento de sus protagonistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962821"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "15f937ec4295dc0c",
+  "origen": "chatgpt-web"
+}

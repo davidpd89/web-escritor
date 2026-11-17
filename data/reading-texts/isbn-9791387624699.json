@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387624699",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Trilogía de los olores: Un olor viejo, conocido / Pelea entre olores / Olores: 33 (ÓmnibusTeatro) se dirige a quienes buscan textos teatrales reunidos en un volumen de arte y diseño. La obra de Josep M. Benet i Jornet tiene 176 páginas y se aparta de las lecturas centradas en la narrativa romántica o la novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Trilogía de los olores: Un olor viejo, conocido / Pelea entre olores / Olores: 33 (ÓmnibusTeatro) se presenta en tapa blanda. Sus 176 páginas permiten consultar los tres títulos reunidos en un volumen físico, publicado en castellano por Punto de Vista Editores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ahorcados y Trilogía de los olores: Un olor viejo, conocido / Pelea entre olores / Olores: 33 (ÓmnibusTeatro) aparecen vinculados al ámbito artístico. La diferencia identificable está en la autoría: Miguel Ávila Cabezas firma Ahorcados, mientras que Josep M. Benet i Jornet firma la trilogía teatral reunida en 176 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399276725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "40046473a58931f8",
+  "origen": "chatgpt-web"
+}

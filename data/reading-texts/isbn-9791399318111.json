@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "SIZIGIA: El renacer de la leyenda: 1 se orienta a lectores de fantasía, aventuras y ciencia ficción, con presencia también del ámbito de los relatos en su clasificación. Sus 300 páginas ofrecen una extensión intermedia; no responde a la búsqueda de un ensayo histórico o de narrativa estrictamente realista.",
+      "texto": "SIZIGIA: El renacer de la leyenda: 1 se dirige a lectores interesados en fantasía, aventuras y relatos. Sus 300 páginas ofrecen una extensión intermedia dentro de estos géneros; no es una elección orientada a quienes buscan exclusivamente narrativa realista o divulgación práctica.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "SIZIGIA: El renacer de la leyenda: 1 está disponible en tapa dura y tapa blanda, con 300 páginas en castellano. La tapa dura resulta práctica para conservar el ejemplar y regalarlo; la tapa blanda ofrece una alternativa física más flexible para transportarlo y leerlo fuera de casa.",
+      "texto": "SIZIGIA: El renacer de la leyenda: 1 se ofrece en tapa dura y tapa blanda. La primera proporciona una encuadernación rígida para conservar o regalar el libro; la segunda resulta más flexible para transportarlo y leer sus 300 páginas. Ambas opciones permiten disfrutar de la edición física en castellano.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,7 +23,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "SIZIGIA: El renacer de la leyenda: 1 comparte el ámbito de la fantasía con Los espíritus de Victoria Park, de Alba Beldad. El título de Tamara Allegue destaca el renacer de una leyenda y reúne fantasía, aventuras y ciencia ficción en su clasificación editorial. También se relaciona con Perros de batalla: 5 (Narrativa), de Pablo Rodríguez, aunque este último se presenta bajo una denominación narrativa diferente.",
+      "texto": "SIZIGIA: El renacer de la leyenda: 1 puede compararse con El árbol de los cuervos: Los cuentos del fénix II.: 2 por su relación con los relatos de carácter fantástico. Tamara Allegue firma la primera obra y Andrea Manfredini Font la segunda. El título de SIZIGIA identifica el número 1, mientras que El árbol de los cuervos lleva el número 2 y hace referencia a los cuentos del fénix.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399288513",
-        "isbn-9791399122985"
+        "isbn-9791399315707"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cbc4a1f82c1ec16f",
+  "fuente_hash": "e93dd2155026f32e",
   "origen": "chatgpt-web"
 }

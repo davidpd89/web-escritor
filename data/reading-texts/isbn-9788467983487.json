@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467983487",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Four knights OF the apocalypse 21, de Nakaba Suzuki, se dirige a lectores de cómic y novela gráfica que buscan una entrega identificada con el número 21. El título lo identifica como el n.º 21, y sus 192 páginas encajan menos con quienes prefieren novelas exclusivamente en prosa o lecturas independientes de una numeración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Four knights OF the apocalypse 21 se ofrece en tapa blanda, con 192 páginas. La edición física de Norma Editorial permite conservar este número en una colección de cómics, consultarlo en papel y mantenerlo junto a otros volúmenes de la misma numeración.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "96e1872f5c8f8a54",
+  "origen": "chatgpt-web"
+}

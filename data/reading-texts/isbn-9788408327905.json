@@ -4,34 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuenta atrás para Navidad: Libro de enigmas: 24 enigmas para encontrar a los renos perdidos (Varios) está dirigido al público infantil y juvenil interesado en resolver misterios. Sus 24 enigmas giran alrededor de la búsqueda de unos renos, por lo que se aparta de las lecturas centradas exclusivamente en una narración sin acertijos.",
+      "texto": "Está orientado al público infantil y juvenil que disfruta resolviendo enigmas dentro de una aventura navideña. Sus 24 desafíos relacionados con renos perdidos lo alejan de las historias de misterio desarrolladas únicamente mediante una narración continua.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuenta atrás para Navidad: Libro de enigmas: 24 enigmas para encontrar a los renos perdidos (Varios) se presenta en tapa blanda y tiene 192 páginas. La edición de Planeta Junior permite manejar el libro en papel durante la resolución de sus 24 enigmas y transportarlo sin la rigidez de una cubierta dura.",
+      "texto": "La tapa blanda es el formato disponible para este libro de 192 páginas publicado por Planeta Junior. Permite tener los 24 enigmas reunidos en papel y avanzar por ellos durante la cuenta atrás navideña, consultando las páginas anteriores cuando resulte útil.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "titulo",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuenta atrás para Navidad: Libro de enigmas: 24 enigmas para encontrar a los renos perdidos (Varios) comparte con Detectograms: El topo que se infiltró la resolución de misterios, aunque el segundo se centra en descifrar códigos. Abre el misterio 1 - El robo de las croquetas también plantea una desaparición, pero sustituye los renos y los 24 enigmas por el robo de unas croquetas.",
+      "texto": "Abre el misterio 1 - El robo de las croquetas comparte con Cuenta atrás para Navidad: Libro de enigmas: 24 enigmas para encontrar a los renos perdidos (Varios) el planteamiento de resolver una desaparición. La diferencia está en el objeto de la búsqueda: croquetas en el primero y renos en el segundo. Además, la obra de Joel Jessop organiza su propuesta alrededor de 24 enigmas navideños.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427256644",
-        "isbn-9788408325024"
+        "isbn-9788427256644"
       ]
     }
   ],

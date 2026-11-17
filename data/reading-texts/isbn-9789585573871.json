@@ -4,26 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "María Ed. Especial / Maria, de Jorge Isaacs, encaja con lectores interesados en la narrativa contemporánea y en la lectura de obras de ficción. Quienes busquen ensayo o libros centrados en el desarrollo personal encontrarán aquí una propuesta de otro género.",
+      "texto": "María Ed. Especial / Maria, de Jorge Isaacs, se dirige a lectores interesados en narrativa en castellano y en ediciones de clásicos. Sus 368 páginas requieren una dedicación mayor que una lectura breve; encaja menos con quienes buscan específicamente relatos cortos o poesía.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "editorial",
+        "categorias",
+        "idioma",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura presenta María Ed. Especial / Maria en una edición física de 368 páginas. Es la alternativa para quien prefiere el libro en papel, busca una encuadernación rígida o quiere conservar esta edición especial en su biblioteca.",
+      "texto": "María Ed. Especial / Maria permite elegir entre tapa dura, tapa blanda y audiolibro. La edición especial de Penguin Clásicos consta de 368 páginas en tapa dura, apropiada para conservar en la biblioteca; la tapa blanda facilita el transporte y el audiolibro permite seguir la obra mediante escucha.",
       "evidencias": [
         "titulo",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "formato_edicion",
         "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4ca5df7581fc7245",
+  "fuente_hash": "5fd660358dd48c01",
   "origen": "chatgpt-web"
 }

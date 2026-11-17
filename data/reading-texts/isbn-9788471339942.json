@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Peritación técnica de manuscritos (Instrumenta Bibliologica) se dirige a lectores interesados en el estudio técnico de manuscritos dentro del ámbito del arte y el diseño. Por su orientación especializada, se aleja de las lecturas centradas en la creación artística práctica o la ficción narrativa.",
+      "texto": "Peritación técnica de manuscritos (Instrumenta Bibliologica) encaja con lectores interesados en el examen técnico de documentos manuscritos. Por su asunto y sus 300 páginas, se orienta a una lectura especializada, no a quien busque una novela de ficción o una introducción general a las artes visuales.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Peritación técnica de manuscritos (Instrumenta Bibliologica) está disponible en tapa blanda, con 300 páginas en castellano. Esta edición física permite consultar distintos apartados y volver a páginas anteriores durante el estudio de los manuscritos.",
+      "texto": "Peritación técnica de manuscritos (Instrumenta Bibliologica) se presenta en tapa blanda, con 300 páginas en castellano. Es una edición física que permite consultar el contenido y volver a distintos pasajes durante el estudio de los manuscritos, sin depender de un dispositivo de lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,7 +23,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Peritación técnica de manuscritos (Instrumenta Bibliologica) y 720 retrats comparten su vinculación con el ámbito visual. El libro de Elisa Ruiz García se centra en la peritación técnica de manuscritos, mientras que el título de Xavier Mollà i Revert remite al retrato. Ambos abordan materias distintas dentro del arte y el diseño.",
+      "texto": "Peritación técnica de manuscritos (Instrumenta Bibliologica) y 720 retrats comparten su ubicación en el ámbito del arte y diseño, aunque sus títulos señalan objetos de estudio diferentes. Elisa Ruiz García aborda la peritación de manuscritos, mientras Xavier Mollà i Revert firma una obra centrada, según su título, en retratos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "81768c8b08797ec2",
+  "fuente_hash": "1af20c5ae1af33ed",
   "origen": "chatgpt-web"
 }

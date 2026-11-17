@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791388147494",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Proyecto Hail Mary (edición limitada · Black Friday) (edición película) (Campaña | Black Friday) pertenece a la ciencia ficción y está dirigido a lectores de este género interesados en las novelas de Andy Weir. Encaja menos con quienes buscan una historia clasificada como romance o una novela realista sin elementos de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Proyecto Hail Mary (edición limitada · Black Friday) (edición película) (Campaña | Black Friday) se identifica como una edición limitada de Black Friday y lleva la indicación edición película. Penguin Bolsillo la publicó el 2026-10-01 en castellano, con 544 páginas y encuadernación de tapa blanda en formato de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "formato_edicion",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Para Proyecto Hail Mary (edición limitada · Black Friday) (edición película) (Campaña | Black Friday), el formato disponible es tapa blanda de bolsillo. Sus 544 páginas permiten conservar la novela completa en un único volumen físico, una alternativa para quien prefiere leer en papel y llevar el libro consigo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Proyecto Hail Mary (edición deluxe) (Nova) ofrece otra edición de la misma obra de Andy Weir, frente a esta versión de bolsillo identificada como edición película. El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) comparte autor y se distingue por sus cantos tintados, mientras que Proyecto Hail Mary pertenece aquí a la campaña Black Friday.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147272",
+        "isbn-9788410466876"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8efad086d43de2cf",
+  "origen": "chatgpt-web"
+}

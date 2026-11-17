@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419868619",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La fiesta de la primavera (La pequeña Salamandra) se dirige al público infantil interesado en historias de aventuras relacionadas con la primavera. Sus 48 páginas ofrecen una extensión breve, distinta de la que busca un lector de novelas juveniles largas o de narrativa adulta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La fiesta de la primavera (La pequeña Salamandra) está disponible en tapa dura y Kindle, con 48 páginas en castellano. La tapa dura permite conservar el libro físico y utilizarlo en lecturas compartidas, mientras que Kindle facilita llevarlo en un dispositivo compatible y leerlo sin transportar otro volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La fiesta de la primavera (La pequeña Salamandra) puede compararse con Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento, también de Mar Benegas, por su relación con momentos del calendario. La primera se presenta como una aventura infantil de 48 páginas vinculada a la primavera, mientras que la segunda reúne cuentos, poemas y canciones para el Adviento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326564"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a7e2103b5c1bd81",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788419969415",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en los viajes, los paisajes y su relación con la escritura. Su planteamiento centrado en escritores y territorios encaja menos con quienes buscan exclusivamente instrucciones prácticas para organizar visitas a una ciudad concreta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Paisajes del camino: Escritores por montes, valles y llanuras: 90 (Periplos) cuenta con una edición en tapa blanda de 324 páginas. El volumen permite leer y consultar en papel sus contenidos sobre escritores y paisajes, tanto en casa como durante un desplazamiento.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Austria 7 comparte con Paisajes del camino: Escritores por montes, valles y llanuras: 90 (Periplos) el interés por los territorios y los paisajes. El libro de Anthony Haywood se centra en Austria, mientras que Eduardo Martínez de Pisón vincula el recorrido por montes, valles y llanuras con la figura de los escritores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408322221"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d99f11f2c892152",
+  "origen": "chatgpt-web"
+}

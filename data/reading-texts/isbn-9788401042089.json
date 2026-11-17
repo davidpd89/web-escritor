@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788401042089",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La espía del abrigo gris (Éxitos), de Cristina Arroyo González, encaja con lectores que buscan novela histórica combinada con misterio y suspense. Sus 336 páginas plantean una lectura de extensión media; quienes prefieren fantasía o narrativa ajena a las intrigas históricas encontrarán aquí otro tipo de propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La espía del abrigo gris (Éxitos) se publica en tapa blanda, con 336 páginas en castellano. La edición de Plaza & Janés reúne la novela en un volumen físico que puede transportarse y conservarse para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La espía del abrigo gris (Éxitos) comparte con El asesino de la almarada (Novela Histórica) el interés por los relatos ambientados en un contexto histórico. También puede compararse con El hombre que fue casi nadie (Salamandra Black) por su proximidad al terreno del misterio, aunque la obra de Cristina Arroyo González combina expresamente intriga y novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370205362",
+        "isbn-9791387928599"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cb2fc9acf3a0e286",
+  "origen": "chatgpt-web"
+}

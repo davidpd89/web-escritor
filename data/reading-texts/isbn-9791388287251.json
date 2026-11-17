@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Atrapada en las vacaciones (VeRa), de Christina Lauren, encaja con lectores de romance y narrativa contemporánea. Quien busque fantasía o ciencia ficción encontrará aquí una propuesta de otro género.",
+      "texto": "Atrapada en las vacaciones (VeRa), de Christina Lauren, se dirige a quienes leen romance y narrativa contemporánea. Sus 360 páginas corresponden a una novela de extensión media; quienes busquen misterio como género principal o una lectura de pocas páginas encontrarán aquí una orientación distinta.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Atrapada en las vacaciones (VeRa) está disponible en tapa blanda y Kindle. La edición física reúne 360 páginas y permite conservar el libro en papel; Kindle ofrece la lectura digital sin transportar ese volumen.",
+      "texto": "Atrapada en las vacaciones (VeRa) se comercializa en tapa blanda y Kindle. La edición en papel de Vera tiene 360 páginas y permite conservar el ejemplar o regalarlo; Kindle ofrece una alternativa digital para leer durante desplazamientos o vacaciones sin llevar el libro físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Atrapada en las vacaciones (VeRa), de Christina Lauren, comparte el romance contemporáneo con A la deriva contigo, de Beth O'Leary, aunque cambia la autoría. También puede compararse con A mil por hora, de Hannah Grace, que desarrolla una relación romántica entre un piloto de Fórmula 1 y una mujer vinculada a su pasado. Atrapada en las vacaciones (VeRa) se clasifica como romance y narrativa contemporánea.",
+      "texto": "Atrapada en las vacaciones (VeRa) comparte el género romántico con A mil por hora, de Hannah Grace, aunque esta última sitúa su romance en torno a un piloto de F1. También se relaciona con Estuche Un amor de miedo (Faeris Editorial), que incluye a Christina Lauren entre sus autoras, mientras que Atrapada en las vacaciones (VeRa) figura como obra firmada únicamente por Christina Lauren.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,7 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466390200",
+        "isbn-9791388108198",
         "isbn-9788466683449"
       ]
     }

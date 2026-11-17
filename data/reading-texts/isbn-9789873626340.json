@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Persuasiva y poética (DARK ROMANCE) se dirige a lectores de romance que buscan específicamente la variante dark romance indicada en su título. Con 360 páginas, se aleja de las preferencias por el ensayo, la divulgación o las historias románticas identificadas expresamente como relatos navideños.",
+      "texto": "Persuasiva y poética (DARK ROMANCE), de Pamela Stupia, se dirige a lectores interesados en el romance de orientación oscura. Su identificación como DARK ROMANCE la diferencia de las propuestas románticas de tono más ligero, por lo que encaja menos con quienes buscan historias amorosas alejadas de esa vertiente.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "afines_catalogo"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Persuasiva y poética (DARK ROMANCE) está disponible en tapa blanda y Kindle. La edición física reúne 360 páginas y permite conservar el libro en papel; Kindle facilita leer la misma obra desde un lector electrónico o una aplicación compatible, sin cargar con el volumen.",
+      "texto": "Persuasiva y poética (DARK ROMANCE) puede leerse en tapa blanda o en Kindle. La edición física reúne 360 páginas para quienes prefieren el papel, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,15 +22,16 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "24 historias para enamorarte en navidad: Relatos navideños comparte con Persuasiva y poética (DARK ROMANCE) el ámbito romántico, pero anuncia una colección de relatos ambientados en Navidad frente a una obra identificada como dark romance. A mil por hora también presenta un romance, aunque su planteamiento menciona expresamente a un piloto de F1.",
+      "texto": "Persuasiva y poética (DARK ROMANCE) comparte su orientación romántica con A cinco segundos de ti y A medio salto (Romántica), aunque sus títulos presentan enfoques distintos. La obra de Pamela Stupia se identifica expresamente como DARK ROMANCE, mientras que A medio salto (Romántica), de Valera Gomalva, utiliza una denominación romántica general; A cinco segundos de ti pertenece a Sandra Miró.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409929177",
-        "isbn-9788466683449"
+        "isbn-9788427055735",
+        "isbn-9791388365089"
       ]
     }
   ],

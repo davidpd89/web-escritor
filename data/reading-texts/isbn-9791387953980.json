@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387953980",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "CODA: Falso amanecer, de Simon Spurrier y Matías Bergara, pertenece al cómic y la novela gráfica. Sus 144 páginas encajan con quienes buscan una lectura de este género en un volumen relativamente corto, pero no con quienes prefieren narrativa presentada exclusivamente como prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "CODA: Falso amanecer está disponible en tapa dura, en una edición de Moztros Producciones SL. Sus 144 páginas forman un volumen encuadernado con cubierta rígida, una opción para conservar el cómic en papel o regalarlo en formato físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "42d1dc1aac6dc047",
+  "origen": "chatgpt-web"
+}

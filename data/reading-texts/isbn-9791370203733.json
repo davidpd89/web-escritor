@@ -4,27 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Siempre Así, a su manera (Memorias y biografías) se sitúa entre las biografías y los libros relacionados con el arte. La obra de Guillermo María González Pérez, de 256 páginas, encaja con el interés por las trayectorias culturales y personales, pero no con la búsqueda de una novela de ficción.",
+      "texto": "Siempre Así, a su manera (Memorias y biografías) se encuadra en las biografías y memorias, con una vinculación temática al arte. Sus 256 páginas se dirigen a lectores interesados en relatos biográficos de ese ámbito, no a quienes buscan una novela de ficción o un tratado técnico sobre creación artística.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Siempre Así, a su manera (Memorias y biografías) puede leerse en tapa blanda o Kindle. Sus 256 páginas en la edición de Almuzara permiten una lectura en papel de extensión delimitada; la versión Kindle facilita consultarlo en dispositivos electrónicos sin transportar el ejemplar físico.",
+      "texto": "Siempre Así, a su manera (Memorias y biografías) está disponible en tapa blanda y Kindle. La edición impresa contiene 256 páginas y permite conservar el volumen en una biblioteca personal o regalarlo; Kindle facilita su lectura en dispositivos compatibles sin necesidad de llevar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Siempre Así, a su manera (Memorias y biografías) se relaciona con El rey de la baraja: La imperecedera vida de Roberto Iniesta: 7 (Marea gráfica) por su vinculación con las biografías y el ámbito artístico. El libro de Guillermo María González Pérez se presenta como memorias y biografías, mientras que el de Nacho Nava Laiz identifica expresamente a Roberto Iniesta como protagonista.",
+      "texto": "Siempre Así, a su manera (Memorias y biografías) puede compararse con Bad Bunny: Un icono: sin permiso, sin límite, sin miedo (No ficción) por su relación con las figuras del ámbito artístico. Guillermo María González Pérez firma el primero, mientras que Jaime Valero es el autor del segundo, cuyo título identifica expresamente a Bad Bunny como protagonista.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +30,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387938499"
+        "isbn-9791388139482"
       ]
     }
   ],

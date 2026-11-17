@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Imitar a María: Meditaciones sobre la Virgen Nuestra Señora (Domine) está dirigido a lectores interesados en la espiritualidad cristiana y la meditación sobre la figura de la Virgen María. Su enfoque religioso concreto lo distancia de las lecturas de desarrollo personal sin referencias confesionales.",
+      "texto": "Está dirigido a lectores interesados en la devoción mariana y la meditación religiosa. Imitar a María: Meditaciones sobre la Virgen Nuestra Señora (Domine), de Juan Moya Corredor, se sitúa en el ámbito de la espiritualidad cristiana y toma a la Virgen como referencia. Su planteamiento se diferencia de los estudios sobre religiones comparadas y de la narrativa de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Imitar a María: Meditaciones sobre la Virgen Nuestra Señora (Domine) reúne 176 páginas en castellano, publicadas por Sekotia. El libro físico permite volver a las meditaciones y consultar pasajes concretos sin depender de un dispositivo electrónico.",
+      "texto": "Imitar a María: Meditaciones sobre la Virgen Nuestra Señora (Domine) se ofrece en tapa blanda, con 176 páginas en castellano. El ejemplar físico permite alternar la lectura de las meditaciones con pausas de reflexión y regresar a los pasajes que se quieran revisar. La edición pertenece a Sekotia.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Imitar a María: Meditaciones sobre la Virgen Nuestra Señora (Domine) puede ponerse junto a Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación por su orientación espiritual. El libro de Juan Moya Corredor trata la devoción mariana, mientras que el de Tsondru Yeshe se ocupa de los fundamentos y la práctica del Dharma.",
+      "texto": "AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, comparte con Imitar a María: Meditaciones sobre la Virgen Nuestra Señora (Domine) la figura de María como tema central. La diferencia se aprecia en sus enfoques declarados: Teiji Yasuda trata las lágrimas y el mensaje de María, mientras que Juan Moya Corredor propone meditaciones sobre la Virgen. Ambos pertenecen al ámbito religioso, pero plantean formas distintas de acercarse a la devoción mariana.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210088"
+        "isbn-9791388176357"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e188b48e44944abf",
+  "fuente_hash": "1a150632c95b2b53",
   "origen": "chatgpt-web"
 }

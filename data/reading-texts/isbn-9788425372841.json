@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788425372841",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pack Vive sin miedo: Sin miedo / El método para vivir sin miedo (Psicología) está dirigido a lectores interesados en la psicología y el desarrollo personal, especialmente en el tratamiento del miedo. Su planteamiento de autoayuda y sus 560 páginas lo alejan de quienes buscan ficción o una introducción breve a la psicología.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pack Vive sin miedo: Sin miedo / El método para vivir sin miedo (Psicología) se presenta en tapa blanda y reúne los dos títulos indicados en su nombre. La edición de Grijalbo suma 560 páginas en castellano, una extensión que permite abordar ambos textos en un mismo volumen físico y conservarlos juntos para futuras consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pack Vive sin miedo: Sin miedo / El método para vivir sin miedo (Psicología) y Abraza a tu niño interior: Nunca es tarde para sanar tu infancia comparten el ámbito del desarrollo personal, pero el primero aborda el miedo y el segundo sitúa la infancia en el centro. Frente a A.C.T.I.V.A.: 8 etapas para construir dirección, capacidad y libertad en tiempos de cambio, de Jul Ore, el pack de Rafael Santandreu se concentra en el miedo en lugar de organizar su propuesta alrededor de ocho etapas de cambio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789560848819",
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0cbb1e31510d19e1",
+  "origen": "chatgpt-web"
+}

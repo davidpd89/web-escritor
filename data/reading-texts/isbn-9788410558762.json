@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410558762",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los récords del fútbol contados por los Futbolísimos se orienta al público infantil y juvenil interesado en el fútbol y sus récords. Sus 156 páginas se centran en una temática deportiva, por lo que se aleja de los libros de ocio dedicados a manualidades, cocina u otras actividades.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los récords del fútbol contados por los Futbolísimos se publica en tapa dura, con 156 páginas en castellano. La cubierta rígida resulta adecuada para conservar el libro y consultarlo de nuevo cuando se quiera revisar su temática futbolística. Esta edición física pertenece al catálogo de Ediciones SM.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atrápame si puedes (Libro interactivo) comparte con Los récords del fútbol contados por los Futbolísimos la autoría acreditada a Varios autores y su vinculación con el ocio, aunque el primero se presenta como libro interactivo y el segundo trata récords futbolísticos. Frente a Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas, también de Varios autores, cambia el interés por una actividad manual por el contenido deportivo dirigido al público infantil y juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498748208",
+        "isbn-9791388220500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4eae043edcd87f9a",
+  "origen": "chatgpt-web"
+}

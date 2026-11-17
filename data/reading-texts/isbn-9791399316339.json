@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399316339",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cañón Anti Aéreo FlaK 88/56: 27 (Artillería en España), de Dionisio Garcia Florez, se orienta a lectores interesados en historia y artillería. Sus 32 páginas y la referencia a un cañón concreto delimitan una lectura especializada, alejada de una historia general de carácter panorámico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cañón Anti Aéreo FlaK 88/56: 27 (Artillería en España) figura entre los formatos disponibles como tapa blanda, aunque la edición de Ikonos Press se describe como grapada. Sus 32 páginas en castellano forman un cuaderno breve, adecuado para manejarlo y consultarlo en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cañón Anti Aéreo FlaK 88/56: 27 (Artillería en España) y 53 días: Cómo Hitler derribó una democracia (HISTORIA) se sitúan en el ámbito histórico. Dionisio Garcia Florez centra el título en una pieza de artillería, mientras que Timothy W. Ryback aborda desde su título el derrumbe de una democracia; uno delimita un objeto militar y el otro un proceso político.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6960577947a026fa",
+  "origen": "chatgpt-web"
+}

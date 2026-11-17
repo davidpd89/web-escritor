@@ -4,36 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) reúne fantasía, romance y aventuras, con elementos de terror y ciencia ficción. Su combinación de géneros se aparta de la narrativa realista y de las historias románticas sin componentes fantásticos.",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) está dirigido a lectores de fantasía con componentes románticos y de aventura. La novela de Kayla Edwards se sitúa lejos de la ficción realista y de las historias que prescinden de elementos fantásticos; su extensión de 720 páginas también exige una lectura prolongada.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) está disponible en tapa blanda y Kindle. Sus 720 páginas hacen que la edición digital resulte práctica para transportar el libro completo, mientras que la tapa blanda permite conservarlo y consultarlo en papel.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "autores",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) comparte el terreno de la fantasía con Una corte de alas y ruina: Edición limitada a precio especial (Colección Especial). La primera combina además romance, terror y aventuras, mientras que la segunda se presenta como una edición limitada de una obra de Sarah J. Maas.",
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Ciudad de dioses y monstruos (DARK ROMANCE) reúne sus 720 páginas en un volumen físico, apropiado para quien prefiere leer una novela extensa en papel. Kindle permite transportar la obra completa sin cargar con ese volumen y continuar la lectura desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE) puede compararse con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, por su combinación de fantasía y elementos narrativos vinculados a personajes extraordinarios. La obra de Marta Morillo presenta a Eira, que oculta sus dones y debilidades, mientras que el libro de Kayla Edwards se identifica expresamente con el romance oscuro y las aventuras fantásticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328582"
+        "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "88593096a1d71759",
+  "fuente_hash": "51020315d5dd8b15",
   "origen": "chatgpt-web"
 }

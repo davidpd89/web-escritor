@@ -4,34 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuentos de Terror / Horror Stories se dirige a quienes leen relatos de terror y buscan obras vinculadas a los clásicos del género. Sus 512 páginas forman un volumen extenso de narrativa breve, menos afín a quien prefiere una única novela contemporánea de argumento continuado.",
+      "texto": "Cuentos de Terror / Horror Stories, de H P Lovecraft, se dirige a quienes buscan terror clásico contado en relatos. Su extensión de 512 páginas permite abordar una colección de narraciones; encaja menos con quien prefiere una novela contemporánea de argumento único.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 512 páginas de Cuentos de Terror / Horror Stories en un volumen físico que permite consultar distintos relatos. Kindle ofrece una alternativa digital para leerlos en un dispositivo compatible y prescindir del peso del ejemplar impreso.",
+      "texto": "La tapa blanda reúne las 512 páginas de Cuentos de Terror / Horror Stories en una edición física de Penguin Clásicos. Kindle permite leer la obra en un dispositivo electrónico o en el móvil, sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuentos de Terror / Horror Stories comparte el género y la estructura de relatos con Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa). La diferencia está en la autoría: el primero corresponde a H P Lovecraft y el segundo a Daphne Du Maurier, mientras que Estuche Abismo Lovecraft (Minotauro Ilustrados) incorpora también a Tomás Hijo.",
+      "texto": "Cuentos de Terror / Horror Stories puede compararse con Estuche Abismo Lovecraft (Minotauro Ilustrados) por su relación con Lovecraft. El primero es una edición de relatos de terror de H P Lovecraft en tapa blanda, mientras que el segundo se presenta como un estuche vinculado también a Tomás Hijo.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "edicion",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084429",
         "isbn-9788445022856"
       ]
     }

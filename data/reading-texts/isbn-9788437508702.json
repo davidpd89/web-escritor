@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788437508702",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las vidas de José Murientes (Tezontle), de Fermín Goñi, se dirige a lectores de narrativa contemporánea en castellano. Sus 246 páginas permiten abordar una obra de extensión media; por su clasificación literaria, no responde a quien busca un ensayo o un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las vidas de José Murientes (Tezontle) se presenta en tapa blanda, con 246 páginas en castellano. Esta edición de FCE de España permite leer en papel y transportarla sin la rigidez de una cubierta dura; también puede guardarse en una estantería junto a otras obras de narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "65017b8f584dbe12",
+  "origen": "chatgpt-web"
+}

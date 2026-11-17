@@ -4,25 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La conquista perfecta / The Perfect Conquest se dirige a lectores de romance juvenil y narrativa contemporánea interesados en historias relacionadas con los vínculos afectivos y familiares. Sus 336 páginas encajan menos con quien busca fantasía épica, terror o una obra de no ficción.",
+      "texto": "La conquista perfecta / The Perfect Conquest, de América Rodas, encaja con lectores de romance juvenil ambientado en la narrativa contemporánea. Su orientación romántica y juvenil la aleja de las preferencias de quienes buscan terror, fantasía épica o narrativa histórica.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 336 páginas de La conquista perfecta / The Perfect Conquest en un ejemplar físico flexible. Kindle facilita leer la novela en el móvil o en un lector compatible, mientras que el audiolibro permite seguirla mediante escucha durante desplazamientos u otras actividades.",
+      "texto": "La conquista perfecta / The Perfect Conquest ofrece tapa blanda, Kindle y audiolibro. La edición impresa tiene 336 páginas y permite conservar el volumen físico; Kindle facilita leerlo en el móvil y el audiolibro permite seguir la historia mediante escucha.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La conquista perfecta / The Perfect Conquest comparte autoría y título principal con La conquista perfecta (Montena), también de América Rodas. Frente a esa coincidencia, El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, ofrece otra referencia de ficción juvenil vinculada a una colección identificada en su título.",
+      "texto": "La conquista perfecta / The Perfect Conquest se relaciona directamente con La conquista perfecta (Montena), también de América Rodas. Frente a esa coincidencia de título y autoría, El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, ofrece otra referencia de ficción juvenil con distinta autoría y un título que identifica el número 1.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "444580ebbe691382",
+  "fuente_hash": "cceda6c8a33e5b1a",
   "origen": "chatgpt-web"
 }

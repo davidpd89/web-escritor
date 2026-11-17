@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388223099",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Oficios de otros tiempos: 13 (Akipoeta), de María Márquez, encaja con lectores interesados en la poesía vinculada a asuntos históricos y en publicaciones infantiles y juveniles. Sus 64 páginas ofrecen una extensión contenida; quienes busquen una novela larga de aventuras encontrarán aquí otro género y otro enfoque.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Oficios de otros tiempos: 13 (Akipoeta) está disponible en tapa blanda, con 64 páginas en castellano. Es una edición física de extensión breve que permite leer, consultar y volver a determinados pasajes sin depender de una pantalla. Su encuadernación flexible facilita llevarlo en una mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Oficios de otros tiempos: 13 (Akipoeta) comparte el terreno poético con Canciones de inocencia y de experiencia (Letras Universales), de William Blake. La obra de María Márquez incorpora además una orientación histórica e infantil y juvenil, mientras que la de William Blake se presenta como una colección de canciones poéticas. También puede compararse con Partidas, de Beatriz Bowles Vilela, desde su pertenencia al ámbito de la poesía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788437650487",
+        "isbn-9791388353215"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3fa384cfe0fb9d42",
+  "origen": "chatgpt-web"
+}

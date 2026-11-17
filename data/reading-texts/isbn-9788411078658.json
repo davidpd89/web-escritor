@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Secaré tus lágrimas (Andanzas), de Meï Lepage, encaja con lectores interesados en el misterio y el thriller dentro de la narrativa contemporánea. También figura vinculado a la temática de mujeres; quienes prefieren fantasía o manuales prácticos encontrarán aquí una orientación de género distinta.",
+      "texto": "Secaré tus lágrimas (Andanzas), de Meï Lepage, se dirige a lectores interesados en el misterio dentro de la narrativa contemporánea. Por su clasificación, encaja menos con quienes buscan romance como género principal o una lectura centrada en la fantasía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Secaré tus lágrimas (Andanzas) cuenta con una edición en tapa blanda de 368 páginas, publicada por Tusquets Editores. Este formato permite leerlo en papel y transportarlo sin la rigidez de una cubierta dura; su extensión corresponde a una novela de varios centenares de páginas.",
+      "texto": "Secaré tus lágrimas (Andanzas) está disponible en tapa blanda, con 368 páginas en castellano. Esta edición de Tusquets Editores permite leer el libro en papel y transportarlo sin la rigidez de una cubierta dura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Secaré tus lágrimas (Andanzas) puede compararse con Las mujeres de New Jersey (THRILLER Y MISTERIO), de Astrid Dahl, por la combinación de intriga y presencia temática femenina. Donde callan los niños (Imágica Intriga), de Eva Zamora Zamora, ofrece otra referencia de misterio. La diferencia más clara entre estas obras está en su foco declarado: mujeres en el título de Astrid Dahl, niños en el de Eva Zamora Zamora y una combinación de misterio y narrativa contemporánea en la clasificación de Meï Lepage.",
+      "texto": "Secaré tus lágrimas (Andanzas), de Meï Lepage, se relaciona con Aguas turbulentas, de Rankin Ian, por su orientación hacia el misterio. Aguas turbulentas sitúa la acción en Edimburgo y vincula un pasado oscuro con acontecimientos del presente, mientras que Secaré tus lágrimas (Andanzas) combina misterio y narrativa contemporánea. Corazón de sílex, de Emilia Landaluce y Rosa Belmonte, también aborda una incógnita, pero parte de una joven que despierta sin recordar la noche anterior.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210729",
-        "isbn-9791387595715"
+        "isbn-9791370310318",
+        "isbn-9788467083330"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9c5a5fef0d9ac5bc",
+  "fuente_hash": "80d0e4410b7061d4",
   "origen": "chatgpt-web"
 }

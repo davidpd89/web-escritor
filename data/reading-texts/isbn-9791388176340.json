@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388176340",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gozo inagotable del amor, de Janette Oke, se orienta a quienes leen historias románticas situadas en el ámbito de la novela histórica. Su combinación de romance y ambientación histórica lo distancia de las novelas centradas exclusivamente en aventuras o escenarios contemporáneos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gozo inagotable del amor está disponible en tapa blanda, con 268 páginas en castellano. Esta edición de Bibliotheca Homo Legens permite leer la novela en papel, conservarla en una biblioteca personal o entregarla como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bridgerton: Felices para siempre (Titania época), de Julia Quinn, comparte con El gozo inagotable del amor el ámbito del romance de época, aunque corresponde a otra autora. Astur (Saga de la Reconquista) (Éxitos), de Isabel San Sebastián, ofrece una comparación desde la narrativa histórica, con una referencia explícita a la Reconquista frente al enfoque amoroso del título de Janette Oke.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039539",
+        "isbn-9788410391710"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c8ff32b5bc5bcb2",
+  "origen": "chatgpt-web"
+}

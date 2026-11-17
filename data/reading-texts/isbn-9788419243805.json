@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419243805",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en las cartas personales de Sylvia Plath y en los textos biográficos. Cartas de Sylvia Plath, Vol IV (1956-1959): 8 (Otros mares) reúne una propuesta distinta de la ficción narrativa y se sitúa también en el ámbito del ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cartas de Sylvia Plath, Vol IV (1956-1959): 8 (Otros mares) está disponible en tapa blanda, con 564 páginas en castellano. Esta edición de Tres Hermanas permite consultar las cartas en papel y conservar el volumen junto a otros libros de la autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas de Sylvia Plath, Vol IV (1956-1959): 8 (Otros mares) y Alfred y Emily (Narrativa) se relacionan por su dimensión biográfica, aunque el primero se presenta como una recopilación de cartas y el segundo como narrativa. Sylvia Plath firma el volumen epistolar, mientras que Doris Lessing es la autora de Alfred y Emily (Narrativa).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c70aa3a405f4d32",
+  "origen": "chatgpt-web"
+}

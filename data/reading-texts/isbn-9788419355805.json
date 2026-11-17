@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788419355805",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia del Puerta Bonita y su cantera de Carabanchel. El enfoque histórico sobre una entidad concreta lo diferencia de las obras de ocio general y de las historias centradas en acontecimientos políticos de alcance nacional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda tiene 224 páginas y está dedicada a la historia del Puerta Bonita y su cantera de Carabanchel. Permite mantener el volumen en una biblioteca personal y consultar de nuevo los apartados de interés sobre esta materia histórica.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historia del Puerta Bonita. La cantera de Carabanchel y El príncipe espía: Cosimo III en la España de la Regencia (Ariel) comparten una orientación histórica, pero el primero se concentra en una entidad vinculada a Carabanchel y el segundo en una figura y un periodo de la historia española. También puede contrastarse con Jaque mate: Talento, mentiras y ambición en el mayor escándalo de la historia del ajedrez (Sociedad), que aborda el ámbito del ajedrez desde un conflicto concreto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441149",
+        "isbn-9791388387326"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a38e0c4afe4826d3",
+  "origen": "chatgpt-web"
+}

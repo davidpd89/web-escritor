@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399169850",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El extraño caso del doctor Jekyll y el señor Hyde (CON-PULSIÓN) se dirige a lectores de misterio y thriller que buscan una obra de extensión breve. Sus 144 páginas permiten abordar la lectura sin afrontar una novela larga; encaja menos con quienes prefieren la fantasía o el romance.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El extraño caso del doctor Jekyll y el señor Hyde (CON-PULSIÓN) está disponible en tapa blanda, con 144 páginas en castellano. Publicada por Yonki Books, ofrece una extensión manejable en papel para leer durante desplazamientos o llevar en el bolso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La isla del tesoro (Novela gráfica): 2 (Obras maestras en novela gráfica) comparte autoría con El extraño caso del doctor Jekyll y el señor Hyde (CON-PULSIÓN): ambas obras son de Robert Louis Stevenson. La primera se presenta como novela gráfica, mientras que la segunda es una edición de misterio en tapa blanda de 144 páginas. Frente a ellas, 25 días hasta Navidad, de Per Jacobsen, propone un thriller vinculado al adviento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410043992",
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ffdda141af3b76ac",
+  "origen": "chatgpt-web"
+}

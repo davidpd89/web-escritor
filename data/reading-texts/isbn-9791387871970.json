@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando caiga la nieve (Best Seller | Ficción), de Hannah Grace, se dirige a lectores que buscan romance con elementos de humor. Su combinación de géneros encaja menos con quienes prefieren una novela centrada en el misterio o la historia.",
+      "texto": "Cuando caiga la nieve (Best Seller | Ficción), de Hannah Grace, está dirigido a lectores que buscan una novela romántica. Con 432 páginas, propone una lectura de extensión media dentro del romance; no responde a la búsqueda de una obra clasificada principalmente como misterio o terror.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 432 páginas de Cuando caiga la nieve (Best Seller | Ficción) en una edición de bolsillo de Penguin Bolsillo, cómoda para transportar. Kindle permite leerlo en un dispositivo electrónico o en el móvil, mientras que el audiolibro permite escucharlo sin necesidad de sostener el libro.",
+      "texto": "Cuando caiga la nieve (Best Seller | Ficción) está disponible en tapa blanda, Kindle y audiolibro. La edición de bolsillo de Penguin Bolsillo contiene 432 páginas para leer en papel; Kindle permite continuar la lectura en un dispositivo compatible y el audiolibro ofrece la alternativa de escuchar la historia.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "edicion",
+        "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A mil por hora comparte autora y género romántico con Cuando caiga la nieve (Best Seller | Ficción), pero sitúa su relación en el entorno de un piloto de F1. Romper el hielo · edición limitada (Maple Hills 1) (Campaña | Ahora por menos) también pertenece a la obra de Hannah Grace, aunque su título lo identifica como el n.º 1 de Maple Hills.",
+      "texto": "Cuando caiga la nieve (Best Seller | Ficción) comparte autoría con Cuando caiga la nieve (edición limitada · Black Friday) (Campaña | Black Friday), aunque sus títulos identifican ediciones distintas. También puede compararse con A mil por hora, de Hannah Grace: ambas son novelas románticas, pero A mil por hora presenta una relación vinculada a un piloto de F1.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +33,12 @@
       ],
       "enlaces": [
         "isbn-9788466683449",
-        "isbn-9788413145761"
+        "isbn-9791388147234"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d1e23fac7d1df58b",
+  "fuente_hash": "a6f5d9f1f7020c69",
   "origen": "chatgpt-web"
 }

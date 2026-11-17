@@ -1,42 +1,50 @@
 {
   "id": "isbn-9791388075513",
-  "familia": "practico",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica) se dirige a lectores interesados en la genética humana y la explicación científica de los rasgos físicos. Su enfoque en la pigmentación lo diferencia de los libros dedicados a hábitos saludables o nutrición.",
+      "texto": "La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica) se dirige a lectores interesados en comprender la genética de los rasgos físicos humanos. Su orientación científica lo distancia de quienes buscan ficción o un relato biográfico.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica) se ofrece en tapa blanda, con 304 páginas. La edición de Pinolia permite consultar en papel las explicaciones sobre genética y pigmentación, así como volver a los apartados de interés durante la lectura.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Cerebro y estilo de vida: 1107 (Mayor), de José Luis Trejo, y La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica), de Lluís Montoliu, abordan cuestiones relacionadas con el organismo humano. El primero relaciona cerebro y estilo de vida desde su título; el segundo se centra específicamente en la genética de la pigmentación de piel, pelo y ojos.",
+      "modulo": "temas_y_enfoque",
+      "texto": "Lluís Montoliu aborda la relación entre la genética y las diferencias de color en la piel, el pelo y los ojos. El libro plantea estas variaciones como cuestiones científicas que pueden explicarse mediante la herencia biológica, dentro de una obra de divulgación de 304 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica) cuenta con una edición en tapa blanda de 304 páginas. Este formato permite consultar el contenido en papel y transportarlo sin el peso añadido de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA comparte con esta obra el interés por explicar cuestiones científicas y tecnológicas al lector general. Mientras el libro de Keith Mansfield se ocupa de la inteligencia artificial, La genética de los colores de la piel, el pelo y los ojos: Por qué somos rubios, morenos, pelirrojos o tenemos los ojos azules (Divulgación científica) aborda la herencia de los rasgos físicos humanos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788410673410"
+        "isbn-9788434441309"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "60d742544bd6199b",
+  "fuente_hash": "8ed1b4c288128090",
   "origen": "chatgpt-web"
 }

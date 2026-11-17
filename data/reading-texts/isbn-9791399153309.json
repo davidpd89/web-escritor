@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791399153309",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ornitología, de Giselle Clarkson, se sitúa en el ámbito infantil y juvenil y puede interesar a quienes buscan libros de esta clasificación. Sus 104 páginas lo distinguen de las obras de mayor extensión; por su orientación editorial, encaja menos con quien busca narrativa contemporánea para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ornitología se presenta en tapa dura, con 104 páginas en castellano. Esta encuadernación ofrece cubiertas rígidas para proteger el ejemplar durante su manipulación y almacenamiento, una característica práctica cuando el libro se consulta o se presta con frecuencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9ee3df8e95ae021f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788411005043",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Píldoras culturales (edición ampliada) está dirigido a lectores que prefieren aproximarse a distintos asuntos culturales mediante unidades breves. Su propuesta de 212 pequeñas dosis de cultura se diferencia de los ensayos dedicados a desarrollar extensamente un único tema, especialmente por su variedad de materias.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Martín Escolar organiza Píldoras culturales (edición ampliada) alrededor de 212 pequeñas dosis de conocimiento cultural. La obra se sitúa entre la divulgación, el arte y el diseño, con una estructura fragmentada que permite abordar distintos asuntos sin seguir necesariamente una exposición extensa y continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Píldoras culturales (edición ampliada) se publica en tapa blanda y reúne 320 páginas. El volumen físico permite avanzar por sus 212 pequeñas dosis de cultura, detenerse entre apartados y recuperar contenidos concretos mediante separadores de lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Píldoras culturales (edición ampliada) y Diccionario político de inteligencia artificial comparten su orientación hacia la consulta y la divulgación de conocimientos. Martín Escolar reúne 212 pequeñas dosis de cultura relacionadas con distintas materias, mientras que Natalia Zuazo centra su obra en los conceptos políticos vinculados a la inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388086038"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "23cf4b31771fe683",
+  "origen": "chatgpt-web"
+}

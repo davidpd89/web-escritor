@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788401042157",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para quienes prefieren resolver misterios criminales examinando escenas y deduciendo quién ha cometido un asesinato. Sus doce casos proponen una participación activa, por lo que encaja menos con lectores que buscan una historia policíaca lineal en la que la investigación avance sin su intervención.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 216 páginas y permite examinar las escenas de los casos directamente sobre papel. Este formato facilita volver a las páginas anteriores para revisar detalles y contrastar hipótesis mientras se intenta identificar al asesino.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crímenes ilustrados - ¿Suicidio o asesinato? (Edición tapa blanda): Resuelve este y otros once casos examinando la escena del crimen (Obras diversas), de Modesto García, comparte autor y método de investigación visual, pero plantea distinguir entre dos posibles causas de muerte. En cambio, este libro centra su pregunta en la identidad del asesino. 80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres, propone un conjunto más numeroso de enigmas.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788401042140",
+        "isbn-9791388015816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e85d3f1c5a47a53f",
+  "origen": "chatgpt-web"
+}

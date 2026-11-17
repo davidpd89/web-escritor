@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Juegos y terapia para adolescentes: 150 actividades para mejorar la autoestima, la comunicación y aprender a afrontar los desafíos está orientado a quienes buscan recursos prácticos relacionados con la adolescencia y el bienestar psicológico. Su propuesta de actividades lo diferencia de los ensayos teóricos o de las novelas juveniles.",
+      "texto": "Dirigido a adolescentes y a quienes buscan actividades relacionadas con la autoestima, la comunicación y la gestión de dificultades personales. Juegos y terapia para adolescentes: 150 actividades para mejorar la autoestima, la comunicación y aprender a afrontar los desafíos tiene un enfoque práctico que lo diferencia de una lectura puramente teórica sobre psicología.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Editorial Sirio ofrece una edición en tapa blanda de 352 páginas, escrita en castellano. El formato físico permite consultar las 150 actividades, regresar a ejercicios anteriores y trabajar con el libro en distintas sesiones dedicadas a la autoestima y la comunicación.",
+      "texto": "La tapa blanda permite consultar en papel las 352 páginas y trabajar con las 150 actividades propuestas en Juegos y terapia para adolescentes: 150 actividades para mejorar la autoestima, la comunicación y aprender a afrontar los desafíos. Kindle facilita llevar el contenido en formato digital y consultarlo desde dispositivos compatibles, sin cargar con el volumen impreso.",
       "evidencias": [
-        "editorial",
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos), de Toño Ramos, comparte el interés por la adolescencia y las herramientas psicológicas. Kevin Gruzewski concentra su libro en 150 actividades sobre autoestima, comunicación y desafíos adolescentes; Toño Ramos amplía el ámbito a la convivencia familiar en distintas etapas vitales.",
+      "texto": "Cómo criar niños y niñas emocionalmente maduros: Una guía para acompañarlos hacia una vida feliz y plena comparte el interés por el desarrollo emocional, pero se dirige al acompañamiento durante la crianza. Cuentoterapia social: El cuento como herramienta en la intervención social y la relación de ayuda también plantea recursos aplicables, aunque utiliza los cuentos como herramienta frente a las 150 actividades para adolescentes de Kevin Gruzewski.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399249682"
+        "isbn-9788409930005",
+        "isbn-9788410335424"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fcffbb62742ba089",
+  "fuente_hash": "fec3c3fee8d842de",
   "origen": "chatgpt-web"
 }

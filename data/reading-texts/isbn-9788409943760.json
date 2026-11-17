@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos está orientado a abuelos y abuelas que comparten cuentos con sus nietos. Su planteamiento familiar y de lectura acompañada se diferencia de los libros destinados a estudiar técnicas de crianza o desarrollo personal.",
+      "texto": "Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos está dirigido a familias que comparten momentos de lectura entre abuelos y nietos. Su planteamiento se centra en los cuentos leídos en compañía, por lo que responde a un propósito distinto del de los manuales de crianza o bienestar destinados únicamente a adultos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,17 +12,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos es de tapa dura y tiene 104 páginas. La encuadernación rígida facilita sostener el libro durante la lectura compartida y conservarlo para volver a utilizarlo en familia.",
+      "texto": "Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos está disponible en tapa dura, con 104 páginas en castellano. Esta presentación permite utilizar un ejemplar físico durante las lecturas compartidas entre abuelos y nietos, además de conservarlo en una biblioteca familiar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "CONECTANDO CON MI BEBÉ: Relatos y actividades para vivir el embarazo con presencia, conexión y conciencia. Regalo para embarazadas. comparte con Cuentos para fabricar sueños: Cuentos para ser leídos por las amamas y los aitites a sus nietos la atención a los vínculos familiares, pero se centra en el embarazo y combina relatos con actividades. Convertirse en padre: 02 (Psicologia) aborda la paternidad desde otra perspectiva, mientras que el libro de Angel Susaeta Begoña propone cuentos para leer entre generaciones.",
+      "texto": "Cuentos para fabricar sueños, de Angel Susaeta Begoña, y El amor de una madre, de Brian Edlin, comparten el interés por los vínculos familiares. El primero reúne cuentos destinados a la lectura compartida entre abuelos y nietos, mientras que el segundo centra su propuesta en la figura materna. También se relaciona con Convertirse en padre: 02 (Psicologia), aunque este último aborda la paternidad desde una perspectiva psicológica y no desde los cuentos familiares.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,13 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409936465",
-        "isbn-9791370550288"
+        "isbn-9791370550288",
+        "isbn-9798182960311"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "056587891bd83ec3",
+  "fuente_hash": "7b85db05937c7cd3",
   "origen": "chatgpt-web"
 }

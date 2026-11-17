@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387662615",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Introducción a la PNL: Cómo descubrir y emplear la excelencia para obtener óptimos resultados personales y profesionales (Crecimiento personal) se dirige a lectores interesados en el desarrollo personal y sus aplicaciones profesionales. Su enfoque en la PNL lo diferencia de los libros centrados exclusivamente en nutrición o bienestar físico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de John Seymour y Joseph O'connor está disponible en tapa blanda y Kindle, con una extensión de 368 páginas. La edición impresa permite consultar el contenido en papel, mientras que Kindle facilita llevar la lectura en un dispositivo electrónico.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Introducción a la PNL: Cómo descubrir y emplear la excelencia para obtener óptimos resultados personales y profesionales (Crecimiento personal) comparte con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito el interés por la mejora personal. La obra de John Seymour y Joseph O'connor se centra en la PNL y los resultados personales y profesionales, mientras que la de Liz Moody abarca salud, felicidad y relaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b08b5704e53740c2",
+  "origen": "chatgpt-web"
+}

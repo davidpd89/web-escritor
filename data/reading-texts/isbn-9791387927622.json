@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387927622",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pyongyang (Sillón Orejero) se dirige a lectores que buscan cómics vinculados a las biografías y las memorias. Su clasificación lo aproxima a la narración de experiencias personales mediante recursos gráficos, mientras que quienes prefieran ficción fantástica o novelas escritas únicamente en prosa encontrarán un enfoque distinto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pyongyang (Sillón Orejero) se publica en tapa dura, con 184 páginas en castellano. Esta presentación permite conservar el cómic en una encuadernación rígida y consultarlo físicamente, tanto por su contenido narrativo como por su componente gráfico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pyongyang (Sillón Orejero), de Guy Delisle, puede compararse con Andersen: una vida de cuentos (Tiralíneas), de Fran Nuño, por su relación con las biografías y las memorias. El primero lleva el nombre de una ciudad en el título, mientras que el segundo identifica a Andersen y presenta su vida como asunto central; ambos ofrecen puntos de entrada distintos a la narración biográfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387702274"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0feb668ce80ca260",
+  "origen": "chatgpt-web"
+}

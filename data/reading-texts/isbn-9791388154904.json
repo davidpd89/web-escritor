@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388154904",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todas las criaturas grandes y pequeñas -4-: Un veterinario en apuros se dirige a lectores interesados en los clásicos narrativos y en las historias vinculadas al ejercicio de la veterinaria. La obra de James Herriot tiene 240 páginas y encaja menos con quienes buscan específicamente fantasía épica o una novela de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todas las criaturas grandes y pequeñas -4-: Un veterinario en apuros está editado en tapa dura, con 240 páginas en castellano. La encuadernación rígida de Blackie Books favorece su conservación en una biblioteca personal y su presentación como regalo, aunque ocupa más espacio que una cubierta flexible de dimensiones equivalentes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0820386a7bb42f06",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388200120",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo III, de Daniel Muneta, encaja con lectores interesados en el pop-rock de la década indicada en el título. Su extensión de 69 páginas responde a una búsqueda de lectura breve, frente a quien prefiera un volumen extenso sobre música.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo III se ofrece en tapa blanda y tiene 69 páginas. Es una edición física de extensión reducida que puede guardarse junto a otros capítulos de Daniel Muneta y consultarse sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo III comparte autor y tema musical con EL POP-ROCK DE LOS 60' - Capítulo II y EL POP-ROCK DE LOS 60' - Capítulo IV. Los títulos los identifican como capítulos distintos de Daniel Muneta, por lo que la elección depende de qué entrega se quiera consultar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388200106",
+        "isbn-9791388200113",
+        "isbn-9791388200137",
+        "isbn-9791388200182",
+        "isbn-9791388200144"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8fe96778208c2d97",
+  "origen": "chatgpt-web"
+}

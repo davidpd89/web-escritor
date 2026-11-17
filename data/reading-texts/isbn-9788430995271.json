@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788430995271",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a quienes estudian la Constitución Española mediante preguntas y necesitan practicar contenidos jurídicos. Su planteamiento de 1040 preguntas lo separa de las novelas y de los ensayos históricos de lectura continua: aquí el interés principal es el repaso del derecho constitucional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Martina mini. Las 1040 preguntas \"clave\" de la Constitución Española: Constitución Española (Derecho - Práctica Jurídica) se ofrece en tapa blanda y reúne 232 páginas. La edición impresa permite trabajar las preguntas en papel, marcar las que requieren repaso y consultar el material durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Martina mini. Las 1040 preguntas \"clave\" de la Constitución Española: Constitución Española (Derecho - Práctica Jurídica) comparte el ámbito jurídico con Argumentacion Juridica, de Carlos Parma. El primero organiza su propuesta alrededor de preguntas sobre la Constitución Española, mientras que el segundo se centra, según su título, en la argumentación jurídica. La diferencia está entre practicar conocimientos constitucionales y estudiar cómo se construyen argumentos en derecho.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aefd0ed73353ad0c",
+  "origen": "chatgpt-web"
+}

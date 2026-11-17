@@ -4,45 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La fábrica de Absoluto encaja con lectores interesados en la sátira de las creencias colectivas y las consecuencias sociales de la tecnología. Aunque aborda cuestiones filosóficas y políticas, su planteamiento parte de una invención ficticia, por lo que se aleja de quienes buscan un ensayo argumentativo sin elementos narrativos.",
+      "texto": "La fábrica de Absoluto encaja con lectores interesados en la relación entre tecnología, religión y pensamiento político a través de la ficción satírica. Su tratamiento de las creencias colectivas y los conflictos ideológicos la aleja de quienes buscan un ensayo filosófico puramente expositivo.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La fábrica de Absoluto explora cómo una innovación energética puede desencadenar transformaciones religiosas, ideológicas y políticas. Karel Capek utiliza una situación ficticia y satírica para cuestionar el fanatismo, la propagación de las creencias y la capacidad humana para controlar las consecuencias de sus inventos.",
+      "texto": "La fábrica de Absoluto plantea las consecuencias sociales de una tecnología que produce energía casi ilimitada y desencadena fenómenos religiosos. Karel Capek utiliza la sátira y la ficción para examinar el fanatismo, la circulación de ideas y la dificultad de controlar los efectos de una invención.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de La fábrica de Absoluto contiene 272 páginas y permite seguir en papel el desarrollo de su conflicto tecnológico y religioso. La edición Kindle ofrece una alternativa digital para leer la obra en desplazamientos o desde un dispositivo electrónico, sin llevar el volumen físico.",
+      "texto": "La fábrica de Absoluto está disponible en tapa blanda y Kindle. La edición impresa de Editorial Rosamerón reúne 272 páginas para la lectura y consulta física; Kindle permite llevar el texto en un dispositivo electrónico sin transportar el volumen.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La fábrica de Absoluto y Antes de perder el juicio tratan la influencia de las creencias y las ideologías en la sociedad, pero el primero utiliza una ficción satírica y el segundo desarrolla un ensayo filosófico. Manifiesto contra la intolerancia comparte la preocupación por el extremismo, aunque se centra específicamente en la persistencia del fascismo.",
+      "texto": "La fábrica de Absoluto puede compararse con Amo ergo sum: Mi visión del mundo: el sentido de la vida, los estados expandidos de la consciencia y el contacto con lo trascendente (Ensayo), de Josep Maria Fericgla. Ambas obras tratan cuestiones espirituales, pero Karel Capek las aborda mediante una ficción satírica sobre tecnología y fanatismo, mientras que la otra presenta una reflexión sobre la consciencia y la trascendencia.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387302",
-        "isbn-9791388139055"
+        "isbn-9791388182365"
       ]
     }
   ],

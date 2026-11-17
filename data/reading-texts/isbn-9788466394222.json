@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788466394222",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "En el amor y en la guerra (edición limitada) (La catedral del mar 3) (Campaña | Ahora por menos) se orienta a lectores de novela histórica que buscan una lectura extensa. Sus 768 páginas y su identificación dentro de La catedral del mar lo alejan de quienes prefieren novelas breves e independientes de una serie.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Penguin Bolsillo publica esta edición limitada en castellano, con fecha editorial 2027-01-07. El volumen contiene 768 páginas, tiene encuadernación de bolsillo en tapa blanda y se identifica mediante el ISBN 9788466394222. El título lo sitúa como el n.º 3 de La catedral del mar, lo que permite diferenciarlo de otras entregas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra las 768 páginas en un volumen de bolsillo, una opción para leer una novela larga sin recurrir a un lector electrónico. Por su extensión, conviene tener en cuenta el grosor del ejemplar si se transporta habitualmente en una bolsa pequeña.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "En el amor y en la guerra (edición limitada) (La catedral del mar 3) (Campaña | Ahora por menos) puede compararse con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon por su vinculación con la narrativa histórica y las series numeradas. La primera es de Ildefonso Falcones y se identifica como el n.º 3 de La catedral del mar; la segunda es de Valerio Massimo Manfredi y lleva el II en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "697c1b360b6fbf2c",
+  "origen": "chatgpt-web"
+}

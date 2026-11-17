@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores interesados en la independencia financiera desde el desarrollo personal y la economía. Tu plan vital para tu Independencia Financiera: Solo si crees que es posible, será inevitable (Vergara), de Gregorio Hernández, no pertenece a la narrativa de ficción ni aborda las finanzas como una historia novelada.",
+      "texto": "Tu plan vital para tu Independencia Financiera: Solo si crees que es posible, será inevitable (Vergara), de Gregorio Hernández, se dirige a lectores interesados en organizar su vida económica y explorar la independencia financiera desde el desarrollo personal. No está orientado a quien busca ficción o una biografía, sino a quien prefiere una lectura práctica sobre objetivos financieros.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,24 +13,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y marcar las 224 páginas de Tu plan vital para tu Independencia Financiera: Solo si crees que es posible, será inevitable (Vergara) en papel. Kindle ofrece una alternativa digital para llevar el contenido en un lector electrónico o consultarlo desde el móvil.",
+      "texto": "Tu plan vital para tu Independencia Financiera: Solo si crees que es posible, será inevitable (Vergara) está disponible en tapa blanda y Kindle. La edición impresa de Vergara tiene 224 páginas y permite consultar el contenido en papel; Kindle facilita llevar la lectura en formato digital y retomarla desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tu plan vital para tu Independencia Financiera: Solo si crees que es posible, será inevitable (Vergara) y Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA) comparten el interés por las finanzas. El primero, de Gregorio Hernández, plantea la independencia financiera como objetivo vital; el segundo, de Renato Antinori, se centra en generar ingresos mediante opciones.",
+      "texto": "Tu plan vital para tu Independencia Financiera: Solo si crees que es posible, será inevitable (Vergara) se relaciona directamente con Independencia financiera de la A a la Z (edición limitada): Jubílate cuando quieras... y como te mereces (Campaña | Ahora por menos). Ambos son de Gregorio Hernández y tratan la independencia financiera; el primero plantea un plan vital, mientras el segundo presenta el tema mediante un recorrido de la A a la Z y la jubilación.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411724357"
+        "isbn-9791388147562"
       ]
     }
   ],

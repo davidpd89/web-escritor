@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388366086",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Formularios Prácticos Sociedades Limitadas 2027 está dirigido a quienes buscan material jurídico centrado en las sociedades limitadas. Por su materia y sus 1400 páginas, se orienta a la consulta especializada y no a la lectura de ficción o de divulgación general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Formularios Prácticos Sociedades Limitadas 2027 se publica en tapa blanda y reúne 1400 páginas. Su extensión lo convierte en un volumen físico considerable, más apropiado para mantener en un espacio de consulta que para transportar habitualmente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Formularios Prácticos Sociedades Anónimas 2027 es la comparación más directa con Formularios Prácticos Sociedades Limitadas 2027: ambos títulos pertenecen a Lefebvre-El Derecho y se centran en formularios jurídicos de sociedades. La diferencia principal está en el tipo societario tratado, sociedades anónimas en uno y sociedades limitadas en el otro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388366079"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2439ac04a3456708",
+  "origen": "chatgpt-web"
+}

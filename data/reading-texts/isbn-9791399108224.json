@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399108224",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las preguntas del rey Milinda.: El Milinda Panha: 2 (Tradición Theravada) se orienta a lectores de filosofía, ensayo y pensamiento religioso. Sus 185 páginas y su referencia a la tradición Theravada lo diferencian de los libros centrados en ficción o entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las preguntas del rey Milinda.: El Milinda Panha: 2 (Tradición Theravada) se publica en tapa blanda, con 185 páginas en castellano. La edición física permite consultar pasajes y volver a ellos durante el estudio de sus cuestiones filosóficas y religiosas, con una extensión relativamente breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las preguntas del rey Milinda.: El Milinda Panha: 2 (Tradición Theravada) comparte con Aforismos para reflexionar y meditar: 109 (Fragmentos) su orientación hacia la reflexión espiritual. El libro de Bikkhu Pesala se vincula a la tradición Theravada, mientras que el de Raimon Panikkar se presenta como una colección de aforismos para la meditación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "485723d5a5cbdbe8",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La vida según Ibáñez está dirigido a lectores interesados en el humor y el cómic, especialmente en la obra de Francisco Ibáñez. Sus 168 páginas y su presentación como cómic y novela gráfica lo sitúan fuera de la narrativa convencional y del ensayo.",
+      "texto": "La vida según Ibáñez (Bruguera Clásica) se dirige a lectores de cómic interesados en la obra de Francisco Ibáñez. Su edición de 168 páginas se sitúa en la lectura gráfica y el entretenimiento, por lo que no responde a quien busca una novela exclusivamente en prosa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,17 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 168 páginas de La vida según Ibáñez en un volumen físico que puede conservarse en la colección o regalarse. Kindle permite consultar el libro en pantalla desde un móvil o lector electrónico, sin necesitar espacio para guardarlo.",
+      "texto": "La vida según Ibáñez (Bruguera Clásica) cuenta con una edición en tapa dura de 168 páginas publicada por Bruguera, apropiada para conservar el volumen físico. La versión Kindle permite leerlo en formato digital y prescindir del espacio que ocupa el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La vida según Ibáñez comparte autor con Mortadeluxe y 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica): los tres títulos están vinculados a Francisco Ibáñez. La diferencia está en su identificación editorial y temática: aquí el título presenta una visión de conjunto sobre Ibáñez, mientras que los otros dos se identifican con el universo de Mortadelo y Filemón.",
+      "texto": "La vida según Ibáñez (Bruguera Clásica) y Mortadeluxe comparten autor, Francisco Ibáñez, y pertenecen al ámbito del cómic. Mortadeluxe presenta a Mortadelo y Filemón en un contexto festivo y navideño, mientras que La vida según Ibáñez (Bruguera Clásica) propone desde su título una perspectiva más amplia sobre la vida. También puede compararse con 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), otra obra del mismo autor vinculada a la colección Bruguera Clásica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b9245025dd7aab9a",
+  "fuente_hash": "393fd5b4bbd226df",
   "origen": "chatgpt-web"
 }

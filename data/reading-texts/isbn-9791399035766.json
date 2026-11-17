@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399035766",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Silk Road, de Angélica Liddell, se dirige a quienes buscan narrativa contemporánea relacionada con los viajes. Por su clasificación temática, se aleja de los manuales prácticos de turismo y de las guías de destinos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Silk Road está disponible en tapa blanda, con 456 páginas en castellano. Esta edición de Malas Tierras Editorial permite leer el volumen en papel y resulta adecuada para quienes prefieren una encuadernación flexible frente a la tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Silk Road puede compararse con Pido el fin de la vida por la autoría de Angélica Liddell, aunque este último aborda las relaciones entre deseo y muerte desde la influencia de Yukio Mishima. También comparte la temática viajera con 33 islas: Un periplo mediterráneo. De Marettimo a Venecia., de Lucio Bellomo, centrado en un recorrido mediterráneo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433949394",
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7ba52df95345e4dd",
+  "origen": "chatgpt-web"
+}

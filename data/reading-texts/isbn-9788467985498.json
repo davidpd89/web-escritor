@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788467985498",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Assassin's creed. Forgotten temple 05: 5 se orienta a quienes leen cómic y novela gráfica y buscan una entrega concreta de una colección numerada. El título la identifica como el n.º 5, por lo que no encaja igual con quien prefiera una lectura presentada como volumen independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Assassin's creed. Forgotten temple 05: 5 tiene una edición en tapa blanda de 200 páginas, publicada en castellano por Norma Editorial. La cubierta flexible permite manejar el volumen durante la lectura y guardarlo junto a otras entregas de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7d30e2f6607a1752",
+  "origen": "chatgpt-web"
+}

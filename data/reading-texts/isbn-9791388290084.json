@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388290084",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La madeja de ariadna, de Prudencio Tercero Nieto, se dirige a lectores interesados en poesía y literatura juvenil. Con 92 páginas, ofrece una extensión reducida y encaja menos con quienes buscan novelas largas de ciencia ficción o aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La madeja de ariadna se publica en tapa blanda, con 92 páginas en castellano. La edición de Platero CoolBooks reúne su contenido en un volumen de cubierta flexible y extensión corta, práctico para transportar y leer en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La madeja de ariadna comparte el ámbito poético con La muerte de Penélope (Poesía), de Carolina Corvillo, y s-t técnica mixta: (colección de poemas), de Aldo Sanz. La diferencia identificable es que La madeja de ariadna también se clasifica como literatura juvenil, mientras los otros títulos se presentan expresamente vinculados a la poesía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387838928",
+        "isbn-9788498277500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8ac4a5cdbb74251",
+  "origen": "chatgpt-web"
+}

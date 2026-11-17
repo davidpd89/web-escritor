@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Vivo (Impedimenta), de Anna Starobinets, encaja con lectores de ciencia ficción y fantasía que también buscan narrativa contemporánea. Sus 384 páginas corresponden a una novela de extensión considerable, por lo que se aleja de las lecturas breves y de los libros de carácter exclusivamente divulgativo.",
+      "texto": "El Vivo (Impedimenta), de Anna Starobinets, encaja con lectores que buscan ciencia ficción dentro de la narrativa contemporánea. Su combinación de géneros lo aleja de quienes prefieren una lectura centrada exclusivamente en el realismo cotidiano.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Vivo (Impedimenta) está disponible en tapa blanda y Kindle, dos maneras de leer sus 384 páginas. La edición de Impedimenta en papel permite conservar y prestar el ejemplar físico, mientras que Kindle facilita llevarlo en un dispositivo electrónico o continuar la lectura desde el móvil.",
+      "texto": "El Vivo (Impedimenta) puede leerse en tapa blanda o en Kindle. La edición física de Impedimenta reúne 384 páginas y permite conservar el volumen en papel; Kindle ofrece la alternativa digital para leerlo en el móvil o en un dispositivo compatible.",
       "evidencias": [
         "titulo",
         "editorial",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Vivo (Impedimenta) y El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) coinciden en su vinculación con la fantasía. La obra de Anna Starobinets también se clasifica como ciencia ficción y narrativa contemporánea, mientras que el título de Heather Fawcett sitúa a los gatos y un refugio mágico en el centro de su planteamiento. Son dos aproximaciones de autoras distintas al terreno de lo fantástico.",
+      "texto": "El Vivo (Impedimenta) comparte la ciencia ficción con Amanecer Rojo I Deluxe Edition, de Pierce Brown, y Carl el Mazmorrero (Character Limited Edition) (Nova), de Matt Dinniman. La diferencia comprobable está en la autoría y en el enfoque editorial: la obra de Anna Starobinets también se sitúa en la narrativa contemporánea, mientras que los otros títulos se presentan con referencias a la estrategia y a un personaje protagonista.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387749316"
+        "isbn-9791370313463",
+        "isbn-9788419260734"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1a5bfb83617e8dbf",
+  "fuente_hash": "a15bad82e25eee1c",
   "origen": "chatgpt-web"
 }

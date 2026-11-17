@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387702274",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Andersen: una vida de cuentos (Tiralíneas), de Fran Nuño, está dirigido a lectores de literatura infantil y juvenil interesados en las biografías y el cómic. Sus 96 páginas combinan esas áreas editoriales; se distancia de quienes buscan una novela extensa de ficción adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Andersen: una vida de cuentos (Tiralíneas) se publica en tapa dura, con 96 páginas en castellano y edición de Bookolia. La encuadernación rígida resulta práctica para conservar el ejemplar, regalarlo o volver a consultar sus páginas en una biblioteca infantil y juvenil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bad Bunny: Un icono: sin permiso, sin límite, sin miedo (No ficción) y Andersen: una vida de cuentos (Tiralíneas) comparten el interés por figuras reconocibles a través de una aproximación biográfica. Jaime Valero aborda una figura musical contemporánea, mientras que Fran Nuño se centra en Andersen dentro de una obra clasificada también como cómic infantil y juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139482"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "14fdb2433f628f8d",
+  "origen": "chatgpt-web"
+}

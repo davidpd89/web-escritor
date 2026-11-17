@@ -4,39 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este manual de Sergio Ramón Ruiz Mahillo está orientado a lectores interesados en la implantación de VERI *FACTU y los SIF desde sus dimensiones normativa, técnica y sancionadora. Su enfoque especializado se aleja de los libros de economía general y de las lecturas empresariales centradas en liderazgo o motivación.",
+      "texto": "Manual práctico para la implantación de VERI *FACTU y los SIF: Normativa, requisitos técnicos y régimen sancionador se dirige a lectores que necesitan abordar la normativa y las exigencias técnicas de los sistemas de facturación. Su enfoque jurídico y empresarial responde a necesidades profesionales, no a la búsqueda de una introducción general a la economía o de una narración de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura reúne 240 páginas en castellano, apropiadas para mantener el volumen como material de consulta en una mesa de trabajo. La encuadernación rígida facilita conservar un manual al que se puede volver para revisar sus distintos apartados.",
+      "texto": "La edición en tapa dura de Manual práctico para la implantación de VERI *FACTU y los SIF: Normativa, requisitos técnicos y régimen sancionador contiene 240 páginas en castellano. El soporte físico permite consultar y señalar apartados sobre normativa, requisitos técnicos y sanciones durante el trabajo con sistemas de facturación.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) aborda ideas económicas y políticas, mientras que el manual de Sergio Ramón Ruiz Mahillo se concentra en VERI *FACTU y los SIF. Antes de liderar: Una mirada interior a un oficio se orienta hacia el liderazgo, frente al tratamiento de requisitos técnicos y sanciones de este manual.",
+      "texto": "Manual práctico para la implantación de VERI *FACTU y los SIF: Normativa, requisitos técnicos y régimen sancionador y ANTES DE QUE OCURRA: Vender, formar y proteger el futuro se sitúan en el ámbito de la actividad empresarial. Sergio Ramón Ruiz Mahillo aborda la implantación de sistemas de facturación desde sus obligaciones técnicas y normativas, mientras que Rafael De la Torre Pérez trata cuestiones de venta, formación y protección del futuro. Sus enfoques responden a áreas distintas de la gestión empresarial.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457",
-        "isbn-9788409921980"
+        "isbn-9788409935604"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "eda28cff034198ef",
+  "fuente_hash": "fca91c8aae4459ae",
   "origen": "chatgpt-web"
 }

@@ -4,42 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Voy a partirle la cara a mi jefe, de Jose Ángel Ares y Abel Alves, encaja con lectores interesados en la psicología y el desarrollo personal tratados desde el cómic y la novela gráfica. Su clasificación combina esos ámbitos, por lo que se aleja de los manuales exclusivamente teóricos y de la narrativa convencional en prosa.",
+      "texto": "Voy a partirle la cara a mi jefe se dirige a lectores interesados en la psicología y el desarrollo personal a través del cómic y la novela gráfica. Por su clasificación editorial, se diferencia de los manuales de autoayuda presentados únicamente como texto y de las narraciones que no tratan cuestiones psicológicas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Voy a partirle la cara a mi jefe se publica en tapa blanda, con 136 páginas en castellano, bajo el sello Grafito Editorial. Su extensión permite abordar la lectura en sesiones relativamente cortas, mientras que el soporte impreso resulta apropiado para consultar las páginas de una obra clasificada como cómic y novela gráfica.",
+      "texto": "Voy a partirle la cara a mi jefe está disponible en tapa blanda, con 136 páginas en castellano publicadas por Grafito Editorial. Esta edición física permite recorrer sus páginas como cómic o novela gráfica y conservar el volumen para posteriores consultas o relecturas.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "idioma",
         "editorial",
+        "edicion",
+        "formatos_disponibles",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Voy a partirle la cara a mi jefe comparte el interés por la psicología con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez. Este último aborda las relaciones amorosas, mientras que la obra de Jose Ángel Ares y Abel Alves combina psicología, desarrollo personal y cómic. La diferencia está en el enfoque temático y en la presencia de la novela gráfica en el libro de Grafito Editorial.",
+      "texto": "Voy a partirle la cara a mi jefe y Todo lo que aprendí en terapia comparten el interés por la psicología y el bienestar personal. Jose Ángel Ares y Abel Alves presentan una obra clasificada también como cómic y novela gráfica, mientras que Pablo R. Coca aborda el aprendizaje sobre salud mental y la relación con uno mismo.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo",
-        "editorial"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387534370"
+        "isbn-9791388220517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bb0310f22e4dc0f5",
+  "fuente_hash": "d787bb116791f4e2",
   "origen": "chatgpt-web"
 }

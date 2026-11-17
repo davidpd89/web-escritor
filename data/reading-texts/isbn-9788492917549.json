@@ -4,29 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La revolución de la lectura (Tendencias), de Susana Vallejo, pertenece al ensayo y se orienta a lectores interesados en textos de no ficción sobre la lectura. Tiene 192 páginas en castellano; quien busque una historia de ficción, con personajes y una trama novelesca, encontrará aquí un género diferente.",
+      "texto": "La revolución de la lectura (Tendencias), de Susana Vallejo, se dirige a quienes buscan un ensayo relacionado con la lectura. Sus 192 páginas corresponden a una obra de no ficción, por lo que no encaja con quien espera una novela o una historia protagonizada por personajes ficticios.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La revolución de la lectura (Tendencias) cuenta con una edición en tapa blanda de 192 páginas, publicada por Tendencias. El formato permite llevar el ensayo en papel y volver a pasajes concretos mediante la consulta directa de las páginas; también puede guardarse en una estantería sin la rigidez de una tapa dura.",
+      "texto": "La revolución de la lectura (Tendencias) está disponible en tapa blanda, Kindle y audiolibro. La edición física tiene 192 páginas y permite consultar el texto en papel; Kindle facilita la lectura digital y el audiolibro ofrece la posibilidad de escucharlo sin mantener la vista en una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
-        "categorias"
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cc5fdee279f0e538",
+  "fuente_hash": "8dcfb69ecff596dc",
   "origen": "chatgpt-web"
 }

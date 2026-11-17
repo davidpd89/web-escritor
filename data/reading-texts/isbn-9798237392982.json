@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9798237392982",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Mujer Entre Dos Mares - Dos vidas: 2 se dirige a lectores interesados en biografías, memorias y ensayo. Su clasificación temática encaja menos con quienes buscan una novela de ficción o un manual técnico especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Mujer Entre Dos Mares - Dos vidas: 2 cuenta con una edición en tapa blanda de 222 páginas. Esta presentación permite leer y conservar el volumen en papel, con una extensión intermedia dentro de las lecturas de no ficción.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Mujer Entre Dos Mares - Dos vidas: 2 puede compararse con Espíritu salvaje: La llamada de África a una veterinaria (Obras diversas) desde el interés por las experiencias personales. La primera figura entre biografías, memorias y ensayo, mientras que la segunda identifica en su título una experiencia veterinaria vinculada a África.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401041662"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fce3fd9bfb2225af",
+  "origen": "chatgpt-web"
+}

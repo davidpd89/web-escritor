@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798905941399",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Es una lectura infantil de aventuras para quienes se interesan por los robots, la inteligencia artificial y los osos polares. Su planteamiento se centra en una rana robot que explora ese entorno, por lo que se aparta de las historias realistas y de los textos técnicos sobre inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 36 páginas y presenta una aventura infantil protagonizada por una rana robot de inteligencia artificial. Su extensión permite manejar el libro en papel durante sesiones de lectura breves y conservarlo para volver a la historia.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Viaje de Jason la Rana Robot de IA para Explorar el Mundo de los Osos Polares comparte autores y protagonista con El Viaje de Jason la Rana(TM) Robot de IA para Explorar el Mundo del Tyrannosaurus rex, pero cambia el entorno de exploración de los osos polares al dinosaurio. También coincide en su orientación infantil y aventurera con Agente Stitch 5. Los roedores de Roswell, aunque este último plantea un misterio intergaláctico con otros personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798905941535",
+        "isbn-9791387901943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "61fdcfd38d175e36",
+  "origen": "chatgpt-web"
+}

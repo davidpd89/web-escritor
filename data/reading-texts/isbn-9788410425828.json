@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788410425828",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de romance juvenil interesados en la serie Kiss Me y en el universo Off Campus de Elle Kennedy. Su identificación como tercera entrega en el título y sus 408 páginas lo sitúan lejos de una lectura breve o de una novela ajena a ese universo narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Wonderbooks se distingue por la encuadernación en tapa dura y los cantos pintados. Publicada el 19 de octubre de 2026, reúne 408 páginas en castellano; el título la identifica como el n.º 3 de Kiss Me y Off Campus.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, con 408 páginas y cantos pintados. La encuadernación rígida y el acabado de los cantos son los elementos que pueden orientar la elección para una biblioteca personal o un regalo, además de permitir la lectura íntegra en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Love Song (edición en tapa dura con cantos pintados): La siguiente generación de Kiss Me, de la serie Off Campus (WonderLove) comparte autora, Elle Kennedy, universo narrativo y presentación con cantos pintados. La diferencia es su posición dentro de ese universo: Inmune a ti se identifica en el título como la tercera entrega de Kiss Me, mientras Love Song se presenta como una historia de la siguiente generación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388404214"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "049a24393b7fe8bd",
+  "origen": "chatgpt-web"
+}

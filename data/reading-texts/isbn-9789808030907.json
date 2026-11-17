@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9789808030907",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Memorias de veinticinco lunas llenas: Colección de poemas de amor y desamor se dirige a lectores de poesía centrada en las relaciones afectivas y sus rupturas. Por su planteamiento como colección de poemas, se aleja de quienes buscan una narración continua o una novela con una trama única.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Memorias de veinticinco lunas llenas: Colección de poemas de amor y desamor está disponible en tapa blanda y reúne 84 páginas. Este formato permite llevar el volumen en el bolso y consultar poemas concretos sin necesidad de seguir una lectura continua.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memorias de veinticinco lunas llenas: Colección de poemas de amor y desamor comparte el terreno poético con Esas muchachas que escriben poemas, aunque el primero delimita su temática al amor y el desamor. Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias) también incorpora poesía, pero su título plantea un enfoque más amplio sobre la vida y añade oraciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426434272",
+        "isbn-9788448049829"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0074b6c8ef8e4131",
+  "origen": "chatgpt-web"
+}

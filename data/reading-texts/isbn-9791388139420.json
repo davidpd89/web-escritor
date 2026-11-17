@@ -4,37 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción) se dirige a lectores interesados en el deporte y en conocer su historia, sus equipos y sus secretos. Es una obra de no ficción de Carlos Báidez, por lo que no responde a la búsqueda de una novela deportiva.",
+      "texto": "La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción) está dirigida a lectores interesados en la historia y los equipos del fútbol americano. Carlos Báidez aborda esta materia en una obra de no ficción de 288 páginas. No responde a quien busca una novela deportiva con personajes y una trama inventada.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 288 páginas de La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción) en un volumen físico que permite consultar distintos apartados. Kindle ofrece el mismo título en formato digital para leerlo en el móvil o en un dispositivo compatible.",
+      "texto": "La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción) puede leerse en tapa blanda o en Kindle. La edición impresa reúne sus 288 páginas en un volumen físico, útil para consultar apartados sobre historia y equipos; Kindle permite llevar la lectura en un dispositivo compatible sin cargar con el libro. Ambos formatos ofrecen alternativas para distintos hábitos de consulta.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El Arte del Balón: Enciclopedia práctica de las jugadas del fútbol. 240 técnicas explicadas e ilustradas aborda otro deporte desde una perspectiva práctica, mientras que La biblia del football americano: Historia, equipos y secretos de la NFL (No ficción) se centra en la historia y los equipos de la NFL. Ambos tratan asuntos deportivos, pero el primero anuncia técnicas de juego y el segundo, contenidos históricos.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788409937110"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cb83b1f0358bbc78",
+  "fuente_hash": "942079e85c1de8e4",
   "origen": "chatgpt-web"
 }

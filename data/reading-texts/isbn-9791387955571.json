@@ -4,41 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Deporte de contacto (Otros deportes), de Fredi Mosteirín, se dirige a lectores interesados en el deporte y el tiempo libre. Por su clasificación temática, queda fuera de las búsquedas centradas en ficción fantástica o narrativa romántica.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Deporte de contacto (Otros deportes) está disponible en tapa blanda, con 304 páginas en castellano. Esta edición de Libros de Ruta permite consultar el contenido en papel y conservarlo en una estantería dedicada a libros deportivos.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Deporte de contacto (Otros deportes) comparte el ámbito deportivo con El árbitro / The Referee, de Augusto Cruz, y Fútbol y anarquismo (RELECTURAS), de Miguel Fernández Ubiría. Los títulos de estas obras apuntan, respectivamente, al arbitraje y a la relación entre fútbol y anarquismo, mientras que el de Fredi Mosteirín plantea una referencia más amplia al deporte de contacto.",
+      "texto": "Deporte de contacto (Otros deportes), de Fredi Mosteirín, se sitúa en el ámbito del ocio, las aficiones y el tiempo libre. Su clasificación lo aproxima a lectores interesados en estas materias, mientras que quienes busquen específicamente poesía o ficción literaria encontrarán un enfoque editorial diferente.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Deporte de contacto (Otros deportes) está editado en tapa blanda y tiene 304 páginas. El volumen de Libros de Ruta ofrece una edición física que puede consultarse por partes y conservarse en una estantería dedicada a las aficiones y el tiempo libre.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Deporte de contacto (Otros deportes), de Fredi Mosteirín, comparte el ámbito del ocio y el tiempo libre con Actividades de ocio y tiempo libre (CFGS ENSEÑANZA Y ANIMACIÓN SOCIODEPORTIVA). La diferencia está en el enfoque anunciado por los títulos: el primero remite a los deportes de contacto, mientras que el segundo se vincula con la enseñanza y la animación sociodeportiva. El libro de Fredi Mosteirín tiene 304 páginas y se publica en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas",
+        "formatos_disponibles"
       ],
       "enlaces": [
-        "isbn-9786073877817",
-        "isbn-9788410677548"
+        "isbn-9788417872038"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7c630ef99c503fd4",
+  "fuente_hash": "e123526151417b41",
   "origen": "chatgpt-web"
 }

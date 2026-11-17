@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La copa mancillada (Tapa dura) (La sombra del leviatan), de Robert Jackson Bennett, se dirige a lectores de fantasía y aventuras que buscan una novela extensa. Sus 480 páginas requieren más tiempo de lectura que un volumen breve y encajan menos con quien prefiera historias realistas o libros de consulta.",
+      "texto": "La copa mancillada (Tapa dura) (La sombra del leviatan) se dirige a lectores de fantasía y aventuras que buscan una novela extensa. Sus 480 páginas y su orientación hacia estos géneros la separan de las lecturas realistas o de los libros breves centrados en asuntos cotidianos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La copa mancillada (Tapa dura) (La sombra del leviatan) cuenta con una edición de tapa dura de 480 páginas, adecuada para conservar en una colección o regalar. También está disponible en tapa blanda, una alternativa física más flexible para transportar una novela de esta extensión.",
+      "texto": "La copa mancillada (Tapa dura) (La sombra del leviatan) puede elegirse en tapa dura o tapa blanda. La edición de tapa dura reúne 480 páginas y ofrece una encuadernación rígida para conservar el volumen o regalarlo; la tapa blanda proporciona una alternativa de cubierta flexible para la lectura habitual.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La copa mancillada (Tapa dura) (La sombra del leviatan) comparte la fantasía con Aftermyth 1. Penelope y la prueba de los dioses, aunque esta última anuncia una prueba relacionada con dioses. También puede compararse con Alas de escarcha y oro: El canto del cisne, cuyo planteamiento menciona dones ocultos y debilidades, mientras que la obra de Robert Jackson Bennett se presenta como fantasía de aventuras.",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte con La copa mancillada (Tapa dura) (La sombra del leviatan) el terreno de la fantasía. La obra de Marta Morillo presenta a Eira y sus dones ocultos, mientras que la de Robert Jackson Bennett se identifica con la fantasía de aventuras y la serie La sombra del leviatan.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +31,6 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324102",
         "isbn-9791387949938"
       ]
     }

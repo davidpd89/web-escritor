@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388581120",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No somos ni Romeo ni Julieta: 070 (VdB Teatro S.XX), de Alfonso Paso, se orienta a quienes buscan una publicación vinculada al teatro y al ámbito artístico. Su extensión de 172 páginas encaja con una lectura de longitud moderada, pero no con quien prefiera obras especialmente extensas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No somos ni Romeo ni Julieta: 070 (VdB Teatro S.XX) se presenta en tapa blanda, con 172 páginas en castellano. La edición de Uvedebe permite leer y consultar el texto en papel, sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No somos ni Romeo ni Julieta: 070 (VdB Teatro S.XX) puede ponerse junto a 21 Westerns del siglo XXI (Sílex Cine/Claqueta) por su relación con las artes escénicas o audiovisuales, sugerida por sus títulos. El primero remite al teatro y está firmado por Alfonso Paso; el segundo al cine y reúne a Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "57311e34ab474d0b",
+  "origen": "chatgpt-web"
+}

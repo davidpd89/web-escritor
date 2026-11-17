@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788428378697",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "1784 Procesos para impartir acciones formativas (Servicios Socioculturales y a la Comunidad) se dirige a lectores interesados en los procesos de impartición de formación dentro del ámbito sociocultural. Su orientación temática queda alejada de la narrativa de entretenimiento y de los libros centrados exclusivamente en competencias digitales o evaluación educativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "1784 Procesos para impartir acciones formativas (Servicios Socioculturales y a la Comunidad) cuenta con una edición en tapa blanda de 378 páginas. Publicada en castellano por Ediciones Paraninfo, permite trabajar sobre un ejemplar físico y señalar secciones para posteriores consultas durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "1784 Procesos para impartir acciones formativas (Servicios Socioculturales y a la Comunidad) comparte autora y ámbito formativo con 1786 Competencia digital para la práctica docente (Servicios Socioculturales y a la Comunidad). El primero trata los procesos de impartición y el segundo se centra en la competencia digital del profesorado. Frente a ambos, 1783 Evaluación del proceso enseñanza-aprendizaje (Servicios Socioculturales y a la Comunidad) sitúa la evaluación educativa como materia principal y comparte la autoría de Mónica Suárez Martínez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428378710",
+        "isbn-9788428378703"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "54d60b8faad52f40",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409886845",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "SOMOS Journal: Reflexión, claridad y transformación personal está orientado a lectores interesados en la reflexión sobre sí mismos, el desarrollo personal y la psicología. Su planteamiento se distancia de quienes buscan ficción narrativa o un estudio histórico, al situar el cambio personal en el centro del libro.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "SOMOS Journal: Reflexión, claridad y transformación personal se presenta en tapa blanda, con 272 páginas en castellano. Esta edición física permite tener el volumen disponible para volver a sus contenidos sobre reflexión y transformación personal sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ser padre o tener hijos: El posparto del que nadie habla: las 12 creencias que cambian cuando nace tu hijo y cómo trabajarlas en 65 + 1 días (Gestión por creencias para la vida) comparte autoría con SOMOS Journal: Reflexión, claridad y transformación personal, pero delimita su asunto a la paternidad y el posparto. Abraza a tu niño interior: Nunca es tarde para sanar tu infancia también aborda el cambio personal, aunque concentra su atención en las experiencias de la infancia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409936861",
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eaa8a3191c857337",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387985233",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hidrógeno, elemento génesis, de Susana Castilla González, se orienta a lectores interesados en la divulgación científica y, en particular, en el hidrógeno. Su planteamiento temático se distancia de los libros de ficción y de las lecturas centradas en experiencias personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hidrógeno, elemento génesis está disponible en tapa blanda y tiene 428 páginas. Esta extensión permite plantear una lectura prolongada sobre su materia científica, con la posibilidad de consultar páginas anteriores directamente en el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hidrógeno, elemento génesis y 50 cosas que hay que saber sobre IA se relacionan por su orientación hacia asuntos científicos. Susana Castilla González centra su obra en el hidrógeno, mientras que Keith Mansfield aborda la inteligencia artificial. La elección entre ambos depende de qué campo científico quiera explorar el lector.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1faee1769c49feae",
+  "origen": "chatgpt-web"
+}

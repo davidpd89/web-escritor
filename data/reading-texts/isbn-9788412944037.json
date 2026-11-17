@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788412944037",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Viñetas siderales se dirige a lectores de cómic y novela gráfica que prefieren una obra extensa en castellano. Sus 408 páginas la alejan de quienes buscan una lectura gráfica breve o una novela escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Viñetas siderales se presenta en tapa blanda, con 408 páginas publicadas por Desfiladero Ediciones. Es una edición física que permite consultar las páginas y volver a ellas sin utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cdda1fd449954af2",
+  "origen": "chatgpt-web"
+}

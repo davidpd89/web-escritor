@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Manolito Gafotas (edición especial) está dirigido a lectores de 9 a 12 años que disfrutan del humor infantil, los personajes familiares y las historias de barrio. Su enfoque en las observaciones cotidianas de un niño encaja menos con quienes buscan aventuras fantásticas o relatos protagonizados por criaturas sobrenaturales.",
+      "texto": "Manolito Gafotas (edición especial) está orientado a lectores de 9 a 12 años que buscan humor infantil y situaciones familiares contadas desde la perspectiva de un niño. Su atención a la vida de barrio, las amistades y las relaciones domésticas lo distancia de las aventuras fantásticas o los relatos de acción.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,12 +14,13 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Manolito Gafotas (edición especial) presenta el primer libro del personaje de Elvira Lindo en una edición especial de Seix Barral. Se distingue por su encuadernación en tapa dura con sobrecubierta, sus 192 páginas y su publicación el 28 de octubre de 2026, características concretas para identificar este ejemplar.",
+      "texto": "Manolito Gafotas (edición especial) se publica en tapa dura con sobrecubierta, una presentación diferenciada de una encuadernación sencilla. Seix Barral ofrece esta edición en castellano, con 192 páginas y fecha de publicación del 28 de octubre de 2026; contiene el primer libro del personaje de Elvira Lindo.",
       "evidencias": [
         "titulo",
         "autores",
         "editorial",
         "edicion",
+        "idioma",
         "numero_paginas",
         "fecha_publicacion",
         "sinopsis_editorial"
@@ -27,40 +28,38 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Manolito Gafotas (edición especial) está recomendado para niños de 9 a 12 años y pertenece a la narrativa infantil de humor. La edición de Seix Barral contiene 192 páginas en castellano y utiliza tapa dura con sobrecubierta, una presentación física que también permite conservar el ejemplar después de leerlo.",
+      "texto": "Manolito Gafotas (edición especial) está recomendado para lectores de 9 a 12 años y tiene 192 páginas. Su encuadernación es de tapa dura con sobrecubierta y el contenido pertenece al humor infantil, centrado en la manera en que su protagonista cuenta la vida familiar y del barrio.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
-        "categorias",
-        "editorial",
         "numero_paginas",
-        "idioma",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa dura con sobrecubierta ofrece las 192 páginas de Manolito Gafotas (edición especial) en un volumen físico resistente al uso y adecuado para conservar o regalar. El audiolibro permite escuchar las peripecias del personaje sin depender de la lectura impresa, por ejemplo durante desplazamientos.",
-      "evidencias": [
-        "titulo",
         "edicion",
-        "numero_paginas",
-        "formatos_disponibles",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Manolito Gafotas (edición especial) y Cacahuete, el elfo pedorrete (Libros ilustrados) comparten el humor dirigido al público infantil. La obra de Elvira Lindo se apoya en la mirada de un niño sobre su familia y su barrio, mientras que el título de Rafael Ordóñez presenta un personaje fantástico y se identifica como libro ilustrado.",
+      "modulo": "que_formato_elegir",
+      "texto": "Manolito Gafotas (edición especial) puede elegirse en tapa dura o audiolibro. La edición física reúne 192 páginas con sobrecubierta y sirve para conservar o regalar el libro; el audiolibro permite seguir las historias mediante la escucha, sin necesidad de leer el texto impreso.",
       "evidencias": [
         "titulo",
-        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manolito Gafotas (edición especial) puede compararse con Dónde están los calzoncillos de Papá Noel: Un cuento de Navidad interactivo y lleno de humor. ¡Encuentra los calzoncillos de Papá Noel! Para niños y niñas a partir de 3 años. Ambos recurren al humor infantil, pero Manolito Gafotas aborda la vida familiar para lectores de 9 a 12 años, mientras el otro propone una búsqueda interactiva navideña desde los 3 años.",
+      "evidencias": [
+        "titulo",
+        "edad_recomendada",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410318526"
+        "isbn-9791387948221"
       ]
     }
   ],

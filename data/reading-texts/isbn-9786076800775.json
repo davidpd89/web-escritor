@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9786076800775",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La otra historia de la doble hélice: Ciencia, rivalidades y memoria en el descubrimiento del ADN, de Fermín Mar Aguilar, se dirige a lectores interesados en la historia de la ciencia y las relaciones humanas que rodean los descubrimientos. Su enfoque histórico se aleja de quienes buscan un manual de genética o una explicación exclusivamente técnica del ADN.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La otra historia de la doble hélice: Ciencia, rivalidades y memoria en el descubrimiento del ADN se ofrece en tapa blanda y Kindle. La edición física tiene 105 páginas, una extensión breve para consultar en papel; Kindle permite llevar el texto en formato digital y leerlo desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA comparte con La otra historia de la doble hélice: Ciencia, rivalidades y memoria en el descubrimiento del ADN su orientación hacia la divulgación científica. El libro de Keith Mansfield aborda la inteligencia artificial; el de Fermín Mar Aguilar se ocupa del descubrimiento del ADN, con atención a las rivalidades y la memoria científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c1d51fe899b72688",
+  "origen": "chatgpt-web"
+}

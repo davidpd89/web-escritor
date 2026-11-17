@@ -4,30 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mensajes en tazas de café (Ficción), de María Martínez, se dirige a lectores interesados en el romance, la narrativa contemporánea y el humor. Quienes busquen principalmente novela histórica, aventuras o narrativa sin componente romántico encontrarán una propuesta de género diferente.",
+      "texto": "Mensajes en tazas de café (Ficción) se dirige a lectores de romance y narrativa contemporánea. Sus 472 páginas corresponden a una novela extensa, por lo que se aleja de los relatos breves y de las historias centradas en mundos fantásticos.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece una edición física de 472 páginas, con espacio para una lectura en papel. Kindle permite leer Mensajes en tazas de café (Ficción) en formato digital, sin necesidad de transportar el volumen.",
+      "texto": "Mensajes en tazas de café (Ficción) está disponible en tapa blanda y Kindle. La edición física de Crossbooks reúne sus 472 páginas en un volumen de papel, mientras que Kindle permite leer la misma obra en un dispositivo electrónico sin transportar el ejemplar impreso.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "edicion",
-        "formatos_disponibles",
-        "titulo"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados, de María Martínez, permite comparar dos títulos de la misma autora; además, su edición especial incorpora cantos decorados. Mensajes en tazas de café (Ficción) se presenta con una combinación de romance y humor, mientras que el otro título ofrece una edición identificada expresamente como especial.",
+      "texto": "Cuando no queden más estrellas que contar. Edición especial con cantos decorados comparte con Mensajes en tazas de café (Ficción) la autoría de María Martínez. La primera se identifica expresamente como edición especial con cantos decorados, mientras que Mensajes en tazas de café (Ficción) se presenta como una novela de romance contemporáneo disponible en tapa blanda y Kindle.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -37,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d72b2c4e6f82e91d",
+  "fuente_hash": "7f795e3930fe8c36",
   "origen": "chatgpt-web"
 }

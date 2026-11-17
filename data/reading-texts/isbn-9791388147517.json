@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388147517",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Imperio de fuego azul (edición limitada · Black Friday) (Saga Fénix & Dragón 1) (Campaña | Black Friday) se dirige a lectores de fantasía y aventuras interesados en una obra de Lucía Cerezo. El título lo identifica como el n.º 1 de Saga Fénix & Dragón, por lo que encaja con quienes buscan comenzar una serie y menos con quienes prefieren novelas ajenas a estos géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión de Imperio de fuego azul (edición limitada · Black Friday) (Saga Fénix & Dragón 1) (Campaña | Black Friday) es un libro de bolsillo de Penguin Bolsillo asociado a la campaña Black Friday. Publicada el 2026-10-01, tiene 512 páginas en castellano y tapa blanda; el título la identifica como el n.º 1 de Saga Fénix & Dragón.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Imperio de fuego azul (edición limitada · Black Friday) (Saga Fénix & Dragón 1) (Campaña | Black Friday) se ofrece en tapa blanda, dentro del formato de bolsillo de Penguin Bolsillo. Sus 512 páginas forman un volumen físico para quienes desean comenzar Saga Fénix & Dragón leyendo en papel y transportar el libro entre distintos lugares.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne y Imperio de fuego azul (edición limitada · Black Friday) (Saga Fénix & Dragón 1) (Campaña | Black Friday) permiten explorar lecturas relacionadas con la fantasía. La obra de Marta Morillo presenta a Eira, que oculta sus dones y debilidades; la de Lucía Cerezo se identifica en el título como el n.º 1 de Saga Fénix & Dragón y combina fantasía con aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "be6c7abf13b54564",
+  "origen": "chatgpt-web"
+}

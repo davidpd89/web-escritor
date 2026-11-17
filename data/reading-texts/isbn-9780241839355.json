@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mitos y leyendas (Mundo 3D): Héroes, dioses y monstruos como nunca antes los habías visto (Enciclopedia visual juvenil) está dirigido al público juvenil interesado en mitología, historia y representaciones de dioses y criaturas legendarias. Su planteamiento enciclopédico y visual encaja menos con quien busca una novela de ficción con una trama continuada.",
+      "texto": "Esta enciclopedia visual juvenil está dirigida a lectores interesados en héroes, dioses, monstruos y relatos mitológicos. Su enfoque ilustrado y sus 208 páginas encajan menos con quien busca una novela de fantasía con una trama continua en lugar de una obra de consulta.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La obra aborda héroes, dioses y monstruos desde una perspectiva de mitos y leyendas, con un enfoque de enciclopedia visual juvenil. La colección Mundo 3D sitúa la presentación gráfica en el centro del libro, mientras que sus materias relacionan estos relatos con la historia y las tradiciones religiosas.",
+      "texto": "Mitos y leyendas (Mundo 3D) aborda las figuras de héroes, dioses y monstruos desde una perspectiva de enciclopedia visual juvenil. El título sitúa estos relatos en un marco que relaciona fantasía, historia y religión, con una presentación visual identificada como Mundo 3D.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -20,7 +21,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 208 páginas de esta enciclopedia visual en un volumen físico pensado para consultar sus contenidos y conservarlo en una biblioteca. Kindle permite acceder al libro digitalmente y llevarlo en un dispositivo compatible, aunque la experiencia de visualización dependerá del tamaño de la pantalla.",
+      "texto": "La tapa dura reúne las 208 páginas de esta enciclopedia visual juvenil en un volumen físico, adecuado para consultar y conservar en una estantería. Kindle ofrece una alternativa para llevar la lectura en un dispositivo compatible, aunque la presentación de los elementos visuales dependerá de su pantalla.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -30,20 +31,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual) comparte con Mitos y leyendas (Mundo 3D): Héroes, dioses y monstruos como nunca antes los habías visto (Enciclopedia visual juvenil) la autoría de DK y el enfoque enciclopédico visual. La primera delimita su materia a una civilización antigua, mientras que la segunda se centra en héroes, dioses y monstruos de los relatos míticos.",
+      "texto": "Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual) comparte con Mitos y leyendas el sello DK y el formato de enciclopedia visual, pero centra su temática en una civilización concreta. Astrología, profecía y adivinación. Una historia ilustrada (Magia y misterio) (Enciclopedia visual) mantiene el enfoque ilustrado y se orienta hacia prácticas de adivinación en lugar de héroes, dioses y monstruos.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9780241837610"
+        "isbn-9780241837610",
+        "isbn-9780241837603"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7b8b755842b76356",
+  "fuente_hash": "7e161d85a62bf492",
   "origen": "chatgpt-web"
 }

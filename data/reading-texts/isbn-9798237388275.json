@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798237388275",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El valor que olvidaste: 4 (Los 8 Destinos) se orienta a lectores de desarrollo personal interesados en cuestiones psicológicas y de autoayuda. La obra de Azzeddine Guennich se encuadra también en el ensayo, por lo que su planteamiento difiere del de una novela de ficción o un manual de una disciplina técnica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El valor que olvidaste: 4 (Los 8 Destinos) cuenta con una edición en tapa blanda de 98 páginas, publicada por Azzeddine Guennich. Su extensión permite transportarlo como libro físico de pequeño volumen y consultar sus páginas sin utilizar una pantalla. El texto está editado en castellano.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El valor que olvidaste: 4 (Los 8 Destinos) puede compararse por su orientación al desarrollo personal con A.C.T.I.V.A.: 8 etapas para construir dirección, capacidad y libertad en tiempos de cambio, de Jul Ore. Ambos títulos remiten al trabajo sobre la propia vida, pero el de Azzeddine Guennich alude al valor personal y a una serie de destinos, mientras que el de Jul Ore presenta un recorrido por etapas ante el cambio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789560848819"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c528fc91cfbb312",
+  "origen": "chatgpt-web"
+}

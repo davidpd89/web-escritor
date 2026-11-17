@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410557703",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuatro lunas 4: Sombras de plata encaja con lectores de fantasía y aventuras dentro del público infantil y juvenil. Sus 304 páginas plantean una lectura de extensión media; no responde a la búsqueda de un libro breve ni de una obra centrada en contenidos prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuatro lunas 4: Sombras de plata se presenta en tapa blanda, con 304 páginas en castellano. La edición de Ediciones SM reúne la lectura en un único volumen físico, apropiado para quien prefiere pasar páginas y conservar sus libros en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuatro lunas 4: Sombras de plata puede compararse con Clara Nox 4. La última tormenta por su vinculación con la fantasía y los conflictos de aventura. La obra de Isabel Álvarez presenta una batalla decisiva entre dos mundos, mientras que la de Laura Gallego se identifica con la fantasía y las aventuras infantiles y juveniles. También comparte autora con Todos los hombres del rey, aunque Cuatro lunas 4: Sombras de plata tiene una extensión concreta de 304 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147852",
+        "isbn-9788408331230"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a437dd63fd135cd",
+  "origen": "chatgpt-web"
+}

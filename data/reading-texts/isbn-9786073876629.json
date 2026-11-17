@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "México negro (edición 40 aniversario) / Black Mexico. 40th Anniversary Edition se dirige a lectores de novela histórica interesados en el poder y la política. Por su orientación hacia la narrativa contemporánea y los conflictos políticos, encaja menos con quienes buscan fantasía o una lectura centrada en relaciones sentimentales.",
+      "texto": "México negro (edición 40 aniversario) / Black Mexico. 40th Anniversary Edition se dirige a lectores de novela histórica interesados en el poder y la política. Sus 688 páginas, firmadas por Francisco Martín Moreno, encajan menos con quien busca una lectura breve o alejada de los conflictos políticos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "México negro (edición 40 aniversario) / Black Mexico. 40th Anniversary Edition está disponible en tapa blanda, con 688 páginas en castellano. La encuadernación flexible facilita transportarlo y permite distribuir su lectura extensa en varias sesiones. Esta edición pertenece a Penguin Random House Grupo Editorial.",
+      "texto": "México negro (edición 40 aniversario) / Black Mexico. 40th Anniversary Edition se publica en tapa blanda, con 688 páginas en castellano. Es una edición física extensa, más apropiada para leer en sesiones prolongadas que para transportar un libro ligero; su título la identifica como edición del 40 aniversario.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Conspiración en Londres, de Felipe Pigna, permite comparar dos obras vinculadas por su selección como lecturas afines. México negro (edición 40 aniversario) / Black Mexico. 40th Anniversary Edition se identifica expresamente con la novela histórica y los asuntos de poder y política. También puede contrastarse con Esperanza en París: 1 (El legado del tiempo), de Miguel Tarín, cuyo título señala una pertenencia a una serie, frente al carácter conmemorativo indicado en el título de la obra de Francisco Martín Moreno.",
+      "texto": "México negro (edición 40 aniversario) / Black Mexico. 40th Anniversary Edition puede compararse con Los desafíos de la sociedad abierta: La libertad y sus enemigos (Obra periodística Vargas Llosa IV) por su atención a cuestiones políticas. La obra de Francisco Martín Moreno se sitúa en la novela histórica, mientras que la de Mario Vargas Llosa aborda la libertad desde una perspectiva periodística.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,8 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329688",
-        "isbn-9791399311907"
+        "isbn-9788420460444"
       ]
     }
   ],

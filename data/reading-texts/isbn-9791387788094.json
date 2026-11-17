@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791387788094",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amor, nieve y chocolate (ROMÁNTICA) se dirige a quienes buscan narrativa contemporánea en castellano, con una orientación romántica anunciada en el título. Quien prefiera cómic, ensayo o relatos de ambientación histórica encontrará aquí una propuesta editorial de otro tipo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 352 páginas de Amor, nieve y chocolate (ROMÁNTICA) en un volumen físico, adecuado para conservarlo en la estantería o regalarlo. Kindle permite leer la misma obra en formato digital, sin transportar el ejemplar impreso. Son las dos opciones de edición disponibles.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90e7a3f7284a460c",
+  "origen": "chatgpt-web"
+}

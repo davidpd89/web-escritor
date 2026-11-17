@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788409935536",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LA PMO INVISIBLE: Gestión de proyectos holónica para despachos de arquitectura, ingeniería y consultoría de 15 a 50 personas está orientado a profesionales que gestionan proyectos en organizaciones de ese tamaño. Su enfoque empresarial y organizativo lo aleja de una lectura general sobre arquitectura o de un manual de diseño artístico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra estudia la gestión de proyectos holónica aplicada a despachos de arquitectura, ingeniería y consultoría de 15 a 50 personas. Jordi Folch Ayuso sitúa el enfoque en la organización empresarial y la coordinación de proyectos, desarrolladas a lo largo de 347 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 347 páginas de LA PMO INVISIBLE: Gestión de proyectos holónica para despachos de arquitectura, ingeniería y consultoría de 15 a 50 personas en papel, útil para consultar apartados durante el trabajo. Kindle ofrece una alternativa digital para leerlo desde el móvil o un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Marco teórico y principios normativos de la Calidad en la Edificación comparte el ámbito profesional de la construcción, pero se ocupa de la calidad y sus principios normativos. LA PMO INVISIBLE: Gestión de proyectos holónica para despachos de arquitectura, ingeniería y consultoría de 15 a 50 personas se centra en la gestión holónica de proyectos dentro de despachos profesionales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418255861"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a930b7e23cb56f5c",
+  "origen": "chatgpt-web"
+}

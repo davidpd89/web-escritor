@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370475369",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan una obra sobre la valoración integral en esclerosis múltiple desde un ámbito vinculado a la ciencia y el derecho. Su enfoque temático se aleja de la narrativa de ficción y de los libros de divulgación general sin una materia concreta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Advice. Valoración integral en esclerosis múltiple se presenta en tapa blanda, con 308 páginas en castellano. Esta edición de Editorial Dykinson, S.l. permite consultar el volumen en papel y volver a sus apartados durante el estudio de la materia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Advice. Valoración integral en esclerosis múltiple puede compararse con La actividad pericial del ingeniero: Manual práctico para España por su relación con materias técnicas y jurídicas. El libro de Jacobo A. Rubio Arias se centra en la valoración integral de una enfermedad, mientras que el de Antonio Armero Martínez aborda la actividad pericial del ingeniero en España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399307603"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "493b3247db34cdfc",
+  "origen": "chatgpt-web"
+}

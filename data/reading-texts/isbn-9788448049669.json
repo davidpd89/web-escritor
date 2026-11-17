@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Kylian Mbappé: La biografía definitiva (Deportes) está dirigida a lectores interesados en la trayectoria personal de Kylian Mbappé y en las biografías vinculadas al deporte. Por su planteamiento biográfico, encaja menos con quienes buscan un manual de entrenamiento o una explicación técnica de las reglas deportivas.",
+      "texto": "Está orientado a lectores interesados en el fútbol y en la trayectoria personal de Kylian Mbappé. Julien Laurens firma una biografía de 352 páginas, centrada en una figura deportiva concreta. No responde a la búsqueda de un manual de entrenamiento ni de una historia general de diferentes disciplinas deportivas.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Kylian Mbappé: La biografía definitiva (Deportes) reúne 352 páginas en una edición física que puede guardarse o regalarse. Kindle permite leer la biografía en un dispositivo electrónico o en el móvil, sin transportar el libro de papel.",
+      "texto": "Puede elegirse en tapa blanda o Kindle, según se prefiera una edición física o lectura digital. La tapa blanda reúne 352 páginas y permite conservar el libro o regalarlo; Kindle facilita llevar la biografía en un dispositivo compatible, incluido el móvil. Ambas opciones corresponden a la obra de Julien Laurens.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "titulo",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Kylian Mbappé: La biografía definitiva (Deportes) y Real Madrid: 125 años de historia blanca (Alianza Pop) comparten su relación con el fútbol. Julien Laurens centra el primero en la biografía de Kylian Mbappé, mientras que Antonio Romero aborda en el segundo la historia del Real Madrid. El árbitro / The Referee, de Augusto Cruz, ofrece otro punto de comparación por su referencia a una figura diferente del ámbito deportivo.",
+      "texto": "Comparte el enfoque biográfico deportivo con Enzo Ferrari: Velocidad, sangre y gloria, de Luca dal Monte. La obra de Julien Laurens se centra en Kylian Mbappé y el fútbol, mientras que la de Luca dal Monte aborda a Enzo Ferrari y su legado en el automovilismo. Ambas tratan sobre figuras individuales del deporte, aunque pertenecen a disciplinas diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370093464",
-        "isbn-9786073877817"
+        "isbn-9788412955835"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "854aa52330bda35b",
+  "fuente_hash": "fcd13fa31d84dae5",
   "origen": "chatgpt-web"
 }

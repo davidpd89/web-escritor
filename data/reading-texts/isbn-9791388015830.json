@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La catedral de los muertos (HISTÓRICA), de Carlos Luna, se dirige a lectores que buscan una novela histórica con elementos de misterio y thriller. Su combinación de géneros se aleja tanto del ensayo histórico como de la narrativa contemporánea sin intriga.",
+      "texto": "La catedral de los muertos (HISTÓRICA) encaja con lectores que buscan ficción histórica combinada con misterio y elementos de thriller. Sus 416 páginas corresponden a una novela de extensión considerable; quienes prefieran relatos breves o historias alejadas de las intrigas encontrarán aquí otro tipo de lectura.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La catedral de los muertos (HISTÓRICA) se publica en tapa dura, con 416 páginas y el sello de Newton Compton Editores. La encuadernación rígida permite conservar el volumen en papel y utilizarlo como regalo para lectores de novela histórica.",
+      "texto": "La catedral de los muertos (HISTÓRICA) ofrece sus 416 páginas en tapa dura para conservar el ejemplar físico y en Kindle para leerlo en un dispositivo compatible sin transportar el volumen. El audiolibro permite seguir la historia mediante escucha, una alternativa para desplazamientos o momentos sin lectura en pantalla.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "editorial",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La catedral de los muertos (HISTÓRICA), de Carlos Luna, puede compararse con El asesino de la almarada (Novela Histórica), de Gastón Morata, por la combinación de ambientación histórica e intriga sugerida por sus títulos. La primera remite a una catedral y a la muerte; la segunda sitúa la figura de un asesino en el centro de su planteamiento.",
+      "texto": "La catedral de los muertos (HISTÓRICA) se aproxima a El asesino de la almarada (Novela Histórica) por la combinación de un marco histórico con un título que sugiere una investigación criminal. Frente a DESTERRADOS DE CASTILLA: Aventura, traición y venganza en las Indias, que anuncia aventuras y venganza, la obra de Carlos Luna se clasifica también como misterio y thriller.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788410907478",
         "isbn-9791370205362"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5501a3be84ff440e",
+  "fuente_hash": "7f54d2bd1828b6d2",
   "origen": "chatgpt-web"
 }

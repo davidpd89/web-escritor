@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Senderos entre los árboles, de Jordi Doce, se dirige a lectores interesados en publicaciones de arte y diseño. Con 80 páginas en castellano, tiene una extensión breve; no responde al formato de una novela larga ni al de un manual técnico de gran volumen.",
+      "texto": "Senderos entre los árboles se sitúa en el ámbito del arte y el diseño, por lo que encaja con lectores interesados en estas disciplinas. Con 80 páginas, ofrece una extensión breve y se aleja de las búsquedas de narrativa extensa o manuales técnicos de gran volumen.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Senderos entre los árboles está editado en tapa blanda y tiene 80 páginas. La edición de Fundacióin Museo Evaristo Valle ofrece un volumen físico breve, que puede transportarse o regalarse sin recurrir a una encuadernación de tapa dura.",
+      "texto": "Senderos entre los árboles se publica en tapa blanda, con 80 páginas en castellano. Su extensión permite llevarlo en una bolsa para leerlo fuera de casa, mientras que la cubierta flexible facilita guardarlo junto a otros volúmenes de arte y diseño.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Senderos entre los árboles y 720 retrats pertenecen al ámbito del arte y el diseño dentro de esta selección. Jordi Doce firma el primero y Xavier Mollà i Revert el segundo; sus títulos apuntan, respectivamente, a senderos entre árboles y a retratos, dos motivos distintos.",
+      "texto": "720 retrats y Senderos entre los árboles pertenecen al ámbito del arte y el diseño, pero sus títulos apuntan a motivos diferentes: retratos en el primero y árboles en el segundo. También cambia la autoría: Xavier Mollà i Revert firma 720 retrats, mientras que Jordi Doce es el autor de Senderos entre los árboles.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c00e0c7e4399b353",
+  "fuente_hash": "9ca3fbb76b597d21",
   "origen": "chatgpt-web"
 }

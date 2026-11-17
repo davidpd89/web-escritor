@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387638832",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Del arte de escribir al goce de leer se dirige a lectores interesados en el ensayo y en obras relacionadas con la escritura y la lectura. Carmen S. Caravallo firma un volumen de 256 páginas, alejado por su clasificación editorial de quienes buscan una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Del arte de escribir al goce de leer se presenta en tapa blanda, con 256 páginas en castellano. Esta edición de Esstudio Ediciones permite consultar y releer el ensayo en papel, además de colocarlo en una estantería sin el volumen habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a77670c34e7b56ae",
+  "origen": "chatgpt-web"
+}

@@ -4,41 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Juntos hasta el final, de Sara Tocino Contioso, se dirige a lectores interesados en cuestiones familiares, procesos de superación y experiencias de duelo. Su orientación temática lo diferencia de los libros de crianza dedicados únicamente a rutinas educativas o desarrollo infantil.",
+      "texto": "Juntos hasta el final se sitúa en el ámbito de la familia y la crianza, por lo que encaja con lectores que buscan obras relacionadas con los vínculos familiares. Quien prefiera contenidos centrados en cuestiones profesionales o técnicas encontrará aquí una orientación temática distinta.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Juntos hasta el final se ofrece en tapa blanda, con 302 páginas en castellano publicadas por Samarcanda. El formato impreso permite señalar fragmentos y volver a ellos durante una lectura repartida en varias sesiones, especialmente si se consulta por sus temas familiares.",
+      "texto": "Juntos hasta el final está disponible en tapa blanda, con 302 páginas en castellano. Esta edición de Samarcanda permite leer sin dispositivos electrónicos, conservar el ejemplar en una biblioteca doméstica o prestarlo; su extensión conviene tenerla en cuenta si se transporta a diario.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada, de Irma Vallès Hernàndez, comparte con Juntos hasta el final el interés por las experiencias de pérdida. La obra de Irma Vallès Hernàndez se presenta expresamente como una guía para el duelo por una persona querida, mientras que el libro de Sara Tocino Contioso reúne temas de familia, superación y duelo.",
+      "texto": "Abuelas Y Abuelos (Álbumes Ilustrados castellano), de Helene Delforge, comparte con Juntos hasta el final el interés por el entorno familiar. La diferencia está en la presentación: el primero se identifica como álbum ilustrado, mientras que la obra de Sara Tocino Contioso se ofrece en una edición de tapa blanda de 302 páginas.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "edicion",
+        "numero_paginas"
       ],
       "enlaces": [
-        "isbn-9788409921065"
+        "isbn-9788491429586"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a62b13ca3af6c178",
+  "fuente_hash": "f124919d28c67130",
   "origen": "chatgpt-web"
 }

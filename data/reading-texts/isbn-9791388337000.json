@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388337000",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A 55 millas por hora (Contraluz) se dirige a lectores interesados en libros de viajes y en obras extensas sobre esta temática. Sus 480 páginas lo alejan de las lecturas breves; tampoco responde a quien busque específicamente una novela de terror o un poemario.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A 55 millas por hora (Contraluz) permite elegir entre tapa dura y Kindle. La edición física de Contraluz reúne 480 páginas en una encuadernación rígida, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar ese volumen en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A 55 millas por hora (Contraluz) comparte el ámbito de los viajes con Austria 7, de Anthony Haywood, y Brasil 8 (Guías de País Lonely Planet), de Trent Holden y otros autores. Frente a esos títulos centrados en destinos identificados, el de Guillermo Fesser plantea desde su título una referencia a la velocidad, sin señalar un país concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408322221",
+        "isbn-9788408324065"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "049bd5694e224774",
+  "origen": "chatgpt-web"
+}

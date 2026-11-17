@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370651442",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores interesados en incorporar el cumplimiento normativo a la gestión empresarial, especialmente en pymes. Su enfoque práctico sobre obligaciones y herramientas de «compliance» se aleja de la narrativa y de los libros centrados exclusivamente en fiscalidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Colex ofrece 170 páginas en castellano para trabajar sobre las cuestiones de cumplimiento empresarial. El ejemplar impreso permite marcar herramientas y apartados de consulta relacionados con la aplicación cotidiana del «compliance» en pymes.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse por su orientación empresarial con Claves fiscales para grandes empresas. Paso a paso: De la adquisición a la pérdida de la condición de gran empresa: requisitos y consecuencias fiscales. Ambas obras pertenecen al Departamento de Documentación Iberley, aunque esta guía se centra en integrar el «compliance» en las pymes y la otra examina los requisitos y efectos fiscales asociados a las grandes empresas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50e180282998b471",
+  "origen": "chatgpt-web"
+}

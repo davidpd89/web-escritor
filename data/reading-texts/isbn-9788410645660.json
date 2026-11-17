@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410645660",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Minecraft Oficial: El mundo de Minecraft se dirige a quienes buscan contenidos sobre videojuegos, ocio y diseño. La obra de George Evans-Thirlwell aborda el universo de Minecraft desde una publicación vinculada al arte y el tiempo libre, por lo que se aleja de las lecturas centradas en economía empresarial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Minecraft Oficial: El mundo de Minecraft se publica en tapa dura, con 224 páginas en castellano. Esta encuadernación permite conservar el volumen en una estantería y utilizarlo como regalo físico; su extensión también facilita consultarlo en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Minecraft Oficial: El mundo de Minecraft y Cómo crear y consolidar tu propia marca de joyería comparten su vinculación con el arte y el diseño. George Evans-Thirlwell se centra en Minecraft y su universo de videojuegos, mientras que Jose Luis Fettolini aborda la creación y consolidación de una marca de joyería. El primero se relaciona con el ocio digital y el segundo con el desarrollo de una actividad empresarial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410650534"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4c64fdffd983e056",
+  "origen": "chatgpt-web"
+}

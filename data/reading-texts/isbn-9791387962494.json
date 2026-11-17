@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amarte hasta perder el aliento 1 (Shôjo) encaja con lectores de manga romántico interesados en las relaciones de pareja y la narrativa contemporánea. Su orientación hacia el romance lo aleja de quienes buscan principalmente fantasía épica o aventuras de acción.",
+      "texto": "Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, encaja con lectores de manga interesados en el romance y las relaciones dentro de la narrativa contemporánea. Su combinación de cómic y temática romántica lo diferencia de quienes buscan principalmente aventuras fantásticas o relatos sin componente sentimental.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Amarte hasta perder el aliento 1 (Shôjo) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de Distrito Manga permite leerlo en papel y guardarlo junto a otros volúmenes de manga, sin ocupar el espacio de una edición de mayor extensión.",
+      "texto": "Amarte hasta perder el aliento 1 (Shôjo) se publica en tapa blanda, con 192 páginas en castellano. Esta edición permite leer el manga en papel y conservarlo junto a otros volúmenes de la colección; la encuadernación flexible facilita llevarlo en una mochila o un bolso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amarte hasta perder el aliento 1 (Shôjo) puede compararse con Honey lemon soda 4 (Shôjo) por su pertenencia al manga shôjo. Keiko Iwashita firma el primero y Mayu Murata el segundo; además, los títulos identifican entregas distintas, por lo que Amarte hasta perder el aliento 1 (Shôjo) se presenta como primer volumen.",
+      "texto": "Honey lemon soda 4 (Shôjo), de Mayu Murata, comparte con Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, la identificación como shôjo, aunque pertenecen a obras de autoras distintas. La luna en una noche de lluvia 1 (Yuri): Universo Manga, de Kuzushiro, también pertenece al manga, pero su título señala la orientación yuri frente a la identificación shôjo de la obra de Keiko Iwashita.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962487"
+        "isbn-9791387962487",
+        "isbn-9791387962814"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b9434c857d71ccea",
+  "fuente_hash": "3052b6be50659a58",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388586316",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Investigación de incendios forestales-AGAR002PO se dirige a lectores interesados en el estudio de los incendios forestales desde una perspectiva científica y divulgativa. Sus 190 páginas se centran en una materia técnica, por lo que no responde a quien busca una novela de aventuras o ficción sobre catástrofes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Investigación de incendios forestales-AGAR002PO está disponible en tapa blanda y reúne 190 páginas en castellano. Este formato permite consultar el contenido en papel y volver a apartados concretos durante el estudio, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Investigación de incendios forestales-AGAR002PO comparte autoría con Planes de emergencia y evacuación en locales de ocio nocturno-SEAD307PO, ambos de Elsa Rubio Duce. El primero aborda la investigación de incendios en entornos forestales, mientras que el segundo se orienta a la planificación de emergencias y evacuaciones en establecimientos de ocio. También puede compararse con Supervisión agrícola mediante imágenes y drones-AGAU42, de la misma autora, centrado en otra aplicación técnica relacionada con el entorno rural.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586842",
+        "isbn-9791388586156"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "65d02c0ee81f664f",
+  "origen": "chatgpt-web"
+}

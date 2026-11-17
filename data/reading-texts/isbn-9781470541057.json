@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9781470541057",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Gran Reino De Compton se orienta a lectores de narrativa contemporánea que buscan una obra de extensión muy reducida. Sus 46 páginas, firmadas por Jessica James-Lewis, lo distinguen de las novelas largas; encaja menos con quienes prefieren lecturas de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Gran Reino De Compton está editado en tapa blanda y contiene 46 páginas, una extensión que facilita transportarlo y terminarlo en pocas sesiones. La edición en castellano de Xlibris Us ofrece una lectura física breve, sin necesidad de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08cc89db75500b88",
+  "origen": "chatgpt-web"
+}

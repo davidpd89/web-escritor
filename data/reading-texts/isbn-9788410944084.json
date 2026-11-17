@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sobre estrategas y estrategias se dirige a lectores interesados en geopolítica, conflictos militares y decisiones políticas durante las crisis. Aunque figura en el ámbito de economía y empresa, su contenido no es un manual de gestión empresarial ni una novela de intriga política.",
+      "texto": "Sobre estrategas y estrategias se orienta a lectores interesados en geopolítica, conflictos armados y decisiones estratégicas ante situaciones de crisis. Su contenido analítico e histórico se distancia de los manuales de gestión empresarial centrados exclusivamente en dirigir equipos o mejorar procesos comerciales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,29 +13,26 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Sobre estrategas y estrategias es una obra de análisis histórico y político que reúne reflexiones de Lawrence Freedman sobre relaciones internacionales y pensamiento estratégico. Examina la disuasión nuclear, las tácticas militares, la interpretación de las guerras contemporáneas y las decisiones ante situaciones críticas. Su estructura responde a una selección de análisis, no a una trama de ficción.",
+      "texto": "Lawrence Freedman reúne análisis sobre política internacional, pensamiento militar y las consecuencias de las decisiones tomadas en contextos de conflicto. El contenido combina cuestiones históricas y contemporáneas, desde la disuasión nuclear hasta la interpretación de las guerras modernas, mediante reflexiones sobre dirigentes y acontecimientos.",
       "evidencias": [
-        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Sobre estrategas y estrategias es en tapa blanda y tiene 408 páginas. Este formato permite leer el volumen completo en papel o consultar por separado sus análisis sobre política internacional, guerra y estrategia. Lo publica La Esfera de los Libros en castellano.",
+      "texto": "Sobre estrategas y estrategias se presenta en tapa blanda, con 408 páginas publicadas por La Esfera de los Libros. La edición física permite recorrer sus análisis de forma continuada o volver a capítulos concretos para consultar cuestiones de estrategia, historia militar y relaciones internacionales.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "editorial",
-        "idioma",
+        "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sobre estrategas y estrategias puede compararse con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, por su interés en las ideas políticas. Lawrence Freedman se ocupa de conflictos internacionales y decisiones estratégicas, mientras que el otro título aborda los fundamentos de una corriente político-económica. Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, desplaza la atención hacia el liderazgo.",
+      "texto": "Sobre estrategas y estrategias puede compararse con Antes de liderar: Una mirada interior a un oficio por su interés en las decisiones y el ejercicio del liderazgo. Lawrence Freedman examina la estrategia en conflictos y relaciones internacionales, mientras Miguel Reinoso plantea una mirada al oficio de liderar. ANTES DE QUE OCURRA: Vender, formar y proteger el futuro desplaza el foco hacia la preparación y la protección del futuro.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,13 +40,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457",
-        "isbn-9788409921980"
+        "isbn-9788409921980",
+        "isbn-9788409935604"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ef156eedefc81480",
+  "fuente_hash": "0c7c6129cf84eb2e",
   "origen": "chatgpt-web"
 }

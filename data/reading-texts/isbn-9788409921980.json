@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Antes de liderar: Una mirada interior a un oficio se dirige a lectores interesados en el liderazgo y su relación con el ámbito empresarial. Sus 411 páginas y su enfoque económico lo alejan de una novela de ficción o de una lectura breve de entretenimiento.",
+      "texto": "Antes de liderar: Una mirada interior a un oficio se orienta a lectores interesados en el liderazgo y su dimensión profesional. Su pertenencia al ámbito de economía y empresa lo distancia de las novelas de ficción y de las lecturas centradas exclusivamente en el entretenimiento narrativo.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Antes de liderar: Una mirada interior a un oficio cuenta con 411 páginas y puede elegirse en tapa dura, tapa blanda o Kindle. La tapa dura ofrece una cubierta rígida para conservarlo, la tapa blanda facilita manejar el volumen en papel y Kindle permite consultarlo desde un dispositivo digital.",
+      "texto": "Las 411 páginas de Antes de liderar: Una mirada interior a un oficio pueden leerse en tapa blanda, una opción física más flexible para transportar, o en tapa dura, con cubierta rígida para consultas repetidas. Kindle permite llevar el contenido en un dispositivo electrónico y ajustar la visualización del texto durante la lectura.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -22,7 +21,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antes de liderar: Una mirada interior a un oficio puede compararse con ANTES DE QUE OCURRA: Vender, formar y proteger el futuro, de Rafael De la Torre Pérez, por su relación con cuestiones profesionales. Miguel Reinoso plantea desde el título una mirada interior al liderazgo, mientras que la otra obra anuncia asuntos vinculados a la venta, la formación y la protección del futuro.",
+      "texto": "ANTES DE QUE OCURRA: Vender, formar y proteger el futuro comparte con Antes de liderar: Una mirada interior a un oficio el interés por el ámbito profesional, aunque el primero destaca ventas, formación y previsión, mientras Miguel Reinoso se centra en el liderazgo. ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido se ocupa de las ideas y su influencia, en lugar de situar el oficio de liderar en el centro.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +29,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791399087222",
         "isbn-9788409935604"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bc835a4eff0db818",
+  "fuente_hash": "e53e61d4e9a03ed2",
   "origen": "chatgpt-web"
 }

@@ -4,38 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia se dirige a lectores interesados en los problemas del boxeo y en el deporte como actividad de tiempo libre. Por su enfoque temático, encaja menos con quienes buscan una novela deportiva o una guía de ejercicios físicos.",
+      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia, de Hugo Daniel Fernández López, se dirige a quienes buscan una lectura sobre los problemas del boxeo. Su planteamiento temático se aleja de los manuales de pasatiempos y de la ficción, al centrarse en cuestiones relacionadas con este deporte.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda, con 88 páginas en castellano. Su extensión permite leerla en sesiones breves y transportarla sin el volumen de un manual deportivo extenso.",
+      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia puede leerse en tapa blanda o Kindle. La edición impresa tiene 88 páginas y permite conservar el volumen en papel; Kindle ofrece la alternativa digital para llevar la lectura en un dispositivo compatible sin transportar el libro físico.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia y 80 crímenes imposibles de resolver (FUERA DE ESCENA) comparten el interés por examinar problemas, aunque el primero trata el boxeo y el segundo plantea crímenes por resolver. Frente a 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), centrado en colorear, el libro de Hugo Daniel Fernández López aborda cuestiones deportivas mediante texto.",
+      "texto": "El libro negro del boxeo: los 10 problemas de la dulce ciencia puede compararse con 99 Sudoku (LIBROS SINGULARES) por su vinculación con el ocio y las aficiones. La obra de Hugo Daniel Fernández López aborda diez problemas del boxeo, mientras que el libro de Anónimo se centra en los sudokus. El primero trata cuestiones de un deporte y el segundo propone pasatiempos numéricos, por lo que responden a intereses distintos.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328384",
-        "isbn-9791388015816"
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d307637b6ad19d3f",
+  "fuente_hash": "00da3d9fc2ceaac3",
   "origen": "chatgpt-web"
 }

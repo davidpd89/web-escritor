@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788477685388",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La misteriosa dama de los Fueros se dirige al público infantil y juvenil interesado en las aventuras. Sus 192 páginas corresponden a una obra de Idoia Saralegui San Sebastián, distinta de las propuestas de ocio práctico o narrativa adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La misteriosa dama de los Fueros se presenta en tapa blanda, con 192 páginas en castellano. Esta edición de Ediciones Eunate permite conservar el libro en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La misteriosa dama de los Fueros comparte orientación infantil y de aventuras con Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui. Este último parte de la desaparición de unas croquetas, mientras que el libro de Idoia Saralegui San Sebastián se presenta dentro de las aventuras infantiles sin concretar ese mismo conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1620fcbe6eac8ad1",
+  "origen": "chatgpt-web"
+}

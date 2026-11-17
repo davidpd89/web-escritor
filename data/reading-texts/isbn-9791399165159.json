@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399165159",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cinco robos extraordinarios (La quinta historia), de Antón Casariego, se orienta a lectores interesados en los robos como asunto narrativo y en libros vinculados con la historia y las biografías. Su clasificación también incluye literatura juvenil, mientras que quien busque exclusivamente fantasía o poesía encontrará aquí un enfoque temático diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cinco robos extraordinarios (La quinta historia) se publica en tapa blanda, con 240 páginas en castellano. La edición de Ladera Norte ofrece una lectura física que puede transportarse y conservarse, con una extensión delimitada para organizar la lectura de un libro relacionado con la historia y los robos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La historia del mundo en 12 naufragios: Los mayores descubrimientos de la arqueología submarina (Shackleton Books), de David Gibbins, comparte con Cinco robos extraordinarios (La quinta historia) el interés por episodios concretos relacionados con la historia, aunque aborda hallazgos submarinos en lugar de robos. Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días), de Jacob Mikanowski, amplía la comparación hacia la historia de una región, frente al asunto específico elegido por Antón Casariego.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788413618005",
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8aa4da9f938f20b8",
+  "origen": "chatgpt-web"
+}

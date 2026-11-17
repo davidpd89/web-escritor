@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399249514",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Moneda de cambio para el diablo, de Sonia S., encaja con lectores que buscan romance dentro de la narrativa contemporánea. Sus 392 páginas corresponden a una novela de extensión media, alejada por su clasificación de quienes prefieren ensayos o libros prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Moneda de cambio para el diablo se publica en tapa blanda, con 392 páginas en castellano. La edición de Secret Garden permite leer la novela en papel, marcar el punto de lectura y conservarla en la estantería sin el peso añadido habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Moneda de cambio para el diablo, de Sonia S., puede compararse con A mil por hora, de Hannah Grace, por su orientación hacia el romance. La diferencia está en el contexto: A mil por hora presenta una relación entre un piloto de F1 y una mujer marcada por su pasado, mientras que Moneda de cambio para el diablo se clasifica dentro del romance y la narrativa contemporánea. Otra lectura afín es Adversaria del villano (Faeris Editorial), de Hannah Nicole Maehrer, cuyo título introduce la figura del villano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449",
+        "isbn-9791388108327"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2f6c774ea5c52476",
+  "origen": "chatgpt-web"
+}

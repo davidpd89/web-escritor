@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9791399187762",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de poesía que buscan una selección de textos de Carilda Oliver Labra acompañada de un prólogo de Bibiana Collado Cabrera. Sus 128 páginas responden a una lectura poética, por lo que encaja menos con quienes prefieren una novela de argumento continuo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Con gusto derramada: Selección y prólogo Bibiana Collado Cabrera (Rosita y Amparo por... Bibiana Collado Cabrera) incorpora una selección y un prólogo de Bibiana Collado Cabrera. Publicada por Rosita y Amparo Editores el 2026-10-19, reúne 128 páginas en castellano y se presenta en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 128 páginas de poesía en castellano. El volumen físico permite alternar entre poemas, regresar a textos concretos y consultar el prólogo de Bibiana Collado Cabrera dentro del mismo ejemplar.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza, son otros títulos del catálogo relacionados con la poesía. Con gusto derramada: Selección y prólogo Bibiana Collado Cabrera (Rosita y Amparo por... Bibiana Collado Cabrera) se distingue por reunir una selección de la obra de Carilda Oliver Labra con un prólogo de Bibiana Collado Cabrera, frente a esas otras autorías.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df35f8daa9a95e57",
+  "origen": "chatgpt-web"
+}

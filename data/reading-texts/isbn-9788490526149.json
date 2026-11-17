@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La gestión IA del tiempo: Productividad inteligente para afrontar la nueva era del trabajo se orienta a lectores interesados en la productividad, la organización del tiempo y la inteligencia artificial aplicada al trabajo. Su temática queda fuera de los enfoques centrados en finanzas personales o en teoría económica general.",
+      "texto": "La gestión IA del tiempo: Productividad inteligente para afrontar la nueva era del trabajo se orienta a lectores interesados en productividad, inteligencia artificial y organización del tiempo laboral. Por su enfoque empresarial, encaja menos con quienes buscan una novela o una reflexión sobre el tiempo desligada del ámbito profesional.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,22 +12,21 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar en papel las 193 páginas de La gestión IA del tiempo: Productividad inteligente para afrontar la nueva era del trabajo. Publicado por Ediciones Díaz de Santos, S.a., el volumen reúne en una edición física en castellano los contenidos sobre productividad y organización del tiempo vinculados a la inteligencia artificial.",
+      "texto": "La gestión IA del tiempo: Productividad inteligente para afrontar la nueva era del trabajo se presenta en tapa blanda, con 193 páginas. El formato permite consultar apartados y volver a ellos durante la lectura, algo pertinente en un libro dedicado a la productividad y la gestión del tiempo en el trabajo.",
       "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
         "titulo",
-        "editorial",
-        "idioma"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antes de liderar: Una mirada interior a un oficio y La gestión IA del tiempo: Productividad inteligente para afrontar la nueva era del trabajo coinciden en su relación con la actividad profesional. Miguel Reinoso aborda el liderazgo desde una mirada interior, mientras que Iñaki Bustinduy Cruz sitúa la inteligencia artificial y la productividad temporal en el centro de su libro.",
+      "texto": "La gestión IA del tiempo: Productividad inteligente para afrontar la nueva era del trabajo puede compararse con Antes de liderar: Una mirada interior a un oficio por su orientación profesional. Iñaki Bustinduy Cruz centra su libro en productividad, inteligencia artificial y tiempo de trabajo; Miguel Reinoso plantea desde el título una mirada interior al liderazgo. Son enfoques distintos de cuestiones relacionadas con la actividad laboral.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788409921980"
@@ -36,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "aa7d9f9e49a0e0d7",
+  "fuente_hash": "fc3df7fd3443df65",
   "origen": "chatgpt-web"
 }

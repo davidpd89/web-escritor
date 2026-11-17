@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399040487",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El siglo migrante: Historia de la inmigración ilegal en Europa: 10 (ENCUENTROS) se dirige a lectores interesados en la historia de las migraciones irregulares europeas y el ensayo. Sus 640 páginas plantean una lectura extensa sobre un asunto histórico y social, alejada de quien busca ficción o una introducción breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El siglo migrante: Historia de la inmigración ilegal en Europa: 10 (ENCUENTROS) reúne 640 páginas en castellano. Este formato permite consultar y releer pasajes de un ensayo extenso en papel, aunque su volumen resulta menos cómodo para transportarlo a diario que un libro corto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El siglo migrante: Historia de la inmigración ilegal en Europa: 10 (ENCUENTROS) y 33 islas: Un periplo mediterráneo comparten el interés por el espacio europeo y mediterráneo. Gabriele del Grande aborda la inmigración ilegal desde una perspectiva histórica, mientras que Lucio Bellomo presenta un recorrido por islas. El primero se centra en un fenómeno migratorio y el segundo en un itinerario geográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "37863f3292ec06f3",
+  "origen": "chatgpt-web"
+}

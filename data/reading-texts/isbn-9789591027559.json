@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cambios de estación, de Carmen Serrano Coello, encaja con lectores de poesía en castellano que buscan un libro de extensión contenida. Sus 104 páginas y su clasificación poética lo distinguen de las novelas extensas y de los libros de divulgación.",
+      "texto": "Cambios de estación, de Carmen Serrano Coello, corresponde a lectores que buscan poesía en castellano. Su clasificación editorial y sus 104 páginas lo alejan de una novela extensa o de un libro práctico organizado para resolver consultas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,12 +15,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cambios de estación se presenta en tapa blanda y tiene 104 páginas. Es una edición física que permite alternar sesiones breves de lectura y consultar pasajes anteriores directamente en papel.",
+      "texto": "Cambios de estación cuenta con una edición en tapa blanda de 104 páginas. El formato en papel facilita llevarlo a distintos lugares y conservar el ejemplar para futuras lecturas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cambios de estación puede compararse con Advenir, de Jose Eceolaza, como otra obra situada en el ámbito de la poesía. Carmen Serrano Coello firma Cambios de estación y Jose Eceolaza firma Advenir, una diferencia de autoría verificable sin atribuirles temas o estilos que no estén documentados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410212749"
       ]
     }
   ],

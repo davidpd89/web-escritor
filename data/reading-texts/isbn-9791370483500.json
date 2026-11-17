@@ -4,27 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "JoJo’s Bizarre Adventure | Colección Mundo Manganime: XXX, de RBA Coleccionables España, se dirige a lectores interesados en las aventuras y el cómic. Su formato de novela gráfica lo distingue de la narrativa convencional, por lo que no está orientado a quien busca un ensayo o una obra de ficción exclusivamente en prosa.",
+      "texto": "JoJo’s Bizarre Adventure | Colección Mundo Manganime: XXX se dirige a lectores de cómic y novela gráfica interesados en las aventuras. Por su clasificación editorial, encaja menos con quienes buscan un ensayo histórico o una guía de consulta.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura reúne 144 páginas en un volumen de cubierta rígida. Es el formato disponible para JoJo’s Bizarre Adventure | Colección Mundo Manganime: XXX, de RBA Coleccionables España, y permite conservar el ejemplar como parte de una colección física.",
+      "texto": "JoJo’s Bizarre Adventure | Colección Mundo Manganime: XXX está disponible en tapa dura, con 144 páginas en castellano. Esta edición permite conservar el volumen en una colección física y consultarlo sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "JoJo’s Bizarre Adventure | Colección Mundo Manganime: XXX, de RBA Coleccionables España, comparte con 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), de Francisco Ibáñez, el formato de cómic y novela gráfica. Se diferencian en la autoría y en su identificación editorial: el primero pertenece a una colección de RBA Coleccionables y el segundo a Bruguera Clásica. También puede compararse con Anatol Lapifia Vol 10 ¡Sálvese quien pueda!: 9, de Anne Didier, Olivier Muller, otro título del catálogo vinculado al cómic.",
+      "texto": "JoJo’s Bizarre Adventure | Colección Mundo Manganime: XXX puede compararse con De la Tierra a la Luna | Julio Verne | Colección Maestros del Fantástico por su vinculación con las aventuras y por compartir la autoría editorial de RBA Coleccionables España. La diferencia está en que el primero se clasifica como cómic y novela gráfica, mientras que el segundo se presenta dentro de una colección dedicada a maestros del fantástico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,8 +30,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431790",
-        "isbn-9791387744366"
+        "isbn-9788411490801"
       ]
     }
   ],

@@ -4,25 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se rueda: El ciclismo y las bicicletas en el cine está dirigido a lectores interesados en la relación entre el deporte, las imágenes cinematográficas y la cultura visual. Por su enfoque de divulgación, arte y tiempo libre, se distancia de quienes buscan una novela de ficción o un manual exclusivamente dedicado a la práctica del ciclismo.",
+      "texto": "Se rueda: El ciclismo y las bicicletas en el cine, de Jordi Rodríguez Ruiz, se dirige a lectores interesados en la relación entre el deporte y su representación cinematográfica. Su enfoque cultural lo diferencia de los manuales destinados principalmente a mejorar la técnica ciclista o planificar entrenamientos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Se rueda: El ciclismo y las bicicletas en el cine se presenta en tapa blanda y reúne 368 páginas en castellano. Esta edición física permite consultar el contenido sobre bicicletas y cine, regresar a apartados anteriores y conservar el volumen en una biblioteca dedicada al deporte o la cultura cinematográfica.",
+      "texto": "Se rueda: El ciclismo y las bicicletas en el cine se presenta en tapa blanda, con 368 páginas publicadas por Libros de Ruta. El soporte impreso permite consultar pasajes sobre ciclismo y cine y regresar a ellos durante una lectura dedicada a ambos ámbitos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Se rueda: El ciclismo y las bicicletas en el cine y Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) relacionan ámbitos culturales distintos dentro de la divulgación. Jordi Rodríguez Ruiz se concentra en la presencia del ciclismo en el cine, mientras que Carlos Briones aborda la relación entre ciencia y arte desde el cosmos y la vida.",
+      "texto": "Ciclismo: Mejora tu técnica, gana fuerza, revoluciona tu entrenamiento (Deportes DK), de David Bailey, comparte con Se rueda: El ciclismo y las bicicletas en el cine el interés por la bicicleta. La diferencia está en el propósito: David Bailey aborda la técnica y el entrenamiento, mientras Jordi Rodríguez Ruiz se centra en la presencia del ciclismo en el cine.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,7 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401039287"
+        "isbn-9780241856826"
       ]
     }
   ],

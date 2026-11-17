@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399180725",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La partida, de Esteban Moneo, pertenece al ámbito del misterio y el thriller. Con 416 páginas en tapa blanda, se orienta a quienes buscan una lectura de este género y de extensión considerable; no corresponde a las preferencias de quienes buscan cuentos infantiles breves o poesía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La partida está disponible en tapa blanda, con una edición de 416 páginas publicada por Editorial Fanes. El formato físico permite conservar el volumen en una biblioteca personal, prestarlo o regalarlo; por su extensión, requiere transportar un libro de mayor tamaño que una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La partida se puede comparar con 25 días hasta Navidad, de Per Jacobsen, por su vinculación con el thriller. La obra de Per Jacobsen incorpora expresamente el marco del adviento, mientras que La partida, de Esteban Moneo, se presenta dentro del misterio y el thriller sin esa referencia temática. También se distingue por sus 416 páginas y su edición de Editorial Fanes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e2111d773d19f0b",
+  "origen": "chatgpt-web"
+}

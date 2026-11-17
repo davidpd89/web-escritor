@@ -4,44 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El niño (MAXI), de Fernando Aramburu, encaja con lectores de narrativa contemporánea interesados en la infancia y la novela histórica. Sus 272 páginas ofrecen una lectura en formato de bolsillo; no está dirigido a quien busca fantasía, aventuras o una obra de no ficción.",
+      "texto": "El niño (MAXI), de Fernando Aramburu, se dirige a lectores de narrativa contemporánea y novela histórica. Sus 272 páginas permiten identificar su extensión antes de elegirlo; no responde a la búsqueda de un manual práctico ni de una obra centrada en la fantasía.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de bolsillo en tapa blanda reúne las 272 páginas de El niño (MAXI), de Fernando Aramburu, en un volumen compacto de Maxi-tusquets. Es una presentación física pensada para ocupar menos espacio en la estantería y facilitar el transporte durante la lectura.",
+      "texto": "El niño (MAXI) se ofrece en tapa blanda, Kindle y audiolibro. La edición física de Maxi-tusquets es un libro de bolsillo de 272 páginas, mientras que Kindle permite leerlo en dispositivos compatibles y el audiolibro ofrece una alternativa de escucha para quien prefiere no seguir el texto impreso.",
       "evidencias": [
         "titulo",
-        "autores",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "editorial"
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El niño (Andanzas), de Fernando Aramburu, es la comparación más directa con El niño (MAXI), de Fernando Aramburu: ambos títulos corresponden a la misma obra y al mismo autor. La diferencia está en la edición identificada por el catálogo, ya que una aparece en la colección Andanzas y la otra en formato de bolsillo Maxi-tusquets.",
+      "texto": "El niño (Andanzas) comparte autor y título principal con El niño (MAXI), ambos de Fernando Aramburu, pero se presentan como ediciones diferenciadas. Amargo, amargo (Literaturas), de Joanna Bator, también figura entre las lecturas relacionadas; frente a la coincidencia de autoría de El niño (Andanzas), aquí cambia la autora.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "edicion",
-        "editorial"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411074445"
+        "isbn-9788411074445",
+        "isbn-9791387846558"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8b8f8e6e7f06b813",
+  "fuente_hash": "72757dc1482b51df",
   "origen": "chatgpt-web"
 }

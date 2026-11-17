@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788412633788",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ruleta suiza se dirige a lectores de narrativa contemporánea que buscan una obra de extensión moderada. Sus 140 páginas encajan con quien prefiere un libro más breve que una novela extensa, pero no con quien busca específicamente fantasía o un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ruleta suiza se presenta en tapa blanda, con 140 páginas que permiten transportarla sin el volumen de una edición más extensa. Ápeiron Ediciones publica esta edición en castellano, destinada a la lectura en papel y fácil de incorporar a una biblioteca doméstica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vecovurt es la comparación más directa con La ruleta suiza por compartir la autoría de Alba Ramírez Guijarro. La ruleta suiza pertenece a la narrativa contemporánea y tiene 140 páginas, dos referencias concretas para distinguirla al elegir entre ambos títulos de la misma autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788412951059"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9ecc304a8a39ff3c",
+  "origen": "chatgpt-web"
+}

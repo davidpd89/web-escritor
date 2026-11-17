@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419605535",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las crónicas de Rema 2: El reino del agua (Andana Gráfica) se dirige a quienes prefieren las aventuras fantásticas contadas mediante cómic y novela gráfica. Su planteamiento se aparta de la narrativa exclusivamente textual y de las historias centradas en el romance; el título lo identifica como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Las crónicas de Rema 2: El reino del agua (Andana Gráfica) es de tapa blanda y tiene 240 páginas. Este soporte permite recorrer las páginas de la novela gráfica en papel, conservando la disposición de sus ilustraciones y viñetas durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las crónicas de Rema 2: El reino del agua (Andana Gráfica) puede compararse con Dinosaurios Al Atardecer (Novela Gráfica) / Dinosaurs Before Dark (Graphic Novel) (Magic Tree House Novela Gráfica), de Mary Pope Osborne, por su relación con la aventura gráfica. La diferencia está en la orientación fantástica de la obra de Amy Kim y en la referencia a los dinosaurios del otro título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989642"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4aa3dc59d965d7eb",
+  "origen": "chatgpt-web"
+}

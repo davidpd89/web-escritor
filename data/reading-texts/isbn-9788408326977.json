@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788408326977",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nada de esto es verdad (Bestseller), de Lisa Jewell, se dirige a lectores de misterio y thriller con interés por la narrativa contemporánea. No responde a la búsqueda de una novela histórica ni de una aventura infantil, pues su clasificación editorial se sitúa en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nada de esto es verdad (Bestseller) está disponible en tapa blanda, en una edición de bolsillo publicada por Booket. Sus 352 páginas permiten llevar el volumen físico en el bolso o la mochila sin recurrir a una edición de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nada de esto es verdad (Bestseller) puede compararse con No le dejes entrar (Ficción) y Podría haber sido ella (Ficción), también de Lisa Jewell. Los tres títulos comparten autoría, mientras que Nada de esto es verdad (Bestseller) se presenta aquí en una edición de bolsillo de 352 páginas centrada editorialmente en el misterio y la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408308621",
+        "isbn-9788408327998"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b03af68b57b91cdc",
+  "origen": "chatgpt-web"
+}

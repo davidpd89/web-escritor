@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788448641054",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gastronomia y Turismo en destinos insulares se dirige a quienes buscan lecturas sobre turismo y gastronomía desde una perspectiva económica. Por su temática, encaja menos con lectores interesados en ficción o recetarios de cocina.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción de compra de Gastronomia y Turismo en destinos insulares es la tapa blanda. El volumen tiene 252 páginas y permite consultar en papel los contenidos relacionados con la gastronomía y el turismo insular. Su encuadernación flexible facilita el transporte y la consulta en distintos lugares.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gastronomia y Turismo en destinos insulares puede compararse con ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, por su relación con el ámbito económico. Mientras el libro de Leon y Celis aborda la gastronomía y el turismo insular, el de Rory Sutherland se ocupa del poder de las ideas. La diferencia está en el enfoque: una actividad económica concreta frente a una reflexión sobre las ideas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399087222"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ae0c1b2e73ba5252",
+  "origen": "chatgpt-web"
+}

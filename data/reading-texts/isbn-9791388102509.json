@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388102509",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nano Machine nº 01: 1 (Manhwa) se dirige a lectores juveniles interesados en el manhwa y la narración gráfica contemporánea. El título lo identifica como el n.º 1, mientras que quienes busquen una novela tradicional sin componente gráfico encontrarán aquí una propuesta editorial diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nano Machine nº 01: 1 (Manhwa) tiene una edición en tapa blanda de 296 páginas, publicada en castellano por Planeta Cómic. Su extensión permite distribuir la lectura en sesiones y conservar el ejemplar físico, sin necesidad de utilizar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nano Machine nº 01: 1 (Manhwa) se puede comparar con Overgeared nº 01: 1 (Manhwa), ya que ambos títulos se presentan como manhwa y están atribuidos a Varios autores. Los dos se identifican como entregas iniciales, aunque pertenecen a obras con nombres diferentes. Planeta Manga nº 07: 7 (Universo Planeta Manga) comparte la autoría colectiva, pero se identifica como manga y lleva otra numeración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102554",
+        "isbn-9791388102295"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c52c292796d57915",
+  "origen": "chatgpt-web"
+}

@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los huecos habitados: La poesía desnuda: 3 (Esencias) se dirige a lectores de poesía en castellano que buscan una obra breve de José Luis González Sánchez. Sus 84 páginas la distinguen de las lecturas narrativas extensas, por lo que encaja menos con quien prefiere novelas de largo recorrido.",
+      "texto": "Los huecos habitados: La poesía desnuda: 3 (Esencias) está dirigido a lectores de poesía en castellano que prefieren volúmenes breves. Con 84 páginas, se distancia de las novelas extensas y de quienes buscan una narración organizada alrededor de una trama.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "idioma",
         "numero_paginas"
@@ -15,27 +14,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los huecos habitados: La poesía desnuda: 3 (Esencias) está disponible en tapa blanda, con 84 páginas en castellano. Esta edición de Colibrí Ediciones permite llevar el volumen en el bolso y consultar sus páginas en papel sin el peso de un libro extenso.",
+      "texto": "Los huecos habitados: La poesía desnuda: 3 (Esencias) se ofrece en tapa blanda, con una extensión de 84 páginas. Su tamaño editorial permite llevar el poemario para leerlo en distintos momentos y regresar a sus textos sin necesidad de recorrer un volumen largo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los huecos habitados: La poesía desnuda: 3 (Esencias) puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, por su vinculación con la poesía. Frente a Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, cuyo título señala una selección amorosa, el libro de José Luis González Sánchez se presenta como una entrega de Esencias.",
+      "texto": "Los huecos habitados: La poesía desnuda: 3 (Esencias) comparte el ámbito poético con A solas, de María Jesús Martínez Ramos, aunque corresponde a una autoría diferente. También puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera; el primero reúne 84 páginas y su título lo identifica como el n.º 3 de Esencias.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788412988833",
-        "isbn-9788466396288"
+        "isbn-9788410907539"
       ]
     }
   ],

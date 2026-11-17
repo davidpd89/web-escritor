@@ -4,35 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Flush (FICCIÓN), de Virginia Woolf, encaja con lectores interesados en los clásicos y la narrativa literaria. Sus 128 páginas permiten abordar una obra breve de la autora, mientras que quienes busquen un ensayo práctico o una lectura extensa encontrarán aquí un planteamiento distinto.",
+      "texto": "Flush (FICCIÓN), de Virginia Woolf, encaja con lectores de clásicos literarios que buscan una obra breve en castellano. Sus 128 páginas ofrecen una extensión menor que la de muchas novelas largas, pero su clasificación como ficción lo aleja de los ensayos y las biografías documentales.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Flush (FICCIÓN) se presenta en tapa blanda, con 128 páginas en castellano, en una edición de Ediciones Godot. Su extensión facilita llevarlo en el bolso o leerlo durante desplazamientos, y el formato físico permite conservar una edición breve de Virginia Woolf en la biblioteca personal.",
+      "texto": "Flush (FICCIÓN) está disponible en tapa blanda y Kindle. La edición en papel de Ediciones Godot reúne 128 páginas en un volumen de extensión reducida, mientras que Kindle permite llevar el texto en un lector electrónico o dispositivo compatible sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "editorial",
-        "autores"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Al faro: Nueva traducción al español: 82 (Clásicos en español) y Noche y día / Night and Day comparten con Flush (FICCIÓN) la autoría de Virginia Woolf. El primero destaca en su título una nueva traducción al español, mientras que el segundo presenta un título bilingüe; Flush (FICCIÓN) se distingue en esta edición por sus 128 páginas y su publicación en Ediciones Godot.",
+      "texto": "Al faro: Nueva traducción al español: 82 (Clásicos en español) y Noche y día / Night and Day son otras obras de Virginia Woolf que permiten continuar con la misma autora. Flush (FICCIÓN) se distingue por su extensión de 128 páginas, mientras que Al faro destaca en su título una nueva traducción al español y Noche y día presenta una denominación bilingüe.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
         "numero_paginas",
-        "editorial"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9781836472568",
@@ -42,6 +40,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2891fc33a1c76da4",
+  "fuente_hash": "714a18c96cf4898c",
   "origen": "chatgpt-web"
 }

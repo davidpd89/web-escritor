@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La chica del lago (Best Seller | Ficción), de Mikel Santiago, se dirige a quienes buscan narrativa de misterio y thriller. Sus 688 páginas permiten abordar una lectura extensa; no encaja con quien prefiera un libro breve o un ensayo alejado de la ficción.",
+      "texto": "La chica del lago (Best Seller | Ficción), de Mikel Santiago, se dirige a lectores de misterio y thriller que buscan una novela extensa. Sus 688 páginas encajan con quienes prefieren dedicar tiempo a una misma lectura, más que con quienes buscan una historia breve o centrada en el romance.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda corresponde a la edición de bolsillo de Penguin Bolsillo, con 688 páginas; la tapa dura ofrece una encuadernación más rígida para conservarla o regalarla. Kindle permite llevar esa extensión en un dispositivo de lectura o en el móvil, mientras que el audiolibro ofrece la opción de escucharla.",
+      "texto": "La tapa blanda permite leer las 688 páginas de La chica del lago (Best Seller | Ficción) en una edición de bolsillo de Penguin Bolsillo, mientras que la tapa dura ofrece una encuadernación más rígida para conservarla o regalarla. Kindle facilita llevar la novela en un dispositivo electrónico y el audiolibro permite escucharla sin depender de la lectura en papel.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "edicion",
         "editorial",
-        "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La chica del lago (Best Seller | Ficción) comparte el terreno del misterio con Aguas turbulentas, de Rankin Ian, que sitúa su conflicto entre el pasado y el presente de Edimburgo. También puede compararse con Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves; son obras de distinta autoría dentro del ámbito del misterio.",
+      "texto": "La chica del lago (Best Seller | Ficción) puede compararse con Entre los muertos (edición limitada · Black Friday) (Trilogía de Illumbe 3) (Campaña | Black Friday): ambos títulos pertenecen a Mikel Santiago, aunque el segundo se identifica como parte de una trilogía. También comparte el terreno del thriller con 25 días hasta Navidad, de Per Jacobsen, cuya propuesta se vincula expresamente al adviento.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,8 +33,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410424524",
-        "isbn-9791370310318"
+        "isbn-9791387871079",
+        "isbn-9788427055063"
       ]
     }
   ],

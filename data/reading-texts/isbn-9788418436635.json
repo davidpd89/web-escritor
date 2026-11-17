@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788418436635",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un instante eterno: Filosofía de la longevidad: 117 (Biblioteca de Ensayo / Serie mayor) está dirigido a lectores interesados en reflexionar filosóficamente sobre la longevidad. Su planteamiento ensayístico se distancia de las guías prácticas de ejercicio, alimentación o cuidados físicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un instante eterno: Filosofía de la longevidad: 117 (Biblioteca de Ensayo / Serie mayor) cuenta con una edición en tapa blanda de 204 páginas. El papel permite detenerse en los argumentos y volver a los pasajes de interés; su extensión es más contenida que la de un tratado de varios volúmenes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un instante eterno: Filosofía de la longevidad: 117 (Biblioteca de Ensayo / Serie mayor) comparte con Aforismos para reflexionar y meditar: 109 (Fragmentos) una orientación filosófica y reflexiva. Pascal Bruckner aborda la longevidad, mientras Raimon Panikkar presenta sus reflexiones mediante aforismos, una estructura de lectura diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0db360431cb6f44a",
+  "origen": "chatgpt-web"
+}

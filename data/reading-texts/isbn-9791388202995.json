@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388202995",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Raíces y alas se dirige a quienes buscan narrativa juvenil de ambientación contemporánea. Por su clasificación juvenil, no es la elección más ajustada para quien busca una obra de divulgación o una novela de fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Raíces y alas está disponible en tapa blanda, con 148 páginas en castellano. Esta edición de Editorial Cuadranta permite llevar una lectura de extensión relativamente breve en papel, sin el volumen físico de una novela de muchas más páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Raíces y alas puede compararse con Bajo la estela de un legado por su presencia entre las lecturas narrativas del catálogo, aunque son obras de Laura Gallart Cladera y Carmen Galvañ Bernabé, respectivamente. Frente a Alya a veces me susurra en ruso 9 (Shônen - Alya), de SunSunSun, Raíces y alas se presenta como narrativa juvenil contemporánea y no como una entrega identificada numéricamente en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791043309670",
+        "isbn-9791399178555"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f0d562bf28dcd04c",
+  "origen": "chatgpt-web"
+}

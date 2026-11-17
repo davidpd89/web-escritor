@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388182365",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de ensayo interesados en la filosofía, la espiritualidad y las preguntas sobre el sentido de la vida. Amo ergo sum: Mi visión del mundo: el sentido de la vida, los estados expandidos de la consciencia y el contacto con lo trascendente (Ensayo), de Josep Maria Fericgla, no corresponde a una novela ni a una guía centrada en asuntos materiales o prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Josep Maria Fericgla plantea una visión personal del mundo articulada alrededor del amor, la consciencia y lo trascendente. La obra relaciona la búsqueda de sentido con los estados expandidos de la consciencia desde un marco de ensayo filosófico y espiritual, más que desde una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amo ergo sum: Mi visión del mundo: el sentido de la vida, los estados expandidos de la consciencia y el contacto con lo trascendente (Ensayo) está disponible en tapa blanda. Sus 264 páginas permiten una lectura en papel con una encuadernación flexible, apropiada para transportar el volumen y consultar distintos pasajes.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, comparte el interés por la reflexión espiritual, pero se presenta como una colección de aforismos. Amo ergo sum: Mi visión del mundo: el sentido de la vida, los estados expandidos de la consciencia y el contacto con lo trascendente (Ensayo), de Josep Maria Fericgla, plantea una visión personal que incorpora los estados expandidos de la consciencia.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7521737b4a55a3da",
+  "origen": "chatgpt-web"
+}

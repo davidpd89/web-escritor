@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387796433",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Top Traders: Estrategias, principios y lecciones de 25 grandes maestros de los mercados financieros, de Tomas Antonio Perez Herrera, se dirige a lectores interesados en las estrategias de inversión y los mercados financieros. Su enfoque económico lo aleja de quienes buscan una narración de ficción o una introducción general a temas ajenos a las finanzas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Top Traders: Estrategias, principios y lecciones de 25 grandes maestros de los mercados financieros tiene 2642 páginas. Esa extensión convierte la consulta por secciones y la lectura sobre una mesa en usos razonables del ejemplar físico; la cubierta flexible no elimina el volumen de papel que supone.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, comparte con Top Traders: Estrategias, principios y lecciones de 25 grandes maestros de los mercados financieros su relación con el ámbito empresarial. La diferencia está en el foco: Rory Sutherland aborda el poder de las ideas aparentemente ilógicas, mientras que Tomas Antonio Perez Herrera se concentra en estrategias y lecciones de operadores financieros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399087222"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c41d9690113df9ca",
+  "origen": "chatgpt-web"
+}

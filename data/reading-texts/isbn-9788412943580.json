@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788412943580",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Salazar: España, 1939. La República ha ganado: 1 (República de Sombras) encaja con lectores de novela histórica y aventuras interesados en una ficción que plantea una victoria republicana en España. Por su enfoque histórico y político, se aleja de las lecturas que buscan fantasía desligada de acontecimientos y escenarios históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Salazar: España, 1939. La República ha ganado: 1 (República de Sombras) reúne 298 páginas en castellano. Publicada por Los Libros del Salvaje, permite seguir la narración en papel y conservar el volumen para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Salazar: España, 1939. La República ha ganado: 1 (República de Sombras) comparte la orientación histórica con Africanus (Trilogía Africanus 1) (edición conmemorativa 20.º aniversario) (Histórica), pero sitúa su propuesta en una España de 1939 con un resultado político alternativo. También se relaciona por género con Astur (Saga de la Reconquista) (Éxitos), aunque sus títulos remiten a contextos históricos distintos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466681902",
+        "isbn-9788401039539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "065359a6099145fe",
+  "origen": "chatgpt-web"
+}

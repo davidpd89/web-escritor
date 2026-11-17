@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791259578556",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fórmula 1. Las mejores carreras. La historia oficial de las batallas más legendarias de los Grandes Premios de la F1 (NO FICCIÓN) está dirigido a quienes buscan historia de la competición automovilística. Su contenido anunciado se centra en carreras y enfrentamientos deportivos, no en una novela de ficción ni en ejercicios para resolver.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fórmula 1. Las mejores carreras. La historia oficial de las batallas más legendarias de los Grandes Premios de la F1 (NO FICCIÓN) se publica en tapa dura. Sus 256 páginas forman un volumen de consulta sobre carreras históricas, con una encuadernación rígida adecuada para conservarlo y regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Giles Richards puede compararse con 99 Sudoku (LIBROS SINGULARES), de Anónimo, por su vinculación con el ocio. La primera aborda la historia de las carreras de Fórmula 1 y sus enfrentamientos deportivos, mientras que la segunda propone pasatiempos numéricos para resolver, sin centrarse en la historia del automovilismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28099cfce894a80c",
+  "origen": "chatgpt-web"
+}

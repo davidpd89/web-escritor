@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370651640",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Préstamos entre particulares: guía fiscal para evitar errores. Paso a paso: Visión práctica de los préstamos entre particulares, desde su configuración civil hasta sus consecuencias fiscales está dirigido a quienes necesitan abordar los aspectos jurídicos y tributarios de estos préstamos. Su enfoque especializado no corresponde a quienes buscan una novela o una introducción general a las finanzas personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La guía sobre préstamos entre particulares del Departamento de Documentación Iberley se publica en tapa blanda, con 124 páginas en castellano. Este formato físico permite consultar los aspectos civiles y fiscales tratados en el libro y regresar a ellos durante la revisión de una operación entre particulares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La guía sobre préstamos entre particulares del Departamento de Documentación Iberley comparte enfoque jurídico y fiscal con Beneficios fiscales para mayores de 65 años impuesto a impuesto, aunque este último aborda ventajas tributarias asociadas a la edad. Casos prácticos sobre el despido (Supuestos prácticos), del mismo autor, se diferencia por tratar conflictos laborales en lugar de operaciones de préstamo entre particulares.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5256a22bdf6be74f",
+  "origen": "chatgpt-web"
+}

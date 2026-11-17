@@ -4,38 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los Lagos del 83: Crónica informal de la mejor Vuelta a España de la historia: 06 (Silveria) se dirige a lectores interesados en el ciclismo y las crónicas deportivas. Su enfoque en una competición concreta encaja menos con quienes buscan instrucciones para practicar deporte o una historia general de distintas disciplinas.",
+      "texto": "Los Lagos del 83: Crónica informal de la mejor Vuelta a España de la historia: 06 (Silveria) se dirige a lectores interesados en el ciclismo y en las crónicas de acontecimientos deportivos. Sus 256 páginas se centran, según el título, en una edición histórica de la Vuelta a España, por lo que se aleja de quienes buscan ficción o manuales prácticos de entrenamiento.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Los Lagos del 83: Crónica informal de la mejor Vuelta a España de la historia: 06 (Silveria) es de tapa blanda y tiene 256 páginas. Este formato permite transportar la crónica en una mochila y leerla por sesiones, sin depender de un dispositivo electrónico.",
+      "texto": "Los Lagos del 83: Crónica informal de la mejor Vuelta a España de la historia: 06 (Silveria) está disponible en tapa blanda, con 256 páginas en castellano. La edición de Hoja de Lata permite leer la crónica en papel y conservarla como volumen de consulta sobre el acontecimiento deportivo que identifica su título.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los Lagos del 83: Crónica informal de la mejor Vuelta a España de la historia: 06 (Silveria) y Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) tratan intereses vinculados al tiempo libre, pero el primero se centra en una competición ciclista y el segundo en gastronomía. Frente a 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), la diferencia es entre leer una crónica deportiva y realizar una actividad de coloreado.",
+      "texto": "Los Lagos del 83: Crónica informal de la mejor Vuelta a España de la historia: 06 (Silveria) y 99 Sudoku (LIBROS SINGULARES) se relacionan con el ocio, aunque proponen lecturas diferentes. Rafael Quirós Madariaga firma una crónica sobre una competición ciclista, mientras que el título de Anónimo se centra en pasatiempos numéricos. El primero aborda un acontecimiento deportivo y el segundo plantea una actividad práctica.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328384",
-        "isbn-9791387934293"
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c2e269136ffeabbb",
+  "fuente_hash": "668a0e926af6d95d",
   "origen": "chatgpt-web"
 }

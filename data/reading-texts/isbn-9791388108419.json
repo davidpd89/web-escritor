@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El hechizo más oscuro (Faeris Editorial) se dirige a lectores de fantasía juvenil que buscan elementos románticos y una ambientación relacionada con la magia. La obra de Wanda Hellmund combina fantasía y romance, por lo que no responde a quien prefiere narrativa realista sin componentes fantásticos.",
+      "texto": "El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, se dirige al público juvenil que busca fantasía con componentes románticos. Combina las clasificaciones de fantasía, romantasy y romance, por lo que se diferencia de una novela realista o de una historia centrada únicamente en relaciones sentimentales sin elementos fantásticos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El hechizo más oscuro (Faeris Editorial) está disponible en tapa dura, Kindle y audiolibro. Sus 552 páginas hacen de la edición física de Faeris un volumen extenso para conservar, mientras que Kindle evita cargar con ese peso y el audiolibro permite seguir la historia mediante escucha.",
+      "texto": "La tapa dura de El hechizo más oscuro (Faeris Editorial) reúne 552 páginas en una edición física de Faeris, adecuada para conservar en la biblioteca o regalar. Kindle permite leer esta novela extensa sin cargar con el volumen, mientras que el audiolibro ofrece la posibilidad de escucharla durante desplazamientos u otras actividades.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "edicion",
-        "editorial"
+        "editorial",
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El hechizo más oscuro (Faeris Editorial) puede compararse con Asistente del villano (edición especial limitada) (Faeris Editorial) por su vinculación editorial con Faeris. La obra de Wanda Hellmund se presenta como fantasía juvenil con romance, mientras que la de Hannah Nicole Maehrer se identifica por su edición especial limitada. Saciar a la bestia - libro 1 (Faeris Editorial) comparte también el sello editorial, aunque su título identifica expresamente una primera entrega.",
+      "texto": "El hechizo más oscuro (Faeris Editorial) puede compararse con Asistente del villano (edición especial limitada) (Faeris Editorial) por su vinculación con Faeris y la fantasía romántica. También se relaciona con Edición LEGACY Muerte a la oscuridad- Black Bird Academy: Black Bird Academy: 1 (Inlov Romantasy) por el componente romantasy; la diferencia identificable está en la autoría, Wanda Hellmund frente a Hannah Nicole Maehrer y Stella Tack, y en las ediciones señaladas por sus títulos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -35,12 +35,12 @@
       ],
       "enlaces": [
         "isbn-9791388108112",
-        "isbn-9791388108365"
+        "isbn-9788410399518"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5b951661f600a265",
+  "fuente_hash": "8a40fe1c8860f92a",
   "origen": "chatgpt-web"
 }

@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Isabel Matoses: La imagen recuperada (Ilustrados) se dirige a lectores interesados en publicaciones de arte y diseño centradas en una figura concreta. Su orientación artística lo diferencia de las novelas de ficción y de los libros dedicados a materias técnicas o científicas.",
+      "texto": "Isabel Matoses: La imagen recuperada (Ilustrados) se dirige a lectores interesados en publicaciones de arte y diseño. Sus 160 páginas y su edición en tapa dura lo sitúan entre los libros de esta temática, más que entre las novelas destinadas a quienes buscan una historia de ficción.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Isabel Matoses: La imagen recuperada (Ilustrados) se presenta en tapa dura, con 160 páginas y edición de Lunwerg Editores. La encuadernación rígida permite conservar el volumen como libro de consulta o incorporarlo a una colección de publicaciones sobre arte y diseño.",
+      "texto": "La edición de Isabel Matoses: La imagen recuperada (Ilustrados) es en tapa dura y reúne 160 páginas. Este formato permite conservar el volumen en una estantería y consultarlo físicamente, además de ofrecer una encuadernación rígida para quien busque regalar un libro de arte y diseño.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Isabel Matoses: La imagen recuperada (Ilustrados) puede compararse con Charlotte Perriand. La libertad de repensar el mundo por su atención a figuras concretas dentro del ámbito artístico. Ambos títulos están firmados por Varios autores, aunque cada uno se centra en una persona diferente: Isabel Matoses y Charlotte Perriand, respectivamente.",
+      "texto": "Isabel Matoses: La imagen recuperada (Ilustrados) puede compararse con Banksy: I want to be what you saw in me (MISCELANEAS) por su vinculación con el arte y por compartir la autoría de Varios autores. La diferencia visible está en el asunto anunciado por cada título: el primero se centra en Isabel Matoses y la recuperación de la imagen, mientras el segundo identifica a Banksy.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788416411993"
+        "isbn-9789509509504"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ea3158b9395d493f",
+  "fuente_hash": "614fe63e94e037d0",
   "origen": "chatgpt-web"
 }

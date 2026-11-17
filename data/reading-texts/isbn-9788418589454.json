@@ -4,38 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Historias de la guerra 4 - nuestros gansos salvajes se orienta a lectores de cómic y novela gráfica que buscan una obra relacionada con la guerra. También figura entre las lecturas juveniles, aunque no responde al formato de una novela extensa escrita únicamente en prosa.",
+      "texto": "Historias de la guerra 4 - nuestros gansos salvajes encaja con lectores de cómic y novela gráfica interesados en la narrativa juvenil. Sus 80 páginas ofrecen una extensión contenida frente a novelas juveniles más largas; su orientación no corresponde a quienes buscan un ensayo o un manual de arte.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Historias de la guerra 4 - nuestros gansos salvajes es de tapa blanda y contiene 80 páginas en castellano. Su extensión permite manejar el volumen sin el peso de una recopilación de varios centenares de páginas y conservarlo como ejemplar físico.",
+      "texto": "La tapa blanda concentra sus 80 páginas en una edición física de Aleta Ediciones, de extensión reducida frente a novelas gráficas más voluminosas. Es el formato disponible para Historias de la guerra 4 - nuestros gansos salvajes, de Garth Ennis.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Federico. Mi corazón, tu casa (Álbumes ilustrados) y Historias de la guerra 4 - nuestros gansos salvajes comparten su relación con las publicaciones visuales. El primero se presenta como álbum ilustrado de Antonio Lorente, mientras que el segundo es un cómic de Garth Ennis vinculado por su título a la guerra.",
+      "texto": "El cine doméstico. Definición, preservación y apropiación (Plural), de Efrén Cuevas Álvarez, Lourdes Esqueda Verano, Julieta Keldjian Etchessarry, Ignacio Alcalde Sánchez, Juan de Dios López López, Núria F. Rius, Pedro Nogales Cárdenas, Clara Sánchez-Dehesa Galán, Salvador Vivancos López, Itzia Fernández Escareño, Diego Olivares Jansana, comparte el interés por el ámbito audiovisual y la cultura visual. La diferencia está en el planteamiento: Historias de la guerra 4 - nuestros gansos salvajes es un cómic de Garth Ennis, mientras que el otro título aborda el cine desde una perspectiva de estudio.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788414076118"
+        "isbn-9791370384128"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dd0e690c3d65d8fd",
+  "fuente_hash": "5133516b989ea7da",
   "origen": "chatgpt-web"
 }

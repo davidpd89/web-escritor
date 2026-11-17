@@ -4,40 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La reina velada (Umbriel narrativa) se dirige a lectores que buscan fantasía con elementos de romance y aventura, dentro del ámbito de la romantasy. Sus 480 páginas ofrecen una lectura extensa y combinan géneros que pueden interesar menos a quien prefiera narrativa realista sin componentes fantásticos o sentimentales.",
+      "texto": "La reina velada (Umbriel narrativa) se sitúa en la fantasía romántica con elementos de aventura. Su combinación de romance y fantasía responde a los gustos de lectores de romantasy, mientras que quienes buscan narrativa estrictamente realista o historias sin componente sentimental encontrarán un planteamiento distinto.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La reina velada (Umbriel narrativa) se publica en tapa blanda, una opción para leer y conservar sus 480 páginas en papel. La versión Kindle permite llevar esta novela de Ashley Tropea en un dispositivo electrónico y ajustar la visualización del texto, especialmente útil para leer fuera de casa sin cargar con el volumen impreso.",
+      "texto": "La reina velada (Umbriel narrativa) cuenta con 480 páginas y puede leerse en tapa blanda o Kindle. El ejemplar físico permite conservar esta novela extensa en la estantería, mientras que Kindle facilita transportarla y continuar la lectura desde un dispositivo compatible sin llevar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "autores",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La reina velada (Umbriel narrativa), de Ashley Tropea, puede compararse con Divinos y miserables (Umbriel narrativa), de Adalyn Grace, por compartir la misma denominación editorial y contar con autoras distintas. También se relaciona con El rey de los lobos / The Wolf King: 1, de Lauren Palphreyman, dentro de las lecturas afines de fantasía y romance. Este último título identifica expresamente una entrega numerada, mientras que La reina velada no incorpora numeración en su título.",
+      "texto": "La reina velada (Umbriel narrativa), de Ashley Tropea, puede compararse con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, por su relación con la fantasía. El libro de Marta Morillo presenta a una protagonista que oculta sus dones, mientras que La reina velada (Umbriel narrativa) se clasifica también como romance y aventura. Divinos y miserables (Umbriel narrativa), de Adalyn Grace, comparte con la obra de Ashley Tropea el sello editorial Umbriel.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "editorial"
       ],
       "enlaces": [
-        "isbn-9786316947055",
-        "isbn-9786073874762"
+        "isbn-9791387949938",
+        "isbn-9786316947055"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ec4352a2efd408ca",
+  "fuente_hash": "309886d4fa051149",
   "origen": "chatgpt-web"
 }

@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Divinos y miserables (Umbriel narrativa), de Adalyn Grace, se dirige a quienes buscan fantasía con romance y aventuras. También reúne elementos de ciencia ficción; encaja menos con lectores que prefieren historias realistas sin componentes fantásticos.",
+      "texto": "Divinos y miserables (Umbriel narrativa), de Adalyn Grace, se orienta a lectores de fantasía que buscan romance y aventuras dentro de una misma obra. Con 576 páginas, plantea una lectura extensa y encaja menos con quienes prefieran novelas breves o historias sin componentes fantásticos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Divinos y miserables (Umbriel narrativa) reúne 576 páginas en un volumen físico que puede conservarse o regalarse. La edición Kindle permite llevar esa lectura en un dispositivo digital, sin transportar el libro impreso.",
+      "texto": "Divinos y miserables (Umbriel narrativa) se ofrece en tapa blanda y Kindle. La edición impresa reúne sus 576 páginas en un volumen físico de cubierta flexible; Kindle permite llevar esa misma extensión en formato digital, sin cargar con el libro en papel.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -22,7 +23,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Holly: El esperado spin-off de Belladonna (Umbriel narrativa) comparte con Divinos y miserables (Umbriel narrativa) la autoría de Adalyn Grace. La diferencia visible está en el enfoque de los títulos: Holly se presenta como una obra derivada de Belladonna, mientras que Divinos y miserables se identifica por su combinación de fantasía, romance y aventuras.",
+      "texto": "Divinos y miserables (Umbriel narrativa) puede compararse con Holly: El esperado spin-off de Belladonna (Umbriel narrativa), también de Adalyn Grace, por su autoría compartida. Otra referencia es Alas de escarcha y oro: El canto del cisne, de Marta Morillo, cuyo planteamiento menciona dones ocultos y debilidades personales. Divinos y miserables (Umbriel narrativa) combina fantasía, romance y aventuras.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387749392"
+        "isbn-9791387749392",
+        "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e42d05f99ec82a27",
+  "fuente_hash": "23e221d9abed1b83",
   "origen": "chatgpt-web"
 }

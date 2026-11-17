@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788467980028",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "*** the legend OF zelda perfect edition Box (Sin derecho a devolu se dirige a lectores de cómic y novela gráfica interesados en obras de Akira Himekawa. Su edición en castellano y tapa blanda responde a la lectura de narrativa gráfica en papel, no a quien busca una novela de texto convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kamudo 01: 1 comparte con *** the legend OF zelda perfect edition Box (Sin derecho a devolu la autoría de Akira Himekawa. La diferencia identificable está en las obras: una lleva Kamudo en el título y la otra se presenta como una edición Perfect Edition en caja; la coincidencia de autor permite compararlas sin atribuirles argumentos semejantes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467984903"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3e2e907f43cbbca",
+  "origen": "chatgpt-web"
+}

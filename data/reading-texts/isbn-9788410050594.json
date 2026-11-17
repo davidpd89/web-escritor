@@ -4,39 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "LUNA 3 - La luna roja (Montena), de Marina Aguirre, se dirige a lectores de fantasía con interés por el terror y la amistad. Sus 176 páginas ofrecen una extensión breve, aunque la presencia del terror puede alejar a quienes buscan historias sin elementos inquietantes.",
+      "texto": "Encaja con lectores que buscan ficción de fantasía con elementos de terror y prefieren una extensión de 176 páginas. No responde a la búsqueda de una novela centrada exclusivamente en el realismo o alejada de lo sobrenatural.",
       "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "LUNA 3 - La luna roja (Montena) puede leerse en tapa blanda o Kindle. La edición física reúne 176 páginas y permite conservar el volumen en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro.",
+      "texto": "La tapa blanda permite leer sus 176 páginas en una edición física de Montena, que también puede conservarse o regalarse. Kindle ofrece el mismo título en formato digital para leerlo en un dispositivo compatible, sin llevar el ejemplar impreso.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "LUNA 3 - La luna roja (Montena) comparte el ámbito de la fantasía con El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas), de Begoña Oro. La diferencia está en el enfoque: el título de Marina Aguirre incorpora terror y amistad, mientras el de Begoña Oro se presenta como una lectura inicial ambientada en un jardín mágico.",
+      "texto": "A la luz de la oscuridad (La pequeña Salamandra) comparte con este libro su presencia entre las lecturas de ficción afines, aunque está firmado por Aitor Saraiba y no por Marina Aguirre. Atlas de Lovecraft (Minotauro Ilustrados), de Alain T. Puysségur, plantea otra elección: un atlas ilustrado frente a un título de fantasía y terror de 176 páginas.",
       "evidencias": [
-        "titulo",
+        "afines_catalogo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "numero_paginas"
       ],
       "enlaces": [
-        "isbn-9788448873851"
+        "isbn-9791387906023",
+        "isbn-9788445022863"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "668fb96f082b50e2",
+  "fuente_hash": "e66ddcbddb74641c",
   "origen": "chatgpt-web"
 }

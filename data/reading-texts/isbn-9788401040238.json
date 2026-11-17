@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788401040238",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una casa para mi madre: De emigrar en patera a convertirse en supermodelo: La historia real de un sueño imposible (Obras diversas) se orienta a quienes buscan testimonios personales sobre emigración, trayectoria profesional y superación de dificultades. Su planteamiento autobiográfico y su vinculación con el desarrollo personal lo alejan de los manuales técnicos de nutrición o de las novelas de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Plaza & Janés contiene 288 páginas en castellano y permite leer esta historia real en un volumen físico. Su extensión deja espacio para seguir una trayectoria que, según el título, abarca desde la emigración en patera hasta el trabajo como supermodelo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una casa para mi madre: De emigrar en patera a convertirse en supermodelo: La historia real de un sueño imposible (Obras diversas) comparte con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta el interés por las experiencias y los desafíos personales. La diferencia está en el enfoque: Cheikh Kane y María Albarral presentan una historia real de emigración y trayectoria profesional, mientras que Anca Martínez aborda cuestiones de la vida adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938490"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21b08e2fe95dc996",
+  "origen": "chatgpt-web"
+}

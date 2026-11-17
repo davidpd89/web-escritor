@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370079314",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sonia Rykiel | Colección Leyendas de la Moda | libro LXI está dirigido a lectores interesados en la moda, el diseño y sus figuras representativas. Sus 128 páginas y su pertenencia a una colección temática lo distinguen de los manuales generales de arte y de las novelas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sonia Rykiel | Colección Leyendas de la Moda | libro LXI se presenta en tapa dura, con 128 páginas en castellano. Es una edición física que puede guardarse junto a otros volúmenes de la colección y consultarse sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sonia Rykiel | Colección Leyendas de la Moda | libro LXI puede compararse con Donna Karan | Colección Leyendas de la Moda | Libro LX y Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII. Los tres pertenecen a la misma colección y comparten autoría editorial, pero cada volumen está dedicado a una figura distinta de la moda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079321",
+        "isbn-9791370077914"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0aab5daf517cfbd0",
+  "origen": "chatgpt-web"
+}

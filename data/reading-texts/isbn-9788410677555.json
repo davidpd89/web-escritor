@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788410677555",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ciencia, tecnología y política en la era de la posnormalidad: Una mirada filosófica: 578 (Investigación y Debate) se orienta a lectores de ensayo interesados en las relaciones entre conocimiento científico, desarrollo tecnológico y decisiones políticas. Su perspectiva filosófica se distancia de los manuales técnicos y de las introducciones generales a una sola disciplina científica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Eva Álvarez Martino y Marta I. González García sitúan la ciencia, la tecnología y la política en el contexto de la posnormalidad. El enfoque filosófico anunciado en el título propone examinar conjuntamente esos ámbitos, dentro de una obra clasificada como ensayo y divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Ciencia, tecnología y política en la era de la posnormalidad: Una mirada filosófica: 578 (Investigación y Debate) tiene 430 páginas en tapa blanda. Su extensión permite una lectura prolongada y la consulta por partes de las cuestiones filosóficas, científicas y políticas que aborda.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciencia, tecnología y política en la era de la posnormalidad: Una mirada filosófica: 578 (Investigación y Debate) y Colonialismo digital: Por una crítica hacker-fanoniana relacionan tecnología y pensamiento crítico, aunque el segundo delimita su asunto al colonialismo digital. Frente a Filosofía: Curso de bolsillo: Domina los conceptos clave de forma clara y sencilla (Guía práctica), concebido como introducción a conceptos filosóficos, el primero concentra su análisis en ciencia, tecnología y política.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399306408",
+        "isbn-9780241856574"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1f1edf2295cb4d90",
+  "origen": "chatgpt-web"
+}

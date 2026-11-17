@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788409948109",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sostener el silencio (Trilogía del silencio) encaja con lectores de narrativa contemporánea que prefieren obras breves en castellano. Sus 159 páginas lo alejan de las novelas extensas, mientras que la referencia a una trilogía en el título puede interesar a quienes buscan libros relacionados entre sí.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sostener el silencio (Trilogía del silencio) cuenta con una edición en tapa blanda de 159 páginas, publicada por Ediciones Zalba. Es un volumen físico breve, fácil de transportar y guardar, que permite conservar en papel esta entrega identificada por su título con una trilogía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b048de935caf7807",
+  "origen": "chatgpt-web"
+}

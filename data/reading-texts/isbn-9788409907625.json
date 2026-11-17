@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788409907625",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de ensayo y filosofía interesados en cómo la búsqueda de comodidad puede influir en las decisiones personales y la libertad. Sus 142 páginas ofrecen una extensión contenida; resulta menos afín a quien busca una narración de ficción o una biografía histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La relación entre comodidad y libertad es la cuestión central del libro. J. L. Vanaclocha plantea desde el ensayo filosófico cómo la búsqueda de bienestar cotidiano puede condicionar la manera de vivir y el margen de decisión personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se publica en tapa blanda, con 142 páginas en castellano. La extensión facilita leer el ensayo en papel en varias sesiones y volver a los pasajes dedicados a la comodidad y la libertad sin manejar un volumen extenso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, el interés por la reflexión filosófica. La dictadura de la comodidad: Cómo la búsqueda de comodidad moldea nuestras vidas y condiciona nuestra libertad desarrolla una cuestión concreta sobre hábitos y libertad, mientras que Aforismos para reflexionar y meditar: 109 (Fragmentos) se presenta mediante aforismos orientados a la reflexión y la meditación.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6eae8f847128e469",
+  "origen": "chatgpt-web"
+}

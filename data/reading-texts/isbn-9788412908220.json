@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788412908220",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la evolución política de Colombia y la América hispana desde una perspectiva comparativa. Su enfoque sobre tradición y modernidad política lo aleja de la narrativa de ficción y de las lecturas centradas exclusivamente en la actualidad inmediata.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "De la tradición a la modernidad política en Colombia y la América hispana: Un estudio comparativo se presenta en tapa blanda, con 324 páginas en castellano. Esta edición física permite consultar distintos apartados del estudio y volver a ellos durante una lectura centrada en la comparación política.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con Crónicas de la amnistía: De la conciencia republicana de España, de Pedro Manuel González López, el interés por las cuestiones políticas, aunque el estudio de Fabián Moreno Sánchez se centra en Colombia y la América hispana. Frente a A la sombra del Estado, de Luis de la Corte Ibáñez, que aborda el espionaje y el poder clandestino, plantea una comparación entre tradición y modernidad política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9788494545894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c6ae1344ae3322ef",
+  "origen": "chatgpt-web"
+}

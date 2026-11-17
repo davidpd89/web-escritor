@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410944190",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de Karina Zegers de Beijl se dirige a personas interesadas en comprender la alta sensibilidad y gestionar sus efectos en la vida cotidiana. Trata las relaciones personales, el trabajo y la convivencia con los hijos, por lo que responde a necesidades de desarrollo personal y no a la búsqueda de una novela de ficción.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de Karina Zegers de Beijl está disponible en tapa blanda, con 328 páginas en castellano. Esta edición permite consultar en papel los contenidos relacionados con la alta sensibilidad, las relaciones personales, el entorno laboral y la crianza, además de volver a los apartados que interesen durante la lectura.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Karina Zegers de Beijl puede compararse con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta, de Anca Martínez. Ambas pertenecen al ámbito del desarrollo personal, pero Karina Zegers de Beijl aborda específicamente la alta sensibilidad en las relaciones, el trabajo y la crianza, mientras que Anca Martínez trata cuestiones generales de la vida adulta.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938490"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b76469f8714dc802",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Viviendas de Vizcaya 1949-1991: Historia de una promotora de vivienda creada por la Diputación de Bizkaia está dirigido a lectores interesados en la historia de la vivienda y el diseño. Su enfoque se sitúa en el ámbito del arte y el diseño, por lo que no responde a quien busca una novela o un relato de ficción.",
+      "texto": "Viviendas de Vizcaya 1949-1991: Historia de una promotora de vivienda creada por la Diputación de Bizkaia está dirigido a lectores interesados en la historia de la vivienda y su relación con las instituciones públicas. El libro de Gorka Pérez de la Peña se centra en una promotora y un periodo delimitados, no en una panorámica general del arte o el diseño.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,29 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 188 páginas en un volumen físico manejable para consultar y conservar. Es el único formato disponible para esta edición de Viviendas de Vizcaya 1949-1991: Historia de una promotora de vivienda creada por la Diputación de Bizkaia.",
+      "texto": "La edición en tapa blanda reúne las 188 páginas de Viviendas de Vizcaya 1949-1991: Historia de una promotora de vivienda creada por la Diputación de Bizkaia. El volumen permite consultar en papel la historia de la promotora y regresar a los pasajes dedicados al periodo comprendido entre 1949 y 1991.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "formato_edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Viviendas de Vizcaya 1949-1991: Historia de una promotora de vivienda creada por la Diputación de Bizkaia puede compararse con Arde Talía: Una pieza teatral sobre el infierno de la creación artística por su relación con la historia y la actividad cultural. Gorka Pérez de la Peña estudia una promotora de vivienda vinculada a la Diputación de Bizkaia, mientras que Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano firman una pieza teatral centrada en la creación artística.",
+      "texto": "Viviendas de Vizcaya 1949-1991: Historia de una promotora de vivienda creada por la Diputación de Bizkaia y 720 retrats se relacionan con el ámbito del arte y el diseño, aunque sus títulos anuncian objetos de estudio diferentes. Gorka Pérez de la Peña aborda la historia de una promotora de vivienda, mientras que Xavier Mollà i Revert presenta una obra centrada en retratos.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399289510"
+        "isbn-9788412678802"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "616a7ce1fe5698a1",
+  "fuente_hash": "daa2888128a8c0f1",
   "origen": "chatgpt-web"
 }

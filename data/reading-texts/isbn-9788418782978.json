@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788418782978",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Traslación: 44 (Libros inútiles) se dirige a lectores interesados en la poesía y en publicaciones literarias de extensión breve. Sus 60 páginas lo diferencian de las novelas largas de aventuras o fantasía, tanto por su clasificación poética como por el tamaño del volumen.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Traslación: 44 (Libros inútiles) está editado en tapa blanda y reúne 60 páginas en castellano. Es un volumen corto para llevar en papel, consultar pasajes y guardar en una colección de poesía sin ocupar el espacio de una obra extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Heridas: 45 (Libros inútiles) comparte con Traslación: 44 (Libros inútiles) la denominación Libros inútiles, aunque sus títulos indican números distintos. Traslación: 44 (Libros inútiles) está firmado por Mariano Peyrou y Heridas: 45 (Libros inútiles), por Regina Fiz Santos. La muerte de Penélope (Poesía), de Carolina Corvillo, ofrece otra comparación por su identificación explícita con la poesía, sin compartir esa denominación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418782954",
+        "isbn-9791387838928"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fcee9b5747db6d74",
+  "origen": "chatgpt-web"
+}

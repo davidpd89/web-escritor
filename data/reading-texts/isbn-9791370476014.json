@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370476014",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Educar la mirada ante lo sagrado: Historia, arte y experiencia en torno a la Catedral de Murcia está dirigido a lectores interesados en la historia, el arte y el patrimonio religioso. Su enfoque en un edificio concreto lo diferencia de los panoramas generales de historia del arte y de las guías de ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Educar la mirada ante lo sagrado: Historia, arte y experiencia en torno a la Catedral de Murcia se publica en tapa blanda y tiene 185 páginas. La edición en papel permite consultar el estudio sobre historia y arte sin manejar un volumen de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Educar la mirada ante lo sagrado: Historia, arte y experiencia en torno a la Catedral de Murcia comparte el interés por la historia del arte con Art for All: Arquitectura californiana, aunque Pedro García Casas estudia el patrimonio religioso y la obra comparada se ocupa de la arquitectura. También se relaciona con Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION), de Maria Stavrinaki, por su perspectiva histórica, pero difiere en el objeto de estudio: una catedral frente a las relaciones entre el arte prehistórico y los tiempos modernos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9783754401477",
+        "isbn-9783754401514",
+        "isbn-9791399236422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "528cb200efc96c72",
+  "origen": "chatgpt-web"
+}

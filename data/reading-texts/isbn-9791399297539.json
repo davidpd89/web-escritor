@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399297539",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo que queda de la realidad se dirige a lectores de narrativa contemporánea que buscan una obra de extensión amplia. Sus 412 páginas encajan con quien prefiere dedicar varias sesiones a una misma lectura, pero no con quien busca un relato breve o un ensayo. Rosa Gonzálbez firma esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lo que queda de la realidad está editado en tapa blanda por Ápeiron Ediciones. Sus 412 páginas conforman un libro físico de extensión considerable, pensado para quien prefiere pasar páginas y conservar la obra en papel. La encuadernación flexible permite manejarlo sin la rigidez de unas cubiertas duras.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2d565a8338b0a66",
+  "origen": "chatgpt-web"
+}

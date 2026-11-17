@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ecografía en cirugia reconstructiva y microcirugía: Manual práctico para incorporar y perfeccionar el uso de la ecografía en la práctica quirúrgica se orienta a lectores con interés profesional o formativo en estas técnicas médicas. Su planteamiento como manual de aplicación quirúrgica se distingue de la divulgación sanitaria general dirigida a pacientes.",
+      "texto": "Está dirigido a lectores vinculados con la cirugía reconstructiva y la microcirugía que buscan incorporar o perfeccionar el uso de la ecografía. Su orientación hacia procedimientos quirúrgicos concretos lo distancia de una introducción general a la medicina o de una lectura científica sin especialización.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,36 +12,30 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La obra trata la incorporación de la ecografía a la cirugía reconstructiva y la microcirugía, así como el perfeccionamiento de su uso durante la práctica quirúrgica. Paloma Malagón López presenta estos asuntos desde un enfoque de manual práctico, centrado en una herramienta de aplicación médica.",
+      "texto": "Aborda la aplicación de la ecografía en cirugía reconstructiva y microcirugía. El enfoque es práctico y está orientado tanto a introducir esta herramienta en la actividad quirúrgica como a mejorar su utilización dentro de esas especialidades.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición de PM Medical Academy se publica en tapa dura y contiene 284 páginas en castellano. Este soporte permite conservar el manual como volumen físico de consulta y volver a sus contenidos sobre ecografía aplicada a procedimientos quirúrgicos.",
-      "evidencias": [
-        "editorial",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "titulo"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de PM Medical Academy está disponible en tapa dura y contiene 284 páginas. Este formato permite conservar el manual como volumen físico de consulta, con una encuadernación rígida adecuada para su uso repetido.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "ADG_A_0649_01. Mantenimiento básico de equipos, aplicaciones y red. ADG_C_004_5B comparte con este manual la orientación técnica y aplicada, aunque se ocupa de equipos informáticos y redes en lugar de ecografía quirúrgica. 50 cosas que hay que saber sobre IA también aborda conocimientos tecnológicos, pero desde la inteligencia artificial, mientras que la obra de Paloma Malagón López se concentra en la práctica médica.",
+      "texto": "Puede compararse con Abonado y fertilización en agricultura ecológica-AGAU001PO, de Elsa Rubio Duce, por su orientación hacia conocimientos aplicados a una actividad especializada. La diferencia está en el campo de trabajo: este manual se centra en la ecografía quirúrgica, mientras que el otro trata la fertilización agrícola.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441309",
-        "isbn-9791370274542"
+        "isbn-9791388586422"
       ]
     }
   ],

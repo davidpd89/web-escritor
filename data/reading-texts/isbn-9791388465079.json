@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791388465079",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia de las armas y en los métodos de aprendizaje y examen de la práctica armamentística. Su orientación hacia el examen de maestro y las formas de conocimiento asociadas a las armas lo distancia de los ensayos históricos centrados en acontecimientos políticos o biografías.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra trata un método para superar el examen de maestro en la práctica de las armas y comprender cien conclusiones o formas de conocimiento. Su planteamiento vincula la enseñanza de esta práctica con una estructura de examen y con la exposición de principios, dentro de un marco relacionado con la historia y el ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Agea Editora se presenta en tapa blanda y tiene 135 páginas. Este formato físico permite consultar el método y sus conclusiones por separado, además de incorporar el volumen a una colección de obras sobre historia y práctica de las armas.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El príncipe espía: Cosimo III en la España de la Regencia (Ariel), de Lorenzo De Medici, comparte el interés histórico, aunque se ocupa de una figura y un periodo político, frente al método de examen en la práctica de las armas de Luis Pacheco de Narváez. Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros), de Katy Hessel, también propone conocimientos aplicables a una actividad, pero desde la creatividad artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388324239",
+        "isbn-9788434441149"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f6435de254429da7",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9789878272603",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La teoria del bosque oscuro de internet, de Bogna Konior, se dirige a lectores de ensayo interesados en cuestiones relacionadas con internet. Sus 120 páginas ofrecen una extensión breve dentro de la no ficción; no está orientado a quienes buscan una novela de ficción o una historia protagonizada por personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La teoria del bosque oscuro de internet tiene una edición en tapa blanda de 120 páginas, publicada por Caja Negra. Su extensión facilita llevar el ensayo en papel y retomarlo para consultar pasajes concretos, sin necesidad de una pantalla. El texto está editado en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b49ad3b105ea39b3",
+  "origen": "chatgpt-web"
+}

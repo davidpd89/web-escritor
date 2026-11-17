@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788467979626",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "TV anime guardianes de la noche official character book 02: 2 se dirige a lectores interesados en un libro de personajes vinculado a una serie de anime. El título lo identifica como el n.º 2; por su planteamiento de libro de personajes, no es la misma elección que una narración convencional de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de TV anime guardianes de la noche official character book 02: 2 contiene 56 páginas en castellano. Su extensión permite manejarlo como un volumen breve y guardarlo con otros libros de la colección; Norma Editorial firma esta edición física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0bf851bdd036ad2",
+  "origen": "chatgpt-web"
+}

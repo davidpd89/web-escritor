@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche Magic Animals. Misiones especiales 1 y 2 está dirigido al público infantil interesado en aventuras, fantasía y animales. Su combinación de misiones y elementos fantásticos encaja menos con quienes buscan relatos realistas o libros centrados exclusivamente en conocimientos sobre la naturaleza.",
+      "texto": "Estuche Magic Animals. Misiones especiales 1 y 2 se dirige al público infantil y juvenil que busca aventuras protagonizadas por personajes de un mismo universo narrativo. Su propuesta encaja menos con quien prefiere relatos independientes de otras series o lecturas ajenas a la aventura fantástica.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Estuche Magic Animals. Misiones especiales 1 y 2 reúne las misiones identificadas en el título para leerlas dentro de una misma colección. Puede utilizarse para seguir ambas aventuras por orden y retomar la lectura entre sesiones, con un total de 384 páginas en castellano.",
+      "texto": "Estuche Magic Animals. Misiones especiales 1 y 2 reúne entregas de aventuras infantiles que pueden leerse de forma sucesiva. El título identifica las misiones especiales 1 y 2, por lo que permite seguir ambas entregas dentro de una misma propuesta de lectura, en lugar de utilizarse como un juego de reglas o tablero.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "idioma",
-        "sinopsis_editorial"
+        "categorias",
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El estuche se comercializa en tapa dura, con una edición descrita como libro de cartón por Destino Infantil & Juvenil. Sus 384 páginas lo convierten en un conjunto físico para leer y conservar, con las dos misiones identificadas en el título reunidas en una misma presentación.",
+      "texto": "Estuche Magic Animals. Misiones especiales 1 y 2 está disponible en tapa dura, con una edición descrita como libro de cartón por Destino Infantil & Juvenil. Sus 384 páginas corresponden al estuche y ofrecen una opción física para conservar juntas las entregas o regalarlas.",
       "evidencias": [
         "titulo",
         "edicion",
@@ -34,7 +33,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Magic Animals. Misiones especiales 2. El templo escondido comparte con el estuche el universo de Magic Animals y parte de su autoría, pero se centra en una misión concreta. Brigada Felina 2 - El secreto de Zarpafilada, también de Susanna Isern, ofrece otra referencia de aventuras infantiles, mientras que el estuche reúne dos misiones.",
+      "texto": "Brigada Felina 2 - El secreto de Zarpafilada comparte con Estuche Magic Animals. Misiones especiales 1 y 2 el género de aventuras infantiles y la autoría de Susanna Isern. La diferencia está en las series: el estuche reúne dos misiones especiales de Magic Animals, mientras Brigada Felina presenta otra propuesta de aventuras de la misma autora.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,13 +41,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448873639",
-        "isbn-9788408326427"
+        "isbn-9788448873639"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e90a6c5d3b28f4c4",
+  "fuente_hash": "ee3eefa21dfab71d",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388391378",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El legado de Ilión se dirige a lectores de narrativa juvenil interesados en la ciencia ficción. Con 624 páginas, responde a la búsqueda de una lectura larga dentro de ese género, pero se aparta de quienes prefieren relatos breves o narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de El legado de Ilión contiene 624 páginas en castellano, por lo que ofrece una lectura extensa en un solo volumen. Para leer en casa o mantener el ejemplar en una colección física resulta práctica; para transportarlo a diario conviene tener presente su longitud.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El legado de Ilión puede compararse con Esperanza (Bilogía Sociedades), de Nika Casado, dentro de una selección orientada a lectores de ciencia ficción juvenil. El primero es una obra de Michi Villalba Grao con 624 páginas; el segundo se identifica expresamente como parte de una bilogía y pertenece a otra autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409934836"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4fd7f2e4f8c18219",
+  "origen": "chatgpt-web"
+}

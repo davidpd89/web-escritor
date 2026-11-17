@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388154126",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gran Guía Visual de la Psicología / A Comprehensive Visual Guide to Psychology se dirige a lectores interesados en la psicología y en obras de consulta con planteamiento visual. Su orientación general la distingue de los libros centrados en una experiencia emocional concreta o en técnicas para superar un problema personal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Gran Guía Visual de la Psicología / A Comprehensive Visual Guide to Psychology contiene 304 páginas en castellano. El formato impreso permite recorrer sus contenidos visuales, consultar diferentes apartados y regresar a páginas concretas durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gran Guía Visual de la Psicología / A Comprehensive Visual Guide to Psychology comparte el interés por la psicología con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso. La primera plantea una visión amplia y visual de la disciplina; la segunda delimita su tema a la infancia y sus posibles heridas emocionales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "732d08ace1cd8393",
+  "origen": "chatgpt-web"
+}

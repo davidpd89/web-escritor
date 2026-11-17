@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399252316",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Romeo y Julieta: 3 (Shakespeare en el Mediterráneo), de William Shakespeare, se dirige a lectores interesados en los clásicos teatrales y en las ediciones vinculadas al arte. Sus 196 páginas permiten abordar la obra en un volumen relativamente breve. No responde a la búsqueda de una novela contemporánea ni de un manual práctico de diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción en papel de Romeo y Julieta: 3 (Shakespeare en el Mediterráneo) es la tapa blanda. Sus 196 páginas forman un volumen manejable para llevar en una mochila, consultar durante el estudio o guardar junto a otras obras de William Shakespeare. Ediciones del Oriente y del Mediterráneo publica esta versión en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ricardo II: 1 (Clásica) comparte con Romeo y Julieta: 3 (Shakespeare en el Mediterráneo) la autoría de William Shakespeare y su presentación dentro de una colección identificada en el título. La diferencia visible está en las colecciones: Clásica frente a Shakespeare en el Mediterráneo. Ahorcados, de Miguel Ávila Cabezas, ofrece otra autoría dentro del ámbito artístico, sin esa vinculación con Shakespeare.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788467023909",
+        "isbn-9791399276725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "44aaddb938501c12",
+  "origen": "chatgpt-web"
+}

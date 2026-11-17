@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788408328308",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El día menos pensado (Autores Españoles e Iberoamericanos), de Mónica Carrillo, está dirigido a lectores que buscan narrativa contemporánea en castellano. Sus 224 páginas lo sitúan entre las lecturas de extensión moderada; no está planteado editorialmente como un manual práctico ni como un ensayo divulgativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El día menos pensado (Autores Españoles e Iberoamericanos) puede leerse en tapa dura o en Kindle. La edición física de Editorial Planeta reúne 224 páginas y ofrece una encuadernación rígida para conservar o regalar; Kindle permite llevar el texto en formato digital sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "91a918252f754bf5",
+  "origen": "chatgpt-web"
+}

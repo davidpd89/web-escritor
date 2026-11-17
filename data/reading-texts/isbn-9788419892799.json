@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El destape gay está dirigido a lectores de historia contemporánea interesados en la diversidad sexual, el cine y los cambios culturales de la Transición. Su investigación sobre censura, homosexualidad y representación cinematográfica responde a una búsqueda histórica, no a quien espere una narración de ficción.",
+      "texto": "El destape gay se dirige a lectores interesados en la historia de la Transición española, el cine y la representación de la homosexualidad. Su análisis histórico y documental se aleja de una biografía convencional o de una narración de ficción sobre aquella época.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,36 +13,35 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Geoffroy Huard estudia cómo alcanzó difusión comercial el cine de temática gay en una sociedad que todavía respaldaba mayoritariamente la penalización de la homosexualidad. Examina el trabajo de Eloy de la Iglesia y Los placeres ocultos mediante documentación de censura, periódicos de la época y entrevistas, relacionando el éxito cinematográfico con los cambios en la representación sexual.",
+      "texto": "Estudia el destape masculino y gay durante la Transición, cuando la homosexualidad seguía encontrando una fuerte oposición social. Geoffroy Huard analiza el cine de Eloy de la Iglesia, especialmente Los placeres ocultos, mediante documentación de censura, publicaciones periodísticas y entrevistas para explicar la relación entre éxito comercial y libertad de representación.",
       "evidencias": [
+        "titulo",
         "autores",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El destape gay cuenta con una edición en tapa blanda de 228 páginas, publicada en castellano por Marcial Pons Ediciones de Historia. El volumen físico permite consultar y releer los apartados de esta investigación histórica sin utilizar pantalla, además de incorporarlo a una biblioteca de estudios sobre cine y sociedad.",
+      "texto": "El destape gay está editado en tapa blanda y tiene 228 páginas. Este volumen físico permite consultar el análisis histórico y regresar a los pasajes dedicados a las películas, la censura y la recepción social del cine.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, comparte con El destape gay el interés por investigar figuras y episodios del pasado. La diferencia está en el objeto de estudio: el primero aborda una investigación sobre la vida y muerte de Federico García Lorca, mientras Geoffroy Huard analiza el cine gay durante la Transición y sus condiciones sociales.",
+      "texto": "76, de Felipe Pigna, y 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, son otras lecturas de temática histórica. El destape gay se diferencia por estudiar la representación de la homosexualidad en el cine de la Transición española, mientras que 53 días aborda la caída de una democracia y 76 identifica otro asunto histórico mediante su título.",
       "evidencias": [
         "titulo",
-        "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788418567933"
+        "isbn-9788411005517",
+        "isbn-9788408329695"
       ]
     }
   ],

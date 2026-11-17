@@ -4,38 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a lectores interesados en la trayectoria política de Podemos y en los límites de su capacidad de actuación. Su enfoque de historia colectiva y ciencias sociales encaja menos con quienes buscan una novela de ficción o un manual de participación política.",
+      "texto": "Se dirige a lectores interesados en la trayectoria de Podemos y en el análisis del poder político. Podemos: Una historia colectiva: Por qué se pudo tanto y por qué no se pudo todo: 0 (Ciencias sociales), de Guillermo Fernandez-Vázquez, trata una experiencia política colectiva; no responde a la búsqueda de una novela de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece un volumen físico de 376 páginas para seguir el recorrido político de Podemos. Esta presentación permite repartir la lectura en varias sesiones y volver a consultar los apartados relacionados con su trayectoria y sus límites de actuación.",
+      "texto": "Podemos: Una historia colectiva: Por qué se pudo tanto y por qué no se pudo todo: 0 (Ciencias sociales) se presenta en tapa blanda, con 376 páginas en castellano. Este formato permite consultar el texto en papel y volver a pasajes concretos durante la lectura de su análisis político.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "titulo"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Puede compararse con A la sombra del Estado, de Luis de la Corte Ibáñez, porque ambos se ocupan del poder político, aunque este último aborda el espionaje, la desinformación y las operaciones encubiertas. Frente a Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, Guillermo Fernandez-Vázquez centra su libro en la historia colectiva de Podemos, no en las raíces de una corriente de pensamiento.",
+      "texto": "Brainwashing: Populismo en la era del like comparte el ámbito de la política, pero sitúa el populismo y las dinámicas digitales en primer plano. Crónicas de la amnistía: De la conciencia republicana de España aborda otra cuestión política española; Podemos: Una historia colectiva: Por qué se pudo tanto y por qué no se pudo todo: 0 (Ciencias sociales) se concentra en la trayectoria de Podemos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441057",
-        "isbn-9791388182457"
+        "isbn-9791399271379",
+        "isbn-9788494545894"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f668f05a2362a3c8",
+  "fuente_hash": "cdb12f0d5f32af89",
   "origen": "chatgpt-web"
 }

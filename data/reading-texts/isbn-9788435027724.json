@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788435027724",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Judíos versus Roma (Ensayo Histórico), de Barry Strauss, se dirige a lectores interesados en la historia y en las relaciones entre pueblos y poderes del pasado. Su enfoque de ensayo histórico encaja menos con quienes buscan una novela de ficción o una narración romántica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Judíos versus Roma (Ensayo Histórico) tiene una edición en tapa dura de 432 páginas, publicada en castellano por Editora y Distribuidora Hispano Americana, S.a. El volumen físico permite consultar y releer el ensayo, además de conservarlo como libro de historia en la biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Judíos versus Roma (Ensayo Histórico) y Amor y sexo en España contado para escépticos (Historia) comparten su interés por la historia, pero el primero delimita su asunto mediante el enfrentamiento entre judíos y Roma y el segundo se centra en el amor y el sexo en España. A sangre y fuego (Clásicos ilustrados), de Manuel Chaves Nogales, ofrece otra referencia de temática histórica, diferenciada por su presentación como clásico ilustrado frente al ensayo de Barry Strauss.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752590",
+        "isbn-9788408326441"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f3f2ffc6c6375c1",
+  "origen": "chatgpt-web"
+}

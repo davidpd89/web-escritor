@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388119125",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El asesino en serie y el medico forense, de FRONTELA, se dirige a lectores interesados en divulgación científica y en la relación entre los asesinos en serie y la medicina forense que plantea su título. Su clasificación científica lo diferencia de las novelas policíacas buscadas principalmente como ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El asesino en serie y el medico forense está editado en tapa blanda por Marban y tiene 212 páginas. El ejemplar en papel permite señalar pasajes y volver a ellos durante la lectura. Su extensión es menor que la de otros volúmenes de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asesino en serie y el medico forense se relaciona con 50 cosas que hay que saber sobre IA, de Keith Mansfield, por su orientación hacia asuntos científicos. El primero se centra, según su título, en asesinos en serie y medicina forense; el segundo aborda la inteligencia artificial. Ambos se distinguen también de Abonado y fertilización en agricultura ecológica-AGAU001PO, de Elsa Rubio Duce, cuyo asunto es agrícola.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309",
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "954ee86c33b23f6f",
+  "origen": "chatgpt-web"
+}

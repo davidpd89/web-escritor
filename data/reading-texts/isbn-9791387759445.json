@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387759445",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un planeta en común está dirigido a lectores interesados en la divulgación científica y en libros de ciencia de cierta extensión. Sus 466 páginas lo alejan de las lecturas breves y de quienes buscan principalmente una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un planeta en común se presenta en tapa blanda, con 466 páginas en castellano. Es una edición física que permite avanzar por capítulos, marcar páginas y volver a consultar pasajes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un planeta en común y 50 cosas que hay que saber sobre IA comparten su orientación hacia cuestiones científicas, aunque el segundo delimita su contenido a la inteligencia artificial. Frente a (ENAC0019) Herramientas de análisis coste/beneficio aplicadas a la eficiencia energética, de enfoque técnico y económico, el libro de Jeronimo Torres Porras se presenta como divulgación científica general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388334627",
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9dabbd132885229f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788418878992",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Conan: Las Crónicas de Bolsillo 5: El extranjero negro / El estanque del negro (Las crónicas nemedias), de Robert Ervin Howard, se dirige a lectores de fantasía y terror. El título identifica el volumen como el n.º 5 y reúne dos relatos nombrados en la cubierta, por lo que encaja menos con quien busca una novela contemporánea ajena a lo fantástico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta entrega de Conan: Las Crónicas de Bolsillo 5: El extranjero negro / El estanque del negro (Las crónicas nemedias) se presenta en tapa blanda y cuenta con 188 páginas. Su encuadernación flexible facilita transportarla y mantenerla junto a otros volúmenes de la colección en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conan: Las Crónicas de Bolsillo 5: El extranjero negro / El estanque del negro (Las crónicas nemedias) comparte autor y colección con Conan: Las Crónicas de Bolsillo 6: Clavos rojos / Más allá del río Negro (Las crónicas nemedias), de Robert Ervin Howard. Los títulos los identifican como los números 5 y 6, respectivamente, y cada volumen reúne relatos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412749410"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b1afc0ad2dd38735",
+  "origen": "chatgpt-web"
+}

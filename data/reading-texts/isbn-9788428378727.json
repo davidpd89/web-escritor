@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788428378727",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "1785 Acción tutorial de los Grados A/B/C (Servicios Socioculturales y a la Comunidad) se dirige a quienes buscan contenidos relacionados con la tutoría en estos grados formativos. Su materia resulta menos ajustada a lectores interesados exclusivamente en competencia digital docente o en la gestión de recursos didácticos.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "1785 Acción tutorial de los Grados A/B/C (Servicios Socioculturales y a la Comunidad) se publica en tapa blanda, con una extensión de 318 páginas. La edición en castellano de Ediciones Paraninfo ofrece un ejemplar de papel para subrayar, añadir notas y consultar el contenido durante el trabajo sobre acción tutorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "1785 Acción tutorial de los Grados A/B/C (Servicios Socioculturales y a la Comunidad) comparte autoras, Mónica Suárez Martínez y Cristina de Alba Galván, con 1783 Evaluación del proceso enseñanza-aprendizaje (Servicios Socioculturales y a la Comunidad). El primero se ocupa de la acción tutorial y el segundo aborda la evaluación educativa. Por su parte, 1705 Programación didáctica de los Grados A/B/C (Servicios Socioculturales y a la Comunidad) comparte el ámbito de los grados formativos, pero se centra en su programación didáctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428378673",
+        "isbn-9788428378710"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a678b34cbcb63d8",
+  "origen": "chatgpt-web"
+}

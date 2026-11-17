@@ -4,25 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rosalvia: El hilo que cambió de camino se dirige a lectores de fantasía infantil y juvenil interesados en la amistad y el desarrollo personal. Por sus temas, encaja menos con quienes buscan una lectura centrada exclusivamente en la ciencia ficción o alejada de las relaciones personales.",
+      "texto": "Rosalvia: El hilo que cambió de camino se dirige a lectores interesados en la fantasía infantil y juvenil con elementos de desarrollo personal. Sus 110 páginas ofrecen una extensión relativamente breve; quienes busquen una obra centrada exclusivamente en el misterio o el thriller encontrarán aquí otro género.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Rosalvia: El hilo que cambió de camino está disponible en tapa blanda, con 110 páginas en castellano. Es una edición física de extensión breve, manejable para llevar en una mochila y consultar o releer sin depender de un dispositivo electrónico.",
+      "texto": "Rosalvia: El hilo que cambió de camino está disponible en tapa blanda y Kindle. La edición impresa reúne 110 páginas y permite conservar un ejemplar físico o regalarlo; Kindle facilita llevar la lectura en un dispositivo electrónico sin transportar el libro en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rosalvia: El hilo que cambió de camino comparte la fantasía y la amistad con Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño. La diferencia está en el enfoque: el libro de Ignacio Estévez Simonet incorpora el desarrollo personal y la ciencia ficción, mientras que el de Laura Naiara Aldana Ramaker reúne cuentos de temática navideña.",
+      "texto": "Rosalvia: El hilo que cambió de camino comparte el ámbito infantil y fantástico con Mirabella Y La Aventura Diminuta / Mirabelle and the Picnic Pranks, de Harriet Muncaster. La obra de Ignacio Estévez Simonet incorpora además el desarrollo personal, mientras que Mirabella se presenta como una aventura. Son títulos de distinta autoría y con enfoques temáticos diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409926671"
+        "isbn-9786073874649"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "610d9dded5e8028b",
+  "fuente_hash": "b95e61aaf5d97c76",
   "origen": "chatgpt-web"
 }

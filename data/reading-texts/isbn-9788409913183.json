@@ -4,39 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "KUNDALINI ES RESONANCIA: El sorprendente encaje entre la Física y el Yoga se orienta a lectores interesados en las relaciones propuestas entre el yoga, la física y el bienestar. Su combinación temática lo diferencia de los manuales dedicados exclusivamente al ejercicio físico o de los textos centrados únicamente en una disciplina científica. La autoría corresponde a Chakor Gracia Segura.",
+      "texto": "KUNDALINI ES RESONANCIA: El sorprendente encaje entre la Física y el Yoga se dirige a quienes quieren explorar las relaciones entre el yoga y los conceptos de la física. Su enfoque combina bienestar y divulgación científica, por lo que encaja menos con quien busca únicamente rutinas breves de ejercicio.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de KUNDALINI ES RESONANCIA: El sorprendente encaje entre la Física y el Yoga contiene 482 páginas en castellano. Es una edición física extensa, adecuada para consultar por separado las cuestiones relacionadas con la física y el yoga. Por su volumen, resulta más cómoda para mantenerla en un lugar habitual de lectura que para transportarla a diario.",
+      "texto": "KUNDALINI ES RESONANCIA: El sorprendente encaje entre la Física y el Yoga está disponible en tapa blanda, con 482 páginas. Es una edición física de extensión considerable, apropiada para consultar pasajes y conservar anotaciones durante una lectura prolongada.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "KUNDALINI ES RESONANCIA: El sorprendente encaje entre la Física y el Yoga puede compararse con La teoría sintérgica (Edición Tapa Dura ) / The Synergistic Theory por su interés en planteamientos teóricos. Chakor Gracia Segura vincula expresamente física y yoga en su título, mientras que la obra de Jacobo Grinberg-Zylberbaum se presenta alrededor de una teoría sintérgica y señala una edición en tapa dura.",
+      "texto": "KUNDALINI ES RESONANCIA: El sorprendente encaje entre la Física y el Yoga puede compararse con Todavía hay margen: Longevidad y el lujo de decidir a tiempo, de Pablo Fonseca, por su relación con el bienestar. El primero vincula física y yoga, mientras que el segundo sitúa la longevidad y las decisiones personales en el centro. También comparte el ámbito de la salud con Calidad de vida y hábitos saludables de mujeres en la peri y posmenopausia en dos zonas básicas de salud de Tenerife., aunque esta obra delimita su estudio a una población y un territorio concretos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073876148"
+        "isbn-9791388485879",
+        "isbn-9791399301090"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8ee1c7aad183ae65",
+  "fuente_hash": "fed84db6336dfeb8",
   "origen": "chatgpt-web"
 }

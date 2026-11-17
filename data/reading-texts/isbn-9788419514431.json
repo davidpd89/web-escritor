@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419514431",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un millón de pequeños misiles todos a la vez (Nube de Tinta), de Lucas Maxwell, se dirige a lectores de narrativa juvenil interesados en el romance y las historias contemporáneas. Por su orientación temática, encaja menos con quienes buscan fantasía, aventuras o una novela centrada en la investigación criminal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 224 páginas de Un millón de pequeños misiles todos a la vez (Nube de Tinta) en papel, mientras que Kindle ofrece una alternativa digital para llevar la lectura en el móvil o en un lector electrónico compatible. La edición física corresponde a Nube de Tinta y resulta práctica para quien prefiere conservar el libro en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday), de John Green, es una referencia para comparar propuestas de narrativa juvenil y romance. Frente a ese título, Un millón de pequeños misiles todos a la vez (Nube de Tinta), de Lucas Maxwell, se presenta como una obra de autoría diferente que también se sitúa en el terreno contemporáneo y juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b7f809e3ab28e3c7",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788436851915",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Intervención en trastornos del lenguaje: Lenguaje, comunicación y prácticas preventivas en contextos clínicos y educativos (Psicología) aborda un ámbito relacionado con la comunicación, la prevención y los trastornos del lenguaje. Su enfoque temático se dirige a quienes buscan contenidos sobre contextos clínicos y educativos, no a lectores de ficción o de divulgación científica general sin interés por el lenguaje.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Intervención en trastornos del lenguaje: Lenguaje, comunicación y prácticas preventivas en contextos clínicos y educativos (Psicología) tiene 216 páginas. Publicada por Ediciones Pirámide, permite consultar físicamente los contenidos y volver a los apartados de interés. Es una opción en papel para lectura y consulta sobre lenguaje y comunicación.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Intervención en trastornos del lenguaje: Lenguaje, comunicación y prácticas preventivas en contextos clínicos y educativos (Psicología) y El cerebro del padre: Cómo la paternidad moldea la cabeza y la vida de los hombres (Psicología) comparten el ámbito de la psicología. El primero se centra en lenguaje y prevención en entornos clínicos y educativos; el segundo trata los cambios asociados a la paternidad.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387904258"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "01a3b7572de6212a",
+  "origen": "chatgpt-web"
+}

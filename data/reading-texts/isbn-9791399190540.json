@@ -4,45 +4,44 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Clamor al cielo se dirige a lectores de poesía interesados en el amor y en la relación entre la experiencia corporal y la espiritualidad. Sus cuatro actos vitales proponen una lectura en verso, por lo que no responde a las expectativas de quien busque una novela con una trama continuada.",
+      "texto": "Clamor al cielo se dirige a lectores de poesía interesados en el amor y las dimensiones corporal y espiritual de la existencia. Sus 66 páginas y su estructura en cuatro actos lo distinguen de una novela extensa o de una lectura centrada en una trama narrativa.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Clamor al cielo reúne poesía organizada en cuatro actos que recorren aspectos físicos y espirituales de la existencia. El amor ocupa un lugar central, especialmente en su dimensión elevada, y los poemas proceden de textos que la autora había mantenido sin publicar durante años.",
+      "texto": "Es un poemario organizado en cuatro actos vitales, con el amor como uno de sus asuntos principales. Los versos exploran la experiencia carnal y espiritual, y reúnen textos que permanecieron guardados durante años antes de su publicación.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Clamor al cielo se publica en tapa blanda y tiene 66 páginas, una extensión que permite leer el volumen en sesiones breves o volver a poemas concretos. La edición en castellano de Iman Comunicacion Ag.hiperactiva ofrece un ejemplar físico ligero para transportar y guardar junto a otros poemarios.",
+      "texto": "Clamor al cielo se presenta en tapa blanda, con 66 páginas en castellano. Su extensión permite leer el poemario completo en pocas sesiones o regresar a poemas concretos sin manejar un volumen extenso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, permite comparar Clamor al cielo desde su interés compartido por el amor expresado en poesía. Clamor al cielo, de Mercedes Martínz Arranz, articula además sus versos en cuatro actos vitales que incorporan la dimensión espiritual de la existencia.",
+      "texto": "A solas, de María Jesús Martínez Ramos, figura entre las lecturas afines a Clamor al cielo. Ambos títulos se relacionan dentro del ámbito poético, aunque Clamor al cielo concreta su propuesta en cuatro actos sobre la existencia corporal y espiritual, con especial atención al amor.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788410907539"
       ]
     }
   ],

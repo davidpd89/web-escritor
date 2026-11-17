@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399150285",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro de ImageBooks se dirige al público infantil interesado en los animales salvajes y sus sonidos. Sus 8 páginas de cartón permiten una lectura breve y compartida, menos apropiada para quienes busquen historias extensas o narraciones juveniles con tramas desarrolladas.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro propone una actividad infantil centrada en identificar animales salvajes y reconocer sus sonidos. Sus 8 páginas de cartón permiten recorrerlo en sesiones breves, repetir los nombres de los animales y compartir la actividad entre un adulto y un niño.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de ImageBooks está disponible en tapa dura y utiliza páginas de cartón. Con solo 8 páginas, ofrece un volumen físico breve que puede manejarse durante actividades infantiles de reconocimiento de animales y lecturas compartidas.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "088248b1c91a2c43",
+  "origen": "chatgpt-web"
+}

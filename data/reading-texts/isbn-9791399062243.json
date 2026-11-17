@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399062243",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran orden y la invención del mundo moderno: De los orígenes al Barroco (Música, Pensamiento y Sociedad) se dirige a lectores interesados en el ensayo sobre arte, pensamiento y evolución histórica hasta el Barroco. Sus 423 páginas lo alejan de una introducción breve y de las lecturas centradas en ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de Tomás Marco se publica en tapa blanda, con 423 páginas en castellano, bajo el sello Pdac Publishing. El volumen físico permite consultar distintos periodos y volver a los apartados de interés durante el estudio de las relaciones entre música, pensamiento y sociedad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran orden y la invención del mundo moderno: De los orígenes al Barroco (Música, Pensamiento y Sociedad) se relaciona directamente con El siglo de las rupturas: De las vanguardias a la globalización (Música, pensamiento y sociedad), también de Tomás Marco. Comparten autor y enfoque sobre música y sociedad, pero sus títulos delimitan periodos distintos: de los orígenes al Barroco frente a las vanguardias y la globalización.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399062267"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9378d04f62cb0b5",
+  "origen": "chatgpt-web"
+}

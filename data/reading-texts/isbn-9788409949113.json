@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788409949113",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la dirección de personas, la construcción de equipos y la toma de decisiones bajo presión. Su planteamiento sobre la separación entre identidad personal y profesional encaja con cuestiones de gestión empresarial, más que con una lectura centrada exclusivamente en biografías.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra examina la distinción entre el Yo Persona y el Yo Profesional como punto de partida para dirigir personas y construir equipos. También sitúa la toma de decisiones bajo presión dentro de ese planteamiento, desarrollado por Ricard Casas en 68 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 68 páginas en un volumen físico que puede consultarse y conservarse junto a otros libros de gestión. Kindle permite llevar el mismo título en un dispositivo de lectura o en el móvil, sin depender del ejemplar impreso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Buffett: La construcción de un capitalista (IMPULSA), de Roger Lowenstein, comparte el interés por el ámbito empresarial, aunque se centra en la figura de un capitalista. LA EXIGENCIA IDÓNEA: Separar el Yo Persona del Yo Profesional para dirigir personas, construir equipos y decidir bajo presión, de Ricard Casas, desplaza el foco hacia la identidad profesional, los equipos y las decisiones de dirección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005630"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7715f3172554c089",
+  "origen": "chatgpt-web"
+}

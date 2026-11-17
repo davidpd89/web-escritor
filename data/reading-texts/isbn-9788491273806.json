@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a quienes leen poesía en castellano y buscan acercarse a la obra de José María Valverde mediante una antología. Por su combinación de poesía y ensayo, encaja menos con lectores que prefieren una narración de ficción continua.",
+      "texto": "Dirigido a quienes buscan poesía en castellano y una recopilación de la obra de José María Valverde. Por su carácter de antología poética, responde menos a quienes prefieren una novela con argumento continuo o un manual de ensayo organizado por cuestiones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La obra reúne poesía de José María Valverde en una antología vinculada al centenario de su nacimiento. Su enfoque es literario y conmemorativo: presenta una selección poética bajo el título Un diálogo que no acaba, dentro de la colección Textos UEx.",
+      "texto": "Reúne poesía de José María Valverde mediante una selección antológica vinculada al centenario de su nacimiento. Su enfoque es literario y recopilatorio: presenta textos poéticos bajo un título que plantea la idea del diálogo, dentro de una colección editorial de textos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,26 +23,13 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 326 páginas en castellano, publicadas por Publicauex Editorial. Es un volumen físico que permite consultar poemas concretos, volver a ellos y utilizar marcadores durante la lectura.",
+      "texto": "La edición en tapa blanda reúne 326 páginas en castellano, publicadas por Publicauex Editorial. Es un volumen físico que permite consultar distintos poemas, volver a pasajes anteriores y utilizar marcadores durante la lectura de la antología.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Fuego y raíz: Cancionero (Primera persona) comparte con esta antología el interés por la expresión poética, aunque corresponde a la obra de Gata Cattana y no a una selección de José María Valverde. La falacia del escritor: Anatomía de una fe sin milagros: 7 (im-verso) ofrece otra conexión literaria, centrada desde su título en la figura del escritor.",
-      "evidencias": [
-        "afines_catalogo",
-        "titulo",
-        "autores",
-        "categorias"
-      ],
-      "enlaces": [
-        "isbn-9788403524996",
-        "isbn-9791399257625"
+        "editorial",
+        "titulo"
       ]
     }
   ],

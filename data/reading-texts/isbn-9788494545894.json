@@ -4,39 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Crónicas de la amnistía: De la conciencia republicana de España encaja con lectores interesados en el poder y la política desde una perspectiva republicana. No está planteado como una obra de ficción, sino como un título de temática política, firmado por Pedro Manuel González López y publicado en tapa blanda.",
+      "texto": "Crónicas de la amnistía: De la conciencia republicana de España se dirige a lectores interesados en la política española, la amnistía y el pensamiento republicano. Pedro Manuel González López aborda esos asuntos en un volumen de 190 páginas; no corresponde a quien busque ficción narrativa ajena al debate político.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "formato_edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne sus 190 páginas en un único volumen físico. Es el formato disponible para Crónicas de la amnistía: De la conciencia republicana de España, publicado por Movimiento Ciudadano Hacia la República Constitucional.",
+      "texto": "Crónicas de la amnistía: De la conciencia republicana de España está disponible en tapa blanda, con 190 páginas en castellano. Esta edición permite consultar y releer sus contenidos en papel, además de conservar el ejemplar para futuras consultas sobre la cuestión política que aborda.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "editorial",
-        "titulo"
+        "numero_paginas",
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A la sombra del Estado comparte el interés por el poder político, aunque se centra en el espionaje, las operaciones encubiertas y la desinformación. Crónicas de la amnistía: De la conciencia republicana de España aborda esa temática desde la conciencia republicana, mientras que el otro título se ocupa del poder clandestino.",
+      "texto": "El estado del Estado comparte con Crónicas de la amnistía: De la conciencia republicana de España su atención a la situación política española. Enrique López López plantea una reflexión sobre España, mientras que Pedro Manuel González López delimita su obra a la amnistía y la conciencia republicana; ambos se distinguen de A la sombra del Estado, centrado en espionaje y poder clandestino.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441057"
+        "isbn-9788434441057",
+        "isbn-9788423441013"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "03d3d7025dba3efd",
+  "fuente_hash": "78212f6d8f980ff4",
   "origen": "chatgpt-web"
 }

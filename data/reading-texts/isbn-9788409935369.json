@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788409935369",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marimé encaja con lectores de narrativa contemporánea que buscan una obra extensa en castellano, más que una lectura breve o un ensayo. Sus 440 páginas requieren mayor dedicación que una novela corta y permiten repartir la lectura en numerosas sesiones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Marimé puede elegirse en tapa blanda o Kindle, según se prefiera leer en papel o en formato digital. La edición física de Mercedes F. Jorge tiene 440 páginas; Kindle permite llevar la lectura en un dispositivo compatible sin transportar ese volumen de papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b0c5ea8ca00078d4",
+  "origen": "chatgpt-web"
+}

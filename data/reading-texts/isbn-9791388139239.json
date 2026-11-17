@@ -4,39 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción), de Rafa Rodrigo, está orientado a quienes desean trabajar su comunicación personal desde la autenticidad. Por su planteamiento, encaja menos con lectores que buscan una novela o una guía centrada exclusivamente en inversiones y gestión financiera.",
+      "texto": "Se dirige a quienes quieren trabajar su comunicación personal desde la autenticidad y relacionarla con sus objetivos. Por su enfoque en habilidades comunicativas y su clasificación en economía y bienestar, no corresponde a una novela ni a un manual especializado en contabilidad o inversión.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción) está disponible en tapa blanda y tiene 256 páginas. Esta edición de Roca Editorial permite leer en papel y regresar a los apartados relacionados con la comunicación personal sin utilizar dispositivos electrónicos.",
+      "texto": "Está disponible en tapa blanda, con 256 páginas en castellano publicadas por Roca Editorial. La edición en papel permite consultar los contenidos sobre comunicación y volver a ellos durante el trabajo personal o profesional.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma",
+        "editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción) puede compararse con Hecho una mierda, pero en casa (Cuadernos creativos) por su relación con el ámbito personal. Rafa Rodrigo pone el foco en comunicar con autenticidad, mientras que el libro de Ferran Cases se presenta como un cuaderno creativo.",
+      "texto": "El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción) y Conviértete en un descifrador de personas: Trucos y consejos para conocerlas e influir en ellas (Espasa Crecimiento personal) tratan habilidades relacionadas con la comunicación interpersonal. Rafa Rodrigo pone el foco en la autenticidad al expresarse, mientras que Alexandre Monteiro aborda la comprensión de otras personas y la influencia sobre ellas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419434364"
+        "isbn-9788467084283"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a195cde73113f079",
+  "fuente_hash": "2e6b9f220d279dda",
   "origen": "chatgpt-web"
 }

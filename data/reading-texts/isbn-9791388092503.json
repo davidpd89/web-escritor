@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388092503",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una solitaria voz humana (Láurea), de Svetlana Alexievich, se orienta a lectores interesados en historia, ensayo y biografías o memorias. Con 192 páginas, ofrece una extensión contenida dentro de estos géneros; no responde a una búsqueda de fantasía, romance o aventuras de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Debate publica Una solitaria voz humana (Láurea) en tapa dura y castellano, con 192 páginas. La encuadernación rígida resulta apropiada para conservar el ejemplar o regalarlo, mientras que su extensión permite una lectura en papel sin manejar un volumen especialmente largo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Voces de Chernóbil: Crónica del futuro (Historia) comparte autoría con Una solitaria voz humana (Láurea) y se vincula igualmente con la historia, aunque su título identifica expresamente Chernóbil. El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas), de Lyse Doucet, también se aproxima a la historia desde experiencias humanas, pero sitúa su asunto en Afganistán.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388387937",
+        "isbn-9791387928360"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3524eb16f5db819e",
+  "origen": "chatgpt-web"
+}

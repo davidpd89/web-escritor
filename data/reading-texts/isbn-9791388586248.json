@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388586248",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Uso eficiente del agua en el sector agrario-AGAU020PO se orienta a lectores interesados en la gestión del agua aplicada a la agricultura. Su enfoque sectorial y su clasificación como ensayo y divulgación científica lo alejan de las lecturas de entretenimiento y de los estudios sobre recursos hídricos sin relación agraria.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Uso eficiente del agua en el sector agrario-AGAU020PO se ofrece en tapa blanda, con 182 páginas. Su extensión permite utilizar el volumen como lectura de estudio y volver a los apartados relacionados con la gestión del agua en el ámbito agrario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Uso eficiente del agua en el sector agrario-AGAU020PO comparte autoría y ámbito agrícola con Abonado y fertilización en agricultura ecológica-AGAU001PO, de Elsa Rubio Duce. El primero se centra en el aprovechamiento del agua y el segundo en el abonado y la fertilización ecológica. También coincide en autoría con Energías renovables: Especialidad biomasa-ENAE010PO, aunque este último aborda una fuente de energía en lugar de un recurso hídrico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586422",
+        "isbn-9791388586279"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "573df2888369188d",
+  "origen": "chatgpt-web"
+}

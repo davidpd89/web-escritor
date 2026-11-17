@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419393876",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensamientos reflexivos: Pensamientos imposibles y sentimientos complicados se dirige a quienes buscan cómic y novela gráfica dentro del ámbito juvenil. Por su clasificación y sus 128 páginas, encaja menos con quien prefiere narrativa extensa sin componente gráfico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pensamientos reflexivos: Pensamientos imposibles y sentimientos complicados está disponible en tapa dura, con 128 páginas en castellano. Esta edición de Garbuix Books permite conservar el volumen en una encuadernación rígida y consultarlo en papel, también para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pensamientos reflexivos: Pensamientos imposibles y sentimientos complicados puede compararse con Cult of the Lamb nº 01 (Novela gráfica) por su relación con el formato gráfico. La diferencia está en el enfoque anunciado: Grant Snider presenta pensamientos y sentimientos, mientras que el otro título se identifica como una novela gráfica de Alex Paknadel y Troy Little.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102035"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7e9411e4061f045c",
+  "origen": "chatgpt-web"
+}

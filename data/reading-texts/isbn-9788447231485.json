@@ -4,45 +4,50 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la escultura de época adrianea, la historia del arte y los estudios patrimoniales. Su planteamiento como reunión hispano-italiana de especialistas lo diferencia de una introducción general al arte destinada a lectores sin intereses históricos concretos.",
+      "texto": "Orientado a lectores interesados en la escultura adrianea, la historia del arte y los estudios sobre patrimonio cultural. Su enfoque de reunión académica y sus 196 páginas lo distinguen de una introducción general a todas las épocas de la escultura.",
       "evidencias": [
         "titulo",
         "categorias",
-        "autores"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El volumen aborda la escultura adrianea desde una perspectiva histórica y artística, con nuevas aportaciones reunidas en un encuentro hispano-italiano. La referencia a Antonio Blanco Freijeiro sitúa además la publicación en un contexto de memoria académica, dentro de la colección Cultura y Patrimonio.",
+      "texto": "Aborda nuevas aportaciones al estudio de la escultura adrianea desde una reunión hispano-italiana celebrada en recuerdo de Antonio Blanco Freijeiro. La obra reúne distintas autorías y se sitúa en el ámbito de la historia del arte y el patrimonio, con atención a un periodo artístico delimitado.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda y tiene 196 páginas, una extensión que permite manejar el volumen como material de consulta. El formato impreso facilita volver a pasajes concretos durante el estudio de la escultura y conservar el libro junto a otras publicaciones sobre patrimonio artístico.",
+      "texto": "La publicación se presenta en tapa blanda, con 196 páginas en castellano, bajo el sello Editorial Universidad de Sevilla-secretariado de Publicaciones. Es un volumen físico de extensión delimitada que puede utilizarse para consultar trabajos sobre escultura adrianea y patrimonio.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "idioma",
+        "editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los pilares de la historia, de Javier Fernández Sebastián, comparte el interés por el estudio del pasado, pero plantea una reflexión sobre la capacidad de la historia para explicar el mundo actual. Escultura adrianea: nuevas aportaciones se concentra en la producción escultórica de época adrianea y reúne contribuciones de un encuentro hispano-italiano. La diferencia está entre una reflexión sobre la disciplina histórica y un estudio especializado de historia del arte.",
+      "texto": "Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION), de Maria Stavrinaki, comparte el interés por relacionar arte e historia, pero aborda la prehistoria y los tiempos modernos frente a la escultura adrianea. Art for All: Arquitectura californiana, de Barbara Lamprecht, Barbara-Ann Campbell-Lange, Elizabeth A. T. Smith, Gloria Koenig y James Steele, se ocupa de arquitectura en lugar de escultura.",
       "evidencias": [
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629664"
+        "isbn-9783754401477",
+        "isbn-9783754401514",
+        "isbn-9791399236422"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f213ccc086e89d8d",
+  "fuente_hash": "f54c53ad73a2c6d6",
   "origen": "chatgpt-web"
 }

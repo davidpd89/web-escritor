@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388003592",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amber Blake. Edición integral (Súper BD) se encuadra en el cómic y la novela gráfica, con componentes de misterio y thriller. Sus 160 páginas corresponden a una edición integral en tapa dura. Se dirige a lectores interesados en la narración gráfica de intriga, no a quienes buscan exclusivamente novelas escritas en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amber Blake. Edición integral (Súper BD) se publica en tapa dura, con 160 páginas y el sello Cartem Cómics. La encuadernación rígida permite conservar el volumen como parte de una colección de cómics. La denominación edición integral identifica esta presentación de la obra, frente a una edición descrita como entrega individual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amber Blake. Edición integral (Súper BD) puede compararse con Anna en la cueva: Anna Dédalus detective: 4 por su relación con el misterio y la investigación. El primero está clasificado como cómic de misterio y thriller, mientras que el segundo identifica una historia protagonizada por una detective. También se distinguen por su autoría: Lagardère Jade y Guice Butch frente a Miguel Ángel Giner Bou.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419605528"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7631231fabf8375c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788413055473",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Breve Historia de la alquimia: Desde el fuego sagrado a la ciencia moderna, de Luis Claret, se orienta a lectores interesados en la alquimia y su relación con la evolución de la ciencia. Sus 356 páginas y su clasificación en religión y espiritualidad lo alejan de quien busca una introducción muy corta o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Breve Historia de la alquimia: Desde el fuego sagrado a la ciencia moderna se presenta en tapa blanda, con 356 páginas en castellano. Este formato permite conservar el volumen como libro de consulta y transportarlo para leerlo fuera de casa, aunque su extensión exige más espacio que un ensayo breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ormuz. Historia militar de un estrecho comparte autor con Breve Historia de la alquimia: Desde el fuego sagrado a la ciencia moderna, pues ambos son de Luis Claret, pero uno aborda un enclave geográfico y militar y el otro se centra en la alquimia. Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, ofrece otra lectura relacionada con la espiritualidad, aunque su título apunta a fundamentos y práctica en lugar de historia de la alquimia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788476357392",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ae2f212a8e5707f",
+  "origen": "chatgpt-web"
+}

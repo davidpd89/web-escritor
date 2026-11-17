@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Padre Salou, de A. Rodríguez, se sitúa en el terreno del misterio y el thriller. Se dirige a lectores que buscan este tipo de narrativa y encaja menos con quienes prefieren historias centradas en la fantasía, el romance o el humor.",
+      "texto": "Padre Salou, de A. Rodríguez, se encuadra en el misterio y el thriller, por lo que responde a una búsqueda de narrativa de ese género. Tiene 271 páginas en su edición impresa; quienes prefieran poesía, fantasía infantil o manuales de consulta encontrarán aquí una propuesta de lectura distinta.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Padre Salou se publica en tapa blanda, con 271 páginas en castellano. Esta edición física permite leer el misterio en papel y conservar el volumen en la biblioteca, sin necesidad de un lector electrónico.",
+      "texto": "Padre Salou puede leerse en tapa blanda o Kindle. La edición física, publicada por Amazon, tiene 271 páginas y permite conservar o prestar el ejemplar; la versión Kindle ofrece la alternativa digital para leer en un dispositivo compatible sin llevar el volumen impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Padre Salou comparte el ámbito del thriller con 25 días hasta Navidad, de Per Jacobsen. La diferencia reconocible está en el planteamiento editorial: la obra de Per Jacobsen se presenta como un thriller de adviento, mientras que la de A. Rodríguez se identifica dentro del misterio y el thriller sin ese marco navideño.",
+      "texto": "Padre Salou se relaciona por su género de misterio con Aberración, de Santiago López de Hoyos, y con 25 días hasta Navidad, de Per Jacobsen. Este último se presenta expresamente como un thriller de adviento, mientras que Padre Salou se identifica de manera más general con el misterio y el thriller. Las tres obras tienen autores diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055063"
+        "isbn-9788427055063",
+        "isbn-9791399297508"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "293be57ef9e94877",
+  "fuente_hash": "f98ba40453ba94e6",
   "origen": "chatgpt-web"
 }

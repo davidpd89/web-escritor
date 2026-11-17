@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788467984934",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una enfermedad llamada amor 18. ED. Especial está dirigida a quienes buscan historias románticas en formato de cómic. El título identifica el volumen 18 y una edición especial, por lo que no responde a la búsqueda de una novela romántica independiente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Una enfermedad llamada amor 18. ED. Especial contiene 224 páginas y está publicada por Norma Editorial. Su presentación física permite incorporarla a una colección de volúmenes impresos y consultar directamente las páginas del cómic.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una enfermedad llamada amor 18 y su edición especial pertenecen a la misma obra romántica en formato cómic de Megumi Morino. Ambas corresponden al volumen 18, pero Una enfermedad llamada amor 18. ED. Especial incorpora una denominación editorial diferente que permite distinguir las dos versiones al elegir cuál adquirir.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467984927"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e076fe7267da7f92",
+  "origen": "chatgpt-web"
+}

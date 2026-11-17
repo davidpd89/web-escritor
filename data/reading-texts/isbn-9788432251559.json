@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788432251559",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juego de espejos (Biblioteca Breve), de Cristina Peri Rossi, encaja con lectores de narrativa contemporánea que buscan una obra extensa. Sus 576 páginas requieren más tiempo de lectura que un volumen breve; no responde a quien prefiere ensayos o lecturas de pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Juego de espejos (Biblioteca Breve) se presenta en tapa blanda, con 576 páginas en castellano. La edición de Seix Barral reúne esa extensión en un único volumen físico, una opción para quien prefiere leer en papel y conservar el ejemplar en su biblioteca.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52f683a0f5041ae2",
+  "origen": "chatgpt-web"
+}

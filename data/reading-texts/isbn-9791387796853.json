@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387796853",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mejora Continua: Organizacion De Los Puestos De Trabajo Y Su Impacto En La Competitividad se dirige a lectores interesados en la organización laboral y la competitividad empresarial. Su enfoque corresponde al ámbito de la economía y la empresa, no a una obra de ficción ni a una lectura de entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mejora Continua: Organizacion De Los Puestos De Trabajo Y Su Impacto En La Competitividad se publica en tapa blanda, con 168 páginas. El formato físico permite consultar sus contenidos sobre organización de puestos de trabajo y conservar el ejemplar como material de lectura profesional.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mejora Continua: Organizacion De Los Puestos De Trabajo Y Su Impacto En La Competitividad y Antes de liderar: Una mirada interior a un oficio abordan cuestiones relacionadas con el trabajo y la empresa. Taiichi Ohno centra su título en la organización de los puestos y la competitividad; Miguel Reinoso plantea una mirada hacia el ejercicio del liderazgo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f0a49ef6bdf8721",
+  "origen": "chatgpt-web"
+}

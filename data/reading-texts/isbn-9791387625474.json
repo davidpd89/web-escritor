@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387625474",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está destinado a lectores interesados en el estudio histórico, literario y teológico de los primeros cristianos y del Nuevo Testamento. Sus 992 páginas y su enfoque introductorio especializado encajan menos con quien busca una lectura breve de espiritualidad práctica o una novela de ambientación religiosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda el Nuevo Testamento desde la historia, la literatura y la teología de los primeros cristianos. Sus autores presentan una introducción que combina estas disciplinas para situar los textos en su contexto histórico y religioso. Con 992 páginas, el libro pertenece a la Colección diccionarios color clie.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para esta obra de 992 páginas, publicada por Clie. Por su extensión y carácter introductorio a materias históricas y teológicas, el ejemplar físico permite mantener una lectura prolongada y volver a apartados concretos durante el estudio.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nuevo Testamento en su propio mundo, el puede compararse con Dios: Una Historia Humana / God: A Human History, de Reza Aslan, por su temática religiosa. El primero se centra en la historia, la literatura y la teología de los primeros cristianos, mientras que el segundo plantea desde su título una perspectiva más general sobre Dios y la experiencia humana.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877565"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29d9e2d93ab18730",
+  "origen": "chatgpt-web"
+}

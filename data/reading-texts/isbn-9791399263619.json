@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399263619",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a adultos interesados en el TDAH, la autocompasión y los recursos para gestionar la culpa y el desbordamiento cotidiano. Por su enfoque de desarrollo personal, encaja menos con quien busca una novela o un estudio centrado en cuestiones políticas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de TDAH en adultos. Del caos mental a la autocompasión: Recursos sencillos para soltar la culpa y sobrevivir a los días en que todo te supera se presenta en tapa blanda. Sus 130 páginas permiten localizar y volver a consultar apartados concretos en papel, además de marcar pasajes durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Desbloquea tu dislexia: Guía práctica de confianza, estrategias y fortalezas para el trabajo y la vida también aborda recursos personales para la vida cotidiana, pero desde la dislexia. El libro de Bruna Freixas Llobet se centra en el TDAH adulto y la autocompasión, mientras que el de Natalie Brooks plantea estrategias vinculadas al trabajo y las fortalezas personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852283"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1739e318bdaec08b",
+  "origen": "chatgpt-web"
+}

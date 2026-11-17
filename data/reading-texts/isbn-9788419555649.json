@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788419555649",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Verano perdido: 2 (Alterego), de Pablo Dávila Castañeda, se sitúa en la narrativa contemporánea y cuenta con 346 páginas. Se ajusta a lectores que buscan ficción de extensión media en castellano, mientras que quienes prefieren cómics o novelas gráficas encontrarán aquí una clasificación editorial distinta. El título lo identifica como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Verano perdido: 2 (Alterego) se presenta en tapa blanda, con 346 páginas publicadas por Experimenta. Es una edición física de cubierta flexible, adecuada para leer en papel y guardar en una estantería sin la rigidez de una encuadernación de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "49d8c61506cbb7f9",
+  "origen": "chatgpt-web"
+}

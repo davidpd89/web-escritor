@@ -4,30 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Carolina Pimenta. Copias originales / Original Copies se dirige a lectores interesados en el arte, el diseño y el trabajo de Carolina Pimenta. Su orientación artística lo diferencia de los libros de narrativa y de los manuales centrados en cuestiones técnicas ajenas a la creación visual.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición de RM está publicada en tapa blanda, con 392 páginas en castellano. Es un volumen físico de extensión considerable que permite avanzar por secciones, detenerse en páginas concretas y conservar referencias para consultas posteriores.",
-      "evidencias": [
-        "editorial",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "720 retrats, de Xavier Mollà i Revert, comparte con Carolina Pimenta. Copias originales / Original Copies su vinculación al ámbito artístico, aunque presenta una autoría y un título centrado en retratos. All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, pertenece también al entorno del arte, pero se identifica como cuaderno, frente al volumen firmado por Carolina Pimenta.",
+      "texto": "Carolina Pimenta. Copias originales / Original Copies se orienta a lectores interesados en el arte y el diseño, especialmente en publicaciones vinculadas a una autora concreta. Con 392 páginas, requiere más tiempo de consulta que un volumen breve y se aleja de quienes buscan una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Carolina Pimenta. Copias originales / Original Copies se publica en tapa blanda, en una edición de RM de 392 páginas. El formato físico permite consultar el volumen por secciones y conservarlo en una biblioteca dedicada al arte y al diseño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Carolina Pimenta. Copias originales / Original Copies comparte el ámbito del arte y el diseño con 720 retrats, de Xavier Mollà i Revert, aunque cada obra lleva el nombre de una autoría diferente. También puede compararse con All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, pero este último se presenta como un cuaderno, mientras que la publicación de Carolina Pimenta consta de 392 páginas y lleva por título una referencia a las copias originales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -38,6 +41,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "acc4aa3144f8b571",
+  "fuente_hash": "55a32f456a77be0c",
   "origen": "chatgpt-web"
 }

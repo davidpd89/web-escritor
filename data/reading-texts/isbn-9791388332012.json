@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388332012",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Goya, claves para comprender a un genio se orienta, por su título, a lectores interesados en conocer mejor a Goya. Sus 154 páginas ofrecen una extensión relativamente breve, mientras que su enfoque anunciado sobre una figura concreta lo aleja de quienes buscan una obra centrada en mundos imaginarios.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Goya, claves para comprender a un genio está disponible en tapa blanda, con 154 páginas en castellano. El volumen publicado por Comuniter S.l., Editorial permite consultar y releer en papel los apartados que interesen, además de conservarlo como ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ca2569dfda2d3400",
+  "origen": "chatgpt-web"
+}

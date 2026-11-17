@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388148736",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo que el toldero no te dice...: (porque tiene prisa), de Vicente Pacheco Carrasco, se sitúa entre el ensayo, las biografías y la temática empresarial. Sus 264 páginas responden a una búsqueda de no ficción relacionada con ese ámbito, no a la de una novela de aventuras o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Lo que el toldero no te dice...: (porque tiene prisa) reúne 264 páginas publicadas por Uno Editorial. Kindle permite acceder al título en formato digital y leerlo desde el móvil o un lector electrónico; la tapa blanda mantiene la experiencia de consulta y lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Detrás de una Estrella, de Fernando Trías de Bes, comparte con Lo que el toldero no te dice...: (porque tiene prisa) su relación con el mundo empresarial. El primero aborda la transformación de una empresa cervecera, mientras el libro de Vicente Pacheco Carrasco se presenta dentro del ensayo y las biografías vinculadas también a la economía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441075"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "581fb79843c422c7",
+  "origen": "chatgpt-web"
+}

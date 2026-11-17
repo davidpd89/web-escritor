@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419505538",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Sanidad y la Beneficencia en Guadalajara en tiempos de guerra (1936-1939) se dirige a lectores interesados en la sanidad, la asistencia social y su estudio en un contexto histórico delimitado. Por su asunto y sus 358 páginas, se aparta de quienes buscan una introducción general a la medicina actual o una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Sanidad y la Beneficencia en Guadalajara en tiempos de guerra (1936-1939) se presenta en tapa blanda, con 358 páginas en castellano. La edición de Diputación Provincial de Guadalajara permite consultar en papel una obra extensa sobre sanidad y beneficencia durante el periodo señalado en su título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Sanidad y la Beneficencia en Guadalajara en tiempos de guerra (1936-1939) puede compararse con A Força Aerea Portuguesa en Africa, 1961-74, de Charles Barrett, por su atención a instituciones en contextos históricos. José Antonio Martínez Pérez aborda la sanidad y la beneficencia en Guadalajara durante un periodo bélico, mientras que el otro título se centra en la aviación militar portuguesa. Las obras se diferencian por las instituciones estudiadas, el ámbito geográfico y las fechas que delimitan sus temas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798237728583"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "81e41a0555d22311",
+  "origen": "chatgpt-web"
+}

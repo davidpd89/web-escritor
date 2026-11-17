@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388107450",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Os “mariscos” de Rusia: Galicia e a división azul (1941-2025) se dirige a lectores interesados en la historia de Galicia y su relación con la División Azul. El periodo 1941-2025 delimita su marco histórico; no está planteado como una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Os “mariscos” de Rusia: Galicia e a división azul (1941-2025) está disponible en tapa blanda, con 268 páginas en castellano. Es una presentación física que permite consultar distintos pasajes históricos y conservar el volumen en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) comparte con Os “mariscos” de Rusia: Galicia e a división azul (1941-2025) el interés por la historia política, pero aborda la caída de una democracia en lugar de la relación entre Galicia y la División Azul. Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días) se centra en Europa oriental, mientras que Xosé A. Núñez Seixas sitúa Galicia en el eje de su obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "776255238e1d44c7",
+  "origen": "chatgpt-web"
+}

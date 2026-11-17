@@ -4,25 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mujeres filósofas. Vol. 1: Antigüedad y Edad Media: Las primeras pensadoras de la historia de la filosofía se dirige a lectores interesados en la historia del pensamiento femenino, la filosofía y la Edad Media. Su enfoque histórico y ensayístico no corresponde a quien busque ficción narrativa o una introducción centrada únicamente en pensadores contemporáneos.",
+      "texto": "Mujeres filósofas. Vol. 1: Antigüedad y Edad Media: Las primeras pensadoras de la historia de la filosofía está dirigido a quienes buscan conocer la historia del pensamiento femenino en la Antigüedad y la Edad Media. Es un ensayo de 210 páginas, menos afín a lectores interesados exclusivamente en filosofía contemporánea o ficción histórica.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mujeres filósofas. Vol. 1: Antigüedad y Edad Media: Las primeras pensadoras de la historia de la filosofía está disponible en tapa blanda, con 210 páginas. La edición física permite consultar y releer pasajes sobre historia y filosofía, además de incorporar el volumen a una biblioteca de ensayo.",
+      "texto": "La tapa dura permite conservar las 210 páginas de Mujeres filósofas. Vol. 1: Antigüedad y Edad Media: Las primeras pensadoras de la historia de la filosofía en una encuadernación rígida, mientras que la tapa blanda ofrece una alternativa más flexible. Kindle facilita consultar el ensayo desde el móvil o un lector electrónico y ajustar el tamaño del texto.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mujeres filósofas comparte con Mujeres que la liaron el interés por el papel de las mujeres en la historia. La obra de Philip E. Human se centra en las primeras pensadoras de la Antigüedad y la Edad Media, mientras que el libro de Tatiana Gómez Montero recorre 3000 años de historia feminista, desde Hipatia de Alejandría hasta Simone de Beauvoir. La diferencia principal está en el alcance: historia de la filosofía frente a divulgación histórica feminista.",
+      "texto": "Mujeres filósofas y El código bushido: La filosofía de los samuráis / Edición comentada por Marcos Cartagena comparten el interés por la filosofía desde una perspectiva histórica. Philip E. Human aborda las primeras pensadoras de la Antigüedad y la Edad Media, mientras que Inazo Nitobe se ocupa de la filosofía de los samuráis.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788403527041"
+        "isbn-9791388080968"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "63813015a2337967",
+  "fuente_hash": "c283aa94683d3d5b",
   "origen": "chatgpt-web"
 }

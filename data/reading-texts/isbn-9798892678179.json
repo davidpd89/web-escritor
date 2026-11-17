@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798892678179",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Taras Bulba, de Nikolái Gógol, se sitúa entre los clásicos literarios y se dirige a lectores interesados en obras de esa tradición. Su clasificación y sus 144 páginas lo distinguen de una novela contemporánea extensa; no responde a una búsqueda centrada exclusivamente en novedades narrativas actuales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Taras Bulba se presenta en tapa dura, con 144 páginas en castellano. La encuadernación rígida resulta práctica para conservar el ejemplar en una biblioteca y utilizarlo en sucesivas lecturas; su extensión permite manejar un volumen relativamente breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Taras Bulba y Las almas muertas comparten autor, Nikolái Gógol, y permiten comparar dos títulos distintos de su obra. Cuentos de Navidad (Otras Latitudes) también incluye a Nikolái Gógol, pero reúne además a E.t.a. Hoffmann y Dylan Thomas, por lo que ofrece una selección de autoría compartida frente a la obra individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388306518",
+        "isbn-9788410180604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0b7fbd2e0c349ac0",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La librería de la memoria: El fenómeno coreano sobre el poder mágico de los libros (Áncora & Delfín) se dirige a lectores de fantasía y narrativa contemporánea interesados en la memoria y el duelo. Sus 232 páginas ofrecen una extensión relativamente breve; por sus temas, se aleja de quienes buscan exclusivamente relatos de acción.",
+      "texto": "Encaja con lectores interesados en la fantasía, la narrativa contemporánea y la ciencia ficción, especialmente quienes buscan historias relacionadas con los libros y la memoria. Su extensión de 232 páginas también permite acercarse a una novela de menor longitud que los volúmenes extensos de fantasía.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,29 +13,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer las 232 páginas de La librería de la memoria: El fenómeno coreano sobre el poder mágico de los libros (Áncora & Delfín) en una edición física manejable. Kindle facilita llevar el texto en el móvil o ajustar su visualización, mientras que el audiolibro permite escucharlo durante los desplazamientos.",
+      "texto": "La tapa blanda ofrece sus 232 páginas en un volumen físico para leer y conservar. Kindle permite llevar la novela en el móvil o en un lector electrónico, mientras que el audiolibro ofrece la posibilidad de escucharla sin tener que leer en pantalla o papel.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La librería de la memoria: El fenómeno coreano sobre el poder mágico de los libros (Áncora & Delfín) comparte con La máquina del tiempo: Ediciones icónicas (Penguin Clásicos) su relación con la ficción especulativa. La obra de Song Yu-jeong combina fantasía, memoria y duelo, mientras que la de H.G. Wells sitúa el tiempo en el centro de su propuesta.",
+      "texto": "Barbie dreamscape comparte con La librería de la memoria el componente fantástico y la presencia de posibilidades que escapan a la realidad cotidiana. La diferencia está en su punto de partida: Barbie dreamscape plantea una cuestión relacionada con los futuros, mientras que el libro de Song Yu-jeong sitúa los libros en el centro de su propuesta.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788491052395"
+        "isbn-9791388277481"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9fe9513de51d1041",
+  "fuente_hash": "32f847b7def634bf",
   "origen": "chatgpt-web"
 }

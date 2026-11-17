@@ -4,37 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores interesados en economía y empresa, especialmente en cuestiones de venta, formación y protección del futuro. ANTES DE QUE OCURRA: Vender, formar y proteger el futuro, de Rafael De la Torre Pérez, se aparta de la narrativa de ficción y se sitúa en el ámbito empresarial.",
+      "texto": "ANTES DE QUE OCURRA: Vender, formar y proteger el futuro se dirige a lectores interesados en la economía y la empresa. Sus tres verbos del título delimitan los ámbitos que aborda: ventas, formación y protección del futuro; no es una obra de ficción ni una novela de entretenimiento.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y marcar las 151 páginas de ANTES DE QUE OCURRA: Vender, formar y proteger el futuro en papel. Kindle ofrece el mismo título en formato digital para llevarlo en el móvil o en un lector electrónico, sin cargar con el ejemplar físico.",
+      "texto": "La tapa blanda contiene 151 páginas en un volumen físico que permite consultar y conservar el contenido. Kindle ofrece la alternativa digital para leer ANTES DE QUE OCURRA: Vender, formar y proteger el futuro en un dispositivo electrónico o en el móvil.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "ANTES DE QUE OCURRA: Vender, formar y proteger el futuro comparte el ámbito empresarial con ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland. El primero pone el foco en vender, formar y proteger el futuro; el segundo, en el papel de las ideas que desafían el sentido común.",
+      "texto": "Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, comparte con ANTES DE QUE OCURRA: Vender, formar y proteger el futuro un ámbito relacionado con la actividad empresarial. La diferencia está en el enfoque que sugieren sus títulos: uno aborda las ventas, la formación y la protección del futuro; el otro sitúa la atención en el liderazgo y su dimensión interior. También cambia la autoría.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399087222"
+        "isbn-9788409921980"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0270b8117a53981e",
+  "fuente_hash": "00553cd96c21d6c4",
   "origen": "chatgpt-web"
 }

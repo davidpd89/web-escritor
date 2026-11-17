@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399285093",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El erotismo: 215 (Centellas), de Lou Andreas-Salomé, se dirige a lectores interesados en el erotismo como materia de ensayo. Sus 156 páginas ofrecen una extensión relativamente breve para abordar este tema desde un género de no ficción. No corresponde a quien busca una novela romántica o una narración erótica de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El erotismo: 215 (Centellas) está disponible en tapa blanda, con 156 páginas en castellano. La extensión facilita llevar el ejemplar en una bolsa y consultar de nuevo sus páginas sin depender de un dispositivo electrónico. Olañeta Ediciones publica esta edición física, que también puede guardarse en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc2bd4d1366c0b0c",
+  "origen": "chatgpt-web"
+}

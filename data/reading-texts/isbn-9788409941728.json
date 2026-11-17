@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Susurros del olvido encaja con lectores interesados en relatos de fantasía y ciencia ficción escritos por distintas voces. Sus 401 páginas reúnen una autoría colectiva, por lo que su planteamiento difiere del de una novela atribuida a un único escritor.",
+      "texto": "Susurros del olvido está dirigido a lectores de relatos de fantasía que buscan una obra de autoría colectiva. Sus 401 páginas y la participación de varios autores lo diferencian de una novela atribuida a una sola firma; no responde a la búsqueda de ensayo o narrativa realista.",
       "evidencias": [
         "titulo",
-        "categorias",
         "autores",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Susurros del olvido se presenta en tapa blanda, con 401 páginas en castellano. Es un volumen físico de extensión considerable que permite alternar la lectura con consultas posteriores, manteniendo reunidas las aportaciones de sus distintos autores.",
+      "texto": "Susurros del olvido cuenta con una edición en tapa blanda de 401 páginas, publicada en castellano. El formato permite conservar los relatos reunidos en un único volumen físico, aunque su extensión requiere más espacio para transportarlo que una recopilación breve.",
       "evidencias": [
         "titulo",
+        "categorias",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "autores"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Susurros del olvido puede compararse con Al despertar, rompe el cascarón (Runas), de Becky Chambers, por su relación con la narrativa de imaginación. La diferencia comprobable está en la autoría: Susurros del olvido reúne diez nombres, mientras que Al despertar, rompe el cascarón (Runas) figura firmado por Becky Chambers.",
+      "texto": "Susurros del olvido comparte el terreno fantástico con El árbol de los cuervos: Los cuentos del fénix II.: 2, de Andrea Manfredini Font. La diferencia visible está en la autoría: Susurros del olvido reúne varias firmas, mientras que El árbol de los cuervos: Los cuentos del fénix II.: 2 figura atribuido a un único autor.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370093488"
+        "isbn-9791399315707"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4801544b1f2fefc5",
+  "fuente_hash": "690cf99ec20e3728",
   "origen": "chatgpt-web"
 }

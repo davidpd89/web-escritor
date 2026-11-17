@@ -4,29 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La orfandad del centinela: 43 (Ultramarinos), de Jesús Miranda, está dirigida a lectores de poesía en castellano. Por su género, se distancia de quienes prefieren una novela con una trama narrativa continuada o un ensayo de carácter divulgativo.",
+      "texto": "La orfandad del centinela: 43 (Ultramarinos) se dirige a lectores de poesía en castellano. Sus 216 páginas corresponden a una obra de Jesús Miranda, por lo que se aparta de las expectativas de quien busca una novela narrativa o un cómic. El título la identifica con el número 43 de Ultramarinos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La orfandad del centinela: 43 (Ultramarinos) se presenta en tapa blanda, con 216 páginas. Esta edición de Ultramarinos Editorial permite leer y consultar los textos poéticos en papel, con una encuadernación flexible que facilita transportar el volumen. El contenido está publicado en castellano.",
+      "texto": "La edición de La orfandad del centinela: 43 (Ultramarinos) es en tapa blanda y contiene 216 páginas. Este soporte permite leer los textos en papel, marcar pasajes y regresar a ellos sin depender de un dispositivo electrónico. Está publicada en castellano por Ultramarinos Editorial.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "categorias",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La orfandad del centinela: 43 (Ultramarinos) puede ponerse junto a Animales que flotan lejos de casa: 43 (Leteo), de Nicolás Peña, dentro de una selección de poesía. Aunque ambos títulos incorporan el número 43, pertenecen a colecciones editoriales distintas y tienen autores diferentes. También puede compararse con Advenir, de Jose Eceolaza, como otra opción de lectura poética.",
+      "texto": "La orfandad del centinela: 43 (Ultramarinos) puede ponerse junto a A solas, de María Jesús Martínez Ramos, como otra referencia del catálogo. La primera es una obra de poesía de Jesús Miranda, mientras que la segunda tiene una autoría distinta y un título centrado en la soledad. La comparación permite distinguir entre una referencia explícita al centinela y otra a la experiencia de estar a solas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,8 +34,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410212749",
-        "isbn-9791388299421"
+        "isbn-9788410907539"
       ]
     }
   ],

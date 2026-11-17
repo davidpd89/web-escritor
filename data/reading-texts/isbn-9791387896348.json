@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387896348",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Geografía. Libros V-VII (Biblioteca Clásica Gredos) se dirige a lectores interesados en la geografía, la historia y los textos clásicos. La obra de Estrabón reúne 432 páginas en castellano y no corresponde a quien busca una guía de viajes actual o una novela de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Geografía. Libros V-VII (Biblioteca Clásica Gredos) se presenta en tapa dura, con 432 páginas. La encuadernación de Gredos resulta adecuada para mantener el volumen en una biblioteca y consultarlo repetidamente, aunque supone transportar un libro de extensión considerable.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Geografía. Libros V-VII (Biblioteca Clásica Gredos) comparte con El infinito en un junco, de Irene Vallejo, el interés por el mundo antiguo, aunque Estrabón aborda la geografía y Vallejo la historia de los libros. Fronteiras ibéricas em diálogo se aproxima por su temática geográfica e histórica, pero se centra en las fronteras ibéricas, la cooperación y la globalización.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393041",
+        "isbn-9788447227174"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fdf4ff1353255729",
+  "origen": "chatgpt-web"
+}

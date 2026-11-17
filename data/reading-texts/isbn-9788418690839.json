@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788418690839",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La muerte es lo que nos pasa cuando el tiempo deja de pasarnos: 6 (Catálogo a ciegas) se sitúa en la narrativa contemporánea y está dirigido a quienes buscan lecturas de ese ámbito. Sus 174 páginas permiten abordar una obra relativamente breve; no responde a la búsqueda de un ensayo político o un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La muerte es lo que nos pasa cuando el tiempo deja de pasarnos: 6 (Catálogo a ciegas) se publica en tapa blanda. Son 174 páginas en castellano, una extensión que facilita transportar el ejemplar y leerlo por sesiones. La edición corresponde a Editorial Barrett.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La muerte es lo que nos pasa cuando el tiempo deja de pasarnos: 6 (Catálogo a ciegas) puede compararse con El Sistema: 7 (Catálogo a ciegas): ambos figuran bajo la autoría de Anónimo y comparten colección. Frente a El momento es ahora: Un manifiesto contra la resignación (Espasa Ensayo), clasificado por su título como ensayo y manifiesto, este libro pertenece a la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418690846",
+        "isbn-9788467085174"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0f60646e775bcf0",
+  "origen": "chatgpt-web"
+}

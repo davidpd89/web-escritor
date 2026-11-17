@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788408328100",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "9 de noviembre (Bestseller), de Colleen Hoover, se dirige a lectores de romance y narrativa contemporánea. Con 384 páginas, pertenece a la ficción narrativa centrada en este género; no corresponde a quien busque una novela histórica o un libro práctico sobre relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "9 de noviembre (Bestseller) se presenta en tapa blanda, concretamente en una edición de bolsillo de Booket. Sus 384 páginas se reúnen en un formato pensado para transportar el libro y leerlo en papel, sin necesitar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "9 de noviembre (Bestseller) puede compararse con All your perfects (Titania fresh) y Finding cinderella (Titania fresh), también escritos por Colleen Hoover. La coincidencia principal es la autoría, mientras que 9 de noviembre (Bestseller) figura como romance y narrativa contemporánea en una edición de bolsillo de Booket, frente a los títulos identificados con Titania fresh.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410391833",
+        "isbn-9788410391826"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf63038b76a2a322",
+  "origen": "chatgpt-web"
+}

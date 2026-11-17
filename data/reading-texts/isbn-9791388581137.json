@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388581137",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Después del grito: 009 (Vdb Teatro Negro) se dirige a lectores interesados en publicaciones relacionadas con el teatro y las artes. Sus 100 páginas ofrecen una extensión reducida; por su identificación con una colección teatral, se aparta de las lecturas centradas en divulgación científica o historia general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Después del grito: 009 (Vdb Teatro Negro) cuenta con una edición en tapa blanda de 100 páginas. El formato permite transportarlo con facilidad y mantener el volumen junto a otras publicaciones teatrales, tanto para una lectura seguida como para consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Después del grito: 009 (Vdb Teatro Negro) y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) comparten su vinculación con el ámbito artístico. La obra de Francisco de los Ríos se identifica con el teatro, mientras que la de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga aborda el western desde su propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b606f7d10f695969",
+  "origen": "chatgpt-web"
+}

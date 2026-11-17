@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387534356",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marcas que cuentan: Historias desconocidas sobre marcas cotidianas (Kailas No Ficción) se dirige a quienes buscan lecturas sobre marcas, diseño y su dimensión empresarial. Su enfoque en historias de marcas cotidianas se aparta de los manuales centrados exclusivamente en técnicas artísticas o creación de obras visuales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Marcas que cuentan: Historias desconocidas sobre marcas cotidianas (Kailas No Ficción) está disponible en tapa blanda, con 384 páginas en castellano. Esta edición permite conservar el volumen en papel y consultar sus contenidos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo crear y consolidar tu propia marca de joyería y Marcas que cuentan: Historias desconocidas sobre marcas cotidianas (Kailas No Ficción) coinciden en su atención a las marcas. El libro de Jose Luis Fettolini se centra en crear y consolidar una marca de joyería; el de Fernando de Córdoba Trigueros aborda historias de marcas cotidianas desde una perspectiva más amplia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410650534"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "625f43381d310b73",
+  "origen": "chatgpt-web"
+}

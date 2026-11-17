@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las legiones malditas (Trilogía Africanus 2) (edición conmemorativa 20.º aniversario) (Histórica) se dirige a lectores de novela histórica y aventuras que buscan una narración extensa. Sus 864 páginas y su pertenencia declarada a una trilogía encajan menos con quienes prefieren relatos breves e independientes.",
+      "texto": "Las legiones malditas (Trilogía Africanus 2) (edición conmemorativa 20.º aniversario) (Histórica) encaja con lectores interesados en la novela histórica y las aventuras de larga extensión. Sus 864 páginas y su pertenencia identificada a Trilogía Africanus pueden alejar a quienes buscan una lectura breve o desligada de una trilogía.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,38 +13,36 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición de Ediciones B se presenta como conmemorativa del 20.º aniversario y está encuadernada en tapa dura. Contiene 864 páginas en castellano, con publicación prevista para el 26 de noviembre de 2026. El título la identifica como el n.º 2 de Trilogía Africanus, lo que permite distinguirla de otras entregas y presentaciones.",
+      "texto": "Ediciones B publica esta edición conmemorativa del 20.º aniversario el 26 de noviembre de 2026, en tapa dura y castellano. Tiene 864 páginas, su ISBN es 9788466684996 y el título la identifica como el n.º 2 de Trilogía Africanus.",
       "evidencias": [
         "titulo",
         "editorial",
+        "fecha_publicacion",
         "edicion",
         "numero_paginas",
         "idioma",
-        "fecha_publicacion"
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura ofrece una encuadernación rígida para las 864 páginas de esta edición conmemorativa, especialmente práctica para conservarla en una colección. Kindle permite leer una obra de esa extensión sin transportar el volumen físico y ajustar la visualización del texto. Son las dos opciones disponibles para este título de Santiago Posteguillo.",
+      "texto": "La tapa dura proporciona una encuadernación rígida para consultar y conservar un volumen de 864 páginas, especialmente si se coloca junto a otros libros de la trilogía. Kindle permite leer esa misma extensión sin cargar con el peso de un ejemplar físico durante los desplazamientos.",
       "evidencias": [
         "titulo",
-        "autores",
         "numero_paginas",
-        "formatos_disponibles",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las legiones malditas comparte autor y orientación histórica con Roma soy yo, primera entrega de la serie dedicada a Julio César. La obra de Santiago Posteguillo se identifica en su título como el n.º 2 de Trilogía Africanus, mientras que Roma soy yo pertenece a otra serie. La diferencia principal para el lector está en la serie histórica que desea seguir, aunque ambas obras combinan novela histórica y personajes vinculados a Roma.",
+      "texto": "La traición de Roma (Trilogía Africanus 3) (edición conmemorativa 20.º aniversario) (Histórica) comparte autor, trilogía y carácter conmemorativo con Las legiones malditas. La diferencia está en su posición indicada: Las legiones malditas lleva el n.º 2 y La traición de Roma el n.º 3. Ambas pertenecen a la obra de Santiago Posteguillo.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788413148335"
+        "isbn-9788466685009"
       ]
     }
   ],

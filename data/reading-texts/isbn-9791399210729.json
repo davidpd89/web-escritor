@@ -4,42 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Donde callan los niños (Imágica Intriga) está dirigido a lectores de misterio y thriller interesados en temas relacionados con la infancia y las mujeres. Sus 390 páginas plantean una lectura de extensión considerable dentro del género. Por su orientación temática, puede no encajar con quienes prefieran evitar asuntos vinculados a menores en relatos de intriga.",
+      "texto": "Donde callan los niños (Imágica Intriga), de Eva Zamora Zamora, se dirige a lectores de misterio y thriller que buscan una novela de extensión media. Sus 390 páginas la alejan de las lecturas breves y, por su género, no responde a quien prefiera narrativa centrada en otros temas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Donde callan los niños (Imágica Intriga) se ofrece en tapa blanda, con 390 páginas en castellano. Es una edición física de Imágica Ediciones que permite seguir una lectura de misterio en papel y conservar el volumen para posteriores consultas o relecturas.",
+      "texto": "Donde callan los niños (Imágica Intriga) está disponible en tapa blanda, con 390 páginas en castellano. Esta edición de Imágica Ediciones permite leer la novela en papel y conservarla en la estantería sin recurrir a una encuadernación rígida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Donde callan los niños (Imágica Intriga) y Las mujeres de New Jersey (THRILLER Y MISTERIO) se relacionan por su vinculación al misterio y la presencia de cuestiones asociadas a las mujeres. La novela de Eva Zamora Zamora incorpora además la infancia entre sus temas, mientras que el título de Astrid Dahl sitúa expresamente a las mujeres en New Jersey. La primera reúne 390 páginas y se presenta dentro de Imágica Intriga.",
+      "texto": "Donde callan los niños (Imágica Intriga) comparte el terreno del misterio con Aberración y Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir). La diferencia identificable está en la autoría: Eva Zamora Zamora firma el primero, Santiago López de Hoyos el segundo y Ann Cleeves el tercero.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387595715"
+        "isbn-9791399297508",
+        "isbn-9788410424524"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e02ed6cdd45d5d38",
+  "fuente_hash": "ce5d845a4d12606f",
   "origen": "chatgpt-web"
 }

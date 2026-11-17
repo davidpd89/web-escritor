@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388328084",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Giner y la institución libre de enseñanza. Biografía: Poder, pedagogía y estética (Ciudadela Libros) está dirigido a lectores de biografías interesados en la educación, el poder y la estética. Su enfoque biográfico y sus 448 páginas lo diferencian de una obra breve de consejos pedagógicos o de una novela.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Giner y la institución libre de enseñanza. Biografía: Poder, pedagogía y estética (Ciudadela Libros) tiene 448 páginas y se ofrece en tapa blanda. Su extensión permite dedicar varias sesiones a la lectura y conservar el ejemplar físico para posteriores consultas sobre la figura biografiada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Giner y la institución libre de enseñanza. Biografía: Poder, pedagogía y estética (Ciudadela Libros) puede ponerse junto a Al andar: Vivencias del Camino de Santiago por su vinculación con la escritura sobre vidas y experiencias. José María Marco Tobarra presenta una biografía relacionada con la pedagogía y el poder; Carlos Díaz Ballesta se ocupa de vivencias vinculadas al Camino de Santiago.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "497fe7992699532c",
+  "origen": "chatgpt-web"
+}

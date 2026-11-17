@@ -4,52 +4,51 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Jerusalén, primera entrega de Caballo de Troya, se dirige a lectores interesados en narrativa contemporánea y cuestiones religiosas o espirituales. Sus 624 páginas y su presentación ilustrada la alejan de quienes buscan lecturas breves o manuales prácticos de bienestar.",
+      "texto": "Se dirige a lectores de narrativa contemporánea interesados en cuestiones religiosas y espirituales. Por su orientación temática, encaja menos con quienes buscan exclusivamente una guía práctica de nutrición o bienestar.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La particularidad de esta edición de Editorial Planeta es su presentación especial ilustrada, con ilustraciones de Raúl Allén anunciadas en el título. Se publica en tapa dura, en castellano, con 624 páginas y fecha del 25 de noviembre de 2026. El título identifica Jerusalén como Caballo de Troya 1, y su ISBN es 9788408328605.",
+      "texto": "Esta edición especial ilustrada de Jerusalén, primer volumen de Caballo de Troya, incorpora ilustraciones de Raúl Allén y pertenece a Biblioteca J. J. Benítez. Editorial Planeta la publica en tapa dura, con 624 páginas en castellano y el ISBN 9788408328605.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
-        "idioma",
         "numero_paginas",
-        "fecha_publicacion",
+        "idioma",
         "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Editorial Planeta ofrece un volumen físico de 624 páginas y una edición identificada como especial ilustrada, apropiada para conservar o regalar. Kindle permite leerlo en formato electrónico sin cargar con ese volumen. El audiolibro ofrece la alternativa de escucharlo durante desplazamientos u otras actividades.",
+      "texto": "La tapa dura reúne las 624 páginas de esta edición especial ilustrada y permite conservarla como volumen físico. Kindle facilita llevar la lectura en un dispositivo electrónico, mientras que el audiolibro permite escucharla sin depender de la página impresa. La presencia de ilustraciones está identificada expresamente en la edición de tapa dura.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Estuche El Alquimista (Edición especial con cantos tintados) (Biblioteca Paulo Coelho) comparte con Jerusalén el carácter de edición especial, aunque destaca los cantos tintados frente a las ilustraciones de Raúl Allén. Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow, se centra en la consciencia, mientras que Jerusalén pertenece a la narrativa contemporánea y aborda cuestiones religiosas y espirituales.",
+      "texto": "Están aquí: ¿Qué ocultan los militares sobre los ovnis? comparte autor con Jerusalén, pero aborda desde su título los ovnis y el ámbito militar, frente a la orientación religiosa y narrativa de este último. Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow, coincide en el interés por cuestiones espirituales, aunque centra su propuesta en la consciencia.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328063",
+        "isbn-9788408326618",
         "isbn-9798888505335"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2368dc5d89378bc3",
+  "fuente_hash": "c905b19392b1d93d",
   "origen": "chatgpt-web"
 }

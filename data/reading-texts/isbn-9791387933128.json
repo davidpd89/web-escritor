@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387933128",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vida de Tolstói: Una experiencia de lectura: 7 (Eclecta libros), de Andrei Zorin, se dirige a lectores interesados en las biografías literarias y el ensayo. Su enfoque en la vida de Tolstói lo diferencia de una novela de ficción contemporánea, por lo que encaja menos con quien busca una trama inventada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Vida de Tolstói: Una experiencia de lectura: 7 (Eclecta libros) se presenta en tapa blanda y tiene 288 páginas. Es una opción física para leer, consultar o conservar en una biblioteca de biografías y ensayos, publicada por Eclecta Editorial en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo la sombra del Vesubio: Vida de Plinio: 120 (Biblioteca de Ensayo / Serie mayor), de Daisy Dunn, comparte con Vida de Tolstói: Una experiencia de lectura: 7 (Eclecta libros) el interés por una figura histórica, aunque sus protagonistas son distintos. John Berger: Modos de aprender, de Iona Heath, ofrece otra aproximación a una figura vinculada con la cultura, mientras Andrei Zorin centra su libro en Tolstói.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788418708459",
+        "isbn-9788432322167"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0aa7adddd03e5b5c",
+  "origen": "chatgpt-web"
+}

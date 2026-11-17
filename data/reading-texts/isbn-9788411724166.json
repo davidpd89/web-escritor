@@ -4,38 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los arcanos del folclore (CARTOMANCIA Y TAROT), de Azzurra D' Agostino, encaja con lectores interesados en el tarot, las tradiciones populares y su dimensión artística. Su orientación temática difiere de la de un manual centrado en técnicas de salud o en cambios de hábitos personales.",
+      "texto": "Los arcanos del folclore (CARTOMANCIA Y TAROT) se orienta a lectores interesados en la cartomancia, el tarot y sus vínculos con el folclore. Por su temática, queda fuera de las búsquedas centradas exclusivamente en nutrición, ejercicio físico o alimentación.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los arcanos del folclore (CARTOMANCIA Y TAROT) se presenta en tapa blanda, con una extensión de 112 páginas. Es una edición física de tamaño de lectura relativamente breve por número de páginas, que puede transportarse y consultarse sin recurrir a un dispositivo electrónico.",
+      "texto": "Los arcanos del folclore (CARTOMANCIA Y TAROT) se presenta en tapa blanda, con 112 páginas en castellano. Esta edición de Ediciones Obelisco S.l. permite consultar el contenido en papel y conservar el volumen como referencia física sobre cartomancia y tarot.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los arcanos del folclore (CARTOMANCIA Y TAROT) y Gabinete de maravillas para colorear (Somos B), de Carlota Santos, se relacionan con el ámbito artístico, aunque proponen actividades distintas. El libro de Azzurra D' Agostino se identifica con los arcanos y el folclore, mientras que el de Carlota Santos está planteado como una obra para colorear. La diferencia principal está entre el interés por el simbolismo y la actividad de colorear.",
+      "texto": "44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life comparte con Los arcanos del folclore (CARTOMANCIA Y TAROT) el interés por asuntos espirituales o esotéricos. El libro de Tania Karam se presenta mediante mensajes del mundo espiritual para la vida cotidiana, mientras que el de Azzurra D' Agostino se centra, desde su título, en los arcanos y el folclore.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466685542"
+        "isbn-9786073881388"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fd07c48c43f63503",
+  "fuente_hash": "e0259ecd3cfd6530",
   "origen": "chatgpt-web"
 }

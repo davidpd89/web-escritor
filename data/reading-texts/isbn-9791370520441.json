@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791370520441",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ikkyu Cofre: 1 está orientado a lectores de cómic y novela gráfica juvenil que buscan una edición presentada como cofre. La obra de Hisashi Sakaguchi se diferencia de una novela convencional en prosa por su clasificación editorial, y su extensión favorece una lectura repartida en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ikkyu Cofre: 1 se ofrece en tapa blanda, con una extensión editorial de 1288 páginas en castellano. Su presentación como cofre permite distinguirlo de los volúmenes individuales al elegir un regalo o una edición para conservar, aunque esa denominación no determina por sí sola qué piezas contiene.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ikkyu Cofre: 1 comparte autoría con Ikkyu Núm. 01: 1 e Ikkyu Núm. 02: 2, todos de Hisashi Sakaguchi. La diferencia está en la presentación editorial: el primero se denomina cofre y los otros se identifican como entregas numeradas, dentro del ámbito del cómic juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370520427",
+        "isbn-9791370520434"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6099a4ee31b523a8",
+  "origen": "chatgpt-web"
+}

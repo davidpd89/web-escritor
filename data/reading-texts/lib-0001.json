@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Coraline está dirigida a lectores a partir de 9 años que disfrutan de la fantasía oscura, los misterios y los mundos paralelos. Su conflicto combina la exploración de un hogar alternativo con una amenaza de encierro, por lo que puede resultar menos adecuada para quienes prefieren aventuras sin elementos inquietantes.",
+      "texto": "Coraline encaja con lectores desde los 9 años interesados en el misterio, los mundos paralelos y la fantasía oscura. Neil Gaiman plantea una aventura con elementos de terror y una amenaza de encierro familiar, por lo que puede resultar inquietante para quienes prefieren historias sin situaciones amenazantes.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,7 +15,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Coraline tiene una edad recomendada a partir de 9 años y contiene elementos de terror y misterio juvenil. La aparición de unos padres alternativos que impiden regresar a la protagonista introduce una situación de amenaza y pérdida de libertad que puede inquietar a lectores sensibles.",
+      "texto": "La edad recomendada para Coraline comienza a los 9 años. El relato incorpora terror y misterio mediante una versión alternativa del hogar y unos padres que pretenden impedir que la protagonista regrese. La amenaza de quedar atrapada y la transformación de un entorno familiar en un lugar peligroso son los principales elementos que conviene valorar.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,26 +25,13 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Coraline está disponible en tapa dura, tapa blanda, Kindle y audiolibro. Sus 160 páginas permiten elegir una edición física para conservar o prestar, Kindle para leer en el móvil y audiolibro para seguir la historia mediante la escucha; la tapa blanda facilita llevarla fuera de casa.",
+      "texto": "Coraline puede elegirse en tapa dura, tapa blanda, Kindle o audiolibro. La edición en tapa blanda de Salamandra tiene 160 páginas y solapas; la tapa dura ofrece una encuadernación rígida para conservar el ejemplar. Kindle permite leerlo en dispositivos compatibles y el audiolibro ofrece la alternativa de escucharlo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Los cazamisterios - Pack con: El caso del tren de la bruja | El caso de la casa con ruedas: Secretos, risas y detectives... ¿te unes al club? (Jóvenes lectores), de Patricia García-Rojo, comparte con Coraline el misterio dirigido a lectores jóvenes, pero incorpora detectives y humor. La novela de Neil Gaiman se distingue por su fantasía oscura y el peligro de quedar atrapada en un mundo paralelo.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387949617"
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     }
   ],

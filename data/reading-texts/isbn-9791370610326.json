@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las Ultrafalsificaciones: retos probatorios (Monografía) está orientado a lectores interesados en el derecho y en los problemas relacionados con la prueba de ultrafalsificaciones. El enfoque jurídico de Ana Montesinos Garcia lo distingue de las lecturas divulgativas generales sobre tecnología o de las obras narrativas.",
+      "texto": "Pensado para lectores interesados en las ultrafalsificaciones y en los problemas que plantean como prueba en el ámbito jurídico. Su orientación monográfica encaja menos con quienes buscan una explicación tecnológica general sobre la creación de contenidos digitales o una novela de intriga.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las Ultrafalsificaciones: retos probatorios (Monografía) se publica en tapa blanda y tiene 280 páginas en castellano. Esta presentación permite transportar el volumen y consultar sus contenidos jurídicos en papel, con una encuadernación flexible para el manejo habitual.",
+      "texto": "La tapa blanda presenta las 280 páginas de Las Ultrafalsificaciones: retos probatorios (Monografía) en una edición impresa. Su extensión permite manejar el volumen durante el estudio y señalar pasajes relacionados con los problemas probatorios, sin depender de un dispositivo de lectura.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "titulo",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) comparte con Las Ultrafalsificaciones: retos probatorios (Monografía) el tratamiento jurídico de cuestiones relacionadas con la tecnología. La obra de Ana Isabel Quiroz Ruiz se centra en el desafío legal de blockchain, mientras que Ana Montesinos Garcia aborda los retos probatorios de las ultrafalsificaciones.",
+      "texto": "Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal comparte con esta obra su orientación hacia cuestiones jurídicas concretas. La monografía de Ana Montesinos Garcia se centra en los retos probatorios de las ultrafalsificaciones, mientras que el título de Víctor Rodríguez Alonso examina una cuestión específica del derecho penal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610265"
+        "isbn-9791370475949"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e88879e71515f601",
+  "fuente_hash": "f7f206922ff935a8",
   "origen": "chatgpt-web"
 }

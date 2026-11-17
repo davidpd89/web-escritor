@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370650421",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta monografía se dirige a quienes necesitan estudiar los requisitos de la exención por reinversión en vivienda habitual y resolver dudas sobre su aplicación fiscal. Su enfoque jurídico la distancia de las guías generales sobre compraventa de viviendas o inversión inmobiliaria.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 156 páginas en castellano, una extensión manejable para consultar requisitos fiscales durante el estudio de un caso. El soporte impreso permite marcar apartados y volver a ellos al revisar la aplicación de la exención por reinversión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría y orientación fiscal con Beneficios fiscales para mayores de 65 años impuesto a impuesto. Paso a paso: Estudio de las principales ventajas fiscales en el IRPF, el IVA y otros ... para este colectivo y su entorno más próximo. La diferencia es el alcance: aquí se aborda la reinversión en vivienda habitual, mientras que el otro título reúne ventajas tributarias dirigidas a un colectivo concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650728"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6bb26f3d9257cf5",
+  "origen": "chatgpt-web"
+}

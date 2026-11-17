@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388495113",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Akane banashi, vol. 12 encaja con lectores de cómic y novela gráfica que buscan una entrega identificada con un número de volumen. El título lo identifica como el n.º 12, por lo que resulta menos adecuado para quien prefiera empezar una lectura por su primera entrega.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Akane banashi, vol. 12 se presenta en tapa blanda, con 192 páginas en castellano. Esta edición de Milky Way Ediciones permite incorporarlo a una colección física y transportarlo sin la rigidez de una cubierta dura; es una opción de lectura en papel, no de escucha ni de lectura digital.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f443976775c384ce",
+  "origen": "chatgpt-web"
+}

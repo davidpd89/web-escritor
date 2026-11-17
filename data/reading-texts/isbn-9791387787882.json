@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Babilonia (Histórica) está dirigida a lectores de novela histórica que prefieren la ficción ambientada en el pasado frente a los estudios académicos. Robert Fabbri firma una narración de 432 páginas, una extensión que requiere más tiempo de lectura que una novela breve.",
+      "texto": "Babilonia (Histórica), de Robert Fabbri, encaja con lectores que buscan una novela histórica de extensión considerable. Sus 432 páginas permiten dedicar varias sesiones a la lectura de una obra ambientada en el pasado. No responde a la búsqueda de un ensayo histórico ni a la de un libro de consulta sobre acontecimientos reales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,17 +14,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Babilonia (Histórica) se publica en tapa blanda, con 432 páginas en castellano. La encuadernación flexible permite manejar un volumen de esta extensión sin la rigidez de una cubierta dura; es una opción en papel para leer por sesiones y conservar después en la estantería.",
+      "texto": "Babilonia (Histórica) se publica en tapa blanda, con 432 páginas en castellano. La edición de Ediciones Pàmies ofrece una lectura física de largo recorrido en una encuadernación flexible, más manejable que un volumen rígido de extensión semejante. Es una opción para quienes prefieren avanzar por una novela histórica en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Babilonia (Histórica) puede compararse con Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth y Ave César (Narrativas Históricas) por su relación con la narrativa histórica. Cambian los autores y las referencias de los títulos: Robert Fabbri firma Babilonia (Histórica), Valerio Massimo Manfredi la obra de Aléxandros y Rex Warner la de César.",
+      "texto": "Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon permite comparar Babilonia (Histórica) con otra narración vinculada al mundo antiguo. La diferencia más visible está en el referente anunciado por cada título: Babilonia frente a las arenas de Amón. Además, la obra de Valerio Massimo Manfredi se identifica como Aléxandros II, mientras que la de Robert Fabbri se presenta sin numeración de entrega.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,8 +34,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786287897106",
-        "isbn-9788435064125"
+        "isbn-9786287897090"
       ]
     }
   ],

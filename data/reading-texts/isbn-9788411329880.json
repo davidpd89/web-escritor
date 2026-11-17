@@ -4,35 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esplendor se orienta a lectores de narrativa contemporánea interesados en la memoria urbana, la amistad entre generaciones y el paso del tiempo. Su atención a los recuerdos personales y a las transformaciones de Barcelona lo distancia de las novelas construidas alrededor de una investigación criminal o una sucesión de acontecimientos de acción.",
+      "texto": "Esplendor está dirigido a lectores de narrativa contemporánea interesados en la memoria urbana, la amistad y las relaciones entre generaciones. Jordi Corominas sitúa la historia en Barcelona y relaciona los recuerdos personales con los cambios de la ciudad. No responde a quien busque una trama centrada en la acción o desligada de la evocación del pasado.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Esplendor propone una narración situada entre el recuerdo autobiográfico y la ficción, con una amistad masculina como eje de la reconstrucción del pasado. Jordi Corominas relaciona la evolución personal de sus personajes con los cambios de Barcelona desde finales del siglo XX, prestando atención a los espacios y las costumbres que desaparecen.",
+      "texto": "Esplendor combina narrativa contemporánea y reconstrucción de recuerdos personales en torno a una amistad. La historia recorre Barcelona desde finales del siglo XX y contrapone los espacios compartidos con su transformación posterior. Jordi Corominas trabaja así la relación entre pérdida, memoria y formación sentimental a lo largo de 352 páginas.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Esplendor se publica en tapa blanda, en una edición de RBA Libros de 352 páginas. Este formato permite leer la obra en papel, marcar pasajes y conservar un volumen físico de extensión media, tanto para la lectura personal como para regalar.",
+      "texto": "Esplendor puede leerse en tapa blanda o Kindle, según se prefiera un ejemplar físico o una edición digital. La edición impresa de RBA Libros tiene 352 páginas y permite conservar el volumen en papel. Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro físico.",
       "evidencias": [
         "titulo",
-        "edicion",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a7124f45146bffdf",
+  "fuente_hash": "ef587163d1542ed4",
   "origen": "chatgpt-web"
 }

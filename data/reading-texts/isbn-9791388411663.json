@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388411663",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La traición de Brizo: Matar también es arte, de Raúl Tort, se dirige a lectores de misterio y thriller con interés por la narrativa contemporánea. Por su clasificación temática, queda fuera de las búsquedas centradas en fantasía, romance o divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La traición de Brizo: Matar también es arte está disponible en tapa blanda y Kindle. La edición impresa de Editorial Adarve reúne 272 páginas y permite conservar el volumen en papel; Kindle ofrece la alternativa de leerlo en un dispositivo electrónico o en el móvil sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La traición de Brizo: Matar también es arte comparte el ámbito del misterio con Aguas turbulentas, de Rankin Ian, y Corazón de sílex, de Emilia Landaluce y Rosa Belmonte. Aguas turbulentas sitúa su conflicto entre el pasado y el presente de Edimburgo, mientras que Corazón de sílex parte de una pérdida de memoria; la obra de Raúl Tort se presenta dentro del misterio y la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6559afe5f333e248",
+  "origen": "chatgpt-web"
+}

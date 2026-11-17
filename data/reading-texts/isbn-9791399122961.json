@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399122961",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ladrones de ojos: 5 (Acción 2.0) se orienta a lectores de fantasía y aventuras que buscan una obra extensa. Sus 450 páginas y su clasificación entre los relatos de ficción lo alejan de quienes prefieren lecturas breves o libros de carácter práctico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 450 páginas de Ladrones de ojos: 5 (Acción 2.0) en un volumen físico. Es una opción para leer en papel y conservar el ejemplar en la estantería, aunque su extensión supone llevar un libro considerablemente más largo que una novela corta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ladrones de ojos: 5 (Acción 2.0) comparte el terreno de la fantasía con El árbol de los cuervos: Los cuentos del fénix II.: 2, de Andrea Manfredini Font. La diferencia visible está en su identificación editorial: el primero pertenece a Acción 2.0 y el segundo lleva Los cuentos del fénix en el título; son obras de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399315707"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cd4ae872868c2f2a",
+  "origen": "chatgpt-web"
+}

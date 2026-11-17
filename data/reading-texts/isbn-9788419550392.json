@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788419550392",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Escribir contra los hombres se dirige a quienes buscan conocer a H. P. Lovecraft a través de sus cartas y se interesan por la memoria literaria y el ensayo. Sus 544 páginas corresponden a una propuesta de correspondencia, distinta de una novela de terror con una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Escribir contra los hombres se publica en tapa blanda y contiene 544 páginas en castellano. El soporte físico permite consultar las cartas, señalar pasajes y volver a ellos durante distintas sesiones de lectura. Aristas Martínez es la editorial responsable de este volumen de correspondencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Escribir contra los hombres comparte autoría con Necronomicón, ambos de Lovecraft, y se diferencia por reunir cartas en lugar de centrarse en el terror y la fantasía oscura. También puede compararse con Atlas de Lovecraft (Minotauro Ilustrados), de Alain T Puysségur, por su vinculación con el mismo escritor, aunque este último se presenta como un atlas y no como correspondencia. La comparación distingue una recopilación epistolar de otras aproximaciones al universo literario del autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387574536",
+        "isbn-9788445022863"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fd67ab082c830218",
+  "origen": "chatgpt-web"
+}

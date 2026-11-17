@@ -4,42 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los misterios de Victoria: La casa abandonada, de Ester G. Cuadra, se dirige al público infantil y juvenil interesado en historias de misterio. Su clasificación también incluye naturaleza y sus 209 páginas plantean una lectura más extensa que un cuento breve; no responde a la búsqueda de un libro exclusivamente informativo sobre el entorno natural.",
+      "texto": "Los misterios de Victoria: La casa abandonada está dirigido al público infantil y juvenil que busca historias de misterio ambientadas en lugares inquietantes. Por su combinación de investigación y una casa abandonada, encaja menos con lectores que prefieren relatos cotidianos sin enigmas ni elementos de suspense.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los misterios de Victoria: La casa abandonada se publica en tapa blanda, con 209 páginas en castellano. La edición física de Ester García Cuadra permite leer la historia en papel y llevarla en una mochila, una opción práctica para una lectura juvenil de esta extensión.",
+      "texto": "Los misterios de Victoria: La casa abandonada puede elegirse en tapa dura o tapa blanda, con una extensión de 209 páginas. La tapa dura ofrece una cubierta rígida para conservar el ejemplar o regalarlo; la tapa blanda resulta más flexible para llevarlo en la mochila y leerlo fuera de casa.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Onin 2 - Onin y el misterio del bosque, de Ibon Martín, comparte con Los misterios de Victoria: La casa abandonada el misterio y una referencia a espacios naturales. La obra de Ibon Martín incorpora aventuras y un componente mágico en su presentación, mientras que el título de Ester G. Cuadra sitúa el misterio alrededor de una casa abandonada.",
+      "texto": "Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, comparte el misterio dirigido a lectores infantiles, aunque plantea un robo relacionado con comida. Los misterios de Victoria: La casa abandonada, de Ester G. Cuadra, sitúa el interés en una casa abandonada y combina el misterio con una orientación infantil y juvenil.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387994556"
+        "isbn-9788427256644"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "909e2f3e4aa9120e",
+  "fuente_hash": "dc84e27dba0a51ef",
   "origen": "chatgpt-web"
 }

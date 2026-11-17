@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pueblo / The People se dirige a lectores interesados en historia, poder político y biografías vinculadas a figuras públicas. La autoría de Andrés Manuel López Obrador sitúa el libro en ese ámbito, con una extensión de 744 páginas. No está orientado a quien busca una novela de ficción o una lectura breve.",
+      "texto": "Pueblo / The People, de Andrés Manuel López Obrador, se dirige a lectores interesados en historia, política y textos vinculados a las biografías y memorias. Sus 744 páginas plantean una lectura extensa dentro de la no ficción. Encaja menos con quienes buscan una novela de aventuras o una obra breve alejada de los asuntos políticos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Pueblo / The People contiene 744 páginas, por lo que supone un volumen físico extenso. Kindle permite consultar y leer el contenido en un dispositivo electrónico sin transportar ese ejemplar. El audiolibro ofrece una alternativa de escucha para quienes prefieren seguir una obra larga sin leerla en papel o pantalla.",
+      "texto": "Pueblo / The People permite elegir entre papel, lectura digital y escucha. Sus 744 páginas pueden consultarse en tapa blanda, mientras que Kindle evita transportar el volumen físico. El audiolibro ofrece acceso al contenido mediante audio, una alternativa para quienes prefieren escuchar durante sus desplazamientos.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -23,7 +23,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pueblo / The People puede compararse con Antes de irme (Espasa Actualidad), de Miguel Ángel Revilla, por su relación con las figuras públicas y la actualidad política. La diferencia está en la autoría: Pueblo / The People está firmado por Andrés Manuel López Obrador y se clasifica dentro de la historia, las biografías y memorias y el poder político. Antes de irme (Espasa Actualidad) es una obra de Miguel Ángel Revilla, por lo que permite contrastar libros firmados por distintas figuras públicas.",
+      "texto": "Antes de irme (Espasa Actualidad), de Miguel Ángel Revilla, y Pueblo / The People, de Andrés Manuel López Obrador, se relacionan por su presencia entre las lecturas de temática política y personal. También puede compararse con Crónica de un desafío al Estado, de Javier Alberto Zaragoza Aguado, centrado en los acontecimientos políticos de Cataluña y el Procés. Este último delimita su asunto a ese conflicto, mientras que Pueblo / The People se clasifica además en historia y biografías y memorias.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,7 +31,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467085044"
+        "isbn-9788467085044",
+        "isbn-9788423441303"
       ]
     }
   ],

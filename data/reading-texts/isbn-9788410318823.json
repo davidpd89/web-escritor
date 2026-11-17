@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788410318823",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atlas de la noche (¡incluye un póster que brilla en la oscuridad!): Explora las constelaciones y las historias de las estrellas (Cuentos que cuentan) está dirigido a quienes quieren conocer las constelaciones y sus historias mediante un atlas. Su contenido de consulta y exploración encaja menos con quien busca una novela de ficción continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para las 80 páginas de Atlas de la noche (¡incluye un póster que brilla en la oscuridad!): Explora las constelaciones y las historias de las estrellas (Cuentos que cuentan). Esta edición incorpora un póster que brilla en la oscuridad, un elemento físico que acompaña la consulta del atlas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de la noche (¡incluye un póster que brilla en la oscuridad!): Explora las constelaciones y las historias de las estrellas (Cuentos que cuentan) y Atlas de un errante: 112 (Colección Tántalo) comparten la denominación de atlas. El libro de Davide Cenadelli concreta su contenido en las constelaciones e incorpora un póster luminoso, mientras que el de Rafael Arauz González se presenta como parte de una colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399250244"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "be219567d827bd32",
+  "origen": "chatgpt-web"
+}

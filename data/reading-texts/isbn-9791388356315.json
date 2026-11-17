@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Galería del desencuentro: 629 (Colección Valparaíso de Poesía) se dirige a lectores de poesía en castellano. La obra de Carlota Viejo pertenece a una colección poética, por lo que no responde a la búsqueda de una novela de trama extensa o de un ensayo histórico.",
+      "texto": "Galería del desencuentro: 629 (Colección Valparaíso de Poesía), de Carlota Viejo, está dirigido a quienes buscan poesía escrita en castellano. Su clasificación como obra poética lo diferencia de las lecturas centradas en una trama novelesca y una sucesión de acontecimientos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,26 +14,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Galería del desencuentro: 629 (Colección Valparaíso de Poesía) tiene una edición en tapa blanda de 180 páginas. El formato impreso permite volver a poemas concretos y marcar pasajes durante la lectura, con una extensión manejable para llevar el libro fuera de casa.",
+      "texto": "La edición de Galería del desencuentro: 629 (Colección Valparaíso de Poesía) es de tapa blanda y contiene 180 páginas. El volumen publicado por Valparaíso Ediciones permite leer en papel y regresar a fragmentos concretos durante sucesivas sesiones.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Galería del desencuentro: 629 (Colección Valparaíso de Poesía) comparte el ámbito poético con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera. También se relaciona con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, aunque esta última identifica expresamente el amor como eje de su selección.",
+      "texto": "223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, y A solas, de María Jesús Martínez Ramos, figuran entre las referencias poéticas afines a Galería del desencuentro: 629 (Colección Valparaíso de Poesía). Esta última obra pertenece a la colección de Valparaíso Ediciones y lleva la firma de Carlota Viejo, frente a las autorías distintas de los otros títulos.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "editorial",
+        "categorias"
       ],
       "enlaces": [
         "isbn-9788412988833",
-        "isbn-9788466396288"
+        "isbn-9788410907539"
       ]
     }
   ],

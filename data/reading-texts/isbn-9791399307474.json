@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rosa, la caracola Lola y el gato Rosalino: Un cuento de verano de Rosa y Rosalino: 7 está dirigido al público infantil interesado en cuentos de animales, naturaleza y situaciones veraniegas. Sus 28 páginas permiten plantear una lectura breve, distinta de las narraciones juveniles extensas o de los libros de aventuras para adultos.",
+      "texto": "Rosa, la caracola Lola y el gato Rosalino: Un cuento de verano de Rosa y Rosalino: 7 está dirigido al público infantil y gira en torno a un cuento de verano. Sus 28 páginas permiten plantear una lectura breve, también compartida con un adulto. Encaja menos con lectores que busquen una narración extensa o una historia dirigida específicamente a adolescentes.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,32 +13,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Valcar Ediciones reúne 28 páginas en castellano, una extensión manejable para leer el cuento de principio a fin en una sesión compartida. El formato físico permite pasar las páginas junto al niño y guardar el ejemplar con otros cuentos infantiles.",
+      "texto": "La tapa blanda de Rosa, la caracola Lola y el gato Rosalino: Un cuento de verano de Rosa y Rosalino: 7 contiene 28 páginas y permite compartir la lectura sobre papel. Kindle ofrece una alternativa para llevar el cuento en el móvil o en un lector electrónico. Por su extensión, ambos formatos permiten abordar el texto en sesiones cortas.",
       "evidencias": [
-        "formatos_disponibles",
-        "editorial",
+        "titulo",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rosa, el troll Pol y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 10 comparte con este libro la autoría de David Valcárcel Crespo y la presencia de Rosa y Rosalino, pero presenta un troll y una historia para dormir. Rosa, la dragona Ramona y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 11 mantiene esos personajes y cambia la criatura por una dragona. Rosa, la caracola Lola y el gato Rosalino: Un cuento de verano de Rosa y Rosalino: 7 sitúa su propuesta en el verano y la naturaleza; el título lo identifica como el n.º 7.",
+      "texto": "Rosa, la caracola Lola y el gato Rosalino: Un cuento de verano de Rosa y Rosalino: 7 comparte personajes y autor, David Valcárcel Crespo, con Rosa, el dinosaurio Hilario y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 9 (Rosa y el gato Rosalino). El primero se presenta como cuento de verano con una caracola; el segundo, como cuento para dormir con un dinosaurio. Sus títulos los identifican como los números 7 y 9, respectivamente.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399320015",
-        "isbn-9791399320022"
+        "isbn-9791399320008"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6a95568e4e3c9e54",
+  "fuente_hash": "a4740c6cc6ff13f1",
   "origen": "chatgpt-web"
 }

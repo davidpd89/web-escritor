@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388613166",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Librecidas: Cómo identificar su filosofía, de María del Carmen Bengoechea Bernal, se orienta a lectores interesados en la filosofía, el ensayo y las cuestiones políticas. Sus 141 páginas ofrecen una extensión breve para abordar estos asuntos; por su clasificación temática, se aleja de quienes buscan principalmente narrativa romántica o fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Librecidas: Cómo identificar su filosofía está disponible en tapa dura y tapa blanda, con una edición de 141 páginas. La tapa dura ofrece una cubierta rígida para conservar el ejemplar y regalarlo, mientras que la tapa blanda resulta más flexible para transportarlo. Ambas opciones permiten acceder a esta obra en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Librecidas: Cómo identificar su filosofía comparte autora con Dinerosofía: Conoce y cuida la Economía con Filosofía y Cervezasofía: Filosofía del pan líquido, ambas de María del Carmen Bengoechea Bernal. Las tres vinculan sus asuntos con la filosofía, pero Dinerosofía se ocupa de la economía y Cervezasofía de la cerveza. Librecidas se distingue por su clasificación en ensayo, filosofía y cuestiones políticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388613111",
+        "isbn-9791388613098"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2c7281db6eed4989",
+  "origen": "chatgpt-web"
+}

@@ -4,17 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Solo leveling 06 novela: 6, de CHUGONG, se sitúa entre la fantasía, la ciencia ficción y el ámbito del cómic y la novela gráfica. Sus 290 páginas encajan con lectores interesados en esos géneros; no es una elección orientada a quien busca poesía o narrativa romántica.",
+      "texto": "Solo leveling 06 novela: 6 encaja con lectores de fantasía interesados en continuar una serie de CHUGONG. El título identifica esta entrega como el n.º 6, por lo que resulta menos adecuado para quien busca una lectura independiente o quiere comenzar por el inicio de una colección. La edición reúne 290 páginas en castellano.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Solo leveling 06 novela: 6 se presenta en tapa blanda, con 290 páginas en castellano publicadas por Norma Editorial. Es una edición física que puede guardarse junto a otros volúmenes de la colección y consultarse sin dispositivos electrónicos.",
+      "texto": "Solo leveling 06 novela: 6 está disponible en tapa blanda, con 290 páginas en castellano. Es una edición física que permite conservar esta entrega junto a otros volúmenes de la colección y consultar sus páginas sin utilizar dispositivos electrónicos. Norma Editorial publica esta versión en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -25,7 +26,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Solo leveling 06 novela: 6 y Criaturas míticas 1. Un invierno interminable: 6 (La Sonrisa del Gato) se relacionan por su presencia en el ámbito de la fantasía. La primera es obra de CHUGONG y el título la identifica como el n.º 6; la segunda pertenece a Miila Westin y lleva el número 1 en su título.",
+      "texto": "After God 7 (Shônen) y After God 8 (Shônen), ambos de Sumi Eno, permiten comparar Solo leveling 06 novela: 6 con otras entregas numeradas del ámbito del cómic japonés. Los tres títulos se relacionan con la lectura por volúmenes, aunque Solo leveling 06 novela: 6 se presenta expresamente como novela de fantasía y está firmado por CHUGONG. La diferencia de autoría y de identificación editorial ayuda a distinguir las colecciones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +34,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399054552"
+        "isbn-9791387962388",
+        "isbn-9791387962647"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cf9cd7afc32eeadf",
+  "fuente_hash": "11e79d0bad2bc0a1",
   "origen": "chatgpt-web"
 }

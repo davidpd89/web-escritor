@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409938124",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por si acaso: Libreta de la casa · España: Encuentra la información que necesitas en una emergencia. está dirigida a quienes quieren organizar información doméstica para situaciones imprevistas. Por su enfoque práctico y familiar, se diferencia de una lectura narrativa o de un libro centrado en el entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de Por si acaso: Libreta de la casa · España: Encuentra la información que necesitas en una emergencia. Sus 72 páginas ofrecen un soporte físico para reunir información de la vivienda y mantener la libreta en un lugar accesible del hogar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por si acaso: Libreta de las mascotas · España: Encuentra la información que necesitas en una emergencia. es la comparación más directa por autoría y finalidad. Ambas libretas de Libretas Por si acaso se orientan a localizar información ante una emergencia, pero una se dedica a las mascotas y Por si acaso: Libreta de la casa · España: Encuentra la información que necesitas en una emergencia. se centra en la vivienda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409943579"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2b76ca1dd7369f80",
+  "origen": "chatgpt-web"
+}

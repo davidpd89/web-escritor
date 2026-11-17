@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788467084399",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi verdadera historia: Edición limitada a precio especial (Colección Especial) se dirige a lectores interesados en la vida de Isabel Preysler y en los relatos biográficos. Por su carácter autobiográfico y su clasificación entre las memorias, no responde a la búsqueda de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Mi verdadera historia: Edición limitada a precio especial (Colección Especial) se presenta como una edición limitada dentro de Colección Especial. Booket la publica en tapa dura, con 336 páginas y fecha de publicación del 11 de noviembre de 2026. El propio título identifica su condición de edición a precio especial.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura permite leer y conservar las 336 páginas de Mi verdadera historia: Edición limitada a precio especial (Colección Especial) en un volumen físico. El audiolibro ofrece la alternativa de escuchar la obra durante desplazamientos o actividades que no permiten mantener la vista en el texto.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bad Bunny: Un icono: sin permiso, sin límite, sin miedo (No ficción) también trata una figura pública, pero está escrito por Jaime Valero y se centra en otra personalidad. Mi verdadera historia: Edición limitada a precio especial (Colección Especial) lleva la firma de Isabel Preysler y se presenta como su propio relato biográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139482"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d390597ea010aa8",
+  "origen": "chatgpt-web"
+}

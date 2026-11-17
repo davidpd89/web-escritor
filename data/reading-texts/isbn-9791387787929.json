@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387787929",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Arde Malta (Histórica) pertenece a la novela histórica y se dirige a lectores interesados en ficción vinculada al pasado. Su planteamiento de género se distancia de la narrativa contemporánea sin ambientación histórica; sus 416 páginas corresponden a una novela de extensión considerable.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Arde Malta (Histórica) se presenta en tapa blanda, con 416 páginas en castellano. La edición de Ediciones Pàmies ofrece una lectura física de extensión considerable, con posibilidad de avanzar por sesiones y retomar el texto directamente en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arde Malta (Histórica) y Africanus (Trilogía Africanus 1) (edición conmemorativa 20.º aniversario) (Histórica) comparten el ámbito de la novela histórica, aunque son obras de José Manuel Sala Martí y Santiago Posteguillo, respectivamente. También puede compararse con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi, cuyo título identifica una segunda entrega, frente a la presentación independiente de Arde Malta (Histórica).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466681902",
+        "isbn-9786287897090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7f0ce0ff0fc0439c",
+  "origen": "chatgpt-web"
+}

@@ -4,43 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Gokurakugai nº 06: 6 (Manga Shonen), de Yuto Sano, se dirige a lectores de manga shonen y cómic que siguen historias publicadas en varios volúmenes. Sus 208 páginas corresponden a una edición juvenil de narrativa gráfica; encaja menos con quien busca una novela en prosa o una lectura autoconclusiva.",
+      "texto": "Gokurakugai nº 06: 6 (Manga Shonen) se dirige a lectores de manga juvenil que buscan una entrega identificada dentro de una serie. Su clasificación como cómic y novela gráfica lo aleja de quienes prefieren narrativa exclusivamente en prosa, y el título lo identifica como el n.º 06.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible para Gokurakugai nº 06: 6 (Manga Shonen), de Yuto Sano. Sus 208 páginas reúnen una edición física de Planeta Cómic, con encuadernación flexible y un volumen manejable para leer y guardar junto a los demás tomos.",
+      "texto": "Gokurakugai nº 06: 6 (Manga Shonen) puede leerse en tapa blanda o Kindle. La edición impresa tiene 208 páginas y permite conservar el volumen en papel, mientras que Kindle facilita llevar esta entrega del manga en un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "autores",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "editorial"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura, Muneyuki Kaneshiro, y One Piece nº 114 (Manga Shonen), de Eiichiro Oda, comparten con Gokurakugai nº 06: 6 (Manga Shonen), de Yuto Sano, el formato de manga shonen. La diferencia está en las series y sus autores: cada tomo pertenece a una obra distinta, por lo que la comparación sirve para localizar otras lecturas dentro del mismo tipo de manga.",
+      "texto": "Gokurakugai nº 06: 6 (Manga Shonen) comparte con Blue Lock nº 33 (Manga Shonen) su pertenencia al manga shonen y su identificación como entrega numerada. El primero está firmado por Yuto Sano, mientras que el segundo corresponde a Yusuke Nomura y Muneyuki Kaneshiro. La comparación sirve para lectores que buscan manga juvenil de distintas autorías.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388101991",
-        "isbn-9791388102271"
+        "isbn-9791388101991"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b16ee6af21b9a365",
+  "fuente_hash": "ab92171b4dd77910",
   "origen": "chatgpt-web"
 }

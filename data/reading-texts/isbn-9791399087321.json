@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399087321",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Exilio y palabra: 11 (Voces 5W) se dirige a lectores interesados en el exilio y en su relación con el testimonio personal y la expresión escrita. Su clasificación entre biografías y memorias, ensayo y poder y política lo aleja de quienes buscan ficción de aventuras o manuales de consulta. La edición tiene 146 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Exilio y palabra: 11 (Voces 5W) se publica en tapa blanda, con una extensión de 146 páginas. Es una edición física relativamente breve que puede transportarse y consultarse sin el peso de un volumen extenso. Revista 5w la edita en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Exilio y palabra: 11 (Voces 5W) se aproxima a El alba, la tarde, o la noche (Crónica y Periodismo) por su relación con la escritura testimonial y la observación de asuntos públicos. Andrea Aldana y Khadija Amin firman una obra vinculada al exilio, mientras que el título de Yasmina Reza pertenece a una colección de crónica y periodismo. También comparte con La cara oculta de Sheinbaum / The Hidden Face of the President el interés por cuestiones políticas, aunque sus títulos anuncian enfoques distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387600679",
+        "isbn-9786073880244"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "189da61e128d6b11",
+  "origen": "chatgpt-web"
+}

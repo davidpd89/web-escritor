@@ -4,36 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La mata (Poesía), de Eliana Hernández, se dirige a lectores que buscan poesía en castellano en lugar de narrativa extensa. Sus 96 páginas ofrecen una extensión relativamente breve; encaja menos con quien prefiere novelas construidas alrededor de una trama y personajes.",
+      "texto": "La mata (Poesía), de Eliana Hernández, se dirige a lectores interesados en la poesía en castellano. Sus 96 páginas ofrecen una extensión breve frente a obras más largas; no responde a quien busca una novela de aventuras.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "idioma",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La mata (Poesía) puede elegirse en tapa blanda para leer sus 96 páginas sobre papel y volver a pasajes concretos. El audiolibro ofrece una alternativa de escucha, sin necesidad de mantener la vista sobre el texto, especialmente útil durante desplazamientos o actividades cotidianas.",
+      "texto": "La mata (Poesía) está disponible en tapa blanda y audiolibro. La edición impresa de Cuatro Lunas reúne 96 páginas y permite consultar los textos directamente; el audiolibro ofrece la alternativa de escucharlos sin utilizar el ejemplar físico.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La mata (Poesía) puede compararse con Advenir, de Jose Eceolaza, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. El punto de encuentro es la lectura poética; el segundo título identifica expresamente una selección amorosa, mientras que La mata (Poesía) no delimita su asunto de esa manera en el título. Eliana Hernández firma una obra diferenciada de las de ambos autores.",
+      "texto": "La mata (Poesía) puede compararse con A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza, dentro de una selección de lecturas poéticas. La diferencia comprobable está en la autoría: Eliana Hernández firma La mata (Poesía), una edición de 96 páginas publicada por Cuatro Lunas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "numero_paginas",
+        "editorial"
       ],
       "enlaces": [
-        "isbn-9788410212749",
-        "isbn-9788466396288"
+        "isbn-9788410907539",
+        "isbn-9788410212749"
       ]
     }
   ],

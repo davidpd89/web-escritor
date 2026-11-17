@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409910434",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "30 misiones para ver el mundo con otros ojos: Retos de fotografía con móvil para descubrir, crear y contar historias se dirige al público infantil y juvenil interesado en la fotografía y la creación visual. El libro de Gustavo Duarte propone retos con el móvil, por lo que encaja menos con quien busca una novela o una introducción exclusivamente teórica al arte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "30 misiones para ver el mundo con otros ojos: Retos de fotografía con móvil para descubrir, crear y contar historias puede elegirse en tapa dura o tapa blanda. La tapa dura ofrece una encuadernación rígida para conservar el libro y regalarlo; la tapa blanda resulta más flexible para transportarlo mientras se realizan los retos fotográficos. La edición descrita tiene 82 páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "30 misiones para ver el mundo con otros ojos: Retos de fotografía con móvil para descubrir, crear y contar historias comparte el interés por las imágenes con ¿Cómo estoy?: Un fotolibro de emociones: 2 (La Liebre de Marzo), de George Ancona. Gustavo Duarte plantea actividades de fotografía con móvil y creación de historias, mientras que George Ancona vincula las fotografías con las emociones. Son dos formas distintas de acercarse a la imagen desde la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399054545"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dbabd7be44c9d696",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387780487",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orgullo y prejuicio (Novela gráfica), de Ana Oncina Tortosa, está dirigido a quienes buscan una narración gráfica vinculada a la novela histórica. Su combinación de imagen y texto encaja menos con lectores que prefieren obras narrativas presentadas únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Orgullo y prejuicio (Novela gráfica) se publica en tapa dura, con 312 páginas en castellano, bajo el sello Planeta Cómic. La encuadernación rígida resulta práctica para conservar una novela gráfica de esta extensión y consultarla repetidamente en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Orgullo y prejuicio (Novela gráfica) Edición especial es la comparación más directa para Orgullo y prejuicio (Novela gráfica), ya que ambas publicaciones llevan la firma de Ana Oncina Tortosa. La diferencia identificable está en la denominación de edición especial de la primera frente a la edición de tapa dura de 312 páginas de la segunda. Para elegir entre ellas conviene distinguir la edición buscada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388103384"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "270128a2acee9e06",
+  "origen": "chatgpt-web"
+}

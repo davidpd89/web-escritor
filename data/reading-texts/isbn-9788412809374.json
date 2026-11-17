@@ -4,27 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sendas y veredas: Proyectos fotográficos (1992-2021) se dirige a lectores interesados en la fotografía como práctica artística. Su título identifica proyectos fotográficos de un periodo delimitado, por lo que se diferencia de los libros centrados en aprender técnicas de dibujo o leer ficción.",
+      "texto": "Sendas y veredas: Proyectos fotográficos (1992-2021) está dirigido a quienes buscan una publicación sobre proyectos fotográficos y creación visual. Su extensión de 60 páginas favorece una consulta breve; en cambio, no responde a la búsqueda de una novela extensa ni de una narración de ficción.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Sendas y veredas: Proyectos fotográficos (1992-2021) se publica en tapa blanda, con 60 páginas en castellano. Es un volumen físico de extensión breve que puede consultarse por páginas y guardarse junto a otras publicaciones sobre fotografía y arte.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Sendas y veredas: Proyectos fotográficos (1992-2021) cuenta con una edición en tapa blanda de 60 páginas. Su extensión permite manejar el volumen sin la cantidad de páginas propia de una obra extensa, mientras el soporte impreso facilita recorrer sus proyectos fotográficos directamente sobre papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Sendas y veredas: Proyectos fotográficos (1992-2021) y 720 retrats comparten su relación con la imagen y el ámbito artístico. Iñaki Arzoz identifica su obra como una recopilación de proyectos fotográficos fechados, mientras que el título de Xavier Mollà i Revert se refiere a retratos. La diferencia visible está en el enfoque anunciado por cada título y en su autoría.",
+      "texto": "Sendas y veredas: Proyectos fotográficos (1992-2021) y 720 retrats se relacionan por su orientación hacia la creación visual. La obra de Iñaki Arzoz identifica proyectos fotográficos fechados entre 1992 y 2021, mientras la de Xavier Mollà i Revert anuncia retratos desde su título; también cambia la autoría.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3c6fc728a33b2ead",
+  "fuente_hash": "d5246273320a6804",
   "origen": "chatgpt-web"
 }

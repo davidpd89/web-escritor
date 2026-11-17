@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) se sitúa en el ámbito del arte y el diseño, con una referencia explícita a Hollywood en su título. Sus 476 páginas apuntan a una lectura extensa para quienes buscan publicaciones relacionadas con ese entorno cultural. Se aleja de las necesidades de quien busca un cuaderno de ejercicios artísticos.",
+      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) se dirige a lectores interesados en el cine de Hollywood desde una perspectiva vinculada al arte y el diseño. Sus 476 páginas encajan con quien busca una lectura extensa sobre ese ámbito, más que con quien prefiere una obra breve de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) se publica en tapa blanda y contiene 476 páginas. La encuadernación flexible permite manejar el volumen durante la lectura, aunque su extensión hace que resulte menos ligero que una publicación breve. Es una edición física en castellano de Unión Editorial.",
+      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) está disponible en tapa blanda, con 476 páginas en castellano. Esta edición de Unión Editorial permite consultar el volumen en papel y resulta más flexible de manejar que una encuadernación rígida, aunque su extensión requiere espacio para transportarlo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) y All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial se relacionan con manifestaciones culturales, aunque sus títulos señalan ámbitos distintos: Hollywood y la música industrial. Arde Talía: Una pieza teatral sobre el infierno de la creación artística se aproxima desde el teatro y la creación, mientras que el libro de Diego Luis Sanromán Peña remite al entorno cinematográfico.",
+      "texto": "Hollywood ¿Nunca aprenderás? (A contraluz) comparte su interés cinematográfico con 21 Westerns del siglo XXI (Sílex Cine/Claqueta), aunque este último delimita su asunto al wéstern contemporáneo. También puede compararse con Al hollywood parisino la produccion hispana de paramount en, centrado por su título en la producción hispana vinculada a Paramount, frente al enfoque general sobre Hollywood del libro de Diego Luis Sanromán Peña.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410045538",
-        "isbn-9791399289510"
+        "isbn-9791388205842",
+        "isbn-9788486877590"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "54f768b0c9295f74",
+  "fuente_hash": "676d58e39a3ba3c2",
   "origen": "chatgpt-web"
 }

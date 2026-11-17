@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788466395816",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores de romance juvenil que buscan una novela contemporánea de extensión moderada. Sus 304 páginas y su clasificación como narrativa juvenil lo alejan de las novelas históricas, los thrillers y las lecturas centradas en mundos fantásticos.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición limitada de Black Friday de Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday) pertenece a Penguin Bolsillo. Su fecha de publicación editorial es 2026-10-01 y contiene 304 páginas en castellano, presentadas en tapa blanda de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "edicion",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para esta edición de 304 páginas. Al pertenecer a Penguin Bolsillo, ofrece una presentación física compacta para leer fuera de casa o transportar en una bolsa, sin el peso añadido de una cubierta rígida.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un Final, de Hollywood / Hollywood Ending comparte la autoría de John Green, mientras que Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday) se identifica como romance juvenil contemporáneo. Estuche Todo lo que nunca fuimos + Todo lo que somos juntos: Bilogía Deja que ocurra (Biblioteca Alice Kellen) ofrece dos obras de Alice Kellen reunidas en un estuche, frente a esta novela individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989789",
+        "isbn-9788408327523"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "26aa468fdc3a50ed",
+  "origen": "chatgpt-web"
+}

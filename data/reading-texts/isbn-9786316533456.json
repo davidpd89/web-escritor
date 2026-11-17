@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786316533456",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hacia un tejido lector (Uru): Cómo crear, cuidar y sostener clubes de lectura (Tendencias) aborda la creación, el cuidado y la continuidad de los clubes de lectura. Es un ensayo de Joanna Peluffo Velarde y Maite González Vallejo López dirigido a quienes se interesan por organizar o mantener estos espacios colectivos. No responde a la búsqueda de una novela para leer dentro de un club.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hacia un tejido lector (Uru): Cómo crear, cuidar y sostener clubes de lectura (Tendencias) se presenta en tapa blanda, con 224 páginas. La edición impresa de Tendencias permite consultar el contenido en papel, marcar pasajes y volver a ellos durante la organización de actividades lectoras. Es un volumen físico que puede compartirse entre personas encargadas de un club.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f1e377411efbef1",
+  "origen": "chatgpt-web"
+}

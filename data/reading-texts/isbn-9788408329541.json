@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a niños a partir de 5 años que están aprendiendo a leer con letra ligada y disfrutan de las aventuras con humor y elementos de terror. Su propuesta de elegir la propia historia se aleja de los libros de lectura lineal y de los textos pensados para lectores adultos.",
+      "texto": "Esta entrega de Los Detectives Zoopencos está dirigida a niños a partir de 5 años que practican la lectura con letra ligada y quieren participar en la elección de la historia. Sus 72 páginas combinan aventuras con una propuesta de aprendizaje lector, por lo que encaja menos con quienes todavía necesitan textos escritos exclusivamente en mayúsculas.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite manejar físicamente las 72 páginas y seguir la letra ligada sobre papel durante el aprendizaje lector. La versión Kindle ofrece el mismo título en formato digital para leerlo en un dispositivo compatible, sin necesidad de transportar el ejemplar impreso.",
+      "texto": "La edición en tapa blanda reúne las 72 páginas de esta aventura de Los Detectives Zoopencos en un volumen físico, adecuado para seguir la letra ligada sobre papel. Kindle permite llevar la lectura en un dispositivo electrónico y consultar la historia sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -21,19 +22,19 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte autora y aprendizaje lector con Abril Abremundos 1 - El bosque susurrador (Montena), de Mar Benegas. La diferencia está en que este libro utiliza letra ligada, propone elegir la propia historia y se dirige a niños a partir de 5 años, mientras que el otro pertenece a la serie Abril Abremundos.",
+      "texto": "La entrega Noche a troche y moche de Los Detectives Zoopencos comparte con este libro la autoría de Mar Benegas y la posibilidad de elegir la historia, pero utiliza letras mayúsculas en lugar de letra ligada. La fiesta de la primavera (La pequeña Salamandra) también pertenece a la obra de Mar Benegas, aunque se presenta bajo otra colección y no bajo el nombre de Los Detectives Zoopencos.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387972936"
+        "isbn-9788419868619"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cac6f4a8329d927d",
+  "fuente_hash": "85d7bb5550f3cab6",
   "origen": "chatgpt-web"
 }

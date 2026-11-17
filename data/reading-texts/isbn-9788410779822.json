@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410779822",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Temario Común Grupo profesional E1. Personal laboral fijo del Estado está dirigido a quienes buscan material de estudio sobre el temario común de ese grupo profesional. Su enfoque de preparación y consulta administrativa lo diferencia de los ensayos de actualidad política o de las narraciones de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Temario Común Grupo profesional E1. Personal laboral fijo del Estado se presenta en tapa blanda y tiene 342 páginas. El formato impreso permite estudiar por apartados, marcar páginas y realizar anotaciones durante el repaso del temario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Temario Común Grupo profesional E1 y A la sombra del Estado tratan asuntos relacionados con el Estado, pero desde enfoques diferentes. El primero, de Adams, es un temario de estudio para personal laboral fijo, mientras que el segundo, de Luis de la Corte Ibáñez, aborda el espionaje, las operaciones encubiertas y el poder clandestino. Capitalismo del contrato social, de José Antonio Torrealday Llona, se centra en cuestiones económicas y sociales, frente al contenido de preparación profesional del temario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057",
+        "isbn-9788413739397"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ac42a0504e51f23",
+  "origen": "chatgpt-web"
+}

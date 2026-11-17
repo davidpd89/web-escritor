@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9789808029048",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nunca Después: Memoria de amor, violencia y supervivencia se dirige a quienes leen testimonios personales relacionados con experiencias difíciles, relaciones afectivas y supervivencia. Su combinación de memorias, ensayo y desarrollo personal se aparta de los manuales centrados exclusivamente en técnicas o ejercicios de autoayuda.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nunca Después: Memoria de amor, violencia y supervivencia cuenta con una edición en tapa blanda de 160 páginas, publicada por Athena Ediciones. La extensión permite abordar esta memoria personal en un volumen físico relativamente breve y conservarlo para posteriores consultas o relecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Asuntos pendientes: Hay historias que terminan, pero no se acaban (Autoconocimiento), de Frish Brandt, ofrece un punto de comparación por su orientación hacia las experiencias personales y el autoconocimiento. Nunca Después: Memoria de amor, violencia y supervivencia, de Ubaldo Rubén Martínez Pinedo, identifica expresamente el amor, la violencia y la supervivencia como ejes de su memoria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411193795"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c7f400aef18fe35",
+  "origen": "chatgpt-web"
+}

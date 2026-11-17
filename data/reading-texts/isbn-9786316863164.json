@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh), de Tessa Bailey, está orientado a quienes buscan romance y relaciones de pareja como eje de lectura. El título vincula el amor con la rebeldía y sus 448 páginas ofrecen una novela extensa. No responde a la búsqueda de una obra centrada principalmente en el misterio o la historia.",
+      "texto": "BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh) está dirigido a lectores de narrativa romántica interesados en relaciones asociadas al conflicto y la oposición a las normas. Sus 448 páginas y su clasificación dentro del romance lo alejan de quienes buscan una lectura breve o una historia centrada en el misterio.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh) se presenta en tapa blanda, con 448 páginas en castellano. Es una edición física que puede llevarse durante los desplazamientos, aunque su extensión supone un volumen considerable de lectura. Titania figura como editorial de esta edición.",
+      "texto": "BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh) puede leerse en tapa blanda o Kindle. La edición física reúne sus 448 páginas en un volumen que puede prestarse o regalarse, mientras que Kindle permite transportar esta novela romántica sin cargar con el libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh) comparte el interés por las relaciones amorosas con Amor en pole position (Dirty Air 3), de Lauren Asher. La obra de Lauren Asher sitúa su historia en la Fórmula 1, mientras que el título de Tessa Bailey destaca la rebeldía vinculada al amor. Son propuestas de autoras diferentes dentro del romance.",
+      "texto": "A cinco segundos de ti, de Sandra Miró, y BROKEN RIVAL: Cuando el amor es un acto de rebeldía (Titania fresh), de Tessa Bailey, se relacionan con la narrativa romántica. El título de Tessa Bailey presenta el amor como una forma de rebeldía, mientras que el de Sandra Miró apunta a la cercanía entre personas. Son obras de distintas autoras que permiten explorar enfoques diferentes de las relaciones sentimentales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055674"
+        "isbn-9788427055735"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6c07e3a49bdc866b",
+  "fuente_hash": "005d9fce771c783d",
   "origen": "chatgpt-web"
 }

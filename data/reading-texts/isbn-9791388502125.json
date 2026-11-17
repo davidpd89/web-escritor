@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791388502125",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la robótica, la simulación y el control del movimiento de manipuladores industriales. Su enfoque técnico sobre el robot KUKA AGILUS lo aleja de las lecturas centradas en la historia general de la ciencia o en la divulgación de asuntos científicos sin aplicación concreta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del libro es la simulación y el control cinemático de un manipulador KUKA AGILUS. El planteamiento se concentra en un modelo de robot identificado por su nombre, dentro del ámbito científico y tecnológico, en lugar de abordar la robótica como una disciplina general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 168 páginas en castellano, publicadas por Palmito Books, S.l. Es un volumen físico que permite consultar el contenido técnico y volver a sus apartados durante el estudio de la simulación y el control cinemático.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, también aborda una materia tecnológica, pero se centra en la inteligencia artificial, mientras que este libro trata la cinemática de un robot concreto. (ENAC0019) Herramientas de análisis coste/beneficio aplicadas a la eficiencia energética, de Nelson Pompeyo Martínez Rodríguez, comparte la orientación técnica, aunque estudia la eficiencia energética desde el análisis económico.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388334627",
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e25a1d2493c5e58",
+  "origen": "chatgpt-web"
+}

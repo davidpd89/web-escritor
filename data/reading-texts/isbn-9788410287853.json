@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410287853",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yojimbot - 3: Nieve de acero se dirige a lectores juveniles interesados en el cómic y la novela gráfica. Sus 152 páginas presentan una propuesta distinta de la narrativa juvenil escrita únicamente en prosa, por lo que encaja menos con quienes buscan ese tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yojimbot - 3: Nieve de acero está disponible en tapa dura, con 152 páginas en castellano. Esta encuadernación permite conservar el volumen en una estantería y consultarlo de nuevo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yojimbot - 3: Nieve de acero comparte el terreno del cómic juvenil con Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura y Muneyuki Kaneshiro. La diferencia está en la autoría y en la identificación de cada obra: Sylvain Repos firma el primero, mientras que el segundo pertenece a una colección presentada como manga shonen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9638fd4cee53032",
+  "origen": "chatgpt-web"
+}

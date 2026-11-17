@@ -4,39 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuadernos de iniciación a la acuarela. Flores y hojas a la acuarela. Aprende a pintar 21 motivos botánicos paso a paso está dirigido a quienes quieren practicar pintura botánica con acuarelas desde un nivel inicial. La propuesta de Anne-Claire Duval-Dumas se centra en flores y hojas; no está orientada a quien busque narrativa de naturaleza o una guía de jardinería.",
+      "texto": "Está pensado para quienes quieren iniciarse en la acuarela mediante ejercicios de pintura de flores y hojas. Su propuesta de 21 motivos botánicos paso a paso encaja con el aprendizaje práctico, pero no con quien busque una novela o un libro dedicado a técnicas artísticas ajenas a la acuarela.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de tapa blanda publicada por Hoaki reúne 64 páginas dedicadas a la iniciación en la acuarela. El soporte físico permite consultar los pasos de los 21 motivos botánicos mientras se practica con los materiales de pintura, sin necesidad de mantener una pantalla encendida.",
+      "texto": "Cuadernos de iniciación a la acuarela. Flores y hojas a la acuarela. Aprende a pintar 21 motivos botánicos paso a paso se publica en tapa blanda y tiene 64 páginas. Su extensión permite consultar los ejercicios en papel y avanzar entre los motivos botánicos durante las sesiones de pintura.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas",
-        "titulo"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte el interés por la naturaleza con Dibujos para colorear, ¡qué misterio! Naturaleza (Hachette HEROES - DISNEY - Arteterapia), de Varios autores. El cuaderno de Anne-Claire Duval-Dumas propone aprender a pintar 21 motivos de flores y hojas con acuarela, mientras que el otro título plantea una actividad de coloreado vinculada a la naturaleza.",
+      "texto": "El cuaderno de acuarela de Anne-Claire Duval-Dumas y Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas comparten una orientación hacia el aprendizaje de actividades manuales. El primero propone pintar 21 motivos botánicos paso a paso, mientras que el segundo reúne letras, números y diagramas para bordar. La diferencia está en la técnica: pintura con acuarela frente a bordado, con autoría de Anne-Claire Duval-Dumas y Varios autores, respectivamente.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388034497"
+        "isbn-9788498748208"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1d0f2617f243ba21",
+  "fuente_hash": "0d0cd0ba75ded60c",
   "origen": "chatgpt-web"
 }

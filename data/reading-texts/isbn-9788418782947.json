@@ -4,51 +4,50 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores interesados en la infancia como asunto literario y en su relación con la vida posterior. Por su enfoque de quejío y su clasificación como narrativa contemporánea y arte, se aleja de quienes buscan una lectura infantil de aventuras.",
+      "texto": "Esta obra de María Velasco se dirige a lectores de narrativa contemporánea interesados en la infancia y sus consecuencias posteriores. Su planteamiento también se relaciona con el arte y el diseño, por lo que se aleja de las expectativas de quien busca una novela de aventuras o fantasía.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de MANTENER FUERA DEL ALCANCE DE LOS NIÑOS: Quejío sobre la infancia y lo que sigue. Con prólogo de Móni (LIBROS ROBADOS), de María Velasco, incorpora un prólogo de Móni y pertenece a la colección LIBROS ROBADOS. Ediciones la UÑA Rota la publica en castellano, en tapa blanda y con 112 páginas.",
+      "texto": "Ediciones la UÑA Rota publica esta edición en castellano, con 112 páginas y encuadernación en tapa blanda. Su título identifica el texto como un quejío sobre la infancia e indica que incorpora un prólogo de Móni.",
       "evidencias": [
-        "titulo",
-        "autores",
         "editorial",
+        "edicion",
         "idioma",
-        "formato_edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "titulo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 112 páginas de esta edición de María Velasco en un volumen físico relativamente breve. Su extensión facilita llevarlo en el bolso o la mochila y consultar de nuevo los pasajes sobre la infancia sin depender de un dispositivo electrónico.",
+      "texto": "La tapa blanda reúne las 112 páginas de esta obra de María Velasco en un volumen físico de extensión breve. Es una opción para leer en papel, transportarlo o conservarlo en una biblioteca personal.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
-        "autores",
-        "categorias"
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El niño (Andanzas), de Fernando Aramburu, y El niño que fuimos / The Child We Were, de Alma Delia Murillo, comparten con MANTENER FUERA DEL ALCANCE DE LOS NIÑOS: Quejío sobre la infancia y lo que sigue. Con prólogo de Móni (LIBROS ROBADOS) la infancia como referencia temática. La obra de María Velasco se distingue por presentarse como un quejío y anunciar un prólogo de Móni.",
+      "texto": "Mantequilla (Novela), de Asako Yuzuki, comparte con esta obra su vinculación con la narrativa, aunque el libro de María Velasco centra su título en la infancia. Jesulito Jesulín (Cómic), de Guillermo Saavedra, ofrece otra aproximación a la creación artística desde el cómic, frente al quejío anunciado por María Velasco.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788411074445",
-        "isbn-9786073869799"
+        "isbn-9791399267709",
+        "isbn-9791388279690"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1954d8c2df3eb108",
+  "fuente_hash": "411cafd87b8a2713",
   "origen": "chatgpt-web"
 }

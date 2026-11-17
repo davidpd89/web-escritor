@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399004731",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aves de España y Portugal está dirigido a lectores interesados en las aves de ambos países y en la divulgación científica. Por su temática y sus 584 páginas, responde a una búsqueda de lectura especializada sobre naturaleza, más que a quien prefiere una novela o un texto breve de divulgación general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aves de España y Portugal se presenta en tapa dura, con 584 páginas en castellano. La encuadernación rígida favorece su conservación y la consulta repetida en casa, mientras que la extensión hace menos práctico llevarlo durante desplazamientos. Es una edición física de Libertas Ediciones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aves de España y Portugal y Abonado y fertilización en agricultura ecológica-AGAU001PO se relacionan con el estudio del entorno natural desde perspectivas diferentes. Carlos Manuel Martín Jiménez centra su obra en las aves de dos países, mientras que Elsa Rubio Duce aborda la fertilización agrícola. La primera se sitúa en la divulgación sobre fauna y la segunda en una materia aplicada al cultivo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e9b095c830f7b410",
+  "origen": "chatgpt-web"
+}

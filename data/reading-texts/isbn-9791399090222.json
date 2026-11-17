@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399090222",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Coco y Lilu: ¿Un abrazo? se orienta al público infantil y a quienes buscan libros relacionados con el desarrollo personal. Sus 32 páginas y su edición en tapa dura lo distinguen de las novelas juveniles extensas; no responde a una búsqueda de narrativa adulta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Coco y Lilu: ¿Un abrazo? está disponible en tapa dura, una encuadernación rígida apropiada para manipular el libro durante lecturas compartidas. La edición de Coco Books, S.l. reúne 32 páginas en castellano y permite conservarlo como libro físico para sucesivas lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coco y Lilu: ¿Un abrazo? y Amigos de verdad comparten su orientación hacia el público infantil y el desarrollo personal. El libro de Iris Pérez-Bonaventura aborda expresamente la amistad y su importancia durante el crecimiento, mientras que el título de Ed Vere plantea una pregunta sobre el abrazo en una edición de 32 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994532"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f06305817ec4c099",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788415309130",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Análisis capilar (CFGM PELUQUERÍA Y COSMETICA CAPILAR) está dirigido a quienes buscan contenidos sobre análisis del cabello dentro de la formación en peluquería y cosmética capilar. Por su orientación técnica, se aleja de las lecturas narrativas y de los libros dedicados únicamente al entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Análisis capilar (CFGM PELUQUERÍA Y COSMETICA CAPILAR) se ofrece en tapa blanda, con 172 páginas. La edición de Editorial Altamar permite trabajar con un ejemplar físico, volver a consultar apartados y utilizarlo como material de lectura sobre análisis capilar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Análisis capilar (CFGM PELUQUERÍA Y COSMETICA CAPILAR) comparte ámbito formativo y autoría con Cosmética para peluquería (CFGM PELUQUERÍA Y COSMETICA CAPILAR). Ambas obras están firmadas por el mismo equipo de tres autores y se vinculan a la formación profesional en peluquería. La primera aborda el análisis capilar, mientras que la segunda se centra en la cosmética para peluquería.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788417872106"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7152b513f4041d05",
+  "origen": "chatgpt-web"
+}

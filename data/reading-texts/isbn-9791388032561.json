@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791388032561",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en las biografías, la historia del conocimiento y las relaciones entre arte e ideas. Athanasius Kircher: Itinerario del éxtasis o las imágenes de un saber universal: 176 (El Ojo del Tiempo), de Ignacio Gómez de Liaño, se aleja de las lecturas centradas en la ficción o el entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje de la obra es Athanasius Kircher y la representación visual de un saber universal. El título plantea una aproximación al conocimiento mediante las imágenes y el concepto de éxtasis, dentro de un ámbito que relaciona biografía, arte y pensamiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa dura reúne 468 páginas en castellano, publicadas por Ediciones Siruela. Este formato permite conservar el volumen como libro de consulta y resulta apropiado para una biblioteca dedicada al arte, las biografías y la historia de las ideas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Archivo de nubes (Atlas inesperados), de José Alejandro Adamuz, comparte el interés por las formas de representar y organizar conocimientos, aunque su título se orienta hacia los atlas y las nubes. Athanasius Kircher: Itinerario del éxtasis o las imágenes de un saber universal: 176 (El Ojo del Tiempo) sitúa el foco en una figura histórica y en las imágenes vinculadas al saber.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399167719"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f060a411945caea8",
+  "origen": "chatgpt-web"
+}

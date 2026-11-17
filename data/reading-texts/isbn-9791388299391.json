@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388299391",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Leche negra (Narrativa) se sitúa en la narrativa contemporánea y se dirige a lectores que prefieren ficción frente al ensayo o los libros infantiles. La obra de José Luis Díaz Caballero tiene 182 páginas, una extensión contenida dentro de la narrativa para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Leche negra (Narrativa) se publica en tapa blanda, con 182 páginas en castellano. Esta edición de Eolas Ediciones permite llevar la obra en papel y retomarla sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "23dd82e451f0c6b9",
+  "origen": "chatgpt-web"
+}

@@ -4,38 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Innovación al estilo Microsoft (Liderazgo y gestión) está orientado a lectores interesados en innovación, dirección de equipos y gestión empresarial. Su enfoque económico y organizativo queda lejos de quienes buscan una novela o una guía de bienestar personal.",
+      "texto": "Innovación al estilo Microsoft (Liderazgo y gestión) se dirige a lectores interesados en la innovación empresarial y la gestión de organizaciones. Su enfoque económico y sus 248 páginas lo separan de las lecturas de ficción y de quienes buscan asuntos alejados del entorno profesional.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Conecta ofrece Innovación al estilo Microsoft (Liderazgo y gestión) en tapa blanda, con 248 páginas en castellano. El ejemplar en papel permite subrayar conceptos de liderazgo y consultar apartados durante el trabajo o el estudio.",
+      "texto": "Innovación al estilo Microsoft (Liderazgo y gestión) cuenta con una edición en tapa blanda de 248 páginas, publicada por Conecta. Su extensión permite distribuir la lectura en sesiones de consulta o estudio, mientras que la cubierta flexible facilita transportarlo entre casa y el trabajo.",
       "evidencias": [
         "titulo",
-        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, también aborda el liderazgo, pero desde una perspectiva centrada en el propio oficio de dirigir. Innovación al estilo Microsoft, de Dean Carignan y Joann Garbin, vincula esa materia con la innovación y una empresa tecnológica concreta.",
+      "texto": "Antes de liderar: Una mirada interior a un oficio comparte con Innovación al estilo Microsoft (Liderazgo y gestión) el interés por la dirección profesional, aunque centra su planteamiento en el liderazgo personal. ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido se aproxima desde el valor de las ideas poco convencionales. Dean Carignan y Joann Garbin sitúan su libro en la innovación vinculada a Microsoft.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791399087222",
         "isbn-9788409921980"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "30e0ef30319d0cfa",
+  "fuente_hash": "bfff10f47884ae1b",
   "origen": "chatgpt-web"
 }

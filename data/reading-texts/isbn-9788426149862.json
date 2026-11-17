@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788426149862",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores de aventuras narradas mediante cómic, especialmente a quienes siguen las obras de Hergé. Con 96 páginas, se diferencia de las novelas de aventuras escritas principalmente en prosa y de las colecciones gráficas mucho más extensas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Editorial Juventud, S.a. reúne 96 páginas en castellano. La encuadernación rígida aporta protección durante el almacenamiento y la consulta repetida, además de ofrecer una presentación física apropiada para una colección de cómics.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El asunto Tornasol E.E. (LAS AVENTURAS DE TINTIN CARTONE) comparte el formato de cómic con 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), aunque el primero se clasifica dentro de las aventuras. También puede compararse con Anna en la cueva: Anna Dédalus detective: 4, cuyo título señala una orientación detectivesca frente al enfoque aventurero de la obra de Hergé.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788402431790",
+        "isbn-9788419605528"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "928c4d9bdf89a888",
+  "origen": "chatgpt-web"
+}

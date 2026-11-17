@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073874342",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El principio Zen / The Zen Principle se dirige a lectores interesados en el desarrollo personal y la espiritualidad, especialmente en el pensamiento zen. Sus 280 páginas corresponden a una obra de reflexión y bienestar, por lo que se distancia de las novelas de ficción y de los manuales centrados exclusivamente en cuestiones técnicas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El principio Zen / The Zen Principle cuenta con una edición en tapa blanda de 280 páginas, publicada en castellano. Este formato permite leer en papel y retomar distintos pasajes sin depender de un dispositivo electrónico; la extensión queda por debajo de la de un tratado de varios cientos de páginas adicionales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El principio Zen / The Zen Principle y CONCIENCIA PRIMERA: La Revelación Empírica de un Más Allá se aproximan a cuestiones espirituales desde planteamientos diferentes. Osho sitúa el zen en el centro de su obra, mientras que Roberto Lloreda anuncia una exploración empírica de un más allá; el contraste está en el punto de partida de cada título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409901364"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "850261d9c33264fd",
+  "origen": "chatgpt-web"
+}

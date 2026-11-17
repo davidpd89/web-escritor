@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370650841",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el derecho de servidumbres de paso y su aplicación por los tribunales. Sus 178 páginas se centran en una materia jurídica concreta, por lo que no responde a la búsqueda de una obra de derecho general ni de narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 178 páginas de esta obra jurídica en un volumen físico. Permite consultar la regulación de las servidumbres de paso y su tratamiento judicial sin depender de una pantalla, con la posibilidad de marcar páginas para posteriores consultas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría y enfoque jurídico con Casos prácticos sobre el despido (Supuestos prácticos), de Departamento de Documentación Iberley. La diferencia está en la materia: Servidumbres de paso. Paso a paso (2.ª edición): Las servidumbres de paso: regulación y aplicación por los tribunales aborda las servidumbres de paso y su aplicación judicial, mientras que el otro título se ocupa de supuestos de despido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "682784961a234404",
+  "origen": "chatgpt-web"
+}

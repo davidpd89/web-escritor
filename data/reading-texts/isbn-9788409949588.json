@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409949588",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Origen y formación de Villanueva de la Jara: Fray Andrés de la Madre de Dios, carmelita e historiador se dirige a lectores interesados en la historia local y en figuras vinculadas a la vida religiosa y la historiografía. Su enfoque sobre una localidad y un personaje concretos lo distingue de los estudios generales sobre grandes periodos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Origen y formación de Villanueva de la Jara: Fray Andrés de la Madre de Dios, carmelita e historiador está editado en tapa blanda y reúne 191 páginas en castellano. El soporte físico permite consultar sus contenidos históricos, señalar referencias y mantener el volumen en una biblioteca dedicada a la historia local.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Origen y formación de Villanueva de la Jara: Fray Andrés de la Madre de Dios, carmelita e historiador comparte el interés histórico con 53 días: Cómo Hitler derribó una democracia (HISTORIA), pero cambia la historia política por el origen de una localidad y una figura religiosa. Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días) aborda un espacio geográfico más amplio, frente al enfoque local de Ignacio de la Rosa Ferrer.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "149e1f2181839125",
+  "origen": "chatgpt-web"
+}

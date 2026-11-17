@@ -4,42 +4,45 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a quienes buscan un ensayo sobre Marilyn Monroe desde el ámbito del arte y el diseño. Por su enfoque ensayístico y sus 454 páginas, se aleja de las lecturas de ficción y de los libros breves.",
+      "texto": "MARILYN MONROE: Luminaria en tiempos confusos/ A Beacon in Confusing Times se orienta a quienes buscan un ensayo dedicado a una figura concreta y relacionado con las artes. Su extensión de 454 páginas y su autoría colectiva lo distinguen de una introducción breve o de una novela de ficción.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El eje del libro es Marilyn Monroe, presentada bajo la idea de una figura luminosa en tiempos confusos. La obra se sitúa entre el ensayo y el arte y diseño, con una autoría colectiva que reúne distintas firmas en una misma publicación.",
+      "texto": "MARILYN MONROE: Luminaria en tiempos confusos/ A Beacon in Confusing Times toma como asunto central a Marilyn Monroe y plantea su figura desde el ámbito del ensayo. La participación de numerosos autores aporta una estructura de autoría colectiva, distinta de la perspectiva individual de una biografía firmada por una sola persona.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición se ofrece en tapa blanda, con 454 páginas en castellano. Es una opción física para consultar y releer el volumen, con una cubierta flexible que facilita guardarlo en una estantería o transportarlo.",
+      "texto": "MARILYN MONROE: Luminaria en tiempos confusos/ A Beacon in Confusing Times se ofrece en tapa blanda, con 454 páginas publicadas por Providence Ediciones. Es un volumen físico de extensión considerable, pensado para una lectura prolongada y para conservarlo o consultarlo en papel.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Puede compararse con De la estética como política: Para una rehabilitación del sentido en el cine (Signo e imagen), de Noël Burch, por su relación con el estudio del ámbito artístico. Mientras aquel título plantea una reflexión sobre estética, política y cine, MARILYN MONROE: Luminaria en tiempos confusos/ A Beacon in Confusing Times centra su atención en una figura concreta y reúne múltiples autores.",
+      "texto": "MARILYN MONROE: Luminaria en tiempos confusos/ A Beacon in Confusing Times puede compararse con Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII por su atención a una figura vinculada al ámbito cultural y visual. El primero adopta el formato de ensayo colectivo sobre Marilyn Monroe, mientras que el segundo identifica en su título a una figura de la moda y su pertenencia a una colección.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788437650586"
+        "isbn-9791370079321"
       ]
     }
   ],

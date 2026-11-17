@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387759476",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Maneras de vivir. Estrategias de vida entre los vertebrados ibéricos está dirigido a lectores interesados en la divulgación científica y las formas de vida de los animales vertebrados de la península ibérica. Su enfoque temático se distancia de la ficción y de los libros dedicados a tecnologías o disciplinas ajenas a la naturaleza.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Maneras de vivir. Estrategias de vida entre los vertebrados ibéricos está disponible en tapa blanda y tiene 302 páginas. Publicada por Tundra en castellano, ofrece un volumen físico que puede consultarse por partes y conservarse junto a otros libros de divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "33 islas: Un periplo mediterráneo comparte el interés por un territorio concreto, pero propone un recorrido geográfico entre Marettimo y Venecia. En cambio, Maneras de vivir, de Jose Antonio Pascual Trillo, aborda las estrategias de vida de los vertebrados ibéricos desde la divulgación científica. La diferencia está entre explorar lugares y conocer las formas de vida de los animales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f286e1d9d03f487",
+  "origen": "chatgpt-web"
+}

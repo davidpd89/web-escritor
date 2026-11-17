@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Partido por tres: El centro derecha, de la ruptura a la reconstrucción (Política), de Javier Zarzalejos, se dirige a lectores de ensayo político interesados en la evolución del centro derecha. Su enfoque sobre ruptura y reconstrucción encaja con el análisis de procesos políticos, no con quienes buscan ficción narrativa o una guía práctica.",
+      "texto": "Partido por tres: El centro derecha, de la ruptura a la reconstrucción (Política), de Javier Zarzalejos, se dirige a lectores interesados en el pensamiento político y los procesos de reorganización del centro derecha. Su planteamiento ensayístico se distancia de la ficción y de los libros centrados en asuntos ajenos a la política.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Partido por tres: El centro derecha, de la ruptura a la reconstrucción (Política) está editado en tapa blanda y tiene 264 páginas en castellano. La edición impresa permite subrayar argumentos y consultar pasajes durante la lectura; su extensión delimita un volumen de ensayo que puede transportarse para leer fuera de casa.",
+      "texto": "Partido por tres: El centro derecha, de la ruptura a la reconstrucción (Política) puede leerse en tapa blanda o Kindle. La edición física de Debate tiene 264 páginas y permite consultar el ensayo en papel; Kindle facilita llevar el texto en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "categorias"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, comparte con Partido por tres: El centro derecha, de la ruptura a la reconstrucción (Política) el interés por las ideas políticas. El primero se centra en los fundamentos del anarcocapitalismo, mientras que Javier Zarzalejos aborda la ruptura y reconstrucción del centro derecha.",
+      "texto": "Partido por tres: El centro derecha, de la ruptura a la reconstrucción (Política) comparte el interés por las ideas políticas con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta. Javier Zarzalejos se centra en la ruptura y reconstrucción del centro derecha, mientras que el otro título plantea una introducción al pensamiento anarcocapitalista.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0b1183c0d8cb53b7",
+  "fuente_hash": "599968fc7df920cc",
   "origen": "chatgpt-web"
 }

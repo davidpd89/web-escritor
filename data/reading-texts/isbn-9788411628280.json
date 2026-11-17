@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra se dirige a lectores interesados en la protección jurídica de las personas afectadas por migraciones forzadas, especialmente ante el Tribunal Europeo de Derechos Humanos. Su atención al principio de non-refoulement y a la prohibición de la tortura la distingue de los estudios generales sobre movimientos migratorios sin perspectiva jurídica.",
+      "texto": "El principio de non-refoulement en el Tribunal Europeo de Derechos Humanos: Un análisis de la protección de las víctimas de migraciones forzadas a la luz de la prohibición de la tortura (Estudios) se dirige a lectores interesados en los derechos humanos y la protección jurídica frente a las expulsiones. Su enfoque sobre el tribunal europeo y la prohibición de la tortura lo distingue de los relatos personales sobre migración o de las guías generales de movilidad internacional.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,16 +12,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El principio de non-refoulement en el Tribunal Europeo de Derechos Humanos: Un análisis de la protección de las víctimas de migraciones forzadas a la luz de la prohibición de la tortura (Estudios) se presenta en tapa blanda y tiene 360 páginas. El ejemplar impreso facilita el subrayado y la consulta de pasajes relacionados con la protección de derechos.",
+      "texto": "La obra de Andrea Bartomeu Navarro está editada por Aranzadi en tapa blanda, con 360 páginas en castellano. Esta presentación permite consultar físicamente un estudio jurídico sobre el principio de non-refoulement, marcar referencias y regresar a los apartados dedicados a la protección de las víctimas de migraciones forzadas.",
       "evidencias": [
         "titulo",
+        "autores",
+        "editorial",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) comparte el interés por los conflictos y su tratamiento, pero se sitúa en la mediación educativa. La obra de Andrea Bartomeu Navarro estudia, en cambio, la protección frente a la devolución de víctimas de migraciones forzadas desde el Derecho europeo de los derechos humanos.",
+      "texto": "Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal comparte con el estudio de Andrea Bartomeu Navarro la atención jurídica a situaciones que afectan a las víctimas, aunque examina una cuestión penal diferente. Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) aborda la convivencia y la mediación educativa, frente al análisis de derechos humanos y migraciones forzadas de esta obra.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791370475949",
         "isbn-9788429030372"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4cde67200435bbb2",
+  "fuente_hash": "f40a3b97c8fde8fa",
   "origen": "chatgpt-web"
 }

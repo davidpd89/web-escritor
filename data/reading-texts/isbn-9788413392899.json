@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788413392899",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este volumen de homilías privadas de Benedicto Xvi Xvi se dirige a lectores interesados en la reflexión cristiana y los textos religiosos vinculados al tiempo ordinario. Sus 408 páginas se alejan de la narrativa de ficción y de las obras centradas en tradiciones espirituales distintas del cristianismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Encuentro se presenta en tapa dura y reúne 408 páginas de homilías privadas de Benedicto Xvi Xvi. La encuadernación rígida facilita su conservación en una biblioteca de consulta religiosa y permite volver a los textos en distintas sesiones de lectura. El volumen está publicado en castellano.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "autores",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, comparte con este volumen de Benedicto Xvi Xvi su vinculación con la espiritualidad cristiana, pero se centra en un mensaje mariano en lugar de las homilías del tiempo ordinario. Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, también aborda cuestiones espirituales, aunque desde el Dharma y su práctica, frente al contenido cristiano de las homilías.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a6b132b1e120025",
+  "origen": "chatgpt-web"
+}

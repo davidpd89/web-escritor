@@ -4,39 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial), de Luz Gabás, se dirige a lectores de narrativa contemporánea con interés por las aventuras, la historia y las relaciones familiares. Su combinación de estos ámbitos no responde a quien busca un manual práctico, un ensayo psicológico o una lectura breve.",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) se dirige a lectores de narrativa contemporánea que buscan aventuras relacionadas con la historia. Por su orientación narrativa y sus 560 páginas, se diferencia de los manuales históricos y de los libros de consulta breve.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) se identifica como una edición limitada dentro de Colección Especial. Booket la publica en tapa dura, con 560 páginas en castellano y fecha de publicación del 2026-11-11; el carácter limitado y la presentación especial figuran en el propio título.",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) se presenta como una edición limitada dentro de Colección Especial. Booket la publica con fecha 2026-11-11 y el ISBN 9788408328353, que identifica esta presentación concreta frente a otras posibles ediciones de la obra.",
       "evidencias": [
         "titulo",
         "editorial",
-        "edicion",
-        "numero_paginas",
-        "idioma",
-        "fecha_publicacion"
+        "fecha_publicacion",
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 560 páginas de Corazón de oro: Edición limitada a precio especial (Colección Especial) en un volumen físico que puede conservarse o regalarse. El audiolibro permite seguir la narración mediante escucha, sin necesidad de sostener un libro de esta extensión durante los desplazamientos.",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial) se ofrece en tapa dura y audiolibro. La tapa dura reúne sus 560 páginas en un ejemplar físico que puede conservarse o regalarse; el audiolibro permite seguir la obra mediante escucha, sin necesidad de sostener el volumen.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando el viento hable: Edición limitada a precio especial (Colección Especial), de Ángela Banzas, comparte con Corazón de oro: Edición limitada a precio especial (Colección Especial) su pertenencia a Colección Especial y la identificación como edición limitada. La diferencia está en la autoría: Ángela Banzas firma el primero y Luz Gabás el segundo, que combina narrativa contemporánea, aventuras, historia y familia.",
+      "texto": "Bajo las cenizas de Pompeya (ESPASA NARRATIVA) comparte con Corazón de oro: Edición limitada a precio especial (Colección Especial) su vinculación con la narrativa de ambientación histórica. La primera obra corresponde a María Reig y la segunda a Luz Gabás; La estocada de Nevers: El jorobado (Zenda-Edhasa), de Paul Féval, ofrece otra referencia dentro de las aventuras relacionadas con la historia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,12 +40,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328414"
+        "isbn-9788467084870",
+        "isbn-9788435055871"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4696c5ec9c1ef8c2",
+  "fuente_hash": "6df28a7b04615386",
   "origen": "chatgpt-web"
 }

@@ -4,30 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vino y pan: 48 (Narrativa), de Ignazio Silone, se dirige a lectores de narrativa contemporánea que buscan una obra en castellano de extensión considerable. Sus 400 páginas requieren una lectura más prolongada que la de un volumen breve. Por su clasificación editorial, no está orientado a quienes buscan específicamente cómic o novela gráfica.",
+      "texto": "Vino y pan: 48 (Narrativa), de Ignazio Silone, se orienta a quienes buscan narrativa contemporánea en castellano y aceptan una lectura de cierta extensión. Con 400 páginas, se aleja de las preferencias por libros breves; tampoco corresponde, por su clasificación editorial, a una búsqueda específica de cómic o fantasía.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "idioma",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Vino y pan: 48 (Narrativa) se publica en tapa blanda, con 400 páginas en castellano y edición de Altamarea Ediciones. La encuadernación flexible permite manejar el libro durante sesiones largas de lectura y transportarlo sin la rigidez de una cubierta dura. Su extensión es un factor práctico para quien desea llevarlo habitualmente en el bolso o la mochila.",
+      "texto": "Vino y pan: 48 (Narrativa) permite elegir entre tapa blanda y Kindle. La edición física de Altamarea Ediciones reúne 400 páginas para leer, prestar o conservar en papel; Kindle facilita transportar la obra digitalmente y continuarla desde un dispositivo compatible sin cargar con el volumen impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "idioma",
-        "formato_edicion"
+        "edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3435b7dbac865444",
+  "fuente_hash": "b04179b12a191a23",
   "origen": "chatgpt-web"
 }

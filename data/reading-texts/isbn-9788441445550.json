@@ -4,38 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Manual de supervivencia psicológica. Todo lo que nadie te enseñó sobre salud mental (Psicología y autoayuda) se dirige a lectores interesados en la salud mental y el desarrollo personal. Su enfoque temático se aleja de la ficción y de los manuales de supervivencia ante emergencias físicas, por lo que responde a una búsqueda distinta.",
+      "texto": "Manual de supervivencia psicológica. Todo lo que nadie te enseñó sobre salud mental (Psicología y autoayuda), de Marc Garrell Mollons, se dirige a lectores interesados en desarrollo personal y bienestar. Su temática se centra en la salud mental, por lo que se diferencia de los libros dedicados exclusivamente a longevidad, alimentación o relaciones personales.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Editorial Edaf está disponible en tapa blanda y tiene 256 páginas en castellano. Este formato permite consultar físicamente los apartados del manual y volver a ellos durante la lectura, sin necesidad de utilizar un dispositivo electrónico.",
+      "texto": "La tapa blanda contiene las 256 páginas de Manual de supervivencia psicológica. Todo lo que nadie te enseñó sobre salud mental (Psicología y autoayuda), en una edición física de Editorial Edaf. Es la opción para quien prefiere leer y conservar el libro en papel.",
       "evidencias": [
-        "titulo",
-        "editorial",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "formato_edicion",
+        "editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Manual de supervivencia psicológica. Todo lo que nadie te enseñó sobre salud mental (Psicología y autoayuda) comparte con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, el interés por el bienestar personal. El primero se centra en salud mental; el segundo amplía el enfoque a relaciones, felicidad y éxito.",
+      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta, de Anca Martínez, comparte con Manual de supervivencia psicológica el planteamiento de abordar aprendizajes relacionados con aspectos de la vida que no siempre se enseñan. La diferencia está en el foco: el primero se centra en la vida adulta y el segundo en la salud mental. 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, amplía el enfoque hacia distintos ámbitos del bienestar y las relaciones.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9798890981776",
+        "isbn-9788409938490"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bd0c66060f2b85dc",
+  "fuente_hash": "3d166b1178e535f8",
   "origen": "chatgpt-web"
 }

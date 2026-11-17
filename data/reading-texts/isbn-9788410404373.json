@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788410404373",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL ARTE DE HACER LAS COSAS BIEN: Influencias japonesas para un camino de mejora continua se orienta a lectores interesados en el desarrollo personal y la mejora continua desde una perspectiva japonesa. Su enfoque temático se distancia de la narrativa de ficción y de las lecturas centradas exclusivamente en la alimentación.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "EL ARTE DE HACER LAS COSAS BIEN: Influencias japonesas para un camino de mejora continua se publica en tapa blanda y tiene 164 páginas. La edición de Satori Ediciones C.b. permite mantener el volumen físico a mano para consultar sus contenidos sobre mejora continua.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL ARTE DE HACER LAS COSAS BIEN: Influencias japonesas para un camino de mejora continua se aproxima a 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito por su interés en el cambio personal. El primero toma como referencia influencias japonesas y la mejora continua; el segundo anuncia un enfoque científico sobre distintas áreas de la vida.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a460fda621a72127",
+  "origen": "chatgpt-web"
+}

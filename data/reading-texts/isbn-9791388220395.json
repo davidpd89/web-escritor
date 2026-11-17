@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388220395",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro encaja con lectores interesados en resolver misterios mediante ejercicios interactivos. Reúne más de 80 desafíos de detectives en 224 páginas, por lo que su estructura se orienta a la resolución de pruebas y no a la lectura continuada de una novela de misterio.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne los más de 80 desafíos de detectives en un volumen físico de 224 páginas. Este formato permite consultar los ejercicios y volver a ellos pasando directamente de una página a otra, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con 80 crímenes imposibles de resolver (FUERA DE ESCENA) el interés por los enigmas y la participación de Laura Jayne Ayres. La diferencia está en el planteamiento: el libro oficial de Cluedo reúne más de 80 desafíos interactivos, mientras que la obra de Gareth Moore y Laura Jayne Ayres presenta 80 crímenes imposibles de resolver.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388015816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5bf3146f58904c3b",
+  "origen": "chatgpt-web"
+}

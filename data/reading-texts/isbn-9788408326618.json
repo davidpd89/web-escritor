@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores interesados en los ovnis y en las preguntas sobre lo que los militares conocen de ellos. Por su asunto y sus 992 páginas, se aleja de quienes buscan una lectura breve sobre bienestar o relaciones familiares.",
+      "texto": "Esta obra de J. J. Benítez se dirige a lectores interesados en los ovnis y su relación con el ámbito militar. Con 992 páginas, requiere una lectura prolongada y encaja menos con quienes buscan libros breves o contenidos prácticos sobre nutrición y bienestar.",
       "evidencias": [
         "titulo",
+        "autores",
         "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda, dentro de la colección de bolsillo de Booket. Sus 992 páginas permiten consultar el volumen en papel y volver a pasajes concretos, aunque su extensión puede resultar menos cómoda para llevarlo a diario.",
+      "texto": "La tapa blanda permite leer sus 992 páginas en una edición de bolsillo de Booket. La tapa dura ofrece una encuadernación más rígida para conservar el volumen, mientras que Kindle permite llevar el texto en un dispositivo sin cargar con el libro físico.",
       "evidencias": [
-        "edicion",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "edicion",
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida comparte con Están aquí su presencia entre las lecturas de desarrollo personal. La obra de Kelly Ann Street trata las heridas emocionales y el equilibrio personal, mientras que la de J. J. Benítez se centra en los ovnis y las cuestiones militares.",
+      "texto": "Están aquí comparte autor y colección con Jerusalén. Caballo de Troya 1, pero se centra en los ovnis y el ámbito militar, mientras que la otra obra se presenta como una edición especial ilustrada sobre Jerusalén. Ambas pertenecen a la Biblioteca Benítez y ofrecen enfoques temáticos distintos dentro de la obra del mismo autor.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410451988"
+        "isbn-9788408328605"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "def28be3c15ad457",
+  "fuente_hash": "6781c0f58698a465",
   "origen": "chatgpt-web"
 }

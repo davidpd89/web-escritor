@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370550301",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Programa de Inteligencia Emocional para Adolescentes con Problemas de Conducta (PIECA): 92 (Educación) aborda la inteligencia emocional en relación con las dificultades de conducta durante la adolescencia. Por su enfoque educativo y sus 186 páginas, se orienta a quienes buscan profundizar en ese asunto, no a lectores interesados principalmente en nutrición o ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Programa de Inteligencia Emocional para Adolescentes con Problemas de Conducta (PIECA): 92 (Educación) se ofrece en tapa blanda, con 186 páginas. La edición en castellano de Sintesis permite trabajar con el texto en papel y volver a consultar sus contenidos sobre inteligencia emocional y conducta adolescente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparte con Programa de Inteligencia Emocional para Adolescentes con Problemas de Conducta (PIECA): 92 (Educación) el interés por el bienestar personal. Liz Moody aborda distintos aspectos de la vida cotidiana, mientras que Arcadio de Jesús Cardona Isaza, Inmaculada Montoya Castilla y Remedios González Barrón delimitan su trabajo a la inteligencia emocional y los problemas de conducta en adolescentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e6ef4fe5c0c057c5",
+  "origen": "chatgpt-web"
+}

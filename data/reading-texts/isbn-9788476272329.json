@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788476272329",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LAS CIENCIAS OCULTAS: Magnetismo animal. El destino del individuo. Ensayo sobre las apariciones de espíritus está dirigido a lectores interesados en la reflexión filosófica sobre el magnetismo animal, el destino y las apariciones. Por su orientación ensayística, se aparta de las lecturas centradas en personajes y tramas de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de LAS CIENCIAS OCULTAS: Magnetismo animal. El destino del individuo. Ensayo sobre las apariciones de espíritus contiene 230 páginas en castellano. El soporte impreso permite consultar los distintos asuntos anunciados en el título y volver a pasajes concretos durante su lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de tener la razón (El arte de...), de Arthur Schopenhauer, comparte autor con LAS CIENCIAS OCULTAS: Magnetismo animal. El destino del individuo. Ensayo sobre las apariciones de espíritus, pero su título apunta a la argumentación en lugar de los fenómenos ocultos. Amo ergo sum: Mi visión del mundo: el sentido de la vida, los estados expandidos de la consciencia y el contacto con lo trascendente (Ensayo), de Josep Maria Fericgla, coincide en el interés por cuestiones trascendentes desde otra autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346118",
+        "isbn-9791388182365"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d1e220076096597",
+  "origen": "chatgpt-web"
+}

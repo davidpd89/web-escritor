@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa), de Carlos Barragán, se dirige a quienes buscan ensayos sobre relaciones sentimentales, engaños e identidad. Su enfoque temático se aleja de las historias románticas centradas únicamente en el enamoramiento.",
+      "texto": "Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa), de Carlos Barragán, aborda las estafas sentimentales y la falsificación de identidades desde el ámbito del ensayo y la narrativa contemporánea. Se orienta a quienes buscan estos asuntos, no a lectores que esperan una historia romántica convencional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa) es de tapa blanda y tiene 312 páginas. Publicada por Reservoir Books en castellano, permite una lectura en papel que puede interrumpirse y retomarse por sesiones.",
+      "texto": "Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa) cuenta con una edición en tapa blanda de 312 páginas. El volumen de Reservoir Books está publicado en castellano y permite consultar en papel su contenido sobre estafas amorosas e identidades falsas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,19 +24,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa) comparte el interés por las relaciones afectivas con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología). El primero aborda las estafas amorosas y las identidades falsas; el segundo plantea preguntas sobre el enamoramiento y el desenamoramiento.",
+      "texto": "Los Yahoo boys: Estafadores del amor: identidades falsas y vidas reales (Reservoir Narrativa) puede situarse junto a El adversario (Panorama de narrativas), de Emmanuel Carrère, por su relación temática con las identidades y el engaño. La obra de Carlos Barragán delimita su asunto a las estafas amorosas y las identidades falsas, con una extensión de 312 páginas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387534370"
+        "isbn-9788433950482"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "85689881ba326032",
+  "fuente_hash": "9649c578283f4354",
   "origen": "chatgpt-web"
 }

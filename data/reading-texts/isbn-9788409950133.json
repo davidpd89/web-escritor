@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409950133",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hesed: El amor detrás del canto se dirige a lectores interesados en la poesía vinculada al amor y la espiritualidad. La obra de Saul Hidalgo Ibañez reúne estas vertientes en 152 páginas, por lo que se aleja de quienes buscan principalmente una novela de aventuras o un ensayo histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hesed: El amor detrás del canto está disponible en tapa blanda y Kindle. La edición física de Saul Hidalgo Ibañez contiene 152 páginas y permite conservar el texto en papel o regalarlo; Kindle ofrece una opción digital para leerlo desde el móvil o un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Hesed: El amor detrás del canto comparte con Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias), de Matthew McConaughey, la relación entre expresión poética y espiritualidad, aunque el libro de Saul Hidalgo Ibañez incorpora expresamente el amor. San Juan de la Cruz: Poesía divina (Caminos), de Javier Manso Osuna, se aproxima por su dimensión religiosa, pero centra su título en la poesía divina de San Juan de la Cruz.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049829",
+        "isbn-9788428576154"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7cb3f5ea148f9793",
+  "origen": "chatgpt-web"
+}

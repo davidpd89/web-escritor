@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387975777",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sirena y el jubilado (Hispánica) se dirige a lectores de misterio, thriller y narrativa contemporánea. La novela de Élmer Mendoza tiene 296 páginas y combina esas clasificaciones literarias; por género, se aparta de quienes buscan exclusivamente fantasía épica o divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La sirena y el jubilado (Hispánica) ofrece tapa blanda, Kindle y audiolibro, tres maneras de acceder a la obra de Élmer Mendoza. La edición impresa reúne 296 páginas para leer y conservar; Kindle permite llevarla en el móvil y el audiolibro ofrece una alternativa de escucha durante los desplazamientos o las tareas cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La sirena y el jubilado (Hispánica) puede compararse con Cóbraselo caro / Make Him Pay Dearly por compartir autor, Élmer Mendoza. También coincide con Aguas turbulentas, de Rankin Ian, en el ámbito del misterio; esta última sitúa su conflicto entre el pasado y el presente de Edimburgo, mientras que La sirena y el jubilado (Hispánica) se presenta como narrativa contemporánea y thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878449",
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2f4a61bd13b069bd",
+  "origen": "chatgpt-web"
+}

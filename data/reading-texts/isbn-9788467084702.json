@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Atlas de las cosas que vibran (ESPASAesPOESÍA) se dirige a lectores que buscan libros vinculados a la poesía y a la Edad Media. Iván Vergara firma esta edición de 120 páginas, clasificada en la temática histórica de la Edad Media; no es una elección orientada a quienes buscan narrativa contemporánea o novelas extensas.",
+      "texto": "Atlas de las cosas que vibran (ESPASAesPOESÍA), de Iván Vergara, está dirigido a lectores interesados en la poesía contemporánea. Su extensión de 120 páginas lo sitúa entre los volúmenes breves y lo diferencia de las novelas largas o de las obras de consulta sobre otras disciplinas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,17 +14,33 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer Atlas de las cosas que vibran (ESPASAesPOESÍA) en una edición física de 120 páginas. Es la opción para quien prefiere tener el libro en papel y manejar un volumen de extensión contenida.",
+      "texto": "Atlas de las cosas que vibran (ESPASAesPOESÍA) cuenta con una edición en tapa blanda de 120 páginas. El volumen de Editorial Espasa reúne el contenido poético en un formato físico manejable, adecuado para consultar pasajes concretos y volver a ellos durante la lectura.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de las cosas que vibran (ESPASAesPOESÍA) puede ponerse junto a A solas, de María Jesús Martínez Ramos, y 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera. Los tres títulos aparecen vinculados a este conjunto de lecturas, aunque Atlas de las cosas que vibran (ESPASAesPOESÍA) se identifica expresamente como poesía y tiene 120 páginas. La comparación permite distinguir las obras por su autoría y presentación editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410907539"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dc7757bd2b8852cd",
+  "fuente_hash": "c8dc81c7dc932fa4",
   "origen": "chatgpt-web"
 }

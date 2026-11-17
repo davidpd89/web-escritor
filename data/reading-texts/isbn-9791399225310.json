@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399225310",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las figuras retóricas en el rap: Un ensayo experimental está orientado a lectores interesados en el lenguaje del rap y su relación con los recursos literarios. Por su planteamiento ensayístico, encaja menos con quienes buscan una novela o una recopilación de letras sin análisis retórico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las figuras retóricas en el rap: Un ensayo experimental cuenta con una edición en tapa blanda de 185 páginas. El papel permite consultar pasajes y volver sobre los conceptos retóricos durante la lectura; Paganus Editions publica esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las figuras retóricas en el rap: Un ensayo experimental puede compararse con Bella ciao: Historia de un himno popular: 32 (Tascabili) por su atención a expresiones musicales. Alberto Buscató Vázquez se centra en los recursos retóricos del rap, mientras que el título de Marcello Flores plantea una aproximación histórica a un himno popular. Ambos se alejan de la ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410435292"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d32911738f0bb133",
+  "origen": "chatgpt-web"
+}

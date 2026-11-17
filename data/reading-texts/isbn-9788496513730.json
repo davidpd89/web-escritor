@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788496513730",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Huellas navarras en la historia de un reino se dirige a lectores interesados en la historia de los reinos y en el pasado al que alude su título. Por su orientación histórica, se distancia de las novelas de ficción y de quienes buscan relatos de aventuras imaginarias.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Huellas navarras en la historia de un reino se presenta en tapa blanda, con 264 páginas en castellano. Esta edición de Editorial Mintzoa permite consultar el contenido en papel y transportarlo sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Huellas navarras en la historia de un reino y 53 días: Cómo Hitler derribó una democracia (HISTORIA) comparten el interés por el pasado, pero el primero se centra en la historia navarra y el segundo aborda la caída de una democracia. Frente a 76, de Felipe Pigna, la diferencia identificable está en la autoría y en el asunto histórico anunciado por cada título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3ec885930fe076fc",
+  "origen": "chatgpt-web"
+}

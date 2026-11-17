@@ -1,0 +1,58 @@
+{
+  "id": "isbn-9781806072781",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los romanos (¡Mira debajo!), de Conrad Mason, está dirigido al público infantil interesado en conocer la historia romana mediante un libro de cartón. Por su extensión de 14 páginas y su presentación, se diferencia de las obras históricas extensas destinadas a una lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Los romanos (¡Mira debajo!) propone una aproximación infantil a la historia de los romanos mediante un libro físico de cartón. La expresión ¡Mira debajo! del título invita a explorar el contenido de forma activa, mientras sus 14 páginas permiten sesiones de lectura breves. Puede utilizarse para introducir el tema y conversar sobre él durante la lectura compartida.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los romanos (¡Mira debajo!) está disponible en tapa dura, presentada como libro de cartón. Sus 14 páginas forman un volumen breve que puede manejarse durante la lectura infantil y guardarse para posteriores consultas. La edición en castellano pertenece a Ediciones Usborne.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Había un romano en tu jardín: Una historia de los romanos a través de 20 tesoros enterrados (Ático de los Libros) comparte con Los romanos (¡Mira debajo!) el tema de la civilización romana, pero plantea su recorrido mediante tesoros enterrados. El libro de Conrad Mason adopta una presentación infantil de cartón y 14 páginas, frente al enfoque histórico articulado alrededor de objetos que anuncia el título de Bettany Hughes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388324185"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "764aad47881a639d",
+  "origen": "chatgpt-web"
+}

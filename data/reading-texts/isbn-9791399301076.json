@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399301076",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La aventura de educar: Mirada profesional e internacional desde Alemania para educar niños y adolescentes seguros y autónomos. se dirige a adultos interesados en la crianza, la autonomía infantil y la educación adolescente. Su enfoque de desarrollo personal y familia lo diferencia de la narrativa de aventuras, aunque el título utilice esa palabra.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La aventura de educar: Mirada profesional e internacional desde Alemania para educar niños y adolescentes seguros y autónomos. se ofrece en tapa blanda y Kindle. La edición física de 180 páginas permite consultar pasajes y conservar el volumen en casa; Kindle facilita llevar la lectura en el móvil o en un dispositivo electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La aventura de educar: Mirada profesional e internacional desde Alemania para educar niños y adolescentes seguros y autónomos. y Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) abordan cuestiones familiares. El primero se centra en educar niños y adolescentes autónomos desde una perspectiva profesional vinculada a Alemania; el segundo amplía su ámbito a la vejez y a herramientas de psicología conductual.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399249682"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f22ce6958cb68b09",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370633332",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en religión, espiritualidad y bienestar. Corona por corona: 01 (Religión y Espiritualidad), de María Gabriela López Silveira, tiene 90 páginas y se aleja de las lecturas centradas en aventuras o ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 90 páginas en castellano. Este formato permite consultar y releer el contenido en papel sin manejar un volumen extenso; la edición corre a cargo de Letrame S.l.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corona por corona: 01 (Religión y Espiritualidad) comparte el interés espiritual con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, aunque este último título se centra expresamente en la consciencia. Caminando a través de la sombra ofrece otra referencia de comparación, con una autoría distinta: Calvin Amandus frente a María Gabriela López Silveira.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335",
+        "isbn-9798182903509"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d34bdaab35fd600",
+  "origen": "chatgpt-web"
+}

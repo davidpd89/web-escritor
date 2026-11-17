@@ -4,29 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Exclusión y la nueva política del odio (CONOCIMIENTO) se dirige a lectores interesados en el poder, la política y los mecanismos de exclusión. El libro de Colin Crouch tiene 176 páginas y plantea una materia distinta de la narrativa de ficción o de los manuales de participación política.",
+      "texto": "Exclusión y la nueva política del odio (CONOCIMIENTO) se dirige a quienes leen sobre poder, conflictos políticos y actualidad. Colin Crouch aborda desde el propio título la relación entre exclusión y odio político; no encaja con quien busca ficción o una narración de aventuras.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Exclusión y la nueva política del odio (CONOCIMIENTO) está disponible en tapa blanda, con 176 páginas en castellano. Esta edición de Katz Barpal Editores SL permite leer y consultar en papel un volumen centrado en cuestiones políticas, con una extensión delimitada.",
+      "texto": "La edición de Exclusión y la nueva política del odio (CONOCIMIENTO) se presenta en tapa blanda, con 176 páginas. Es una extensión que permite leer el volumen en papel y volver a sus apartados durante una consulta sobre política, sin recurrir a un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Exclusión y la nueva política del odio (CONOCIMIENTO), de Colin Crouch, comparte el interés por las estructuras de poder con A la sombra del Estado, de Luis de la Corte Ibáñez. El primero aborda la exclusión y el odio político; el segundo se orienta hacia el espionaje, las operaciones encubiertas y la desinformación. Ambos tratan manifestaciones distintas del poder.",
+      "texto": "Exclusión y la nueva política del odio (CONOCIMIENTO) comparte el interés por la política contemporánea con Brainwashing: Populismo en la era del like. Colin Crouch centra su título en la exclusión y el odio político, mientras Andrés Roemer sitúa el populismo y la cultura del like en primer plano. Son dos enfoques temáticos distintos dentro del debate político.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441057"
+        "isbn-9791399271379"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dc6b28edf39ff55b",
+  "fuente_hash": "99ab139a8b328793",
   "origen": "chatgpt-web"
 }

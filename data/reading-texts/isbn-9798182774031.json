@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798182774031",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Lengua de Luz de Dios se dirige a lectores interesados en la espiritualidad y su relación con el bienestar. Su orientación religiosa lo diferencia de los libros centrados exclusivamente en nutrición, medicina o procedimientos de salud, aunque comparte con ellos el ámbito general del bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Lengua de Luz de Dios está disponible en tapa blanda, con 84 páginas en castellano. Se trata de un volumen breve que puede transportarse y consultarse en papel sin ocupar demasiado espacio, especialmente para quien prefiera la lectura física de contenidos espirituales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Lengua de Luz de Dios puede compararse con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow. Ambas obras se relacionan con cuestiones espirituales, pero la de Paul of Venus presenta una referencia explícita a Dios, mientras que la de Barbara Hand Clow anuncia una exploración de la consciencia mediante nueve dimensiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5b48e9274a8a738a",
+  "origen": "chatgpt-web"
+}

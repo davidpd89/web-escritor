@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399203028",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sobre el fascismo: Textos escogidos (ENSAYO) se dirige a lectores interesados en el pensamiento político y en los escritos de Miguel de Unamuno. La selección de textos ocupa 192 páginas y se distancia de quienes buscan una novela histórica o un manual práctico de política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sobre el fascismo: Textos escogidos (ENSAYO) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición física permite subrayar los textos seleccionados y regresar a pasajes concretos durante el estudio del pensamiento político de Miguel de Unamuno.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte con Sobre el fascismo: Textos escogidos (ENSAYO) el interés por las ideas políticas, pero aborda el anarcocapitalismo desde una introducción, frente a una selección de escritos de Miguel de Unamuno. Caminos opuestos: Contra el sionismo (Biblioteca Judith Butler) también trata una cuestión política concreta, aunque desde la autoría de Judith Butler y con otro objeto de análisis.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788449346071"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f2071a17da2db0a9",
+  "origen": "chatgpt-web"
+}

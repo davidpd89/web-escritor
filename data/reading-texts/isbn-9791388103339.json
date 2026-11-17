@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388103339",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Planeta Manga: Bloodmancer nº 01: 1 (Universo Planeta Manga) se orienta a lectores que buscan fantasía y romance dentro del cómic. La combinación de ambos géneros lo diferencia de las aventuras sin componente romántico y encaja menos con quienes prefieren novelas narradas únicamente mediante texto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Planeta Manga: Bloodmancer nº 01: 1 (Universo Planeta Manga) cuenta con una edición en tapa blanda de 216 páginas en castellano. El formato permite leer la obra como volumen físico y conservar sus páginas ilustradas, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Planeta Manga: Bloodmancer nº 01: 1 (Universo Planeta Manga) puede compararse con La bestia del rey 13 (Shôjo) y Para Dafne 2 por su proximidad al cómic de fantasía y a los conflictos afectivos. La obra de XGreen combina expresamente fantasía y romance, mientras que La bestia del rey 13 (Shôjo) plantea el regreso de un oficial semihumano al palacio y Para Dafne 2 incorpora una herida causada por Eros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962036",
+        "isbn-9791387962050"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2feafaec21779d33",
+  "origen": "chatgpt-web"
+}

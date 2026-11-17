@@ -4,36 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Antología está dirigida a lectores de poesía interesados en la tradición clásica, la experimentación formal y la memoria cultural de un territorio. Su enfoque histórico y literario encaja menos con quienes buscan narrativa de acción o una historia desarrollada en prosa.",
+      "texto": "Antología, de Antonio Cano, se dirige a lectores de poesía interesados en la relación entre tradición clásica, experimentación y memoria cultural. Reúne una obra vinculada a Teruel y a las tensiones culturales de los años treinta, por lo que no responde a quien busca una novela de argumento continuo.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Antología reúne la obra poética completa de Antonio Cano, vinculada a las tensiones culturales de los años treinta. Sus versos combinan formas heredadas con búsquedas de vanguardia y conceden a Teruel una función simbólica, además de conservar testimonios de su contexto histórico.",
+      "texto": "Propone una lectura poética que permite recorrer la obra completa de Antonio Cano en un mismo volumen. Los poemas alternan recursos heredados de la tradición con procedimientos de vanguardia y convierten el territorio de Teruel en un elemento simbólico ligado a la memoria histórica y cultural.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Antología se publica en tapa blanda y contiene 176 páginas de poesía de Antonio Cano. Su extensión permite recorrer el conjunto de su producción en un solo volumen físico, manejable para consultar poemas y volver a pasajes concretos.",
+      "texto": "La tapa blanda es el formato de Antología, una publicación de 176 páginas editada por Prensas de la Universidad de Zaragoza. El volumen impreso permite recorrer la producción poética de Antonio Cano, consultar composiciones concretas y contrastar los recursos tradicionales con los experimentales.",
       "evidencias": [
         "titulo",
         "autores",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antología, de Antonio Cano, puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, por su pertenencia a la poesía. La primera reúne toda la producción de un autor ligado a Teruel y a las vanguardias de su época; la segunda se presenta como una selección amorosa centrada en obras concretas.",
+      "texto": "223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, y Antología, de Antonio Cano, se sitúan en el ámbito de la poesía. Antología reúne la producción poética de un autor vinculado a Teruel y combina formas clásicas con experimentación vanguardista, mientras que 223 esquinas: 16 (La garza roja) ofrece otra autoría y una obra de título independiente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -42,7 +45,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788412988833"
       ]
     }
   ],

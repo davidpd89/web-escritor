@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "NeuroWorld: The Space Between - Life Fading - Cyberfreak - Neurohabitat: 35 (Los tebeos de Cordelia) se dirige a quienes leen ciencia ficción en formato de cómic o novela gráfica. Sus 120 páginas en castellano responden a una lectura visual, distinta de una novela de ciencia ficción presentada únicamente en prosa.",
+      "texto": "NeuroWorld: The Space Between - Life Fading - Cyberfreak - Neurohabitat: 35 (Los tebeos de Cordelia) se dirige a lectores de ciencia ficción interesados en el cómic y la novela gráfica. Sus 120 páginas encajan menos con quienes buscan una novela extensa presentada exclusivamente en prosa.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de NeuroWorld: The Space Between - Life Fading - Cyberfreak - Neurohabitat: 35 (Los tebeos de Cordelia) se presenta en tapa blanda. Sus 120 páginas permiten manejar un volumen físico relativamente breve, adecuado para leer sus páginas de cómic sin depender de una pantalla.",
+      "texto": "NeuroWorld: The Space Between - Life Fading - Cyberfreak - Neurohabitat: 35 (Los tebeos de Cordelia) se publica en tapa blanda, con 120 páginas en castellano. Esta edición permite leer el cómic en papel, consultar sus páginas directamente y transportarlo sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "NeuroWorld: The Space Between - Life Fading - Cyberfreak - Neurohabitat: 35 (Los tebeos de Cordelia) puede compararse con El incidente Darwin 1 (Seinen): Universo Manga, de Shun Umezawa, por su pertenencia al ámbito del cómic. La diferencia está en la autoría y la identificación editorial: Miguel Ángel Martín firma NeuroWorld, mientras el otro título se presenta como manga seinen.",
+      "texto": "NeuroWorld: The Space Between - Life Fading - Cyberfreak - Neurohabitat: 35 (Los tebeos de Cordelia) puede compararse con El mesias de Dune. La novela grafica libro 01 por combinar ciencia ficción y narración gráfica. Miguel Ángel Martín firma el primero, mientras que el segundo acredita a Frank Herbert, Michael Shelfer, Brian Herbert y Kevin J. Anderson y se identifica expresamente como novela gráfica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962791"
+        "isbn-9788467986174"
       ]
     }
   ],

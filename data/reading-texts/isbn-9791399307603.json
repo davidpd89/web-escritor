@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399307603",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La actividad pericial del ingeniero: Manual práctico para España, de Antonio Armero Martínez, está orientado a lectores interesados en la actividad pericial desde una perspectiva técnica y jurídica española. Por su enfoque de manual y su vinculación con el derecho y la divulgación científica, no corresponde a quien busca una novela o una introducción general a la literatura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La actividad pericial del ingeniero: Manual práctico para España cuenta con una edición en tapa blanda de 459 páginas. El papel permite consultar apartados y volver a ellos durante el estudio o el trabajo, una utilidad concreta para un manual práctico de esta extensión publicado por Interference Press.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La actividad pericial del ingeniero: Manual práctico para España se relaciona con Manual de derecho de la biotecnología, de Luis Sarrato Martínez, por el cruce entre materias técnicas y jurídicas. También puede contrastarse con Curso básico de protección de datos-CTRG0012, de Elsa Rubio Duce: este último se centra en protección de datos, mientras que el libro de Antonio Armero Martínez aborda la actividad pericial del ingeniero en España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430995356",
+        "isbn-9788411354714"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c04082c11ee0bd1c",
+  "origen": "chatgpt-web"
+}

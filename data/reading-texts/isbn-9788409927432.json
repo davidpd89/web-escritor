@@ -4,34 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El altar de los irrecuperables: Trilogía del Altar · Libro I encaja con lectores interesados en biografías y memorias. Sus 224 páginas ofrecen una extensión intermedia; por su clasificación editorial, resulta menos afín a quienes buscan específicamente fantasía o ciencia ficción. El título lo identifica como el Libro I de una trilogía.",
+      "texto": "El altar de los irrecuperables: Trilogía del Altar · Libro I se dirige a lectores interesados en biografías y memorias y en obras organizadas como trilogía. El título lo identifica como Libro I, de modo que no responde a quien busca una publicación presentada como volumen independiente de una serie.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer las 224 páginas de El altar de los irrecuperables: Trilogía del Altar · Libro I en un volumen físico. La edición de @sdblazquez está publicada en castellano y resulta manejable para llevarla en una mochila o consultar distintos pasajes durante la lectura.",
+      "texto": "El altar de los irrecuperables: Trilogía del Altar · Libro I está disponible en tapa blanda, con 224 páginas en castellano. Esta presentación permite conservar físicamente el volumen junto a los demás títulos de la Trilogía del Altar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "idioma",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Al andar: Vivencias del Camino de Santiago y El altar de los irrecuperables: Trilogía del Altar · Libro I pueden compararse desde el interés por las vivencias personales. El primero identifica expresamente el Camino de Santiago como asunto, mientras que el segundo se presenta bajo el marco de biografías y memorias y se identifica en su título como Libro I.",
+      "texto": "El altar de los irrecuperables: Trilogía del Altar · Libro I se relaciona directamente con El altar de los vivos: Trilogía del Altar · Libro II y Sin altar: Trilogía del Altar · Libro III. Los tres comparten autor, Santiago Daniel Blázquez Rozalén, pero sus títulos los identifican como entregas distintas de la misma trilogía.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496"
+        "isbn-9788409933440",
+        "isbn-9788409935628"
       ]
     }
   ],

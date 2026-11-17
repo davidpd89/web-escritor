@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410676930",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fuerzas de reproducción: Por una ecología política feminista: 9 (Economía Inclusiva) se orienta a lectores interesados en las relaciones entre ecología, política y feminismo. Sus 176 páginas y su clasificación científica lo alejan de quienes buscan ficción o instrucciones prácticas sobre técnicas ambientales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fuerzas de reproducción: Por una ecología política feminista: 9 (Economía Inclusiva) cuenta con una edición en tapa blanda de 176 páginas. El volumen de Los Libros de la Catarata permite consultar el texto en papel y volver a sus apartados durante el estudio de cuestiones ecológicas y políticas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fuerzas de reproducción: Por una ecología política feminista: 9 (Economía Inclusiva) puede contrastarse con (ENAC0019) Herramientas de análisis coste/beneficio aplicadas a la eficiencia energética, de Nelson Pompeyo Martínez Rodríguez. Ambos títulos se relacionan con cuestiones ambientales, pero el primero plantea una perspectiva política feminista y el segundo se centra en herramientas económicas para evaluar la eficiencia energética. Frente a Abonado y fertilización en agricultura ecológica-AGAU001PO, de Elsa Rubio Duce, también se distingue por abordar la ecología desde un marco político en lugar de una actividad agrícola concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388334627",
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08ff112df50d2a44",
+  "origen": "chatgpt-web"
+}

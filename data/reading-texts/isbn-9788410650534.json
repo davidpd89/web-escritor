@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410650534",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo crear y consolidar tu propia marca de joyería se dirige a quienes buscan información sobre diseño, emprendimiento y desarrollo de una marca vinculada a la joyería. La propuesta de Jose Luis Fettolini encaja menos con lectores interesados únicamente en técnicas artesanales o en relatos de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo crear y consolidar tu propia marca de joyería cuenta con una edición en tapa blanda de 248 páginas. El papel permite volver a consultar apartados durante el trabajo de creación y consolidación de una marca, un uso relacionado con el enfoque empresarial y de diseño del libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo crear y consolidar tu propia marca de joyería y Marcas que cuentan: Historias desconocidas sobre marcas cotidianas (Kailas No Ficción), de Fernando de Córdoba Trigueros, comparten el interés por las marcas. Jose Luis Fettolini aborda su creación y consolidación dentro de la joyería, mientras que Fernando de Córdoba Trigueros se ocupa de las historias de marcas cotidianas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387534356"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1b6dc3b2511ea0d2",
+  "origen": "chatgpt-web"
+}

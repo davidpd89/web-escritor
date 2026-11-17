@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419234605",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Viaje a través del sentimiento: Arthur russell, una vida (Bihotza) se dirige a quienes buscan biografías vinculadas al ámbito artístico. King Richard firma una obra de 320 páginas centrada, según su título, en la vida de Arthur russell; no responde a la búsqueda de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Viaje a través del sentimiento: Arthur russell, una vida (Bihotza) está disponible en tapa dura. Esta edición de Liburuak reúne 320 páginas en castellano y permite conservar la biografía en un volumen encuadernado con cubierta rígida, una característica pertinente para el regalo o la consulta posterior.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Viaje a través del sentimiento: Arthur russell, una vida (Bihotza) comparte con Bad Bunny: Un icono: sin permiso, sin límite, sin miedo (No ficción) el interés por figuras vinculadas a la música. El primero aborda la vida de Arthur russell desde la biografía de King Richard; el segundo se centra en Bad Bunny y lleva la firma de Jaime Valero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139482"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a7c046da1c003a4f",
+  "origen": "chatgpt-web"
+}

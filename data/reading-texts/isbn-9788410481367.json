@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410481367",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo que nadie sospecha (Crimen y misterio) se dirige a lectores interesados en el crimen, el misterio y los relatos con elementos de terror. Sus 320 páginas ofrecen una extensión intermedia; por su clasificación temática, se aleja de quienes buscan una lectura exclusivamente romántica o humorística.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lo que nadie sospecha (Crimen y misterio) cuenta con una edición en tapa blanda de 320 páginas, publicada en castellano por Libros de Seda. Es una opción física para leer en casa o transportar, con una extensión que permite distribuir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo que nadie sospecha (Crimen y misterio) y 25 días hasta Navidad se relacionan por el interés en el misterio y el thriller. La novela de Amelia de Dios Romero combina además narrativa contemporánea y terror, mientras que la de Per Jacobsen se presenta expresamente como un thriller de adviento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "959231efb4cd1ef7",
+  "origen": "chatgpt-web"
+}

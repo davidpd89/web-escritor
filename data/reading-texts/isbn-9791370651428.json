@@ -4,39 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra del Departamento de Documentación Iberley se dirige a quienes necesitan abordar Veri*Factu y la factura electrónica obligatoria B2B desde una perspectiva jurídica. Su enfoque sobre requisitos, plazos y aplicación resulta más pertinente para consultas normativas que para lectores interesados en ficción o divulgación general.",
+      "texto": "Está dirigido a quienes necesitan orientarse sobre Veri*Factu y la factura electrónica obligatoria B2B, especialmente en materia de requisitos, plazos y aplicación. Su contenido jurídico y práctico responde menos a quienes buscan una introducción general a la contabilidad sin centrarse en estas obligaciones.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Colex se presenta en tapa blanda y reúne 104 páginas en castellano. El formato en papel permite consultar los apartados relativos a Veri*Factu, requisitos y plazos durante el trabajo con documentación sobre facturación electrónica obligatoria B2B.",
+      "texto": "La edición en tapa blanda tiene 104 páginas y permite consultar en papel las cuestiones relativas a Veri*Factu y la factura electrónica obligatoria B2B. Su extensión facilita manejarla como volumen de consulta sobre requisitos y plazos, con la flexibilidad propia de una cubierta blanda.",
       "evidencias": [
-        "editorial",
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "ITPyAJD: de la norma a la liquidación. Paso a paso: Claves para comprender, liquidar y aplicar el impuesto en transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados comparte autoría con esta obra del Departamento de Documentación Iberley. La diferencia está en el objeto de consulta: aquel aborda un impuesto concreto y este se centra en Veri*Factu y la facturación electrónica B2B.",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos), de Departamento de Documentación Iberley, comparte autoría y orientación jurídica, pero trata conflictos laborales. Veri*Factu y factura electrónica obligatoria B2B: claves para anticiparte. Paso a paso: Prepárate para Veri*Factu y la factura electrónica obligatoria ... de aplicación, requisitos, plazos, etc.) se concentra en las obligaciones de facturación y sus condiciones de aplicación.",
       "evidencias": [
-        "afines_catalogo",
+        "titulo",
         "autores",
-        "titulo"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370651688"
+        "isbn-9791370651749"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a18f080bfbf4b9fe",
+  "fuente_hash": "6ceb48dc7e0c7f37",
   "origen": "chatgpt-web"
 }

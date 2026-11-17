@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) está dirigida a lectores adultos interesados en los clásicos y en la exploración de la conciencia de los personajes. La narración se concentra en una jornada y en la vida interior de sus protagonistas; no responde a la búsqueda de una aventura construida alrededor de numerosos acontecimientos externos.",
+      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) se dirige a lectores adultos interesados en los clásicos centrados en la conciencia, las relaciones personales y la experiencia femenina. La narración transcurre durante una sola jornada y presta especial atención a los pensamientos de sus personajes. Se aleja de las novelas construidas principalmente alrededor de aventuras y acontecimientos sucesivos.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,41 +14,55 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) es un clásico de Virginia Woolf que narra una jornada de 1923 desde la experiencia interior de sus personajes. La vida social de Clarissa y las consecuencias psicológicas de la guerra conviven en una estructura que atiende a los pensamientos y a la percepción del tiempo. También aborda la condición de la mujer.",
+      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) propone una lectura centrada en la vida interior de los personajes y en cómo perciben los acontecimientos. La acción abarca un día de 1923, desde la mañana hasta una reunión social nocturna. La conciencia, la posición de la mujer y las consecuencias psicológicas de la guerra tienen más peso que la sucesión de acciones externas.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta versión de La señora Dalloway (edición especial limitada con cantos tintados) se distingue por su presentación especial limitada y sus cantos tintados. Penguin Clásicos la publica en castellano, en tapa dura y con 264 páginas, con fecha editorial del 22 de octubre de 2026. Su ISBN es 9788491057031, útil para identificar esta edición concreta frente a otras.",
+      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) se publica en tapa dura con cantos tintados dentro del catálogo de Penguin Clásicos. Esta presentación en castellano tiene 264 páginas y fecha de publicación del 22 de octubre de 2026. Su ISBN 9788491057031 permite distinguirla de otras ediciones de la obra de Virginia Woolf.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
-        "numero_paginas",
+        "editorial",
         "idioma",
+        "numero_paginas",
         "fecha_publicacion",
-        "isbn13"
+        "isbn13",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) se ofrece en tapa dura, con 264 páginas. Es una edición física orientada a quien quiere conservar el clásico de Virginia Woolf con sus cantos tintados o entregarlo como regalo. El acabado especial forma parte de esta presentación del libro.",
+      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) está disponible en tapa dura y consta de 264 páginas. Los cantos tintados distinguen el ejemplar físico y aportan un detalle de presentación para quienes lo incorporan a su biblioteca o lo eligen como regalo. La extensión corresponde a una narración que concentra sus acontecimientos en una sola jornada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) puede compararse con Al faro: Nueva traducción al español: 82 (Clásicos en español), también de Virginia Woolf, por compartir autoría y pertenecer al ámbito de los clásicos. La primera concentra su narración en una jornada londinense y en la conciencia de sus personajes; la segunda se distingue en el catálogo por presentarse como una nueva traducción al español.",
       "evidencias": [
         "titulo",
         "autores",
-        "formatos_disponibles",
-        "edicion",
-        "numero_paginas"
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781836472568"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b5166bdfcc56a553",
+  "fuente_hash": "2178687bc9687826",
   "origen": "chatgpt-web"
 }

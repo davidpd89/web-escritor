@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche Las crónicas de Emily Wilde (Umbriel narrativa) encaja con lectores que buscan fantasía y aventuras en una presentación conjunta de gran extensión. Sus 992 páginas permiten dedicar tiempo a una lectura prolongada; no responde a quien prefiere un relato breve o una obra centrada exclusivamente en el realismo.",
+      "texto": "Estuche Las crónicas de Emily Wilde (Umbriel narrativa), de Heather Fawcett, se dirige a lectores de fantasía y aventuras que buscan una edición agrupada. Sus 992 páginas lo alejan de las lecturas breves y de quienes prefieren una única novela de extensión reducida.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,9 +14,10 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Estuche Las crónicas de Emily Wilde (Umbriel narrativa) se comercializa en tapa blanda y suma 992 páginas. El estuche permite mantener agrupada la colección en la estantería o entregarla como regalo, mientras que la encuadernación flexible facilita manejar cada volumen durante la lectura.",
+      "texto": "Estuche Las crónicas de Emily Wilde (Umbriel narrativa) está disponible en tapa blanda y reúne una extensión editorial de 992 páginas. El formato físico permite conservar el conjunto como estuche y resulta una opción de regalo para quienes buscan una edición agrupada de Heather Fawcett.",
       "evidencias": [
         "titulo",
+        "autores",
         "formatos_disponibles",
         "numero_paginas",
         "edicion"
@@ -24,22 +25,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Estuche Las crónicas de Emily Wilde (Umbriel narrativa) puede compararse con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), ya que ambos son libros de Heather Fawcett. La diferencia está en la presentación: el primero es un estuche de 992 páginas y el segundo se identifica como un título individual. También guarda relación con Estuche Guardianes de la Ciudadela, de Laura Gallego, por reunir obras de fantasía en una misma presentación, aunque pertenecen a autoras distintas.",
+      "texto": "Estuche Las crónicas de Emily Wilde (Umbriel narrativa) comparte autoría con El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett. La diferencia está en la presentación: el primero es un estuche de 992 páginas, mientras que el segundo se identifica como una obra individual. Ambos títulos pertenecen a la línea Umbriel narrativa.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "numero_paginas",
+        "editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387749316",
-        "isbn-9791387871758"
+        "isbn-9791387749316"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b1a18e697a3895c9",
+  "fuente_hash": "8da26be66704aaaf",
   "origen": "chatgpt-web"
 }

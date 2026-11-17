@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788401040061",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El regreso de la reina mora (Éxitos), de Alicia Vallina, se dirige a lectores de novela histórica y narrativa contemporánea. Su combinación temática encaja menos con quienes buscan exclusivamente fantasía, poesía o textos de divulgación sin elementos narrativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El regreso de la reina mora (Éxitos) se publica en tapa blanda, con 400 páginas en castellano. La edición de Plaza & Janés reúne la novela en un volumen físico, apropiado para la lectura en papel y para conservarlo en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El regreso de la reina mora (Éxitos) puede compararse con Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth por su vinculación con la narrativa histórica. Alicia Vallina plantea desde el título una figura regia femenina, mientras que la obra de Valerio Massimo Manfredi remite a un confín geográfico. La diferencia visible está en el referente central de cada título y en su autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897090",
+        "isbn-9786287897106"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "31454f4ec695a811",
+  "origen": "chatgpt-web"
+}

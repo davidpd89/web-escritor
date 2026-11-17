@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409941926",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La velocidad del alma se dirige a lectores de narrativa contemporánea y novela histórica. Por su clasificación, encaja menos con quienes buscan un ensayo o una lectura centrada exclusivamente en hechos documentales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La velocidad del alma está disponible en tapa blanda, con 148 páginas en castellano. Es una edición física de Senda Editorial que permite llevar el libro en el bolso y consultar sus páginas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La velocidad del alma comparte la vertiente histórica de su clasificación con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi. La diferencia identificable está en la autoría y en que La velocidad del alma también se clasifica como narrativa contemporánea. Carlos Expósito Moreno firma esta última obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ddf68e881b6ee249",
+  "origen": "chatgpt-web"
+}

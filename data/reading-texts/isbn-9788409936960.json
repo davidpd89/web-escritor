@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409936960",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Morir en Madrid se dirige a lectores que buscan obras de misterio y thriller en castellano. Por su clasificación temática, queda fuera de las búsquedas centradas en fantasía épica, ensayo o manuales prácticos, y ofrece una extensión de 240 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Morir en Madrid es de tapa blanda y contiene 240 páginas. Este formato permite mantener la obra en una biblioteca física y leerla sin depender de dispositivos electrónicos; está publicada en castellano por Unai Goikoetxea Blanco.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Morir en Madrid comparte el ámbito del misterio con Aberración, de Santiago López de Hoyos, aunque son obras de distinta autoría. También puede contrastarse con 25 días hasta Navidad, de Per Jacobsen, presentado como thriller de adviento: este último incorpora una referencia temporal navideña a su propuesta, mientras que el título de Óscar Revuelta señala Madrid.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9791399297508"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd1bdb6720ea657c",
+  "origen": "chatgpt-web"
+}

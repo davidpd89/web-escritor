@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798997536626",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el desarrollo personal desde una perspectiva centrada en la mente de Cristo. ¡Eres Tú!: Transformando tu Mente para estar en Unión y Alineación con la Mente de Cristo para Vivir una Vida Similar a la de Cristo, de Pablo Carde, se aleja de los enfoques de autoayuda que prescinden de referencias religiosas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 192 páginas en un volumen físico que puede consultarse por partes y guardarse en una estantería. Es una opción para quien prefiere pasar páginas, señalar pasajes en papel o transportar el ejemplar sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, también aborda el cambio personal, pero lo plantea desde la ciencia. La obra de Pablo Carde sitúa esa transformación en la relación con la mente de Cristo, mientras que la de Liz Moody se centra en la salud, las relaciones y otros aspectos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee5daf753a079767",
+  "origen": "chatgpt-web"
+}

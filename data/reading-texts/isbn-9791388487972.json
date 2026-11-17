@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388487972",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Konosuba 11 se dirige a lectores de cómic y novela gráfica que buscan una entrega identificada por número. El título la presenta como la n.º 11, por lo que no responde a quien quiere empezar por un volumen identificado como inicial; esta edición contiene 400 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Konosuba 11 se publica en tapa blanda de tipo bunko, con 400 páginas en castellano. La edición de Ivrea permite conservar el volumen físico y consultar sus páginas sin pantalla, una opción para quienes prefieren leer cómic en papel.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6065894ee5f6ef60",
+  "origen": "chatgpt-web"
+}

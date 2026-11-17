@@ -4,39 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Revolución 1 - Conform (Ficción crossover) se dirige a lectores que buscan narrativa relacionada con la fantasía, la ciencia ficción y el terror. Sus 416 páginas requieren una dedicación mayor que la de un relato breve; por sus géneros, se aleja de las lecturas realistas sin elementos especulativos.",
+      "texto": "Revolución 1 - Conform (Ficción crossover), de Ariel Sullivan, se dirige a quienes buscan fantasía dentro de una propuesta identificada como ficción crossover. El título lo identifica con el número 1, mientras que sus 416 páginas apuntan a una lectura de cierta extensión. No encaja con quien busca una novela breve o realista.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Revolución 1 - Conform (Ficción crossover) cuenta con una edición en tapa blanda de 416 páginas, publicada en castellano. Permite leer una obra extensa en papel sin recurrir a una pantalla y conservarla en formato físico. El título la identifica como el n.º 1.",
+      "texto": "Revolución 1 - Conform (Ficción crossover) está disponible en tapa blanda, con 416 páginas reunidas en un único volumen. Esta encuadernación flexible permite llevar la novela sin la rigidez de una cubierta dura, aunque su extensión hace que no sea un libro especialmente corto. La edición de Molino está publicada en castellano.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "idioma"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Revolución 1 - Conform (Ficción crossover) puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su orientación hacia la ficción fantástica. La obra de Ariel Sullivan incorpora además terror y ciencia ficción en su clasificación, mientras que el título de Tracy Wolff anuncia una prueba relacionada con dioses.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408324102"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "34364341684d4ce9",
+  "fuente_hash": "a06736b111e29cb9",
   "origen": "chatgpt-web"
 }

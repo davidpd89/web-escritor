@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9788466393102",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El pintor de almas (edición limitada · Black Friday) (Campaña | Black Friday) encaja con lectores de novela histórica interesados en relatos de ficción vinculados a la historia. Sus 688 páginas plantean una lectura extensa; resulta menos afín a quienes buscan un ensayo histórico o una obra breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición limitada Black Friday de El pintor de almas (edición limitada · Black Friday) (Campaña | Black Friday) pertenece a Penguin Bolsillo. Se presenta en tapa blanda, contiene 688 páginas y está publicada en castellano. El ISBN 9788466393102 identifica esta edición concreta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El pintor de almas (edición limitada · Black Friday) (Campaña | Black Friday) aborda la historia mediante la ficción narrativa. Su clasificación combina novela histórica y narrativa contemporánea, de modo que el enfoque es literario y no el de un manual académico. La extensión de 688 páginas corresponde a una novela de largo recorrido.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es la presentación disponible de El pintor de almas (edición limitada · Black Friday) (Campaña | Black Friday). Sus 688 páginas forman un libro de bolsillo que permite tener una novela extensa en un único volumen físico. Es la opción indicada para quien prefiere leer en papel y conservar esta edición limitada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "En el amor y en la guerra (edición limitada) (La catedral del mar 3) (Campaña | Ahora por menos) comparte autor, Ildefonso Falcones, con El pintor de almas (edición limitada · Black Friday) (Campaña | Black Friday). Ambos se relacionan con la narrativa histórica, pero el título del primero lo identifica como el n.º 3 de La catedral del mar, mientras que el segundo se presenta sin esa identificación de saga.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466394222"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8b6bc69df16166f",
+  "origen": "chatgpt-web"
+}

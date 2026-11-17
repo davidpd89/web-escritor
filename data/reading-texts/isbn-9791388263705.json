@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388263705",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El efecto de la bruma: 236 (Narrativa), de Rosa Chover, se dirige a lectores de narrativa juvenil y contemporánea. Sus 394 páginas encajan con quienes buscan una novela de cierta extensión, pero no con quienes prefieren lecturas breves o ensayos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El efecto de la bruma: 236 (Narrativa) está disponible en tapa blanda, con 394 páginas en castellano. Esta edición de Loto Azul permite tener el texto completo en papel y consultar o retomar pasajes sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El efecto de la bruma: 236 (Narrativa) comparte su orientación juvenil con Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday), de John Green. La diferencia comprobable está en la autoría: Rosa Chover firma el primero y John Green el segundo. También puede compararse con Bajo la estela de un legado, de Carmen Galvañ Bernabé, como otra propuesta narrativa de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399178555",
+        "isbn-9788466395816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d2c8ced6b161c4cb",
+  "origen": "chatgpt-web"
+}

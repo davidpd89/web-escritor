@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399317527",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lily. Colorea el viaje inesperado se dirige a quienes buscan una actividad de colorear vinculada a los viajes. Sus 96 páginas lo sitúan entre los libros de extensión contenida; por su planteamiento, encaja menos con quien prefiere una guía de destinos o un relato de viajes convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Lily. Colorea el viaje inesperado es en tapa dura, con 96 páginas en castellano. La encuadernación rígida ofrece una cubierta resistente para un libro que se puede consultar y utilizar en distintas sesiones de coloreado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lily. Colorea el viaje inesperado comparte el interés por los viajes con 33 islas: Un periplo mediterráneo. De Marettimo a Venecia., de Lucio Bellomo, aunque plantea una actividad de colorear en lugar de un recorrido geográfico. También se distingue de Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, cuyo título apunta a experiencias de una ruta concreta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6e147bc0e6e32e07",
+  "origen": "chatgpt-web"
+}

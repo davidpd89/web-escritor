@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388019821",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La tormenta que viene: Poder, conflicto y advertencias de la historia se orienta a lectores interesados en las relaciones entre historia, poder político y conflicto. Su enfoque temático corresponde a la no ficción histórica y política, por lo que se aparta de las novelas de ficción y de las lecturas centradas exclusivamente en experiencias personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tormenta que viene: Poder, conflicto y advertencias de la historia se publica en tapa blanda, con 208 páginas y edición de Galaxia Gutenberg. Esta presentación en papel permite consultar y releer los apartados dedicados a cuestiones históricas y políticas, además de incorporarla a una biblioteca de ensayo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte con La tormenta que viene: Poder, conflicto y advertencias de la historia el interés por el poder y los procesos históricos. El libro de Odd Arne Westad plantea en su título una reflexión sobre conflictos y advertencias de la historia, mientras que el de Timothy W. Ryback delimita su asunto al derrumbe de una democracia bajo Hitler.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a0488f1161f4e221",
+  "origen": "chatgpt-web"
+}

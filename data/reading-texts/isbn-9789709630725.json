@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9789709630725",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Buscando lo Invisible se dirige a lectores de narrativa juvenil en castellano. Por su clasificación y sus 164 páginas, responde a la búsqueda de una novela juvenil de extensión contenida, no a la de un ensayo ni a la de una guía práctica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Buscando lo Invisible se presenta en tapa blanda, con una extensión de 164 páginas. Esta edición física de Minuka Librostudio permite leer la novela en papel y conservarla en una biblioteca de narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Buscando lo Invisible puede compararse con Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación por su relación con el público juvenil y la adolescencia. La obra de Alondra Chavarría está clasificada como narrativa juvenil, mientras que el título de Ma. Teresa Araceli Esquivel Reyna plantea desde su propio nombre un espacio asociado a la experiencia adolescente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781637659380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "79cd42f75fad069a",
+  "origen": "chatgpt-web"
+}

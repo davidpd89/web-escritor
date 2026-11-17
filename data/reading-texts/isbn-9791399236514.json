@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399236514",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juramento de fuego y ceniza se dirige a lectores de fantasía y aventuras, con interés también por los relatos. Sus 430 páginas suponen una lectura de cierta extensión; queda fuera de las preferencias de quien busca exclusivamente narrativa realista o un texto breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Juramento de fuego y ceniza cuenta con una edición en tapa blanda de 430 páginas, publicada por Arkania Ediciones. La cubierta flexible permite abrir y manejar el volumen sin una encuadernación rígida; por su extensión, resulta más apropiado reservarle espacio en la mochila que tratarlo como un libro de bolsillo pequeño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Juramento de fuego y ceniza puede compararse con Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean), de Rebecca Yarros, como otra referencia de ficción fantástica. La diferencia editorial visible está en el formato: Juramento de fuego y ceniza figura en tapa blanda, mientras que el título de Rebecca Yarros identifica una edición especial con cantos decorados.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073950664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c5405bfc0468284",
+  "origen": "chatgpt-web"
+}

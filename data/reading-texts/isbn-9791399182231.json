@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la historia del cine, sus directores y las transformaciones cinematográficas de los ochenta. Su planteamiento ensayístico y panorámico encaja menos con quien busca una biografía centrada en una única figura o una narración de ficción.",
+      "texto": "Dirigido a lectores interesados en la historia del cine de los ochenta, sus directores y la evolución de los géneros cinematográficos. Es un ensayo de 332 páginas centrado en una década concreta, por lo que no responde a la búsqueda de una novela ni de una historia general del cine.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Estudia el cine de los ochenta mediante sus directores, las generaciones de cineastas, los géneros y las distintas geografías cinematográficas. Fernando Gil Delgado Manrique de Lara plantea una aproximación histórica y ensayística que relaciona las trayectorias de los realizadores con el contexto de aquella década.",
+      "texto": "Examina el cine de los ochenta a través de sus directores, generaciones, géneros y procedencias geográficas. Fernando Gil Delgado Manrique de Lara organiza el asunto alrededor de una década específica, con un enfoque de ensayo vinculado al estudio del arte y la creación cinematográfica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,30 +22,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda presenta 332 páginas de ensayo sobre el cine de los ochenta y sus directores. El volumen físico permite avanzar por los distintos apartados y volver a consultar las cuestiones relacionadas con generaciones, géneros y geografías.",
+      "texto": "La edición disponible es en tapa blanda, publicada por Nipho Publicaciones & Comunicación S.l. Sus 332 páginas en castellano permiten consultar el contenido en papel, volver a apartados concretos y conservar el volumen como referencia sobre cine.",
       "evidencias": [
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "titulo",
-        "categorias"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Desde que era un crío, de Locus, comparte con la obra de Fernando Gil Delgado Manrique de Lara el interés por las trayectorias personales y el ámbito biográfico. El cine de los ochenta y 80 directores: Generaciones, géneros y geografías de una década decisiva: 14 (FilaSiete) se diferencia por estudiar una década cinematográfica desde sus directores, géneros y contextos geográficos, en lugar de centrarse en una trayectoria individual.",
+      "texto": "Bella ciao: Historia de un himno popular: 32 (Tascabili), de Marcello Flores, comparte el interés por estudiar una expresión cultural, aunque se centra en un himno y no en el cine. Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII, de RBA Coleccionables España, aborda otro ámbito creativo: la moda, frente al recorrido cinematográfico por directores, géneros y geografías.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399084894"
+        "isbn-9791370079321",
+        "isbn-9788410435292"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "76cd82b53c925dc1",
+  "fuente_hash": "a5bc5d5224bf8f62",
   "origen": "chatgpt-web"
 }

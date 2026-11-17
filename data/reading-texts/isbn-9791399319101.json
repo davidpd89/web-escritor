@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399319101",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Carretera y memoria se orienta a lectores interesados en publicaciones vinculadas al arte y el diseño. Sus 180 páginas permiten abordar una obra de extensión intermedia, aunque su clasificación temática la aleja de quienes buscan específicamente manuales técnicos de otras disciplinas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Carretera y memoria se publica en tapa blanda, con 180 páginas en castellano. Esta presentación permite llevar el ejemplar en una bolsa y conservarlo en una estantería sin el volumen añadido de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Carretera y memoria puede ponerse junto a 21 Westerns del siglo XXI (Sílex Cine/Claqueta) por su vinculación con el ámbito artístico. La obra de Miguel Conejero Lladró presenta un título relacionado con la carretera y la memoria, mientras que la de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga identifica expresamente el cine del oeste como asunto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ad63c1fa311d3862",
+  "origen": "chatgpt-web"
+}

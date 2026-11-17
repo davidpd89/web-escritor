@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399258639",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esperanza, de Txema Sanz, se dirige a lectores que buscan fantasía, aventuras y relatos en un mismo volumen. Con 190 páginas, se sitúa entre las lecturas de extensión moderada y resulta menos afín a quienes prefieren ensayos o narrativa contemporánea ajena a lo fantástico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esperanza se ofrece en tapa blanda, en una edición de Servicios de Escritura Jphc de 190 páginas. Su extensión facilita transportarlo y leerlo en papel durante desplazamientos, además de conservarlo como volumen físico una vez terminado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esperanza comparte el terreno de la fantasía con Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean), de Rebecca Yarros. Se distinguen por su presentación: Esperanza combina fantasía, aventuras y relatos, mientras el título de Rebecca Yarros identifica una edición especial limitada con cantos decorados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073950664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9ecb416030b19d28",
+  "origen": "chatgpt-web"
+}

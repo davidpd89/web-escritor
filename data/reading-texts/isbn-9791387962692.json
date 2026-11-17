@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "World Trigger 6 (Shônen), de Daisuke Ashihara, se dirige a lectores de manga interesados en la aventura, la fantasía y la ciencia ficción. Su clasificación como cómic y novela gráfica lo diferencia de las novelas convencionales en prosa; el título lo identifica como el n.º 6.",
+      "texto": "World Trigger 6 (Shônen), de Daisuke Ashihara, encaja con lectores interesados en aventuras y ciencia ficción en formato manga. Quien busque una historia romántica contemporánea o una novela convencional en prosa encontrará aquí otro género y otra forma de narración.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "World Trigger 6 (Shônen) se ofrece en tapa blanda, con 384 páginas en castellano. Esta edición física de Distrito Manga permite leer las secuencias gráficas en papel y conservar el volumen junto a otros títulos de la colección.",
+      "texto": "World Trigger 6 (Shônen) está editado en tapa blanda y reúne 384 páginas en castellano. La edición de Distrito Manga ofrece una lectura física de extensión considerable dentro del cómic y la novela gráfica.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -25,7 +25,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "World Trigger 5 (Shônen) comparte autor, Daisuke Ashihara, y pertenece a la misma serie identificada en los títulos; uno lleva el número 5 y el otro el 6. Tougen Anki: La leyenda de la sangre maldita 6 (Shônen): La leyenda de la sangre maldita coincide en la identificación shônen y en el número del título, pero es una obra de Yura Urushibara, no de Daisuke Ashihara.",
+      "texto": "World Trigger 5 (Shônen) comparte título de colección y autor, Daisuke Ashihara, con World Trigger 6 (Shônen); el título identifica cada entrega con un número diferente. Superdónuts 3 - El destino de los dónuts, de Neill Cameron, también plantea una situación relacionada con la ciencia ficción, pero introduce los viajes al futuro y una autoría distinta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +34,12 @@
       ],
       "enlaces": [
         "isbn-9791387962340",
-        "isbn-9791387962418"
+        "isbn-9788448873479"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "49aec2ba3be043de",
+  "fuente_hash": "86bb4a2696282428",
   "origen": "chatgpt-web"
 }

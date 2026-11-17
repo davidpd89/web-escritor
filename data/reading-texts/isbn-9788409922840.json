@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pensado para lectores interesados en los antecedentes tecnológicos de Internet, especialmente las Bulletin Board Systems y los módems. Su orientación histórica y divulgativa encaja menos con quien busca un manual práctico de programación o de configuración de redes actuales.",
+      "texto": "Está orientado a lectores interesados en la historia de Internet y en las tecnologías de comunicación anteriores a la Web. Su recorrido por las Bulletin Board Systems y los módems responde a una curiosidad histórica y tecnológica, no a la búsqueda de un manual para aprender a utilizar servicios digitales actuales.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Examina la etapa anterior a la expansión de la Web a través de las Bulletin Board Systems, los módems y los orígenes de Internet. Francisco Javier Paz Rodríguez aborda esa evolución desde una perspectiva histórica y de divulgación tecnológica, centrada en los sistemas que precedieron a la navegación web.",
+      "texto": "Francisco Javier Paz Rodríguez aborda los antecedentes de Internet a través de las Bulletin Board Systems y los módems. El enfoque es histórico y divulgativo: sitúa esas tecnologías en el proceso de aparición de la red, en lugar de centrarse en aplicaciones digitales contemporáneas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,21 +21,22 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 298 páginas dedicadas a la historia de las comunicaciones digitales anteriores a la Web. Su encuadernación flexible permite leerla y transportarla como un volumen de divulgación, además de consultar distintos pasajes durante la lectura.",
+      "texto": "La tapa blanda corresponde a la edición de Loveviu® Books de 298 páginas y permite consultar físicamente el recorrido histórico del libro. También existe una opción en tapa dura, apropiada para quien prefiera una encuadernación rígida y un ejemplar destinado a conservarse o regalarse.",
       "evidencias": [
-        "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "titulo",
-        "categorias"
+        "formatos_disponibles",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "50 cosas que hay que saber sobre IA también se ocupa de cuestiones tecnológicas desde la divulgación, pero su asunto es la inteligencia artificial, frente a la historia de Internet que trata BBS Before the Web: Antes de la Web. Historia de las Bulletin Board Systems, los módems y el nacimiento de Internet. El contraste está entre comprender una tecnología y reconstruir los antecedentes de otra.",
+      "texto": "50 cosas que hay que saber sobre IA comparte con BBS Before the Web: Antes de la Web. Historia de las Bulletin Board Systems, los módems y el nacimiento de Internet el interés por explicar cuestiones tecnológicas. El primero trata la inteligencia artificial, mientras que el libro de Francisco Javier Paz Rodríguez retrocede a las comunicaciones mediante módems y a los antecedentes de Internet.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "categorias"
+        "autores",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788434441309"
@@ -44,6 +45,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f371a62d9de97344",
+  "fuente_hash": "138e25d1fe21fa73",
   "origen": "chatgpt-web"
 }

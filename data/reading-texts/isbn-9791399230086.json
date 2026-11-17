@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una breve historia de Gaza (Ensayo) se dirige a lectores interesados en la historia de Gaza y en el análisis histórico mediante el ensayo. Sus 312 páginas corresponden a una obra de no ficción; encaja menos con quien busca una novela de entretenimiento o una narración fantástica.",
+      "texto": "Una breve historia de Gaza (Ensayo) se dirige a lectores interesados en la historia de Gaza y en los ensayos sobre cuestiones históricas. El libro de Ilan Pappé tiene 312 páginas y, por su materia, se diferencia de las obras centradas en experiencias personales, creación artística o ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Una breve historia de Gaza (Ensayo) está editado en tapa blanda y reúne 312 páginas en castellano. El formato físico permite consultar pasajes y volver a ellos directamente sobre el ejemplar; la cubierta flexible facilita transportarlo para leerlo o estudiarlo fuera de casa.",
+      "texto": "Una breve historia de Gaza (Ensayo) cuenta con una edición en tapa blanda de 312 páginas, publicada por Capitán Swing. Este formato permite leer el ensayo en papel, transportarlo y regresar a sus páginas para consultar cuestiones históricas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una breve historia de Gaza (Ensayo) puede compararse con Campo de concentración: 82 (Biblioteca del Exilio) por su relación con asuntos históricos. Ilan Pappé centra su obra en Gaza, mientras que el título de Eduardo de Ontañón remite a un campo de concentración y pertenece a Biblioteca del Exilio. Son aproximaciones a materias históricas distintas.",
+      "texto": "Una breve historia de Gaza (Ensayo) puede compararse con Judaísmo vs. sionismo: Por qué Israel no es un Estado judío: 137 (Pensamiento crítico), también de Ilan Pappé. Comparten autor y un interés por cuestiones históricas y políticas relacionadas con la región, pero el primero aborda la historia de Gaza y el segundo plantea una distinción entre judaísmo, sionismo y Estado judío.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,7 +33,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410148659"
+        "isbn-9788446059394"
       ]
     }
   ],

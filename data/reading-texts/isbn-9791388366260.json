@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388366260",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Memento Procedimiento Laboral 2027-2028 está dirigido a lectores que necesitan estudiar o consultar cuestiones de procedimiento laboral dentro del ámbito jurídico. Sus 2022 páginas y su orientación especializada lo distancian de quienes buscan una introducción breve al derecho o una lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Memento Procedimiento Laboral 2027-2028 se ofrece en tapa blanda y alcanza las 2022 páginas. Por su extensión, resulta más manejable como volumen de consulta sobre una mesa de trabajo que como lectura para transportar a diario; la cubierta flexible no elimina el peso asociado a una obra de este tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memento Procedimiento Laboral 2027-2028 y Memento Inspección de Hacienda 2027-2028 comparten autoría, Lefebvre-El Derecho, y una presentación vinculada a materias jurídicas. El primero se centra en el procedimiento laboral y el segundo identifica la inspección de Hacienda como asunto principal. Memento Penal 2027, también de Lefebvre-El Derecho, constituye otra referencia de la misma línea editorial, pero dedicada al ámbito penal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388366239",
+        "isbn-9791388366062"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fff502d6eb5764eb",
+  "origen": "chatgpt-web"
+}

@@ -4,32 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores interesados en la historia del antiguo Egipto, la arqueología y las excavaciones desarrolladas en Luxor. Su enfoque histórico y divulgativo encaja menos con quienes buscan una novela de ficción o una historia centrada en personajes inventados.",
+      "texto": "Una ventana abierta al antiguo Egipto: Proyecto Djehuty: 25 años excavando en Luxor (DIVULGACION), de José Manuel Galán, se orienta a lectores interesados en historia, arqueología y divulgación científica. Sus 384 páginas responden a una búsqueda de lectura histórica extensa, no a quien prefiera una novela de aventuras ambientada en el pasado.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Una ventana abierta al antiguo Egipto: Proyecto Djehuty: 25 años excavando en Luxor (DIVULGACION) se publica en tapa blanda y reúne 384 páginas. Este formato permite consultar el contenido histórico en papel y volver a los apartados de interés durante la lectura.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "autores",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "El infinito en un junco (edición limitada · cantos tintados): La invención de los libros en el mundo antiguo (Campaña | Edición con cantos tintados) comparte el interés por el pasado y su estudio. Irene Vallejo aborda la historia de los libros, mientras José Manuel Galán se centra en el antiguo Egipto y las excavaciones del Proyecto Djehuty en Luxor.",
+      "modulo": "que_formato_elegir",
+      "texto": "Una ventana abierta al antiguo Egipto: Proyecto Djehuty: 25 años excavando en Luxor (DIVULGACION) se presenta en tapa blanda, con 384 páginas en castellano. Es una edición física de Los Libros de la Catarata que permite consultar y recuperar pasajes durante la lectura, además de conservar el volumen en una biblioteca personal.",
       "evidencias": [
-        "afines_catalogo",
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una ventana abierta al antiguo Egipto: Proyecto Djehuty: 25 años excavando en Luxor (DIVULGACION) comparte el interés por el pasado con Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION). El libro de José Manuel Galán se centra en el antiguo Egipto y las excavaciones en Luxor, mientras que el de Maria Stavrinaki aborda la prehistoria desde su relación con el arte y los tiempos modernos. Ambos permiten explorar enfoques históricos distintos.",
+      "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466393041"
+        "isbn-9791399236422"
       ]
     }
   ],

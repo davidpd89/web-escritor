@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388130397",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de elegir: Relatos sobre decisiones, pérdidas y nuevos comienzos (Acción Empresarial), de Antonio Bonet, se dirige a lectores interesados en decisiones personales y cambios vitales tratados mediante relatos. Sus 186 páginas relacionan el desarrollo personal con cuestiones de bienestar y empresa; no es una guía centrada en procedimientos jurídicos o cálculos financieros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El arte de elegir: Relatos sobre decisiones, pérdidas y nuevos comienzos (Acción Empresarial) está disponible en tapa blanda, con 186 páginas en castellano. La edición de LID Editorial ofrece una lectura física de extensión moderada, con encuadernación flexible para llevarla y recuperar sus relatos cuando se quiera.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de elegir: Relatos sobre decisiones, pérdidas y nuevos comienzos (Acción Empresarial) coincide con Burnout en el trabajo: Guía práctica para trabajadores, mandos y empresas: prevenirlo, detectarlo y actuar. Con casos, 170 test y modelos para fotocopiar en su interés por cuestiones personales relacionadas con el ámbito profesional. Antonio Bonet utiliza relatos sobre decisiones y pérdidas, mientras que José Luis Efraín Zeballos plantea una guía sobre el desgaste laboral con casos, pruebas y modelos de trabajo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399320725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cec4899591b98605",
+  "origen": "chatgpt-web"
+}

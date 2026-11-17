@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798237839739",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encuentro en el umbral del tiempo se dirige a lectores que buscan obras de terror en castellano. Por su clasificación temática, no encaja con quienes prefieren lecturas alejadas de ese género; sus 294 páginas permiten valorar también la extensión antes de elegirlo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Encuentro en el umbral del tiempo está disponible en tapa blanda, con 294 páginas en su edición de Raul Carlos Miguel Brest. Es una opción física para leer y conservar en papel, con una encuadernación flexible frente a la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Encuentro en el umbral del tiempo puede compararse con Anatomía del miedo, de Rubin Editorial, por su relación con el terror y el miedo. La diferencia comprobable está en la autoría: Raúl Carlos Miguel Brest firma el primero, mientras que el segundo figura a nombre de Rubin Editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786316730589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "15c6af67b2807f73",
+  "origen": "chatgpt-web"
+}

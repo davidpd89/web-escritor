@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399276770",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuentos y crónicas inconexas, de Vladimir Merino Barrera, se sitúa en la narrativa contemporánea y presenta desde su título una combinación de cuentos y crónicas. Su planteamiento se diferencia del de una novela anunciada como relato único y continuado; la edición tiene 174 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuentos y crónicas inconexas se presenta en tapa blanda, con 174 páginas en castellano. La edición de Alhulia S.l Artes Graficas ofrece un ejemplar físico que puede guardarse en una biblioteca personal, prestarse o regalarse.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e72f304cc036778f",
+  "origen": "chatgpt-web"
+}

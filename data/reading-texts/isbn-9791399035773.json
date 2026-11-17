@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399035773",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Púgil en reposo, de Tom Jones, pertenece a la narrativa contemporánea y se dirige a lectores interesados en obras de ficción literaria. Tiene 264 páginas en castellano, una extensión intermedia; no responde a quien busca un ensayo informativo o una guía de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Púgil en reposo cuenta con una edición en tapa blanda de 264 páginas, publicada por Malas Tierras Editorial. Este formato permite llevar la obra en una mochila o leerla en papel sin utilizar una pantalla. Su extensión también permite repartir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d5b3706b3ac911cd",
+  "origen": "chatgpt-web"
+}

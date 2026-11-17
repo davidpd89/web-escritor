@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro de los motes (Espasa Actualidad) se orienta a quienes leen ensayo político y buscan un enfoque relacionado con el humor. Federico Jiménez Losantos firma este volumen de 240 páginas, menos afín a lectores interesados en ficción de aventuras o en un estudio exclusivamente académico.",
+      "texto": "El libro de los motes (Espasa Actualidad), de Federico Jiménez Losantos, se dirige a lectores interesados en el ensayo sobre política y poder. Sus 240 páginas sitúan la obra en una extensión intermedia; no responde a quien busque una narración de aventuras o una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,17 +14,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Puede leerse en tapa dura o en Kindle, según se prefiera un volumen físico o una lectura digital. La edición impresa de El libro de los motes (Espasa Actualidad) tiene 240 páginas y permite conservarlo o regalarlo; Kindle facilita llevar el texto en un dispositivo compatible sin transportar el libro.",
+      "texto": "El libro de los motes (Espasa Actualidad) puede leerse en tapa dura o en Kindle. La tapa dura reúne sus 240 páginas en un volumen físico adecuado para conservar o regalar, mientras que Kindle permite llevar el texto en un dispositivo compatible sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "formato_edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas), de Steven Lukes, también relaciona ideas y humor, aunque se presenta como comedia filosófica. El libro de los motes (Espasa Actualidad), de Federico Jiménez Losantos, se sitúa en el ensayo político, con los motes como eje anunciado desde el título.",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte con El libro de los motes (Espasa Actualidad) el interés por cuestiones políticas. El primero se centra, según su título, en las bases del pensamiento anarcocapitalista; el segundo se presenta como una obra de Federico Jiménez Losantos sobre motes, dentro del ensayo político. Son aproximaciones de autores distintos a ese ámbito.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411078696"
+        "isbn-9791388182457"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "20e5cee3696f29af",
+  "fuente_hash": "ce3236669b9b2c3a",
   "origen": "chatgpt-web"
 }

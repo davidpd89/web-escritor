@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410481503",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cita en Bath: Historias de Somerset 4 (Clean Romance) encaja con lectores interesados en el romance y la novela histórica. Su orientación romántica la distancia de quienes buscan una obra centrada exclusivamente en acontecimientos históricos o un ensayo de historia.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cita en Bath: Historias de Somerset 4 (Clean Romance) se presenta en tapa blanda, con 320 páginas en castellano. El volumen permite seguir la lectura en papel, marcar el punto donde se deja y conservarlo junto a otros títulos de Mimi Matthews.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La carta perdida (Clean Romance) y Cita en Bath: Historias de Somerset 4 (Clean Romance) comparten autora, Mimi Matthews, y la identificación Clean Romance. En cambio, Cita en Bath lleva Historias de Somerset 4 en el título, mientras que La carta perdida aparece con un título independiente de esa denominación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410481442"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5a51b9a3893cda64",
+  "origen": "chatgpt-web"
+}

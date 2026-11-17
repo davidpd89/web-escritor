@@ -4,9 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un amor de diciembre está dirigido a lectores a partir de 16 años interesados en romances juveniles con conflictos familiares y sentimentales. Su planteamiento de novela de adviento propone avanzar un capítulo diario durante diciembre. Encaja menos con quien busca una historia ajena a las relaciones de pareja o al entorno de una boda.",
+      "texto": "Un amor de diciembre se dirige a lectores desde los 16 años que buscan una historia romántica juvenil con conflictos familiares. Lauren Asher plantea una situación en la que una boda obliga a convivir con vínculos sentimentales del pasado. Su propuesta encaja menos con quienes prefieren novelas sin relaciones amorosas como eje del conflicto.",
       "evidencias": [
         "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,7 +15,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada para Un amor de diciembre es a partir de 16 años. Su conflicto parte de una situación sentimental incómoda: una mujer participa como dama de honor en la boda de su hermana con su expareja. El tema central documentado es el romance juvenil atravesado por vínculos familiares y relaciones anteriores.",
+      "texto": "La edad recomendada para Un amor de diciembre es a partir de 16 años. El conflicto presentado incluye una ruptura anterior, una boda familiar y la incomodidad de participar en la celebración de una hermana que se casa con una expareja. Son situaciones de tensión sentimental y familiar que definen el punto de partida de esta novela juvenil.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -24,28 +25,29 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Un amor de diciembre es una novela romántica juvenil estructurada como lectura de adviento, con un capítulo previsto para cada día hasta el desenlace. La situación inicial reúne a una dama de honor, su hermana y una expareja que va a casarse. El interés narrativo surge de esa convivencia entre obligaciones familiares y pasado sentimental.",
+      "texto": "Un amor de diciembre es una novela romántica juvenil organizada como lectura de adviento, con un capítulo diario hasta su desenlace. Lauren Asher sitúa el conflicto alrededor de una boda y de una relación sentimental anterior que complica la participación de la protagonista. La estructura vincula el avance de la lectura con los días de diciembre.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Un amor de diciembre contiene 384 páginas en una edición rústica con solapas de Ediciones Martínez Roca. Es la opción física para seguir el capítulo diario de su estructura de adviento. Kindle permite mantener esa misma pauta de lectura desde un dispositivo digital sin llevar el volumen en papel.",
+      "texto": "Un amor de diciembre se ofrece en tapa blanda y Kindle. La edición física de Ediciones Martínez Roca tiene 384 páginas, encuadernación rústica y solapas, mientras que Kindle permite seguir su lectura por capítulos desde el móvil o un lector electrónico. Su estructura de adviento facilita distribuir la lectura durante diciembre en cualquiera de los dos formatos.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "edicion",
         "editorial",
+        "edicion",
+        "numero_paginas",
         "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un amor de diciembre y Amor en pole position (Dirty Air 3) comparten la autoría de Lauren Asher y el protagonismo de las relaciones amorosas. La primera sitúa el conflicto alrededor de una boda familiar y propone una lectura de adviento; la segunda traslada su historia romántica al entorno de la Fórmula 1.",
+      "texto": "Un amor de diciembre comparte autora y temática romántica con Amor en pole position (Dirty Air 3) y Amor sin frenos (Dirty Air 4), de Lauren Asher. La diferencia principal es el escenario: las dos obras de Dirty Air sitúan sus relaciones en el mundo de la Fórmula 1, mientras que Un amor de diciembre parte de una boda familiar. Además, esta última utiliza una estructura de lectura de adviento.",
       "evidencias": [
         "titulo",
         "autores",
@@ -54,12 +56,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055674"
+        "isbn-9788427055674",
+        "isbn-9788427055803"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d4220a419552dc97",
+  "fuente_hash": "aabecedb7ae59887",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Doble juego encaja con lectores de novela romántica interesados en las segundas oportunidades, las heridas del pasado y los conflictos entre afecto y venganza. Su planteamiento concede importancia a las decisiones emocionales de los protagonistas, por lo que se distancia de las historias centradas principalmente en la aventura o la investigación.",
+      "texto": "Doble juego encaja con lectores de novela romántica interesados en segundas oportunidades, heridas del pasado y conflictos entre sentimientos y venganza. Su planteamiento se aleja de las historias centradas exclusivamente en relaciones sin tensiones personales ni cuentas pendientes.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,15 +13,17 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela desarrolla un romance condicionado por experiencias anteriores y deseos de empezar de nuevo. Tristan Clayton y Chiara Monroe afrontan conflictos personales que afectan a sus expectativas y a la posibilidad de establecer una relación. La venganza introduce una tensión adicional entre los sentimientos y los objetivos de los personajes.",
+      "texto": "Doble juego es una novela romántica de Lina Galán que enfrenta el deseo de empezar de nuevo con las consecuencias de decisiones anteriores. Tristan Clayton y Chiara Monroe arrastran conflictos personales, mientras la venganza introduce una tensión que complica el desarrollo sentimental.",
       "evidencias": [
+        "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Doble juego presenta sus 432 páginas en rústica sin solapas, una encuadernación flexible para leer y transportar. Kindle permite continuar la lectura en el móvil o en un lector electrónico sin cargar con el volumen. El audiolibro ofrece una alternativa para seguir la historia mediante escucha.",
+      "texto": "Doble juego está disponible en tapa blanda, Kindle y audiolibro. La edición física reúne 432 páginas en rústica sin solapas; Kindle facilita la lectura en el móvil o lector electrónico, mientras que el audiolibro permite seguir la historia mediante escucha.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -31,7 +33,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Doble juego y A mil por hora comparten su pertenencia a la novela romántica, aunque plantean conflictos distintos. Lina Galán sitúa el peso de su historia en el pasado de los protagonistas y la venganza; Hannah Grace presenta una relación entre un piloto de F1 y una mujer que tiene dificultades para dejar atrás una etapa anterior.",
+      "texto": "Doble juego y A cinco segundos de ti comparten su vinculación con la narrativa romántica y están escritos por Lina Galán y Sandra Miró, respectivamente. Doble juego aborda el conflicto entre venganza y amor mediante personajes marcados por su pasado, mientras que A cinco segundos de ti introduce la exigencia de perfección personal como rasgo de su planteamiento.",
       "evidencias": [
         "titulo",
         "autores",
@@ -40,7 +42,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466683449"
+        "isbn-9788427055735"
       ]
     }
   ],

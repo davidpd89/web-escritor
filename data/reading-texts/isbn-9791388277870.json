@@ -4,40 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "MÁGICAS 4 - El hechizo dorado de las hadas: (Libros para niñas de 7, 8 y 9 años) (Jóvenes lectores) está dirigido a niñas de 7, 8 y 9 años interesadas en las hadas, la fantasía y la amistad. Sus 128 páginas lo sitúan en una extensión infantil; por edad y temática, se aparta de la narrativa adulta realista.",
+      "texto": "MÁGICAS 4 - El hechizo dorado de las hadas: (Libros para niñas de 7, 8 y 9 años) (Jóvenes lectores) se dirige a quienes buscan fantasía infantil con hadas y hechizos. El título señala expresamente a lectoras de 7, 8 y 9 años; por su orientación infantil, queda fuera de una búsqueda de fantasía adulta.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Este título de María Lozano Cano se presenta en tapa blanda, con 128 páginas en castellano. La cubierta flexible facilita llevarlo en una mochila y manejarlo durante la lectura infantil; su extensión permite organizar la lectura en varias sesiones sin recurrir a un volumen especialmente largo.",
-      "evidencias": [
-        "autores",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "titulo"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El jardín mágico de las Pequeflores - Susto en la nieve (Primeras lecturas), de Begoña Oro, comparte con MÁGICAS 4 - El hechizo dorado de las hadas: (Libros para niñas de 7, 8 y 9 años) (Jóvenes lectores) el interés por la magia en lecturas infantiles. El libro de María Lozano Cano se identifica con hadas y amistad, mientras que el de Begoña Oro sitúa en su título un susto en la nieve. También cambia la autoría.",
+      "texto": "La edición de MÁGICAS 4 - El hechizo dorado de las hadas: (Libros para niñas de 7, 8 y 9 años) (Jóvenes lectores) está disponible en tapa blanda. Sus 128 páginas permiten manejar un volumen relativamente ligero, tanto para leer en casa como para llevar en la mochila. Alfaguara publica esta edición en castellano.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788448873851"
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "66cee1da66787912",
+  "fuente_hash": "7f7692a06fea9ad5",
   "origen": "chatgpt-web"
 }

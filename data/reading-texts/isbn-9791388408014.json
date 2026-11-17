@@ -4,41 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigida a quienes buscan una comedia romántica con humor, ¿De verdad vas a salir con él?: Una comedia romántica, divertida y entrañable de la autora superventas del New York Times (Chic Editorial) pertenece a la narrativa romántica de Sophie Cousens. Su enfoque se aleja de las lecturas centradas en el terror o la aventura fantástica.",
+      "texto": "Encaja con lectores de comedia romántica que buscan relaciones sentimentales tratadas con humor. ¿De verdad vas a salir con él?: Una comedia romántica, divertida y entrañable de la autora superventas del New York Times (Chic Editorial) se orienta menos a quienes prefieren historias sin componente amoroso o de tono exclusivamente dramático.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Chic se presenta en tapa blanda y reúne 384 páginas en castellano. Es una opción física para leer por capítulos, llevar en el bolso o conservar en la estantería, con una extensión que permite repartir la lectura entre varias sesiones.",
+      "texto": "La tapa blanda permite leer las 384 páginas en papel y conservar el volumen en una estantería. La edición Kindle ofrece una alternativa digital para llevar la comedia romántica de Sophie Cousens en un lector electrónico o dispositivo compatible, sin transportar el ejemplar físico.",
       "evidencias": [
-        "editorial",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "En mi Era Pistacho: Juliette's version, de Emily Collins, y 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, son dos alternativas para explorar junto a la comedia romántica de Sophie Cousens. La obra de Patricia Bonet reúne relatos de temática amorosa vinculados a la Navidad, mientras que el libro de Sophie Cousens combina romance y humor en una edición de 384 páginas.",
+      "texto": "Los finales perfectos no existen también aborda las convenciones de la comedia romántica, aunque su planteamiento parte de un personaje que desconfía de esos desenlaces. Navidades (in)voluntarias: Una comedia romántica navideña feel-good de grumpy x sunshine y magia inesperada comparte el romance y el humor, pero incorpora una ambientación navideña y elementos mágicos que no forman parte del planteamiento declarado del libro de Sophie Cousens.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409929177",
-        "isbn-9788410648777"
+        "isbn-9788425371745",
+        "isbn-9788409921010"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4daac703fb669948",
+  "fuente_hash": "ea9ea6d88b4c9513",
   "origen": "chatgpt-web"
 }

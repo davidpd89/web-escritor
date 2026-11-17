@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Enigmas. Detectives a domilicio 10.: DISPARATES Y DRAGONES se dirige al público infantil y juvenil que disfruta de los enigmas, las aventuras y los elementos fantásticos. Sus 64 páginas ofrecen una extensión contenida frente a novelas juveniles largas; por su planteamiento, queda lejos de las lecturas realistas para adultos.",
+      "texto": "Enigmas. Detectives a domilicio 10.: DISPARATES Y DRAGONES se orienta al público infantil y juvenil interesado en enigmas y aventuras. Sus 64 páginas ofrecen una extensión corta, distinta de las novelas largas para lectores que buscan tramas de mayor recorrido.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,17 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Enigmas. Detectives a domilicio 10.: DISPARATES Y DRAGONES tiene 64 páginas y se publica en tapa dura. Su extensión permite organizar la lectura en sesiones breves, mientras que la cubierta rígida aporta resistencia para el uso frecuente y facilita conservar el ejemplar en una colección infantil.",
+      "texto": "La tapa dura es el formato disponible para esta entrega de 64 páginas, publicada por Bayard Kids. Su encuadernación rígida resulta práctica para conservar el libro y utilizarlo en lecturas repetidas, mientras que la extensión permite organizar sesiones breves.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Enigmas de Paul Martin y Baptiste Massa comparte la fantasía y las aventuras infantiles con Campamento Mestizo 1 - La zona rebelde, de Rick Riordan y Annabelle Oh. La diferencia está en el enfoque detectivesco del primero frente a la vida en un campamento del segundo. También se aproxima a la obra de Isabel Álvarez titulada Clara Nox 4, aunque esta plantea una batalla decisiva entre dos mundos en lugar de enigmas.",
+      "texto": "Enigmas. Detectives a domilicio 10.: DISPARATES Y DRAGONES comparte el interés por resolver misterios con Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui. El segundo parte de la desaparición de unas croquetas, mientras que el título de Paul Martin y Baptiste Massa introduce dragones y disparates en su propuesta de enigmas infantiles.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419868466"
+        "isbn-9788427256644"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e612c69bd1e72611",
+  "fuente_hash": "cdc41b464baab0c2",
   "origen": "chatgpt-web"
 }

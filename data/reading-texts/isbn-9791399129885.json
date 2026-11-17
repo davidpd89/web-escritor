@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399129885",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Libro de entrada de los señores abades y canónigos del sacro-monte desde la Fundación de la abadía se dirige a lectores interesados en la historia de las instituciones religiosas. Por su temática histórica y sus 407 páginas, se aleja de las lecturas de ficción y de los textos breves de divulgación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Libro de entrada de los señores abades y canónigos del sacro-monte desde la Fundación de la abadía es en tapa dura. Sus 407 páginas permiten consultar el volumen por partes, mientras que la encuadernación rígida resulta práctica para conservarlo en una biblioteca de historia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Libro de entrada de los señores abades y canónigos del sacro-monte desde la Fundación de la abadía y Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días) comparten el interés por el pasado. El primero se centra en una institución religiosa, mientras que el segundo aborda una región europea dividida.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "35c75f5769322a2e",
+  "origen": "chatgpt-web"
+}

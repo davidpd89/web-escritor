@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409924141",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Arbi, ¿qué pitas? Temporada 2026-2027 se dirige a lectores interesados en publicaciones vinculadas al ocio y a una temporada concreta. Su referencia temporal y sus 235 páginas lo diferencian de una obra de ficción general o de un libro de actividades sin relación con una temporada determinada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Arbi, ¿qué pitas? Temporada 2026-2027 se publica en tapa blanda y reúne 235 páginas en castellano. El ejemplar físico permite conservar una edición identificada con una temporada concreta y consultarla posteriormente sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "99 Sudoku (LIBROS SINGULARES) y Arbi, ¿qué pitas? Temporada 2026-2027 coinciden en su vinculación con el ocio y el tiempo libre. El libro de Anónimo se identifica por sus pasatiempos numéricos, mientras que el de Xabier Rodríguez Campos se distingue por su referencia a una temporada específica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7ccf1fc94eceaa35",
+  "origen": "chatgpt-web"
+}

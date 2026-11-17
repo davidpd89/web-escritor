@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388251115",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en la historia de Afganistán y en obras de divulgación sobre países concretos. Sus 198 páginas y su planteamiento de inmersión rápida encajan con una aproximación delimitada al tema, no con quien busque una novela de ficción o una narración de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Afganistán: Una Inmersión Rápida: 48 está disponible en tapa blanda, con 198 páginas en castellano. Este formato permite consultar el contenido en papel, volver a pasajes concretos y conservar anotaciones durante una lectura dedicada a la historia del país.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Afganistán: Una Inmersión Rápida: 48 comparte el enfoque histórico con Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días). La diferencia principal está en el territorio tratado: el primero se centra en Afganistán y el segundo en Europa del Este, con una perspectiva íntima anunciada desde su título. Ambos se apartan de la ficción narrativa para abordar realidades históricas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "96dbe846e2034641",
+  "origen": "chatgpt-web"
+}

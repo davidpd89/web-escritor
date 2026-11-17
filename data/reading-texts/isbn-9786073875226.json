@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La captura del Che y Fidel / The Capture of Che and Fidel se orienta a lectores interesados en la historia y en las figuras que aparecen en su título. Su clasificación histórica lo diferencia de las novelas de ficción y de los libros centrados en consejos prácticos.",
+      "texto": "La captura del Che y Fidel / The Capture of Che and Fidel, de José Reveles, se dirige a lectores interesados en la historia. Por su clasificación histórica, encaja menos con quienes buscan una novela de ficción o una guía práctica.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La captura del Che y Fidel / The Capture of Che and Fidel está disponible en tapa blanda, con 168 páginas en castellano. Es una edición física de extensión relativamente breve, que puede transportarse para leer fuera de casa y conservarse en una biblioteca personal.",
+      "texto": "La captura del Che y Fidel / The Capture of Che and Fidel se presenta en tapa blanda, con 168 páginas. Esta edición en castellano permite consultar el volumen en papel y transportarlo sin el peso habitual de una encuadernación rígida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -22,7 +23,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA, de Juan Carlos García de Polavieja, aborda una investigación sobre la vida y la muerte de Federico García Lorca. La captura del Che y Fidel / The Capture of Che and Fidel, de José Reveles, comparte el ámbito histórico, pero dirige la atención hacia las figuras identificadas en su propio título.",
+      "texto": "La captura del Che y Fidel / The Capture of Che and Fidel puede compararse con 76, de Felipe Pigna, por su clasificación dentro de la historia. Frente a 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, el libro de José Reveles identifica otros protagonistas en su título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,7 +31,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788418567933"
+        "isbn-9788411005517",
+        "isbn-9788408329695"
       ]
     }
   ],

@@ -4,34 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi diario de lecturas: Un rincón para rememorar tus historias favoritas (Bruguera Tendencias) se orienta a quienes quieren dedicar un espacio a recordar sus libros y relacionar la lectura con intereses creativos. Por su planteamiento de diario, no responde a quien busca una novela con una trama que seguir de principio a fin.",
+      "texto": "Pensado para lectores que desean conservar un registro personal de sus libros y recordar las historias que han leído. Su función de diario de lecturas lo diferencia de una novela juvenil destinada a seguir una trama de ficción.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mi diario de lecturas: Un rincón para rememorar tus historias favoritas (Bruguera Tendencias) se presenta en tapa dura, con 152 páginas en castellano. Su encuadernación rígida resulta práctica para conservarlo como registro personal de lecturas o entregarlo como regalo físico.",
+      "texto": "La edición en tapa dura tiene 152 páginas y está concebida como un diario para rememorar lecturas. La encuadernación rígida resulta adecuada para mantener un registro que se consulta y se amplía con el tiempo, además de servir como regalo relacionado con los hábitos lectores.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mi diario de lecturas: Un rincón para rememorar tus historias favoritas (Bruguera Tendencias) puede compararse con All Black Cuaderno (LIBRETAS ARTÖSTICAS) por su relación con los cuadernos y el diseño. Ambos figuran bajo la autoría de Varios autores, pero el primero identifica expresamente su finalidad: recordar las lecturas realizadas.",
+      "texto": "Planeta Manga nº 07: 7 (Universo Planeta Manga) comparte con este diario la autoría colectiva de Varios autores, pero pertenece a una propuesta de lectura de manga. Mi diario de lecturas se orienta a registrar y recordar historias, mientras que el otro título ofrece contenido narrativo para leer.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9789879871119"
+        "isbn-9791388102295"
       ]
     }
   ],

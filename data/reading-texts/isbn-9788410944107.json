@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a quienes buscan una lectura sobre historia y arte desde una perspectiva divulgativa. Su enfoque en estas materias lo aleja de las novelas de ficción y de los manuales centrados exclusivamente en técnicas artísticas.",
+      "texto": "¡Vaya cuadro de historia!: El arte tiene algo que contar, de Mr. Gonar, está dirigido a lectores interesados en historia y arte. No responde a la búsqueda de una novela de ficción ni a la de un libro centrado exclusivamente en otros ámbitos del conocimiento.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de ¡Vaya cuadro de historia!: El arte tiene algo que contar está disponible en tapa blanda y reúne 160 páginas. Es un volumen físico de extensión contenida que permite consultar distintos pasajes y llevarlo en una mochila sin el peso habitual de obras de arte más extensas.",
+      "texto": "La tapa blanda reúne las 160 páginas de ¡Vaya cuadro de historia!: El arte tiene algo que contar en una edición física. Es el formato disponible en el catálogo, adecuado para quien prefiere conservar el libro en papel y consultarlo sin recurrir a dispositivos electrónicos.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "formatos_disponibles",
-        "numero_paginas"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte con Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia) el interés por relacionar arte e historia. Mientras el libro de Kenneth Clark plantea una perspectiva sobre la cultura que configuró la civilización moderna, el de Mr. Gonar presenta el arte como punto de partida para contar historia.",
+      "texto": "¡Vaya cuadro de historia!: El arte tiene algo que contar, de Mr. Gonar, comparte con Arte Matrio: por qué la historia del arte español (también) te representa (Contextos), de Sara Rubayo, el interés por relacionar arte e historia. El libro de Sara Rubayo se centra expresamente en el arte español, mientras que el de Mr. Gonar aborda la relación entre las obras artísticas y la historia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,7 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387592493"
+        "isbn-9788449346095"
       ]
     }
   ],

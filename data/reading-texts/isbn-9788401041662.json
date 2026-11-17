@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788401041662",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Espíritu salvaje: La llamada de África a una veterinaria (Obras diversas) se dirige a quienes buscan lecturas biográficas relacionadas con la veterinaria y África. Por su orientación hacia las memorias y el tiempo libre, encaja menos con quien prefiere ficción o manuales científicos especializados.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Espíritu salvaje: La llamada de África a una veterinaria (Obras diversas) se presenta en tapa blanda, con 352 páginas en castellano. Es una opción física para leer por sesiones, transportar o regalar, con la encuadernación flexible propia de este formato.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alpinismo de secano: La esencia de la escalada natural (Literatura no ficción Desnivel) comparte con Espíritu salvaje: La llamada de África a una veterinaria (Obras diversas) el interés por experiencias vinculadas a entornos naturales. El primero se centra en la escalada, mientras que el segundo aborda África desde la perspectiva de una veterinaria y se sitúa en el terreno biográfico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498297461"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c01435f4ff58920c",
+  "origen": "chatgpt-web"
+}

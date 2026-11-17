@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399111620",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en aventuras relacionadas con Camerún y guinea ecuatorial, los territorios mencionados en el título. Su planteamiento geográfico y aventurero lo diferencia de las lecturas centradas en mundos fantásticos o en actividades de entretenimiento sin componente narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura presenta 225 páginas en castellano y ofrece una encuadernación rígida para conservar el ejemplar. Su extensión permite una lectura en varias sesiones sin alcanzar el volumen de una obra especialmente larga.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi diario de viajes, de Paige Towler, y Aventura africana. Félix barrado. Camerún y guinea ecuatorial, de Vicente Amat Lanzarote, comparten su relación con los viajes y la exploración. El primero propone sugerencias, actividades y datos curiosos para viajeros, mientras que el segundo sitúa su temática de aventuras en Camerún y guinea ecuatorial.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788408319337"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8759e1ee067cee22",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9781971710600",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en los derechos humanos, la justicia social y el derecho constitucional en México. Su enfoque político y jurídico se aleja de la narrativa de ficción y de las lecturas centradas en conflictos personales sin dimensión institucional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene 524 páginas en castellano y permite consultar físicamente una obra extensa sobre cuestiones jurídicas y políticas. Por su volumen, resulta más apropiada para leer sobre una mesa o mantener como ejemplar de consulta que para llevar en un bolsillo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Capitalismo del contrato social, de José Antonio Torrealday Llona, comparte el interés por las relaciones entre sociedad y organización política. Justicia y Dignidad. Un análisis multidimensional de los derechos humanos en México: Justicia social, derecho constitucional y desafíos contemporáneos, de Silvia María Morales Gómez y Mateo Ovando Arias, concentra su enfoque en los derechos humanos y el marco constitucional mexicano.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788413739397"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e07d5d13b63bf47d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9791388147234",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando caiga la nieve (edición limitada · Black Friday) (Campaña | Black Friday) está orientado a quienes leen novelas románticas de Hannah Grace. Su clasificación como romance lo aleja de las preferencias de lectores que buscan principalmente misterio, terror o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La edición de Cuando caiga la nieve (edición limitada · Black Friday) (Campaña | Black Friday) se identifica como una tirada limitada de Black Friday publicada por Penguin Bolsillo. Salió el 2026-10-01, contiene 432 páginas en castellano y utiliza el formato de libro de bolsillo con tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible para Cuando caiga la nieve (edición limitada · Black Friday) (Campaña | Black Friday) es la tapa blanda de bolsillo. Las 432 páginas forman un volumen físico que puede llevarse en el bolso o la mochila, pensado para quienes prefieren pasar páginas en papel en lugar de leer en una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuando caiga la nieve tiene otra presentación en el catálogo de Hannah Grace, mientras que esta versión se distingue por su edición limitada de Black Friday y su formato de bolsillo. A mil por hora, también de Hannah Grace, desarrolla un romance relacionado con un piloto de F1; ambas obras comparten autora y género, pero se presentan con planteamientos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449",
+        "isbn-9791387871970"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5b54860b69ca278",
+  "origen": "chatgpt-web"
+}

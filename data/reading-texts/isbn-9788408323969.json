@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) está orientado al público infantil y juvenil que busca fantasía, criaturas imaginarias y secretos. El libro de Tea Stilton se distancia de las historias realistas y puede encajar menos con lectores que prefieren relatos sin elementos fantásticos.",
+      "texto": "El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) se orienta al público infantil y juvenil que busca fantasía protagonizada temáticamente por unicornios. Sus 288 páginas permiten plantear una lectura de cierta extensión, mientras que quien prefiera historias realistas encontrará aquí una propuesta alejada de ese interés.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) se publica en tapa dura y tiene 288 páginas. La encuadernación rígida facilita conservarlo después de la lectura y regalarlo como libro físico, mientras que su extensión permite repartir la historia en varias sesiones.",
+      "texto": "La edición en tapa dura de El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) contiene 288 páginas y permite conservar el libro en una colección física. Kindle ofrece una alternativa digital para leerlo en el móvil o en un lector electrónico, sin necesidad de llevar el volumen de Destino Infantil & Juvenil.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "formatos_disponibles",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El lago de los monstruos (INFANTIL) comparte con El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) el interés por criaturas alejadas de lo cotidiano. Leo Timmers sitúa a los monstruos en el título de su obra, mientras que Tea Stilton recurre a los unicornios y a un secreto dentro de una propuesta de fantasía infantil.",
+      "texto": "El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) y Brujas y dragones 2: La bruja mala del oeste comparten elementos de fantasía, aunque Tea Stilton sitúa los unicornios en el centro del título y Ledicia Costas y Luis Miguel Pérez destacan la figura de una bruja. Frente a AVATAR. La leyenda de Aang 5 - Norte y sur, la diferencia está en el universo fantástico: unicornios en un caso y las Tribus Agua en el otro.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387884260"
+        "isbn-9788448874803",
+        "isbn-9791387501877"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "963020655809c5ca",
+  "fuente_hash": "a9a5104e990ade67",
   "origen": "chatgpt-web"
 }

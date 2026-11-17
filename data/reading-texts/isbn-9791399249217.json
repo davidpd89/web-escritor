@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "República, Guerra Civil y posguerra en Aranjuez: 1 se dirige a lectores de historia interesados en el siglo XX y en el estudio de estos periodos desde una localidad concreta. Sus 884 páginas plantean una lectura extensa, alejada de quien busca una introducción breve o una novela histórica de ficción.",
+      "texto": "República, Guerra Civil y posguerra en Aranjuez: 1 se dirige a lectores interesados en la historia española del siglo XX, especialmente en su dimensión local. Sus 884 páginas requieren una lectura extensa y centrada en acontecimientos históricos, alejada de la narrativa de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,24 +13,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "República, Guerra Civil y posguerra en Aranjuez: 1 está editado en tapa blanda y tiene 884 páginas. Por su extensión, resulta más cómodo consultarlo sobre una mesa o leerlo en sesiones prolongadas que transportarlo habitualmente; el papel permite volver a los distintos periodos tratados.",
+      "texto": "República, Guerra Civil y posguerra en Aranjuez: 1 se publica en tapa blanda y cuenta con 884 páginas. Por su extensión, resulta un volumen considerable para transportar, mientras que la edición impresa permite consultar directamente sus contenidos históricos y volver a distintos pasajes.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "República, Guerra Civil y posguerra en Aranjuez: 1 puede compararse con Agustín penón y Federico García Lorca por su relación con la investigación histórica y la Guerra Civil. José Flores García de la Navarra delimita su obra a Aranjuez y varios periodos políticos, mientras que el libro de Juan Carlos García de Polavieja se centra en Agustín Penón y su investigación sobre Federico García Lorca.",
+      "texto": "República, Guerra Civil y posguerra en Aranjuez: 1 puede compararse con A sangre y fuego (Clásicos ilustrados) por su relación con la Guerra Civil española, aunque el primero delimita su estudio a Aranjuez y abarca también la República y la posguerra. Frente a 53 días: Cómo Hitler derribó una democracia (HISTORIA), cambia el foco de la crisis democrática alemana a la historia local española.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788418567933"
+        "isbn-9788411005517",
+        "isbn-9791387752590"
       ]
     }
   ],

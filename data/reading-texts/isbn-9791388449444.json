@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388449444",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El abismo del placer, de Jonathan Turrientes Roldán, se dirige a lectores de romance que buscan una novela de extensión media. Sus 368 páginas la sitúan entre las lecturas que requieren varias sesiones; por su género, encaja menos con quienes prefieren ensayos o libros prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El abismo del placer está disponible en tapa blanda, con 368 páginas en castellano. Esta edición de Avant Editorial permite leerlo en papel y conservarlo en una estantería; su encuadernación flexible facilita transportarlo frente a un volumen de tapa rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El abismo del placer, de Jonathan Turrientes Roldán, comparte el ámbito romántico con A cinco segundos de ti, de Sandra Miró, y A medio salto (Romántica), de Valera Gomalva. A cinco segundos de ti introduce la exigencia de ser perfecta, mientras que El abismo del placer se identifica por su pertenencia al romance. Las tres obras tienen autores diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055735",
+        "isbn-9791388365089"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c96e37bdde98b9a",
+  "origen": "chatgpt-web"
+}

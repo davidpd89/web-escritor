@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788432251535",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La realidad supera la ficción: Las vidas de la novela del siglo XX (Los Tres Mundos) está orientado a lectores interesados en el ensayo y en la historia de la novela del siglo XX. Edwin Frank aborda un ámbito literario concreto en una obra de 576 páginas, por lo que encaja menos con quien busca leer una novela de ficción en lugar de estudiar el género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La realidad supera la ficción: Las vidas de la novela del siglo XX (Los Tres Mundos) tiene una edición en tapa blanda de 576 páginas. El volumen de Seix Barral está publicado en castellano y permite consultar el ensayo en papel, con espacio para marcar páginas y volver a determinados pasajes durante su lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6da2effd56b94f9d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788410339040",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la espiritualidad y, concretamente, en el discernimiento de los espíritus. Por su temática religiosa y su carácter de adaptación de una traducción histórica, se aleja de quienes buscan narrativa de ficción o una lectura ajena a cuestiones espirituales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición presenta una adaptación y actualización de la traducción de Pedro Bonet (1790) de la obra de Juan Bautista Scaramelli. Nazaret Ediciones la publicó el 2026-10-18 en castellano, con 268 páginas y encuadernación en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y consultar las 268 páginas de esta adaptación de la traducción histórica en un volumen físico. Su extensión facilita organizar la lectura por sesiones y volver a los pasajes relacionados con el discernimiento espiritual.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AKITA: Las lágrimas y el mensaje de María comparte el ámbito religioso, aunque su título se centra en María y su mensaje. Discernimiento de los espíritus: Adaptación y actualización de la traducción de Pedro Bonet (1790) aborda otra cuestión espiritual y se distingue por recuperar una traducción histórica mediante su adaptación y actualización.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e47a19bcd410b135",
+  "origen": "chatgpt-web"
+}

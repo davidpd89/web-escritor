@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409939701",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de la vida: 101 relatos cortos con moraleja se dirige a lectores interesados en relatos breves con una dimensión reflexiva. Sus 214 páginas reúnen una propuesta vinculada al ensayo y la espiritualidad, distinta de una novela con una trama continua.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El arte de la vida: 101 relatos cortos con moraleja está disponible en tapa blanda, con 214 páginas en castellano. Esta edición física permite consultar los relatos por separado, volver a sus moralejas y llevar el volumen sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de la vida: 101 relatos cortos con moraleja puede compararse con Breves fragmentos de eternidad (Textos y Pretextos) por su planteamiento de textos breves. También comparte con El árbol de la buena muerte y otros cuentos (Minotauro Esenciales) la presencia de relatos, aunque el libro de Bruno Brisa destaca explícitamente la moraleja y su vinculación con la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388054440",
+        "isbn-9788445023259"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ec0fbe45a800e801",
+  "origen": "chatgpt-web"
+}

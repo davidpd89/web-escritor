@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388102639",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Planeta Manga: Awaken: 1 (Universo Planeta Manga) se dirige a lectores de fantasía juvenil que prefieren las historias contadas mediante cómic. Por su clasificación como narrativa juvenil y novela gráfica, encaja menos con quienes buscan una novela de fantasía escrita exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Planeta Manga: Awaken: 1 (Universo Planeta Manga) se presenta en tapa blanda y reúne 224 páginas en castellano. Es una opción física para leer y conservar el cómic, con una encuadernación flexible que facilita transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Planeta Manga: Awaken: 1 (Universo Planeta Manga) comparte el terreno de la fantasía con Brujas de Aerthea: El secreto de Violet y El caballero de la capa negra. La diferencia comprobable está en el formato: la obra de Andrea Dalia pertenece al cómic y la novela gráfica, además de dirigirse al público juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409934164",
+        "isbn-9791399254419"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e507f8c8704f73d9",
+  "origen": "chatgpt-web"
+}

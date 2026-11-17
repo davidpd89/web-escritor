@@ -4,42 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Feminismo gótico: La creación cultural de la monstrua se dirige a lectores interesados en el feminismo y en las representaciones culturales de las mujeres. Núria Gómez Gabriel e Ingrid Guardiola firman un ensayo de 186 páginas cuyo planteamiento se aleja de la narrativa de ficción y de las guías prácticas de desarrollo personal.",
+      "texto": "Feminismo gótico: La creación cultural de la monstrua se dirige a lectores interesados en el ensayo y en la relación entre feminismo, cultura y representaciones de lo monstruoso que plantea su título. Por su orientación ensayística, encaja menos con quienes buscan una novela de terror gótico o una narración de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Feminismo gótico: La creación cultural de la monstrua se publica en tapa blanda, con 186 páginas en castellano. Esta edición de H&o Editorial permite consultar y releer el ensayo en papel, además de transportar el volumen sin la rigidez de una encuadernación de tapa dura.",
+      "texto": "Feminismo gótico: La creación cultural de la monstrua se publica en tapa blanda, con 186 páginas en castellano. La edición de H&o Editorial reúne el ensayo de Núria Gómez Gabriel e Ingrid Guardiola en un volumen físico que permite subrayar, anotar y consultar pasajes durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Feminismo gótico: La creación cultural de la monstrua y El síndrome de la impostora (edición especial): ¿Por qué las mujeres siguen sin creer en ellas mismas? comparten el interés por las cuestiones feministas, aunque el primero aborda la construcción cultural de la figura monstruosa y el segundo plantea la autopercepción de las mujeres. Frente a Los hombres que amaban a las mujeres: catálogo de la exposicion: 24 (Biblioteca Añil Feminista), de Oliva Blanco Corujo, el libro de Núria Gómez Gabriel e Ingrid Guardiola se presenta como ensayo y no como catálogo de exposición.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788411005616",
-        "isbn-9791399172089"
+        "editorial",
+        "autores"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "43b1283a4ede5bab",
+  "fuente_hash": "28d43b258427de54",
   "origen": "chatgpt-web"
 }

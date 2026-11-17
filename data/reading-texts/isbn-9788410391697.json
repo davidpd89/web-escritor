@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410391697",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La otra Miss Bridgerton (Titania época), de Julia Quinn, encaja con lectores de romance ambientado en un contexto histórico. Su combinación de novela histórica y romance la distancia de quienes buscan principalmente intriga policial, fantasía o narrativa contemporánea sin componente romántico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La otra Miss Bridgerton (Titania época) está disponible en tapa dura, con 352 páginas en castellano. La encuadernación rígida resulta adecuada para conservar el ejemplar en una colección física o entregarlo como regalo, especialmente junto a otros títulos de Julia Quinn.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La otra Miss Bridgerton (Titania época) comparte autora y orientación romántica con Primero llegó el escándalo (Titania época), de Julia Quinn. También puede compararse con Corazón de una bridgerton (Titania época), de la misma escritora. Son títulos distintos dentro de una misma línea de romance histórico, por lo que la coincidencia de autoría no implica que narren el mismo conflicto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410391710",
+        "isbn-9788410391772",
+        "isbn-9788410391758"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea69611438cb60e3",
+  "origen": "chatgpt-web"
+}

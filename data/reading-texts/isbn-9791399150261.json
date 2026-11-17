@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791399150261",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Es un libro infantil dirigido a quienes empiezan a explorar libros sobre mascotas y sus sonidos. Con 8 páginas de cartón, plantea una experiencia breve vinculada a los animales domésticos, distinta de la lectura de relatos infantiles largos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La propuesta gira alrededor de escuchar a las mascotas, tal como indica el título ¡GUAU! ¡GUAUUU! Escucha a las mascotas (Imagina). Sus 8 páginas de cartón permiten recorrer el libro en sesiones breves, relacionando la temática animal con la exploración de sus páginas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición física es un libro de cartón de 8 páginas, incluido entre los formatos de tapa dura. Su extensión permite manejarlo durante actividades breves de lectura infantil y conservarlo como objeto físico para volver a explorar sus páginas.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de ImageBooks sobre mascotas comparte autoría y colección con ¡ROARRR! ROARR! Escucha a los animales salvajes! (Imagina), también de ImageBooks; la diferencia está en los animales protagonistas, ya que una se centra en mascotas y la otra en animales salvajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399150285"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "486886defee44ffb",
+  "origen": "chatgpt-web"
+}

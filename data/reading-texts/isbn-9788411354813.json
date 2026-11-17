@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788411354813",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Instalación y mantenimiento de redes 5G-ELES03 se dirige a lectores interesados en los aspectos técnicos de las redes y su mantenimiento. Por su temática específica, queda fuera de las búsquedas de divulgación científica general que no pretendan abordar instalaciones de telecomunicaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Instalación y mantenimiento de redes 5G-ELES03 se presenta en tapa blanda, con 272 páginas en castellano. El soporte físico permite consultar el volumen mientras se estudian cuestiones de instalación y mantenimiento, sin depender de una pantalla para acceder al texto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Instalación y mantenimiento de redes 5G-ELES03 guarda relación con Iniciación en mantenimiento eléctrico industrial-ELEE0012 por su orientación hacia el mantenimiento técnico. Ambas obras son de Beatriz Coronado García, pero una se centra en redes 5G y la otra en el ámbito eléctrico industrial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411354783"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6086967c1942f339",
+  "origen": "chatgpt-web"
+}

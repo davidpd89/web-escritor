@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9791399250954",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Busca y encuentra Santos: 1 (Busca i troba) está orientado al público infantil y a quienes disfrutan de actividades de búsqueda visual. Sus 16 páginas y el planteamiento anunciado en el título lo diferencian de los relatos infantiles extensos y de los libros destinados principalmente a la lectura continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La actividad que propone Busca y encuentra Santos: 1 (Busca i troba) consiste en buscar y localizar elementos relacionados con los santos. El libro puede recorrerse página a página, dedicando tiempo a observar y encontrar los elementos buscados. El título lo identifica como el n.º 1 de Busca i troba.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Busca y encuentra Santos: 1 (Busca i troba) se presenta en tapa blanda, con 16 páginas en castellano. El soporte impreso permite observar las páginas directamente y señalar con el dedo los elementos encontrados durante la actividad de búsqueda.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8effd1879d8b6793",
+  "origen": "chatgpt-web"
+}

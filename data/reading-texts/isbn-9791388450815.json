@@ -4,40 +4,44 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dungeon elf 03 se dirige a quienes buscan una lectura vinculada al humor y al ámbito del arte y el diseño. Sus 200 páginas ofrecen una extensión acotada, aunque el título lo identifica como el n.º 03 y puede no ajustarse a quien busca empezar por una entrega inicial.",
+      "texto": "Dungeon elf 03, de River Slan, se presenta en una edición bunko de 200 páginas y figura dentro de Arte y diseño. Su ficha encaja con quien busca este título concreto de River Slan, pero la clasificación editorial no permite situarlo entre lecturas infantiles, románticas o de otros géneros narrativos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Dungeon elf 03 está disponible en tapa blanda, en una edición bunko de Ivrea con 200 páginas. Es una opción física para llevar en el bolso o consultar sobre papel, sin depender de una pantalla durante la lectura.",
+      "texto": "La tapa blanda en formato bunko contiene 200 páginas y constituye la edición física disponible de Dungeon elf 03. Es la opción para quien quiere conservar el volumen impreso y leerlo fuera de una pantalla.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "edicion",
+        "formato_edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El diario de una princesa desastrosa (Diarios), de Maidy, comparte con Dungeon elf 03 su presencia entre las lecturas relacionadas con el humor. La diferencia identificable está en su presentación: Dungeon elf 03 lleva una numeración de entrega y tiene 200 páginas en formato bunko, mientras que el título de Maidy se presenta como un diario.",
+      "texto": "All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, se diferencia de Dungeon elf 03, de River Slan, por su formato de libreta artística frente a una edición bunko de tapa blanda. 720 retrats, de Xavier Mollà i Revert, ofrece otra referencia dentro de los títulos afines, con un título centrado en los retratos frente a la identificación de una entrega numerada en Dungeon elf 03.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
+        "autores",
         "edicion",
-        "categorias",
+        "formato_edicion",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408331148"
+        "isbn-9788412678802",
+        "isbn-9789879871119"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "38e2e4d7f81d6fc5",
+  "fuente_hash": "5653f611dd56e63e",
   "origen": "chatgpt-web"
 }

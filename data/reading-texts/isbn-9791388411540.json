@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388411540",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El sabor de la soledad, de Soledad Jiménez, encaja con lectores interesados en biografías, memorias y relatos vinculados a la experiencia personal. Su clasificación lo distancia de quienes buscan una novela fantástica o un manual práctico con instrucciones para resolver problemas cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El sabor de la soledad puede leerse en tapa blanda o en Kindle. La edición impresa reúne 218 páginas y permite conservar el volumen en papel; Kindle ofrece una alternativa digital para llevar la lectura en un dispositivo compatible sin transportar el libro físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El sabor de la soledad y Al andar: Vivencias del Camino de Santiago se relacionan por su orientación hacia las experiencias personales. Soledad Jiménez presenta una obra vinculada a las memorias, mientras que Carlos Díaz Ballesta delimita su relato mediante las vivencias de un recorrido concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1461e993e7f3bb39",
+  "origen": "chatgpt-web"
+}

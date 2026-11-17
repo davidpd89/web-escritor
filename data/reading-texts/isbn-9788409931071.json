@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409931071",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todo tiene un precio, de Marta Cruz Rodríguez, encaja con lectores interesados en narrativa juvenil, desarrollo personal y bienestar. Su clasificación reúne ficción juvenil y materias prácticas relacionadas con la salud, por lo que no responde a una búsqueda centrada exclusivamente en fantasía o ficción histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todo tiene un precio se presenta en tapa blanda y tiene 200 páginas. La edición física de Libros de Marta Cruz permite leerlo sin dispositivo electrónico y conservarlo en papel, con una extensión delimitada para organizar la lectura por sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todo tiene un precio puede compararse con Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción), de Carmen López Suárez, por su relación con cuestiones juveniles y personales. El segundo título plantea expresamente la prevención del acoso y el abuso, mientras que Todo tiene un precio combina narrativa juvenil, desarrollo personal y bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410274600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7651d247c900cb77",
+  "origen": "chatgpt-web"
+}

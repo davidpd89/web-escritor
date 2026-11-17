@@ -1,33 +1,33 @@
 {
   "id": "isbn-9780241837627",
-  "familia": "practico",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Humanos. La evolución de nuestra especie (Enciclopedia visual) se dirige a lectores interesados en la evolución humana y la divulgación científica mediante una enciclopedia visual. Su enfoque enciclopédico encaja menos con quienes buscan una novela o una obra centrada exclusivamente en consejos prácticos de bienestar.",
+      "texto": "Está dirigido a quienes buscan divulgación científica sobre la evolución de nuestra especie y sus conexiones con la psicología. Humanos. La evolución de nuestra especie (Enciclopedia visual), de Alice Roberts, se aleja de la ficción y de los manuales centrados exclusivamente en hábitos personales.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "edicion"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Humanos. La evolución de nuestra especie (Enciclopedia visual) ofrece tapa dura y Kindle. La edición impresa reúne 320 páginas y permite consultar físicamente una enciclopedia visual; Kindle facilita llevar el libro en un dispositivo compatible y acceder a él sin transportar el volumen.",
+      "texto": "La tapa dura permite consultar y conservar las 320 páginas de Humanos. La evolución de nuestra especie (Enciclopedia visual) en un volumen físico. La edición Kindle facilita llevar el contenido en un dispositivo y consultar sus apartados sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Humanos. La evolución de nuestra especie (Enciclopedia visual) y Cerebro y estilo de vida: 1107 (Mayor), de José Luis Trejo, se relacionan con el estudio del ser humano desde perspectivas distintas. Alice Roberts aborda la evolución de nuestra especie mediante una enciclopedia visual, mientras que el título de José Luis Trejo sitúa el foco en el cerebro y el estilo de vida.",
+      "texto": "Cerebro y estilo de vida: 1107 (Mayor), de José Luis Trejo, comparte con Humanos. La evolución de nuestra especie (Enciclopedia visual) el interés científico por el ser humano. El libro de Alice Roberts aborda la evolución de nuestra especie mediante una enciclopedia visual de 320 páginas, mientras que el de José Luis Trejo se centra, según su título, en el cerebro y su relación con el estilo de vida.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -37,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "289bdff01fed566b",
+  "fuente_hash": "da406b6b4a294f32",
   "origen": "chatgpt-web"
 }

@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los Gatos Guerreros: Comienzan las profecías (una novela gráfica) (COMIC) se dirige a lectores de fantasía y aventuras que prefieren seguir una historia mediante viñetas. Su formato de novela gráfica lo diferencia de las narraciones presentadas exclusivamente en prosa y de los libros de contenido práctico.",
+      "texto": "Está dirigido a quienes buscan aventuras de fantasía contadas mediante viñetas y protagonizadas por gatos. Sus 272 páginas combinan el género fantástico con la narración gráfica, por lo que encaja menos con lectores que prefieren novelas escritas únicamente en prosa.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los Gatos Guerreros: Comienzan las profecías (una novela gráfica) (COMIC) está disponible en tapa blanda, con 272 páginas en castellano. La edición de Harperkids permite leer las viñetas directamente en papel y transportar el volumen con una cubierta flexible.",
+      "texto": "La tapa blanda reúne las 272 páginas de esta novela gráfica en una edición física de Harperkids, adecuada para conservarla o regalarla. Kindle permite leer la misma obra en formato digital y llevarla en un dispositivo sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial",
-        "categorias"
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los Gatos Guerreros: Comienzan las profecías (una novela gráfica) (COMIC) comparte autora y universo felino con Los Gatos Guerreros | El augurio de las estrellas 6 - La última esperanza. Ambos son títulos de Erin Hunter, pero el primero se presenta expresamente como novela gráfica, mientras que el segundo se identifica por su título como el n.º 6 de El augurio de las estrellas.",
+      "texto": "Indomables 1. El despertar de la magia comparte con esta novela gráfica la autoría de Erin Hunter y la presencia de gatos en una historia fantástica, aunque plantea un conflicto entre dos gatas y un mundo dividido. Los Gatos Guerreros | El augurio de las estrellas 6 - La última esperanza pertenece al mismo universo felino, pero su título y su presentación apuntan a otra entrega centrada en el desenlace de una amenaza.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791388042027",
         "isbn-9788419275424"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5c26908ca7e2ed3c",
+  "fuente_hash": "d30ac7021973cc9f",
   "origen": "chatgpt-web"
 }

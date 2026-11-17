@@ -4,40 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El buen dinero: Cómo dejar de sufrir por lo que se tiene, se gana o se debe (Autoayuda y superación) se dirige a lectores interesados en la relación psicológica con el dinero, las ganancias y las deudas. Su orientación hacia el desarrollo personal lo diferencia de los manuales dedicados exclusivamente a operaciones financieras o contabilidad.",
+      "texto": "El buen dinero: Cómo dejar de sufrir por lo que se tiene, se gana o se debe (Autoayuda y superación) aborda la relación personal con el dinero desde la autoayuda y la psicología. Se orienta a quien quiera reflexionar sobre las preocupaciones económicas, más que a quien busque ficción o un manual de contabilidad.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Zenith se presenta en tapa dura y reúne 120 páginas en castellano. Su extensión permite leer el volumen en varias sesiones breves, mientras que la encuadernación rígida facilita conservarlo para consultas posteriores sobre los asuntos que plantea.",
+      "texto": "La tapa dura de Zenith reúne las 120 páginas de El buen dinero: Cómo dejar de sufrir por lo que se tiene, se gana o se debe (Autoayuda y superación). Su extensión permite leerlo en sesiones breves y conservarlo como volumen físico para volver a sus planteamientos sobre el dinero.",
       "evidencias": [
+        "titulo",
         "editorial",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Detrás de una Estrella comparte autor con El buen dinero: Cómo dejar de sufrir por lo que se tiene, se gana o se debe (Autoayuda y superación), pero aborda la transformación de una empresa cervecera en lugar de la relación personal con el dinero. De la discusión a la conexión también trata dificultades cotidianas desde una perspectiva práctica, aunque se ocupa de los conflictos entre personas y del fortalecimiento de las relaciones.",
+      "texto": "La buena suerte (edición ilustrada): Claves de la prosperidad (Zenith Original) comparte con El buen dinero: Cómo dejar de sufrir por lo que se tiene, se gana o se debe (Autoayuda y superación) la participación de Fernando Trías de Bes y el interés por la prosperidad personal. El primero incorpora una propuesta ilustrada y varios autores, mientras que El buen dinero se centra en la relación emocional con lo que se posee, se gana o se debe.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423441075",
-        "isbn-9788408328773"
+        "isbn-9788408328810"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0bf0dbe567f9b254",
+  "fuente_hash": "93c38115cf1a2705",
   "origen": "chatgpt-web"
 }

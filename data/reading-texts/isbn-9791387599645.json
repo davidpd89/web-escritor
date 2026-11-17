@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia), de Julia Barella, corresponde a lectores que buscan poesía en castellano. Su edición de 192 páginas pertenece a una colección de versos, por lo que se diferencia de las lecturas centradas en una trama novelesca o en explicaciones técnicas sobre estrategia.",
+      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia), de Julia Barella, se dirige a lectores interesados en la poesía contemporánea en castellano. Sus 192 páginas corresponden a una obra poética, por lo que no responde a la búsqueda de una novela con una trama narrativa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,17 +15,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia) puede leerse en una edición física de cubierta flexible. El libro reúne 192 páginas de poesía y permite señalar poemas, consultar páginas anteriores y guardar el ejemplar en una biblioteca personal.",
+      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia) se presenta en tapa blanda, con 192 páginas. Esta edición física permite consultar los poemas, marcar pasajes y volver a ellos sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia) puede ponerse junto a Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, dentro de la lectura de poesía. La obra de Pedro Salinas identifica expresamente el amor como eje de su selección, mientras que el título de Julia Barella remite a los juegos de estrategia y pertenece a Los Versos de Cordelia.",
+      "texto": "Juegos de estrategia: 116 (Los Versos de Cordelia) comparte su pertenencia a la poesía con A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza. La diferencia identificable está en la autoría y en la identidad de cada obra: Julia Barella firma Juegos de estrategia: 116 (Los Versos de Cordelia), mientras que los otros títulos corresponden a autores distintos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,7 +33,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788410907539",
+        "isbn-9788410212749"
       ]
     }
   ],

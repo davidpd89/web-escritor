@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788432321795",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historias de amor: 1 (Biblioteca clásica siglo XXI), de Julia Kristeva, se dirige a lectores interesados en el ensayo y la psicología, especialmente en el amor como materia de reflexión. Sus 352 páginas plantean una lectura de no ficción con espacio para desarrollar el tema. No corresponde a quien busca una novela romántica o una historia de ficción centrada en una pareja.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para Historias de amor: 1 (Biblioteca clásica siglo XXI). El ejemplar reúne 352 páginas, una extensión que permite subrayar conceptos y consultar pasajes durante el estudio del ensayo psicológico de Julia Kristeva. Esta presentación física facilita conservar anotaciones y retomar apartados concretos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historias de amor: 1 (Biblioteca clásica siglo XXI), de Julia Kristeva, y ACE: Lo que la asexualidad desvela sobre el deseo, la sociedad y el significado del sexo (Tendencias), de Angela Chen, comparten el interés por cuestiones relacionadas con los vínculos y el deseo. El primero aborda el amor desde el ensayo y la psicología; el segundo identifica expresamente la asexualidad y su dimensión social. Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, desplaza la atención hacia las experiencias infantiles y su tratamiento personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410944206",
+        "isbn-9788492917525"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "92f28af3f766df4b",
+  "origen": "chatgpt-web"
+}

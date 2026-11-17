@@ -4,39 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Todo lo que somos: Lo que el mundo animal revela sobre nuestra propia naturaleza (No ficción) se orienta a lectores interesados en la naturaleza, el comportamiento animal y las preguntas sobre la condición humana. Su enfoque de ensayo y desarrollo personal lo diferencia de los relatos protagonizados por animales o de los manuales exclusivamente prácticos.",
+      "texto": "Todo lo que somos: Lo que el mundo animal revela sobre nuestra propia naturaleza (No ficción) se dirige a lectores interesados en relacionar el comportamiento animal con la naturaleza humana. Laura Camón aborda esta perspectiva desde el ensayo y el desarrollo personal, no desde la narrativa de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Todo lo que somos: Lo que el mundo animal revela sobre nuestra propia naturaleza (No ficción) está disponible en tapa blanda, con 288 páginas en castellano. El formato impreso permite detenerse en las reflexiones, volver a pasajes anteriores y conservar el libro como lectura de consulta.",
+      "texto": "La edición de Todo lo que somos: Lo que el mundo animal revela sobre nuestra propia naturaleza (No ficción) está disponible en tapa blanda. Sus 288 páginas se presentan en un volumen físico de Roca Editorial, adecuado para consultar pasajes y retomar la lectura en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La vida de los animales: 21 (esenciales) y ¿Por qué miramos a los animales? comparten con Todo lo que somos el interés por la relación entre los animales y la reflexión humana. La obra de Laura Camón plantea esa relación desde lo que el mundo animal revela sobre nuestra naturaleza; el ensayo de John Berger aborda el lugar que hemos concedido a los animales.",
+      "texto": "Todo lo que somos: Lo que el mundo animal revela sobre nuestra propia naturaleza (No ficción) comparte el interés por comprender la experiencia humana con ACE: Lo que la asexualidad desvela sobre el deseo, la sociedad y el significado del sexo (Tendencias). El libro de Laura Camón parte de la relación con el mundo animal, mientras que el de Angela Chen se centra en la asexualidad, el deseo y su dimensión social.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399281019",
-        "isbn-9788425236716"
+        "isbn-9788492917525"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cc97c33028cd34e8",
+  "fuente_hash": "7244a32d8816d2a1",
   "origen": "chatgpt-web"
 }

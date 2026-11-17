@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387554538",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de ensayo interesados en las relaciones entre educación, capitalismo y poder político. Por su planteamiento temático, encaja menos con quienes buscan ficción escolar o manuales de actividades educativas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 256 páginas en castellano, publicadas por Hoja de Lata. Es una opción en papel para leer el ensayo de forma continuada, subrayar sus páginas o recuperar pasajes durante una consulta posterior.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta. Ambos títulos relacionan capitalismo y pensamiento político, pero En la escuela del capitalismo: 18 (Mecanoclastis) sitúa la educación en el centro de su propuesta temática.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e80fe54ffee5ee81",
+  "origen": "chatgpt-web"
+}

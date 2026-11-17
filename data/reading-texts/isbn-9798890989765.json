@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Junie B. Jones Espía Un Poquitín (El Cómic) / Junie B. Jones and Some Sneaky Peeky Spying: The Graphic Novel encaja con lectores interesados en el humor narrado mediante viñetas. Su formato de cómic lo aleja de las novelas construidas exclusivamente con texto y de las lecturas de carácter documental.",
+      "texto": "Junie B. Jones Espía Un Poquitín (El Cómic) / Junie B. Jones and Some Sneaky Peeky Spying: The Graphic Novel, de Barbara Park, se dirige a quienes prefieren el humor contado mediante cómic. Su formato de novela gráfica lo aleja de las preferencias de lectores que buscan exclusivamente narrativa convencional en prosa.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 160 páginas de Junie B. Jones Espía Un Poquitín (El Cómic) / Junie B. Jones and Some Sneaky Peeky Spying: The Graphic Novel. Al tratarse de un cómic, el papel permite seguir la disposición de las viñetas y pasar de una página a otra sin depender de una pantalla.",
+      "texto": "Junie B. Jones Espía Un Poquitín (El Cómic) / Junie B. Jones and Some Sneaky Peeky Spying: The Graphic Novel está disponible en tapa blanda, con 160 páginas en castellano. Es una edición física flexible que permite recorrer las páginas del cómic y volver a sus escenas sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Junie B. Jones Espía Un Poquitín (El Cómic) / Junie B. Jones and Some Sneaky Peeky Spying: The Graphic Novel comparte el formato de cómic con After School Dice Club 9 (Shônen), de Hirô Nakamichi. La obra de Barbara Park combina humor y espionaje, mientras que el título de Hirô Nakamichi remite a un club de juegos y se identifica como una entrega numerada.",
+      "texto": "La obra de Barbara Park sobre el espionaje de Junie B. Jones comparte protagonista y formato de cómic con Mortadeluxe, de Francisco Ibáñez, en el terreno del humor gráfico. La diferencia está en sus personajes y situaciones: la primera gira en torno a Junie B. Jones, mientras que Mortadeluxe presenta a Mortadelo y Filemón en celebraciones navideñas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,7 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962401"
+        "isbn-9788402432063"
       ]
     }
   ],

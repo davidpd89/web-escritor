@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788410140677",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un amor inventado (NdeNovela), de Amy Jean, se dirige a lectores de romance que buscan una novela extensa en castellano. Sus 504 páginas la alejan de quienes prefieren relatos breves o lecturas centradas en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un amor inventado (NdeNovela) está disponible en tapa blanda, con 504 páginas en castellano. Es una edición física que permite conservar el libro en la estantería y leerlo sin dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un amor inventado (NdeNovela), de Amy Jean, y A cinco segundos de ti, de Sandra Miró, permiten comparar dos propuestas de ficción romántica. La primera es una novela de romance de 504 páginas; la segunda presenta la perfección como un rasgo central de su planteamiento, según indica su descripción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055735"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29e52fb4bdd9dc09",
+  "origen": "chatgpt-web"
+}

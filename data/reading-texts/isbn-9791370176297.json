@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370176297",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Normas rotas - Entre el odio y la pasión: 522 (Ómnibus Bianca) encaja con lectores interesados en el romance y en los conflictos sentimentales asociados al enfrentamiento y la pasión. Su extensión de 320 páginas y su orientación romántica lo alejan de quienes buscan una lectura breve de no ficción o un ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Normas rotas - Entre el odio y la pasión: 522 (Ómnibus Bianca) se presenta en tapa blanda, con 320 páginas en castellano. El formato permite leer en papel y conservar en un mismo volumen esta edición de Harlequin Ibérica, S.a., sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A medio salto (Romántica) y Normas rotas - Entre el odio y la pasión: 522 (Ómnibus Bianca) comparten su orientación hacia la narrativa romántica. La diferencia está en la autoría y el conflicto anunciado: el libro de Anne McAllister y Melanie Milburne plantea desde su título una oposición entre odio y pasión, mientras que A medio salto (Romántica), de Valera Gomalva, presenta otra propuesta dentro del mismo género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388365089"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "704d5a5a8c20cff5",
+  "origen": "chatgpt-web"
+}

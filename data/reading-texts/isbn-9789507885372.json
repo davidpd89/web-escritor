@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9789507885372",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Céntrate en lo que funciona: Un nuevo y poderoso método para mejorar tu salud mental (Crecimiento personal), de Paul Conti, se dirige a lectores interesados en el bienestar psicológico y el desarrollo personal. Su planteamiento de método para la salud mental lo separa de la ficción y de los libros centrados exclusivamente en alimentación o ejercicio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Céntrate en lo que funciona: Un nuevo y poderoso método para mejorar tu salud mental (Crecimiento personal) está disponible en tapa blanda y Kindle. Las 240 páginas de la edición impresa permiten consultar apartados y conservar el volumen como referencia; Kindle facilita acceder al contenido desde un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Céntrate en lo que funciona: Un nuevo y poderoso método para mejorar tu salud mental (Crecimiento personal) comparte el interés por el bienestar con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. Mientras Paul Conti centra su propuesta en la salud mental, Liz Moody anuncia un enfoque más amplio que incluye relaciones y éxito.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8824bee38827fb8b",
+  "origen": "chatgpt-web"
+}

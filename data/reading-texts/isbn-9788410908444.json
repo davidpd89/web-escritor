@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410908444",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "KOA CONOCE LOS DIFERENTES ROLES: Los viajes de Koa se dirige a quienes buscan lecturas sobre viajes en una extensión breve. Sus 48 páginas permiten distinguirlo de obras de recorrido más largo; no responde a quien busca una lectura extensa sobre destinos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 48 páginas de KOA CONOCE LOS DIFERENTES ROLES: Los viajes de Koa en un volumen físico que puede guardarse o prestarse. Kindle ofrece la misma obra como opción de lectura digital, sin necesidad de transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "KOA CONOCE LOS DIFERENTES ROLES: Los viajes de Koa comparte el ámbito de los viajes con 33 islas: Un periplo mediterráneo. De Marettimo a Venecia., de Lucio Bellomo. La diferencia está en el enfoque anunciado: el primero alude a distintos roles y el segundo identifica un recorrido mediterráneo entre islas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "05b513a06e0f337e",
+  "origen": "chatgpt-web"
+}

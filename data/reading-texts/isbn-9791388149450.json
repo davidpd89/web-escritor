@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388149450",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La sombra del Tigre 2025 encaja con lectores que buscan relatos reunidos en un volumen de autoría colectiva. No está planteado como una novela atribuida a un único escritor, ya que figura firmado por Varios autores.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La sombra del Tigre 2025 se ofrece en tapa blanda y reúne 84 páginas. Es un volumen físico de extensión reducida, adecuado para llevar en el bolso o consultar durante desplazamientos sin transportar una obra larga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La sombra del Tigre 2025 puede ponerse junto a Antología final: 282 (LITORAL), también atribuida a Varios autores, por su autoría colectiva. Frente a esa antología, La sombra del Tigre 2025 aparece clasificada específicamente como relatos; ambos títulos permiten elegir entre obras firmadas por varios participantes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412931075"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b516e0445177d738",
+  "origen": "chatgpt-web"
+}

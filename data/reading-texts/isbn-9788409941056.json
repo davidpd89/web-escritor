@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409941056",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Por si acaso: Libreta personal · España: Encuentra la información que necesitas en una emergencia. se dirige a quienes buscan organizar información personal relacionada con posibles emergencias. Su enfoque práctico y sus 72 páginas la distinguen de los libros de desarrollo personal centrados en explicar métodos o teorías.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite manejar las 72 páginas de esta libreta personal en formato físico. Es una edición en castellano de Libretas Por Si Acaso, publicada el 27 de octubre de 2026, que puede guardarse junto a otros documentos personales.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "fecha_publicacion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Por si acaso: Libreta de la casa · España: Encuentra la información que necesitas en una emergencia. comparte autoría y finalidad de consulta ante emergencias, pero se centra en la vivienda. Por si acaso: Libreta de las mascotas · España: Encuentra la información que necesitas en una emergencia. traslada ese mismo planteamiento a los animales de compañía, mientras que la libreta personal se ocupa del ámbito individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938124",
+        "isbn-9788409943579"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "74ecc21ebdd5f552",
+  "origen": "chatgpt-web"
+}

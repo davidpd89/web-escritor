@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388136450",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de las horas perdidas: Libro del año (Éxitos literarios) se dirige a lectores interesados en obras que combinan ciencia ficción y aventuras. Con 416 páginas y una clasificación que también incluye el ensayo, se distancia de las lecturas infantiles breves y de los libros centrados exclusivamente en historia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El libro de las horas perdidas: Libro del año (Éxitos literarios) está disponible en tapa dura, en una edición de 416 páginas publicada por Maeva Ediciones. Esta presentación reúne la obra de Hayley Gelfuso en un volumen físico que puede guardarse y releerse sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El libro de las horas perdidas: Libro del año (Éxitos literarios) puede compararse con El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) por su relación con la ciencia ficción. La obra de Hayley Gelfuso también se clasifica entre las aventuras y el ensayo, mientras que el título de Andy Weir identifica una edición limitada con cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "642b6787148ec330",
+  "origen": "chatgpt-web"
+}

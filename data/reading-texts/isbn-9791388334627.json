@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791388334627",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en evaluar costes y beneficios relacionados con la eficiencia energética. El enfoque económico y técnico de sus 308 páginas encaja con quienes buscan estudiar herramientas de análisis, pero no con quienes prefieren una introducción divulgativa sobre las distintas formas de producir energía.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina las herramientas de análisis coste/beneficio dentro del ámbito de la eficiencia energética. Su planteamiento relaciona la valoración económica de costes y beneficios con las decisiones sobre eficiencia, en lugar de tratar la energía únicamente desde sus características físicas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción en papel es una edición de tapa blanda de 308 páginas, publicada por Ra-ma S.a. Editorial y Publicaciones. La encuadernación flexible facilita su transporte y permite consultar las herramientas de análisis coste/beneficio durante el estudio de la eficiencia energética.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abonado y fertilización en agricultura ecológica-AGAU001PO, de Elsa Rubio Duce, también aborda una materia técnica relacionada con el uso de recursos, aunque desde la agricultura. Frente a ese ámbito, (ENAC0019) Herramientas de análisis coste/beneficio aplicadas a la eficiencia energética, de Nelson Pompeyo Martínez Rodríguez, centra su atención en la evaluación económica de la eficiencia energética.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "725cb1c954d330b8",
+  "origen": "chatgpt-web"
+}

@@ -4,38 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "José María Gil: 10 (Islas de Memoria), de Benito Cabrera Hernández, se dirige a lectores interesados en las biografías, la memoria y el arte. Su orientación documental y biográfica lo diferencia de la ficción narrativa y de los libros dedicados exclusivamente a enseñar técnicas artísticas.",
+      "texto": "José María Gil: 10 (Islas de Memoria) se orienta a lectores interesados en biografías, memorias y asuntos relacionados con el arte. Su enfoque de no ficción se distancia de las novelas y de los manuales prácticos de creación artística. El título lo identifica con el número 10 de Islas de Memoria.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "José María Gil: 10 (Islas de Memoria) se publica en tapa blanda, con 168 páginas en castellano. Su extensión permite manejarlo como un volumen físico relativamente breve, mientras que la encuadernación flexible facilita llevarlo para leer o consultar fuera de casa.",
+      "texto": "José María Gil: 10 (Islas de Memoria) se publica en tapa blanda, con 168 páginas en castellano. Este formato permite conservar el volumen en papel y consultar sus páginas sin utilizar dispositivos electrónicos. La edición pertenece a Fundación César Manrique.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "José María Gil: 10 (Islas de Memoria) comparte el interés por la memoria y el arte con RECONSTRUYENDO LA MEMORIA: Un mural dedicado a Federico García Lorca en la Universidad de Granada: 21 (Cuadernos Técnicos de Patrimonio), de José Ignacio Barrera Maturana. El primero se presenta como obra biográfica, mientras que el segundo centra su título en un mural y su relación con el patrimonio.",
+      "texto": "Athanasius Kircher: Itinerario del éxtasis o las imágenes de un saber universal: 176 (El Ojo del Tiempo) comparte con José María Gil: 10 (Islas de Memoria) el interés por figuras individuales y su relación con el ámbito artístico o cultural. La obra de Ignacio Gómez de Liaño destaca las imágenes y el saber universal, mientras que la de Benito Cabrera Hernández se presenta dentro de una colección de memoria biográfica.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "autores",
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788433875884"
+        "isbn-9791388032561"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5dfc2f908d65d43f",
+  "fuente_hash": "eccad32244d3b1b9",
   "origen": "chatgpt-web"
 }

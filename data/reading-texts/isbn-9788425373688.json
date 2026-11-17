@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ofrenda (Ficción), de Aloma Martínez, se dirige a lectores que buscan fantasía, aventuras y relatos. Su combinación de géneros la sitúa en la ficción fantástica y aventurera, no en la narrativa centrada exclusivamente en temas realistas.",
+      "texto": "Ofrenda (Ficción) se dirige a lectores de fantasía y aventuras que buscan una obra narrativa de cierta extensión. Con 448 páginas y una clasificación que también incluye relatos, se distancia de los libros prácticos y de quienes prefieren textos breves de no ficción.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 448 páginas de Ofrenda (Ficción), de Aloma Martínez, en un único volumen físico. Es la opción para quien prefiere leer en papel y conservar el ejemplar en su biblioteca.",
+      "texto": "Ofrenda (Ficción), de Aloma Martínez, tiene una edición en tapa blanda de 448 páginas publicada por Grijalbo. El formato en papel permite mantener reunida una lectura extensa de fantasía y aventuras, con la flexibilidad de una cubierta blanda para transportarla.",
       "evidencias": [
         "titulo",
         "autores",
+        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ofrenda (Ficción), de Aloma Martínez, comparte el terreno fantástico con La Guerra de la Reina Araña nº 04/06 Extinción: 4 (D&D Reinos Olvidados), de Lisa Smedman, R. A. Salvatore. La diferencia está en el planteamiento editorial: el primero se presenta como fantasía, aventuras y relatos, mientras que el segundo se identifica con el universo D&D Reinos Olvidados y un número concreto de una colección.",
+      "texto": "Ofrenda (Ficción) comparte el terreno de la fantasía con El árbol de los cuervos: Los cuentos del fénix II.: 2, de Andrea Manfredini Font. Mientras el primero se presenta como una obra de fantasía, aventuras y relatos, el segundo se identifica por su título con los cuentos del fénix. También cambia la autoría: Ofrenda (Ficción) es de Aloma Martínez.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,7 +33,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788445010884"
+        "isbn-9791399315707"
       ]
     }
   ],

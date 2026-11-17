@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370650902",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La «Ley Beckham»: el régimen fiscal de impatriados en el IRPF. Paso a paso: Claves sobre el funcionamiento de este régimen y sus particularidades para ... y profesionales puedan aplicarlo con éxito se dirige a lectores que necesitan estudiar el tratamiento fiscal de los impatriados. Sus 136 páginas abordan una materia jurídica específica, ajena a la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Colex está disponible en tapa blanda y reúne 136 páginas en castellano. El soporte físico permite consultar los apartados sobre el régimen fiscal de impatriados en el IRPF, marcar referencias y regresar a ellas durante el estudio o el trabajo profesional.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La «Ley Beckham»: el régimen fiscal de impatriados en el IRPF comparte materia tributaria y autoría con Casos prácticos sobre la fiscalidad de las «holding» y sus grupos (monografico). Ambas obras pertenecen al ámbito del derecho fiscal y están firmadas por Departamento de Documentación Iberley, pero la primera aborda el régimen de impatriados en el IRPF y la segunda se centra en la fiscalidad de las sociedades holding y sus grupos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650186"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9dea4ff09a8b3b7b",
+  "origen": "chatgpt-web"
+}

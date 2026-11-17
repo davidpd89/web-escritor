@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370650100",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes buscan una obra jurídica sobre los requisitos y las particularidades de la reclamación de deudas dinerarias mediante el procedimiento monitorio. Su enfoque en derecho procesal lo aleja de las lecturas de ficción y de los manuales dedicados a otras materias jurídicas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Colex se presenta en tapa blanda y tiene 162 páginas en castellano. Es una opción física para consultar los requisitos de la reclamación monitoria y volver a los apartados necesarios durante su estudio.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) comparte autoría con esta obra y también aborda cuestiones jurídicas, pero se centra en el despido en lugar de la reclamación monitoria de deudas. Ambos títulos pertenecen al trabajo de Departamento de Documentación Iberley, aunque tratan procedimientos diferentes.",
+      "evidencias": [
+        "afines_catalogo",
+        "autores",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370651749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e6acd1a2123afb7d",
+  "origen": "chatgpt-web"
+}

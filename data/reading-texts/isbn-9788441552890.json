@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788441552890",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Diseño asistido por IA: Guía práctica de inteligencia artificial para creativos (TÍTULOS ESPECIALES), de Anna María López López, se dirige a quienes buscan aplicar la inteligencia artificial al trabajo creativo y al diseño. Su enfoque práctico se aleja de una lectura centrada exclusivamente en la teoría científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Diseño asistido por IA: Guía práctica de inteligencia artificial para creativos (TÍTULOS ESPECIALES) está disponible en tapa blanda. Sus 328 páginas en papel permiten consultar distintos apartados durante el trabajo creativo y volver a ellos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diseño asistido por IA: Guía práctica de inteligencia artificial para creativos (TÍTULOS ESPECIALES) comparte con Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) el interés por relacionar ciencia y creación. El libro de Anna María López López se centra en aplicaciones de inteligencia artificial para creativos, mientras que el de Carlos Briones aborda el diálogo entre ciencia y arte desde una perspectiva más amplia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039287"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf1732362913e5dd",
+  "origen": "chatgpt-web"
+}

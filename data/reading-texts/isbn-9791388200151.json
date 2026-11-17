@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388200151",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo VI está orientado a lectores interesados en el pop-rock de los años sesenta y en títulos relacionados con el arte y el diseño. No responde al mismo tipo de búsqueda que una novela de aventuras o una historia de ficción centrada en sus protagonistas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Para EL POP-ROCK DE LOS 60' - Capítulo VI, la opción de compra recogida es la tapa blanda, con 89 páginas. El volumen está editado en castellano por El Séptimo Cielo y permite una lectura física sin depender de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo IV y EL POP-ROCK DE LOS 60' - Capítulo IX pertenecen al mismo conjunto de títulos sobre pop-rock que EL POP-ROCK DE LOS 60' - Capítulo VI. Todos llevan la firma de Daniel Muneta, pero el título identifica cada uno con una numeración diferente: IV, IX y VI, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388200106",
+        "isbn-9791388200113",
+        "isbn-9791388200120",
+        "isbn-9791388200137",
+        "isbn-9791388200182"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5fba5dd8fdffee68",
+  "origen": "chatgpt-web"
+}

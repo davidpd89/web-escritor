@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788496513723",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "NAVARROS EN ARGENTINA: Exilio y emigración se dirige a lectores interesados en la historia de la emigración y el exilio de población navarra hacia Argentina. Su temática histórica lo diferencia de las novelas de aventuras y de los relatos de ficción. Con 268 páginas, aborda un asunto geográfico y migratorio delimitado desde el título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "NAVARROS EN ARGENTINA: Exilio y emigración se publica en tapa dura, con 268 páginas en castellano. La encuadernación rígida permite mantener el libro en una biblioteca de consulta histórica y volver a sus páginas. Es una edición física de Editorial Mintzoa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "NAVARROS EN ARGENTINA: Exilio y emigración y 76 comparten su relación con la historia, aunque el primero delimita su asunto al exilio y la emigración navarra hacia Argentina. El libro de JOSÉ LUIS Lizarbe Osés también puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback. Este último se centra en la caída de una democracia, frente al enfoque migratorio del primero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4701d408868fe1b3",
+  "origen": "chatgpt-web"
+}

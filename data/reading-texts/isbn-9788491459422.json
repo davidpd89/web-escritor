@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Qué es una familia? (ÁLBUMES ILUSTRADOS) se dirige a quienes buscan una lectura ilustrada sobre la familia. Sus 32 páginas y su temática lo distinguen de los libros de desarrollo personal para adultos o de las novelas extensas.",
+      "texto": "¿Qué es una familia? (ÁLBUMES ILUSTRADOS) se dirige a lectores infantiles interesados en el concepto de familia y en los álbumes ilustrados. Sus 32 páginas permiten abordar el tema en una lectura breve; no responde a quien busca una novela extensa.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,21 +13,20 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de ¿Qué es una familia? (ÁLBUMES ILUSTRADOS) está disponible en tapa dura, con 32 páginas en castellano. Es una presentación física que permite conservar el álbum en una estantería y compartir su lectura pasando las páginas.",
+      "texto": "¿Qué es una familia? (ÁLBUMES ILUSTRADOS) está disponible en tapa dura, con una extensión de 32 páginas. Esta edición de Picarona permite conservar el volumen para consultarlo de nuevo y compartir su lectura en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Este álbum sobre la familia puede compararse con ¿Quién serás cuando seas mayor? (ÁLBUMES ILUSTRADOS), también de Molly Potter. Ambos comparten autora y formato ilustrado, pero uno aborda la familia y el otro plantea una pregunta sobre el futuro personal. La diferencia principal está en el asunto que cada lectura propone tratar.",
+      "texto": "El álbum de Molly Potter sobre la familia puede compararse con ¿Quién serás cuando seas mayor? (ÁLBUMES ILUSTRADOS), de la misma autora. Ambos utilizan preguntas sobre asuntos personales como punto de partida. Uno aborda el concepto de familia y el otro plantea una reflexión sobre el futuro individual.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -37,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "58a576e96a4b2b3f",
+  "fuente_hash": "0b32e06435be7682",
   "origen": "chatgpt-web"
 }

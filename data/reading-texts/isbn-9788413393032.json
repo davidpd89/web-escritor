@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788413393032",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Esperpento o la Tragedia: España en la crisis de Occidente: 194 (Nuevo Ensayo) se orienta a lectores interesados en la historia de España y su relación con Occidente. Es un ensayo de Pío Moa de 178 páginas, por lo que se aleja de las expectativas de quien busca una novela romántica o una historia de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Esperpento o la Tragedia: España en la crisis de Occidente: 194 (Nuevo Ensayo) se publica en tapa blanda. La edición de Encuentro tiene 178 páginas en castellano, una extensión que permite consultar el ensayo en papel y volver a sus apartados durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La escuela de salamanca.: Antecedentes, raíces europeas y vocación teológica: 192 (Nuevo Ensayo) comparte colección con El Esperpento o la Tragedia: España en la crisis de Occidente: 194 (Nuevo Ensayo), pero centra su título en las raíces europeas y la teología. Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días) aborda otra perspectiva histórica y geográfica, frente al foco de Pío Moa en España y Occidente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413393001",
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a259081cbba1c72b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410908222",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La pieza que faltaba (La Trilogía de Mondello) encaja con lectores de romance y narrativa contemporánea. Su clasificación la aleja de quienes buscan ciencia ficción o aventuras como género principal, mientras que su extensión de 168 páginas permite distinguirla de novelas considerablemente más largas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La pieza que faltaba (La Trilogía de Mondello) se presenta en tapa blanda, con 168 páginas. La edición en castellano de Editorial Letra Minúscula reúne la lectura en un volumen físico relativamente breve, manejable para llevar en el bolso o consultar sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La pieza que faltaba (La Trilogía de Mondello), de Francesco Mollura, puede compararse con A mil por hora, de Hannah Grace, por su vinculación con el romance. La diferencia está en que A mil por hora presenta una relación entre un piloto de F1 y una mujer marcada por su pasado, mientras que La pieza que faltaba se identifica como narrativa contemporánea y romance. Ambas obras tienen autores distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "749028187e1f0aed",
+  "origen": "chatgpt-web"
+}

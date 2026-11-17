@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370651367",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fiscalidad de los premios. Paso a paso: Todas las claves para disfrutar de un premio sin sorpresas fiscales está dirigido a lectores interesados en las obligaciones tributarias relacionadas con los premios. Su enfoque jurídico y fiscal lo distingue de los libros sobre gestión económica personal sin un asunto tributario concreto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 134 páginas de Fiscalidad de los premios. Paso a paso: Todas las claves para disfrutar de un premio sin sorpresas fiscales en papel. Su extensión permite manejar un volumen físico dedicado a una cuestión tributaria específica y consultar sus páginas cuando sea necesario.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fiscalidad de los premios comparte autoría y enfoque tributario con Casos prácticos sobre la fiscalidad de las «holding» y sus grupos (monografico). Ambas obras son del Departamento de Documentación Iberley, pero la primera aborda los impuestos relacionados con los premios y la segunda se centra en la fiscalidad de las sociedades holding y sus grupos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650186"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "102a82ff756b7684",
+  "origen": "chatgpt-web"
+}

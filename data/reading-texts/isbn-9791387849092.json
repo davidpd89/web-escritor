@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387849092",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nosotras. Historia ilustrada del feminismo (Libro de conocimientos) se orienta a lectores infantiles y juveniles interesados en conocer la historia del feminismo mediante una obra ilustrada. Sus 48 páginas permiten abordar un tema histórico y social en un volumen breve; no responde a la búsqueda de una novela de aventuras o fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nosotras. Historia ilustrada del feminismo (Libro de conocimientos) está disponible en tapa dura, con 48 páginas y edición de Litera Libros. La encuadernación rígida facilita conservar el ejemplar y utilizarlo en consultas repetidas, mientras que su extensión permite manejarlo como un libro ilustrado de conocimientos de tamaño contenido en páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nosotras. Historia ilustrada del feminismo (Libro de conocimientos), de Raquel Calvo, y Donde cabe uno..., de Marta Comín, figuran entre las obras dirigidas al público infantil del catálogo. La primera identifica expresamente su contenido como una historia ilustrada del feminismo, mientras que la segunda se presenta bajo un título distinto y con otra autoría. La comparación permite distinguir una propuesta de conocimientos históricos de otra obra infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387709198"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f9f69bce62981f26",
+  "origen": "chatgpt-web"
+}

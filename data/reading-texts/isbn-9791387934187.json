@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387934187",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ypseli: La nueva cocina griega (GASTRONOMIA) está dirigido a quienes buscan contenidos culinarios centrados en la gastronomía griega contemporánea. Sus 336 páginas lo sitúan entre los libros de cocina de cierta extensión, mientras que su enfoque temático resulta menos adecuado para quien busca una introducción general a cocinas de distintos países.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ypseli: La nueva cocina griega (GASTRONOMIA) se publica en tapa dura, con 336 páginas en castellano. La cubierta rígida resulta práctica para conservar un libro de cocina sometido a consultas frecuentes y también para regalarlo en formato físico. Su extensión favorece mantenerlo en una estantería o zona de consulta antes que transportarlo habitualmente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ypseli: La nueva cocina griega (GASTRONOMIA) y Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) comparten su orientación gastronómica. Symeon Kamsizoglou concentra el primero en la nueva cocina griega, mientras que David Villalón y Mario Villalón presentan una propuesta que abarca huerta, vinos, cocina y cócteles. El lector encontrará un enfoque culinario geográfico en uno y una combinación de ámbitos gastronómicos en el otro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1581b3383a866b14",
+  "origen": "chatgpt-web"
+}

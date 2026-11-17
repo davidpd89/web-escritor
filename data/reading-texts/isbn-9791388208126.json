@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388208126",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un bosque de pocas palabras se orienta a lectores que buscan poesía o narrativa contemporánea en castellano. La obra de Ignacio Lombo Montañés tiene 94 páginas, por lo que encaja menos con quien prefiere lecturas de gran extensión o géneros alejados de esas dos vertientes literarias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un bosque de pocas palabras se publica en tapa blanda, en una edición de 94 páginas. El formato en papel facilita llevar este volumen breve de Ignacio Lombo Montañés y conservarlo en la biblioteca, tanto para una lectura seguida como para volver a pasajes concretos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un bosque de pocas palabras comparte el terreno de la poesía con poemas de amor (Los Tres Mundos), de rupi kaur, aunque este último delimita su asunto al amor desde el título. También puede compararse con Gary en tu bolsillo: Cuentos y diarios de Gary Fisher: 1 (Teorías del caos), de Gary Fisher, por su relación con la escritura literaria; este identifica expresamente cuentos y diarios, mientras que Un bosque de pocas palabras se clasifica entre poesía y narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399156270",
+        "isbn-9788432251627"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "00f4cff14459a6d1",
+  "origen": "chatgpt-web"
+}

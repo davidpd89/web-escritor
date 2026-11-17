@@ -4,41 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pau Riba en 20 canciones (Sílex Música), de Ramon Moreno, se orienta a lectores interesados en la música y en aproximarse a una figura artística mediante canciones concretas. Su planteamiento musical lo diferencia de los manuales de dibujo y de las obras centradas en técnicas de creación visual.",
+      "texto": "Se dirige a lectores interesados en la música y en Pau Riba, con un enfoque organizado alrededor de 20 canciones. Es una obra de Ramon Moreno de 192 páginas, orientada a un tema musical concreto y no a quienes buscan una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pau Riba en 20 canciones (Sílex Música) se publica en tapa blanda y reúne 192 páginas en castellano. Esta edición de Sílex Ediciones permite mantener el volumen en una biblioteca musical y consultar sus contenidos en papel. Su extensión facilita alternar la lectura con otras actividades sin necesidad de un dispositivo electrónico.",
+      "texto": "Pau Riba en 20 canciones (Sílex Música) se presenta en tapa blanda, con 192 páginas en castellano. Es una edición física manejable para consultar las canciones tratadas y volver a determinados pasajes. Su extensión permite guardarla junto a otros libros de música sin ocupar el espacio de un volumen de gran formato.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "formatos_disponibles"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pau Riba en 20 canciones (Sílex Música) y 720 retrats comparten el interés por las expresiones artísticas. Ramon Moreno centra su libro en 20 canciones de Pau Riba, mientras que Xavier Mollà i Revert presenta una obra identificada por sus retratos. La diferencia está en el objeto de atención: canciones en el primero y retratos en el segundo.",
+      "texto": "Pau Riba en 20 canciones (Sílex Música) puede compararse con 21 Westerns del siglo XXI (Sílex Cine/Claqueta), de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga. Ambos títulos organizan su enfoque alrededor de un número concreto de obras culturales. Ramon Moreno se centra en las canciones de Pau Riba, mientras que el otro libro aborda el wéstern del siglo XXI desde una autoría compartida.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412678802"
+        "isbn-9791388205842"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "774ac38f288e909d",
+  "fuente_hash": "21f3818c1593f8ec",
   "origen": "chatgpt-web"
 }

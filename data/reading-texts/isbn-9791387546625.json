@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387546625",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la filosofía política, la religión y los fundamentos del poder. Su planteamiento ensayístico encaja menos con quienes buscan una narración de ficción o una guía de aplicación práctica inmediata.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Maquiavelo y sus enemigos.: Religión, filosofía y fundación política (Filosofía y Teoría Políticas) está editado en tapa blanda, con 219 páginas. El soporte impreso permite subrayar conceptos, incorporar anotaciones y consultar pasajes anteriores durante el estudio de los argumentos filosóficos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Príncipe: El tratado político clave de Nicolás Maquiavelo sobre el poder y la estrategia de Estado. (No ficción) comparte el interés por el pensamiento político de Maquiavelo. La diferencia está en la perspectiva: Nicolás Maquiavelo aborda el poder y la estrategia estatal en su tratado, mientras Agustín Volco estudia las relaciones entre religión, filosofía y fundación política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388115486"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6a5564260cee5212",
+  "origen": "chatgpt-web"
+}

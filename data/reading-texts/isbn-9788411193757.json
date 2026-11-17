@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411193757",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tu amigo el colesterol (Salud natural), de Dr. Carlos Jaramillo, se orienta a lectores interesados en el colesterol desde el ámbito de la salud natural y el bienestar. Su enfoque temático se aleja de la ficción y de los libros dedicados exclusivamente al entretenimiento; el asunto central es una cuestión relacionada con la salud.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tu amigo el colesterol (Salud natural) se publica en tapa blanda, con 208 páginas en castellano. Esta edición de Diana permite consultar el contenido en papel y volver a apartados concretos durante la lectura, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tu amigo el colesterol (Salud natural) y 5 semanas para desinflamarte (edición limitada) comparten su relación con cuestiones de salud. El libro de Dr. Carlos Jaramillo centra su título en el colesterol, mientras que el de Blanca García-Orea Haro plantea un periodo dedicado a la desinflamación. Son asuntos distintos dentro del bienestar físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466394390"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4ab90d8c4b04b44f",
+  "origen": "chatgpt-web"
+}

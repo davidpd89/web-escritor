@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788433950482",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El adversario (Panorama de narrativas), de Emmanuel Carrère, se dirige a lectores de narrativa contemporánea y ensayo. Con 176 páginas, responde a la búsqueda de una obra de extensión moderada, pero se aleja de las preferencias centradas en fantasía o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El adversario (Panorama de narrativas) está disponible en tapa blanda, con 176 páginas en castellano. La edición de Editorial Anagrama ofrece una lectura física de cubierta flexible, con una extensión que permite transportarla sin recurrir a un volumen especialmente largo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El adversario (Panorama de narrativas) comparte el ámbito del ensayo con Bajo la sombra del Vesubio: Vida de Plinio: 120 (Biblioteca de Ensayo / Serie mayor), de Daisy Dunn, que se centra en una figura histórica. También se relaciona por su orientación literaria con Alfred y Emily (Narrativa), de Doris Lessing, aunque El adversario (Panorama de narrativas) combina narrativa contemporánea y ensayo en su clasificación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515",
+        "isbn-9788418708459"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f4e6eaf705e3a280",
+  "origen": "chatgpt-web"
+}

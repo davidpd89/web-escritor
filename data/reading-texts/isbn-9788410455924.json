@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dolor magenta: 214 (Narrativa), de Erik González de Lopidana (Erik Oz), se dirige a lectores de misterio y thriller. Su clasificación lo aleja de quienes busquen principalmente romance o fantasía, mientras que sus 290 páginas delimitan la extensión de la lectura.",
+      "texto": "Dolor magenta: 214 (Narrativa), de Erik González de Lopidana (Erik Oz), se dirige a lectores interesados en el misterio y el thriller. Sus 290 páginas en castellano corresponden a una obra de este género, por lo que se aleja de las lecturas centradas en poesía o ensayo.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Dolor magenta: 214 (Narrativa) cuenta con una edición en tapa blanda de 290 páginas. Es una opción física para leer y conservar este título de misterio, con posibilidad de marcar pasajes o consultar páginas anteriores.",
+      "texto": "Dolor magenta: 214 (Narrativa) está disponible en tapa blanda, con 290 páginas. Esta edición de Editorial Alreves, S.l permite leerlo en papel y conservarlo en la estantería sin el peso añadido de una encuadernación rígida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dolor magenta: 214 (Narrativa) comparte el misterio con Aguas turbulentas, de Rankin Ian, que sitúa su conflicto entre el pasado y el presente de Edimburgo. También se relaciona con 25 días hasta Navidad, de Per Jacobsen, identificado como thriller de adviento. Frente a esa ambientación navideña, Dolor magenta: 214 (Narrativa) se presenta dentro del misterio y el thriller sin esa referencia temática en su título.",
+      "texto": "Dolor magenta: 214 (Narrativa) comparte el terreno del misterio con Aberración, de Santiago López de Hoyos, y Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves. La diferencia identificable está en la autoría y en que Aguas muertas se presenta vinculada a una serie televisiva, mientras que Dolor magenta: 214 (Narrativa) figura como una obra de Erik González de Lopidana (Erik Oz).",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,8 +33,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055063",
-        "isbn-9791370310318"
+        "isbn-9791399297508",
+        "isbn-9788410424524"
       ]
     }
   ],

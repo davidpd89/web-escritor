@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de clásicos y terror que buscan una novela de Gastón Leroux en edición conmemorativa. Sus 400 páginas permiten una lectura de extensión media dentro de esos géneros. Resulta menos afín a quienes prefieren relatos breves o narraciones alejadas de los elementos de terror.",
+      "texto": "Encaja con lectores interesados en el terror y los clásicos literarios, especialmente quienes buscan una novela de Gastón Leroux. Sus 400 páginas en castellano pueden resultar menos adecuadas para quien prefiere lecturas muy breves o evita el género de terror.",
       "evidencias": [
-        "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "El fantasma de la ópera (edición especial en tapa dura) (Ediciones Conmemorativas) se distingue por su presentación especial dentro de la colección Ediciones Conmemorativas. Penguin Clásicos publica esta versión en castellano, con 400 páginas y encuadernación de tapa dura. Su fecha de publicación editorial es el 19 de noviembre de 2026.",
+      "texto": "La edición conmemorativa de El fantasma de la ópera pertenece a Penguin Clásicos y se presenta en tapa dura. Contiene 400 páginas en castellano, con publicación editorial fechada el 19 de noviembre de 2026 y el ISBN 9788491058328.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
         "numero_paginas",
         "idioma",
-        "fecha_publicacion"
+        "fecha_publicacion",
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible de esta edición conmemorativa de 400 páginas. La encuadernación rígida favorece su conservación y puede interesar a quienes reúnen clásicos en formato físico o buscan un ejemplar para regalar. Su extensión exige más tiempo de lectura que un cuento breve, aunque permite manejar la obra en un solo volumen.",
+      "texto": "En tapa dura, El fantasma de la ópera reúne sus 400 páginas en un volumen físico pensado para conservarse y releerse. Es una elección para quien prefiere una encuadernación rígida, aunque resulta menos práctica que un formato digital para leer en el móvil.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cosamala, de Alana S. Portero, comparte con El fantasma de la ópera (edición especial en tapa dura) (Ediciones Conmemorativas) una orientación hacia lo gótico y lo inquietante, pero parte de un crimen real de la guerra civil y de una historia de brujas. Cuento de Navidad: 46 (Pequeños Placeres), de Charles Dickens, ofrece otra referencia de autor clásico, aunque su título apunta a un relato navideño. La obra de Gastón Leroux se sitúa específicamente entre los clásicos y el terror.",
+      "texto": "Frankenstein comparte con El fantasma de la ópera su condición de clásico relacionado con el terror, aunque pertenece a Mary Shelley y no a Gastón Leroux. Cosamala también se aproxima desde lo gótico, pero Alana S. Portero incorpora brujas y un crimen real de la guerra civil.",
       "evidencias": [
         "titulo",
         "autores",
@@ -46,12 +46,12 @@
       ],
       "enlaces": [
         "isbn-9788432251436",
-        "isbn-9791399221107"
+        "isbn-9791370310486"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cda916408239b61b",
+  "fuente_hash": "9a4c4310881b80bb",
   "origen": "chatgpt-web"
 }

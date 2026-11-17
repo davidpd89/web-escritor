@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791370176174",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Herida de amor - Como casarse con un millonario: 603 (Ómnibus Jazmín) se dirige a lectores de romance contemporáneo. La obra de Diana Palmer y Ally Blake reúne dos firmas del género en una edición de 320 páginas; no responde a la búsqueda de fantasía o ensayo histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Herida de amor - Como casarse con un millonario: 603 (Ómnibus Jazmín) está disponible en tapa blanda. Sus 320 páginas en castellano permiten leerla en papel y conservarla en una estantería; es el formato físico publicado por Harlequin Ibérica, S.a.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la deriva contigo comparte con Herida de amor - Como casarse con un millonario: 603 (Ómnibus Jazmín) su relación con la narrativa romántica contemporánea, pero está firmada por Beth O'Leary. A mil por hora, de Hannah Grace, plantea un romance relacionado con un piloto de F1, mientras que la obra de Diana Palmer y Ally Blake reúne dos autorías en una edición de 320 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390200",
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4b5b3ad0664b4689",
+  "origen": "chatgpt-web"
+}

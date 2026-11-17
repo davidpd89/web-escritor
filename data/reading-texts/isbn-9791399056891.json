@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399056891",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Expediente alien (LIBRE ALBEDRIO) se sitúa en el ámbito de la lectura juvenil y plantea desde su título una temática relacionada con lo extraterrestre. Por su clasificación, encaja menos con lectores que buscan exclusivamente narrativa adulta o un manual técnico sobre fenómenos espaciales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Expediente alien (LIBRE ALBEDRIO) está editado en tapa dura y cuenta con 72 páginas. Su extensión permite manejarlo como un volumen breve, mientras que la cubierta rígida aporta protección para conservarlo o regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción) y Expediente alien (LIBRE ALBEDRIO) coinciden en su vinculación con el público juvenil, aunque desde propuestas distintas. El primero anuncia una orientación educativa sobre convivencia y prevención del abuso; el segundo se identifica como narrativa juvenil con una referencia extraterrestre en el título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410274600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "836acdba4b5fae63",
+  "origen": "chatgpt-web"
+}

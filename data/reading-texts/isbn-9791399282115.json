@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399282115",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se sitúa entre el misterio, el thriller y la narrativa contemporánea, por lo que encaja con lectores interesados en esos géneros. Quienes busquen una obra de divulgación o una lectura infantil encontrarán aquí una propuesta de orientación distinta.",
+      "evidencias": [
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Caza y pesca: 2 (Saturnalia) se presenta en tapa blanda, con 160 páginas en castellano. Su extensión permite transportar el volumen sin el peso de una novela especialmente larga, y la edición física facilita prestarlo o incorporarlo a una colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aguas turbulentas, de Rankin Ian, comparte con Caza y pesca: 2 (Saturnalia) su vinculación con el misterio y la narrativa de intriga. La primera sitúa su conflicto entre el pasado y el presente de Edimburgo; la obra de Rodolfo Santullo se identifica por su combinación de thriller y narrativa contemporánea.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c81fecc7a70817c7",
+  "origen": "chatgpt-web"
+}

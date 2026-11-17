@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA) encaja con lectores interesados en el desarrollo personal y las relaciones familiares, también dentro del público infantil y juvenil. Quienes busquen una novela de aventuras o fantasía encontrarán aquí una propuesta de carácter formativo, centrada en el conocimiento de uno mismo.",
+      "texto": "Se dirige a lectores interesados en el autoconocimiento, la escritura personal y el desarrollo emocional. En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA), de Fumitake Koga, se sitúa en el ámbito del desarrollo personal y se aleja de los relatos infantiles centrados en aventuras y personajes de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 272 páginas en una edición física de Neko Books, adecuada para leer fuera de casa o conservar en la estantería. Kindle permite llevar En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA) en el móvil o en un lector electrónico, sin depender del volumen impreso.",
+      "texto": "La tapa blanda reúne las 272 páginas de En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA) y permite señalar fragmentos relacionados con el autoconocimiento. La versión Kindle ofrece una alternativa digital para leer en el móvil o en un lector compatible, sin necesidad de llevar el ejemplar en papel.",
       "evidencias": [
         "titulo",
-        "autores",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Me llamo Goa - Edición especial estuche (incluye Me llamo Goa, ¡Qué fuerte, Goa! y un poster exclusivo) (Libros para adolescentes), de Míriam Tirado, comparte el interés por el público adolescente, aunque su planteamiento se presenta desde la narrativa juvenil. En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA), de Fumitake Koga, se orienta al desarrollo personal y al conocimiento de uno mismo.",
+      "texto": "En noches solitarias, escribe: La aventura de entenderte a ti mismo (GRANDES ÉXITOS DE ASIA) y Diario secreto de 2 hermanas magas: Magia, pifias y mucha superación. Lectura preadolescente comparten referencias a la escritura personal y al crecimiento individual. Fumitake Koga aborda el autoconocimiento, mientras que el libro de Niñas del Mago presenta una historia de magia y superación destinada al público preadolescente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387994334"
+        "isbn-9788409924523"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c7821e0fe33411cb",
+  "fuente_hash": "646c7fc9dc8252cb",
   "origen": "chatgpt-web"
 }

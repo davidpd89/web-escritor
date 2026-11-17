@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9789564077918",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mecanismos Anormales De Extincion Del Acto Administrativo está dirigido a lectores que buscan estudiar una cuestión concreta del derecho administrativo. Su delimitación jurídica lo diferencia de una introducción general al derecho y de las obras narrativas destinadas a la lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mecanismos Anormales De Extincion Del Acto Administrativo cuenta con una edición en tapa blanda (Bunko) de 90 páginas, publicada por Ediciones Olejnik. Su extensión permite transportar el ejemplar y consultar en papel un tema jurídico delimitado, sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) y Mecanismos Anormales De Extincion Del Acto Administrativo comparten el ámbito del derecho administrativo. El título de Tomás Cano Campos se orienta al derecho sancionador, mientras que el de Cristian M. Sepulveda Videla delimita su estudio a la extinción anormal del acto administrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610562"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "541aca40b98a8979",
+  "origen": "chatgpt-web"
+}

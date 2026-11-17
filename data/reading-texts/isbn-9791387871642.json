@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387871642",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Juegos del Hambre 5 - Amanecer en la cosecha (edición película) (Best Seller | Ficción) se dirige a lectores de ciencia ficción y aventuras que buscan una novela extensa. Sus 496 páginas y su combinación de géneros lo alejan de las lecturas breves y de quienes prefieren historias sin elementos de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Penguin Bolsillo se presenta en tapa blanda, con 496 páginas en castellano. El formato de bolsillo permite llevar una novela de esta extensión en papel sin recurrir a un volumen de tapa dura; también mantiene la lectura en un soporte físico que puede prestarse o conservarse.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los Juegos del Hambre 5 - Amanecer en la cosecha (edición especial) comparte obra y autoría con esta edición de bolsillo de Suzanne Collins; la diferencia explícita está en su identificación editorial como edición especial frente a edición película. Aventura Total 7 - Blastofia (Primeras lecturas) también se relaciona con la aventura, pero se presenta como una propuesta de primeras lecturas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427257702",
+        "isbn-9788448875008"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ae2e698081c3366",
+  "origen": "chatgpt-web"
+}

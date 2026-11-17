@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia se dirige a lectores adultos interesados en la psicología, el desarrollo personal y la influencia de la infancia. Victoria Cadarso aborda un ámbito distinto del entretenimiento infantil o de las novelas de ficción, por lo que encaja menos con quienes buscan esos tipos de lectura.",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, se dirige a lectores interesados en la psicología, el desarrollo personal y la relación con las experiencias infantiles. Su enfoque temático encaja con la reflexión sobre la infancia, pero no con quien busca una novela de ficción o una historia de aventuras.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,16 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer y consultar las 320 páginas de Abraza a tu niño interior: Nunca es tarde para sanar tu infancia en papel. Kindle facilita la lectura digital y el audiolibro ofrece la posibilidad de escuchar la obra, por ejemplo durante desplazamientos o actividades que no requieren atención visual.",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia puede leerse en tapa blanda o Kindle y también está disponible como audiolibro. La edición impresa de La Esfera de los Libros tiene 320 páginas, adecuadas para consultar y retomar apartados; Kindle facilita la lectura en dispositivos compatibles y el audiolibro permite escuchar el contenido.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia comparte el interés por la psicología y la infancia con El niño feliz (fuera de colección), de Dorothy Corkille Briggs, aunque Victoria Cadarso centra su título en la revisión de la propia infancia. Frente a Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos), de Toño Ramos, su enfoque se orienta al desarrollo personal más que a la organización de la convivencia familiar.",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia y Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparten el interés por el trabajo personal. Victoria Cadarso aborda la infancia y su sanación, mientras que Beatriz García Saez plantea un método de trabajo con partes internas y autoliderazgo. Ambos tratan procesos personales desde enfoques distintos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399249682",
-        "isbn-9788425452901"
+        "isbn-9788409924059"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "60bd107a3830fecf",
+  "fuente_hash": "a712e069815e27af",
   "origen": "chatgpt-web"
 }

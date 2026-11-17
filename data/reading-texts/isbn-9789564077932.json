@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9789564077932",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pluralidad Familiar Y Fronteras se dirige a lectores interesados en cuestiones jurídicas relacionadas con la diversidad familiar y las fronteras. Por su clasificación en derecho, responde a una búsqueda de contenido jurídico, no a la de una novela familiar ni a una guía general de relaciones personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pluralidad Familiar Y Fronteras se publica en tapa blanda (Bunko), con 284 páginas y edición de Ediciones Olejnik. El formato impreso permite trabajar con una extensión superior a la de un folleto breve, consultar pasajes y conservar el ejemplar como material de lectura jurídica.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal y Pluralidad Familiar Y Fronteras pertenecen al ámbito jurídico, aunque plantean asuntos diferentes. Víctor Rodríguez Alonso aborda una cuestión penal concreta, mientras que Taydit Peña Lorenzo centra su título en la pluralidad familiar y las fronteras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370475949"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee8e466ebb512fa8",
+  "origen": "chatgpt-web"
+}

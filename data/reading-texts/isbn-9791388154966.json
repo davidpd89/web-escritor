@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388154966",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los millones (colección Narrativa Blackie Books) se dirige a lectores de narrativa contemporánea en castellano interesados en la obra de Santiago Lorenzo. Sus 240 páginas ofrecen una extensión intermedia; por su clasificación, no es una elección orientada a quienes buscan ensayo o divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los millones (colección Narrativa Blackie Books) está disponible en tapa blanda, con 240 páginas en castellano. Esta edición de Blackie Books permite tener el texto en papel, tanto para leerlo de principio a fin como para conservarlo en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los millones (colección Narrativa Blackie Books) puede compararse con Los asquerosos (colección Narrativa Blackie Books), también de Santiago Lorenzo. Comparten autor y pertenencia a la colección Narrativa Blackie Books; son dos títulos distintos que permiten continuar con la narrativa del mismo escritor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388154744"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1fa2d543c19685e0",
+  "origen": "chatgpt-web"
+}

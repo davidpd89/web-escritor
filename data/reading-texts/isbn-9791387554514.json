@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387554514",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Eowyn Ivey se dirige a lectores de narrativa contemporánea que buscan una novela extensa en castellano. Sus 520 páginas requieren más tiempo de lectura que un relato corto, por lo que encaja menos con quienes prefieren libros breves o lecturas que puedan terminarse en una sola sesión.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Hoja de Lata tiene 520 páginas y puede adquirirse en tapa blanda o Kindle. La tapa blanda permite leer y conservar el volumen en papel, mientras que Kindle facilita llevar la obra completa en un dispositivo compatible sin transportar el ejemplar físico.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "851d03ab293b9713",
+  "origen": "chatgpt-web"
+}

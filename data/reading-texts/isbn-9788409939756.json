@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Plagio, de Julia Muñoz Ramírez, se dirige a lectores que buscan una combinación de romance y misterio en una misma obra. Por su clasificación temática, encaja menos con quienes prefieren relatos centrados exclusivamente en la fantasía o la divulgación.",
+      "texto": "Plagio, de Julia Muñoz Ramírez, reúne las clasificaciones de romance y misterio y thriller. Se dirige a lectores que buscan ambas vertientes en una misma obra, más que a quienes prefieren una lectura exclusivamente romántica o alejada de la intriga.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,29 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Plagio está disponible en tapa blanda y Kindle. La edición impresa reúne 439 páginas y permite conservar el volumen en una estantería o regalarlo; Kindle ofrece la alternativa de leerlo en un dispositivo electrónico sin transportar el ejemplar físico.",
+      "texto": "Plagio puede leerse en tapa blanda o en Kindle. La edición impresa tiene 439 páginas y permite conservar el libro en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Plagio comparte el terreno del misterio con Donde callan los niños (Imágica Intriga), de Eva Zamora Zamora, aunque también incorpora el romance entre sus temas. Frente a El juego del alma (edición limitada · cantos tintados) (Serie La chica de nieve) (Campaña | Edición con cantos tintados), de Javier Castillo, Plagio combina misterio y relaciones románticas, mientras que el otro título se identifica como parte de una serie.",
+      "texto": "Plagio comparte la combinación de romance e intriga con Foxx (Los Soldados de Bedlam 3): El zorro y la diosa (Novela de intriga), aunque este último se identifica en su título como parte de una serie. También puede compararse con La última historia de Abby Bloom (Romántica), cuya denominación destaca el romance, mientras que Plagio incorpora además el misterio y el thriller.",
       "evidencias": [
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210729",
-        "isbn-9788466393867"
+        "isbn-9788425377068",
+        "isbn-9791388365041"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bc0adfc3e98f18a8",
+  "fuente_hash": "93669244a2f4e74a",
   "origen": "chatgpt-web"
 }

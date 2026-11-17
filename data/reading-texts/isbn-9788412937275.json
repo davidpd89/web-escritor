@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788412937275",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los mares falsos, de Alberto Pertejo Barrena, encaja con lectores que buscan misterio y thriller en una novela de cierta extensión. Sus 460 páginas requieren más tiempo de lectura que un volumen breve y lo alejan de las preferencias de quien busca poesía o una obra corta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los mares falsos se publica en tapa blanda, en una edición de Goodbooks Editorial que contiene 460 páginas. El formato permite conservar la novela en papel y leerla sin dispositivos electrónicos, aunque su extensión supone transportar un volumen mayor que el de una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los mares falsos comparte su orientación hacia el misterio con Aberración, de Santiago López de Hoyos. Otra referencia es 25 días hasta Navidad, de Per Jacobsen, que se presenta como thriller de Adviento; frente a esa ambientación temporal identificada, Los mares falsos se distingue por su autoría, Alberto Pertejo Barrena, y sus 460 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9791399297508"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1071d86967f84bd8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788448873059",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores infantiles que disfrutan de la fantasía y de los libros que permiten interactuar con sus páginas. Sus 10 páginas de cartón con mecanismos responden mejor a una lectura breve y manipulativa que a quien busca un cuento largo de lectura continuada.",
+      "evidencias": [
+        "categorias",
+        "numero_paginas",
+        "edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Se utiliza pasando sus 10 páginas de cartón y explorando los mecanismos que incorpora el libro. La propuesta combina la lectura de una historia de fantasía con la manipulación de sus elementos físicos, dentro de la colección Pequeñas manitas.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se presenta en tapa dura, concretamente como libro de cartón de 10 páginas publicado por Beascoa. Esta edición física permite utilizar los mecanismos durante la lectura, una característica vinculada al propio formato del libro.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ovejita va al espacio (La ovejita que vino a cenar. Libro de cartón con mecanismos) (Pequeñas manitas) comparte autor, colección y formato interactivo, pero cambia la aventura espacial por una casa encantada. El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) pertenece al mismo universo de Steve Smallman, aunque se presenta como cuento infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448874056",
+        "isbn-9788448875435"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "251a70c0b05e8222",
+  "origen": "chatgpt-web"
+}

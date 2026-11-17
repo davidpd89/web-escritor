@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables (Best Seller | No Ficción) se dirige a lectores interesados en cocinar y relacionar alimentación, salud e historia. Su planteamiento práctico, basado en recetas, encaja menos con quienes buscan una novela o un ensayo dedicado exclusivamente a la teoría nutricional.",
+      "texto": "Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables (Best Seller | No Ficción) está dirigido a lectores interesados en cocinar y relacionar la alimentación con el bienestar. Su planteamiento combina recetas e historia culinaria, por lo que se aparta de los ensayos exclusivamente teóricos sobre nutrición.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,27 +12,27 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El libro reúne 100 recetas saludables bajo un recorrido que va desde los orígenes de la cocina hasta la actualidad. Marcos Vázquez y Elizabeth Ochoa combinan así una perspectiva histórica de la alimentación con propuestas culinarias que pueden consultarse para preparar platos; el volumen tiene 264 páginas.",
+      "texto": "El contenido se articula alrededor de 100 recetas saludables y un recorrido culinario desde los orígenes hasta la actualidad. En sus 264 páginas, Marcos Vázquez y Elizabeth Ochoa relacionan cocina y alimentación; el libro puede utilizarse tanto para buscar preparaciones como para explorar su contexto histórico.",
       "evidencias": [
         "titulo",
-        "autores",
         "numero_paginas",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de bolsillo permite tener las 264 páginas de Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables (Best Seller | No Ficción) a mano para consultar las recetas en papel. Kindle ofrece una alternativa digital para acceder al contenido desde un móvil o lector electrónico, sin ocupar espacio físico en la cocina.",
+      "texto": "La tapa blanda corresponde a una edición de bolsillo de 264 páginas, que permite consultar las recetas directamente sobre papel. Kindle ofrece una alternativa digital para llevar el contenido en el móvil o en un lector compatible, especialmente cuando se quiere acceder a las preparaciones sin transportar el volumen físico.",
       "evidencias": [
-        "titulo",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables (Best Seller | No Ficción) comparte autor con Saludable Mente: Hábitos para optimizar tu cerebro y mejorar tu salud a cualquier edad (Best Seller | No Ficción), de Marcos Vázquez. El primero se centra en recetas y alimentación; el segundo, según su título, aborda hábitos relacionados con el cerebro y la salud.",
+      "texto": "Saludable Mente: Hábitos para optimizar tu cerebro y mejorar tu salud a cualquier edad (Best Seller | No Ficción) comparte la autoría de Marcos Vázquez y el interés por la salud, pero se centra en los hábitos relacionados con el cerebro. Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables (Best Seller | No Ficción), escrito con Elizabeth Ochoa, traslada ese interés al terreno culinario mediante recetas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -46,6 +46,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ff6f5b275b2a659f",
+  "fuente_hash": "da3229ae11bf5e6e",
   "origen": "chatgpt-web"
 }

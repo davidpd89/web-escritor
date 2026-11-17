@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788418607837",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Magnificat FEBRERO 2027: n°279 se dirige a lectores interesados en religión y espiritualidad, especialmente en publicaciones vinculadas a un mes concreto. Su enfoque temático lo aleja de quienes buscan narrativa de ficción o ensayos sobre asuntos ajenos a la religión.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Magnificat FEBRERO 2027: n°279 está disponible en tapa blanda, con 432 páginas en castellano. Esta edición permite consultar el volumen en papel y conservarlo junto a otras entregas mensuales de la publicación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Magnificat FEBRERO 2027: n°279 puede compararse con Magnificat enero 2027: N°278 por su autoría compartida: MAGNIFICAT, Pablo Cervera Barranco y Pierre Marie Dumont. La diferencia está en el mes indicado en cada título, febrero frente a enero, por lo que representan entregas temporales distintas de una misma publicación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418607820"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "36d10b5570764438",
+  "origen": "chatgpt-web"
+}

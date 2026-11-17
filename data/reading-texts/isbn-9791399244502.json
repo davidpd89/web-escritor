@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399244502",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Valencia (LAS AFUERAS) se orienta a lectores de narrativa contemporánea que buscan una obra de Michelle Tea en castellano. Sus 272 páginas corresponden a una extensión intermedia; por su clasificación editorial, no es una elección centrada en el ensayo ni en la novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Valencia (LAS AFUERAS) está disponible en tapa blanda, en una edición de 272 páginas publicada por Las afueras. Es un volumen físico para leer en papel, prestar o conservar en la estantería; la cubierta flexible facilita transportarlo durante los desplazamientos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9806f6351202150b",
+  "origen": "chatgpt-web"
+}

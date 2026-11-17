@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788412955835",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la vida de Enzo Ferrari y su influencia en el automovilismo, desde una perspectiva biográfica. Su enfoque también conecta con quienes leen sobre empresa y trayectoria profesional, pero se aleja de las novelas de carreras y los manuales de mecánica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La figura de Enzo Ferrari articula una biografía centrada en la velocidad, la trayectoria personal y su legado automovilístico. Luca dal Monte aborda una materia que reúne historia del deporte del motor y dimensión empresarial, con el personaje y su influencia como ejes principales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura de Malpaso reúne 576 páginas y permite conservar el volumen como libro de consulta o incorporarlo a una biblioteca de biografías. Kindle ofrece la alternativa digital para leerlo en un dispositivo compatible sin transportar el ejemplar físico.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Enzo Ferrari: Velocidad, sangre y gloria. La biografía definitiva sobre Ferrari y su legado en el mundo del automovilismo. (No ficción) comparte el interés por las trayectorias deportivas con Has Nacido Para Esto / What You're Made For: Powerful Life Lessons from My Career in Sports, de George Raveling y Ryan Holiday. La obra de Luca dal Monte se centra en Ferrari y el automovilismo, mientras que la otra presenta lecciones vitales extraídas de una carrera deportiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073882088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9ed7bb05a8c2945f",
+  "origen": "chatgpt-web"
+}

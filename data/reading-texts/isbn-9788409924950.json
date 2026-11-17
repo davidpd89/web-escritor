@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409924950",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Que el éxito no te joda: Humildad expansiva para construir un éxito que merezca la pena, de Tomás Arriero, se dirige a lectores interesados en el desarrollo personal y la reflexión sobre el éxito profesional. Su planteamiento se aleja de quienes buscan ficción narrativa o un tratado exclusivamente técnico de economía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 186 páginas de Que el éxito no te joda: Humildad expansiva para construir un éxito que merezca la pena en un volumen manejable. El papel facilita subrayar reflexiones y recuperar apartados relacionados con el éxito, la humildad y el desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Que el éxito no te joda: Humildad expansiva para construir un éxito que merezca la pena y Te pagaron en humo: Tu tiempo es finito, el dinero no comparten el interés por las prioridades personales y profesionales. Tomás Arriero plantea el éxito desde la humildad, mientras que Ramón Merino contrapone el tiempo y el dinero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409916917"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f3fc48128604f1aa",
+  "origen": "chatgpt-web"
+}

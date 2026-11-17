@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) se dirige al público juvenil interesado en fantasía, amistad y secretos. Por su clasificación y sus temas, se distancia de quienes buscan narrativa realista para adultos o libros de carácter divulgativo.",
+      "texto": "Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) está orientado al público juvenil interesado en la fantasía y las historias de brujas. El título lo identifica como el n.º 5, por lo que puede encajar menos con quien prefiera empezar una colección desde su primera entrega.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) puede leerse en tapa dura o Kindle. La edición de Alfaguara tiene 208 páginas en papel y permite conservar el volumen en una colección; Kindle ofrece la misma obra en formato digital para leerla en el móvil o en un lector electrónico.",
+      "texto": "La tapa dura de Alfaguara presenta las 208 páginas de Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) en un volumen físico para conservar o regalar. La edición Kindle permite leerlo en formato digital y llevarlo en un dispositivo compatible sin cargar con el libro.",
       "evidencias": [
         "titulo",
         "editorial",
@@ -22,7 +22,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) y La leyenda de las mujeres gato (Sin límites) comparten autora, Patricia García-Rojo, pero presentan motivos distintos: brujas y sueños frente a mujeres gato. Los cazamisterios 12 - El caso de la misión en la Luna, también de Patricia García-Rojo, se centra en casos detectivescos, mientras que Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) pertenece a la fantasía y aborda la amistad y los secretos.",
+      "texto": "La leyenda de las mujeres gato (Sin límites) comparte con Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores) la autoría de Patricia García-Rojo. Los cazamisterios 12 - El caso de la misión en la Luna también es de Patricia García-Rojo, pero se presenta como una historia de resolución de casos, frente a la orientación fantástica y de brujas de Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores).",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,14 +30,14 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949617",
         "isbn-9791388277665",
+        "isbn-9791387949617",
         "isbn-9791387949778"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "27610cb69108c0a5",
+  "fuente_hash": "660e99e6276af357",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788401038334",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Peregrino (Éxitos), de Ramón Otero, se dirige a quienes buscan una lectura de misterio o thriller en castellano. Sus 368 páginas corresponden a una novela de extensión media; por su clasificación, no es una elección orientada a lectores que busquen ensayo, divulgación o narrativa humorística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Peregrino (Éxitos) se publica en tapa blanda, con 368 páginas, bajo el sello Plaza & Janés. Esta edición permite leer la obra en papel y conservarla en una estantería sin el peso habitual de una encuadernación rígida; su extensión también admite repartir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Peregrino (Éxitos) comparte el terreno del thriller con 25 días hasta Navidad, de Per Jacobsen, que sitúa su propuesta en el periodo de adviento. También se relaciona por su clasificación de misterio con Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves; son obras de autores distintos y con títulos que apuntan a contextos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9788410424524"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a341a2052702fd1",
+  "origen": "chatgpt-web"
+}

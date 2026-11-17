@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387871079",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entre los muertos (edición limitada · Black Friday) (Trilogía de Illumbe 3) (Campaña | Black Friday) está dirigido a lectores de misterio y thriller que siguen la narrativa de Mikel Santiago. El título lo identifica como el n.º 3 de Trilogía de Illumbe, de modo que resulta menos adecuado para quienes buscan empezar por una obra identificada como inicio de serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Entre los muertos (edición limitada · Black Friday) (Trilogía de Illumbe 3) (Campaña | Black Friday) cuenta con una edición limitada de Black Friday publicada por Penguin Bolsillo el 2026-10-01. Esta presentación contiene 480 páginas en castellano, tiene tapa blanda y formato de bolsillo; el título la identifica como el n.º 3 de Trilogía de Illumbe.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "formato_edicion",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de Entre los muertos (edición limitada · Black Friday) (Trilogía de Illumbe 3) (Campaña | Black Friday) utiliza tapa blanda y formato de bolsillo. Sus 480 páginas quedan reunidas en un único libro de papel, una presentación que facilita llevar la lectura fuera de casa sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La chica del lago comparte autor con Entre los muertos (edición limitada · Black Friday) (Trilogía de Illumbe 3) (Campaña | Black Friday): ambas obras son de Mikel Santiago. Otra lectura para comparar es 25 días hasta Navidad, de Per Jacobsen, planteada como thriller de adviento; Entre los muertos se clasifica como misterio y thriller, y su título la identifica como el n.º 3 de Trilogía de Illumbe.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387871963",
+        "isbn-9788427055063"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52c1c2f2c066de4f",
+  "origen": "chatgpt-web"
+}

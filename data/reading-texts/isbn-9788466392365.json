@@ -4,53 +4,52 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de Stephen King que buscan una novela extensa donde confluyen fantasía, terror, aventuras y ciencia ficción. Sus 992 páginas y su identificación como La Torre Oscura 7 la alejan de quien prefiera una historia breve o comenzar la serie por su primer título.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "esta_edicion",
-      "texto": "Esta edición se distingue por los cantos tintados y su publicación en la colección de bolsillo de Penguin Bolsillo. Apareció el 22 de octubre de 2026, en castellano y con el ISBN 9788466392365, que permite identificarla frente a otras presentaciones de la obra.",
-      "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
-        "fecha_publicacion",
-        "idioma",
-        "isbn13"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La opción disponible es la tapa blanda de bolsillo, con 992 páginas. Permite leer La Torre Oscura (edición cantos tintados) (La Torre Oscura 7) (Campaña | Edición con cantos tintados) en papel, aunque su extensión supone un volumen considerable para transportarlo a diario.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El pistolero (edición cantos tintados) (La Torre Oscura 1) comparte autor, serie y presentación con cantos tintados; el título lo identifica como el n.º 1, frente al n.º 7 de esta entrega. Carrie (edición serie) también es de Stephen King, pero sitúa su conflicto en el acoso escolar y la convivencia familiar, en lugar de combinar varios géneros de ficción.",
+      "texto": "La Torre Oscura (edición cantos tintados) (La Torre Oscura 7) (Campaña | Edición con cantos tintados) se dirige a lectores de fantasía y aventuras interesados en la serie de Stephen King. El título lo identifica como el n.º 7, por lo que no es la opción más directa para quien quiera comenzar por el volumen inicial.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
         "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de La Torre Oscura se distingue por sus cantos tintados y su presentación como libro de bolsillo de Penguin Bolsillo. Publicada el 22 de octubre de 2026, reúne 992 páginas en castellano y mantiene la identificación de la serie en el propio título.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 992 páginas de esta edición con cantos tintados en un libro de bolsillo, aunque su extensión supone un volumen físico considerable. Kindle evita transportar ese grosor y permite leer en el móvil; el audiolibro ofrece una alternativa para seguir la obra mediante escucha.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El pistolero (edición cantos tintados) (La Torre Oscura 1) es la comparación más directa: comparte autor, serie y acabado de cantos tintados con esta edición de La Torre Oscura. Los títulos identifican respectivamente el n.º 1 y el n.º 7, una diferencia relevante para elegir por dónde comenzar o continuar la colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396806",
         "isbn-9788466392259"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7b8d357256a1a794",
+  "fuente_hash": "1826f0752b57b5c6",
   "origen": "chatgpt-web"
 }

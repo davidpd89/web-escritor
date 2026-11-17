@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Dónde está la caca? está dirigido a niños de 3 a 5 años que disfrutan buscando objetos escondidos en ilustraciones. Sus escenas de animales, excursiones y lugares de ocio permiten jugar a localizar elementos; no responde a quien busca una narración extensa o una lectura centrada en el texto.",
+      "texto": "¿Dónde está la caca? está dirigido a niños de 3 a 5 años que disfrutan buscando elementos escondidos en escenas ilustradas. Su propuesta de localizar cacas en escenarios cotidianos y naturales encaja menos con quienes buscan una historia extensa para leer de principio a fin.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,36 +14,38 @@
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "La edad recomendada para ¿Dónde está la caca? es de 3 a 5 años. Tiene 40 páginas, está escrito en castellano y se presenta en tapa dura de cartoné, una encuadernación rígida que facilita su manipulación durante las actividades de búsqueda visual.",
+      "texto": "¿Dónde está la caca? tiene una edad recomendada de 3 a 5 años y consta de 40 páginas en tapa dura. La actividad consiste en encontrar seis cacas en cada escena, con escenarios como un acuario, una selva tropical o una pista de patinaje, lo que favorece la observación y la búsqueda visual.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "numero_paginas",
-        "idioma",
-        "edicion"
+        "formato_edicion",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Dónde está la caca? se ofrece en tapa dura, con 40 páginas destinadas a localizar figuras dentro de distintas escenas. La encuadernación rígida permite apoyar el libro abierto y recorrer las ilustraciones con el dedo, tanto durante una lectura compartida como en las búsquedas individuales.",
+      "texto": "¿Dónde está la caca? se ofrece en tapa dura, con encuadernación en cartoné y 40 páginas. El formato rígido permite apoyar el libro abierto mientras se buscan los elementos de cada escena, una característica práctica para compartir la actividad con niños pequeños.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "edicion",
         "numero_paginas",
+        "edad_recomendada",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Dónde está la caca? comparte con BUSCA Y ENCUENTRA: MONSTRUOS la actividad de localizar elementos ocultos en escenas ilustradas. El primero utiliza situaciones cotidianas y escenarios naturales, mientras que el segundo recurre a criaturas fantásticas. Frente a COLOREA KAWAII ANIMALES ADORABLES, cambia la actividad de colorear por la observación y la búsqueda.",
+      "texto": "Busca y encuentra: Monstruos comparte con ¿Dónde está la caca? la actividad de localizar elementos en escenas ilustradas, pero sustituye las cacas por criaturas fantásticas. Mi primer busca y encuentra. La magia de la Navidad (Varios) también pertenece a la propuesta de búsqueda visual, aunque presenta una temática navideña frente a los escenarios variados de ¿Dónde está la caca?.",
       "evidencias": [
         "titulo",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387708634",
-        "isbn-9788410333963"
+        "isbn-9788410333963",
+        "isbn-9788408314936"
       ]
     }
   ],

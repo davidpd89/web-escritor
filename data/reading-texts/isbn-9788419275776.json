@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Guerra de dragones (Lengua de dragones 2) encaja con lectores desde los 12 años interesados en fantasía juvenil, rebeliones y relaciones sentimentales. Su conflicto gira alrededor de una guerra y de una protagonista perseguida, por lo que se distancia de las aventuras fantásticas sin enfrentamientos políticos ni amenazas colectivas.",
+      "texto": "Guerra de dragones (Lengua de dragones 2) se dirige a lectores desde los 12 años interesados en la fantasía juvenil, los dragones y los conflictos políticos. Combina rebelión, investigación lingüística y elementos de romantasy. Encaja menos con quienes buscan una historia realista o una lectura alejada de los enfrentamientos bélicos.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "La edad recomendada para Guerra de dragones (Lengua de dragones 2) es a partir de 12 años. La trama incluye persecución, rebelión, amenazas de guerra y referencias a bombas, elementos que conviene considerar para lectores sensibles a la violencia y a las situaciones de peligro.",
+      "texto": "La edad recomendada para Guerra de dragones (Lengua de dragones 2) es a partir de 12 años. Su argumento incorpora persecución, criminalización de la protagonista, rebelión y amenazas de guerra, con referencias a armas y explosiones. Estos elementos pueden resultar inquietantes para lectores sensibles a los conflictos violentos.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -23,36 +23,38 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Guerra de dragones (Lengua de dragones 2) combina fantasía juvenil con un conflicto donde el conocimiento lingüístico tiene consecuencias políticas. Vivian Featherswallow intenta impedir una guerra mediante la búsqueda de una especie de dragón considerada extinguida; el título lo identifica como el n.º 2 de Lengua de dragones.",
+      "texto": "Guerra de dragones (Lengua de dragones 2) plantea una fantasía juvenil en la que comprender el lenguaje de los dragones tiene consecuencias políticas y militares. La protagonista debe afrontar una rebelión y buscar respuestas relacionadas con una especie considerada extinguida. Sus 304 páginas combinan aventura, investigación y un conflicto cuya resolución depende de la comunicación.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda con solapas de Guerra de dragones (Lengua de dragones 2) contiene 304 páginas y permite una lectura física sin recurrir a un volumen de tapa dura. Kindle facilita llevar el libro en un dispositivo electrónico, mientras que el audiolibro permite seguir la aventura mediante escucha.",
+      "texto": "Guerra de dragones (Lengua de dragones 2) está disponible en tapa blanda, Kindle y audiolibro. La edición física de Salamandra tiene 304 páginas y solapas, una opción para conservar el ejemplar o regalarlo. Kindle permite llevar la lectura en dispositivos compatibles, mientras que el audiolibro facilita escuchar la historia sin depender del libro impreso.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Guerra de dragones (Lengua de dragones 2) comparte con Los Gatos Guerreros | El augurio de las estrellas 6 - La última esperanza una orientación fantástica hacia conflictos de gran alcance. En la obra de S.F. Williamson, la diferencia está en el protagonismo de la traducción y la rebelión; frente a Alas de escarcha y oro: El canto del cisne, el punto de partida se centra en una guerra que podría evitarse mediante el lenguaje.",
+      "texto": "Guerra de dragones (Lengua de dragones 2) puede compararse con Los Gatos Guerreros | El augurio de las estrellas 6 - La última esperanza, de Erin Hunter, por presentar una amenaza colectiva dentro de la fantasía. Mientras esta última aborda el final de las estrellas, Guerra de dragones (Lengua de dragones 2) desarrolla una rebelión vinculada al lenguaje de los dragones. Ambas pertenecen a series, aunque la novela de S.F. Williamson se dirige a lectores desde los 12 años y centra su conflicto en la guerra y la investigación lingüística.",
       "evidencias": [
         "titulo",
         "autores",
+        "afines_catalogo",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "edad_recomendada",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788419275424",
-        "isbn-9791387949938"
+        "isbn-9788419275424"
       ]
     }
   ],

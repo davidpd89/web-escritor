@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las Escrituras Perdidas de Nag Hammadi ― Edición Library of Alexandria: Evangelios gnósticos de Tomás y Felipe, el Libro Secreto de Juan y los escritos perdidos de la Iglesia primitiva está dirigido a lectores interesados en los textos religiosos antiguos y la espiritualidad. Su orientación hacia los escritos gnósticos lo diferencia de los libros de ficción juvenil y de las guías de prácticas espirituales.",
+      "texto": "Está dirigido a lectores interesados en textos religiosos antiguos, especialmente en los evangelios gnósticos y los escritos de la Iglesia primitiva. Su contenido se aleja de la narrativa de ficción y se centra en documentos vinculados a distintas tradiciones espirituales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,32 +13,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 222 páginas y reúne los textos en un volumen físico de cubierta flexible. Es el formato disponible para esta obra de Library Of Alexandria, una alternativa para quien prefiere consultar y conservar el contenido en papel.",
+      "texto": "La edición de Library Of Alexandria se presenta en tapa blanda, con encuadernación flexible y texto en castellano. Este formato permite consultar los distintos escritos en papel, marcar pasajes y volver a ellos durante el estudio.",
       "evidencias": [
-        "titulo",
         "editorial",
-        "numero_paginas",
+        "edicion",
         "formatos_disponibles",
-        "formato_edicion"
+        "idioma",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las Escrituras Perdidas de Nag Hammadi ― Edición Library of Alexandria: Evangelios gnósticos de Tomás y Felipe, el Libro Secreto de Juan y los escritos perdidos de la Iglesia primitiva comparte con Guía completa de Mudras: El secreto para sentirse bien en 3 minutos está en tus manos (No ficción), de David Muñoz Moreno, Lourdes Muñoz Anaya, el interés por la espiritualidad. Se diferencia por centrarse en escritos religiosos antiguos, frente a los mudras de la guía. Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO), de Emanuela Brumana, Marco Guadalupi, amplía la comparación hacia la magia y el ocultismo.",
+      "texto": "Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft comparte el interés por los textos religiosos cristianos, pero se centra en la Biblia católica. Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación aborda otra tradición espiritual, orientada a los fundamentos y la práctica del Dharma, frente a los escritos gnósticos y cristianos antiguos de esta obra.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788411724210",
-        "isbn-9791388139604"
+        "isbn-9791399210088",
+        "isbn-9798890989536"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8b20dd14f25a56ba",
+  "fuente_hash": "97c10ec3e64a2402",
   "origen": "chatgpt-web"
 }

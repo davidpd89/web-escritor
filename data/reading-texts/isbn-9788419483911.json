@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a personas interesadas en preparar comida japonesa casera y en incorporar recetas de esa tradición a la cocina familiar. Su planteamiento práctico, con 60 recetas, se aparta de los libros centrados en teoría nutricional o de quienes buscan una obra de lectura narrativa.",
+      "texto": "Cocina japonesa familiar: 60 recetas de cocina casera (Comerse el mundo) está dirigido a quienes desean preparar platos japoneses en un entorno doméstico. Su enfoque en recetas familiares lo separa de los libros centrados en vinos, sumillería o análisis de bebidas.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,40 +12,36 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El libro reúne 60 recetas de cocina japonesa casera orientadas al ámbito familiar. Saori Ichihara presenta este contenido en un volumen de 152 páginas de la colección Comerse el mundo, pensado para consultar preparaciones y utilizarlas en la cocina cotidiana.",
+      "texto": "El libro reúne 60 recetas de cocina japonesa casera, según indica su título. Sus 152 páginas ofrecen un conjunto delimitado de preparaciones para consultar al planificar comidas o cocinar en casa, dentro de la colección Comerse el mundo.",
       "evidencias": [
         "titulo",
-        "autores",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible para consultar las 60 recetas de cocina japonesa familiar. Sus 152 páginas permiten mantener las preparaciones reunidas en un volumen físico que puede colocarse junto a otros recetarios y utilizarse como referencia al cocinar.",
+      "texto": "La edición disponible es de tapa dura y tiene 152 páginas. Este formato permite mantener el recetario en una estantería de cocina y consultarlo repetidamente durante la preparación de platos, aunque requiere un soporte estable para dejarlo abierto.",
       "evidencias": [
         "formatos_disponibles",
-        "titulo",
         "numero_paginas",
-        "edicion"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Chef sapiens comparte el uso de recetas, pero reúne 100 preparaciones saludables desde una perspectiva histórica, mientras que Cocina japonesa familiar se centra en 60 recetas de cocina casera. Reset alimentario aborda la nutrición cotidiana desde un enfoque general, frente a la orientación práctica y familiar del libro de Saori Ichihara.",
+      "texto": "Arroz (Comerse el mundo), de Tove Nilsson, comparte colección con Cocina japonesa familiar: 60 recetas de cocina casera (Comerse el mundo), de Saori Ichihara. La diferencia está en el alcance anunciado: el primero se centra en el arroz, mientras que el segundo reúne 60 recetas de cocina japonesa doméstica.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
+        "autores"
       ],
       "enlaces": [
-        "isbn-9788466395939",
-        "isbn-9788413445625"
+        "isbn-9788419483898"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fa5d3c40495928ca",
+  "fuente_hash": "7382ef24d1939608",
   "origen": "chatgpt-web"
 }

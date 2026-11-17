@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410093454",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Criptomonedas sin espejismos se orienta a lectores interesados en las criptomonedas desde una perspectiva económica. Es una obra de Carlos de Anta Puig, clasificada en economía y empresa y con 152 páginas; no corresponde a quien busca ficción narrativa o una novela centrada en personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Criptomonedas sin espejismos está disponible en tapa blanda y Kindle, dos opciones para consultar sus 152 páginas. El papel permite conservar el volumen en una biblioteca y volver a sus apartados físicamente; Kindle facilita llevar la lectura en el móvil o en un dispositivo electrónico sin cargar con el libro impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Criptomonedas sin espejismos y ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido se relacionan por su ubicación en el ámbito de la economía y la empresa. Carlos de Anta Puig centra su título en las criptomonedas, mientras que Rory Sutherland plantea una exploración de ideas aparentemente carentes de sentido; el punto de partida de cada obra es diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399087222"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5da49a52d4106738",
+  "origen": "chatgpt-web"
+}

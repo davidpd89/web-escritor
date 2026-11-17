@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399292879",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Visión de lejos: Miradas con perspectiva: 1, de Pablo Artal, está dirigido a lectores interesados en la divulgación científica y el ensayo. Su planteamiento se aleja de la ficción y se sitúa en el ámbito de la divulgación, con una extensión de 138 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura presenta sus 138 páginas en una encuadernación resistente, adecuada para conservar el volumen y consultarlo posteriormente. Es el formato disponible para esta edición, una alternativa física frente a la lectura en pantalla o en audiolibro.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Visión de lejos II: Seguir mirando: 2, de Pablo Artal, es el título más directamente relacionado con este libro: comparte autor y la denominación Visión de lejos. La diferencia está en la identificación de cada volumen: el primero lleva el subtítulo Miradas con perspectiva: 1 y el segundo, Seguir mirando: 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399292831"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "30503d77a99a00bb",
+  "origen": "chatgpt-web"
+}

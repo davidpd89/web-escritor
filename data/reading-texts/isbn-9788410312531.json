@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788410312531",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "SemergenDOC Dolor Agudo está dirigido a lectores que buscan contenidos de divulgación científica centrados en el dolor agudo. Por su temática específica, se diferencia de los libros de divulgación general sobre tecnología, inteligencia artificial o conocimientos científicos de otros ámbitos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "SemergenDOC Dolor Agudo aborda el dolor agudo desde el ámbito de la divulgación científica. Su título delimita un asunto concreto dentro de la ciencia, en lugar de plantear una introducción general a distintas disciplinas; el volumen tiene 124 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece SemergenDOC Dolor Agudo en un volumen físico de 124 páginas. Esta extensión permite disponer de la publicación en papel para su consulta y lectura, con una edición en castellano de Sanidad y Ediciones SL.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA comparte con SemergenDOC Dolor Agudo el ámbito de la divulgación científica. La diferencia está en la materia: el primero se ocupa de la inteligencia artificial, mientras que SemergenDOC Dolor Agudo concentra su contenido en el dolor agudo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "31128f53a3b22515",
+  "origen": "chatgpt-web"
+}

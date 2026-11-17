@@ -4,38 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a quienes buscan una lectura devocional de temática religiosa y espiritual para incorporar a su rutina diaria. Mi Experiencia Con Dios Día a Día: Diario Devocional, de Henry T Blackaby y Richard Blackaby, se aleja de la narrativa de ficción y de los manuales sobre cuestiones materiales.",
+      "texto": "Mi Experiencia Con Dios Día a Día: Diario Devocional está orientado a lectores interesados en la espiritualidad religiosa y en mantener una lectura devocional cotidiana. Su planteamiento de diario lo distingue de una novela de ficción o de una obra dedicada a estudiar acontecimientos históricos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa dura, con 384 páginas en castellano. Este formato permite conservar el volumen como libro de consulta habitual y mantenerlo en una estantería para volver a sus lecturas devocionales. La encuadernación rígida también resulta apropiada para entregarlo como regalo físico.",
+      "texto": "La edición de Mi Experiencia Con Dios Día a Día: Diario Devocional se presenta en tapa dura y reúne 384 páginas en castellano. El soporte físico permite mantener el diario en un lugar habitual de lectura y volver a sus páginas durante el uso cotidiano, sin depender de dispositivos electrónicos.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparte el interés por la práctica espiritual, aunque se centra expresamente en el Dharma. Mi Experiencia Con Dios Día a Día: Diario Devocional plantea, desde su propio título, una relación cotidiana con Dios mediante la lectura devocional.",
+      "texto": "Mi Experiencia Con Dios Día a Día: Diario Devocional puede compararse con Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción, de Sofía Noemy Quintanilla Ramírez, por su orientación religiosa. El primero adopta la forma de diario devocional, mientras que el segundo anuncia un estudio teológico sobre la adopción. Ambos se diferencian de Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, centrado en otra tradición espiritual.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791387625535",
         "isbn-9791399210088"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a100c10df34b8367",
+  "fuente_hash": "f6802964d3b1daf5",
   "origen": "chatgpt-web"
 }

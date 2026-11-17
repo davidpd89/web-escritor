@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788418205026",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Eso no estaba en mi libro de la revolucion francesa (Historia), de Ernest Bendriss, se dirige a lectores interesados en los acontecimientos históricos y los cambios políticos del pasado. Su temática histórica lo distancia de quienes buscan novelas de ficción, relatos románticos o manuales de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Eso no estaba en mi libro de la revolucion francesa (Historia) se publica en tapa blanda y tiene 416 páginas en castellano. La edición de Almuzara permite consultar y releer el contenido histórico en un volumen físico de cubierta flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Eso no estaba en mi libro de la revolucion francesa (Historia) comparte el interés por los cambios políticos con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback. Ernest Bendriss aborda un proceso histórico francés, mientras que la obra de Ryback se centra en la caída de una democracia bajo Hitler. Ambos tratan acontecimientos del pasado desde asuntos históricos diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d0f26e3cb5b90ec3",
+  "origen": "chatgpt-web"
+}

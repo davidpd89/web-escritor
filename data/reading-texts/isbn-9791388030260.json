@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¡No te asustes, solo soy un dinosaurio! (Miau) se dirige al público infantil interesado en los dinosaurios y los animales. El libro de Ben Lerwill tiene 40 páginas y se diferencia de las lecturas juveniles extensas por su formato breve y su temática vinculada a la naturaleza.",
+      "texto": "¡No te asustes, solo soy un dinosaurio! (Miau), de Ben Lerwill, está dirigido al público infantil y sitúa al dinosaurio en el centro de su propuesta. Sus 40 páginas corresponden a una lectura breve, frente a las novelas juveniles de mayor extensión. Por su orientación infantil, se aleja de quienes buscan narrativa adulta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,33 +14,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¡No te asustes, solo soy un dinosaurio! (Miau) se ofrece en tapa dura, con 40 páginas en castellano. La encuadernación rígida de esta edición de Ediciones Jaguar permite manipular el libro durante lecturas compartidas y proporciona una cubierta resistente para guardarlo junto a otros títulos infantiles.",
+      "texto": "¡No te asustes, solo soy un dinosaurio! (Miau) se publica en tapa dura, con 40 páginas en castellano. La encuadernación rígida ofrece una cubierta más resistente para manipularlo y guardarlo después de cada lectura, una característica práctica en un libro infantil. La edición pertenece a Ediciones Jaguar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "¡No te asustes, solo soy un dinosaurio! (Miau) comparte el interés por los animales con Animales, de Susaeta Ediciones, que reúne seis cuentos ilustrados protagonizados por ellos, mientras que Ben Lerwill centra su título en un dinosaurio. También se aproxima a Aprende a contar animales, de Susaeta Ediciones, aunque este último incorpora el aprendizaje de los números del 1 al 10 y el libro de Ben Lerwill se presenta como una lectura infantil sobre un dinosaurio.",
-      "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791370341589",
-        "isbn-9791370341176"
+        "editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "46f2a3691f5c9484",
+  "fuente_hash": "62b1530ce22adaff",
   "origen": "chatgpt-web"
 }

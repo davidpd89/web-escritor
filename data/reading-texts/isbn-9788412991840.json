@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788412991840",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Inventario de ferocidades está dirigido a lectores de poesía en castellano que prefieren un volumen de extensión contenida. Sus 88 páginas lo distinguen de una novela larga o de una obra de consulta; tampoco responde a quien busca específicamente narrativa en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Inventario de ferocidades se presenta en tapa blanda, con 88 páginas publicadas por Edicions Tremendes. El ejemplar físico permite recorrer el poemario y volver a sus páginas sin depender de una pantalla, en un volumen relativamente breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A solas, de María Jesús Martínez Ramos, y 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, figuran entre las lecturas afines a Inventario de ferocidades. La comparación se establece dentro de la poesía: los títulos apuntan respectivamente a la soledad, las esquinas y las ferocidades, sin que eso permita equiparar sus voces o contenidos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410907539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f62f3b72f1dbe4ad",
+  "origen": "chatgpt-web"
+}

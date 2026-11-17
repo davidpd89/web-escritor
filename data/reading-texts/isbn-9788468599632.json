@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Base de la Naruropatía 2ª Edición está orientado a lectores interesados en la naturopatía, el bienestar y los temas relacionados con la salud. Sus 261 páginas se concentran en ese ámbito, por lo que no responde a quien busca una novela familiar o un libro centrado exclusivamente en las relaciones personales.",
+      "texto": "Base de la Naruropatía 2ª Edición se dirige a lectores interesados en la naturopatía y las cuestiones de salud y bienestar. Sus 261 páginas ofrecen una extensión intermedia para abordar esa materia; por su orientación temática, no responde a la búsqueda de una novela ni de un libro de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,18 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Base de la Naruropatía 2ª Edición se ofrece en tapa blanda, con 261 páginas en castellano. Esta presentación permite conservar el volumen para consultas posteriores y utilizarlo sin conexión ni dispositivo electrónico. La edición impresa pertenece a Bubok Publishing.",
+      "texto": "La edición de Base de la Naruropatía 2ª Edición, de Marcos Vélez, se ofrece en tapa blanda. Sus 261 páginas permiten una lectura en papel que puede retomarse por sesiones y conservarse para posteriores consultas sobre la materia.",
       "evidencias": [
         "titulo",
+        "autores",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, también aborda cuestiones de salud y bienestar. Base de la Naruropatía 2ª Edición, de Marcos Vélez, delimita su asunto a la naturopatía; el otro título abarca además felicidad, relaciones y éxito.",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) coincide con Base de la Naruropatía 2ª Edición en su relación con la salud y el bienestar. El libro de Dick Van Dyke anuncia consejos sobre longevidad, mientras el de Marcos Vélez se presenta como una obra sobre las bases de la naturopatía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9791387852290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e87a4e310c91636a",
+  "fuente_hash": "d43ea8bf7b2514b4",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788417144616",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la formación de pastelería y repostería dentro de la dirección de cocina. Por su enfoque en elaboraciones culinarias y su vinculación con un ciclo formativo de grado superior, no responde a quien busca narrativa gastronómica o recetas de cocina general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 216 páginas en castellano, publicadas por Editorial Altamar. Este formato permite consultar las elaboraciones de pastelería y repostería durante el estudio y transportar el volumen entre clases y espacios de trabajo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a 20 minutos ¡y listo!, de Jamie Oliver, centrado en cocinar con poco tiempo, este volumen aborda específicamente las elaboraciones de pastelería y repostería en la formación de dirección de cocina. Al micro y listo, de Dani García, plantea la cocina desde la facilidad de preparación, mientras que este título se sitúa en un contexto formativo especializado.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425374074",
+        "isbn-9788467084757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c7166f83da8e56ab",
+  "origen": "chatgpt-web"
+}

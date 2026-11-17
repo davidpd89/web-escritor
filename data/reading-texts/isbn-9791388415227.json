@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un viernes cualquiera se sitúa entre el ensayo, el desarrollo personal y el ámbito jurídico, por lo que encaja con lectores interesados en esos asuntos. No se presenta como una novela de aventuras ni como una obra de ficción fantástica.",
+      "texto": "Un viernes cualquiera, de Miguel Domínguez Palomares, se dirige a lectores interesados en desarrollo personal, ensayo y derecho. Sus 112 páginas corresponden a una publicación breve dentro de esos ámbitos; no es una elección orientada a quien busca ficción fantástica o romántica.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un viernes cualquiera está editado en tapa dura y tiene 112 páginas en castellano. La encuadernación rígida protege el volumen durante su conservación y resulta adecuada para mantenerlo en una biblioteca personal o entregarlo como regalo físico.",
+      "texto": "Un viernes cualquiera tiene una edición en tapa dura de 112 páginas, publicada por Serendipia Editorial. Este formato proporciona una encuadernación rígida para conservar el volumen, consultarlo de nuevo o entregarlo como regalo, sin recurrir a una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Todo lo que necesitas saber sobre herencias y donaciones: Guía práctica para ahorrar impuestos y evitar problemas (Deusto) comparte con Un viernes cualquiera su relación con el ámbito jurídico. El libro de Alejandro Ebrat Picart se centra expresamente en herencias, donaciones e impuestos, mientras que el de Miguel Domínguez Palomares también se sitúa en el ensayo y el desarrollo personal.",
+      "texto": "El momento es ahora: Un manifiesto contra la resignación (Espasa Ensayo), de Anónimo, ofrece un punto de comparación con Un viernes cualquiera por su relación con el ensayo y la reflexión personal. La obra de Miguel Domínguez Palomares también se clasifica en derecho, mientras que el título de Anónimo plantea expresamente un manifiesto contra la resignación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423440962"
+        "isbn-9788467085174"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "108902e9b090d396",
+  "fuente_hash": "5829f9b3bbbc228d",
   "origen": "chatgpt-web"
 }

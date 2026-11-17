@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409941735",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Adversis encaja con lectores que buscan fantasía y aventuras en una obra extensa. Jorge López Algarra firma un libro de 438 páginas, por lo que su clasificación temática lo diferencia de la narrativa realista o de los ensayos, aunque el título no permite concretar una franja de edad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Adversis cuenta con una edición en tapa dura de 438 páginas. El volumen de Jorge López Algarra está publicado en castellano y ofrece una cubierta rígida para quienes prefieren conservar sus lecturas de fantasía y aventuras en papel o adquirirlas como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adversis puede compararse con Alas de escarcha y oro: El canto del cisne por su pertenencia a la fantasía. La obra de Jorge López Algarra también se clasifica como aventura, mientras que el título de Marta Morillo presenta a Eira, un personaje que oculta sus dones y debilidades. La diferencia más concreta está en ese punto de partida narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb1cc084b430a4c8",
+  "origen": "chatgpt-web"
+}

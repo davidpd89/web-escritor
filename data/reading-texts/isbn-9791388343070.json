@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388343070",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Miniburundi. Opuestos está dirigido al público infantil y aborda los opuestos, según indica su título. Con 10 páginas, plantea una lectura breve, distinta de los relatos juveniles extensos o de las novelas con tramas desarrolladas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Miniburundi. Opuestos se presenta en tapa dura, con 10 páginas dedicadas a una propuesta infantil sobre los opuestos. La edición de Catapulta Editores permite manejar el libro físicamente y recorrer sus páginas en sesiones breves de lectura o exploración compartida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7710212892dfb9ed",
+  "origen": "chatgpt-web"
+}

@@ -4,41 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Lo primero que se rompió fue el corazón / Pretend Youre Dead and I Carry You se dirige a lectores de narrativa contemporánea interesados en las relaciones familiares. Juliana Delgado Lopera firma una obra de 368 páginas vinculada a ese ámbito. Por su enfoque familiar y contemporáneo, encaja menos con quienes buscan fantasía épica o divulgación científica.",
+      "texto": "Lo primero que se rompió fue el corazón / Pretend Youre Dead and I Carry You se dirige a lectores de narrativa contemporánea en castellano. Sus 368 páginas corresponden a una novela de extensión media, por lo que no responde a quien busca una lectura especialmente breve o un libro práctico.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
+        "idioma",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Lo primero que se rompió fue el corazón / Pretend Youre Dead and I Carry You se publica en tapa blanda, con 368 páginas en castellano. Su cubierta flexible permite llevar el volumen en una bolsa y continuar la lectura fuera de casa. Alfaguara ofrece así una edición física de extensión media-larga para leer en varias sesiones.",
+      "texto": "Lo primero que se rompió fue el corazón / Pretend Youre Dead and I Carry You está disponible en tapa blanda, con 368 páginas. Esta edición física de Alfaguara permite leerlo en papel, conservarlo en la estantería o regalar un ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Lo primero que se rompió fue el corazón / Pretend Youre Dead and I Carry You puede compararse con Amargo, amargo (Literaturas), de Joanna Bator, dentro de una selección de narrativa literaria. La obra de Juliana Delgado Lopera se sitúa expresamente en la narrativa contemporánea y aborda el ámbito familiar; Amargo, amargo (Literaturas) se presenta bajo el sello de una colección literaria. La autoría y la identificación temática permiten distinguir ambas lecturas.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387846558"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b2bb147e6585e78c",
+  "fuente_hash": "8a3118f26b869849",
   "origen": "chatgpt-web"
 }

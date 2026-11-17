@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410158252",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No, dijo Custard la ardilla, de Sergio Ruzzier, pertenece a la literatura infantil y cuenta con 40 páginas. Su extensión permite plantear una lectura breve dentro de este ámbito, tanto individual como compartida. No está orientado a quien busca una novela adulta extensa o una obra de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No, dijo Custard la ardilla está disponible en tapa dura, en una edición de 40 páginas publicada por Liana Editorial. La encuadernación rígida resulta práctica para conservar el volumen y manipularlo en lecturas compartidas, además de presentarlo como regalo físico. Es una opción de lectura en papel, no una modalidad de escucha o lectura digital.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "800a0424f4913b19",
+  "origen": "chatgpt-web"
+}

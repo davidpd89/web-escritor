@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399303926",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Ventaja Invisible: 1 (Saga Invisible), de Antonio Plaza, se dirige a lectores interesados en desarrollo personal, economía y experiencias biográficas. Por su orientación práctica y empresarial, encaja menos con quienes buscan una novela de ficción o un manual exclusivamente técnico de finanzas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Ventaja Invisible: 1 (Saga Invisible) está disponible en tapa blanda, con 224 páginas en castellano. Esta edición de Lula Editorial permite consultar distintos apartados en papel y transportarla sin el volumen habitual de una obra de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Ventaja Invisible: 1 (Saga Invisible) comparte el ámbito empresarial con Horneando el éxito / Baking Success, de Gabriel Torres, aunque este último sitúa el éxito en su propio título. También puede compararse con Buffett: La construcción de un capitalista (IMPULSA), de Roger Lowenstein, que centra su enfoque en la figura de un capitalista, frente a la combinación de desarrollo personal y economía de Antonio Plaza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073878982",
+        "isbn-9788411005630"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "442aedc0bf8d35fb",
+  "origen": "chatgpt-web"
+}

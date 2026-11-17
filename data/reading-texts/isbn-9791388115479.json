@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores de historia política, pensamiento económico y conflictos de clase que quieran acercarse a un texto de Friedrich Engels. Su atención a la violencia y a la Alemania del siglo XIX lo aleja de quienes buscan una introducción general a la historia contemporánea sin enfoque político.",
+      "texto": "El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción) se dirige a lectores interesados en historia, pensamiento económico y conflictos sociales. Su carácter ensayístico y su marco histórico lo alejan de la narrativa de ficción y de los manuales prácticos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El texto relaciona el uso de la violencia con los procesos históricos y la lucha entre clases sociales. Friedrich Engels aborda estas cuestiones a través de la figura de Bismarck y del contexto alemán del siglo XIX, dentro de un ensayo que conecta historia, economía y política.",
+      "texto": "Friedrich Engels aborda la violencia y la lucha de clases en relación con Bismarck y la Alemania del siglo XIX. El enfoque corresponde al ensayo histórico y al análisis de cuestiones económicas y sociales, con la violencia como eje de interpretación de los conflictos políticos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,32 +21,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Esta edición en tapa blanda de Biblioteca Nueva reúne 96 páginas en castellano. Su extensión reducida facilita leer el texto en pocas sesiones, transportarlo y recuperar pasajes para estudiar las cuestiones históricas y políticas que aborda.",
+      "texto": "El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción) está disponible en tapa blanda. Sus 96 páginas forman un volumen físico breve, manejable para leer, consultar y volver a pasajes concretos sin recurrir a un dispositivo electrónico.",
       "evidencias": [
-        "formatos_disponibles",
-        "editorial",
-        "numero_paginas",
-        "idioma",
         "titulo",
-        "categorias"
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El papel de la violencia en la historia comparte autor con El Manifiesto comunista, firmado por Karl Marx y Friedrich Engels, pero se concentra en la violencia, Bismarck y las clases sociales en la Alemania del siglo XIX. Anarquía capitalista, de Miguel Anxo Bastos Boubeta, también aborda cuestiones económicas y políticas, aunque desde las raíces del pensamiento anarcocapitalista y no desde el contexto histórico alemán.",
+      "texto": "El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción) comparte autor con El Manifiesto comunista. Ed. Especial (Ilustrados), firmado por Karl Marx y Friedrich Engels. Frente a esa obra de autoría conjunta, el texto de Friedrich Engels se centra específicamente en la violencia, Bismarck y la lucha de clases en la Alemania del siglo XIX.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457"
+        "isbn-9791388306594"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9734dcc0c803064e",
+  "fuente_hash": "ab07888962697d55",
   "origen": "chatgpt-web"
 }

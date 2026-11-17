@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791370093341",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando se encuentran las especies, de Donna Haraway, se dirige a lectores interesados en el ensayo, la filosofía y la divulgación científica. Su extensión de 480 páginas y su orientación hacia la reflexión intelectual lo sitúan lejos de quienes buscan narrativa de ficción o lecturas breves de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 480 páginas de Cuando se encuentran las especies, de Donna Haraway, en un volumen físico que permite avanzar y consultar sus contenidos sin depender de una pantalla. Es el formato disponible de esta edición de Alianza Editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ecología o economía: Hay que elegir: 136 (Ensayo) comparte con Cuando se encuentran las especies, de Donna Haraway, el terreno de la reflexión ensayística y su relación con cuestiones científicas y filosóficas. Se diferencian en el foco: el título de Anselm Jappe plantea la relación entre ecología y economía, mientras que el de Donna Haraway se presenta dentro de la divulgación científica y la filosofía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410476585",
+        "isbn-9780241856574"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "919c48d91cea611b",
+  "origen": "chatgpt-web"
+}

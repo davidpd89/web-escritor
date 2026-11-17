@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388205699",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vidas en alto: Una amistad femenina en la posguerra española (Cuentahílos), de Juan C. Rodulfo, se dirige a lectores interesados en las relaciones personales dentro de la historia española del siglo XX. Su enfoque biográfico e histórico se distancia de las novelas ambientadas en mundos imaginarios o centradas en conflictos ajenos a ese periodo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vidas en alto: Una amistad femenina en la posguerra española (Cuentahílos) cuenta con una edición en tapa blanda de 186 páginas. Publicada en castellano por Sílex Ediciones, permite leer en papel una obra centrada en la amistad femenina y la memoria de la posguerra española, además de conservarla para posteriores consultas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, comparte con Vidas en alto: Una amistad femenina en la posguerra española (Cuentahílos) el interés por experiencias humanas vinculadas a contextos históricos difíciles, aunque sus asuntos centrales son diferentes. Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978), de Tomeu Canyelles Canyelles, también aborda una trayectoria personal, mientras Juan C. Rodulfo sitúa la amistad femenina en la posguerra española.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788417645311",
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9372737571ec9585",
+  "origen": "chatgpt-web"
+}

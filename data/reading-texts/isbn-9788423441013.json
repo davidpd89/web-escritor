@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El estado del Estado encaja con lectores interesados en la democracia española, las instituciones y los debates políticos contemporáneos. Enrique López López examina la convivencia, la libertad y la cohesión social desde la reflexión política; no se orienta a quienes buscan una novela de ficción o una narración centrada en personajes.",
+      "texto": "El estado del Estado se dirige a lectores interesados en la democracia española, el funcionamiento político y los debates sobre la convivencia. Su enfoque reflexivo encaja menos con quien busca una narración de ficción o una crónica centrada en acontecimientos aislados.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "El estado del Estado propone una lectura de análisis político sobre la situación de España y el funcionamiento de su democracia. Enrique López López examina los avances alcanzados, los desafíos actuales y las condiciones necesarias para mantener la convivencia, con especial atención a la polarización y la incertidumbre.",
+      "texto": "El estado del Estado plantea un análisis político de España que relaciona los logros democráticos con los desafíos actuales. Enrique López López aborda la libertad, la convivencia y la cohesión desde una perspectiva de conjunto, frente a la polarización y la incertidumbre.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,32 +23,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El estado del Estado se presenta en tapa blanda con solapas, con 400 páginas para leer y consultar en papel. La edición Kindle permite llevar el análisis político de Enrique López López en un dispositivo digital y acceder al texto desde el móvil sin cargar con el volumen impreso.",
+      "texto": "La tapa blanda de El estado del Estado ofrece 400 páginas en una edición rústica con solapas, apropiada para consultar y releer pasajes. Kindle permite llevar ese mismo contenido en un dispositivo electrónico y acceder a él sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
-        "autores",
-        "edicion",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El estado del Estado y España. 50 años después examinan la realidad política y social española desde perspectivas distintas. Enrique López López reflexiona sobre los retos presentes de la democracia, mientras que William Chislett recorre las transformaciones del país desde la España de Franco hasta la democracia actual.",
+      "texto": "El estado del Estado comparte con España. 50 años después el interés por la evolución democrática española, aunque Enrique López López se centra en sus desafíos actuales y William Chislett en cinco décadas de transformaciones. Frente a A la sombra del Estado, dedicado al espionaje y al poder clandestino, aborda las condiciones de la convivencia institucional.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788434441057",
         "isbn-9788467085068"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8e419bbde326ab32",
+  "fuente_hash": "f5ca0b672b4f7cf2",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387667900",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Creer sin pertenecer (TESTIMONIOS Y VIVENCIAS) se orienta a lectores interesados en religión, espiritualidad y experiencias personales vinculadas a las creencias. Su temática encaja menos con quienes buscan una explicación exclusivamente científica de la salud o una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Creer sin pertenecer (TESTIMONIOS Y VIVENCIAS) reúne 512 páginas, una extensión considerable para leer y consultar en papel. Kindle permite acceder al libro digitalmente y evita transportar el volumen físico durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Creer sin pertenecer (TESTIMONIOS Y VIVENCIAS) comparte el interés por la espiritualidad con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia. César R. Espinel plantea desde el título la relación entre creencia y pertenencia, mientras Barbara Hand Clow se centra en la consciencia y sus dimensiones. La comparación distingue una reflexión sobre la pertenencia religiosa de una propuesta centrada en la exploración de la consciencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1ef0c8f31646aabd",
+  "origen": "chatgpt-web"
+}

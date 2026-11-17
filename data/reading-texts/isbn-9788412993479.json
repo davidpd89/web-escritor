@@ -4,33 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Después de los días (Proyectos de artista) se dirige a quienes buscan publicaciones de arte y diseño vinculadas a proyectos de autor. Sus 216 páginas lo distinguen de un cuaderno de uso cotidiano o de un manual introductorio de dibujo.",
+      "texto": "Después de los días (Proyectos de artista) está dirigido a lectores interesados en el arte, el diseño y los proyectos de artista. La obra de Pablo Genovés pertenece a ese ámbito, de modo que no responde a quien busca específicamente una novela de ficción o un manual de economía.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "afines_catalogo"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Exit Publicaciones reúne las 216 páginas de Después de los días (Proyectos de artista) en un volumen físico. Esta encuadernación facilita su conservación y consulta repetida, especialmente para quien reúne publicaciones de arte y diseño.",
+      "texto": "Después de los días (Proyectos de artista) cuenta con una edición en tapa dura de 216 páginas. El volumen publicado por Exit Publicaciones permite consultar físicamente el proyecto de Pablo Genovés y conservarlo en una encuadernación rígida.",
       "evidencias": [
-        "formatos_disponibles",
-        "editorial",
-        "numero_paginas",
         "titulo",
-        "categorias"
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Después de los días (Proyectos de artista) puede compararse con 720 retrats por su vinculación con la producción artística de autor. El volumen de Pablo Genovés pertenece a una línea de proyectos de artista, mientras que el título de Xavier Mollà i Revert señala específicamente el retrato como asunto de su publicación.",
+      "texto": "Después de los días (Proyectos de artista) y 720 retrats, de Xavier Mollà i Revert, pertenecen al ámbito del arte y el diseño. El primero se identifica como proyecto de artista y está firmado por Pablo Genovés; el segundo hace referencia a retratos desde su título y corresponde a Xavier Mollà i Revert. Son obras de distinta autoría y con asuntos identificados de manera diferente.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788412678802"
@@ -39,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5fa3a716a00b6575",
+  "fuente_hash": "84702067220dbbd8",
   "origen": "chatgpt-web"
 }

@@ -4,36 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bestiario de lo frágil (Un pájaro de niebla) se dirige a lectores de poesía que prefieren una obra breve en papel. Sus 80 páginas encajan con una lectura pausada; no responde a quien busque una novela extensa, una trama de intriga o un ensayo divulgativo.",
+      "texto": "Bestiario de lo frágil (Un pájaro de niebla), de Vanesa Pérez-Sauquillo, se dirige a lectores de poesía que prefieren este género a la narrativa extensa. Sus 80 páginas permiten abordar el volumen en sesiones breves, mientras que quienes buscan una novela de trama continuada encontrarán una propuesta de otro género.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Bestiario de lo frágil (Un pájaro de niebla) tiene una edición en tapa blanda de 80 páginas, publicada por Ya Lo Dijo Casimiro Parker. El volumen permite leer poesía en papel, regresar a páginas concretas y transportarlo sin cargar con un libro extenso.",
+      "texto": "Bestiario de lo frágil (Un pájaro de niebla) se publica en tapa blanda y reúne 80 páginas en castellano. Esta edición en papel permite volver sobre los poemas y marcar fragmentos durante la lectura, con una extensión contenida para llevarla fuera de casa.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Bestiario de lo frágil (Un pájaro de niebla) comparte el terreno poético con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La diferencia visible está en sus títulos: el de Vanesa Pérez-Sauquillo alude a la fragilidad y a un bestiario, mientras el de Pedro Salinas identifica una antología amorosa. Son obras de autoría distinta.",
+      "texto": "Bestiario de lo frágil (Un pájaro de niebla) puede compararse con A solas, de María Jesús Martínez Ramos, dentro de una selección de lecturas poéticas. También figura como referencia Advenir, de Jose Eceolaza, mientras que la obra de Vanesa Pérez-Sauquillo se distingue por sus 80 páginas y su título centrado en la fragilidad.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788410907539",
+        "isbn-9788410212749"
       ]
     }
   ],

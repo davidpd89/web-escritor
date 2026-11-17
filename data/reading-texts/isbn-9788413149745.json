@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Todo vuelve (Todo arde 2) (Best Seller | Ficción) se dirige a lectores de misterio y thriller interesados también en el poder y la política. Sus 608 páginas corresponden a una novela extensa, menos ajustada a quienes buscan relatos breves o lecturas ajenas a estos conflictos. El título la identifica como la entrega n.º 2 de Todo arde.",
+      "texto": "Se dirige a lectores de misterio y thriller que buscan una novela extensa de Juan Gómez-Jurado. El título identifica Todo vuelve como Todo arde 2, por lo que resulta menos apropiado para quien prefiere comenzar por una obra sin numeración de serie o busca una lectura breve.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Todo vuelve (Todo arde 2) (Best Seller | Ficción) se presenta en libro de bolsillo, con tapa blanda y 608 páginas. La edición de Penguin Bolsillo permite transportar una novela extensa en un formato físico pensado para llevar en el bolso o la mochila, aunque el número de páginas sigue condicionando su grosor.",
+      "texto": "Todo vuelve (Todo arde 2) (Best Seller | Ficción) está disponible en tapa dura, tapa blanda, Kindle y audiolibro. La edición de bolsillo de Penguin Bolsillo reúne 608 páginas; la tapa dura ofrece una encuadernación más rígida, Kindle permite llevar el texto en formato digital y el audiolibro sustituye la lectura visual por la escucha.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Todo vuelve (Todo arde 2) (Best Seller | Ficción) y El persa (Novela (Best Seller)) comparten su vinculación con la ficción de suspense. La obra de Juan Gómez-Jurado se clasifica como misterio y thriller, con presencia del poder y la política, mientras que El persa está firmado por David McCloskey. También puede compararse con El vuelo de los gansos, de Ángel Boixadós, cuyo planteamiento aborda el enfrentamiento al poder desde una cuestión de principios.",
+      "texto": "Amanda Black 15 - El laberinto del minotauro (Juan Gómez-Jurado y Bárbara Montes) comparte con Todo vuelve (Todo arde 2) (Best Seller | Ficción) la participación de Juan Gómez-Jurado y la numeración de serie. La diferencia de autoría es clara: Todo vuelve está firmado únicamente por Juan Gómez-Jurado, mientras que Amanda Black incorpora a Bárbara Montes. Ambos títulos identifican su posición mediante un número, aunque pertenecen a series distintas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387928612",
-        "isbn-9788425375040"
+        "isbn-9791387994426"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9d3e81422f8d04f7",
+  "fuente_hash": "d9e5c9517ed51357",
   "origen": "chatgpt-web"
 }

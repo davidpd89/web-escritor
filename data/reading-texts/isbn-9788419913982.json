@@ -4,28 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El caballero Nacho y el príncipe feliz (Fora de col·lecció) pertenece a la fantasía infantil y se relaciona con la amistad. Se orienta hacia lectores que buscan historias de ese ámbito, más que hacia quienes prefieren novelas adultas de ciencia ficción o textos especializados sobre bienestar.",
+      "texto": "El caballero Nacho y el príncipe feliz (Fora de col·lecció) está destinado a lectores infantiles que buscan historias de fantasía con personajes propios de los cuentos de caballeros y príncipes. Por su orientación temática, se diferencia de los libros infantiles de aprendizaje sobre la vida cotidiana.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "El caballero Nacho y el príncipe feliz (Fora de col·lecció) está disponible en tapa blanda y consta de 48 páginas. La edición en castellano de Andana Editorial reúne la obra en un volumen de cubierta flexible, adecuado para llevarlo en una mochila o guardarlo junto a otros libros infantiles.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de El caballero Nacho y el príncipe feliz (Fora de col·lecció) reúne 48 páginas. Su extensión permite organizar la lectura en sesiones breves, y la cubierta flexible facilita transportarlo en una mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "El caballero Nacho y el príncipe feliz (Fora de col·lecció) comparte la fantasía y la amistad con Las aventuras navideñas de los Mimosaurios: Tres cuentos llenos de magia, amistad y espíritu navideño. La obra de Rafa Soler presenta un caballero y un príncipe desde el título, mientras que la de Laura Naiara Aldana Ramaker reúne tres cuentos relacionados con las celebraciones navideñas.",
+      "texto": "El caballero Nacho y el príncipe feliz (Fora de col·lecció) y Brujas y dragones 2: La bruja mala del oeste comparten la fantasía dirigida al público infantil. Rafa Soler presenta una historia identificada por un caballero y un príncipe, mientras que el título de Ledicia Costas y Luis Miguel Pérez remite a brujas y dragones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +29,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409926671"
+        "isbn-9791387501877"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dff2f212f89658e8",
+  "fuente_hash": "e0df8535abedf1bc",
   "origen": "chatgpt-web"
 }

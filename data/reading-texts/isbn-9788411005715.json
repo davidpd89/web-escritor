@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Irán. Entre revolución y tradición se dirige a lectores interesados en la política internacional y la historia contemporánea de Irán. Su planteamiento histórico y geopolítico, organizado mediante fechas y preguntas, se aleja de las narraciones de viajes y de la ficción.",
+      "texto": "Irán. Entre revolución y tradición se dirige a lectores interesados en historia contemporánea, política internacional y geopolítica. Su planteamiento explicativo, organizado alrededor de fechas y preguntas, se aparta de la narrativa de viajes centrada en experiencias personales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,43 +13,43 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una obra de divulgación histórica y política centrada en Irán y su posición internacional. Yann Richard y Thomas Snégaroff estructuran la explicación mediante 6 fechas y 30 preguntas, un planteamiento que permite abordar acontecimientos y cuestiones concretas en sus 192 páginas.",
+      "texto": "El libro propone comprender la trayectoria de Irán mediante 6 fechas y 30 preguntas que relacionan su historia con su posición internacional. Yann Richard y Thomas Snégaroff presentan así un enfoque de divulgación política e histórica centrado en un país relevante para la geopolítica mundial.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
-        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Irán. Entre revolución y tradición está disponible en tapa blanda, concretamente en rústica con solapas. Esta edición de Ediciones Península reúne 192 páginas en un volumen físico que permite consultar las fechas y preguntas del libro sin depender de una pantalla.",
+      "texto": "La tapa blanda permite consultar Irán. Entre revolución y tradición en papel y volver a sus apartados durante la lectura. La edición de Ediciones Península es rústica con solapas y tiene 192 páginas, una extensión manejable para un libro de consulta sobre historia y actualidad.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
         "editorial",
         "numero_paginas",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A la sombra del Estado comparte con Irán. Entre revolución y tradición el interés por las relaciones de poder, aunque se ocupa del espionaje, la desinformación y las operaciones encubiertas. Crónica de un desafío al Estado también aborda conflictos políticos, pero desde el relato en primera persona de los acontecimientos del Procés, frente a la estructura de fechas y preguntas sobre Irán.",
+      "texto": "Nada es lo que era, de Florentino Portero, comparte con Irán. Entre revolución y tradición el interés por la geopolítica, pero aborda el cambio del orden mundial en lugar de concentrarse en un país. España. 50 años después, de William Chislett, también examina transformaciones históricas y políticas, aunque su ámbito es la evolución de España desde el franquismo hasta la democracia actual.",
       "evidencias": [
         "titulo",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441057",
-        "isbn-9788423441303"
+        "isbn-9788467085068",
+        "isbn-9788467083729"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d9e662765bcb0fa2",
+  "fuente_hash": "570353f4c0880833",
   "origen": "chatgpt-web"
 }

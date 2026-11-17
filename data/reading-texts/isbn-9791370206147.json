@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791370206147",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La hija del cometa (Mascarón ficción), de Begoña Ameztoy, encaja con lectores interesados en narrativa contemporánea escrita en castellano. Con 366 páginas, se orienta a quienes buscan una novela de extensión intermedia, más que a quienes prefieren lecturas muy breves o libros de carácter técnico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La hija del cometa (Mascarón ficción) se presenta en tapa blanda, con 366 páginas. Esta edición de Mascarón de Proa permite leer en papel, colocar el volumen en una estantería o entregarlo como regalo físico; su extensión queda recogida en un único libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe46fb1a91ed9d30",
+  "origen": "chatgpt-web"
+}

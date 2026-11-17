@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está pensado para lectores interesados en las biografías, las memorias y el ensayo, con Elena Garro como figura central del título. No responde a la búsqueda de una novela de ficción ni de un libro de ejercicios de desarrollo personal.",
+      "texto": "Yo, Elena Garro / I, Elena Garro se dirige a quienes leen biografías, memorias y ensayos sobre figuras concretas. Su planteamiento biográfico lo diferencia de las novelas de ficción y de los manuales de desarrollo personal, por lo que responde a un interés más documental.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Yo, Elena Garro / I, Elena Garro contiene 184 páginas en castellano. Su extensión permite abordar el volumen en papel y consultarlo posteriormente, sin necesidad de utilizar una aplicación de lectura.",
+      "texto": "La tapa blanda permite leer y consultar físicamente las 184 páginas de Yo, Elena Garro / I, Elena Garro. Kindle ofrece la lectura digital en dispositivos compatibles, mientras que el audiolibro permite escuchar la obra sin mantener la atención en una página impresa.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Yo, Elena Garro / I, Elena Garro puede compararse con Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes por su aproximación biográfica a una persona identificada en el título. Carlos Landeros se ocupa de Elena Garro, mientras que Andrew Paxman aborda a Andrés Manuel mediante una estructura anunciada de 50 episodios. La diferencia principal está en la figura tratada y en la organización que adelantan sus títulos.",
+      "texto": "Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes, de Andrew Paxman, comparte con Yo, Elena Garro / I, Elena Garro el interés por una figura individual. La diferencia está en la persona retratada y en que el título de Andrew Paxman presenta una estructura por episodios, mientras que la obra de Carlos Landeros se identifica como una aproximación a Elena Garro.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "18da7b058c89e7bd",
+  "fuente_hash": "2a40e18eeab3aff8",
   "origen": "chatgpt-web"
 }

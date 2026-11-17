@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370093969",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en la filosofía política y en las propuestas que relacionan el entorno digital con modelos de organización social. Comunismo digital: Una propuesta política (Sendas), de Maurizio Ferraris, es un ensayo de 200 páginas; su planteamiento se aleja de la narrativa de ficción y de los manuales técnicos de informática.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Comunismo digital: Una propuesta política (Sendas) se publica en tapa blanda y cuenta con 200 páginas en castellano. Esta edición permite leer y consultar en papel el ensayo de Maurizio Ferraris, con una extensión delimitada para abordar su propuesta política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, comparte con Comunismo digital: Una propuesta política (Sendas), de Maurizio Ferraris, el interés por las ideas políticas. El primero se ocupa de los fundamentos del anarcocapitalismo; el segundo sitúa una propuesta política en el ámbito digital.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2838f33af55cf959",
+  "origen": "chatgpt-web"
+}

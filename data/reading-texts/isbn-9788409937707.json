@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409937707",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mientras tanto... aquí estoy contigo: Poemas para recordar quién eres y descubrir todo lo que puedes llegar a ser se orienta a lectores que buscan poesía relacionada con el autoconocimiento y el desarrollo personal. Su planteamiento poético lo diferencia de los manuales de instrucciones prácticas y de las novelas con una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Mientras tanto... aquí estoy contigo: Poemas para recordar quién eres y descubrir todo lo que puedes llegar a ser reúne 107 páginas en castellano. El soporte físico permite volver a poemas concretos, marcar páginas y conservar el volumen para sucesivas lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mientras tanto... aquí estoy contigo: Poemas para recordar quién eres y descubrir todo lo que puedes llegar a ser comparte con Zeniza (Creativa) su presencia entre las lecturas relacionadas con la expresión personal. La obra de Runa Luna se presenta expresamente como poesía sobre el autoconocimiento, mientras que la de Ecequiel Barricart se identifica por su título y su vinculación con la creatividad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788477685432"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7f703c817c6ef4e4",
+  "origen": "chatgpt-web"
+}

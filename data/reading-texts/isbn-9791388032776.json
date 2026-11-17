@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388032776",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Barón Rampante: 5 (Siruela Gráfica) se dirige a quienes buscan narrativa juvenil en forma de cómic o novela gráfica. Sus 144 páginas lo distinguen de una novela convencional presentada únicamente mediante texto, por lo que responde a una preferencia de lectura diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Barón Rampante: 5 (Siruela Gráfica) está editado en tapa dura por Ediciones Siruela y tiene 144 páginas. Su encuadernación rígida resulta apropiada para conservar el volumen en una colección de novelas gráficas y consultarlo repetidamente.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Barón Rampante: 5 (Siruela Gráfica) puede compararse con Blue Lock nº 33 (Manga Shonen) por su pertenencia al ámbito del cómic. La obra de Sara Colaone se sitúa en la narrativa juvenil contemporánea y la novela gráfica, mientras que el título de Yusuke Nomura y Muneyuki Kaneshiro se identifica como manga shonen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f6cd513b98971ef",
+  "origen": "chatgpt-web"
+}

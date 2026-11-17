@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mas alla del ebitda, de Mario Jimenez, se dirige a lectores interesados en economía y empresa. Sus 204 páginas en castellano permiten abordar esta materia en una extensión moderada; no responde a quien busca ficción o una lectura centrada en psicología personal.",
+      "texto": "Mas alla del ebitda se dirige a lectores interesados en economía y empresa que buscan una obra de 204 páginas en castellano. Por su orientación temática, queda fuera de las lecturas centradas en ficción o desarrollo personal.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas",
         "idioma"
@@ -15,21 +14,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mas alla del ebitda se presenta en tapa blanda, con 204 páginas publicadas por LID Editorial. Es una edición física que permite consultar y marcar pasajes en papel, además de transportarla sin el peso habitual de una encuadernación rígida.",
+      "texto": "Mas alla del ebitda está disponible en tapa blanda, con 204 páginas editadas por LID Editorial. Es una opción física para consultar y conservar el contenido en papel, con una extensión que permite distribuir la lectura en varias sesiones.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "edicion"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mas alla del ebitda comparte el ámbito empresarial con ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, aunque este último título pone el foco en las ideas. También puede compararse con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, centrado por su título en el liderazgo, frente al enfoque económico de la obra de Mario Jimenez.",
+      "texto": "Mas alla del ebitda puede compararse con ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, por su relación con cuestiones empresariales, aunque este último pone el foco en las ideas. Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, se orienta hacia el liderazgo, mientras que Mas alla del ebitda se sitúa en el ámbito de la economía.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
@@ -41,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c3d8d3eb782ac7d6",
+  "fuente_hash": "a13d79e786013c0d",
   "origen": "chatgpt-web"
 }

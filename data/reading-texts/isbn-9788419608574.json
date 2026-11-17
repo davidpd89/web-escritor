@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788419608574",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sin aletas no hay paraíso, de Natalia Rodríguez Ruiz, se dirige a lectores interesados en divulgación científica en castellano. Por su clasificación temática, se aleja de las novelas de ficción y de los manuales centrados en una disciplina técnica concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción de compra en papel de Sin aletas no hay paraíso es la tapa blanda, con una extensión de 140 páginas. El volumen de Natalia Rodríguez Ruiz, publicado por Q-book Cultura Integral, S.l., permite mantener la lectura en formato físico y resulta manejable para transportarlo o consultarlo en distintos momentos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sin aletas no hay paraíso y 50 cosas que hay que saber sobre IA comparten su orientación hacia la divulgación científica. La obra de Natalia Rodríguez Ruiz tiene un título que alude a las aletas, mientras que la de Keith Mansfield identifica expresamente la inteligencia artificial como materia de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "914d6bac0fa76260",
+  "origen": "chatgpt-web"
+}

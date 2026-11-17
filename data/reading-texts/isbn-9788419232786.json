@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419232786",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Equilibrado: Ni tan tarado. Ni tan cuadrado se orienta a lectores interesados en la psicología y el ensayo sobre el equilibrio personal. Por su planteamiento temático, se diferencia de las obras centradas específicamente en la infancia, el deseo sexual o los mecanismos de la memoria.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Equilibrado: Ni tan tarado. Ni tan cuadrado está publicado en tapa blanda y tiene 142 páginas. La edición física permite leer y consultar en papel este ensayo relacionado con la psicología, con una extensión delimitada para organizar su lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Equilibrado: Ni tan tarado. Ni tan cuadrado puede compararse con A.C.T.I.V.A.: 8 etapas para construir dirección, capacidad y libertad en tiempos de cambio por su interés en cuestiones de desarrollo personal. La obra de Renée Pereira Duarte plantea el equilibrio como tema central, mientras que la de Jul Ore organiza su propuesta alrededor de etapas para afrontar el cambio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789560848819"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dc6f5dd2864206b4",
+  "origen": "chatgpt-web"
+}

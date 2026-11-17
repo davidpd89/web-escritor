@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9789153514473",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Sombra del Dra Rose, de Daniel Hartwell, se encuadra entre las biografías y memorias, destinadas a lectores interesados en relatos de carácter biográfico. Por esa clasificación, se diferencia de las búsquedas de fantasía, thriller de ficción o manuales técnicos, que responden a otros tipos de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Sombra del Dra Rose se ofrece en tapa blanda, en una edición de Hartwell Publishing de 398 páginas. El formato permite leer el volumen en papel, señalar fragmentos y guardarlo como ejemplar físico. Su extensión corresponde a una lectura de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Sombra del Dra Rose comparte el ámbito biográfico con 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, y Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta. Estos últimos delimitan sus asuntos mediante la longevidad y las experiencias del Camino de Santiago, respectivamente, mientras que la obra de Daniel Hartwell se presenta bajo un título centrado en Dra Rose.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d3009187c76e231",
+  "origen": "chatgpt-web"
+}

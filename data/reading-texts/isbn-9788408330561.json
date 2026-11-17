@@ -4,36 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El dinero explicado a Blanca está pensado para lectores que quieren acercarse a la educación financiera a través de situaciones de la vida adulta. Su recorrido incluye la primera nómina y la compra de una vivienda, por lo que se diferencia de los libros dedicados a crear empresas o desarrollar habilidades de liderazgo.",
+      "texto": "El dinero explicado a Blanca se dirige a quienes empiezan a gestionar sus ingresos y quieren comprender decisiones económicas cotidianas. Aborda la etapa que va del primer sueldo a la adquisición de una vivienda, por lo que encaja menos con quienes buscan contenidos de inversión avanzada o análisis macroeconómico.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 240 páginas de El dinero explicado a Blanca en una edición de rústica con solapas de Zenith. Es la opción física para quien prefiere leer sobre educación financiera en papel y conservar el libro como material de consulta.",
+      "texto": "El dinero explicado a Blanca se publica en tapa blanda, concretamente en rústica con solapas, con 240 páginas en castellano. Esta edición de Zenith permite consultar en papel los contenidos sobre educación financiera y volver a ellos cuando surjan decisiones relacionadas con el trabajo, los ingresos o la vivienda.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
         "edicion",
-        "editorial"
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo generar ingresos con las opciones: Así transformé la bola de nieve en avalancha (EMPRESA), de Renato Antinori, permite ampliar la lectura hacia las finanzas desde otra perspectiva. El dinero explicado a Blanca, de Montse Cespedosa, recorre situaciones cotidianas como la primera nómina y la compra de vivienda, mientras que el título de Antinori se centra en generar ingresos mediante opciones.",
+      "texto": "El dinero explicado a Blanca y COMO SER MILLONARIO: Una historia verídica. Tú también puedes serlo comparten el interés por las finanzas personales. Montse Cespedosa aborda la educación económica desde las primeras decisiones de la vida adulta; el libro de Antonio Prieto se presenta como una historia verídica centrada en la posibilidad de hacerse millonario.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411724357"
+        "isbn-9788409859313"
       ]
     }
   ],

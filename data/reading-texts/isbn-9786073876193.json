@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esos huesos bajo la Ceiba / Those Bones Under the Ceiba está dirigido a lectores de narrativa contemporánea interesados en historias relacionadas con la familia. Sus 168 páginas ofrecen una extensión breve frente a novelas más largas; no pertenece al género fantástico ni al romance.",
+      "texto": "Esos huesos bajo la Ceiba / Those Bones Under the Ceiba, de Susana Corcuera, se dirige a lectores de narrativa contemporánea interesados en asuntos familiares. Con 168 páginas, encaja en una búsqueda de lecturas relativamente breves, no en la de un manual especializado sobre crianza.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Esos huesos bajo la Ceiba / Those Bones Under the Ceiba se publica en tapa blanda y tiene 168 páginas. Su extensión permite manejarlo cómodamente en papel y llevarlo durante los desplazamientos; es una edición física para quienes prefieren leer sin pantallas.",
+      "texto": "Esos huesos bajo la Ceiba / Those Bones Under the Ceiba ofrece tapa blanda, Kindle y audiolibro para sus 168 páginas de edición impresa. La tapa blanda permite leerlo en papel, Kindle facilita la lectura en el móvil y el audiolibro permite escucharlo durante otras actividades.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Esos huesos bajo la Ceiba / Those Bones Under the Ceiba comparte el ámbito de la narrativa contemporánea con Cuando el viento hable: Edición limitada a precio especial (Colección Especial), de Ángela Banzas. También puede ponerse en relación con Dime, niña bonita (Narrativa), de Laura Galve; ambos títulos amplían la comparación hacia otras propuestas de narrativa en español, aunque sus autorías y títulos son diferentes.",
+      "texto": "Esos huesos bajo la Ceiba / Those Bones Under the Ceiba puede ponerse junto a Al faro: Nueva traducción al español: 82 (Clásicos en español), de Virginia Woolf, como otra opción de narrativa literaria. La diferencia visible está en la autoría y en que la segunda se presenta expresamente como una nueva traducción. También comparte espacio de lectura narrativa con Celestino antes del alba (Andanzas), de Reinaldo Arenas, aunque son obras de autores diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328414",
-        "isbn-9791387605964"
+        "isbn-9781836472568",
+        "isbn-9788411078535"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6477e9e16f435cea",
+  "fuente_hash": "2c899f122b6803f4",
   "origen": "chatgpt-web"
 }

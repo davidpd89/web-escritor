@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788467984903",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kamudo 01: 1 se orienta a lectores interesados en la fantasía y el cómic que buscan una entrega identificada como inicio de colección. El título lo identifica como el n.º 1, una característica útil para quienes prefieren comenzar una serie desde su primer volumen. No responde al formato de una novela extensa exclusivamente textual, ya que se encuadra también en el ámbito del cómic y la novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kamudo 01: 1 cuenta con una edición en tapa blanda de 200 páginas, publicada por Norma Editorial. El volumen puede conservarse en papel como parte de una colección y consultarse sin pantalla. Su extensión permite identificarlo como una entrega física delimitada, con el n.º 1 indicado en el propio título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kamudo 01: 1 puede compararse con After God 7 (Shônen) y After God 8 (Shônen), de Sumi Eno, por su relación con el cómic y las colecciones numeradas. La diferencia está en el punto de entrada: el título de Akira Himekawa se identifica como el n.º 1, mientras que los de Sumi Eno indican entregas posteriores. Para quien quiera empezar una colección por su primera entrega, esa numeración resulta relevante.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962388",
+        "isbn-9791387962647"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fabf16c888fb3615",
+  "origen": "chatgpt-web"
+}

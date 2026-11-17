@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399297508",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aberración está dirigida a lectores que buscan misterio en una obra de extensión relativamente breve. Con 162 páginas, se diferencia de las novelas de intriga más largas y no responde a quienes buscan principalmente fantasía épica, romance o divulgación.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aberración cuenta con una edición en tapa blanda de 162 páginas, publicada en castellano por Ápeiron Ediciones. Su extensión permite abordar el libro en papel sin manejar un volumen especialmente largo, tanto para una lectura continuada como para repartirla en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aberración, de Santiago López de Hoyos, comparte el terreno del misterio con Aguas turbulentas, de Rankin Ian, cuya historia relaciona un pasado siniestro con acontecimientos del presente. También se aproxima por género a Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, aunque este último plantea una desaparición concreta como punto de partida. Aberración se distingue por sus 162 páginas y por una propuesta de misterio cuyo título no identifica un escenario ni un caso específico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb46304253c5c8eb",
+  "origen": "chatgpt-web"
+}

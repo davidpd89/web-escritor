@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Siguiendo la dignidad: 7 principios rectores de las misiones a corto plazo, de Terri Taylor y Stephen Sickel, se orienta a lectores interesados en religión, espiritualidad y misiones de corta duración. El título anuncia un enfoque articulado alrededor de 7 principios rectores. No responde a la búsqueda de una novela de ficción ni de una guía general de bienestar.",
+      "texto": "Siguiendo la dignidad: 7 principios rectores de las misiones a corto plazo se dirige a lectores interesados en las misiones y sus principios de actuación. Terri Taylor y Stephen Sickel abordan una materia vinculada a la religión y la espiritualidad, distinta de la ficción narrativa o de las guías generales de bienestar.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Siguiendo la dignidad: 7 principios rectores de las misiones a corto plazo está editado en tapa blanda, con 314 páginas en castellano. El ejemplar físico permite consultar y releer los principios anunciados en el título sin utilizar dispositivos electrónicos. The Foundry Publishing es la editorial responsable de esta edición.",
+      "texto": "La edición de Siguiendo la dignidad: 7 principios rectores de las misiones a corto plazo es de tapa blanda y tiene 314 páginas. El volumen publicado por The Foundry Publishing permite consultar físicamente sus principios rectores y volver a ellos durante la preparación o revisión de actividades relacionadas con misiones.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Siguiendo la dignidad: 7 principios rectores de las misiones a corto plazo puede compararse con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, por su orientación espiritual y práctica. Terri Taylor y Stephen Sickel centran su obra en principios para misiones breves, mientras que Tsondru Yeshe aborda los fundamentos y la práctica del Dharma. Sus ámbitos de aplicación son diferentes.",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación y Siguiendo la dignidad: 7 principios rectores de las misiones a corto plazo comparten el interés por principios vinculados a la espiritualidad. Tsondru Yeshe aborda los fundamentos y la práctica del Dharma, mientras Terri Taylor y Stephen Sickel se centran en las misiones a corto plazo. Sus ámbitos de aplicación son diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f0e1174de7e967c7",
+  "fuente_hash": "06ddc931c64f6f17",
   "origen": "chatgpt-web"
 }

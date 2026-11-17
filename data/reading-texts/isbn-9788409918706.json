@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788409918706",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LA TORRE MÁS ALTA - Ramón Barbado se dirige a lectores de narrativa juvenil que buscan una novela extensa en castellano. Sus 405 páginas la alejan de las lecturas breves, y su clasificación editorial no corresponde a un ensayo ni a una obra práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LA TORRE MÁS ALTA - Ramón Barbado tiene una edición en tapa blanda de 405 páginas publicada por Editorial Sílaba Tónica. La encuadernación flexible permite manejar el volumen durante la lectura y guardarlo en una mochila, aunque su extensión supone un libro físico considerable.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LA TORRE MÁS ALTA - Ramón Barbado puede compararse con Acelerando en rojo. Edición especial: Edición con cantos tintados (Ficción), de Iryna Zubkova. Ambos figuran entre las lecturas de ficción relacionadas, pero el primero se clasifica como narrativa juvenil y se publica en tapa blanda, mientras que el segundo se identifica por una edición especial con cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408316572"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f2179aa7ab82f08",
+  "origen": "chatgpt-web"
+}

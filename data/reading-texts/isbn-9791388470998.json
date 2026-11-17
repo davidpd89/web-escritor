@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388470998",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los hijos de Leonardo se orienta a lectores de novela histórica que buscan una lectura extensa en castellano. Sus 548 páginas requieren más tiempo que una novela breve; quienes prefieran obras de pocas sesiones encontrarán aquí un volumen considerable.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los hijos de Leonardo se presenta en tapa blanda y reúne 548 páginas. Es una edición física de extensión considerable, apropiada para leer por capítulos y conservar en papel; su encuadernación flexible permite manejarla sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los hijos de Leonardo puede compararse con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi, por su vinculación con la novela histórica. La diferencia es de autoría y presentación: Ángel López Bajón firma un volumen de 548 páginas, mientras que el otro título se identifica como una segunda entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1154f6b6b234d39d",
+  "origen": "chatgpt-web"
+}

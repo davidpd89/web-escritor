@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pensado para lectores interesados en las plantas medicinales y en elaborar preparados herbales para cuidados cotidianos. La botica natural aborda infusiones, aceites, ungüentos y jarabes desde una perspectiva práctica; no es una novela ni un tratado centrado exclusivamente en la teoría botánica.",
+      "texto": "La botica natural está dirigida a lectores interesados en las plantas medicinales y en la elaboración doméstica de preparados herbales. Su orientación práctica, con infusiones, ungüentos, aceites y jarabes, encaja menos con quien busca una novela o un tratado centrado exclusivamente en teoría científica.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La botica natural explica cómo recolectar, conservar y transformar plantas medicinales en preparados de uso cotidiano. Juan Carlos Pastor y Zaira Vidal recuperan prácticas tradicionales y las relacionan con molestias como el estrés, la ansiedad, los dolores de cabeza y las migrañas, mediante un enfoque práctico.",
+      "texto": "La botica natural aborda la recolección, conservación y transformación de plantas medicinales desde una perspectiva práctica. Juan Carlos Pastor y Zaira Vidal explican preparaciones tradicionales destinadas a cuidados cotidianos y tratan cuestiones como el estrés, la ansiedad y las migrañas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,31 +22,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Se ofrece en tapa blanda, en una edición de Roca Editorial de 480 páginas. La extensión permite reunir instrucciones sobre recolección, conservación y elaboración de distintos preparados herbales; el formato físico facilita consultar el contenido durante esas tareas.",
+      "texto": "La tapa blanda permite consultar las 480 páginas de La botica natural en papel mientras se revisan sus explicaciones sobre preparados herbales. Kindle facilita buscar y leer el contenido en formato digital, incluso desde el móvil, sin tener que llevar el libro físico.",
       "evidencias": [
-        "formatos_disponibles",
-        "editorial",
+        "titulo",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La botica natural y 50 cosas que hay que saber sobre IA comparten un planteamiento divulgativo, pero sus aplicaciones son diferentes. Juan Carlos Pastor y Zaira Vidal explican la preparación de remedios herbales, mientras Keith Mansfield presenta conceptos de inteligencia artificial y cuestiones éticas y sociales relacionadas con esa tecnología.",
+      "texto": "La botica natural y Abonado y fertilización en agricultura ecológica-AGAU001PO comparten el interés por aplicaciones prácticas relacionadas con las plantas, aunque el primero trata preparados medicinales y el segundo se centra en fertilización agrícola. Frente a 50 cosas que hay que saber sobre IA, de Keith Mansfield, La botica natural aborda conocimientos herbales en lugar de inteligencia artificial.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441309"
+        "isbn-9788434441309",
+        "isbn-9791388586422"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3b27291dca408365",
+  "fuente_hash": "0e0c739bd951268d",
   "origen": "chatgpt-web"
 }

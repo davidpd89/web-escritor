@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene, de J.a. M.v., se orienta a lectores interesados en espiritualidad, bienestar y desarrollo personal mediante historias zen. Su enfoque contemplativo se distancia de los manuales centrados exclusivamente en técnicas prácticas de organización o productividad.",
+      "texto": "EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene se orienta a lectores interesados en la espiritualidad, el bienestar y las enseñanzas zen. Su planteamiento mediante historias relacionadas con la búsqueda de paz se aleja de quienes prefieren manuales técnicos o novelas centradas en conflictos externos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las 326 páginas de EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene pueden leerse en tapa dura, tapa blanda o Kindle. La tapa dura ofrece una encuadernación rígida para conservar el volumen; la blanda facilita manejarlo en papel y Kindle permite consultar las historias desde el móvil.",
+      "texto": "La tapa blanda ofrece una edición física manejable de sus 326 páginas, mientras que la tapa dura aporta una encuadernación más rígida para conservar el libro. Kindle permite consultar las historias zen desde un dispositivo electrónico y retomar la lectura sin llevar el volumen impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -22,20 +21,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene comparte el interés espiritual con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. El libro de J.a. M.v. plantea la búsqueda de paz mediante historias zen, mientras que el de Soledad Davies reúne astrología, filosofía y magia como vías de práctica espiritual.",
+      "texto": "EL SENDERO DEL MONJE SABIO: Historias zen para encontrar la paz en un mundo que no se detiene comparte el interés espiritual con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow. La primera obra recurre a historias zen y la segunda plantea el despertar de la consciencia mediante las dimensiones. Caminando a través de la sombra, de Calvin Amandus, ofrece otra referencia de lectura con un enfoque distinto anunciado desde su título.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9798888505335",
+        "isbn-9798182903509"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cd12171aca07bdad",
+  "fuente_hash": "93baba6e7fa0a410",
   "origen": "chatgpt-web"
 }

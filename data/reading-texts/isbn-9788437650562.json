@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil, de Arturo Colorado, se dirige a lectores interesados en la historia española del siglo XX y el patrimonio artístico. Sus 536 páginas corresponden a una obra histórica extensa, no a una guía práctica de arte ni a una novela de ficción.",
+      "texto": "Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil se dirige a quienes investigan la historia del arte y su relación con los conflictos del siglo XX. Su enfoque histórico y sus 536 páginas lo alejan de una introducción breve a las técnicas artísticas o de una guía práctica de diseño.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 536 páginas de Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil en un volumen físico para consultar y conservar. Kindle permite leer esa misma obra en un dispositivo electrónico y transportarla sin cargar con el libro impreso.",
+      "texto": "La tapa blanda reúne las 536 páginas de Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil en un volumen físico, útil para consultar pasajes durante el estudio. Kindle permite acceder al mismo título desde un lector electrónico o una aplicación, sin cargar con el libro impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil comparte el contexto del exilio con Campo de concentración: 82 (Biblioteca del Exilio), de Eduardo de Ontañón, pero centra su atención en el patrimonio artístico. También se relaciona con Charlotte Perriand. La libertad de repensar el mundo, de Varios autores, por su vinculación con el arte, aunque la obra de Arturo Colorado aborda específicamente la historia del Museo del Prado durante la Guerra Civil.",
+      "texto": "Art for All: Surrealistas, de Andrea Kettenmann, Gilles Néret, Janis Mink, Marcel Paquet y Ulrich Bischoff, comparte con Éxodo y exilio del arte: La odisea del Museo del Prado durante la Guerra Civil el interés por el arte. El primero se centra en un movimiento artístico, mientras que la obra de Arturo Colorado aborda la historia del Museo del Prado durante la Guerra Civil, vinculando el patrimonio artístico con un conflicto histórico concreto.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410148659",
-        "isbn-9788416411993"
+        "isbn-9783754401477",
+        "isbn-9783754401514"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8a8e41a3f25a2af3",
+  "fuente_hash": "82845df009a0c612",
   "origen": "chatgpt-web"
 }

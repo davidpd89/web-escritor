@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370079321",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII se dirige a quienes leen sobre moda, arte y diseño. Es un volumen de 128 páginas de RBA Coleccionables España, más próximo al ensayo sobre moda que a los manuales de creación artística o las novelas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII se publica en tapa dura y reúne 128 páginas en castellano. La encuadernación rígida favorece su conservación en una estantería y permite mantenerlo junto a otros volúmenes de la misma colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII pertenece a la misma colección que Donna Karan | Colección Leyendas de la Moda | Libro LX y Marine Serre | Colección Leyendas de la Moda | Libro LIX. Los tres comparten autoría editorial de RBA Coleccionables España y temática vinculada a la moda, pero cada título identifica una figura diferente y ocupa una posición distinta en la colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370077914",
+        "isbn-9791370077907"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e458fcaa8eaaeb4e",
+  "origen": "chatgpt-web"
+}

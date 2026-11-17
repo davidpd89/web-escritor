@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788428576154",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "San Juan de la Cruz: Poesía divina (Caminos) se dirige a lectores interesados en la poesía de temática religiosa y en la espiritualidad. Su vinculación con las biografías y memorias también lo sitúa cerca de quienes buscan aproximaciones a figuras religiosas, más que narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "San Juan de la Cruz: Poesía divina (Caminos) se publica en tapa blanda, con 128 páginas en castellano. Su extensión permite alternar la lectura de sus páginas con consultas puntuales, mientras que el formato impreso facilita conservarlo en una biblioteca de poesía y espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "San Juan de la Cruz: Poesía divina (Caminos) guarda afinidad temática con Poemas y oraciones: Inspiraciones para navegar por la vida (Biografías y memorias), de Matthew McConaughey. Ambos relacionan la expresión poética con la espiritualidad, aunque Javier Manso Osuna aborda una figura religiosa concreta y Matthew McConaughey presenta poemas y oraciones orientados a la experiencia vital.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448049829"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8684d7c7fbdaa185",
+  "origen": "chatgpt-web"
+}

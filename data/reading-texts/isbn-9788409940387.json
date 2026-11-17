@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409940387",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Astronomía al alcance de todos se dirige a quienes buscan una lectura de divulgación científica centrada en la astronomía. Sus 179 páginas plantean una extensión relativamente breve, alejada de las novelas de ficción y de los manuales dedicados a otras disciplinas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Astronomía al alcance de todos puede leerse en tapa dura, tapa blanda o Kindle. La tapa dura ofrece una encuadernación rígida para conservar sus 179 páginas; la blanda facilita el transporte y Kindle permite consultar el contenido desde un dispositivo compatible sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astronomía al alcance de todos y 50 cosas que hay que saber sobre IA comparten el interés por divulgar conocimientos científicos y tecnológicos, aunque el primero se centra en astronomía y el segundo en inteligencia artificial. Frente al enfoque temático de Robert Vidal Calvís, la obra de Keith Mansfield anuncia una selección de conceptos sobre otra materia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1f6a61d391b3dbaf",
+  "origen": "chatgpt-web"
+}

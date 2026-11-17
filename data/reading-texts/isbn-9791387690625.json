@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El imperio del amanecer: 56 (Noches Negras), de Jay Kristoff, se dirige a lectores de fantasía, aventuras y terror, con elementos de ciencia ficción en su clasificación. Sus 980 páginas requieren una dedicación prolongada; quien prefiera relatos breves o lecturas alejadas de estos géneros encontrará una propuesta diferente.",
+      "texto": "El imperio del amanecer: 56 (Noches Negras) se orienta a lectores interesados en fantasía, terror y aventuras de larga extensión. Con 980 páginas, requiere más tiempo de lectura que una novela breve y se aleja de las historias realistas o de los libros infantiles de iniciación lectora.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El imperio del amanecer: 56 (Noches Negras) se publica en tapa blanda y alcanza las 980 páginas. Es un volumen físico extenso, más cómodo para leer apoyado que para sostener durante periodos largos; la edición en castellano de Nocturna Ediciones permite conservar toda la obra en un solo ejemplar.",
+      "texto": "El imperio del amanecer: 56 (Noches Negras) cuenta con una edición en tapa blanda de 980 páginas publicada por Nocturna Ediciones. Su extensión convierte el tamaño y el peso del volumen en aspectos relevantes para quienes leen durante los desplazamientos o prefieren sostener el libro durante sesiones prolongadas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El imperio del amanecer: 56 (Noches Negras) comparte el terreno de la fantasía con Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards. El primero combina fantasía, aventuras, terror y ciencia ficción, mientras que el segundo incorpora una referencia explícita al romance oscuro en su título; esa diferencia permite distinguir sus orientaciones de género.",
+      "texto": "Coraline y El imperio del amanecer: 56 (Noches Negras) pueden compararse por su relación con lo fantástico y lo inquietante. Coraline, de Neil Gaiman, parte del hallazgo de una puerta hacia otra versión del hogar de su protagonista; la obra de Jay Kristoff se sitúa entre la fantasía, el terror y las aventuras, con una extensión de 980 páginas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788415955559"
+        "lib-0001"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e7dbd13a9d8af06b",
+  "fuente_hash": "c2bd8eb8210eaa91",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387964757",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Treguas: 403 (Narrativa del Acantilado), de Helen Oyeyemi, se dirige a lectores que buscan ficción relacionada con la fantasía, el misterio y la historia. Sus 256 páginas reúnen esas clasificaciones editoriales, por lo que se aleja de las lecturas centradas exclusivamente en romance contemporáneo o ensayo científico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Treguas: 403 (Narrativa del Acantilado) está disponible en tapa blanda, con 256 páginas editadas por Editorial Acantilado. Esta presentación permite leer en papel, marcar el punto de lectura y conservar el volumen en una biblioteca personal sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coraline, de Neil Gaiman, y Treguas: 403 (Narrativa del Acantilado), de Helen Oyeyemi, pueden compararse desde la presencia de elementos fantásticos y misteriosos. Coraline plantea una puerta hacia otra versión de un hogar, mientras que Treguas: 403 (Narrativa del Acantilado) combina en su clasificación fantasía, misterio e historia, con una extensión de 256 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "91684f39beab3183",
+  "origen": "chatgpt-web"
+}

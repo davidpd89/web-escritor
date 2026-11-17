@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788439747437",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El tamaño del mundo (Random House) está dirigido a lectores de narrativa contemporánea que prefieren una obra de 264 páginas en castellano. Quien busque cómic o novela gráfica encontrará aquí una propuesta de otro género, firmada por António Lobo Antunes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El tamaño del mundo (Random House) puede leerse en tapa blanda o en Kindle. La edición física de Random House reúne 264 páginas para quien prefiera el papel; Kindle permite llevar la obra en un dispositivo compatible sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "974429c7723284f0",
+  "origen": "chatgpt-web"
+}

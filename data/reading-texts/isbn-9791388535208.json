@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9791388535208",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de Gabriel González Rojo se dirige a lectores interesados en el uso de herramientas digitales dentro de la enseñanza y en la competencia digital. Su enfoque de ensayo sobre diseño, aplicaciones y riesgos tecnológicos se aleja de los manuales dedicados exclusivamente al manejo práctico de programas informáticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina la necesidad de establecer un marco de competencia digital en el entorno educativo. Gabriel González Rojo plantea la clasificación de herramientas digitales, el análisis de su diseño y la distinción entre posibles aplicaciones y usos peligrosos, desde un enfoque de ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 56 páginas dedicadas al papel de la tecnología en el aula. Su extensión permite consultar en papel las cuestiones relativas a competencia digital, diseño de herramientas y riesgos de utilización, sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7bdea012ad4d9856",
+  "origen": "chatgpt-web"
+}

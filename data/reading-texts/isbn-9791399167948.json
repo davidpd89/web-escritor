@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399167948",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Otilia: 1 (Omen Clásicos) se dirige a lectores interesados en los clásicos y la narrativa contemporánea. La obra de George Călinescu tiene 452 páginas, por lo que se ajusta menos a quienes buscan una lectura de extensión breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Otilia: 1 (Omen Clásicos) se presenta en tapa blanda, con 452 páginas en castellano. Esta edición de Omen Ediciones permite leer una obra extensa en formato físico, con una encuadernación flexible para transportarla y manejarla durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bba56260d47a3fd2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788410274600",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a madres, padres y personas interesadas en prevenir el acoso y el abuso durante la adolescencia y favorecer relaciones sanas. Su enfoque de crianza y bienestar lo diferencia de una novela juvenil: aborda la educación y la prevención de la violencia, no una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción) se publica en tapa blanda, con 288 páginas. La edición física permite consultar y releer apartados sobre prevención del acoso, abuso y relaciones saludables dentro del ámbito familiar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción) se relaciona con Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación por su atención a la adolescencia. El primero se concentra en prevenir el acoso y el abuso desde la educación familiar; el segundo plantea la autenticidad personal como asunto central. Son enfoques distintos de una misma etapa vital.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781637659380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1cb1ff978678fbe9",
+  "origen": "chatgpt-web"
+}

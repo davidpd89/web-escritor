@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9780241856574",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan una introducción a los conceptos fundamentales de filosofía mediante un curso de bolsillo. Filosofía: Curso de bolsillo: Domina los conceptos clave de forma clara y sencilla (Guía práctica), de DK, plantea un aprendizaje general en 256 páginas, por lo que su enfoque no es el de una investigación especializada en una sola corriente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Filosofía: Curso de bolsillo: Domina los conceptos clave de forma clara y sencilla (Guía práctica) está disponible en tapa blanda. Sus 256 páginas en castellano permiten utilizarla como libro físico de consulta y repasar conceptos durante el estudio, siguiendo el planteamiento de curso de bolsillo indicado en el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antigua Grecia (Civilizaciones antiguas) (Enciclopedia visual) comparte autoría con Filosofía: Curso de bolsillo: Domina los conceptos clave de forma clara y sencilla (Guía práctica): ambos son de DK. La diferencia está en el objeto de estudio: el primero se centra en una civilización histórica y el segundo organiza su contenido alrededor de conceptos filosóficos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241837610"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "71401525f28899b8",
+  "origen": "chatgpt-web"
+}

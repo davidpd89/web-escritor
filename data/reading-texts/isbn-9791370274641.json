@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791370274641",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores interesados en identificar grupos de invertebrados dentro del ámbito de los servicios de control de plagas y organismos nocivos. Su temática técnica encaja menos con quienes buscan una introducción general al mundo animal sin relación con actividades profesionales de control.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El contenido se centra en la identificación de diferentes grupos de invertebrados y su relación con los servicios de control de plagas y organismos nocivos. Beatriz Coronado García firma esta publicación de 124 páginas, cuyo título vincula expresamente la identificación biológica con un ámbito de trabajo especializado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 124 páginas en un ejemplar físico que puede mantenerse abierto durante el estudio o la consulta. Kindle permite llevar el mismo título en formato digital y acceder a sus contenidos desde un lector electrónico o una aplicación compatible.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Boletines derivados de una instalación-IMAI0010 e Instalación y mantenimiento de redes 5G-ELES03 comparten autoría con esta obra, pues ambos títulos son de Beatriz Coronado García. Se diferencian por su materia: los primeros tratan instalaciones y redes de comunicaciones, mientras que este volumen se ocupa de invertebrados y control de organismos nocivos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788411354790",
+        "isbn-9788411354813"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "187a01ff36a87a23",
+  "origen": "chatgpt-web"
+}

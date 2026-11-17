@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la depresión desde el ámbito del bienestar y el desarrollo personal. Por su temática de salud mental, se aparta de las lecturas de entretenimiento y de quienes buscan una historia de ficción.",
+      "texto": "DEPRESIÓN: La enfermedad invisible está dirigido a lectores interesados en la salud, el bienestar y el desarrollo personal, con especial atención a la depresión. Sus 176 páginas presentan una extensión contenida; no se orienta a quienes buscan una novela de ficción o una historia de aventuras.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "DEPRESIÓN: La enfermedad invisible se presenta en tapa blanda y tiene 176 páginas en castellano. La edición impresa permite interrumpir la lectura, señalar fragmentos y volver a ellos sin depender de un dispositivo electrónico.",
+      "texto": "DEPRESIÓN: La enfermedad invisible se publica en tapa blanda, con 176 páginas en castellano. La edición de Livensoul permite consultar el contenido en papel, conservar el ejemplar y volver a sus páginas sin utilizar un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte autor con El último baile, de Manel Rodriguez Moreno, pero DEPRESIÓN: La enfermedad invisible identifica expresamente la salud mental como asunto central. También puede compararse con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, que plantea un campo de bienestar más amplio, mientras este libro se concentra en la depresión.",
+      "texto": "DEPRESIÓN: La enfermedad invisible se relaciona con PÁRKINSON: Vivir mejor es posible por abordar cuestiones de salud y compartir autor, Manel Rodriguez Moreno. La diferencia principal está en el asunto tratado: el primero se centra en la depresión y el segundo identifica el párkinson desde su título. Ambos pertenecen a la bibliografía del mismo escritor.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388540073",
-        "isbn-9798890981776"
+        "isbn-9791388540080"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7487b19b498d59ac",
+  "fuente_hash": "a99d95e1ec3292bf",
   "origen": "chatgpt-web"
 }

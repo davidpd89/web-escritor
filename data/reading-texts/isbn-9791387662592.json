@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387662592",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tina: El perro que cambió el mundo (Crecimiento personal), de Niall Harbison, se dirige a lectores interesados en el desarrollo personal y el bienestar. Por su clasificación temática, encaja menos con quienes buscan una novela de ficción o un manual centrado exclusivamente en nutrición.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y releer en papel las 264 páginas de Tina: El perro que cambió el mundo (Crecimiento personal). Kindle facilita llevar la lectura en un dispositivo electrónico, mientras que el audiolibro permite escucharla durante actividades cotidianas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tina: El perro que cambió el mundo (Crecimiento personal) comparte el ámbito del desarrollo personal con Cambiar para Vivir, Colección Autoayuda, aunque sus títulos plantean puntos de partida distintos: un perro frente al cambio personal. Defiéndete: Claves básicas para fortalecer tu seguridad personal y salir a la calle sin miedo (Alienta) delimita su enfoque a la seguridad personal, mientras que la obra de Niall Harbison se presenta desde una perspectiva más amplia de crecimiento personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415122562",
+        "isbn-9788413445373"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "48270290a9d2900d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387953997",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Transformers (Edición Z deluxe) Libro 02 se dirige a quienes leen cómics y novelas gráficas y buscan una edición extensa en papel. Con 321 páginas, encaja menos con lectores que prefieren novelas compuestas exclusivamente por prosa; el título lo identifica como el libro 02.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Transformers (Edición Z deluxe) Libro 02 cuenta con una edición en tapa dura de 321 páginas, publicada por Moztros Producciones SL. La encuadernación rígida favorece su conservación en una colección de cómics y permite consultar sus páginas repetidamente; el formato físico requiere espacio para guardarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "92ef17a85c594c87",
+  "origen": "chatgpt-web"
+}

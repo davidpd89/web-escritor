@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409934836",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esperanza (Bilogía Sociedades) se orienta a lectores juveniles interesados en la ciencia ficción. Su clasificación como narrativa juvenil la distancia de las obras de divulgación científica y de quienes buscan lecturas centradas en hechos reales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esperanza (Bilogía Sociedades) se publica en tapa blanda y tiene 338 páginas. La edición física de Nika Casado permite leer el volumen sin pantalla y colocarlo junto a otros libros de ciencia ficción juvenil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esperanza (Bilogía Sociedades) puede compararse con Star Wars: Honor entre ladrones (novela) (Star Wars: Novelas) por su vinculación con la ciencia ficción. La obra de Nika Casado se presenta como narrativa juvenil, mientras que la de James S.A. Corey pertenece a una línea de novelas identificada con Star Wars.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102356",
+        "isbn-9791388102349"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "83f98808520e6ef1",
+  "origen": "chatgpt-web"
+}

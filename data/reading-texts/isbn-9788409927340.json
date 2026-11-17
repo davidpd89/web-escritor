@@ -4,34 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Casi Perdidos (Serie Estaciones) encaja con lectores de romance y narrativa contemporánea que buscan una obra de 360 páginas. Su orientación se aparta de quienes prefieren ciencia ficción, divulgación científica o libros prácticos centrados en conocimientos profesionales.",
+      "texto": "Casi Perdidos (Serie Estaciones), de Virginia Kim, encaja con lectores de romance y narrativa contemporánea. Sus 360 páginas se sitúan en esos géneros, por lo que no responde a una búsqueda centrada en fantasía épica, terror o manuales prácticos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Casi Perdidos (Serie Estaciones) se ofrece en tapa blanda y Kindle, dos opciones para leer sus 360 páginas. El ejemplar físico permite conservarlo en una estantería y pasar páginas en papel; Kindle facilita transportarlo digitalmente y ajustar la presentación del texto en dispositivos compatibles.",
+      "texto": "La tapa blanda reúne las 360 páginas de Casi Perdidos (Serie Estaciones) en un ejemplar físico, apropiado para conservarlo o regalarlo. Kindle permite leer la misma obra en formato digital desde un dispositivo compatible, sin llevar el libro impreso.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Casi Perdidos (Serie Estaciones) comparte el terreno romántico con A mil por hora y Amor en pole position (Dirty Air 3). Virginia Kim firma una obra de romance contemporáneo, mientras que los títulos de Hannah Grace y Lauren Asher sitúan sus historias amorosas en el mundo de la Fórmula 1, un escenario deportivo que los distingue.",
+      "texto": "Casi Perdidos (Serie Estaciones), de Virginia Kim, comparte el ámbito del romance con A mil por hora, de Hannah Grace. La diferencia está en el enfoque: A mil por hora presenta una relación entre un piloto de F1 y una mujer que no consigue dejar atrás su pasado, mientras Casi Perdidos pertenece a la narrativa contemporánea y se identifica con Serie Estaciones. También se distingue por sus 360 páginas y su autoría.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466683449",
-        "isbn-9788427055674"
+        "isbn-9788466683449"
       ]
     }
   ],

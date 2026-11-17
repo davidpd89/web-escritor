@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9783754401477",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Art for All: Arquitectura californiana se dirige a lectores interesados en la historia de la arquitectura y su relación con el arte y el diseño. Por su temática, se aleja de las novelas y de los manuales orientados a enseñar técnicas de construcción, ya que su interés se concentra en la arquitectura desde una perspectiva artística e histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Art for All: Arquitectura californiana se presenta en tapa dura, con 504 páginas dedicadas a su temática arquitectónica. Es un volumen físico que puede conservarse como obra de consulta sobre arquitectura y diseño, con una encuadernación rígida apropiada para manejar un libro de esta extensión.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Art for All: Arquitectura californiana y Art for All: Surrealistas comparten su interés por el arte y pertenecen a la misma línea de títulos. El primero, de Barbara Lamprecht y otros autores, se centra en la arquitectura californiana, mientras que el segundo, de Andrea Kettenmann y otros autores, aborda el surrealismo. La diferencia para el lector está entre explorar una tradición arquitectónica y conocer una corriente artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9783754401514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a41cbbde8e38e3d5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387739638",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alfa (Romantasy) se dirige a quienes buscan una novela juvenil que combine fantasía y romance. Sus 480 páginas encajan con lectores que prefieren historias extensas; por su orientación fantástica, se aleja de la narrativa romántica estrictamente realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Alfa (Romantasy) está disponible en tapa dura, con 480 páginas en castellano. Esta edición de Tubolsillo permite conservar el volumen en una estantería y utilizarlo como regalo físico, aunque su extensión supone más peso al transportarlo que un libro breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mortal & Inmortal: Dos romances paranormales (Faeris Editorial) comparte con Alfa (Romantasy) la autoría de Ali Hazelwood y la combinación de romance con elementos ajenos al realismo. La diferencia está en su presentación: el primero reúne dos romances paranormales, mientras Alfa (Romantasy) figura como una obra de fantasía romántica juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108341"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e7d76373aaebb8fc",
+  "origen": "chatgpt-web"
+}

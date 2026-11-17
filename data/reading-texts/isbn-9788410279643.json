@@ -4,36 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores de poesía que buscan una obra breve en castellano. Con 60 páginas y su pertenencia a Artemisa de primer poemario, se distancia de las novelas extensas y de los libros centrados en una narración continuada.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "numero_paginas",
-        "idioma"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda contiene las 60 páginas de El reloj del minotauro: 6 (Artemisa de primer poemario). Su extensión permite llevar el volumen en una bolsa y consultar o releer los poemas en papel, sin depender de un dispositivo electrónico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "223 esquinas: 16 (La garza roja) y El reloj del minotauro: 6 (Artemisa de primer poemario) pertenecen al ámbito poético, pero están firmados respectivamente por Antonio Fernández Lera e Iskren Kirilov. Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, señala expresamente el amor como eje de su selección, mientras que El reloj del minotauro se identifica por su pertenencia a Artemisa de primer poemario.",
+      "texto": "El reloj del minotauro: 6 (Artemisa de primer poemario), de Iskren Kirilov, corresponde a lectores que buscan poesía en castellano y volúmenes breves. Sus 60 páginas lo distinguen de las publicaciones extensas, y su clasificación poética lo separa de las novelas de argumento continuado.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El reloj del minotauro: 6 (Artemisa de primer poemario) cuenta con una edición en tapa blanda de 60 páginas. Su extensión facilita llevar el volumen en papel y regresar a pasajes concretos durante distintas sesiones de lectura. La edición pertenece a Calixto Torres Perales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El reloj del minotauro: 6 (Artemisa de primer poemario) comparte su clasificación poética con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, y A solas, de María Jesús Martínez Ramos. Frente a esos títulos, la obra de Iskren Kirilov se identifica en su propio título con una colección de primer poemario. Consta de 60 páginas en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas",
+        "formatos_disponibles"
       ],
       "enlaces": [
         "isbn-9788412988833",
-        "isbn-9788466396288"
+        "isbn-9788410907539"
       ]
     }
   ],

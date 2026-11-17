@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788409946341",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de comedia romántica con humor y ambientación navideña, el libro sitúa su propuesta en un hotel rural. Su enfoque feel-good se aleja de quienes buscan una narración centrada en el suspense o el terror.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer sus 294 páginas en papel y conservar el ejemplar en la estantería. La edición Kindle ofrece la misma elección de lectura en formato digital, útil para llevar el libro en el móvil o en un lector electrónico sin cargar con el volumen físico.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los finales perfectos no existen, de Violeta Reed, comparte el interés por las convenciones de la comedia romántica, aunque parte del escepticismo de Ben Sharp ante sus desenlaces. Navidades (in)voluntarias: Una comedia romántica navideña feel-good de grumpy x sunshine y magia inesperada, de Silvia Dela, coincide en el marco festivo, pero incorpora una dinámica de caracteres opuestos y magia inesperada, frente al hotel rural del libro de Sandra Rein.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788425371745",
+        "isbn-9788409921010"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04137142bd7bd4b8",
+  "origen": "chatgpt-web"
+}

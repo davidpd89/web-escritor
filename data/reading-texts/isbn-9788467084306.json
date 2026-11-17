@@ -4,35 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "España y la creación de Estados Unidos: Más de 250 años de historia compartida (Espasa Historia de España) está dirigido a lectores interesados en la historia compartida de ambos países. Sus 304 páginas desarrollan un asunto histórico concreto, por lo que encaja menos con quien busca ficción o una panorámica de historia universal.",
+      "texto": "Está dirigido a quienes buscan historia sobre las relaciones entre España y la creación de Estados Unidos. El enfoque anunciado abarca más de 250 años de historia compartida, por lo que se aparta de las biografías individuales y de los libros centrados exclusivamente en acontecimientos contemporáneos. Es una obra histórica de José Luis López-Linares.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "España y la creación de Estados Unidos: Más de 250 años de historia compartida (Espasa Historia de España) se publica en tapa blanda. La edición de Editorial Espasa contiene 304 páginas en castellano y permite leer y consultar el contenido histórico directamente en papel.",
+      "texto": "La edición en tapa blanda contiene 304 páginas en castellano. Su encuadernación flexible permite transportarla y consultar sus capítulos sin el peso añadido de una cubierta rígida. Editorial Espasa publica esta edición física de la obra de José Luis López-Linares.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "editorial",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, comparte con España y la creación de Estados Unidos: Más de 250 años de historia compartida (Espasa Historia de España) el interés por investigar el pasado. El primero se concentra en la vida y la muerte de Federico García Lorca; el libro de José Luis López-Linares examina las relaciones históricas entre España y Estados Unidos.",
+      "texto": "Puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su interés en procesos históricos y políticos. Mientras ese libro aborda el derrumbe de una democracia, España y la creación de Estados Unidos: Más de 250 años de historia compartida (Espasa Historia de España) se centra en la relación histórica entre dos países. Ambos se orientan a lectores de historia, aunque sus ámbitos y periodos de estudio son distintos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788418567933"
+        "isbn-9788411005517"
       ]
     }
   ],

@@ -4,27 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las aventuras de Cliff Booth (Reservoir Narrativa) se dirige a lectores interesados en aventuras dentro de la narrativa contemporánea. Sus 256 páginas delimitan una extensión concreta; quien busque un ensayo o un manual práctico encontrará aquí una obra clasificada como narrativa.",
+      "texto": "Las aventuras de Cliff Booth (Reservoir Narrativa) encaja con lectores de narrativa contemporánea que buscan una historia de aventuras. Por su clasificación literaria, se distancia de los ensayos documentales y de los libros centrados en explicar hechos históricos o conocimientos técnicos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las aventuras de Cliff Booth (Reservoir Narrativa) está disponible en tapa blanda y Kindle. La edición física de Reservoir Books reúne 256 páginas y permite conservar el volumen en papel; Kindle ofrece la alternativa de leerlo en un dispositivo electrónico sin transportar el ejemplar impreso.",
+      "texto": "Las aventuras de Cliff Booth (Reservoir Narrativa) puede leerse en tapa blanda o en Kindle. La edición impresa reúne 256 páginas y permite conservar el volumen en papel; Kindle ofrece la alternativa de llevar la lectura en un dispositivo electrónico o en el móvil sin transportar el libro físico.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las aventuras de Cliff Booth (Reservoir Narrativa) y El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa) comparten su vinculación con la narrativa de aventuras. La diferencia está en la autoría: Quentin Tarantino firma el primero y Heather Fawcett el segundo. También puede compararse con Corazón de oro: Edición limitada a precio especial (Colección Especial), de Luz Gabás, aunque este último título destaca una edición especial frente a la identificación editorial de la obra de Quentin Tarantino.",
+      "texto": "Las aventuras de Cliff Booth (Reservoir Narrativa) y Aquellos marineros de Elcano: La novela del buque escuela de la Armada Española (Narrativa con Valores) comparten su relación con las aventuras narradas en forma de novela. Quentin Tarantino sitúa su propuesta en la narrativa contemporánea, mientras que el título de Blanco Corredoira remite a una historia vinculada a un buque escuela. La elección depende de si interesa una aventura contemporánea o una ambientación naval.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,8 +29,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328353",
-        "isbn-9791387749316"
+        "isbn-9791388444159"
       ]
     }
   ],

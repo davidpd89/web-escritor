@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791399305319",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dimensión rompecabezas, de Juan Francisco Aceña Caballero, está dirigido a lectores de ensayo. Con 96 páginas, responde a quien busca una obra de no ficción relativamente breve, más que a quien desea una novela o una lectura narrativa extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dimensión rompecabezas se presenta en tapa blanda y tiene 96 páginas. Su extensión permite llevar el ejemplar físico en un bolso o mochila y consultar pasajes en papel, mientras que la cubierta flexible facilita su manejo durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "656f71d7adf272d5",
+  "origen": "chatgpt-web"
+}

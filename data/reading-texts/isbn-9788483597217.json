@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788483597217",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vida y pensamientos morales de Confucio (Clásicos) está orientado a lectores interesados en la filosofía, las ideas morales y el pensamiento clásico. Sus 104 páginas ofrecen una extensión breve dentro del ensayo. No responde a la búsqueda de una novela de ficción ni de un manual de ejercicios de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vida y pensamientos morales de Confucio (Clásicos) se publica en tapa blanda y reúne 104 páginas en castellano. La edición impresa permite subrayar pasajes, añadir anotaciones y volver a consultar reflexiones concretas sin utilizar una pantalla. Su extensión facilita llevar el ejemplar en una bolsa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vida y pensamientos morales de Confucio (Clásicos) y Analectas. El arte de la estrategia tienen en común la figura de Confucio, aunque sus títulos señalan enfoques distintos: pensamiento moral y estrategia. Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, comparte el interés por la reflexión filosófica, pero se presenta expresamente como una colección de aforismos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278",
+        "isbn-9791399286526"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df2a4666e9a68345",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387934316",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los grandes artistas roban (ARTE) se orienta a lectores interesados en el arte y el diseño, especialmente en cuestiones relacionadas con la creación artística. El libro de Debra N. Mancoff se aparta por su temática de quienes buscan principalmente una novela o una historia centrada en personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los grandes artistas roban (ARTE) está disponible en tapa dura y reúne 224 páginas en castellano. La encuadernación rígida favorece su conservación como libro físico de consulta o regalo, mientras que la extensión permite repartir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los grandes artistas roban (ARTE) y 720 retrats se relacionan con el ámbito artístico, aunque sus títulos apuntan a intereses diferentes. Debra N. Mancoff aborda la creación artística desde la idea de apropiación sugerida por el título, mientras que Xavier Mollà i Revert presenta una obra centrada nominalmente en retratos. La comparación distingue una cuestión creativa de un tema visual concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c429ce19af35aa1f",
+  "origen": "chatgpt-web"
+}

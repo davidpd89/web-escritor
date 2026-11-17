@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388454127",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jugadoras se sitúa entre las lecturas relacionadas con el ocio y las aficiones, para quienes buscan libros de tiempo libre en castellano. La obra de Facundo Gómez Romero tiene 244 páginas y, por su clasificación, se aparta de las búsquedas centradas en tratados científicos o textos de espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Jugadoras está editado en tapa blanda y reúne 244 páginas en castellano. La edición de Blume (naturart) ofrece un volumen físico manejable para leer en distintos lugares y conservar en una colección de libros dedicados al ocio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Jugadoras comparte su orientación hacia el tiempo libre con 99 Sudoku (LIBROS SINGULARES), de Anónimo, aunque este último identifica directamente los pasatiempos numéricos que propone. También se relaciona por su clasificación con Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas, de Varios autores, centrado expresamente en una actividad manual. Frente a esos títulos de contenido delimitado, Jugadoras presenta un título más amplio dentro del ámbito del ocio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425",
+        "isbn-9788498748208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c1888c23a613286d",
+  "origen": "chatgpt-web"
+}

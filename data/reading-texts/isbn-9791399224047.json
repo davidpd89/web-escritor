@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399224047",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Segovia Callada. Volumen III: 109 rincones escondidos. El final del viaje: 3 se orienta a lectores interesados en lugares de Segovia y publicaciones de ocio. Sus 256 páginas lo sitúan en una propuesta distinta de la novela de ficción, centrada aquí en rincones escondidos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Segovia Callada. Volumen III: 109 rincones escondidos. El final del viaje: 3 está disponible en tapa dura y reúne 256 páginas. La encuadernación rígida permite consultarlo repetidamente y conservarlo como volumen físico dedicado a Segovia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Segovia Callada. Volumen III: 109 rincones escondidos. El final del viaje: 3 y 99 Sudoku (LIBROS SINGULARES) pertenecen al ámbito del ocio. El libro de Juan Enrique del Barrio Arribas se centra en rincones de Segovia, mientras que el de Anónimo propone sudokus como actividad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e02bc36e2ce0ad21",
+  "origen": "chatgpt-web"
+}

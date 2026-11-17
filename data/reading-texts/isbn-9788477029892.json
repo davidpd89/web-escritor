@@ -4,38 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¡Arde, bruja, arde! & ¡Arrástrate, sombra, arrástrate!: 138 (Gótica), de Abraham Merritt, se dirige a lectores de terror interesados en una edición que reúne dos obras bajo un mismo título. Sus 496 páginas responden a una lectura de cierta extensión y se alejan de quienes buscan cuentos infantiles o narrativa romántica.",
+      "texto": "¡Arde, bruja, arde! & ¡Arrástrate, sombra, arrástrate!: 138 (Gótica) se orienta a lectores de terror interesados en obras de temática oscura. Por su clasificación dentro del género, encaja menos con quienes buscan lecturas infantiles o historias alejadas de los elementos inquietantes.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¡Arde, bruja, arde! & ¡Arrástrate, sombra, arrástrate!: 138 (Gótica) está disponible en tapa dura, con 496 páginas en castellano. La edición de Valdemar reúne ambos títulos en un volumen físico extenso, adecuado para conservar las dos obras juntas y consultarlas sin cambiar de libro.",
+      "texto": "La tapa dura de ¡Arde, bruja, arde! & ¡Arrástrate, sombra, arrástrate!: 138 (Gótica) contiene 496 páginas en castellano. Es una edición física extensa, apropiada para conservar en una biblioteca personal o regalar a lectores interesados en el terror.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¡Arde, bruja, arde! & ¡Arrástrate, sombra, arrástrate!: 138 (Gótica), de Abraham Merritt, puede compararse con 25 días hasta Navidad, de Per Jacobsen, por su relación con la narrativa de suspense y terror, aunque este último se presenta como thriller de adviento. También se aproxima a After God 8 (Shônen), de Sumi Eno, por su ubicación entre lecturas de ficción, pero se diferencia por su orientación explícita hacia el terror y su edición en tapa dura.",
+      "texto": "¡Arde, bruja, arde! & ¡Arrástrate, sombra, arrástrate!: 138 (Gótica) puede compararse con A la luz de la oscuridad (La pequeña Salamandra) por la presencia de la oscuridad en sus títulos. La obra de Abraham Merritt pertenece al terror, mientras que la de Aitor Saraiba figura como una lectura afín sin que esa coincidencia temática determine una identidad de género.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055063",
-        "isbn-9791387962647"
+        "isbn-9791387906023"
       ]
     }
   ],

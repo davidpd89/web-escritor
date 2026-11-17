@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388102622",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores de manga shonen que buscan aventuras con elementos de ciencia ficción. Fate Rewinder nº 01 (Precio especial): 1 (Manga Shonen), de Fuuta Kimura, pertenece al cómic y la novela gráfica, por lo que se distancia de las novelas de aventuras escritas únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fate Rewinder nº 01 (Precio especial): 1 (Manga Shonen) se publica en tapa blanda y tiene 192 páginas. La edición en castellano de Planeta Cómic ofrece una lectura física de extensión relativamente breve dentro del manga de aventuras y ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Fate Rewinder nº 01 (Precio especial): 1 (Manga Shonen) comparte con Superdónuts 3 - El destino de los dónuts el terreno de la aventura y la ciencia ficción. La obra de Fuuta Kimura se presenta como manga shonen, mientras que la de Neill Cameron plantea en su descripción un viaje al futuro y sus consecuencias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873479"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eaf352cf02f08921",
+  "origen": "chatgpt-web"
+}

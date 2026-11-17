@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399256116",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La incierta forma del futuro (El hueco al final del mundo) se dirige a lectores que buscan ciencia ficción con elementos de aventura. La obra de Rodolfo Martínez, de 490 páginas, se aparta de los libros divulgativos sobre ciencia y de las lecturas infantiles de iniciación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La incierta forma del futuro (El hueco al final del mundo) está disponible en tapa dura, con 490 páginas. Esta encuadernación proporciona cubiertas rígidas para conservar el volumen y consultarlo de nuevo, aunque implica manejar un libro físico de extensión considerable.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cazador es la presa (El hueco al final del mundo) comparte con La incierta forma del futuro (El hueco al final del mundo) tanto la firma de Rodolfo Martínez como la denominación El hueco al final del mundo. Ambos títulos permiten seguir obras vinculadas por esa identificación, aunque sus nombres presentan planteamientos distintos: uno alude a la relación entre cazador y presa y el otro a la incertidumbre del futuro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399256109"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04e35f920eee44f4",
+  "origen": "chatgpt-web"
+}

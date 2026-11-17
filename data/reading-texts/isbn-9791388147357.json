@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388147357",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El profeta (Best Seller | Ficción) se dirige a lectores interesados en la narrativa contemporánea con una dimensión religiosa o espiritual. Por su clasificación temática, queda más cerca de esas inquietudes que de una obra centrada exclusivamente en cuestiones prácticas de salud o nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El profeta (Best Seller | Ficción) es un libro de bolsillo en tapa blanda de 152 páginas. Publicado por Penguin Bolsillo en castellano, su extensión y presentación permiten transportarlo y leerlo en papel sin recurrir a un volumen de gran tamaño.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El profeta (Best Seller | Ficción) comparte con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia el interés por asuntos espirituales. La obra de Khalil Gibran se sitúa también en la narrativa contemporánea, mientras que el título de Barbara Hand Clow anuncia un enfoque sobre la consciencia y sus dimensiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5b6e13657900344",
+  "origen": "chatgpt-web"
+}

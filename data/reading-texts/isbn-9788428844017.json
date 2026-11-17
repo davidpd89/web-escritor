@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788428844017",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Educar con Stranger Things se dirige a lectores interesados en la educación y en su relación con la narrativa juvenil. Por su planteamiento educativo, encaja menos con quien busque únicamente una novela de aventuras o una historia de ficción independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Educar con Stranger Things está disponible en tapa blanda, con 216 páginas en castellano. Esta edición de PPC Editorial permite consultar y releer sus contenidos en papel, con una extensión que facilita dividir la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Educar con Stranger Things puede compararse con Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación por su relación con el ámbito juvenil. También se aproxima a Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción), aunque este último se centra expresamente en la prevención de la violencia y las relaciones sanas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781637659380",
+        "isbn-9788410274600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "89462dd4c0d81300",
+  "origen": "chatgpt-web"
+}

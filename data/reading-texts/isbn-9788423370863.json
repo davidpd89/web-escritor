@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788423370863",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Afanes sin provecho (Relatos) se dirige a lectores de narrativa contemporánea que buscan un libro identificado expresamente como colección de relatos. Por su planteamiento, se distancia de las novelas presentadas como una única narración extensa y de los libros de divulgación histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Afanes sin provecho (Relatos) es un libro de bolsillo en tapa blanda, publicado por Booket y con 304 páginas. Su presentación permite llevarlo en el bolso o la mochila y consultar los relatos en papel sin recurrir a un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Erguido hacia las estrellas: Una vida de Francisco de Vitoria (Áncora & Delfín) comparte con Afanes sin provecho (Relatos) la autoría de Lorenzo Silva. La diferencia está en el planteamiento anunciado por sus títulos: el primero se centra en la vida de Francisco de Vitoria, mientras que el segundo se presenta como un libro de relatos de narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788423370917"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "91b6bbbf213ce6d8",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409920716",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Doble A (Bandas Cruzadas) está dirigido a lectores que buscan una novela de romance en castellano. Su clasificación lo diferencia de las lecturas centradas en divulgación, historia o desarrollo personal, mientras que sus 388 páginas permiten prever una lectura de cierta extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Doble A (Bandas Cruzadas) se publica en tapa blanda, con 388 páginas. La edición física de Mara Pena permite conservar la novela en papel y llevarla durante desplazamientos, aunque su extensión supone un volumen mayor que el de una recopilación breve de relatos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Doble A (Bandas Cruzadas) comparte el género romántico con 24 historias para enamorarte en navidad: Relatos navideños, aunque este último se presenta como una recopilación de relatos de temática navideña. Frente a esa estructura anunciada en el título de Patricia Bonet, el libro de Mara Pena cuenta con 388 páginas y se identifica como una obra de romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409929177"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6238f720f2d96631",
+  "origen": "chatgpt-web"
+}

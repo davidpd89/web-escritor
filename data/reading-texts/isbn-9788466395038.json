@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788466395038",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cincuenta sombras de Grey (Cincuenta sombras 1) (Best Seller | Ficción) se dirige a lectores de narrativa romántica que buscan una obra extensa. El título la identifica como el número 1 de Cincuenta sombras y esta edición de E.L. James tiene 544 páginas; no corresponde a una lectura de ensayo o divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cincuenta sombras de Grey (Cincuenta sombras 1) (Best Seller | Ficción) puede leerse en tapa blanda o Kindle. La edición de bolsillo de Penguin Bolsillo reúne 544 páginas para quienes prefieren el papel, mientras que Kindle permite llevar el texto digital en un dispositivo compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cincuenta sombras más oscuras (Cincuenta sombras 2) (Best Seller | Ficción) comparte autora y serie con Cincuenta sombras de Grey (Cincuenta sombras 1) (Best Seller | Ficción), aunque sus títulos indican números distintos. Cincuenta sombras liberadas (Cincuenta sombras 3) (Best Seller | Ficción) también pertenece a la misma serie de E.L. James y se identifica con el número 3.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395021",
+        "isbn-9788466395045"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9de517b454f01447",
+  "origen": "chatgpt-web"
+}

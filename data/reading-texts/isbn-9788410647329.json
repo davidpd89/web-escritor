@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410647329",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Narnia: El sobrino del mago (el libro de la película) se dirige a lectores interesados en la fantasía y en relatos que incorporan cuestiones de religión y espiritualidad. Su clasificación también incluye el terror, por lo que encaja menos con quienes buscan exclusivamente historias realistas y ajenas a lo sobrenatural.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Narnia: El sobrino del mago (el libro de la película) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición permite leerlo en papel, llevarlo en una mochila y conservar el ejemplar en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Narnia: El sobrino del mago (el libro de la película) puede compararse con Aftermyth 1. Penelope y la prueba de los dioses por su vinculación con la fantasía y los elementos sobrenaturales. C.S. Lewis presenta una obra cuyo título remite a Narnia y a la magia, mientras Tracy Wolff sitúa en primer plano una prueba relacionada con los dioses.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324102"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "004d0d64616e3226",
+  "origen": "chatgpt-web"
+}

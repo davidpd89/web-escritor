@@ -4,34 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El ángel de la desaparición: 58 (Narrativa) se orienta a lectores de narrativa contemporánea interesados en la historia y el siglo XX. Con 510 páginas, la obra de Slobodan Snajder requiere más tiempo de lectura que una novela corta y se distancia de quienes buscan un ensayo histórico sin componente narrativo.",
+      "texto": "El ángel de la desaparición: 58 (Narrativa) se orienta a lectores de narrativa contemporánea con interés por la historia. Sus 510 páginas requieren una lectura más prolongada que la de una novela corta y no responden a la búsqueda de un manual histórico o una obra de consulta.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El ángel de la desaparición: 58 (Narrativa) está disponible en tapa blanda, en una edición de Armaenia Editorial de 510 páginas. Se trata de un volumen extenso para leer en papel; su formato permite doblar ligeramente la cubierta durante el uso, aunque el número de páginas aumenta el peso respecto a libros más breves.",
+      "texto": "La tapa blanda ofrece las 510 páginas de El ángel de la desaparición: 58 (Narrativa) en la edición impresa de Armaenia Editorial. Kindle permite leer esa extensión en formato digital, sin transportar el volumen físico y con la posibilidad de ajustar el tamaño de letra en dispositivos compatibles.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "numero_paginas",
         "edicion",
         "editorial",
-        "numero_paginas"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El ángel de la desaparición: 58 (Narrativa) puede compararse con Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) por su pertenencia a la narrativa. La obra de Slobodan Snajder se clasifica también en historia y siglo XX, mientras que la de Lev Tolstoi se presenta en una edición especial de tapa dura, frente a la tapa blanda de Armaenia Editorial.",
+      "texto": "El ángel de la desaparición: 58 (Narrativa) puede compararse con Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) por su pertenencia al ámbito narrativo. La diferencia editorial es concreta: la obra de Slobodan Snajder tiene 510 páginas en tapa blanda, mientras que la de Lev Tolstoi se presenta en una edición especial de tapa dura.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "formatos_disponibles",
-        "editorial",
+        "numero_paginas",
+        "edicion",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -41,6 +40,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "977cf6f043bdad48",
+  "fuente_hash": "fc3d41051ed1b2db",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791387709198",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Donde cabe uno..., de Marta Comín, se dirige a quienes buscan un libro infantil de cartón con una extensión breve. Sus 16 páginas lo distinguen de las lecturas juveniles extensas y de los ensayos desarrollados para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Donde cabe uno... está disponible en tapa dura, en una edición de cartón de Zahorí Books. Sus 16 páginas forman un volumen breve que puede manejarse y consultarse físicamente sin necesitar una lectura prolongada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Donde cabe uno... puede compararse con Nosotras. Historia ilustrada del feminismo (Libro de conocimientos) por su vinculación con los libros infantiles y de conocimientos. El primero es una obra de Marta Comín publicada en cartón y con 16 páginas; el segundo figura firmado por Raquel Calvo y aborda el feminismo desde una perspectiva histórica ilustrada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387849092"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee7cc30d684913c6",
+  "origen": "chatgpt-web"
+}

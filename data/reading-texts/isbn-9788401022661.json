@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788401022661",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Colegio mayor (Éxitos), de Lucía Taboada, se dirige a lectores que buscan narrativa contemporánea en una extensión intermedia. Sus 264 páginas lo alejan tanto de los relatos muy breves como de las novelas especialmente extensas; encaja menos con quienes prefieren ensayos o libros de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Colegio mayor (Éxitos) se publica en tapa blanda bajo el sello Plaza & Janés. Sus 264 páginas forman un volumen físico de extensión moderada, adecuado para alternar la lectura en casa con los desplazamientos y para conservarlo en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c365cbd191a330a",
+  "origen": "chatgpt-web"
+}

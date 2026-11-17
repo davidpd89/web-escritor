@@ -4,48 +4,46 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Corazón Crece, El. Enzo Tiene Una Hermanita: 5 | CUENTO interactivo con SOLAPAS para gestionar los celos de manera respetuosa cuando llega un nuevo hermanito. está dirigido a familias que quieren abordar los celos infantiles ante la llegada de un bebé. Su propuesta de cuento con solapas se aleja de las lecturas juveniles extensas y de los manuales teóricos de crianza.",
+      "texto": "Este cuento infantil de Marta Prada está dirigido a familias que quieren abordar los celos cuando llega una nueva hermanita o un nuevo hermanito. Su enfoque en la convivencia familiar y las emociones infantiles lo aleja de quienes buscan una historia juvenil independiente de la crianza.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "edicion"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Se utiliza como cuento interactivo: la lectura se acompaña de la apertura de solapas para explorar la llegada de una hermanita y los celos que puede provocar. Sus 26 páginas permiten compartir la actividad entre el adulto y el niño, deteniéndose en las situaciones familiares que plantea.",
+      "texto": "El cuento se utiliza de forma interactiva mediante solapas que permiten acompañar la lectura con acciones sobre el propio libro. La historia de Enzo y la llegada de su hermanita ofrece un punto de partida para hablar de los celos y de cómo gestionarlos respetuosamente en familia.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura es un libro de cartón de 26 páginas, pensado para manipular físicamente sus solapas durante la lectura. Este formato permite compartir el cuento en papel y volver a sus escenas cuando se quiera hablar de los celos ante la llegada de un nuevo hermano.",
+      "texto": "La edición en tapa dura se presenta como libro de cartón, un soporte físico adecuado para manipular las solapas durante la lectura compartida. Sus 26 páginas permiten recorrer el cuento en sesiones breves y volver a las situaciones relacionadas con la llegada de una hermanita.",
       "evidencias": [
-        "edicion",
         "formatos_disponibles",
+        "edicion",
         "numero_paginas",
         "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El cuento de Marta Prada sobre los celos ante la llegada de una hermanita comparte con Tíos y Tías (AMOR DE FAMILIA), de Margarita Del Mazo, el interés por las relaciones familiares. El primero utiliza solapas para abordar las emociones infantiles ante un nuevo hermano, mientras que el segundo se centra en los vínculos con tíos y tías.",
+      "texto": "Bienvenido, bebé: Un libro muy tierno para dar la bienvenida a un nuevo bebé y celebrar el amor que lo rodea: 15 (Álbumes ilustrados) comparte el tema de la llegada de un bebé a la familia. Jane Chapman aborda la bienvenida y el afecto familiar, mientras que Marta Prada centra su cuento interactivo con solapas en los celos que puede experimentar un hermano.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410438491"
+        "isbn-9791387948160"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8e3b6da3e33aded4",
+  "fuente_hash": "c5a0c4d2c1a68b21",
   "origen": "chatgpt-web"
 }

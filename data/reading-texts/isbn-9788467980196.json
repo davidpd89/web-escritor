@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788467980196",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fairy tail 100 years Quest 20, de Hiro Mashima, se dirige a lectores de cómic y novela gráfica que buscan una lectura en castellano. Sus 192 páginas encajan con quienes prefieren este tipo de narración frente a la novela escrita únicamente en prosa; no responde a la búsqueda de un ensayo o un libro práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Fairy tail 100 years Quest 20 está disponible en tapa blanda, con 192 páginas en castellano. Es una edición física de Norma Editorial que permite consultar y releer sus páginas sin dispositivo electrónico. La cubierta flexible facilita llevar el volumen en una mochila o bolso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c6127fbd2f4eb31a",
+  "origen": "chatgpt-web"
+}

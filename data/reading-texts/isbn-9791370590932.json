@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791370590932",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en los debates sobre democracia, poder político y derecho. Sus 302 páginas se centran en retos, disputas teóricas y dilemas persistentes, por lo que encaja menos con quienes buscan ficción política o una introducción breve a las instituciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "encaje_documentado",
+      "texto": "La obra plantea una lectura de carácter político y jurídico sobre la democracia y sus controversias teóricas. El enfoque anunciado en el título sitúa los retos y dilemas persistentes en el centro del análisis, dentro de una monografía de 302 páginas publicada por Editorial Tirant Lo Blanch.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 302 páginas en castellano. Este formato permite consultar y transportar el volumen físico, así como señalar pasajes durante el estudio de sus cuestiones políticas y jurídicas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La implantación de la Mediación en España, de Aldona Ziaja, comparte el ámbito jurídico, pero se centra en la mediación frente a los debates sobre democracia y poder político. Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios), de Tomás Cano Campos, aborda otra vertiente del derecho, vinculada a la potestad sancionadora administrativa.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388243035",
+        "isbn-9791370610562"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8411aaaf9204889f",
+  "origen": "chatgpt-web"
+}

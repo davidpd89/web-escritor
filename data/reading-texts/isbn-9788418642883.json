@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788418642883",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a quienes quieren iniciarse en la observación de aves en la ciudad de Ceuta. Su temática es la divulgación científica aplicada a una actividad concreta, por lo que no responde a la búsqueda de una guía general de viajes ni de un estudio sobre otras disciplinas científicas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sus 70 páginas se presentan en tapa blanda, un formato que permite llevar el manual durante las salidas de observación. La extensión facilita consultar el contenido dedicado a la iniciación en la observación de aves en la ciudad de Ceuta sin transportar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con 33 islas: Un periplo mediterráneo por su vinculación con lugares geográficos concretos, aunque el libro de José Navarrete Pérez se centra en observar aves en Ceuta y el de Lucio Bellomo en un recorrido mediterráneo. Frente a Abonado y fertilización en agricultura ecológica-AGAU001PO, comparte el interés por cuestiones del entorno natural, pero trata la observación de fauna en lugar de las prácticas agrícolas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127",
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "45d38b89682b9044",
+  "origen": "chatgpt-web"
+}

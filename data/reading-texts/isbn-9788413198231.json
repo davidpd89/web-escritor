@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788413198231",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la investigación histórica, los manuscritos y el estudio del poder vinculado a la Casa de Ayala. Su orientación documental y académica se aleja de la novela histórica y de los relatos divulgativos que no trabajan directamente con la edición de textos antiguos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El núcleo de la obra es la edición y el estudio del manuscrito Espagnol 285 de la Bibliothèque Nationale de France. El título vincula ese trabajo documental con una historia sobre el poder y la Casa de Ayala, en una publicación de 362 páginas de Universidad del País Vasco.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 362 páginas dedicadas al estudio histórico y documental del manuscrito Espagnol 285. El volumen físico permite consultar el texto durante una investigación, volver a pasajes concretos y trabajar con referencias escritas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su atención a las relaciones entre historia y poder. La primera obra estudia un manuscrito relacionado con la Casa de Ayala, mientras que la segunda se concentra en el derrumbe de una democracia bajo Hitler; también difieren en el periodo histórico tratado.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "283fd972825f588f",
+  "origen": "chatgpt-web"
+}

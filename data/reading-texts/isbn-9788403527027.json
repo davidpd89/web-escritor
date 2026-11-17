@@ -4,8 +4,10 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a adultos interesados en las biografías, las memorias y las experiencias personales relacionadas con las relaciones de pareja y la transformación individual. Encaja con lectores que buscan testimonios sobre el matrimonio, la ruptura de expectativas familiares y la recuperación de la propia voz; no es una novela de ficción.",
+      "texto": "Extraños, de Belle Burden, está dirigido a lectores adultos interesados en las memorias personales sobre rupturas matrimoniales, traición y reconstrucción de la identidad. Su relato parte de una separación inesperada y examina las expectativas familiares y sociales sobre las mujeres. No es un manual de terapia de pareja ni una ficción romántica.",
       "evidencias": [
+        "titulo",
+        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -13,29 +15,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas reúne sus 256 páginas en un ejemplar físico de extensión contenida. Kindle ofrece una alternativa digital para leerlo en pantalla y llevarlo en el móvil o en un lector electrónico.",
+      "texto": "Extraños está disponible en tapa blanda, Kindle y audiolibro. La edición impresa tiene 256 páginas y solapas; Kindle permite leer las memorias en un dispositivo compatible, mientras que el audiolibro ofrece la posibilidad de escucharlas. La elección depende de si se prefiere conservar el volumen, leer en pantalla o seguir el relato en audio.",
       "evidencias": [
+        "titulo",
+        "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo me gustaría contarte, de Ángel Gómez Merino, comparte con Extraños el interés por las experiencias personales y las expectativas que condicionan una vida. La diferencia está en el punto de partida: Belle Burden reconstruye su matrimonio y el cambio que provoca una ruptura inesperada, mientras que el otro título parte de los años vividos haciendo lo que se esperaba de uno.",
+      "texto": "Extraños puede compararse con Asuntos pendientes: Hay historias que terminan, pero no se acaban (Autoconocimiento), de Frish Brandt, por su interés en las consecuencias personales de una relación que termina. Belle Burden narra una ruptura matrimonial desde su experiencia autobiográfica, mientras que el otro título sitúa el cierre de historias personales en el terreno del autoconocimiento.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788403526723"
+        "isbn-9788411193795"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "44f34ac1c17b29ee",
+  "fuente_hash": "9d200953b7684fd2",
   "origen": "chatgpt-web"
 }

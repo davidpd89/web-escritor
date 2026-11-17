@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cóbraselo caro / Make Him Pay Dearly, de Élmer Mendoza, encaja con lectores de narrativa contemporánea que prefieren libros de extensión breve. Sus 96 páginas lo sitúan en un formato de lectura más corto que el de una novela extensa; no está catalogado como ensayo ni como literatura infantil.",
+      "texto": "Cóbraselo caro / Make Him Pay Dearly se orienta a quienes leen narrativa contemporánea en castellano y prefieren obras de extensión reducida. Sus 96 páginas lo separan de las novelas más voluminosas; por género, encaja menos con lectores que buscan fantasía o divulgación científica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible de Cóbraselo caro / Make Him Pay Dearly, de Élmer Mendoza. Sus 96 páginas se reúnen en una edición física de extensión reducida, apropiada para quien prefiere leer en papel y conservar el volumen en su biblioteca.",
+      "texto": "Cóbraselo caro / Make Him Pay Dearly ofrece tapa blanda, Kindle y audiolibro. La edición impresa de Penguin Random House Grupo Editorial reúne 96 páginas, una extensión manejable para llevar en papel; Kindle permite leer en un dispositivo digital y el audiolibro ofrece la alternativa de escuchar la obra.",
       "evidencias": [
         "titulo",
-        "autores",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "af9634754f5ea01a",
+  "fuente_hash": "e2d413775864125f",
   "origen": "chatgpt-web"
 }

@@ -4,36 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Humillados y ofendidos, de Fiodor M Dostoievski, se dirige a lectores interesados en los clásicos literarios. La edición de Penguin Clásicos contiene 512 páginas, por lo que supone una lectura extensa. Encaja menos con quienes buscan una novela contemporánea breve o prefieren terminar un libro en pocas sesiones.",
+      "texto": "Humillados y ofendidos se dirige a lectores de clásicos literarios que buscan una obra extensa de Fiodor M Dostoievski. Sus 512 páginas la alejan de las lecturas breves y de quienes prefieren libros prácticos a la narrativa.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "editorial",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Humillados y ofendidos se ofrece en tapa dura, tapa blanda y Kindle. La edición de Penguin Clásicos en tapa blanda reúne 512 páginas; la tapa dura proporciona una encuadernación más rígida para conservar el ejemplar. Kindle permite leer la obra en pantalla y prescindir del peso de la edición impresa.",
+      "texto": "Humillados y ofendidos está disponible en tapa dura, tapa blanda y Kindle. La tapa blanda de Penguin Clásicos reúne 512 páginas y permite llevar el volumen en papel; la tapa dura ofrece una encuadernación más rígida, mientras que Kindle permite leerlo en un dispositivo electrónico sin transportar el libro físico.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
-        "editorial",
-        "numero_paginas",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Humillados y ofendidos puede compararse con El doble porque ambas obras son de Fiodor M Dostoievski. La primera pertenece a la colección de clásicos de Penguin Clásicos y tiene 512 páginas en esta edición. El doble ofrece otro título del mismo autor, de modo que la relación comprobable entre ambos es literaria y de autoría, no de pertenencia a una misma serie.",
+      "texto": "Humillados y ofendidos puede compararse con El doble, otra obra de Fiodor M Dostoievski. Comparten autoría y pertenecen a su producción narrativa, aunque son títulos distintos. La edición de Humillados y ofendidos de Penguin Clásicos cuenta con 512 páginas, un dato útil para valorar su extensión antes de elegirlo.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
+        "afines_catalogo",
         "editorial",
-        "numero_paginas",
-        "afines_catalogo"
+        "numero_paginas"
       ],
       "enlaces": [
         "isbn-9788491058571"
@@ -42,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "94ab590f648abaca",
+  "fuente_hash": "090eb40711dfcb90",
   "origen": "chatgpt-web"
 }

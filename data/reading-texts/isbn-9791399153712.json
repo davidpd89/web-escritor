@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La antigua Grecia en cincuenta monumentos (Ilustrados) se dirige a lectores interesados en la historia griega y en el estudio de su patrimonio artístico y monumental. Sus 256 páginas ofrecen un enfoque centrado en los monumentos, por lo que encaja menos con quienes buscan una novela histórica o una introducción general a distintas civilizaciones.",
+      "texto": "La antigua Grecia en cincuenta monumentos está dirigida a lectores interesados en la historia y el arte. Su enfoque a través de monumentos permite acercarse al mundo griego desde su patrimonio, en lugar de hacerlo mediante una narración de ficción.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La antigua Grecia en cincuenta monumentos (Ilustrados) está disponible en tapa dura, con 256 páginas en castellano. Esta edición física permite consultar los monumentos y volver a sus apartados sin depender de un dispositivo electrónico; también puede utilizarse como libro de consulta en una biblioteca personal.",
+      "texto": "La tapa dura reúne las 256 páginas de La antigua Grecia en cincuenta monumentos en una edición ilustrada de Desperta Ferro Ediciones. Es el formato disponible para consultar el contenido en papel y conservar el volumen como libro de referencia.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Clásicos Sin Filtros: El Impacto del Mundo Antiguo / Talking Classics: The Shock of the Old comparte el interés por el mundo antiguo, mientras que La antigua Grecia en cincuenta monumentos (Ilustrados) concentra su atención en los monumentos griegos. Civilización: Una historia del arte y la cultura que dieron forma a la civilización moderna: 126 (Ático Historia) aborda un marco artístico y cultural más amplio, frente al enfoque histórico y monumental de la obra de David Stuttard.",
+      "texto": "La antigua Grecia en cincuenta monumentos, de David Stuttard, comparte con Art for All: Arquitectura californiana, de Barbara Lamprecht, Barbara-Ann Campbell-Lange, Elizabeth A. T. Smith, Gloria Koenig y James Steele, el interés por el patrimonio construido. La diferencia está en el foco: el primero aborda monumentos de la antigua Grecia desde la historia y el arte; el segundo se centra en la arquitectura californiana.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,8 +33,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387592493",
-        "isbn-9786076393055"
+        "isbn-9783754401477",
+        "isbn-9783754401514"
       ]
     }
   ],

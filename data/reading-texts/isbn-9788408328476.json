@@ -4,27 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este estuche se orienta a lectores interesados en aventuras con misterio y humor vinculadas a la colección Jóvenes influencers. Reúne dos entregas de GoDeiK en 368 páginas, por lo que responde mejor a quien quiere ambos títulos que a quien busca una obra independiente de esa colección.",
+      "texto": "Estuche GoDeiK 1 + GoDeiK 2 (Jóvenes influencers) se dirige a lectores de aventuras y misterios que quieran reunir dos títulos de GoDeiK. Sus 368 páginas en tapa dura encajan con quienes prefieren leer ambas entregas en una misma edición; no responde a la búsqueda de un ensayo o una historia real.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El estuche se presenta en tapa dura y reúne GoDeiK 1 y GoDeiK 2, con una extensión conjunta de 368 páginas. Permite adquirir las dos entregas en una misma presentación física, tanto para conservarlas juntas como para regalarlas. La edición corresponde a Destino Infantil & Juvenil.",
+      "texto": "El estuche se presenta en tapa dura, con 368 páginas en castellano y edición de Destino Infantil & Juvenil. Este formato permite conservar juntas las dos entregas identificadas en el título y resulta práctico para colocarlas en una biblioteca o entregarlas como regalo físico.",
       "evidencias": [
         "titulo",
+        "edicion",
         "numero_paginas",
-        "formatos_disponibles",
-        "editorial"
+        "idioma",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Estuche GoDeiK 1 + GoDeiK 2 (Jóvenes influencers) comparte autoría y colección con GoDeik1. GoDeik y la gema maldita. Edición exclusiva: 1 (Jóvenes influencers), también de GoDeiK. La diferencia está en que el estuche reúne dos entregas de aventuras, misterio y humor en tapa dura, con 368 páginas en total, mientras que el título afín corresponde a la primera entrega.",
+      "texto": "GoDeiK 2. GoDeiK y los amigos enemigos (Jóvenes influencers) comparte autoría y colección con Estuche GoDeiK 1 + GoDeiK 2 (Jóvenes influencers). El primero identifica una entrega concreta, mientras que el estuche reúne dos entregas de aventuras y misterio en tapa dura, con 368 páginas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +36,12 @@
         "numero_paginas"
       ],
       "enlaces": [
-        "isbn-9788408329282"
+        "isbn-9788408328087"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "075b8b0606af2582",
+  "fuente_hash": "9a23261114a3dabe",
   "origen": "chatgpt-web"
 }

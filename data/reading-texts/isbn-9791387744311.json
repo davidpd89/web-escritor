@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387744311",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La terrible Adèle novela 2. ¡Ahora empiezan las travesuras!, de Mr Tan, se dirige al público infantil y juvenil que busca historias relacionadas con las travesuras. Su vinculación con el cómic y la novela gráfica la distingue de las lecturas orientadas exclusivamente al público adulto o al ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La terrible Adèle novela 2. ¡Ahora empiezan las travesuras! se presenta en tapa blanda y tiene 96 páginas. La edición en castellano de Kómikids ofrece una extensión que permite leerla en varias sesiones breves y guardarla junto a otros títulos infantiles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La terrible Adèle novela 2 comparte con Animal Jack 2 la montaña mágica su orientación hacia las aventuras protagonizadas por personajes de colecciones numeradas. Mr Tan centra su obra en las travesuras de Adèle, mientras que Kid Toussaint presenta una historia cuyo título alude a una montaña mágica. Ambas obras tienen autores y protagonistas diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387744410"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe159f17ad487f71",
+  "origen": "chatgpt-web"
+}

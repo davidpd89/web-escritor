@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788467984927",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una enfermedad llamada amor 18 se dirige a lectores de romance contado mediante cómic y novela gráfica. Sus 224 páginas permiten seguir una historia de este género en formato visual; encaja menos con quienes buscan una novela romántica escrita exclusivamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una enfermedad llamada amor 18 está disponible en tapa blanda, con 224 páginas en castellano. Esta edición de Norma Editorial permite conservar el volumen en papel y consultar sus páginas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una enfermedad llamada amor 18. ED. Especial comparte título y autoría con Una enfermedad llamada amor 18, de Megumi Morino, aunque se presenta como edición especial. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, ofrece otra lectura relacionada con el romance, pero pertenece a una obra distinta y tiene otra autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467984934",
+        "isbn-9791387962494"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb5b5ed2deeee8e4",
+  "origen": "chatgpt-web"
+}

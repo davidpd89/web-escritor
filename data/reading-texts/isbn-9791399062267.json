@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399062267",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El siglo de las rupturas: De las vanguardias a la globalización (Música, pensamiento y sociedad) se dirige a lectores interesados en las relaciones entre música, pensamiento y sociedad. Su enfoque de ensayo sobre las vanguardias y la globalización se aparta de los manuales prácticos de creación artística.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El siglo de las rupturas: De las vanguardias a la globalización (Música, pensamiento y sociedad) se presenta en tapa blanda, con 541 páginas en castellano. Es un volumen físico de extensión considerable, que permite consultar y retomar apartados durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gran orden y la invención del mundo moderno: De los orígenes al Barroco (Música, Pensamiento y Sociedad) comparte autoría con El siglo de las rupturas: De las vanguardias a la globalización (Música, pensamiento y sociedad): ambos son de Tomás Marco. El primero sitúa su recorrido entre los orígenes y el Barroco; el segundo se centra en las vanguardias y la globalización.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399062243"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9d0860ba09ce3909",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788367600729",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro se dirige a lectores infantiles interesados en los coches clásicos y las historias relacionadas con ellos. Sus 32 páginas y su enfoque divulgativo lo diferencian de una novela de aventuras o de un manual técnico de mecánica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 32 páginas en castellano, una extensión que permite consultar el libro en sesiones breves. El formato físico facilita llevarlo consigo y volver a sus contenidos sobre coches clásicos sin depender de una pantalla.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El pequeño libro de los coches legendarios comparte con Tetti la cigarra ibérica el acercamiento a temas concretos para lectores infantiles, aunque el primero trata sobre automóviles clásicos y el segundo sobre una cigarra ibérica. Frente a 50 cosas que hay que saber sobre IA, centrado en inteligencia artificial, el libro de Conrad K Butler aborda los coches clásicos y sus historias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921331",
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38edc2cb54bdf3b1",
+  "origen": "chatgpt-web"
+}

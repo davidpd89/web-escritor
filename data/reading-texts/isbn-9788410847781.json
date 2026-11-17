@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Gloria Fuertes. Tanto amas, tanto vales se dirige a lectores de poesía infantil y a quienes buscan textos breves que combinan humor, imaginación y juegos verbales. Sus cuentos, poemas y adivinanzas ofrecen una lectura distinta de la narrativa extensa y de los poemarios centrados exclusivamente en temas adultos.",
+      "texto": "Gloria Fuertes. Tanto amas, tanto vales se dirige a lectores interesados en la poesía infantil, los juegos verbales y el humor literario de Gloria Fuertes. No está planteado como una novela de argumento continuo, ya que reúne distintas formas breves de escritura organizadas por temas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,37 +14,37 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una recopilación temática de escritos de Gloria Fuertes vinculados a su producción infantil. Reúne cuentos, poemas, adivinanzas y versos humorísticos, de modo que permite alternar formas literarias diferentes dentro de un mismo volumen.",
+      "texto": "La obra reúne poemas, cuentos, adivinanzas y versos humorísticos de Gloria Fuertes, distribuidos por temas. El conjunto permite alternar diferentes tipos de texto y acercarse a los motivos habituales de su escritura infantil, especialmente el afecto y el humor.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Gloria Fuertes. Tanto amas, tanto vales está disponible en tapa dura y reúne 304 páginas. La encuadernación rígida resulta práctica para conservar una recopilación destinada a consultas y relecturas, y permite regalar el volumen como libro físico de poesía y cuentos.",
+      "texto": "Gloria Fuertes. Tanto amas, tanto vales está editado en tapa dura, con 304 páginas en castellano. La encuadernación rígida resulta adecuada para conservar un volumen de consulta frecuente, mientras que la variedad de textos permite abrirlo por diferentes secciones sin seguir una narración continua.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
+        "idioma",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Gloria Fuertes. Tanto amas, tanto vales y Antologia amorosa la voz a ti debida y razon de amor reúnen poesía, pero el volumen de Gloria Fuertes incorpora cuentos, adivinanzas y humor infantil, mientras el de Pedro Salinas se centra en la temática amorosa. Ambos permiten acercarse a la escritura poética en español desde públicos y asuntos diferentes.",
+      "texto": "A solas, de María Jesús Martínez Ramos, comparte con Gloria Fuertes. Tanto amas, tanto vales su pertenencia al ámbito de la poesía, aunque se trata de obras de distinta autoría. El volumen de Gloria Fuertes se distingue por reunir también cuentos y adivinanzas, con una organización temática vinculada a su producción infantil.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788410907539"
       ]
     }
   ],

@@ -4,33 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Soplo (No ficción) se dirige a lectores interesados en el desarrollo personal y la psicología desde un enfoque de no ficción. Por su clasificación, no se presenta como una novela ni como un estudio centrado exclusivamente en historia o política.",
+      "texto": "Soplo (No ficción), de Fernando Botella, encaja con lectores que buscan obras de desarrollo personal y psicología. Su clasificación temática lo separa de los manuales técnicos especializados y de las novelas de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Soplo (No ficción) es de tapa blanda y tiene 304 páginas en castellano. Su extensión permite repartir la lectura en varias sesiones y conservar el volumen para consultar apartados posteriormente.",
+      "texto": "Soplo (No ficción) se publica en tapa blanda, con 304 páginas en castellano. La edición de Roca Editorial permite una lectura física continuada y facilita volver a los apartados de una obra situada entre el desarrollo personal y la psicología.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta, de Fausto Alfaro Cádiz, comparte con Soplo (No ficción) el ámbito del desarrollo personal. El primero anuncia principios para afrontar situaciones difíciles, mientras el libro de Fernando Botella se presenta bajo un título más abierto y también se clasifica dentro de la psicología.",
+      "texto": "Liderazgo de emergencia: Herramientas para gestionar lo imprevisible (Liderazgo con valores), de Fernando Botella y David Cuesta, comparte autoría con Soplo (No ficción), pero se centra expresamente en la gestión de situaciones imprevisibles. A.C.T.I.V.A.: 8 etapas para construir dirección, capacidad y libertad en tiempos de cambio, de Jul Ore, también se sitúa en el desarrollo personal, con una estructura de etapas anunciada en su título.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788409938193"
+        "isbn-9791388155475",
+        "isbn-9789560848819"
       ]
     }
   ],

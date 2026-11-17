@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788432322143",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Stalin: Una biografía, de Robert Service, está dirigido a lectores interesados en las biografías históricas y en el estudio del poder político. Sus 904 páginas plantean una lectura extensa, menos ajustada a quienes buscan una introducción breve o una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción en papel de Stalin: Una biografía es la tapa blanda, con una extensión de 904 páginas. El volumen de Robert Service permite distribuir la lectura en varias sesiones y consultar pasajes anteriores sin utilizar dispositivos electrónicos. Su extensión también conviene tenerla en cuenta si se pretende transportar el libro habitualmente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Stalin: Una biografía y Pueblo / The People comparten su relación con la política, aunque Robert Service aborda una figura histórica mediante la biografía y Andrés Manuel López Obrador firma una obra de título colectivo. Sin tiempo para el odio: Una vida frente al terrorismo y la desmemoria (Obras diversas), de Consuelo Ordóñez, también remite a experiencias relacionadas con la historia y la política, pero desde una vida marcada por el terrorismo y la memoria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073951289",
+        "isbn-9788401040726"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e0d1c6b91fc0ab7e",
+  "origen": "chatgpt-web"
+}

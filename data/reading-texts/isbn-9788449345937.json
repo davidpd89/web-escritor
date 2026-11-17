@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La economía del cuidado se dirige a lectores interesados en la relación entre economía, sostenibilidad y organización social. El planteamiento de Tim Jackson se centra en los cuidados y en una idea de prosperidad distinta del crecimiento económico, por lo que no responde a quien busca una novela o un manual práctico de finanzas personales.",
+      "texto": "La economía del cuidado se dirige a lectores interesados en la relación entre economía, sostenibilidad y organización social. Su planteamiento cuestiona el lugar que ocupa el trabajo de cuidados en el sistema económico, por lo que se aleja de los manuales centrados en finanzas personales o gestión empresarial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un ensayo de economía ecológica que examina el papel de los cuidados en la construcción de una sociedad sostenible. Tim Jackson cuestiona su posición marginal dentro del sistema económico y plantea reorganizar la idea de prosperidad alrededor de las necesidades humanas.",
+      "texto": "La economía del cuidado es un ensayo económico en el que Tim Jackson examina el papel de los cuidados dentro de la prosperidad colectiva. Su enfoque parte de la economía ecológica y del debate sobre el poscrecimiento para plantear un modelo económico que otorgue mayor importancia al cuidado y la sostenibilidad.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,32 +24,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La economía del cuidado está disponible en tapa blanda y Kindle. La edición física, publicada en rústica con solapas por Ediciones Paidós, reúne 416 páginas y permite consultar y señalar pasajes en papel; Kindle facilita llevar el texto en el móvil o en un lector electrónico.",
+      "texto": "La economía del cuidado puede leerse en tapa blanda o Kindle, según se prefiera consultar sus 416 páginas en papel o en un dispositivo electrónico. La edición física de Ediciones Paidós es rústica con solapas, mientras que Kindle permite transportar el ensayo sin llevar el volumen impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "editorial",
-        "numero_paginas"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La economía del cuidado y Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) examinan ideas sobre la organización económica, pero el primero sitúa los cuidados y la sostenibilidad en el centro, mientras el segundo aborda las raíces del pensamiento anarcocapitalista. Cómo ganar una guerra comercial también trata cuestiones económicas, aunque se concentra en los conflictos del comercio internacional y no en el papel social de los cuidados.",
+      "texto": "La economía del cuidado y La batalla por la vivienda examinan problemas económicos con consecuencias sociales. Tim Jackson aborda el trabajo de cuidados y la sostenibilidad desde la economía ecológica, mientras que Michael Byrne analiza la crisis de la vivienda desde la economía política.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457",
-        "isbn-9788423441051"
+        "isbn-9788449346187"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1c3327c466d73c4c",
+  "fuente_hash": "38e566ce5f29afe2",
   "origen": "chatgpt-web"
 }

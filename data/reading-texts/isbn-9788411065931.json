@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788411065931",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "CIE-11 se orienta a lectores interesados en publicaciones del ámbito científico y en obras de consulta extensas. Sus 736 páginas lo alejan de quienes buscan una lectura breve de ocio o una introducción de pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Panamericana ofrece 736 páginas en tapa blanda, con texto en castellano. Por su extensión, resulta más apropiada para mantenerla en un lugar habitual de consulta que para transportarla continuamente; el papel permite localizar y revisar apartados sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "CIE-11 comparte el ámbito científico con Manual de ilustración científica - Nueva edición con láminas (Ilustrados), aunque este último identifica la ilustración como materia específica. También puede compararse con El libro de la geografía: 39 (El libro de...), que delimita su contenido a la geografía, frente al título de carácter técnico de CIE-11.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788446058830",
+        "isbn-9788408328117"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c7d218ba6955eaf4",
+  "origen": "chatgpt-web"
+}

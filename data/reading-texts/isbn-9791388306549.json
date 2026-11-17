@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388306549",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Henrik Ibsen: Teatro I y II (Letras Nórdicas) se dirige a lectores que buscan obras teatrales reunidas en una edición extensa. Sus 1168 páginas y su presentación en estuche responden a una lectura de largo recorrido, distinta de la novela breve o del álbum ilustrado.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche de Henrik Ibsen reúne Teatro I y II en una edición de tapa blanda de 1168 páginas. Su presentación física permite conservar juntos ambos volúmenes y consultarlos como conjunto, una característica relevante para quien organiza una biblioteca teatral.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Henrik Ibsen: Teatro I y II (Letras Nórdicas) y Federico. Mi corazón, tu casa (Álbumes ilustrados) se relacionan con la creación artística, pero presentan propuestas distintas. Henrik Ibsen figura como autor de una recopilación teatral, mientras que Antonio Lorente firma un álbum ilustrado. La diferencia principal para el lector está entre el texto dramático reunido en volúmenes y el formato de álbum.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788414076118"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9e6d22eb5a102d01",
+  "origen": "chatgpt-web"
+}

@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable, de Naiara Ruz Redondo, se dirige a lectores de romance juvenil con interés por el misterio y las relaciones de pareja. Sus 362 páginas se alejan de las lecturas breves y de quienes buscan una historia sin componente romántico.",
+      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable se dirige a lectores de romance y narrativa juvenil. La propuesta de Naiara Ruz Redondo encaja con quienes buscan relaciones sentimentales dentro de la ficción juvenil, pero se aleja de las lecturas centradas en otros géneros.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable está disponible en tapa blanda, con 362 páginas en castellano. Esta edición de Naiara Ruz Redondo permite seguir la historia en papel y conservarla físicamente, con una extensión intermedia entre un libro breve y una novela de gran volumen.",
+      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable está disponible en tapa blanda y Kindle. La edición impresa reúne 362 páginas y permite conservar el volumen en papel; Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable comparte el componente romántico con CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros). La obra de Naiara Ruz Redondo combina romance juvenil y misterio, mientras que la de Marta Monroy anuncia una historia New Adult sobre arte, superación y segundas oportunidades.",
+      "texto": "EXITUS [SAGA CORSARIOS I]: Una atracción inevitable puede compararse con Alfa (Romantasy) por su orientación hacia lectores de romance. La diferencia está en que el libro de Naiara Ruz Redondo se presenta como romance juvenil, mientras que el de Ali Hazelwood se identifica como romantasy. También comparte el terreno sentimental con Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday), de John Green.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409942572"
+        "isbn-9791387739638",
+        "isbn-9788466395816"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4c863f51acc50f54",
+  "fuente_hash": "9d1e2ee8027a6dd0",
   "origen": "chatgpt-web"
 }

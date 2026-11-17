@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387928124",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Piranesi (Salamandra Narrativa), de Susanna Clarke, se orienta a lectores de fantasía, aventuras y narrativa contemporánea. Sus 272 páginas permiten elegir una novela de extensión intermedia, mientras que quien busque exclusivamente ensayo o biografía encontrará aquí otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Piranesi (Salamandra Narrativa) está disponible en tapa dura, tapa blanda y Kindle, con una extensión de 272 páginas. La tapa dura ofrece una encuadernación rígida para conservar o regalar; la tapa blanda facilita el manejo del ejemplar físico y Kindle permite leerlo digitalmente desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett, comparte con Piranesi (Salamandra Narrativa) su vinculación con la fantasía. La diferencia está en la autoría y el enfoque sugerido por los títulos: Heather Fawcett presenta un refugio de gatos, mientras Susanna Clarke firma una obra titulada Piranesi (Salamandra Narrativa).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387749316"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b7e82d63caff5e0d",
+  "origen": "chatgpt-web"
+}

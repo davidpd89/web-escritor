@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388586156",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Supervisión agrícola mediante imágenes y drones-AGAU42 está dirigido a lectores interesados en la aplicación de imágenes y drones al seguimiento de actividades agrícolas. Su enfoque tecnológico y sectorial se aleja de los libros sobre agricultura doméstica o cultivo ornamental.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Supervisión agrícola mediante imágenes y drones-AGAU42 se ofrece en tapa blanda, con 112 páginas en castellano. El soporte físico permite marcar secciones y consultar el contenido sobre supervisión agrícola sin necesidad de utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Supervisión agrícola mediante imágenes y drones-AGAU42 comparte autora, Elsa Rubio Duce, con Abonado y fertilización en agricultura ecológica-AGAU001PO. Ambos se sitúan en el ámbito agrícola, pero el primero aborda la supervisión mediante imágenes y drones y el segundo trata el abonado y la fertilización. Energías renovables: Especialidad biomasa-ENAE010PO, también de Elsa Rubio Duce, cambia el foco hacia el aprovechamiento energético de la biomasa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586422",
+        "isbn-9791388586279"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5bdab13dbc919d36",
+  "origen": "chatgpt-web"
+}

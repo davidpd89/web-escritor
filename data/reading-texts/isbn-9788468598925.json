@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788468598925",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de curar se encuadra entre el ensayo, la filosofía y la narrativa contemporánea, por lo que se dirige a lectores interesados en esas formas de escritura. No está orientado específicamente a quienes buscan un manual sanitario técnico ni a quienes prefieren contenidos exclusivamente prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Bubok Publishing contiene 336 páginas en castellano. Permite leer y consultar el volumen en papel, con una extensión intermedia que facilita repartir la lectura entre distintas sesiones y conservar el ejemplar para volver a determinados pasajes.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de curar comparte la vertiente reflexiva de su clasificación filosófica con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, aunque este último se presenta expresamente como una colección de aforismos. Frente a El dilema del erizo (Narrativa), de Toon Tellegen, incorpora también el ensayo y la filosofía entre sus materias.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426433909",
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64ef87b9632056cc",
+  "origen": "chatgpt-web"
+}

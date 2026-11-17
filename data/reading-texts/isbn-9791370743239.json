@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370743239",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en los videojuegos y en libros sobre sus personajes y universos, especialmente Assassin's Creed y Tomb Raider. Reúne tres libros en 453 páginas y se aleja de la narrativa de ficción convencional para centrarse en contenidos vinculados a los videojuegos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición es en tapa dura y reúne tres libros en un conjunto de 453 páginas. Este formato permite conservar los volúmenes juntos en una colección física y consultarlos por separado según el videojuego que interese. También puede utilizarse como regalo para alguien que coleccione libros sobre videojuegos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "titulo",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Este pack puede compararse con Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII, también de RBA Coleccionables España. Ambos pertenecen al ámbito del arte y el diseño, pero el primero reúne tres libros sobre videojuegos y el segundo se centra en una figura de la moda. La diferencia para el lector está en el tema tratado y en la extensión del pack, que suma 453 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079321"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b83d6bd5e9caf88b",
+  "origen": "chatgpt-web"
+}

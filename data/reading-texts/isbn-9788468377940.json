@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788468377940",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Viernes. Saga laberinto: 4 (Biblioteca Care Santos), de Care Santos, pertenece a la narrativa contemporánea juvenil. Sus 288 páginas ofrecen una extensión intermedia dentro de la novela juvenil; por su clasificación, se distancia de quienes buscan principalmente fantasía o aventuras en mundos imaginarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Viernes. Saga laberinto: 4 (Biblioteca Care Santos) tiene una edición en tapa blanda de Edebé, con 288 páginas en castellano. El volumen puede transportarse como libro físico y guardarse en una estantería junto a otras entregas; el título lo identifica con el número 4.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Viernes. Saga laberinto: 4 (Biblioteca Care Santos) y Éric (Periscopio) comparten autora, Care Santos, por lo que permiten comparar dos títulos de una misma escritora. Frente a Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday), de John Green, la diferencia explícita está en la autoría y en la identificación de Viernes. Saga laberinto: 4 (Biblioteca Care Santos) como parte numerada de una saga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788468376950",
+        "isbn-9788466395816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9429c9023e6c5942",
+  "origen": "chatgpt-web"
+}

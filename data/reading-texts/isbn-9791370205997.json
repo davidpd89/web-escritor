@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370205997",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuarteroni y los piratas malayos (Mascarón no ficción) se dirige a quienes leen biografías y memorias y sienten interés por figuras vinculadas a la piratería. Sus 318 páginas responden a una lectura de no ficción de cierta extensión, distinta de una novela de aventuras imaginarias.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 318 páginas de Cuarteroni y los piratas malayos (Mascarón no ficción) en un volumen físico. Publicada por Mascarón de Proa en castellano, permite conservar la obra en papel y consultarla durante una lectura prolongada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago comparte con Cuarteroni y los piratas malayos (Mascarón no ficción) el interés por experiencias vinculadas a lugares concretos, aunque su título sitúa el foco en el Camino de Santiago. A bordo de un diario sin fin (CUENTOS PARA ALARGAR-LA-VIDA) propone desde su título una escritura de diario y cuentos, frente al enfoque biográfico de la obra de Alicia Castellanos Escudier.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388436727",
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "53611e80af37a179",
+  "origen": "chatgpt-web"
+}

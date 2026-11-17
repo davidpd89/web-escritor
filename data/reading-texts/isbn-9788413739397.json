@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788413739397",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Capitalismo del contrato social se orienta a lectores interesados en política, poder y organización social. José Antonio Torrealday Llona firma esta publicación de 432 páginas, clasificada dentro de política y actualidad. Su enfoque temático se aparta de la narrativa de ficción y de las lecturas centradas en aventuras personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Capitalismo del contrato social está disponible en tapa blanda, con 432 páginas en castellano. La edición de Bod - Books On Demand permite consultar el contenido en papel y volver a apartados concretos durante una lectura prolongada sobre cuestiones políticas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Capitalismo del contrato social y A la sombra del Estado comparten su interés por las cuestiones de poder. José Antonio Torrealday Llona aborda desde el título la relación entre capitalismo y contrato social; Luis de la Corte Ibáñez trata asuntos de espionaje, operaciones encubiertas, desinformación y poder clandestino. La diferencia está en el ámbito político que identifica cada obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "65d19f9fdad5a2f1",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Terrores cotidianos (edición bilingüe español/zoque) / Everyday Fears (Bilingual Edition) se dirige a lectores interesados en relatos y narrativa contemporánea con una presentación bilingüe. Su combinación de español y zoque puede interesar a quienes buscan leer en ambas lenguas, pero no responde a la búsqueda de una novela presentada exclusivamente en castellano.",
+      "texto": "Se dirige a quienes buscan relatos vinculados a la narrativa contemporánea y la novela histórica, con una edición bilingüe español/zoque. Por su clasificación como relatos, encaja menos con quien prefiere una novela de fantasía o una obra de historia exclusivamente divulgativa.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,35 +12,34 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición se distingue por su presentación bilingüe en español y zoque, indicada expresamente en el título. Publicada por Penguin Random House Grupo Editorial, reúne 224 páginas en tapa blanda y lleva el ISBN 9786073879095, que permite identificar este volumen concreto.",
+      "texto": "Esta edición de Terrores cotidianos (edición bilingüe español/zoque) / Everyday Fears (Bilingual Edition) se publica en tapa blanda bajo el sello Penguin Random House Grupo Editorial. Tiene 224 páginas, fecha editorial de 2027-01-19 e ISBN 9786073879095, datos que permiten identificarla frente a otras presentaciones.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
         "numero_paginas",
+        "fecha_publicacion",
         "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece un volumen físico de 224 páginas para consultar y conservar la edición bilingüe. Kindle permite leer el contenido en formato electrónico, con la ventaja de transportar la obra en un dispositivo sin necesidad de llevar el ejemplar impreso.",
+      "texto": "La tapa blanda permite leer sus 224 páginas en un ejemplar físico y conservarlo en la estantería. Kindle ofrece la alternativa digital para llevar la lectura en un móvil o lector electrónico, sin transportar el volumen impreso.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf, de Pilar Quintana, comparte con este libro la presencia de dos lenguas en el título, aunque presenta la combinación español e inglés frente al español y zoque. En lengua privada / In Private Language, de Emiliano Monge, ofrece otra referencia de título bilingüe, con una autoría diferente de la de Jaime Sakäsmä.",
+      "texto": "Terrores cotidianos (edición bilingüe español/zoque) / Everyday Fears (Bilingual Edition) puede compararse con Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf por la presentación de ambos títulos en dos lenguas. Frente a HISTORIAS DE LA CANARICULTURA: 23 relatos cortos de ficción histórica que cuentan el origen, evolución y actualidad de la domesticación del pájaro canario, comparte la vinculación con los relatos, pero este último delimita su materia a la ficción histórica sobre la domesticación del canario.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786287880610",
-        "isbn-9786073878289"
+        "isbn-9788410907638",
+        "isbn-9786287880610"
       ]
     }
   ],

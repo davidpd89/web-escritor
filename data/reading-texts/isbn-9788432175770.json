@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El resplandor de la pausa: Una invitación a la contemplación (Religión. Fuera de Colección) se dirige a lectores interesados en la contemplación, el bienestar personal y la reflexión religiosa. Su enfoque se aleja de los manuales centrados en alimentación o ejercicio físico, aunque comparte con ellos el interés por el cuidado personal.",
+      "texto": "El resplandor de la pausa: Una invitación a la contemplación (Religión. Fuera de Colección) se dirige a lectores interesados en la contemplación y el desarrollo personal. Por su orientación hacia la pausa y el bienestar, se aleja de los libros centrados en técnicas de productividad o soluciones para problemas familiares concretos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,28 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de El resplandor de la pausa: Una invitación a la contemplación (Religión. Fuera de Colección) se presenta en tapa blanda y tiene 192 páginas. Este formato permite llevar el volumen en el bolso o la mochila y volver a determinados pasajes durante distintas sesiones de lectura.",
+      "texto": "La tapa blanda reúne las 192 páginas de El resplandor de la pausa: Una invitación a la contemplación (Religión. Fuera de Colección) en un volumen físico que permite consultar y señalar pasajes. Kindle ofrece una alternativa digital para leer en un dispositivo compatible y llevar el texto sin cargar con el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El resplandor de la pausa: Una invitación a la contemplación (Religión. Fuera de Colección) comparte con Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida el interés por la vida interior. El primero se centra en la contemplación y tiene una orientación religiosa, mientras que el libro de Kelly Ann Street aborda las heridas personales y el equilibrio emocional.",
+      "texto": "El resplandor de la pausa: Una invitación a la contemplación (Religión. Fuera de Colección) comparte el interés por el bienestar con 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia). Mientras Ana Calvo Revilla aborda la contemplación, Dick Van Dyke plantea consejos vinculados a la longevidad y el optimismo. Son enfoques distintos del desarrollo personal: pausa frente a consejos prácticos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410451988"
+        "isbn-9791387852290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a8f1c2945c225da1",
+  "fuente_hash": "1b8cbdd4d3c6adbb",
   "origen": "chatgpt-web"
 }

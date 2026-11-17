@@ -4,36 +4,50 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Merry Murdle encaja con quienes disfrutan resolviendo crímenes mediante pistas y deducciones, especialmente si buscan una actividad ambientada en las fiestas navideñas. Su combinación de asesinatos e investigación policial se aleja de los pasatiempos creativos sin componente criminal.",
+      "texto": "Merry Murdle encaja con lectores que disfrutan de los asesinatos ficticios, las investigaciones y los ejercicios de deducción. Su ambientación navideña introduce un contraste entre las celebraciones y los crímenes, de modo que no responde a la búsqueda de una lectura festiva sin misterio.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Merry Murdle plantea una investigación criminal dentro de una propuesta de ocio y entretenimiento. El Detective Lógico debe esclarecer varios asesinatos que alteran sus planes festivos, con la deducción como herramienta central. El conflicto combina una celebración navideña con delitos que requieren reconstruir lo sucedido.",
+      "texto": "Merry Murdle combina el entretenimiento deductivo con una investigación criminal situada durante las fiestas navideñas. G. T. Karber recupera al Detective Lógico, que debe enfrentarse a varios asesinatos y a una desaparición mientras intenta esclarecer lo ocurrido.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "sinopsis_editorial"
+        "autores",
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Merry Murdle está disponible en tapa blanda, en una edición rústica sin solapas de Temas de Hoy. Sus 256 páginas permiten consultar y retomar los enigmas en papel, con espacio físico para avanzar y retroceder durante la investigación. Es una opción para quienes prefieren tener el libro a mano mientras resuelven los casos.",
+      "texto": "Merry Murdle se presenta en tapa blanda, con 256 páginas y encuadernación rústica sin solapas. El ejemplar físico reúne la investigación del Detective Lógico en un solo volumen, adecuado para consultar las pistas durante la resolución de los misterios.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
+        "edicion",
         "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Merry Murdle y 80 crímenes imposibles de resolver (FUERA DE ESCENA) comparten el interés por los misterios criminales y su resolución. G. T. Karber sitúa la investigación del Detective Lógico durante las fiestas navideñas, mientras que Gareth Moore y Laura Jayne Ayres proponen una colección de 80 crímenes imposibles de resolver.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388015816"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "516929db7076e294",
+  "fuente_hash": "b741daba115f5aad",
   "origen": "chatgpt-web"
 }

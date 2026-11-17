@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bajo la condición de forajido, de Francisco Castaño, está dirigido a lectores de poesía en castellano que buscan una obra breve. Con 76 páginas, se diferencia de las novelas de largo recorrido y de los ensayos que desarrollan sus argumentos mediante capítulos extensos.",
+      "texto": "Bajo la condición de forajido, de Francisco Castaño, se dirige a lectores de poesía que buscan un volumen de extensión reducida. Sus 76 páginas lo diferencian de una novela extensa o de un ensayo jurídico, pese a la referencia a la condición de forajido que aparece en el título.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Bajo la condición de forajido cuenta con una edición en tapa blanda de 76 páginas publicada por Hiperion, Ediciones. Su extensión permite llevar el volumen en papel y volver a sus textos sin manejar un libro de gran tamaño.",
+      "texto": "La tapa blanda es el formato disponible para Bajo la condición de forajido. Con 76 páginas, esta edición en papel permite llevar el volumen en el bolso y consultar o releer poemas sin recurrir a un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Bajo la condición de forajido, de Francisco Castaño, puede compararse con 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, dentro de las lecturas poéticas del catálogo. También se relaciona con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, aunque esta última identifica expresamente el amor como eje temático y Bajo la condición de forajido no lo presenta en su título.",
+      "texto": "A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza, figuran entre las lecturas próximas a Bajo la condición de forajido dentro del ámbito poético. Los títulos sugieren enfoques distintos: la soledad en el primero, la llegada o el devenir en el segundo y la figura del forajido en la obra de Francisco Castaño.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,8 +31,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412988833",
-        "isbn-9788466396288"
+        "isbn-9788410907539",
+        "isbn-9788410212749"
       ]
     }
   ],

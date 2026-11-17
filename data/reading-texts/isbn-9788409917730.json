@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "A tu otro lado en la oscuridad (Bilogía Oscuridad) encaja con lectores que buscan una novela romántica breve. Sus 123 páginas y su clasificación como romance la distinguen de las obras extensas de fantasía o ciencia ficción, por lo que no responde a quienes prioricen esos géneros.",
+      "texto": "A tu otro lado en la oscuridad (Bilogía Oscuridad) encaja con lectores que buscan una obra clasificada como romance. Nix Noir firma este libro de 123 páginas, cuyo título incorpora la denominación Bilogía Oscuridad. Quien prefiera historias ajenas a las relaciones románticas encontrará aquí un enfoque temático distinto.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "A tu otro lado en la oscuridad (Bilogía Oscuridad) tiene una edición en tapa blanda de 123 páginas. Su extensión permite llevarla en el bolso o la mochila sin cargar con un volumen especialmente largo, y el formato físico facilita conservarla junto a otros libros de romance.",
+      "texto": "A tu otro lado en la oscuridad (Bilogía Oscuridad) puede leerse en tapa blanda o en Kindle. La edición física reúne 123 páginas y permite conservar el volumen en papel; Kindle facilita llevar el texto en un dispositivo compatible y leerlo sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A tu otro lado en la oscuridad (Bilogía Oscuridad) comparte el ámbito romántico con A medio salto (Romántica) y A mil por hora. La obra de Nix Noir alude a la oscuridad desde el título, mientras que A mil por hora plantea una relación vinculada a un piloto de F1; A medio salto (Romántica) es una obra de Valera Gomalva.",
+      "texto": "A tu otro lado en la oscuridad (Bilogía Oscuridad) y A medio salto (Romántica) se relacionan por su vinculación con el romance. La obra de Nix Noir está clasificada en ese género y su título hace referencia a una bilogía, mientras que el libro de Valera Gomalva incorpora la denominación Romántica. Son obras de distinta autoría que presentan su orientación temática de manera diferente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388365089",
-        "isbn-9788466683449"
+        "isbn-9791388365089"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bd2eb3b33816d0cf",
+  "fuente_hash": "4fa6da40b50edd03",
   "origen": "chatgpt-web"
 }

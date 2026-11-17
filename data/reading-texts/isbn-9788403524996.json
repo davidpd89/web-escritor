@@ -4,26 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Fuego y raíz: Cancionero (Primera persona), de Gata Cattana, se dirige a quienes buscan textos vinculados a la poesía, el ensayo y la expresión artística. Su identificación como cancionero lo diferencia de una novela convencional; encaja menos con lectores que esperan una trama narrativa continua.",
+      "texto": "Fuego y raíz: Cancionero (Primera persona) se orienta a quienes leen poesía y buscan obras relacionadas con la expresión artística y el ensayo. Su condición de cancionero lo distingue de una novela de argumento continuo, por lo que encaja menos con lectores interesados exclusivamente en narrativa de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Fuego y raíz: Cancionero (Primera persona) está disponible en tapa dura, con 208 páginas en castellano. La encuadernación rígida resulta práctica para conservar el volumen y regalar una edición física, además de facilitar su consulta repetida como cancionero.",
+      "texto": "La tapa dura reúne las 208 páginas de Fuego y raíz: Cancionero (Primera persona) en un volumen físico apropiado para conservar o regalar. Kindle permite leer el cancionero en formato digital y consultarlo sin llevar el libro de papel, una diferencia práctica para quienes alternan lugares de lectura.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Fuego y raíz: Cancionero (Primera persona) comparte el ámbito poético con Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada). La obra de Gata Cattana se identifica como cancionero y también pertenece al ensayo y al arte, mientras que la de Federico García Lorca y Ricardo Cavolo destaca por su presentación ilustrada. Son aproximaciones distintas a la relación entre palabra y expresión artística.",
+      "texto": "Fuego y raíz: Cancionero (Primera persona) coincide con Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada) en su vinculación con la poesía. La obra de Gata Cattana se presenta como cancionero, mientras que la de Federico García Lorca y Ricardo Cavolo se identifica como una edición especial con cantos tintados.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "622cda5061000ede",
+  "fuente_hash": "af86a389e027a83d",
   "origen": "chatgpt-web"
 }

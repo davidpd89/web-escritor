@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Suelta y confía: Una propuesta para mentes racionales que buscan inspiración se dirige a lectores interesados en el desarrollo personal desde una perspectiva racional. Sus temas se relacionan con el bienestar y la reflexión personal, no con una historia de ficción centrada en personajes y acontecimientos.",
+      "texto": "Suelta y confía: Una propuesta para mentes racionales que buscan inspiración se dirige a lectores interesados en el desarrollo personal desde una perspectiva que interpela a las personas racionales. Su planteamiento de inspiración personal encaja menos con quien busque un manual técnico especializado en nutrición o medicina.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,16 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Suelta y confía: Una propuesta para mentes racionales que buscan inspiración está disponible en tapa blanda y tiene 206 páginas. Esta edición física permite subrayar pasajes y recuperar reflexiones concretas durante la lectura, sin depender de un dispositivo electrónico.",
+      "texto": "Suelta y confía: Una propuesta para mentes racionales que buscan inspiración ofrece sus 206 páginas en tapa blanda y Kindle. La primera permite leer y consultar el volumen en papel; Kindle facilita llevar la lectura en un dispositivo compatible y ajustar la presentación del texto.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) comparte con Suelta y confía: Una propuesta para mentes racionales que buscan inspiración el interés por el bienestar personal, pero se centra en la longevidad y el optimismo. Ansiedad. ¿Cómo se sale de aquí? aborda una preocupación emocional concreta mediante una propuesta vinculada al humor, frente al enfoque más general de inspiración para mentes racionales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290",
+        "isbn-9788402431967"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "be17e61fa1474daa",
+  "fuente_hash": "3ecdaad7056dba51",
   "origen": "chatgpt-web"
 }

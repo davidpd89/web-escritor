@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788425453366",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Curso de Filosofía: Le Puy 1931-1932 (fuera de colección) se dirige a lectores interesados en el pensamiento filosófico y en los textos de Simone Weil. Su carácter de curso y su extensión de 352 páginas lo diferencian de las lecturas de ficción y de las recopilaciones de frases breves.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 352 páginas en castellano y permite consultar el curso de filosofía en papel. Kindle ofrece una alternativa digital para leer el texto en dispositivos compatibles y llevar la obra sin transportar el volumen físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esenciales comparte autoría con Curso de Filosofía: Le Puy 1931-1932 (fuera de colección), pero propone una panorámica de los escritos de Simone Weil frente a un curso identificado por su lugar y sus fechas. La Ilíada o el poema de la fuerza: Seguido de No empecemos otra vez la guerra de Troya (ENSAYO) también reúne textos de Simone Weil, aunque centrados en la Ilíada y la guerra de Troya, en vez de presentar un curso de filosofía.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788430629138",
+        "isbn-9791399203035"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dd2ec1c72f0009d7",
+  "origen": "chatgpt-web"
+}

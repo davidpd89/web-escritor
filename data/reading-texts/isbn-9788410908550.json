@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ecos del silencio: 150 reflexiones para una mente que no para se dirige a quienes buscan lecturas de desarrollo personal y bienestar centradas en la reflexión. Por su planteamiento, queda fuera de las preferencias de quien busca una novela de aventuras o una narración de ficción.",
+      "texto": "Ecos del silencio: 150 reflexiones para una mente que no para se dirige a lectores interesados en el desarrollo personal y el bienestar mediante textos de reflexión. La propuesta de Mavi Mariscal se aleja de la narrativa de ficción y de los manuales centrados específicamente en alimentación.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y releer en papel las 190 páginas de Ecos del silencio: 150 reflexiones para una mente que no para. Kindle ofrece una alternativa digital para llevar la lectura en el móvil o en un lector electrónico, sin transportar el volumen físico.",
+      "texto": "La tapa blanda permite consultar y releer en papel las 150 reflexiones de Ecos del silencio: 150 reflexiones para una mente que no para, distribuidas en 190 páginas. La edición Kindle permite llevar el contenido en un lector electrónico o en el móvil y acceder a distintos pasajes sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -21,11 +22,10 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ecos del silencio: 150 reflexiones para una mente que no para comparte con 100 formas de cambiar tu vida un interés por el desarrollo personal, aunque este último plantea la mejora de la salud, las relaciones y otros ámbitos desde la ciencia. Frente a ese enfoque, Mavi Mariscal organiza su propuesta alrededor de reflexiones para una mente activa.",
+      "texto": "Ecos del silencio: 150 reflexiones para una mente que no para comparte el ámbito del desarrollo personal con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody. Mavi Mariscal organiza su libro alrededor de 150 reflexiones, mientras que el título de Liz Moody plantea 100 formas de intervenir en distintos aspectos de la vida.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -35,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3f21a01566cf5ea2",
+  "fuente_hash": "46552f4ecbcc89e9",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788433877888",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mägo de Oz: Intertextualidad, imaginarios e identidades en la música metal (Musicología), de Diego García-Peinazo, está dirigido a quienes estudian la música metal desde el análisis cultural y musicológico. Su enfoque de ensayo sobre intertextualidad e identidades lo diferencia de una biografía convencional o de una novela ambientada en el mundo musical.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mägo de Oz: Intertextualidad, imaginarios e identidades en la música metal (Musicología) se publica en tapa blanda y consta de 220 páginas. Esta edición de Editorial Universidad de Granada permite leer y consultar en papel un ensayo centrado en el estudio de la música metal, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mägo de Oz: Intertextualidad, imaginarios e identidades en la música metal (Musicología) puede compararse con Bella ciao: Historia de un himno popular: 32 (Tascabili), de Marcello Flores, porque ambos títulos vinculan la música con su dimensión cultural. El libro de Diego García-Peinazo se centra en el metal, los imaginarios y las identidades; el de Marcello Flores aborda la historia de un himno popular.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410435292"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9f08d14701908a59",
+  "origen": "chatgpt-web"
+}

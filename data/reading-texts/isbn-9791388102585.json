@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388102585",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Shino y Ren nº 01: 1 (Manga Yuri) se dirige a lectores de manga juvenil interesados en el yuri y la narrativa gráfica. La obra de Minori Chigusa encaja menos con quienes buscan una novela escrita principalmente en prosa o una historia de misterio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Shino y Ren nº 01: 1 (Manga Yuri) se publica en tapa blanda, con 160 páginas en castellano. Es una edición física de Planeta Cómic que permite leer el manga y conservarlo en una estantería sin el peso habitual de un volumen de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Shino y Ren nº 01: 1 (Manga Yuri) y Alya a veces me susurra en ruso 9 (Shônen - Alya) comparten su vinculación con el manga juvenil. El primero se identifica como yuri y está firmado por Minori Chigusa; el segundo se presenta como shônen y lleva la firma de SunSunSun. También se diferencia de Blue Lock nº 33 (Manga Shonen) por su identificación editorial como yuri frente al shonen de este último.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791043309670",
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "182f6caeec08e658",
+  "origen": "chatgpt-web"
+}

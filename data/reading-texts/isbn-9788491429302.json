@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788491429302",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Soñadoras. El Origen De Los Sueños (Calcetín), de Kike Gómez, está dirigido al público infantil y juvenil. Sus 144 páginas sitúan la obra entre las lecturas de extensión moderada dentro de ese ámbito. Encaja menos con lectores que buscan específicamente narrativa contemporánea para adultos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Soñadoras. El Origen De Los Sueños (Calcetín) cuenta con una edición en tapa blanda de 144 páginas, publicada por Algar. La cubierta flexible facilita llevar el libro en una mochila y manejarlo durante la lectura. Su extensión permite distribuirlo entre varias sesiones sin cargar con un volumen especialmente grueso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "98c06efe057d154a",
+  "origen": "chatgpt-web"
+}

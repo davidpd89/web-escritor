@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "CRUSH 1 - Un secreto llamado tú (Montena), de África Vázquez, está dirigido a lectores interesados en historias juveniles donde la amistad y los secretos ocupan un lugar central. Su temática se aleja de la fantasía épica y de las novelas centradas en conflictos históricos, con un planteamiento vinculado a las relaciones personales.",
+      "texto": "CRUSH 1 - Un secreto llamado tú (Montena), de África Vázquez, se dirige a lectores interesados en historias donde la amistad y los secretos tienen un papel central. Su enfoque en las relaciones personales lo diferencia de las obras cuyo principal atractivo es la construcción de mundos fantásticos o la divulgación científica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,16 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda tiene 176 páginas y es la única modalidad disponible. Su extensión permite disponer de un volumen físico manejable para leer en papel; quienes busquen una edición digital o un audiolibro tendrán que optar por otro título.",
+      "texto": "CRUSH 1 - Un secreto llamado tú (Montena) está editado en tapa blanda y tiene 176 páginas en castellano. La encuadernación flexible permite transportarlo con facilidad y conservarlo como volumen físico; su extensión ofrece una referencia concreta para organizar la lectura.",
       "evidencias": [
-        "edicion",
+        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "CRUSH 1 - Un secreto llamado tú (Montena), de África Vázquez, comparte autoría con La balada de la hechicera: Trilogía El clan sin nombre 1 (Fantasía), también de África Vázquez. La diferencia está en el planteamiento: CRUSH sitúa la atención en la amistad y los secretos, mientras que el otro título se identifica por su ambientación fantástica. También puede compararse con Secreto de bruja 5 - El diario de los sueños (Jóvenes lectores), de Patricia García-Rojo, por la presencia de un secreto en ambos títulos.",
+      "texto": "El diario de Wiska 2 - Un secreto entre amigas, de Harriet Muncaster, comparte con CRUSH 1 - Un secreto llamado tú (Montena), de África Vázquez, la presencia de secretos vinculados a las relaciones personales, aunque el primero menciona expresamente la amistad. La balada de la hechicera: Trilogía El clan sin nombre 1 (Fantasía), también de África Vázquez, permite comparar dos obras de la misma autora: una centrada en amistad y secretos y otra identificada como fantasía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,7 +32,7 @@
       ],
       "enlaces": [
         "isbn-9791388365003",
-        "isbn-9791388277894"
+        "isbn-9791388277023"
       ]
     }
   ],

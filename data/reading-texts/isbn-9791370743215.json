@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370743215",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan libros sobre videojuegos, especialmente sobre God of War y God of War Ragnarök, desde una perspectiva vinculada al arte y el diseño. No responde a la búsqueda de una novela de aventuras convencional: reúne dos libros dedicados a estos videojuegos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne los dos libros del pack en un conjunto de 302 páginas, publicado por RBA Coleccionables. Es una opción física para conservar ambos títulos juntos o regalar una colección centrada en God of War.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con Donna Karan | Colección Leyendas de la Moda | Libro LX el sello de RBA Coleccionables España y el interés por el diseño. La diferencia está en el objeto de estudio: este pack aborda videojuegos, mientras que Donna Karan | Colección Leyendas de la Moda | Libro LX se centra en una figura de la moda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370077914"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b66479ba4e0fc1d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399078251",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dostoievski, mi marido encaja con lectores interesados en biografías, memorias e historia vinculadas a la literatura. La obra de Ana G. Dostoievskaia tiene 388 páginas y se aleja de las lecturas centradas exclusivamente en la ficción de género o en ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dostoievski, mi marido se publica en tapa blanda, con 388 páginas en castellano. La edición de Espinas ofrece una lectura en papel de extensión considerable, apropiada para avanzar por capítulos y conservar el volumen junto a otras biografías y memorias.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Plata en los ojos: Una historia de la Generación del 27 (Espasa Lengua y Literatura) comparte con Dostoievski, mi marido el interés por figuras y contextos literarios. El libro de Benjamín Prado se centra en la Generación del 27, mientras que el de Ana G. Dostoievskaia se presenta dentro de las biografías y memorias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084160"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d507005a530d898a",
+  "origen": "chatgpt-web"
+}

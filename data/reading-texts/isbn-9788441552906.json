@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788441552906",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en aplicar criterios éticos y de cumplimiento al desarrollo o uso de inteligencia artificial. Su planteamiento práctico encaja menos con quienes buscan una introducción general a la tecnología sin abordar sus responsabilidades y obligaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda la inteligencia artificial desde dos cuestiones centrales: el cumplimiento de requisitos y la ética de su utilización. El enfoque es práctico y se desarrolla en un manual de 440 páginas, orientado a examinar la responsabilidad asociada a esta tecnología.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 440 páginas en un volumen físico que permite consultar distintos apartados durante el estudio. Kindle ofrece el mismo título en formato digital para leerlo en el móvil o llevar el manual en un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guía de IA Responsable comparte con Gestión de proyectos de inteligencia artificial, de Adrián González Sánchez y Malini Jain Runtasewee, el interés por la aplicación de la inteligencia artificial. La obra de Adrián González Sánchez, Juan Manuel Belloto y Alfonso Peralta se centra en el cumplimiento y la ética, mientras que la otra aborda la gestión de proyectos tecnológicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426742827"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a6fcfdfa53a20404",
+  "origen": "chatgpt-web"
+}

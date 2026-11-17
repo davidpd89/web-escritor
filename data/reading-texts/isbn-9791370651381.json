@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370651381",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en el derecho patrimonial y en los criterios jurídicos para distinguir bienes privativos de gananciales. El recorrido jurisprudencial resulta pertinente para estudiar esa clasificación, pero no para quien busque una obra de ficción o una introducción general al derecho.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Colex reúne 174 páginas en castellano, adecuadas para consultar el contenido por apartados y volver a los criterios jurídicos que interesen. El soporte físico permite señalar pasajes y conservar anotaciones junto al recorrido jurisprudencial.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría y enfoque jurídico con Cómo aplicar la exención por reinversión en vivienda habitual. Paso a paso: Todas las claves para aplicar con éxito este beneficio fiscal (requisitos, ... que pueden generar dudas) (monografico). Mientras esa obra trata una ventaja tributaria vinculada a la vivienda, este libro examina los criterios jurisprudenciales para distinguir bienes privativos de gananciales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "17f8ff10b632d872",
+  "origen": "chatgpt-web"
+}

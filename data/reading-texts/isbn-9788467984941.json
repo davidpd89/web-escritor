@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788467984941",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las aguilas de Roma 03, de Enrico Marini, está dirigido a quienes leen cómics y novelas gráficas, especialmente si buscan una obra cuyo título remite a Roma. El título lo identifica como el n.º 03; sus 60 páginas lo distinguen de una novela extensa en prosa y lo alejan de quien busque ese tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las aguilas de Roma 03 se publica en tapa dura, con 60 páginas en castellano. La encuadernación rígida resulta práctica para conservar el volumen en una colección de cómics y mantenerlo en la estantería. Esta edición corresponde a Norma Editorial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f622e15b1770aeee",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399081374",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La madre de la novia se orienta a lectores de narrativa contemporánea con interés por obras relacionadas también con la novela histórica y los clásicos. Su clasificación literaria la aleja de quienes buscan manuales prácticos o libros de divulgación, y sus 152 páginas ofrecen una extensión relativamente breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La madre de la novia está disponible en tapa dura y Kindle. La edición física de Lava reúne 152 páginas en una encuadernación rígida, apropiada para conservar el ejemplar o regalarlo; Kindle permite leerlo en un dispositivo compatible sin ocupar espacio en la estantería.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La madre de la novia puede compararse con Arde Talía: Una pieza teatral sobre el infierno de la creación artística por la participación de Alba Quintas Garciandia en ambas obras. La diferencia principal está en la propuesta editorial: La madre de la novia figura como narrativa contemporánea e histórica, mientras que Arde Talía se presenta expresamente como una pieza teatral sobre la creación artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399289510"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e35f976c0f822a0",
+  "origen": "chatgpt-web"
+}

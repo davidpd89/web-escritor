@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399248548",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vínculos de cristal encaja con lectores que buscan narrativa contemporánea en castellano y prefieren obras de extensión moderada. La obra de Victoria Borrell Velasco tiene 196 páginas y se aleja, por su clasificación editorial, de quienes buscan principalmente ensayos o libros de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Vínculos de cristal es de tapa blanda y reúne 196 páginas. El formato permite llevar el libro en una bolsa y leerlo en papel sin el peso añadido de unas cubiertas rígidas; Editorial Niebla lo publica en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "816b2387650f2fc7",
+  "origen": "chatgpt-web"
+}

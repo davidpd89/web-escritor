@@ -3,28 +3,18 @@
   "familia": "narrativa",
   "bloques": [
     {
-      "modulo": "para_quien",
-      "texto": "Oye, Catrina (Titania fresh) se dirige a lectores que buscan fantasía con romance y elementos propios de la romantasy. Sus 336 páginas reúnen una propuesta de ficción fantástica y romántica, por lo que no corresponde a quien busca una novela histórica o una narración centrada en la realidad contemporánea.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "numero_paginas",
-        "categorias"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "Oye, Catrina (Titania fresh) está disponible en tapa blanda y Kindle. La edición en papel tiene 336 páginas y permite conservar el libro en formato físico; Kindle ofrece una alternativa de lectura digital para llevarlo en un dispositivo compatible.",
+      "texto": "Oye, Catrina (Titania fresh) está disponible en tapa blanda y Kindle, con una edición física de 336 páginas publicada por Titania. La tapa blanda permite conservarlo o regalarlo como volumen impreso, mientras que Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro de papel.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Oye, Catrina (Titania fresh) comparte el terreno fantástico con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, aunque este último presenta a una protagonista que oculta sus dones y debilidades. También puede compararse con Barbie dreamscape, de Alex Aster, que plantea una excepción dentro de futuros ya escritos; las tres propuestas se mueven en la fantasía, pero parten de planteamientos diferentes.",
+      "texto": "Oye, Catrina (Titania fresh) puede compararse con Alfa (Romantasy), de Ali Hazelwood, por su vinculación con la romantasy. También se relaciona con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, por la presencia de fantasía; este último introduce a Eira y sus dones ocultos, mientras que Oye, Catrina (Titania fresh) se identifica por su combinación de fantasía y romance.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,11 +23,24 @@
       ],
       "enlaces": [
         "isbn-9791387949938",
-        "isbn-9791388277481"
+        "isbn-9791387739638"
+      ]
+    },
+    {
+      "modulo": "para_quien",
+      "texto": "Oye, Catrina (Titania fresh) se dirige a lectores que buscan fantasía con romance y elementos propios de la romantasy. Sus 336 páginas reúnen una propuesta de ficción fantástica y romántica, por lo que no corresponde a quien busca una novela histórica o una narración centrada en la realidad contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "para_quien: habla de las fuentes en vez de informar: la fuente",
+    "faltan módulos: para_quien"
+  ],
   "version": 3,
   "fuente_hash": "861f80f5be7afdb5",
   "origen": "chatgpt-web"

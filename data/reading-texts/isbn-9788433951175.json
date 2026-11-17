@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788433951175",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Crítica de la razón geopolítica (Nuevos cuadernos Anagrama) está orientado a lectores de ensayo interesados en el poder, la política y la geopolítica. Con 152 páginas, responde a una búsqueda de reflexión política más acotada que la de un tratado extenso y no a quien busca una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Crítica de la razón geopolítica (Nuevos cuadernos Anagrama) cuenta con una edición en tapa blanda de 152 páginas. El volumen de Editorial Anagrama reúne el ensayo de Carlos Corrochano en un formato físico relativamente breve, apropiado para consultar pasajes y conservar anotaciones en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Crítica de la razón geopolítica (Nuevos cuadernos Anagrama) puede ponerse junto a Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo). Ambas obras tratan cuestiones políticas desde el ensayo, pero Carlos Corrochano sitúa su libro en la geopolítica y Miguel Anxo Bastos Boubeta aborda las bases del pensamiento anarcocapitalista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ada76cd6abccf03a",
+  "origen": "chatgpt-web"
+}

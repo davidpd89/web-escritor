@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788424514518",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Heptalogía de la guerra incivil española: 452 (Espiral / Teatro) se orienta a lectores interesados en el teatro y en obras que toman como referencia la guerra española. Rubén Buren firma un volumen de 384 páginas, distinto de una novela convencional por su identificación editorial con el ámbito teatral.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Heptalogía de la guerra incivil española: 452 (Espiral / Teatro) se publica en tapa blanda, con 384 páginas en castellano. La edición de Editorial Fundamentos reúne el contenido en un volumen de papel que puede utilizarse tanto para la lectura continuada como para volver a pasajes concretos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Heptalogía de la guerra incivil española: 452 (Espiral / Teatro) puede ponerse junto a 21 Westerns del siglo XXI (Sílex Cine/Claqueta) por su relación con las artes escénicas y audiovisuales. Rubén Buren presenta una obra identificada con el teatro y la guerra española; Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga se ocupan del western cinematográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "90057e7bf40deef1",
+  "origen": "chatgpt-web"
+}

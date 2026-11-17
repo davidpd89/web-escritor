@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9798237254426",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La factoría de los dioses se dirige a lectores interesados en el origen histórico de la fe y las creencias religiosas. Su enfoque anunciado como guía histórica lo distingue de los libros de práctica espiritual o devoción, que persiguen objetivos distintos del examen de los orígenes religiosos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La factoría de los dioses plantea una aproximación histórica a los orígenes de la fe. Marlon Grimaldo Garcia presenta el asunto como una guía que aspira a evitar sesgos, situando las creencias religiosas en el centro de una indagación relacionada con la historia y la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La factoría de los dioses está editada en tapa blanda, con 128 páginas en castellano. Su extensión permite recorrer el volumen físico en varias sesiones breves y conservarlo para posteriores consultas sobre los orígenes de la fe.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La factoría de los dioses y Dios: Una Historia Humana / God: A Human History comparten el interés por comprender la religión desde una perspectiva histórica. Marlon Grimaldo Garcia centra su guía en los orígenes de la fe, mientras que Reza Aslan plantea una historia de Dios vinculada a la experiencia humana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073877565"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a83be0570e2f81c",
+  "origen": "chatgpt-web"
+}

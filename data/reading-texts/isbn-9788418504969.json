@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788418504969",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Muntaner, 38: 113 (Candaya Narrativa), de José Antonio Garriga Vela, se sitúa en la narrativa contemporánea. Sus 202 páginas ofrecen una extensión intermedia para lectores que buscan ficción de este ámbito; no responde a una búsqueda centrada en ensayo o literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Muntaner, 38: 113 (Candaya Narrativa) está editado por Candaya en tapa blanda, con 202 páginas en castellano. La cubierta flexible permite llevar el ejemplar en una bolsa o mochila, mientras que su extensión admite tanto una lectura continuada como sesiones repartidas entre varios días.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c0b16a0d46d09722",
+  "origen": "chatgpt-web"
+}

@@ -4,31 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vera, una historia de amor: Edición limitada a precio especial (Colección Especial) se dirige a lectores de narrativa contemporánea interesados en las relaciones de pareja y los vínculos familiares. Por su temática, encaja menos con quienes buscan una lectura centrada en aventuras, conflictos históricos o explicaciones prácticas sobre las relaciones.",
+      "texto": "Vera, una historia de amor: Edición limitada a precio especial (Colección Especial) se dirige a lectores de narrativa contemporánea interesados en las relaciones amorosas y familiares. Por su orientación hacia la familia y la crianza, se aleja de quienes buscan fantasía o aventuras como eje de lectura.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Vera, una historia de amor: Edición limitada a precio especial (Colección Especial) pertenece a la Colección Especial de Booket y se presenta como una edición limitada a precio especial. Está encuadernada en tapa dura, contiene 368 páginas en castellano y tiene como fecha de publicación el 11 de noviembre de 2026. Su ISBN es 9788408328421.",
+      "texto": "Esta edición de Booket pertenece a la Colección Especial y se presenta como una tirada limitada a precio especial. Publicada el 11 de noviembre de 2026, reúne 368 páginas en castellano y encuadernación de tapa dura, con el ISBN 9788408328421.",
       "evidencias": [
         "titulo",
         "editorial",
-        "edicion",
         "fecha_publicacion",
         "numero_paginas",
         "idioma",
+        "edicion",
         "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible de Vera, una historia de amor: Edición limitada a precio especial (Colección Especial). Sus 368 páginas forman un volumen físico que puede conservarse en una estantería o entregarse como regalo. La encuadernación rígida resulta práctica para proteger el ejemplar durante su almacenamiento y sus sucesivas lecturas.",
+      "texto": "La tapa dura es el formato disponible para esta edición de 368 páginas. Su encuadernación rígida permite conservar el volumen en una biblioteca personal y presentarlo como regalo, aunque resulta menos ligera de transportar que una edición de bolsillo.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "edicion"
@@ -36,20 +34,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Vera, una historia de amor: Edición limitada a precio especial (Colección Especial) y Conectados para el amor / Wired for Love comparten el interés por las relaciones de pareja. La obra de Juan del Val pertenece a la narrativa contemporánea, mientras que el libro de Stan Tatkin se presenta como una obra sobre el amor y la conexión en pareja. La diferencia para el lector está entre acercarse al tema mediante narrativa o mediante una obra centrada en las relaciones.",
+      "texto": "Puede compararse con Cuando el viento hable: Edición limitada a precio especial (Colección Especial), de Ángela Banzas, por compartir el planteamiento editorial de una colección especial. Frente a ese título, Vera, una historia de amor: Edición limitada a precio especial (Colección Especial), de Juan del Val, sitúa expresamente el amor en su título y se clasifica dentro de la narrativa contemporánea y familiar.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9786073876056"
+        "isbn-9788408328414"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4588cd8943fd36d3",
+  "fuente_hash": "14e54cb370765a3c",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370520410",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Siete Shakespeares Núm. 02: 2 está orientado a lectores de cómic interesados en la fantasía y las aventuras. El título lo identifica como el n.º 2, por lo que puede no encajar con quienes buscan comenzar por una primera entrega; sus 544 páginas tampoco corresponden a una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Siete Shakespeares Núm. 02: 2 se edita en tapa blanda, con 544 páginas en castellano. La cubierta flexible permite manejar este volumen extenso sin una encuadernación rígida, mientras que su presentación en papel permite conservarlo junto a otros tomos de cómic.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Siete Shakespeares Núm. 02: 2 comparte la orientación hacia el cómic de aventuras con Astro Royale 1 (Shônen): Universo Manga y El Caballero del Alba (Novela Gráfica) / The Knight at Dawn (Graphic Novel) (Magic Tree House Novela Gráfica). La obra de Harold Sakuishi figura también entre las propuestas de fantasía y el título la identifica como el n.º 2, mientras que Astro Royale 1 (Shônen): Universo Manga, de Ken Wakui, señala una primera entrega. El Caballero del Alba (Novela Gráfica) / The Knight at Dawn (Graphic Novel) (Magic Tree House Novela Gráfica), de Mary Pope Osborne, se presenta expresamente como novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962845",
+        "isbn-9798890989659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "72e88c333ef907d0",
+  "origen": "chatgpt-web"
+}

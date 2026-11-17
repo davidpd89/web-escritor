@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788419981165",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Eslabón débil (Salamandra Graphic), de Jordi Giol, encaja con quienes buscan cómic y novela gráfica en castellano. Sus 136 páginas ofrecen una extensión concreta para lectores que prefieren obras gráficas breves, frente a quienes buscan una novela extensa de narrativa exclusivamente escrita.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Eslabón débil (Salamandra Graphic) está disponible en tapa dura, con 136 páginas en castellano. Esta encuadernación ofrece una cubierta rígida para conservar el volumen en una estantería o entregarlo como regalo; su extensión también permite calcular el espacio que ocupará en una colección de cómics.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "00b0f25224a1fb09",
+  "origen": "chatgpt-web"
+}

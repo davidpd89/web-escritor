@@ -4,35 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cenicienta en Gaza: 5 (POESÍA NECESARIA) está dirigido a lectores que buscan poesía y obras vinculadas a realidades geográficas y culturales concretas. Su adscripción a la poesía lo sitúa fuera de la narrativa de ficción convencional y de quienes buscan una novela con desarrollo argumental.",
+      "texto": "Cenicienta en Gaza: 5 (POESÍA NECESARIA), de Hind Joudah, se dirige a lectores de poesía en castellano interesados en una obra cuyo título sitúa Gaza como referencia. Con 112 páginas, pertenece al ámbito poético y no al de las novelas de aventuras o los estudios históricos sobre ese territorio.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "idioma",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Con 112 páginas, Cenicienta en Gaza: 5 (POESÍA NECESARIA), de Hind Joudah, tiene una extensión compacta para quienes prefieren leer poesía en papel. La edición de bolsillo en tapa blanda permite manejar el libro y guardarlo fácilmente entre otras lecturas.",
+      "texto": "La opción en papel de Cenicienta en Gaza: 5 (POESÍA NECESARIA) es la tapa blanda, con 112 páginas. El volumen de Hind Joudah, editado por Ediciones del Oriente y del Mediterráneo, permite consultar y señalar poemas directamente sobre el soporte físico, además de conservarlo en una biblioteca personal.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, permite comparar dos propuestas poéticas con distintos puntos de partida: una se identifica con Gaza desde su título y la otra sitúa el amor en el centro. Ambas se dirigen a lectores interesados en la poesía, aunque sus referencias temáticas son diferentes.",
+      "texto": "Cenicienta en Gaza: 5 (POESÍA NECESARIA) comparte su ámbito poético con A solas, de María Jesús Martínez Ramos, y 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera. La obra de Hind Joudah se distingue por la referencia geográfica a Gaza en su título y por su pertenencia a POESÍA NECESARIA, mientras que los otros libros presentan títulos y autorías diferentes.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788412988833",
+        "isbn-9788410907539"
       ]
     }
   ],

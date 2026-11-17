@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399209822",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Eonn 03, de Abel Carrasco y Josep Busquet, se dirige a quienes buscan fantasía y aventuras en una lectura breve. Sus 76 páginas lo distinguen de las novelas extensas; encaja menos con quienes prefieren ciencia ficción o narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Eonn 03 está disponible en tapa dura, con 76 páginas en castellano. Esta edición de Maldragon Editorial reúne una extensión breve en un volumen de cubierta rígida, una opción física para conservar en la estantería o entregar como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Eonn 03 comparte la fantasía con Alas de escarcha y oro: El canto del cisne, de Marta Morillo, pero este último presenta a Eira y sus dones ocultos. También puede compararse con A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria), de Sergio Sánchez Morán, cuyo título sitúa la magia en un contexto educativo, mientras Eonn 03 se presenta como fantasía y aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399305517",
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e11e8f881ce23ed8",
+  "origen": "chatgpt-web"
+}

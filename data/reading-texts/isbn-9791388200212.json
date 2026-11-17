@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388200212",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Quienes tengan interés en el pop-rock de los años sesenta encontrarán en EL POP-ROCK DE LOS 60' - Capítulo XII una publicación situada en el ámbito del arte y el diseño. No responde, por su temática declarada, a la búsqueda de narrativa de ficción ni de estudios sobre música de otras décadas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de EL POP-ROCK DE LOS 60' - Capítulo XII se presenta en tapa blanda y reúne 110 páginas en castellano. El formato físico facilita colocarlo en una estantería con otros volúmenes de Daniel Muneta y consultarlo sin utilizar pantallas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo III y EL POP-ROCK DE LOS 60' - Capítulo IX son comparables por su referencia al pop-rock de los sesenta y por compartir autor, Daniel Muneta. La distinción comprobable es la numeración de los títulos: este se identifica como el n.º XII y los otros como III y IX, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388200106",
+        "isbn-9791388200113",
+        "isbn-9791388200120",
+        "isbn-9791388200137",
+        "isbn-9791388200182"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3b51ce836fa99ac0",
+  "origen": "chatgpt-web"
+}

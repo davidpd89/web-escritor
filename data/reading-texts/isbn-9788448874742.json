@@ -4,28 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores infantiles interesados en los dinosaurios, la naturaleza y las aventuras con contenido científico. La combinación de amistad y ciencia ficción lo sitúa en la narrativa de aventuras, no en un libro de divulgación científica especializado.",
+      "texto": "Está orientado a lectores infantiles interesados en los dinosaurios, las aventuras y los temas científicos. Sus 40 páginas ofrecen una lectura breve, distinta de una obra extensa de divulgación o de una novela de aventuras para lectores que buscan mayor desarrollo.",
       "evidencias": [
         "titulo",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne sus 40 páginas en una edición física manejable, adecuada para leer y conservar junto a otros libros infantiles. Kindle permite llevar la lectura en el móvil o una tableta sin ocupar espacio en la estantería.",
+      "texto": "La tapa dura presenta las 40 páginas en un volumen rígido, una opción para conservarlo y compartirlo en lecturas familiares. Kindle permite acceder a la obra digitalmente desde un dispositivo compatible, con la ventaja de no necesitar el ejemplar físico.",
       "evidencias": [
+        "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte con Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos), de Carlos Pazos, los protagonistas, la autoría y el planteamiento de aventuras científicas. La diferencia está en el escenario: uno se centra en los dinosaurios y el otro en el espacio, por lo que cambia el ámbito de exploración.",
+      "texto": "Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos) es la comparación más directa: comparte protagonistas, autor y enfoque de aventuras relacionadas con la ciencia. La diferencia está en el escenario anunciado por cada título, ya que Carlos Pazos sitúa una propuesta en la era de los dinosaurios y la otra en el espacio.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
         "isbn-9788448874759"
@@ -34,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "139fff3b9f54efcc",
+  "fuente_hash": "a84f6ceaf95ffb56",
   "origen": "chatgpt-web"
 }

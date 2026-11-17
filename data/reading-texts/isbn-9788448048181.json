@@ -4,38 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Black Sabbath & Ozzy Osbourne se dirige a quienes quieren conocer las historias detrás de las canciones de Black Sabbath y su relación con el nacimiento del metal. Su enfoque musical y documental se aleja de la ficción y de las biografías centradas exclusivamente en la vida privada.",
+      "texto": "Black Sabbath & Ozzy Osbourne se dirige a lectores interesados en la historia del rock y el metal, especialmente en las letras y trayectorias musicales de Black Sabbath. Su enfoque sobre una banda concreta encaja menos con quien busca una historia general de la música o una obra centrada en técnicas de interpretación instrumental.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Carol Clerk y Paul Elliott abordan las letras de Black Sabbath desde el contexto de una banda surgida en Birmingham a finales de los años sesenta. El libro relaciona sus canciones con una forma de rock más oscura y pesada, dentro de una publicación de arte de 160 páginas.",
+      "texto": "Black Sabbath & Ozzy Osbourne aborda la historia musical de Black Sabbath a partir de las historias relacionadas con las letras de sus canciones. Carol Clerk y Paul Elliott sitúan sus orígenes en Birmingham, a finales de los años sesenta, y presentan el contexto de una propuesta de rock más oscura y pesada.",
       "evidencias": [
+        "titulo",
         "autores",
-        "sinopsis_editorial",
-        "categorias",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Black Sabbath & Ozzy Osbourne está disponible en tapa dura, con encuadernación en cartoné y sin sobrecubierta. Sus 160 páginas permiten consultar las historias de las canciones en un volumen físico que también puede conservarse o regalarse.",
+      "texto": "Black Sabbath & Ozzy Osbourne se publica en tapa dura de cartoné y consta de 160 páginas. Esta presentación física permite conservar el libro para consultar sus contenidos sobre la banda y regalarlo a lectores interesados en su música; es el formato disponible para esta edición.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "numero_paginas",
         "edicion",
-        "numero_paginas"
+        "formatos_disponibles",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "The Rolling Stones: On Tour también trata la trayectoria de una banda de rock, pero Paul Sexton se centra en sus actuaciones en directo, mientras Black Sabbath & Ozzy Osbourne examina las historias de las letras musicales. Ambos abordan grupos históricos desde perspectivas distintas: los conciertos frente al contenido de las canciones.",
+      "texto": "Black Sabbath & Ozzy Osbourne y The Rolling Stones: On Tour comparten su atención a bandas de rock con una trayectoria histórica. Carol Clerk y Paul Elliott se centran en las letras y los orígenes musicales de Black Sabbath, mientras Paul Sexton aborda la historia de The Rolling Stones desde sus actuaciones en directo. Ambos se diferencian por el grupo estudiado y por el aspecto de su actividad musical que ocupa el centro del libro.",
       "evidencias": [
         "titulo",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
@@ -46,6 +47,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "25e15efaf466f2d7",
+  "fuente_hash": "9a65b742142e5f2a",
   "origen": "chatgpt-web"
 }

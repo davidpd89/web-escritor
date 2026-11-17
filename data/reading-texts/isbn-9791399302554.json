@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399302554",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juventud radical se orienta a quienes buscan un ensayo en castellano, en lugar de una obra de ficción narrativa. El libro de Dino Pacio Lindín tiene 296 páginas, una extensión que permite dedicarle varias sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Juventud radical se presenta en tapa blanda, con 296 páginas publicadas por Ondina Ediciones. Es una edición física en castellano que permite consultar y retomar pasajes directamente sobre el papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5eef7a51ef1fccd",
+  "origen": "chatgpt-web"
+}

@@ -4,31 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Fundamentos para un nuevo derecho victimal en el sistema de justicia penal (Estudios) está dirigido a lectores interesados en el tratamiento jurídico de las víctimas dentro de la justicia penal. El planteamiento de Manuel Jose Garcia Rodriguez corresponde al estudio del derecho, no a una narración de casos criminales.",
+      "texto": "Dirigido a quienes estudian el tratamiento jurídico de las víctimas dentro del sistema de justicia penal. El enfoque de derecho victimal y su extensión de 316 páginas lo sitúan en la lectura especializada, no en la narrativa de ficción ni en una introducción general al derecho.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Fundamentos para un nuevo derecho victimal en el sistema de justicia penal (Estudios) tiene 316 páginas y se edita en tapa blanda. El formato permite consultar y estudiar el contenido en papel, con una cubierta flexible para transportar una obra jurídica de esta extensión.",
+      "texto": "La edición de Aranzadi se presenta en tapa blanda y reúne 316 páginas en castellano. El formato impreso permite consultar apartados, incorporar notas y volver a pasajes concretos durante el estudio del derecho victimal.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "categorias"
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) comparte con Fundamentos para un nuevo derecho victimal en el sistema de justicia penal (Estudios) el interés por los conflictos y su tratamiento. Mari Luz Sánchez García-Arista aborda la mediación en el ámbito educativo, mientras que Manuel Jose Garcia Rodriguez centra su estudio en el derecho victimal y la justicia penal.",
+      "texto": "Comparte el ámbito jurídico con Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos), de Mari Luz Sánchez García-Arista. Mientras ese título se centra en la mediación educativa, la obra de Manuel Jose Garcia Rodriguez aborda el derecho victimal dentro de la justicia penal. La diferencia principal está en el contexto de aplicación: convivencia educativa frente a tratamiento jurídico de las víctimas.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
+        "autores"
       ],
       "enlaces": [
         "isbn-9788429030372"
@@ -37,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "250fb04d1db19c11",
+  "fuente_hash": "c1ca88c1dd4b03b7",
   "origen": "chatgpt-web"
 }

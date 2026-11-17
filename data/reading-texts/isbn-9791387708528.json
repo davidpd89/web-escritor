@@ -4,40 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Kama Sutra mágico, de Giulia Marzocca, se dirige a lectores interesados en el bienestar personal y las relaciones, dentro del ámbito de la familia y el desarrollo personal. Sus 96 páginas lo sitúan entre las lecturas breves, por lo que encaja menos con quien busca un tratado extenso o una novela de ficción.",
+      "texto": "Kama Sutra mágico, de Giulia Marzocca, se sitúa entre las lecturas relacionadas con el bienestar y las relaciones personales. Su temática se diferencia de los libros dedicados específicamente a la crianza o al cuidado de los hijos, aunque comparte con ellos el ámbito general de la vida personal y familiar.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Kama Sutra mágico está editado en tapa dura y tiene 96 páginas en castellano. Es un volumen físico relativamente breve, cómodo para consultar en casa y conservar en una estantería; la cubierta rígida también favorece su presentación como regalo.",
+      "texto": "Kama Sutra mágico está disponible en tapa dura, con 96 páginas y una cubierta rígida. Es una edición física de extensión breve que puede guardarse en una estantería o entregarse como regalo sin necesidad de elegir entre diferentes encuadernaciones.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Kama Sutra mágico y Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida, de David C, se sitúan en el ámbito de las relaciones personales. El segundo título plantea expresamente el reconocimiento y la salida de una relación tóxica, mientras que el libro de Giulia Marzocca se presenta bajo un enfoque de bienestar y desarrollo personal más amplio.",
+      "texto": "Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida comparte con Kama Sutra mágico el ámbito de las relaciones personales, pero se centra expresamente en identificar y abandonar vínculos perjudiciales. 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito amplía el enfoque hacia distintos aspectos del bienestar.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9798890981776",
         "isbn-9788409923595"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ce1052e49819e809",
+  "fuente_hash": "8c71425bcea9380a",
   "origen": "chatgpt-web"
 }

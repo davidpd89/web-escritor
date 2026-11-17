@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798890989901",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mieditos Tiernos / Spooky Cutie: Coloring Book for Adults and Kids (Coco Wyo) está pensado para niños y adultos interesados en colorear imágenes de temática terrorífica. Sus 96 páginas corresponden a una actividad de ocio, no a una novela de terror destinada a leerse de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mieditos Tiernos / Spooky Cutie: Coloring Book for Adults and Kids (Coco Wyo) se presenta en tapa blanda, con 96 páginas para una actividad de coloreado. La edición física de Bruguera Infantil permite trabajar directamente sobre las páginas y conservar el resultado en el propio libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dulce Navidad / Cozy Christmas: Coloring Book for Adults and Kids (Coco Wyo) es la alternativa más cercana a Mieditos Tiernos / Spooky Cutie: Coloring Book for Adults and Kids (Coco Wyo): ambos son libros para colorear de Coco Wyo, aunque uno se centra en la Navidad y el otro en motivos de terror. El lago de los monstruos (INFANTIL), de Leo Timmers, comparte el interés por los monstruos, pero se presenta como una obra infantil y no como un cuaderno de colorear.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989888",
+        "isbn-9791387884260"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "64bb3b2bc2f92791",
+  "origen": "chatgpt-web"
+}

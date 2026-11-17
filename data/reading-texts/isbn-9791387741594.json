@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Murdle JUNIOR 3 - Caso casi imposible: 40 misterios para niños y niñas a partir de 9 años (No ficción ilustrados) está dirigido a lectores desde los 9 años interesados en resolver misterios. Reúne 40 casos en 240 páginas, por lo que responde a una actividad de investigación y resolución de enigmas más que a la búsqueda de una novela narrativa convencional.",
+      "texto": "Murdle JUNIOR 3 - Caso casi imposible: 40 misterios para niños y niñas a partir de 9 años (No ficción ilustrados) está dirigido a lectores desde los 9 años interesados en resolver misterios. Sus 40 casos proponen una actividad centrada en la investigación, por lo que se diferencia de una lectura basada únicamente en seguir una narración.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Murdle JUNIOR 3 - Caso casi imposible: 40 misterios para niños y niñas a partir de 9 años (No ficción ilustrados) se ofrece en tapa blanda y contiene 240 páginas en castellano. El formato físico permite consultar los 40 misterios, volver a páginas anteriores y trabajar con el libro abierto durante la resolución de cada caso.",
+      "texto": "Murdle JUNIOR 3 - Caso casi imposible: 40 misterios para niños y niñas a partir de 9 años (No ficción ilustrados) se publica en tapa blanda, con 240 páginas en castellano. El soporte físico permite tener los 40 misterios reunidos para resolverlos de forma sucesiva o repartirlos entre distintas sesiones de lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,7 +22,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Murdle JUNIOR 3 - Caso casi imposible, de G.T. Karber, comparte autoría y orientación hacia los misterios infantiles con el pack Murdle JUNIOR de dos libros incluido en el catálogo. Ambos se dirigen a lectores a partir de 9 años, pero el volumen individual reúne 40 misterios y el pack contiene 80. La diferencia principal está en la cantidad de casos y en la presentación como libro individual o conjunto de dos libros.",
+      "texto": "Murdle JUNIOR 3 - Caso casi imposible: 40 misterios para niños y niñas a partir de 9 años (No ficción ilustrados) comparte autor y propuesta de investigación con Murdle JUNIOR - Pack con 2 libros: Casos curiosos para mentes curiosas y Preparados, listos... ¡A investigar!: 80 misterios para niñas y niños a partir de 9 años. La diferencia principal es la cantidad: G.T. Karber reúne 40 misterios en el primero y 80 en el pack de 2 libros.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b6a7f04337495eac",
+  "fuente_hash": "5fd74ca7cc978138",
   "origen": "chatgpt-web"
 }

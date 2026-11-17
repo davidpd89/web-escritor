@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Eyeshield 21 nº 12/13 (Manga Shonen) se dirige a lectores que buscan manga shonen y cómic japonés. Sus 424 páginas forman una edición recopilatoria en tapa blanda, por lo que encaja con quienes prefieren leer manga en papel frente a la narrativa en prosa.",
+      "texto": "Eyeshield 21 nº 12/13 (Manga Shonen) se dirige a lectores de manga y cómic que buscan una obra presentada como parte de una colección numerada. El título lo identifica como el n.º 12/13 y reúne el trabajo de Riichiro Inagaki y Yusuke Murata. Por su formato narrativo gráfico, no responde a la búsqueda de una novela escrita únicamente en prosa.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "formato_edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 424 páginas en un único volumen físico. Permite incorporar el libro a una colección de manga y leerlo en papel; es el único formato disponible para esta edición.",
+      "texto": "Eyeshield 21 nº 12/13 (Manga Shonen) puede leerse en tapa blanda o en Kindle. La edición física de Planeta Cómic reúne 424 páginas y permite conservar el volumen en una colección de manga; Kindle ofrece la alternativa digital para leerlo en dispositivos compatibles sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "66e8ceb7e8e3ae2d",
+  "fuente_hash": "33f949d842460e23",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9781637659380",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación se dirige a lectores interesados en la adolescencia, el desarrollo personal y las relaciones familiares. Su clasificación también incluye narrativa juvenil, por lo que se aleja de las obras centradas exclusivamente en la infancia temprana o en asuntos ajenos a la crianza.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación reúne 202 páginas en castellano. Su extensión permite abordar la lectura en papel y regresar a los apartados relacionados con el desarrollo personal y la adolescencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación y Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción) comparten el interés por la adolescencia y la familia. Carmen López Suárez se centra en prevenir la violencia y favorecer relaciones sanas, mientras que Ma. Teresa Araceli Esquivel Reyna aborda la autenticidad y el desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410274600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "54be49d29b925552",
+  "origen": "chatgpt-web"
+}

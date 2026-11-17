@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los ricos siempre ganan se dirige a lectores interesados en la economía, el éxito profesional y las decisiones personales relacionadas con el dinero. Iñaki Arcocha Torres parte de su experiencia asesorando grandes patrimonios para examinar hábitos, errores y formas de actuar. Encaja menos con quienes buscan ficción narrativa o instrucciones de inversión basadas en fórmulas financieras.",
+      "texto": "Se dirige a lectores interesados en la economía, la empresa y los comportamientos asociados a las decisiones financieras y profesionales. Su enfoque sobre responsabilidad, ambición y acción encaja menos con quienes buscan una novela de ficción o un manual centrado exclusivamente en cálculos económicos.",
       "evidencias": [
-        "titulo",
-        "autores",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Los ricos siempre ganan es una obra de no ficción sobre los comportamientos y decisiones que Iñaki Arcocha Torres ha observado entre personas con grandes patrimonios. Su enfoque combina experiencias de asesoramiento, historias personales y reflexiones sobre responsabilidad, ambición y miedo. Las 240 páginas se centran en patrones de conducta ante los errores y las oportunidades, no en una trama novelesca.",
+      "texto": "Los ricos siempre ganan plantea una lectura de no ficción empresarial basada en la experiencia de Iñaki Arcocha Torres asesorando grandes patrimonios. Examina patrones de decisión, respuestas ante los errores y actitudes frente al riesgo, con ejemplos procedentes de su trayectoria profesional y una extensión de 240 páginas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -25,35 +24,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los ricos siempre ganan se ofrece en tapa blanda, con 240 páginas publicadas por Roca Editorial en castellano. El ejemplar físico permite volver sobre las historias y reflexiones acerca del dinero, las decisiones y la responsabilidad personal. Su extensión queda reunida en un único volumen de papel, adecuado para una lectura seguida o por apartados.",
+      "texto": "La tapa blanda es el formato disponible para Los ricos siempre ganan, con 240 páginas en castellano. Permite leer el texto en papel y volver a los ejemplos sobre decisiones empresariales, responsabilidad y gestión del miedo sin depender de un dispositivo electrónico.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
-        "editorial",
         "idioma",
+        "titulo",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los ricos siempre ganan, de Iñaki Arcocha Torres, puede compararse con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, por su atención a la conducta y las decisiones profesionales. El primero examina patrones observados entre grandes patrimonios; el segundo plantea una reflexión sobre el liderazgo. También se relaciona con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, aunque este último se orienta hacia las ideas económicas y políticas.",
+      "texto": "Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, comparte el interés por las decisiones profesionales, pero sitúa su enfoque en el liderazgo. ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, se ocupa del papel de las ideas, mientras que Los ricos siempre ganan examina comportamientos observados en personas con grandes patrimonios.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
         "sinopsis_editorial",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791388182457",
+        "isbn-9791399087222",
         "isbn-9788409921980"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ca1ee666df775045",
+  "fuente_hash": "835ad8c062a11c65",
   "origen": "chatgpt-web"
 }

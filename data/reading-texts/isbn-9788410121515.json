@@ -4,38 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Algoritmo: La fórmula de hipercrecimiento que transformó Tesla y SpaceX se dirige a lectores interesados en la expansión empresarial y las estrategias de crecimiento. Por su enfoque económico, no responde a quien busca una novela de ficción ni una introducción general a las finanzas personales.",
+      "texto": "El Algoritmo: La fórmula de hipercrecimiento que transformó Tesla y SpaceX se dirige a lectores interesados en el crecimiento empresarial y la gestión de organizaciones. Jon McNeill aborda una materia vinculada a la economía y la empresa en 416 páginas, por lo que no responde a la búsqueda de ficción ni de una introducción especialmente breve.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Reverté Management (rem) está encuadernada en tapa dura y reúne 416 páginas. Es una presentación pensada para conservar el volumen en una biblioteca y volver a consultar sus contenidos sobre crecimiento empresarial.",
+      "texto": "El Algoritmo: La fórmula de hipercrecimiento que transformó Tesla y SpaceX está disponible en tapa dura. La edición de Reverté Management (rem) reúne 416 páginas en castellano, con una encuadernación rígida adecuada para conservar el volumen y consultarlo repetidamente. También puede elegirse como regalo físico para alguien interesado en gestión empresarial.",
       "evidencias": [
-        "editorial",
+        "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "titulo"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antes de liderar: Una mirada interior a un oficio comparte el interés por la gestión, pero sitúa el foco en el ejercicio del liderazgo, mientras que El Algoritmo: La fórmula de hipercrecimiento que transformó Tesla y SpaceX aborda el crecimiento empresarial. Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS) se aproxima desde la marca y adopta una forma de novela-ensayo.",
+      "texto": "El Algoritmo: La fórmula de hipercrecimiento que transformó Tesla y SpaceX se puede comparar con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso. Ambos se sitúan en el ámbito empresarial, pero Jon McNeill centra su título en el hipercrecimiento, mientras que Miguel Reinoso pone el liderazgo en primer plano. La elección depende de si interesa más la expansión de empresas o el ejercicio de dirigir.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409921980",
-        "isbn-9791399168648"
+        "isbn-9788409921980"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "610c9438152a2d5b",
+  "fuente_hash": "bd5ca1b0887900a1",
   "origen": "chatgpt-web"
 }

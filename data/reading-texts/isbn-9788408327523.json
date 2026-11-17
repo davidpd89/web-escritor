@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408327523",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este estuche se dirige a lectores de romance juvenil y narrativa contemporánea que buscan dos libros de Alice Kellen reunidos en una misma edición. Su orientación romántica lo aleja de quienes prefieren historias centradas en la aventura o la divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es un estuche en tapa blanda de bolsillo que reúne Todo lo que nunca fuimos y Todo lo que somos juntos. Sus 752 páginas permiten conservar ambos títulos de Alice Kellen en un mismo conjunto físico, tanto para lectura como para regalo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Irresistibles Navidades, de Cherry Chic, también reúne dos obras en un estuche y comparte con la bilogía de Alice Kellen el formato de colección. La diferencia está en los títulos incluidos: el primero agrupa Imperfectas navidades e Inesperadas Navidades, mientras que el segundo contiene Todo lo que nunca fuimos y Todo lo que somos juntos, dos obras de romance juvenil contemporáneo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387871482"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db666f791b617369",
+  "origen": "chatgpt-web"
+}

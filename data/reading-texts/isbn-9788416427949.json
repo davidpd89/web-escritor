@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788416427949",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los Pasajeros (Lejano Oriente), de Yoko Mori, pertenece al ámbito infantil y juvenil. Con 52 páginas, presenta una extensión breve frente a las novelas de varios cientos de páginas; por su clasificación, se diferencia de las lecturas dirigidas específicamente al público adulto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los Pasajeros (Lejano Oriente) está editado en tapa dura y tiene 52 páginas. Su cubierta rígida aporta protección al ejemplar durante la manipulación y el almacenamiento, mientras que su extensión permite recorrerlo en sesiones de lectura breves. La edición en castellano corresponde a Pastel de Luna.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a1aea87ed070475e",
+  "origen": "chatgpt-web"
+}

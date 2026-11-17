@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Aventura Total 7 - Blastofia (Primeras lecturas), de Òscar Julve y Jaume Copons, está orientado a primeras lecturas relacionadas con aventuras, ciencia ficción y amistad. Sus 128 páginas y su planteamiento infantil lo separan de las novelas de ciencia ficción dirigidas a lectores adultos.",
+      "texto": "Aventura Total 7 - Blastofia (Primeras lecturas) se orienta a lectores que buscan aventuras de ciencia ficción dentro de una colección de primeras lecturas. Sus 128 páginas ofrecen una extensión contenida para este tipo de lectura. Encaja menos con quienes prefieren novelas extensas o historias alejadas de la aventura y la ciencia ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Aventura Total 7 - Blastofia (Primeras lecturas) reúne 128 páginas en un volumen físico que puede guardarse y prestarse. Kindle ofrece la misma opción de lectura en formato digital para utilizar un lector electrónico o un móvil, sin llevar el ejemplar de tapa dura.",
+      "texto": "Aventura Total 7 - Blastofia (Primeras lecturas) puede elegirse en tapa dura o Kindle. La tapa dura reúne sus 128 páginas en un ejemplar físico apropiado para conservar o regalar, mientras que Kindle permite leerlo en un dispositivo compatible sin transportar el libro. Ambas opciones corresponden a una obra de Òscar Julve y Jaume Copons.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aventura Total 7 - Blastofia (Primeras lecturas) comparte la ciencia ficción y el enfoque de aventuras con Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos). La obra de Òscar Julve y Jaume Copons incorpora además la amistad entre sus temas, mientras que el título de Carlos Pazos destaca expresamente su componente científico.",
+      "texto": "Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos), de Carlos Pazos, comparte con Aventura Total 7 - Blastofia (Primeras lecturas) el interés por las aventuras vinculadas a la ciencia. La diferencia está en el enfoque anunciado por sus títulos: el primero destaca la exploración espacial y científica, mientras que el segundo se presenta como una entrega de aventuras de ciencia ficción para primeras lecturas. También cambia la autoría, pues Aventura Total 7 - Blastofia (Primeras lecturas) está firmado por Òscar Julve y Jaume Copons.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c2f70a803074aa15",
+  "fuente_hash": "a2ae7296979d9d2c",
   "origen": "chatgpt-web"
 }

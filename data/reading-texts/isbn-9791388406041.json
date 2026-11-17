@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro de Miguel Cane se dirige a lectores interesados en las biografías de figuras del cine y en sus relaciones sentimentales. Su enfoque sobre personas reales y romances cinematográficos lo diferencia de las novelas románticas de ficción, por lo que no responde a la búsqueda de una historia amorosa inventada.",
+      "texto": "El libro de Miguel Cane se dirige a lectores interesados en las biografías de figuras del cine y sus relaciones sentimentales. Su enfoque sobre personas reales y sus 184 páginas lo diferencian de una novela romántica de ficción o de un estudio centrado en las técnicas cinematográficas.",
       "evidencias": [
         "autores",
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Plataforma Editorial se presenta en tapa blanda, con 184 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones y consultar los contenidos biográficos en papel, sin necesidad de utilizar un dispositivo electrónico.",
+      "texto": "La obra de Miguel Cane está disponible en tapa blanda y Kindle. La edición impresa de Plataforma Editorial tiene 184 páginas y permite conservar el ejemplar en papel; Kindle ofrece una alternativa digital para leerlo en dispositivos compatibles sin transportar el volumen físico.",
       "evidencias": [
+        "autores",
         "editorial",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La obra de Miguel Cane y El cine de los ochenta y 80 directores: Generaciones, géneros y geografías de una década decisiva: 14 (FilaSiete) comparten el cine como materia de interés. Miguel Cane aborda las relaciones sentimentales de figuras cinematográficas, mientras Fernando Gil Delgado Manrique de Lara se centra en directores, generaciones y géneros de una década concreta.",
+      "texto": "La obra de Miguel Cane comparte el interés por las figuras de la cultura popular con Bad Bunny: Un icono: sin permiso, sin límite, sin miedo (No ficción), de Jaime Valero. La primera aborda las relaciones sentimentales de personalidades del cine, mientras que la segunda se centra en una figura musical. Ambas pertenecen al ámbito biográfico, pero tratan sectores culturales diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399182231"
+        "isbn-9791388139482"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2e71a9809b262a1c",
+  "fuente_hash": "326796c1104ca4c5",
   "origen": "chatgpt-web"
 }

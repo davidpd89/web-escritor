@@ -4,26 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "DANIGMAS VS CÁNCER: El libro canalla contra el cáncer se dirige a quienes buscan una lectura sobre el cáncer vinculada a las memorias y al desarrollo personal. La obra de Sr Daniel Gonzálvez Mas se sitúa en el ámbito de la experiencia personal y la salud, no en el de un tratado médico especializado.",
+      "texto": "DANIGMAS VS CÁNCER: El libro canalla contra el cáncer se orienta a lectores interesados en el cáncer desde una perspectiva vinculada a las memorias y el desarrollo personal. Su planteamiento encaja menos con quien busca exclusivamente un manual médico especializado o una novela de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "DANIGMAS VS CÁNCER: El libro canalla contra el cáncer se ofrece en tapa blanda, con 152 páginas en castellano. Su extensión permite repartir la lectura en sesiones cortas, mientras que la encuadernación flexible facilita transportarlo y manejarlo sin el peso añadido de unas cubiertas rígidas.",
+      "texto": "La edición en tapa blanda de DANIGMAS VS CÁNCER: El libro canalla contra el cáncer contiene 152 páginas en castellano. Su encuadernación flexible permite transportarlo y leerlo en papel sin el volumen de una cubierta rígida; también facilita guardarlo junto a otras lecturas de desarrollo personal.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, comparte el interés por la salud y el bienestar, aunque se centra en la longevidad y los consejos vitales. DANIGMAS VS CÁNCER: El libro canalla contra el cáncer, de Sr Daniel Gonzálvez Mas, delimita su asunto al cáncer y se sitúa también en el terreno de las memorias personales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f80602987f9426e9",
+  "fuente_hash": "60dd24cdb31cd73b",
   "origen": "chatgpt-web"
 }

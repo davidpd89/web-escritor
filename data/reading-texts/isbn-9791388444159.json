@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388444159",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aquellos marineros de Elcano: La novela del buque escuela de la Armada Española (Narrativa con Valores), de Blanco Corredoira, se dirige a lectores interesados en aventuras y narrativa contemporánea de temática naval. Su argumento se vincula al buque escuela de la Armada Española, por lo que se aleja de las búsquedas centradas en mundos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aquellos marineros de Elcano: La novela del buque escuela de la Armada Española (Narrativa con Valores) se publica en tapa blanda, con 272 páginas en castellano. La edición de Sekotia permite leer la novela en papel, transportarla y conservarla para posteriores consultas o relecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aquellos marineros de Elcano: La novela del buque escuela de la Armada Española (Narrativa con Valores) puede compararse con Corazón de oro: Edición limitada a precio especial (Colección Especial), de Luz Gabás, dentro de la narrativa. La obra de Blanco Corredoira se centra en el ámbito naval y las aventuras, mientras el título de Luz Gabás destaca una edición limitada de su obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328353"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e15e42b3a5f96136",
+  "origen": "chatgpt-web"
+}

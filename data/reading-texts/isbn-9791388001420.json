@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388001420",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores de romance que buscan una novela identificada como segundo volumen de una serie. El título lo identifica como el n.º 2, por lo que encaja menos con quienes prefieren comenzar una historia por su primera entrega o leer narrativa independiente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Books4pocket reúne 544 páginas en tapa blanda y formato de bolsillo. Es una opción física para leer y transportar esta segunda entrega sin una cubierta rígida, aunque su extensión requiere reservar tiempo para una lectura larga.",
+      "evidencias": [
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El trono de las pesadillas (Umbriel narrativa) comparte autoría con El reino de los malditos Vol. 2: Los siete círculos del infierno (Books4pocket narrativa), ya que ambos son de Kerri Maniscalco. La diferencia comprobable es que el segundo se identifica expresamente como volumen 2 y está clasificado como romance, mientras que el primero figura como otro título de la autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387749255"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "015d18bb01fae86d",
+  "origen": "chatgpt-web"
+}

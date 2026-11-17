@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410286658",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Del nacimiento al mar: Diario de un caminante por el Guadalquivir (Otras narrativas) se dirige a lectores interesados en los viajes a pie y en los recorridos ligados a un territorio. Por su enfoque de diario de caminante, encaja menos con quienes buscan una guía turística organizada por destinos o una obra centrada exclusivamente en divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Del nacimiento al mar: Diario de un caminante por el Guadalquivir (Otras narrativas) se presenta en tapa blanda y reúne 202 páginas. Este formato permite llevar el libro durante desplazamientos y consultar sus páginas sin cargar con una encuadernación rígida. Está publicado en castellano por Ediciones Alfar S.a.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Del nacimiento al mar: Diario de un caminante por el Guadalquivir (Otras narrativas) comparte con España en moto: 13 676 km en rutas de un día + Camino de Santiago (Nómadas) el interés por recorrer territorios. Fernando Morales Astola plantea un diario de caminante centrado en el Guadalquivir, mientras que Pedro Pardo aborda rutas en moto. La diferencia está en el medio de transporte y en el alcance geográfico anunciado por cada título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408324812"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a98823dfa7ed5404",
+  "origen": "chatgpt-web"
+}

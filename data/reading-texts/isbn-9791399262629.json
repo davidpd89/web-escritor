@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399262629",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Leopoldo de Alba Salcedo (1843-1913), periodista, diputado y embajador está dirigido a lectores interesados en la historia y en las trayectorias de figuras vinculadas al periodismo, la política y la diplomacia. Sus 128 páginas se centran en una personalidad histórica concreta, por lo que se aleja de las historias generales de países o periodos completos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Leopoldo de Alba Salcedo (1843-1913), periodista, diputado y embajador se ofrece en tapa blanda, con 128 páginas en castellano. Esta edición de Editorial Palitroque0 permite consultar en papel la trayectoria histórica tratada por José Luis Aragón Panés y conservar el volumen como referencia de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Leopoldo de Alba Salcedo (1843-1913), periodista, diputado y embajador puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su interés histórico y político. José Luis Aragón Panés centra su libro en la trayectoria de un periodista, diputado y embajador, mientras que el título de Ryback aborda el derrumbe de una democracia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "30a527337c03e7c6",
+  "origen": "chatgpt-web"
+}

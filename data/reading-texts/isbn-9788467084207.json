@@ -4,39 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal), de Robert Greene y Joost Elffers, se dirige a lectores interesados en el poder, la política y el desarrollo personal. Por su orientación hacia estas materias y las biografías y memorias, no es una lectura destinada a quien busca ficción fantástica o una novela de aventuras.",
+      "texto": "Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal) se orienta a lectores interesados en las relaciones de poder, la política y el desarrollo personal. Su planteamiento temático se aparta de las novelas de ficción y de las lecturas centradas exclusivamente en experiencias autobiográficas.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal) se diferencia por el acabado dorado de los cantos. Editorial Espasa publica esta presentación en tapa dura, con 536 páginas en castellano y fecha de publicación del 2026-11-11; el título identifica expresamente el tratamiento decorativo de la edición.",
+      "texto": "Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal) se distingue por el acabado dorado de los cantos, señalado expresamente en su título. Editorial Espasa publica esta versión en castellano, con fecha 2026-11-11 e ISBN 9788467084207, referencias útiles para identificarla frente a otras presentaciones.",
       "evidencias": [
         "titulo",
         "editorial",
-        "edicion",
-        "numero_paginas",
         "idioma",
-        "fecha_publicacion"
+        "fecha_publicacion",
+        "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura permite consultar las 536 páginas de Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal) en papel y conservar el acabado de cantos dorados. El audiolibro ofrece una alternativa de escucha para recorrer el contenido sin manejar el volumen físico, especialmente durante actividades que permiten prestar atención al audio.",
+      "texto": "Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal) está disponible en tapa dura y audiolibro. La tapa dura ofrece sus 536 páginas en papel y el acabado de cantos dorados; el audiolibro permite escuchar el contenido durante desplazamientos o actividades que no requieren atención visual.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos), de Toño Ramos, comparte con Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal) una orientación práctica hacia las relaciones humanas. El primero se centra expresamente en la convivencia familiar y la psicología conductual, mientras que el libro de Robert Greene y Joost Elffers aborda el poder y la política desde el desarrollo personal.",
+      "texto": "Crónica de un desafío al Estado comparte con Las 48 leyes del poder. Edición con cantos dorados (Espasa Crecimiento personal) el interés por las dinámicas políticas. Javier Alberto Zaragoza Aguado aborda acontecimientos del Procés desde una perspectiva testimonial, mientras que Robert Greene y Joost Elffers presentan una obra organizada alrededor de las leyes del poder.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,12 +40,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399249682"
+        "isbn-9788423441303"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fd1f1b1467cae4d8",
+  "fuente_hash": "3b85f5f988e4f39b",
   "origen": "chatgpt-web"
 }

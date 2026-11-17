@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791370381790",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores de ensayo interesados en las relaciones entre religión, pensamiento filosófico, historia y literatura. Su planteamiento temático se aparta de los relatos de ficción juvenil y de las lecturas centradas exclusivamente en la práctica religiosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La cuestión central es el estudio de lo postsecular desde distintas disciplinas humanísticas. El título reúne historia, filosofía y literatura como perspectivas de análisis, lo que permite abordar la relación entre pensamiento religioso y reflexión cultural sin limitarla a una sola especialidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 286 páginas en castellano y está publicada por Tirant Humanidades. Este soporte permite leer y consultar el ensayo en papel, señalar pasajes y volver a sus apartados durante el estudio.",
+      "evidencias": [
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rostro del hombre: Las dimensiones reales de nuestro yo comparte el interés por las cuestiones humanas y espirituales, pero concentra su asunto en la identidad personal. El dinero también pertenece al ámbito ensayístico, aunque delimita su reflexión mediante un asunto económico en vez de combinar historia, filosofía y literatura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413393063",
+        "isbn-9788413393056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "95738b888ad6bf78",
+  "origen": "chatgpt-web"
+}

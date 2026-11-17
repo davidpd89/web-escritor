@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387662608",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La obra de Saira Hameed se dirige a lectores interesados en las hormonas, las señales del organismo y su relación con la salud. Su temática pertenece al ámbito del bienestar y la divulgación sanitaria, por lo que se aleja de la ficción y de los libros centrados exclusivamente en el ejercicio físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Urano se presenta en tapa blanda, con 360 páginas en castellano. Este formato permite consultar en papel los contenidos sobre hormonas y señales corporales, volver a determinados pasajes y conservar el volumen como material de consulta.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Saira Hameed comparte el ámbito de la salud con 5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro, aunque se centra específicamente en las hormonas y las señales del cuerpo. También puede compararse con 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, cuyo título plantea un enfoque más amplio sobre longevidad y bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290",
+        "isbn-9788466394390"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "529a6e5da7b0ef7a",
+  "origen": "chatgpt-web"
+}

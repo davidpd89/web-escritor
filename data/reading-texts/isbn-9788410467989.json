@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ya se te pasará, de Silvia Severino, se dirige a adultos interesados en el desarrollo personal y en comprender sus propias emociones. Combina reflexión y ejercicios prácticos para revisar la relación con uno mismo, por lo que se aleja de las lecturas centradas en la productividad o la organización de tareas.",
+      "texto": "Ya se te pasará, de Silvia Severino, está dirigido a adultos interesados en desarrollo personal, conciencia emocional y reflexión sobre los propios hábitos. Combina preguntas de introspección con propuestas prácticas para revisar la relación con uno mismo; no está planteado como una novela de ficción ni como una lectura infantil.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,19 +15,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ya se te pasará está disponible en tapa blanda y Kindle, dos opciones para trabajar con sus 256 páginas de reflexiones y propuestas prácticas. La edición de Vergara lleva solapas y permite consultar y marcar pasajes en papel; Kindle facilita llevar el contenido en el móvil y retomar los ejercicios sin transportar el ejemplar físico.",
+      "texto": "Ya se te pasará está disponible en tapa blanda, Kindle y audiolibro. La edición física de Vergara tiene 256 páginas y solapas, útiles para conservar y consultar los ejercicios; Kindle permite llevar el texto en formato digital, mientras que el audiolibro ofrece la opción de escuchar las reflexiones sin leer en pantalla o papel.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
         "edicion",
         "editorial",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6254a4a912e47185",
+  "fuente_hash": "e86257abfb2b85fd",
   "origen": "chatgpt-web"
 }

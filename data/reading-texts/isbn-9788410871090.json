@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410871090",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LIR. Microbiología (Lippincott Illustrated Reviews Series) se orienta a lectores que buscan estudiar microbiología mediante un volumen científico en castellano. Sus 474 páginas y su pertenencia a una serie de revisiones ilustradas lo distinguen de las lecturas de divulgación general sobre asuntos científicos sin especialización temática.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LIR. Microbiología (Lippincott Illustrated Reviews Series) se publica en tapa blanda, con 474 páginas en castellano. La edición de Lippincott Williams & Wilkins permite consultar físicamente un volumen extenso dedicado a microbiología y volver a sus contenidos durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LIR. Microbiología (Lippincott Illustrated Reviews Series) comparte su orientación científica con 50 cosas que hay que saber sobre IA, de Keith Mansfield, aunque cada obra se ocupa de una disciplina diferente: microbiología e inteligencia artificial. También puede contrastarse con Abonado y fertilización en agricultura ecológica-AGAU001PO, de Elsa Rubio Duce, por su vinculación con conocimientos científicos aplicados. La diferencia reside en el estudio de los microorganismos frente a los procedimientos de fertilización agrícola.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309",
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7acaff0f9108dd05",
+  "origen": "chatgpt-web"
+}

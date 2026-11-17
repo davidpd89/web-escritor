@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Superpatata 11 - El secuestro de Papá Noel se dirige a lectores desde los 4 años que disfrutan del humor, los superhéroes y las aventuras navideñas en viñetas. El conflicto gira en torno al rescate de Papá Noel, retenido por un villano que controla la fábrica de regalos. Encaja menos con quienes buscan relatos realistas o historias sin situaciones de peligro.",
+      "texto": "Superpatata 11 - El secuestro de Papá Noel se dirige a niños desde los 4 años que disfrutan con los superhéroes, el humor y las aventuras navideñas en viñetas. Su argumento incluye un secuestro y un villano, por lo que encaja menos con quienes prefieren relatos cotidianos sin enfrentamientos ni peligros.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,54 +14,49 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición de Superpatata 11 - El secuestro de Papá Noel está publicada por Beascoa en castellano y tapa blanda, con 64 páginas. Incorpora cantos romos y limita la composición a seis viñetas por página, dos características pensadas para facilitar la lectura infantil. Su fecha de publicación es el 5 de noviembre de 2026 y su ISBN es 9788448874940.",
+      "texto": "Beascoa publica Superpatata 11 - El secuestro de Papá Noel en tapa blanda, con 64 páginas y esquinas redondeadas. La distribución limita cada página a seis viñetas, una característica que facilita seguir la acción del cómic; esta entrega de Artur Laperla, publicada el 5 de noviembre de 2026, desarrolla una aventura navideña.",
       "evidencias": [
         "titulo",
+        "autores",
         "editorial",
         "edicion",
-        "idioma",
         "numero_paginas",
-        "sinopsis_editorial",
         "fecha_publicacion",
-        "isbn13"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "edad_y_formato",
-      "texto": "Superpatata 11 - El secuestro de Papá Noel está recomendado a partir de 4 años y tiene 64 páginas en tapa blanda. Es un cómic infantil de humor y acción ambientado en Navidad, con un conflicto centrado en liberar a Papá Noel. Sus páginas presentan hasta seis viñetas cada una y la edición incorpora esquinas redondeadas para facilitar su manejo.",
+      "texto": "Superpatata 11 - El secuestro de Papá Noel está recomendado a partir de 4 años y tiene 64 páginas. Es un cómic en tapa blanda con cantos romos y hasta seis viñetas por página, una distribución que facilita seguir las escenas visualmente durante las primeras etapas lectoras.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
         "numero_paginas",
         "formato_edicion",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer las 64 páginas de Superpatata 11 - El secuestro de Papá Noel en un ejemplar físico, con sus cantos romos y viñetas distribuidas para lectores infantiles. Kindle ofrece una alternativa digital para llevar el cómic en un dispositivo compatible, sin transportar el libro. La elección depende de si se prefiere pasar páginas de papel o consultar las ilustraciones en pantalla.",
+      "texto": "Superpatata 11 - El secuestro de Papá Noel está disponible en tapa blanda y Kindle. La edición impresa permite pasar sus 64 páginas y observar las viñetas directamente, con esquinas redondeadas; Kindle facilita llevar el cómic en formato digital, aunque la visualización depende del tamaño de pantalla.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Superpatata 11 - El secuestro de Papá Noel comparte protagonista, autor y humor superheroico con Superpatata 10 - Viaje a la Edad Media (nueva edición), de Artur Laperla, pero traslada el conflicto a un rescate navideño. También coincide en la presencia de Papá Noel y el humor con Dónde están los calzoncillos de Papá Noel: Un cuento de Navidad interactivo y lleno de humor. ¡Encuentra los calzoncillos de Papá Noel! Para niños y niñas a partir de 3 años., de Becky Davies; este último plantea una búsqueda interactiva desde los 3 años.",
+      "texto": "Superpatata 11 - El secuestro de Papá Noel comparte protagonista, autor y humor de superhéroes con Superpatata 10 - Viaje a la Edad Media (nueva edición). La diferencia está en la aventura: el título del volumen 10 remite a la Edad Media, mientras el 11 desarrolla un rescate navideño en el Polo Norte.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
-        "afines_catalogo",
-        "edad_recomendada"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448874926",
-        "isbn-9791387948221"
+        "isbn-9788448874926"
       ]
     }
   ],

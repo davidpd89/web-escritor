@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788428575973",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia de un alma: Edición Lux (Clásicos cristianos lux), de Santa Teresa De Lisieux, se dirige a lectores de biografías y memorias con interés por los clásicos cristianos. Su enfoque autobiográfico y religioso lo distingue de una novela de ficción o de una biografía centrada en figuras contemporáneas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historia de un alma: Edición Lux (Clásicos cristianos lux) se ofrece en tapa dura, con 360 páginas en castellano. Esta presentación de Editorial San Pablo proporciona una encuadernación rígida para conservar el volumen, consultarlo de nuevo o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historia de un alma: Edición Lux (Clásicos cristianos lux) puede ponerse junto a Al andar: Vivencias del Camino de Santiago por su vinculación con las experiencias personales. La obra de Santa Teresa De Lisieux se identifica como un clásico cristiano, mientras que Carlos Díaz Ballesta sitúa sus vivencias en el Camino de Santiago.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "29fb8480326db68c",
+  "origen": "chatgpt-web"
+}

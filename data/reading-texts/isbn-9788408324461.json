@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788408324461",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de fantasía romántica y narrativa juvenil que buscan combinar ambos géneros. En el corazón del monstruo: Edición con cantos tintados (Ficción), de Natalia Torvisco, no está orientado a quienes prefieren una novela histórica o una lectura ajena al romance y la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Su rasgo distintivo son los cantos tintados, indicados expresamente en el título. Crossbooks publica En el corazón del monstruo: Edición con cantos tintados (Ficción) en tapa dura, con 440 páginas en castellano y fecha de publicación del 14 de octubre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 440 páginas. Permite conservar los cantos tintados como parte del acabado físico del ejemplar y ofrece una presentación rígida para quienes desean tener En el corazón del monstruo: Edición con cantos tintados (Ficción) en su biblioteca.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Asistente del villano (edición especial limitada) (Faeris Editorial), de Hannah Nicole Maehrer, es otra referencia para explorar la fantasía romántica en una edición especial. En el corazón del monstruo: Edición con cantos tintados (Ficción), de Natalia Torvisco, se diferencia por su presentación con cantos tintados y su orientación también juvenil.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388108112"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a8f5053f9d3b8d42",
+  "origen": "chatgpt-web"
+}

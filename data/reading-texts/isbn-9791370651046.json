@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791370651046",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en la tributación de los seguros de vida-ahorro y en las consecuencias fiscales del producto contratado, el beneficiario y la forma de cobro. Por su enfoque jurídico y fiscal, se aleja de las lecturas narrativas y de los libros de economía general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 122 páginas dedicadas a la fiscalidad de los seguros de vida-ahorro. El formato físico permite consultar distintos apartados y volver a las cuestiones relacionadas con el beneficiario, el producto contratado o la forma de cobro.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría y temática fiscal con Casos prácticos sobre la fiscalidad de las «holding» y sus grupos (monografico), aunque este último se ocupa de sociedades y grupos empresariales. Fiscalidad de los seguros de vida-ahorro, en cambio, aborda la tributación según el producto contratado, el beneficiario y la forma de cobro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650186"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2f7d0b98c658c8cc",
+  "origen": "chatgpt-web"
+}

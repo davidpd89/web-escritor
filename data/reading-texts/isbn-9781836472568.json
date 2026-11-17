@@ -4,40 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Al faro: Nueva traducción al español: 82 (Clásicos en español) se dirige a lectores de Virginia Woolf y de narrativa clásica interesados en una traducción al castellano. Su carácter literario lo diferencia de los manuales prácticos de desarrollo personal, nutrición o crianza.",
+      "texto": "Al faro: Nueva traducción al español: 82 (Clásicos en español) se dirige a lectores de clásicos interesados en la narrativa contemporánea y los temas familiares. Por su clasificación temática, no responde a la búsqueda de un manual de crianza ni de una obra de consulta práctica.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Al faro: Nueva traducción al español: 82 (Clásicos en español) se identifica por su nueva traducción al castellano y su pertenencia a la colección Clásicos en español. La edición de Rosetta Edu consta de 205 páginas en tapa blanda y corresponde al ISBN 9781836472568, que permite distinguirla de otras publicaciones de la obra de Virginia Woolf.",
+      "texto": "Esta edición de Al faro: Nueva traducción al español: 82 (Clásicos en español) se distingue por presentar una nueva traducción al castellano. Rosetta Edu la publica en tapa blanda, con 205 páginas, dentro de una colección dedicada a los clásicos literarios.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
         "numero_paginas",
-        "isbn13",
-        "autores"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Al faro: Nueva traducción al español: 82 (Clásicos en español) puede elegirse en tapa dura para conservar el ejemplar con una encuadernación rígida. La tapa blanda corresponde a la edición de Rosetta Edu de 205 páginas y ofrece una alternativa física más flexible para la lectura habitual.",
+      "texto": "La tapa blanda permite transportar las 205 páginas de esta edición de Rosetta Edu con mayor facilidad. La tapa dura ofrece una encuadernación rígida para conservar el ejemplar en la biblioteca o entregarlo como regalo; ambas opciones permiten leer la obra de Virginia Woolf en papel.",
       "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "formatos_disponibles",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Noche y día / Night and Day y Al faro: Nueva traducción al español: 82 (Clásicos en español) comparten autora, Virginia Woolf, y pertenecen a su obra narrativa. La edición de Al faro se distingue por anunciar una nueva traducción al español y formar parte de la colección Clásicos en español, mientras que Noche y día / Night and Day presenta su título en dos idiomas.",
+      "texto": "La señora Dalloway (edición especial limitada con cantos tintados) comparte autoría con Al faro: Nueva traducción al español: 82 (Clásicos en español), ambas obras de Virginia Woolf. La primera relata una jornada de Clarissa y su entorno familiar, mientras que la segunda se clasifica entre los clásicos de temática familiar. Noche y día / Night and Day permite ampliar la comparación dentro de la producción de la misma autora.",
       "evidencias": [
         "titulo",
         "autores",
@@ -45,12 +42,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788491057031",
         "isbn-9786073878517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "aefc7482c8d3aa6a",
+  "fuente_hash": "ca637b927ba093bc",
   "origen": "chatgpt-web"
 }

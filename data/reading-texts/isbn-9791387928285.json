@@ -4,29 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, se sitúa entre el misterio y la historia, por lo que encaja con lectores interesados en ambos campos. Sus 336 páginas ofrecen una extensión intermedia; no es la elección más ajustada para quien busque una guía práctica o un libro de desarrollo personal.",
+      "texto": "Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, se dirige a lectores interesados en el crimen, el misterio y la historia. Su combinación temática lo diferencia de las lecturas centradas exclusivamente en acontecimientos históricos sin componentes de intriga.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Criminales sin sombra (Salamandra Black) está disponible en tapa blanda, con una edición de Salamandra de 336 páginas en castellano. Es una opción de lectura en papel con cubierta flexible, frente a la encuadernación rígida de una tapa dura; su extensión permite valorar el tamaño del volumen antes de elegirlo.",
+      "texto": "Criminales sin sombra (Salamandra Black) está editado en tapa blanda y tiene 336 páginas. La edición de Salamandra, en castellano, ofrece un volumen de extensión media para leer y conservar en papel, sin necesidad de un lector electrónico.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "formatos_disponibles"
+        "editorial",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Criminales sin sombra (Salamandra Black), de Juan Carlos Galindo, se aproxima por el misterio a El cuerpo equivocado (Novela de intriga), de Jorge Ortega, aunque este último se presenta expresamente como novela. También comparte el interés histórico con El baile de las que sobran (Novela histórica), de Fermina Cañaveras; la diferencia está en el peso del misterio frente al enfoque de novela histórica.",
+      "texto": "Criminales sin sombra (Salamandra Black) comparte su orientación hacia el misterio con El cuerpo equivocado (Novela de intriga), de Jorge Ortega, aunque el primero incorpora también una clasificación histórica. El hombre que fue casi nadie (Salamandra Black), de Victoria González Torralba, coincide además en el sello identificado en el título, pero corresponde a otra autoría.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,8 +32,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467083910",
-        "isbn-9788425377105"
+        "isbn-9788425377105",
+        "isbn-9791387928599"
       ]
     }
   ],

@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788412964318",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores interesados en la innovación aplicada al ámbito de la carretera y en trabajos reconocidos mediante un premio. Su carácter recopilatorio y técnico encaja menos con quienes buscan una narración de ficción o una introducción general a la ciencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El volumen reúne trabajos premiados en el Premio a la innovación Juan Antonio Fernández del campo, vinculado al ámbito de la carretera. Su enfoque es recopilatorio y se relaciona con la divulgación científica, el ensayo y los materiales de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ficha comercial recoge tapa blanda, mientras que la edición de la Asociación Española de la Carretera se describe con encuadernación en espiral. Sus 114 páginas forman un volumen físico de consulta, y la espiral facilita mantenerlo abierto sobre una mesa.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Diccionario político de inteligencia artificial, de Natalia Zuazo, también aborda un ámbito relacionado con la innovación y la tecnología. La diferencia es el objeto de consulta: ese libro se centra en la inteligencia artificial desde una perspectiva política, mientras que Premio a la innovación Juan Antonio Fernández del campo: Trabajos premiados recopila trabajos reconocidos en el ámbito de la carretera.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388086038"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc8dd2400a9ae014",
+  "origen": "chatgpt-web"
+}

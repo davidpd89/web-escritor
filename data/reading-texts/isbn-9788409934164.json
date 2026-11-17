@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Brujas de Aerthea: El secreto de Violet encaja con lectores de fantasía juvenil interesados en secretos y elementos de terror. Sus 710 páginas plantean una lectura extensa, menos adecuada para quien busca una novela breve o prefiere historias sin componentes inquietantes.",
+      "texto": "Brujas de Aerthea: El secreto de Violet se orienta a lectores de fantasía juvenil interesados en historias relacionadas con la brujería y los secretos. Sus 710 páginas suponen una lectura extensa, por lo que encaja menos con quienes buscan novelas breves o relatos realistas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,32 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Brujas de Aerthea: El secreto de Violet está disponible en tapa blanda, con 710 páginas en castellano. Es una edición física que permite avanzar por una lectura extensa sin depender de una pantalla, aunque su volumen resulta menos cómodo para transportarlo a diario.",
+      "texto": "Brujas de Aerthea: El secreto de Violet puede leerse en tapa blanda o Kindle. La edición impresa reúne 710 páginas en un volumen físico, mientras que Kindle permite consultar esa misma extensión sin transportar el libro y continuar la lectura desde un dispositivo compatible.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Brujas de Aerthea: El secreto de Violet y El secreto de la Ciudadela comparten el interés por los secretos, aunque el primero incorpora fantasía juvenil y terror. Frente a El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, la obra de Ángel Hache se distingue por su orientación juvenil y sus 710 páginas.",
+      "texto": "Brujas de Aerthea: El secreto de Violet puede compararse con El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, por la presencia de la magia sugerida en ambos títulos. También se aproxima a Asistente del villano (edición especial limitada) (Faeris Editorial), de Hannah Nicole Maehrer, como lectura relacionada con la fantasía, aunque Brujas de Aerthea: El secreto de Violet se presenta específicamente como narrativa juvenil y tiene 710 páginas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399023886",
+        "isbn-9791388108112",
         "isbn-9791388108419"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c06649d65402cee8",
+  "fuente_hash": "e49345b1a01e1242",
   "origen": "chatgpt-web"
 }

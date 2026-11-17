@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387799700",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en las memorias militares y en la historia de las campañas de Francia, África e Italia. Por su enfoque autobiográfico e histórico, se aleja de la ficción bélica y de las narraciones protagonizadas por personajes inventados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda las campañas militares de Francia, África e Italia desde los recuerdos de Erwin Rommel. Su planteamiento corresponde a unas memorias personales vinculadas a acontecimientos históricos, con el testimonio del propio protagonista como eje del libro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El Desvelo se presenta en tapa blanda y reúne 384 páginas en castellano. Este formato permite consultar los recuerdos de las distintas campañas en un volumen físico, sin necesidad de un dispositivo de lectura.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anatomía de un naufragio: Shackleton, el Endurance y la fuerza del hielo también aborda acontecimientos históricos, aunque se centra en una expedición y las condiciones del hielo, frente a las campañas militares de Erwin Rommel. Campo de concentración: 82 (Biblioteca del Exilio) ofrece otra vía de lectura relacionada con la historia, desde un asunto distinto al de estas memorias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873141",
+        "isbn-9788410148659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "27c7de014db02ea4",
+  "origen": "chatgpt-web"
+}

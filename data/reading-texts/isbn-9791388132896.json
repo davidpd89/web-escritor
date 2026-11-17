@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388132896",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Escuela de humanitos (NUBEOCHO) está dirigido al público infantil y juvenil, especialmente a quienes buscan libros de extensión reducida. Con 52 páginas, se distancia de las novelas juveniles largas y de las lecturas orientadas exclusivamente a adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Escuela de humanitos (NUBEOCHO) cuenta con una edición en tapa dura de 52 páginas, publicada por Nubeocho. La encuadernación rígida protege las cubiertas durante la manipulación y resulta práctica para conservar el ejemplar o regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f33b498c1f612f47",
+  "origen": "chatgpt-web"
+}

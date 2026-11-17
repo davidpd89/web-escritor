@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El candidato perfecto: No todos los monstruos viven en la oscuridad. Algunos buscan tu voto. se dirige a lectores de misterio y thriller interesados en las relaciones entre poder y política. Su planteamiento electoral lo distancia de las novelas centradas exclusivamente en conflictos domésticos o aventuras fantásticas.",
+      "texto": "El candidato perfecto: No todos los monstruos viven en la oscuridad. Algunos buscan tu voto., de Félix Jiménez Velando, se dirige a lectores de misterio y thriller interesados en conflictos relacionados con la política electoral. Sus 432 páginas corresponden a una lectura extensa; no encaja con quien busca una novela romántica o una historia alejada del suspense.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Harpercollins contiene las 432 páginas de esta novela de misterio político en un único volumen. Es una edición para quien prefiere seguir una historia extensa en papel, con posibilidad de marcar el punto de lectura y retomarla en distintas sesiones.",
+      "texto": "El candidato perfecto: No todos los monstruos viven en la oscuridad. Algunos buscan tu voto. puede leerse en tapa blanda o Kindle. La edición física de Harpercollins tiene 432 páginas y permite conservar el libro en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen.",
       "evidencias": [
-        "editorial",
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El candidato perfecto: No todos los monstruos viven en la oscuridad. Algunos buscan tu voto. se aproxima a El vuelo de los gansos por su interés en el poder, aunque el primero vincula ese asunto al voto y el segundo plantea el enfrentamiento al poder como una cuestión de principios. La obra de Félix Jiménez Velando incorpora además el misterio y el thriller a su clasificación temática, frente al énfasis en los principios que presenta el texto de El vuelo de los gansos.",
+      "texto": "Aberración, de Santiago López de Hoyos, y Aguas muertas, de Ann Cleeves, son referencias afines para lectores de misterio. La obra de Félix Jiménez Velando se distingue por relacionar el suspense con un candidato electoral y la búsqueda del voto, mientras que las otras lecturas permiten explorar propuestas distintas dentro del género.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425375040"
+        "isbn-9791399297508",
+        "isbn-9788410424524"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "832c614edc51c756",
+  "fuente_hash": "de43106840812e87",
   "origen": "chatgpt-web"
 }

@@ -4,31 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La única manera de bailar / The Only Way to Dance se sitúa entre las publicaciones infantiles y juveniles vinculadas al arte. Su temática relacionada con el baile la distingue de los libros infantiles dedicados a otras disciplinas y de las obras de arte dirigidas exclusivamente a lectores adultos.",
+      "texto": "La única manera de bailar / The Only Way to Dance se dirige al público infantil interesado en la danza y en propuestas relacionadas con el arte. Su extensión de 40 páginas la sitúa en un formato de lectura breve, diferente de los manuales artísticos extensos o de las narraciones juveniles de mayor longitud.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La única manera de bailar / The Only Way to Dance cuenta con una edición en tapa dura de 40 páginas. Su extensión permite recorrer el volumen en sesiones breves, mientras que la encuadernación rígida proporciona una cubierta resistente para conservarlo y regalarlo.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "La única manera de bailar / The Only Way to Dance y Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena) comparten su relación con el arte y el público infantil. El primero gira en torno al baile, mientras que el segundo propone aprender a dibujar. Son aproximaciones a actividades artísticas distintas.",
+      "modulo": "que_formato_elegir",
+      "texto": "La única manera de bailar / The Only Way to Dance se publica en tapa dura y tiene 40 páginas. Esta presentación física permite conservar el libro de Cristina Quintero como parte de una colección infantil, consultarlo de nuevo y utilizarlo como regalo relacionado con el interés por el baile.",
       "evidencias": [
         "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La única manera de bailar / The Only Way to Dance y 30 misiones para ver el mundo con otros ojos: Retos de fotografía con móvil para descubrir, crear y contar historias comparten su relación con la expresión artística. Cristina Quintero aborda el baile desde una obra infantil, mientras que Gustavo Duarte propone retos fotográficos con el móvil. Frente a Libro de sonidos. Mis primeros villancicos (LIBRO DE SONIDOS/LLIBRE DE SONS), de Mei STOYVA, cambia el foco del sonido musical a la danza.",
+      "evidencias": [
+        "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388322778"
+        "isbn-9788409910434",
+        "isbn-9791039582131"
       ]
     }
   ],

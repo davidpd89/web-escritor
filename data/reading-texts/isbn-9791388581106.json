@@ -4,37 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pero no se lo digas: 148 (VdB Teatro contemporáneo) se dirige a quienes leen teatro contemporáneo o buscan textos vinculados a las artes escénicas. Sus 122 páginas y su identificación teatral lo distinguen de una novela extensa o de una guía práctica de técnicas artísticas.",
+      "texto": "Pero no se lo digas: 148 (VdB Teatro contemporáneo), de Ferran González, se orienta a lectores interesados en el teatro contemporáneo y las publicaciones de arte. Su título lo vincula expresamente al ámbito teatral, por lo que se distancia de las lecturas centradas en narrativa novelesca. La edición consta de 122 páginas.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 122 páginas de Pero no se lo digas: 148 (VdB Teatro contemporáneo) en un volumen físico. Permite marcar intervenciones, tomar notas en los márgenes y consultar fragmentos concretos durante el trabajo con un texto teatral.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "autores",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Pero no se lo digas: 148 (VdB Teatro contemporáneo) se publica en tapa blanda, con 122 páginas. Esta edición de Uvedebe permite leer y consultar el texto en papel, una opción para quienes prefieren conservar físicamente sus publicaciones teatrales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Pero no se lo digas: 148 (VdB Teatro contemporáneo) se relaciona con Arde Talía: Una pieza teatral sobre el infierno de la creación artística por su carácter teatral. Ferran González firma la primera obra, mientras que la segunda tiene cinco autoras y aborda expresamente la creación artística. La diferencia más clara para el lector está en esa autoría y en el asunto anunciado por cada título.",
+      "texto": "Pero no se lo digas: 148 (VdB Teatro contemporáneo) puede compararse con 21 Westerns del siglo XXI (Sílex Cine/Claqueta) por su relación con las artes escénicas y audiovisuales. El título de Ferran González remite al teatro contemporáneo, mientras que el de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga se centra en el cine del oeste. Son aproximaciones a disciplinas artísticas diferentes.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399289510"
+        "isbn-9791388205842"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "48078264163846b3",
+  "fuente_hash": "b6325432e9d9ad0a",
   "origen": "chatgpt-web"
 }

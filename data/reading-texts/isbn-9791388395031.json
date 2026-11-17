@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388395031",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia de la alquimia y sus conexiones con la química, la magia y la espiritualidad. Su enfoque histórico y divulgativo queda lejos de quienes buscan una novela fantástica sobre alquimistas o instrucciones para realizar experimentos químicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 264 páginas en castellano, publicadas por Erasmus Ediciones. Su extensión permite abordar la historia de la alquimia en varias sesiones, mientras que la cubierta flexible facilita guardar y transportar el ejemplar.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dios: Una Historia Humana / God: A Human History, de Reza Aslan, comparte el interés por estudiar históricamente cuestiones relacionadas con las creencias. Breve historia de la alquimia: El arte que unió química, magia y espíritu, de Luis Enrique Íñigo Fernández, desplaza el foco hacia la alquimia y su relación con la ciencia y la espiritualidad, frente al protagonismo de la idea de Dios en el otro título.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786073877565"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c87f68ed1b2b0d59",
+  "origen": "chatgpt-web"
+}
