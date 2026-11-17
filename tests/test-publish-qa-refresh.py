@@ -50,13 +50,17 @@ def scenario(main_files, conflict=False, workflows=('qa.yml',), cancel_race=Fals
         if args[:2] == ('run', 'cancel') and cancel_race:
             state['cancelado'] = True
             raise module.subprocess.CalledProcessError(1, 'gh')  # terminó entre el listado y la cancelación
+        if args[0] == 'api' and args[1:3] == ('--method', 'POST') and args[3].endswith('/dispatches'):
+            return json.dumps({'workflow_run_id': 3})
+        if args[:3] == ('run', 'view', '3'):
+            return json.dumps({'databaseId': 3, 'headSha': 'merged', 'status': 'completed', 'conclusion': 'success'})
         if args[:2] == ('run', 'view'):
             return json.dumps({'status': 'completed'})
         if args[:2] == ('run', 'list'):
             ok = state['head'] == 'new'
             return json.dumps([{'databaseId': 1 if not ok else 2, 'headSha': state['head'], 'status': 'completed',
                                 'conclusion': 'success' if ok else 'failure'}])
-        if args[:2] in {('run', 'rerun'), ('pr', 'merge'), ('workflow', 'run'), ('run', 'cancel')}:
+        if args[:2] in {('run', 'rerun'), ('pr', 'merge'), ('run', 'cancel')}:
             return ''
         raise AssertionError(args)
 

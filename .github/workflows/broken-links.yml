@@ -109,7 +109,9 @@ jobs:
 
       - name: Independently verify transient network/server failures
         if: steps.lychee.outcome == 'failure'
-        run: python3 scripts/recheck-link-timeouts.py --report lychee/out.md --output lychee/timeout-recheck.json --quarantine .linkcheck-quarantine.json
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: python3 scripts/recheck-link-timeouts.py --report lychee/out.md --output lychee/timeout-recheck.json --quarantine .linkcheck-quarantine.json ${BASE_REF:+--base-ref "origin/$BASE_REF"}
 
       - name: Upload report
         uses: actions/upload-artifact@v6
