@@ -1,0 +1,39 @@
+name: Construir como el despliegue
+description: >
+  Reproduce exactamente la construcción de deploy-pages.yml: dependencias Python, generados materializados,
+  Node con el lockfile (Pagefind) y la cadena entera rehecha con CATALOGO_HOY. Cualquier job que compare
+  producción con el árbol fuente debe usar esta acción con el mismo día que el despliegue; si no, compara
+  contra un árbol distinto del publicado (deriva falsa en /recomendaciones/ desde R4-4).
+inputs:
+  hoy:
+    description: Día de Madrid (AAAA-MM-DD) con el que se construyó o se construye el despliegue
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: '3.12'
+        cache: pip
+        cache-dependency-path: scripts/requirements.txt
+    # La cadena (build-reading-catalogue.py) importa Pillow: en un runner limpio no está.
+    - name: Dependencias Python
+      shell: bash
+      run: python -m pip install -r scripts/requirements.txt
+    - name: Materializar generados
+      uses: ./.github/actions/materializar
+    # Pagefind (último eslabón) va con `npx --no-install pagefind`: Node y el node_modules del lockfile.
+    - name: Set up Node
+      uses: actions/setup-node@v5
+      with:
+        node-version: '22'
+        cache: npm
+    - name: Instalar Pagefind (lockfile)
+      shell: bash
+      run: npm ci --ignore-scripts --no-audit --no-fund
+    - name: Rehacer lo generado con el día
+      shell: bash
+      env:
+        CATALOGO_HOY: ${{ inputs.hoy }}
+      run: python scripts/materializar_generados.py --solo-construir
