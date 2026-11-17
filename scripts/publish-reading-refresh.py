@@ -16,7 +16,7 @@ spec.loader.exec_module(publication)
 EXACT = {'assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-authors.json', 'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-amazon-audit.json', 'data/reading-pinterest-state.json', 'data/reading-quarantine.json',
          'data/content-registry.json', 'recomendaciones/index.html', 'recomendaciones/autores/index.html',
          'recomendaciones/editoriales/index.html', 'recomendaciones/proximos-lanzamientos.ics', 'recomendaciones/ofertas.json', 'recomendaciones/llms.txt', 'mapa-del-sitio/index.html',
-         'sitemap.xml', 'editoriales-sitemap.xml'}
+         'sitemap.xml', 'editoriales-sitemap.xml', 'editoriales/index.html', 'editoriales/editoriales-data.json', 'metodologia-editorial/index.html'}
 
 
 def allowed_path(path):

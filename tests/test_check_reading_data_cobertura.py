@@ -22,6 +22,8 @@ CODIGO = {
     'test_reading_amazon_audit.AmazonAuditTests.test_every_published_book_is_due_oldest_first_without_a_cap',
     'test_reading_amazon_audit.AmazonAuditTests.test_cover_follows_the_book_in_main_not_the_kind_stored_in_the_record',
     'test_reading_amazon_audit.AmazonAuditTests.test_cover_cap_goes_to_the_books_closest_to_today',
+    'test_reading_amazon_audit.AmazonAuditTests.test_books_without_synopsis_not_yet_read_for_it_go_first_closest_first',
+    'test_reading_amazon_audit.AmazonAuditTests.test_sin_registro_van_antes_los_libros_sin_sinopsis_aunque_sean_mas_lejanos',
     'test_reading_enrichment.EnrichmentTests.test_editorial_outage_preserves_catalogue_and_allows_independent_refresh',
     'test_reading_intake_multibook_contract.MultiBookContractTests.test_three_independent_pages_one_hub_and_categories',
     'test_reading_intake_multibook_contract.MultiBookContractTests.test_partially_ready_book_does_not_break_other_two',
