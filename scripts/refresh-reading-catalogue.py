@@ -209,6 +209,59 @@ def reconcile_pending(pending, root=ROOT):
     return newest
 
 
+STUCK_PREFIX = 'automation/reading-atascado-'
+
+
+def reconcile_deploy(root=ROOT):
+    """Una muerte entre fusionar y desplegar no deja main sin publicar (Fable R4-6, F3).
+
+    Una fusión con GITHUB_TOKEN no dispara el despliegue por push: lo lanza el publicador justo después. Si la
+    ejecución muere entre los dos pasos, nadie despliega. Al empezar, si la punta de main no tiene un despliegue
+    en curso ni terminado en verde, se lanza uno. Devuelve True si lo lanzó.
+    """
+    gh = publisher.publication.gh
+    git('fetch', '--quiet', 'origin', 'main', root=root)
+    sha = git('rev-parse', 'origin/main', root=root).decode().strip()
+    repo = gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner').strip()
+    runs = json.loads(gh('api', f'repos/{repo}/actions/workflows/deploy-pages.yml/runs?head_sha={sha}'))['workflow_runs']
+    if any(r.get('status') != 'completed' or r.get('conclusion') == 'success' for r in runs):
+        return False
+    print(f'::warning::main {sha[:12]} sin despliegue en verde ni en curso; se despliega ahora', flush=True)
+    gh('workflow', 'run', 'deploy-pages.yml', '--ref', 'main')
+    return True
+
+
+def report_stuck(source, exc, *, number=None, root=ROOT):
+    """Unos datos que no se pueden trasladar no paran la noche ni se pierden (Fable R4-6, F3).
+
+    Antes, un `carry` que lanzaba (procedencia ausente, blob que falta) tumbaba cada ejecución en el mismo punto
+    de guardado o en la misma PR. Crear antes de destruir: un punto de guardado pasa a `reading-atascado-*` antes
+    de borrarse; una PR se cierra conservando su rama. En los dos casos queda una issue con la causa.
+    """
+    git('reset', '--quiet', '--hard', root=root)
+    git('clean', '--quiet', '-fd', root=root)
+    keep = source
+    if source.startswith(CHECKPOINT_PREFIX):
+        keep = STUCK_PREFIX + source[len(CHECKPOINT_PREFIX):]
+        git('push', '--quiet', 'origin', f'refs/remotes/origin/{source}:refs/heads/{keep}', root=root)
+    cause = f'{type(exc).__name__}: {exc}'[:1500]
+    print(f'::error::{source} no se puede trasladar ({cause}); se conserva en {keep}', flush=True)
+    gh = publisher.publication.gh
+    try:
+        gh('issue', 'create', '--title', f'Carga: datos sin trasladar en {keep}',
+           '--body', f'`carry` falló con `{cause}`.\n\nLos datos siguen en la rama `{keep}`. La noche siguió '
+                     'con una consulta nueva; nada se ha descartado. Hay que revisar la causa y trasladarlos a mano o '
+                     'arreglar la recuperación.')
+    except Exception as issue_exc:  # noqa: BLE001
+        print(f'::error::No se pudo abrir la issue ({issue_exc}); los datos siguen en {keep}', flush=True)
+    if number is not None:
+        publisher.close_proposal(number, f'Sus datos no se pueden trasladar al main actual ({cause[:300]}). Se conserva la '
+                                 'rama y queda una issue; el escritor vuelve a consultar las fuentes.')
+    else:
+        drop_checkpoint(source, root=root)
+    return keep
+
+
 def chain_report(accepted, consumed=None, **extra):
     """Lo que lee la cadena nocturna (reading-catalogue-sync.yml): sigue si hubo altas o quedan puntos de guardado.
 
@@ -224,6 +277,8 @@ def refresh(*, publish=False):
         raise ValueError('La publicación automática exige un checkout limpio')
     if publish and not config.get('autopublish'):
         raise ValueError('Autopublicación desactivada en la configuración')
+    if publish:
+        reconcile_deploy()
     # A failed previous batch stays inspectable; never pile up duplicate writers.
     opened = json.loads(publisher.publication.gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName'))
     pending = pending_batches(opened)
@@ -237,20 +292,29 @@ def refresh(*, publish=False):
             return
         if action == 'carry':
             replaced = json.loads(publisher.publication.gh('pr', 'view', current, '--json', 'number'))['number']
-            carried = carry(current)
+            try:
+                carried = carry(current)
+            except Exception as exc:  # noqa: BLE001
+                report_stuck(current, exc, number=replaced)
+                carried = replaced = None
             if carried is not None:
                 print(f'Datos de #{replaced} trasladados a main sin nueva consulta: {len(carried)} libros nuevos', flush=True)
                 chain_report(len(carried), trasladada_de=current, new_books=carried)
                 return assemble({'new_books': carried, 'updated_books': [], 'stats': {}}, changed=True,
                                 replaced=replaced, source=current)
-            publisher.close_proposal(replaced, 'Sus datos fuente chocan con cambios nuevos de main. Se conserva esta propuesta y su rama '
-                                     'como referencia; el escritor vuelve a consultar las fuentes y regenera el lote desde main.')
+            if replaced is not None:
+                publisher.close_proposal(replaced, 'Sus datos fuente ya están en main (o main ganó en los mismos libros). Se conserva '
+                                         'esta propuesta y su rama como referencia; el escritor vuelve a consultar las fuentes.')
     if publish:
         # Una ejecución anterior consultó y no llegó a abrir PR: se publica eso, sin consultar de nuevo.
         for saved in checkpoints():
-            carried = carry(saved)
+            try:
+                carried = carry(saved)
+            except Exception as exc:  # noqa: BLE001
+                report_stuck(saved, exc)
+                continue
             if carried is None:
-                print(f'{saved}: ya está en main o choca con él; se descarta', flush=True)
+                print(f'{saved}: ya está en main; se descarta', flush=True)
                 drop_checkpoint(saved)
                 continue
             print(f'Datos de {saved} recuperados sin nueva consulta: {len(carried)} libros nuevos', flush=True)

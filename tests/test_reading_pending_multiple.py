@@ -97,6 +97,7 @@ class MultiplePendingTests(unittest.TestCase):
         opened = [{'headRefName': OLD}, {'headRefName': NEW}]
         with patch.object(refresh.subprocess, 'check_output', return_value=''), \
                 patch.object(refresh, 'read_json', return_value={'autopublish': True}), \
+                patch.object(refresh, 'reconcile_deploy'), \
                 patch.object(refresh.publisher.publication, 'gh', return_value=json.dumps(opened)), \
                 patch.object(refresh, 'reconcile_pending', return_value=NEW) as reconcile, \
                 patch.object(refresh.publisher, 'resume_pending', return_value='resumed') as resume, \
