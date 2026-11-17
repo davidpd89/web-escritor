@@ -187,6 +187,37 @@ def pending_batches(opened):
     return [p['headRefName'] for p in opened if OWN_BATCH.fullmatch(p['headRefName'])]
 
 
+def reconcile_pending(pending, root=ROOT):
+    """Varias cargas abiertas no paran la noche (Fable F8): se queda la más nueva y las demás pasan a puntos de guardado.
+
+    Antes, dos PR abiertas abortaban cada ejecución con «Hay varias cargas pendientes» hasta que alguien cerraba una.
+    Crear antes de destruir: la cabeza de cada PR vieja se copia a una rama `reading-datos-*` y solo después se cierra
+    la PR (su rama se conserva). Las ejecuciones siguientes la publican con `carry`, sin volver a consultar las fuentes.
+    """
+    if len(pending) == 1:
+        return pending[0]
+    gh = publisher.publication.gh
+    numbered = sorted((json.loads(gh('pr', 'view', branch, '--json', 'number'))['number'], branch) for branch in pending)
+    *older, (_, newest) = numbered
+    for number, branch in older:
+        git('fetch', '--quiet', 'origin', f'+refs/heads/{branch}:refs/remotes/origin/{branch}', root=root)
+        day = re.search(r'\d{4}-\d{2}-\d{2}', branch).group(0)
+        saved = publisher.publication.fresh_branch(CHECKPOINT_PREFIX + day + '-', cwd=root)
+        git('push', '--quiet', 'origin', f'refs/remotes/origin/{branch}:refs/heads/{saved}', root=root)
+        publisher.close_proposal(number, f'Había varias cargas abiertas: se queda la más nueva. Sus datos pasan a `{saved}` '
+                                 f'y se publican sin nueva consulta en las siguientes ejecuciones. Se conserva la rama `{branch}`.')
+    return newest
+
+
+def chain_report(accepted, consumed=None, **extra):
+    """Lo que lee la cadena nocturna (reading-catalogue-sync.yml): sigue si hubo altas o quedan puntos de guardado.
+
+    Una carga recuperada o reanudada también encadena mientras queden datos guardados: con varios checkpoints, una
+    noche sin altas nuevas los vaciaba de uno en uno solo con el cron (F8)."""
+    write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json',
+                     {**extra, 'stats': {'accepted': accepted, 'checkpoints_restantes': len(set(checkpoints()) - {consumed})}})
+
+
 def refresh(*, publish=False):
     config = read_json(ROOT / 'data/reading-intake-config.json')
     if publish and subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=all'], cwd=ROOT, text=True).strip():
@@ -197,19 +228,21 @@ def refresh(*, publish=False):
     opened = json.loads(publisher.publication.gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName'))
     pending = pending_batches(opened)
     if pending:
-        if len(pending) != 1:
-            raise ValueError('Hay varias cargas pendientes; revisar antes de continuar')
-        action = publisher.resume_pending(pending[0]) if publish else 'resumed'
+        current = reconcile_pending(pending) if publish else pending[-1]
+        action = publisher.resume_pending(current) if publish else 'resumed'
         if action == 'resumed':
-            print('Carga pendiente conservada: ' + pending[0])
+            print('Carga pendiente conservada: ' + current)
+            if publish:
+                chain_report(0, reanudada=current)
             return
         if action == 'carry':
-            replaced = json.loads(publisher.publication.gh('pr', 'view', pending[0], '--json', 'number'))['number']
-            carried = carry(pending[0])
+            replaced = json.loads(publisher.publication.gh('pr', 'view', current, '--json', 'number'))['number']
+            carried = carry(current)
             if carried is not None:
                 print(f'Datos de #{replaced} trasladados a main sin nueva consulta: {len(carried)} libros nuevos', flush=True)
+                chain_report(len(carried), trasladada_de=current, new_books=carried)
                 return assemble({'new_books': carried, 'updated_books': [], 'stats': {}}, changed=True,
-                                replaced=replaced, source=pending[0])
+                                replaced=replaced, source=current)
             publisher.close_proposal(replaced, 'Sus datos fuente chocan con cambios nuevos de main. Se conserva esta propuesta y su rama '
                                      'como referencia; el escritor vuelve a consultar las fuentes y regenera el lote desde main.')
     if publish:
@@ -221,9 +254,8 @@ def refresh(*, publish=False):
                 drop_checkpoint(saved)
                 continue
             print(f'Datos de {saved} recuperados sin nueva consulta: {len(carried)} libros nuevos', flush=True)
-            # La cadena nocturna lee stats.accepted: un lote recuperado también encadena el siguiente.
-            write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json',
-                             {'recuperado_de': saved, 'new_books': carried, 'stats': {'accepted': len(carried)}})
+            # La cadena nocturna lee el informe: un lote recuperado también encadena el siguiente.
+            chain_report(len(carried), consumed=saved, recuperado_de=saved, new_books=carried)
             return assemble({'new_books': carried, 'updated_books': [], 'stats': {}}, changed=True, checkpoint=saved)
     amazon = config.get('amazon_catalogo', {}).get('enabled')
     failure = None
