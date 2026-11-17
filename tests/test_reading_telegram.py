@@ -68,7 +68,7 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertNotIn("Ficha", text)
         self.assertNotIn("davidportodiaz.com", text)
         self.assertNotIn("📅", text)
-        self.assertTrue(text.startswith("#Novedades #publicidad"))
+        self.assertTrue(text.startswith("📚 #Novedades #publicidad"))
         self.assertFalse(text.rstrip().endswith("#publicidad"))
 
     def test_only_verified_site_cover_is_used(self):
@@ -312,7 +312,8 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertIn("Aquí tienes las publicaciones del día 1 de noviembre", text)
         self.assertIn("2 libros", text)
         self.assertIn("#publicidad", text)
-        self.assertIn("rh=p_66:9788498382372|9788401042751", text)
+        self.assertIn("https://www.amazon.es/dp/8498382378", text)
+        self.assertIn("https://www.amazon.es/dp/8401042755", text)
         self.assertIn("tag=davidporto-21", text)
         self.assertIn("&lt;uno&gt;", text)
         self.assertEqual(len([r for r in result if r["chat_id"] == "@general"]), 2)
@@ -464,13 +465,13 @@ class ReadingTelegramTests(unittest.TestCase):
         result = run(catalog, date(2026, 11, 2), self.root / "w.db")
         self.assertEqual(len(result), 1)
         text = result[0]["text"]
-        self.assertIn("Próximos lanzamientos del 2 de noviembre al 8 de noviembre", text)
-        self.assertIn("8 de noviembre: <b>Libro b</b>", text)
-        self.assertIn("9788498382372|9788401042751", text)
-        self.assertNotIn("9788401042768", text)
-        next_week = run(catalog, date(2026, 11, 9), self.root / "w.db")
-        self.assertIn("9788401042768", next_week[0]["text"])
-        self.assertNotIn("9788401042751", next_week[0]["text"])
+        self.assertIn("Próximos lanzamientos del 3 de noviembre al 9 de noviembre", text)
+        self.assertIn("8 de noviembre: <a ", text)
+        self.assertIn("<b>Libro b</b>", text)
+        self.assertIn("9 de noviembre", text)  # the range starts tomorrow: today is a novelty, not an upcoming release
+        self.assertNotIn("2 de noviembre:", text)
+        self.assertIn("2 libros", text)
+        self.assertEqual(run(catalog, date(2026, 11, 9), self.root / "w.db"), [])  # Monday 9th: 10th–16th is empty
 
     def test_weekly_channel_must_be_a_digest(self):
         self.config["channels"] = [{"chat_id": "@x", "token_env": "T", "period": "weekly"}]
