@@ -23,6 +23,7 @@ class IntakeFailure(unittest.TestCase):
         config = {'autopublish': True, 'amazon_catalogo': {'enabled': True}}
         calls = MagicMock()
         with patch.object(refresh, 'read_json', return_value=config), \
+             patch.object(refresh, 'reconcile_deploy'), \
              patch.object(refresh.subprocess, 'check_output', return_value=''), \
              patch.object(refresh.publisher.publication, 'gh', return_value='[]'), \
              patch.object(refresh, 'checkpoints', return_value=[]), \
@@ -93,6 +94,7 @@ class IntakeFailure(unittest.TestCase):
             config = {'autopublish': True, 'amazon_catalogo': {'enabled': True}}
             with patch.object(refresh, 'ROOT', root), \
                  patch.object(refresh, 'read_json', return_value=config), \
+                 patch.object(refresh, 'reconcile_deploy'), \
                  patch.object(refresh.subprocess, 'check_output', return_value=''), \
                  patch.object(refresh.publisher.publication, 'gh', return_value='[]'), \
                  patch.object(refresh, 'checkpoints', return_value=[]), \
