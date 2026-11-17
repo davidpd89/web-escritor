@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409941506",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Camino a la felicidad: Segunda parte se dirige a lectores interesados en desarrollo personal, bienestar y relatos vinculados a experiencias vitales. Su orientación temática se aparta de la narrativa de ficción y de los libros centrados en técnicas profesionales especializadas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Camino a la felicidad: Segunda parte reúne 168 páginas en castellano. Esta edición física de Asociación Alenda permite leer y consultar el volumen en papel, con una extensión delimitada para organizar la lectura por sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Camino a la felicidad: Segunda parte y Deja de actuar: ya interpretaste demasiado tiempo quién deberías ser, ahora atrévete a ser tú. coinciden en el ámbito del desarrollo personal. El segundo plantea expresamente la identidad y las expectativas ajenas, mientras que el libro de Maria de los Angelres De Leon Mesa incorpora también una clasificación biográfica y de bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399207873"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fadf128cad33aef9",
+  "origen": "chatgpt-web"
+}

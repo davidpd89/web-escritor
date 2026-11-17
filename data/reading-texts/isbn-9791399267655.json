@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399267655",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Índice Autonómico de Competitividad Fiscal (IACF) 2026 está orientado a quienes buscan información económica sobre competitividad fiscal en el ámbito autonómico. Por su materia, se aparta de la narrativa de ficción y de los manuales centrados en habilidades personales o gestión de equipos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Índice Autonómico de Competitividad Fiscal (IACF) 2026 cuenta con una edición en tapa blanda de 100 páginas. El soporte impreso permite consultar apartados y conservar el volumen como referencia física sobre la materia fiscal tratada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Índice Autonómico de Competitividad Fiscal (IACF) 2026 y ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido se relacionan con el ámbito económico, pero el primero delimita su objeto a la competitividad fiscal autonómica y el segundo a las ideas. Antes de liderar: Una mirada interior a un oficio desplaza el foco hacia el liderazgo y el ejercicio profesional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399087222",
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2a64a377353a5bfb",
+  "origen": "chatgpt-web"
+}

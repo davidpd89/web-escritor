@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuatrocientos conejos se dirige a lectores de novela histórica interesados en el patrimonio cultural, los manuscritos antiguos y las disputas por su propiedad. Su trama de robos, investigaciones y coleccionismo encaja menos con quienes buscan una narración histórica centrada en relaciones familiares o sentimentales.",
+      "texto": "Cuatrocientos conejos se dirige a lectores de novela histórica interesados en manuscritos antiguos, patrimonio cultural y conflictos relacionados con su posesión. La trama combina investigaciones, robos y disputas por documentos, de modo que se aleja de una narración centrada en relaciones románticas o conflictos domésticos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela histórica con elementos de investigación y aventura alrededor del tráfico y la recuperación de manuscritos. Parte de la sustracción de un códice mesoamericano en 1982 y conecta ese episodio con la destrucción de documentos antiguos, el expolio cultural y las creencias mexicas.",
+      "texto": "La novela utiliza la sustracción de un códice en 1982 como punto de partida para recorrer distintos episodios de destrucción, conservación y recuperación de manuscritos. Combina hechos históricos, personajes vinculados al coleccionismo y referencias a la mitología mexica, con el expolio cultural como conflicto de fondo.",
       "evidencias": [
         "categorias",
         "sinopsis_editorial"
@@ -21,26 +21,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cuatrocientos conejos está disponible en tapa blanda, con 288 páginas en castellano publicadas por Editorial Rosamerón. Es una edición física que permite consultar pasajes anteriores durante la lectura y llevar el volumen sin el peso habitual de una encuadernación rígida.",
+      "texto": "Cuatrocientos conejos está disponible en tapa blanda, con 288 páginas en castellano. Su extensión permite seguir la trama en un volumen único y la cubierta flexible facilita transportarlo durante desplazamientos o llevarlo en el bolso sin el peso añadido de una encuadernación rígida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuatrocientos conejos puede compararse con Cosamala por su utilización de acontecimientos históricos como materia narrativa. La novela de Alana S. Portero incorpora brujería y un crimen de la guerra civil, mientras que José Ramón Jouve Martín aborda el expolio de manuscritos y su recuperación mediante una trama de investigación histórica.",
+      "texto": "Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon comparte con Cuatrocientos conejos el terreno de la narrativa histórica, pero se vincula por su título al mundo de Amón, mientras que la novela de José Ramón Jouve Martín gira alrededor de manuscritos mesoamericanos. Ambas recurren al pasado desde asuntos y autorías diferentes.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788432251436"
+        "isbn-9786287897090"
       ]
     }
   ],

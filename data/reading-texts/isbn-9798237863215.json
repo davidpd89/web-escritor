@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798237863215",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sensaciones Antes De Asesinar se sitúa en el ámbito de las aventuras y la novela histórica, con una extensión de 64 páginas. Por su clasificación, se dirige a lectores interesados en esos géneros y no a quienes buscan un ensayo o un manual de consulta; el título introduce además una referencia explícita al asesinato.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Sensaciones Antes De Asesinar es de tapa blanda y contiene 64 páginas. Su extensión permite llevar el volumen en papel sin el tamaño habitual de una novela larga, y facilita localizar pasajes concretos durante una segunda lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sensaciones Antes De Asesinar puede compararse con La Caída De Los Fantasmas por compartir autor, Edgar Sehuincho Mamani. También se relaciona con Africanus (Trilogía Africanus 1) (edición conmemorativa 20.º aniversario) (Histórica) por su vinculación con la novela histórica, aunque este último título identifica expresamente una trilogía y pertenece a Santiago Posteguillo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798235701908",
+        "isbn-9788466681902"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7119a37fa838408f",
+  "origen": "chatgpt-web"
+}

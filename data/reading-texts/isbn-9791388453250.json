@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388453250",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hadas: El mundo encantado de la Gente Menuda (Biblioteca Mysteria), de Gertrude M. Faulding, se dirige a quienes buscan una lectura sobre hadas y seres del imaginario fantástico. Sus 84 páginas permiten abordar el tema en un volumen breve; por su temática, se aleja de los manuales centrados en nutrición y bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 84 páginas de Hadas: El mundo encantado de la Gente Menuda (Biblioteca Mysteria) en una edición física de Ushuaia Ediciones. Kindle permite leer el mismo título en un dispositivo electrónico o en el móvil, sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life comparte con Hadas: El mundo encantado de la Gente Menuda (Biblioteca Mysteria) el interés por asuntos alejados de lo cotidiano. El libro de Gertrude M. Faulding se centra en las hadas, mientras que el de Tania Karam plantea mensajes del mundo espiritual aplicados al día a día.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073881388"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "741efd914c4e8255",
+  "origen": "chatgpt-web"
+}

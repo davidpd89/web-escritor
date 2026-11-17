@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409944798",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ready4Exit: Una guía práctica para preparar la venta de tu empresa y/o maximizar su valor está dirigido a quienes estudian cómo preparar la venta de una empresa o aumentar su valor. Diego Gutiérrez Zarza aborda una cuestión de economía y empresa, distinta de la narrativa de ficción o de los manuales centrados exclusivamente en liderazgo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ready4Exit: Una guía práctica para preparar la venta de tu empresa y/o maximizar su valor está disponible en tapa blanda y Kindle. La edición impresa reúne 307 páginas para consultar y trabajar sobre papel; Kindle permite llevar el contenido en un dispositivo de lectura compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ready4Exit: Una guía práctica para preparar la venta de tu empresa y/o maximizar su valor comparte el ámbito empresarial con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso. Diego Gutiérrez Zarza se centra en preparar la venta de una empresa y maximizar su valor, mientras que Miguel Reinoso trata el liderazgo. También se relaciona con ANTES DE QUE OCURRA: Vender, formar y proteger el futuro, de Rafael De la Torre Pérez, por su referencia a la venta, aunque este último incorpora formación y protección del futuro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980",
+        "isbn-9788409935604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "66dc2b9468b4cefe",
+  "origen": "chatgpt-web"
+}

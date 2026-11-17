@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791387936648",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "PersonotecnIA: Cómo crear relevancia a gran escala en la era de la inteligencia artificial (Negocios) se dirige a lectores interesados en la aplicación de la inteligencia artificial al ámbito empresarial. Su orientación hacia la relevancia a gran escala se diferencia de los manuales centrados exclusivamente en programación o en el funcionamiento técnico de los modelos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina la relación entre inteligencia artificial, relevancia y escala dentro del ámbito de los negocios. Javier González Recuenco y Miguel Ángel Uriondo plantean estas cuestiones desde una perspectiva empresarial vinculada a las posibilidades de la tecnología.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "PersonotecnIA: Cómo crear relevancia a gran escala en la era de la inteligencia artificial (Negocios) está disponible en tapa blanda y Kindle. La edición impresa contiene 260 páginas para consultar y subrayar, mientras que Kindle permite acceder al contenido desde un dispositivo electrónico o un móvil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "PersonotecnIA: Cómo crear relevancia a gran escala en la era de la inteligencia artificial (Negocios) y Asistentes y agentes empresariales con IA comparten la aplicación de la inteligencia artificial al mundo empresarial. Javier González Recuenco y Miguel Ángel Uriondo se centran en la relevancia a gran escala, mientras que Iván Rodríguez delimita su obra al ámbito de los asistentes y agentes empresariales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426742704"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c92b5fb81a06be44",
+  "origen": "chatgpt-web"
+}

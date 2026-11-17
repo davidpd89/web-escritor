@@ -4,24 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores interesados en el Derecho aplicado a la inteligencia artificial, especialmente en sus implicaciones para la justicia y el delito dentro del marco europeo. Su enfoque jurídico lo aleja de las lecturas centradas exclusivamente en el funcionamiento técnico de los algoritmos.",
+      "texto": "Dirigido a lectores interesados en el derecho y en los desafíos que plantea la inteligencia artificial para la justicia y el tratamiento del delito en el ámbito europeo. La monografía de Miriam Esther Garcia Perez aborda la gobernanza algorítmica desde una perspectiva jurídica, por lo que se aleja de las lecturas de ficción y de los manuales generales de tecnología.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne las 290 páginas de Gobernanza algorítmica de la justicia y el delito en el marco europeo de la IA: IA, mitos, realidad y desafíos (Monografía). El formato físico permite consultar y marcar pasajes durante el estudio de sus cuestiones jurídicas.",
+      "texto": "La edición de Gobernanza algorítmica de la justicia y el delito en el marco europeo de la IA: IA, mitos, realidad y desafíos (Monografía) se presenta en tapa blanda, con 290 páginas en castellano. Este formato permite consultar físicamente una monografía jurídica dedicada a la inteligencia artificial, con espacio para marcar pasajes y volver a cuestiones concretas durante el estudio.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) comparte el interés por las consecuencias jurídicas de las tecnologías, pero se centra en blockchain, mientras que la obra de Miriam Esther Garcia Perez aborda la inteligencia artificial en la justicia y el delito. Derecho contractual del consumo: Introducción, condiciones generales de contratación. Tomo I también pertenece al ámbito jurídico, aunque dirige la atención hacia los contratos de consumo en lugar de la gobernanza algorítmica.",
+      "texto": "Basura espacial: desafíos técnico-jurídicos (monografico) comparte el interés por los problemas legales asociados a ámbitos tecnológicos, aunque se ocupa del espacio y no de la inteligencia artificial aplicada a la justicia. Argumentacion Juridica también pertenece al terreno del derecho, pero su título apunta a la argumentación, mientras que la obra de Miriam Esther Garcia Perez se centra en la gobernanza algorítmica europea.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,13 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610265",
-        "isbn-9791370297305"
+        "isbn-9789564078014",
+        "isbn-9791370650346"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a6241849bdeb8010",
+  "fuente_hash": "32a94c4ca65c5f0d",
   "origen": "chatgpt-web"
 }

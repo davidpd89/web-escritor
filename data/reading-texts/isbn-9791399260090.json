@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399260090",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ilustracion lemuriana, de Federico Fernandez Giordano, se dirige a lectores interesados en el ensayo filosófico y en cuestiones relacionadas con el poder y la política. Su clasificación lo sitúa en la reflexión y el análisis de ideas, no en la narrativa de ficción ni en los libros concebidos principalmente como entretenimiento literario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ilustracion lemuriana puede compararse con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, por su relación con las ideas políticas. Mientras este último delimita su asunto al pensamiento anarcocapitalista, el libro de Federico Fernandez Giordano se presenta bajo un título de alcance filosófico menos específico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fc6335065ebc7c53",
+  "origen": "chatgpt-web"
+}

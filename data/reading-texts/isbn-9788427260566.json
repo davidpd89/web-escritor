@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788427260566",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las aventuras de Enola Holmes 5 - El caso del pictograma (Ficción juvenil), de Nancy Springer, está orientado a lectores de ficción juvenil que buscan misterio y aventuras con componentes históricos. El título lo identifica como el n.º 5; por su género, encaja menos con quienes prefieren relatos centrados exclusivamente en el romance o la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las aventuras de Enola Holmes 5 - El caso del pictograma (Ficción juvenil) se publica en tapa dura, tapa blanda y Kindle. Sus 192 páginas pueden leerse en una edición rígida para conservar en papel, una flexible para transportar o una digital para consultar desde un lector electrónico o móvil compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las aventuras de Enola Holmes 5 - El caso del pictograma (Ficción juvenil) puede compararse con DESTERRADOS DE CASTILLA: Aventura, traición y venganza en las Indias por su relación con la aventura y la narrativa histórica. Nancy Springer sitúa su obra en la ficción juvenil y el misterio, mientras que el título de Antonio Ortega Castro destaca la traición y la venganza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907478"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dab139bf39d4f025",
+  "origen": "chatgpt-web"
+}

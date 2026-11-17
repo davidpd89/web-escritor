@@ -4,34 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los caídos del Valle se orienta a lectores interesados en libros de historia y obras extensas de no ficción. Sus 650 páginas lo alejan de las introducciones breves y de las novelas históricas de ficción; está firmado por Pablo Linares Clemente y Pepa Jiménez Vivas.",
+      "texto": "Los caídos del Valle está dirigido a lectores interesados en la historia y en obras de extensión considerable. Con 650 páginas, requiere más tiempo de lectura que un volumen breve; no responde a la búsqueda de una novela de ficción o de una guía práctica de consulta rápida.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los caídos del Valle se publica en tapa blanda, con 650 páginas en castellano. La edición de Bibliotheca Homo Legens reúne esa extensión en un volumen físico de cubierta flexible, apropiado para consultar y marcar pasajes durante la lectura.",
+      "texto": "La edición en tapa blanda de Los caídos del Valle, publicada por Bibliotheca Homo Legens, reúne 650 páginas en papel y permite conservar el volumen para posteriores consultas. Kindle ofrece una alternativa digital para transportar y leer una obra de esta extensión sin cargar con el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los caídos del Valle puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, por su orientación histórica. Mientras este último identifica en su título un proceso político relacionado con Hitler, la obra de Pablo Linares Clemente y Pepa Jiménez Vivas se presenta bajo una referencia al Valle y tiene 650 páginas.",
+      "texto": "Los caídos del Valle y 53 días: Cómo Hitler derribó una democracia (HISTORIA) pertenecen al ámbito de la historia. La obra de Pablo Linares Clemente y Pepa Jiménez Vivas se identifica por su título con los caídos del Valle, mientras que el libro de Timothy W. Ryback aborda el derrumbe de una democracia bajo Hitler.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo",
-        "numero_paginas"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788411005517"
@@ -40,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a6446ff2105f55c2",
+  "fuente_hash": "cbb8650372751176",
   "origen": "chatgpt-web"
 }

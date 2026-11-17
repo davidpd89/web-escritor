@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388234507",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La conspiración de la luz 2ª edición está dirigida a lectores de misterio y thriller que buscan una lectura larga. Sus 588 páginas la alejan de los relatos breves y de las novelas ligeras en extensión, por lo que encaja menos con quien desea terminar un libro en pocas sesiones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 588 páginas de La conspiración de la luz 2ª edición en un único volumen. Esta edición de Npq Editores, publicada en castellano, permite leerla en papel y conservar una novela de misterio extensa sin recurrir a una edición de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aberración comparte con La conspiración de la luz 2ª edición su ubicación entre las lecturas de misterio, aunque corresponde a Santiago López de Hoyos y no a Josefina Palenzuela. Abre el misterio 1 - El robo de las croquetas parte de una desaparición concreta, mientras que La conspiración de la luz 2ª edición ofrece una extensión de 588 páginas y una propuesta de misterio de mayor recorrido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399297508",
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "734e206534231e28",
+  "origen": "chatgpt-web"
+}

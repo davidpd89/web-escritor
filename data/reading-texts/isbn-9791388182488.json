@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388182488",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Meditaciones - Edición ilustrada: El libro que reúne todo el saber del estoicismo (Clásicos) está orientado a lectores de filosofía interesados en el pensamiento estoico de Marco Aurelio. Su carácter filosófico y ensayístico lo distancia de la ficción narrativa y de los libros centrados en una trama de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Meditaciones - Edición ilustrada: El libro que reúne todo el saber del estoicismo (Clásicos) se distingue por su presentación ilustrada y su encuadernación en tapa dura. Clásicos Arpa publica el texto de Marco Aurelio en castellano, con 360 páginas y fecha editorial del 18 de noviembre de 2026.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición ilustrada de Meditaciones - Edición ilustrada: El libro que reúne todo el saber del estoicismo (Clásicos). Sus 360 páginas en papel permiten consultar pasajes y volver a ellos conservando la presentación física de Clásicos Arpa.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Meditaciones - Edición ilustrada: El libro que reúne todo el saber del estoicismo (Clásicos) comparte autoría y obra de referencia con Meditaciones: 103 (Los pequeños libros de la sabiduría), de Marco Aurelio. La primera se identifica expresamente como edición ilustrada, mientras que la segunda pertenece a una colección de pequeños libros de sabiduría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399285055"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9db612e03f68ea96",
+  "origen": "chatgpt-web"
+}

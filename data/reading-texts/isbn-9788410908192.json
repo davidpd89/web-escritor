@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788410908192",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La soledad sonora se dirige a lectores interesados en la espiritualidad, el bienestar y el ensayo en castellano. Sus 207 páginas sitúan la obra de Pedro Ortega Ulloa en una extensión intermedia; por su orientación temática, queda fuera de las búsquedas centradas en ficción de aventuras o manuales técnicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La soledad sonora se presenta en tapa blanda, con 207 páginas en castellano. Esta edición de Editorial Letra Minúscula permite la lectura en papel y el transporte cotidiano sin el volumen habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La soledad sonora comparte el ámbito espiritual con El perdón: Una sabiduría silenciosa (ENSAYO), de Rafael Domingo Osle, aunque este último delimita su asunto al perdón. También puede compararse con Las heridas de Occidente: El poder sanador del chamanismo en el mundo contemporáneo (Sabiduría perenne), de Ana María Llamazares, cuyo título plantea expresamente el chamanismo y su dimensión sanadora, frente al enfoque más abierto de espiritualidad y bienestar de la obra de Pedro Ortega Ulloa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214827",
+        "isbn-9788410943896"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f7574da7688ecc0",
+  "origen": "chatgpt-web"
+}

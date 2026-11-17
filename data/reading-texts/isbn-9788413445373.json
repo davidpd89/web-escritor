@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788413445373",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Defiéndete: Claves básicas para fortalecer tu seguridad personal y salir a la calle sin miedo (Alienta) se dirige a quienes buscan trabajar su seguridad personal desde una perspectiva práctica. Por su enfoque de desarrollo personal y bienestar, encaja menos con quien busca una novela o un estudio académico sobre seguridad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar y marcar las 184 páginas de Defiéndete: Claves básicas para fortalecer tu seguridad personal y salir a la calle sin miedo (Alienta) en papel. Kindle ofrece la misma elección de título en formato digital, más cómoda para llevar la lectura en el móvil sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Defiéndete: Claves básicas para fortalecer tu seguridad personal y salir a la calle sin miedo (Alienta) comparte el terreno del desarrollo personal con Cambiar para Vivir, Colección Autoayuda. El libro de María Cabas se centra específicamente en fortalecer la seguridad al salir a la calle, mientras que el título de Raúl M. Mir Coll plantea el cambio personal desde un enfoque más general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415122562"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5ce24db4ee294628",
+  "origen": "chatgpt-web"
+}

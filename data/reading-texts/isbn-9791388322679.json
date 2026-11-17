@@ -4,26 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Solo un beso más (CAR HOCKEY 2) (Montena), de Susanna Herrero, se dirige a quienes buscan romance y relaciones de pareja en una lectura extensa. Sus 688 páginas requieren más dedicación que una novela breve; no responde a una búsqueda centrada en aventuras sin componente sentimental.",
+      "texto": "Solo un beso más (CAR HOCKEY 2) (Montena) se dirige a lectores de romance que buscan una novela extensa en castellano. Sus 688 páginas requieren más tiempo de lectura que una obra breve; el título la identifica como el n.º 2 de CAR HOCKEY. No responde a quien prefiera aventuras sin componente romántico.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Solo un beso más (CAR HOCKEY 2) (Montena) cuenta con tapa dura, tapa blanda, Kindle y audiolibro. Para sus 688 páginas, la tapa dura favorece la conservación y el regalo, la blanda ofrece una alternativa física, Kindle permite leer en el móvil y el audiolibro facilita escuchar la obra sin sostener el volumen.",
+      "texto": "La edición en tapa blanda de Montena reúne 688 páginas y permite leer el libro en papel con una cubierta flexible. La tapa dura ofrece una encuadernación rígida para conservarlo o regalarlo; Kindle permite llevar la misma lectura en un dispositivo compatible. El audiolibro permite escucharlo en lugar de leer sus páginas impresas.",
       "evidencias": [
         "titulo",
+        "editorial",
+        "edicion",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Solo un beso más (CAR HOCKEY 2) (Montena) puede compararse con Solo un juego más (CAR HOCKEY 1), también de Susanna Herrero. Ambos títulos comparten autoría y la denominación CAR HOCKEY, pero el segundo presenta a Cannon Donnelly ante decisiones sobre su futuro tras terminar Matemáticas, mientras que el primero se clasifica como romance y amor de pareja.",
+      "texto": "Solo un juego más (CAR HOCKEY 1) comparte autoría con Solo un beso más (CAR HOCKEY 2) (Montena): ambos son de Susanna Herrero y sus títulos indican posiciones distintas dentro de CAR HOCKEY. En el primero aparece Cannon Donnelly, un graduado en Matemáticas cuyo camino se cruza con el hockey sobre hielo. A cinco segundos de ti, de Sandra Miró, ofrece otra referencia de lectura romántica, pero con distinta autoría.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +34,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388222801"
+        "isbn-9791388222801",
+        "isbn-9788427055735"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6c4c0c9b92ead251",
+  "fuente_hash": "7069546682203066",
   "origen": "chatgpt-web"
 }

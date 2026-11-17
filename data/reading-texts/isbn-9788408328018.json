@@ -1,33 +1,33 @@
 {
   "id": "isbn-9788408328018",
-  "familia": "practico",
+  "familia": "narrativa",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche Universidad Sorrowsong: Nightshade + Daybreak (Ficción) reúne dos títulos para lectores interesados en el romance, el misterio y las aventuras ambientadas en un entorno académico. Su combinación de géneros se aleja de la narrativa exclusivamente romántica y de los libros prácticos sobre relaciones personales.",
+      "texto": "Se dirige a lectores que buscan una combinación de romance, misterio y aventuras en una misma obra. Sus 872 páginas reúnen dos títulos bajo el nombre de Universidad Sorrowsong, por lo que no está planteado como una lectura breve.",
       "evidencias": [
         "titulo",
         "categorias",
-        "afines_catalogo"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "El estuche se presenta en tapa blanda y reúne Nightshade y Daybreak en una edición de 872 páginas. Permite adquirir ambos títulos juntos en formato físico, tanto para una lectura consecutiva como para incorporarlos a una colección.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne Nightshade y Daybreak en un estuche de 872 páginas, con ambos títulos en una misma edición física. Es el formato disponible para quien quiera conservar los dos libros juntos en papel.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial) y Universidad Sorrowsong 2. Daybreak son las comparaciones directas porque pertenecen a la misma serie y comparten autora, Autumn Woods. Frente a esas ediciones individuales, Estuche Universidad Sorrowsong: Nightshade + Daybreak (Ficción) reúne ambos títulos en una sola presentación física.",
+      "texto": "Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial) permite comparar esta edición conjunta con el primer título identificado individualmente, ambos de Autumn Woods. Universidad Sorrowsong 2. Daybreak, también de Autumn Woods, ofrece el punto de comparación con el segundo título que aparece en el estuche.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "formatos_disponibles"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788408331681",
@@ -37,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "23ade4d5922a31c0",
+  "fuente_hash": "2499585d16f7b44e",
   "origen": "chatgpt-web"
 }

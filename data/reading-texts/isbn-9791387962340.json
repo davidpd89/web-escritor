@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "World Trigger 5 (Shônen) encaja con lectores de manga interesados en aventuras, fantasía y ciencia ficción. Su propuesta de cómic se aleja de la novela convencional en prosa y de las historias centradas exclusivamente en conflictos cotidianos.",
+      "texto": "World Trigger 5 (Shônen) encaja con lectores de manga interesados en las aventuras y la ciencia ficción. Su clasificación shônen y su pertenencia al cómic y la novela gráfica lo sitúan en el terreno de la narrativa ilustrada, no en el de la novela convencional.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,31 +12,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "World Trigger 5 (Shônen) se publica en tapa blanda, con 376 páginas en castellano. Esta edición permite leer el manga en papel y mantener el volumen junto a otros títulos de la colección, sin depender de una pantalla.",
+      "texto": "La tapa blanda reúne las 376 páginas de World Trigger 5 (Shônen) en una edición física de Distrito Manga. Es la opción disponible para quienes prefieren leer el manga en papel y conservarlo junto a otros volúmenes.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "World Trigger 6 (Shônen) comparte autor, Daisuke Ashihara, y nombre de serie con World Trigger 5 (Shônen); los títulos los identifican como los números 6 y 5, respectivamente. Wistoria. Wand and Sword, 12 (Shônen - Wistoria) ofrece otra lectura identificada como shônen, pero pertenece a una obra distinta y figura con otra autoría.",
+      "texto": "World Trigger 6 (Shônen), de Daisuke Ashihara, es la comparación más directa: comparte título de serie, autor y clasificación con World Trigger 5 (Shônen). Tougen Anki: La leyenda de la sangre maldita 6 (Shônen): La leyenda de la sangre maldita, de Yura Urushibara, coincide en el enfoque shônen, aunque pertenece a otra serie y tiene una autoría diferente.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
         "isbn-9791387962692",
-        "isbn-9791043309632"
+        "isbn-9791387962418"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fdf3bd03fcb6ef87",
+  "fuente_hash": "668514672c96c659",
   "origen": "chatgpt-web"
 }

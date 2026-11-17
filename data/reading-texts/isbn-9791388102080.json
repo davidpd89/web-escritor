@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Doraemon nº 07/15: 7 (Manga Kodomo) está dirigido a lectores de cómic infantil que prefieren las historias narradas mediante viñetas. Sus 568 páginas lo convierten en una lectura extensa dentro de ese formato, menos ajustada a quien busca un libro ilustrado muy breve o una novela convencional.",
+      "texto": "Doraemon nº 07/15: 7 (Manga Kodomo) se dirige a lectores infantiles interesados en el manga y el cómic. Sus 568 páginas lo alejan de quienes buscan una lectura breve o prefieren libros sin narración gráfica.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,26 +13,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Doraemon nº 07/15: 7 (Manga Kodomo) está disponible en tapa blanda, con 568 páginas reunidas en un único ejemplar físico. Este formato permite conservarlo junto a otros tomos de manga y leerlo sin dispositivos electrónicos, aunque su extensión supone transportar un volumen considerable.",
+      "texto": "La edición de Doraemon nº 07/15: 7 (Manga Kodomo) está disponible en tapa blanda, con 568 páginas en castellano. Es una opción física para leer y conservar el manga en papel, con una encuadernación flexible que facilita su manejo.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Avni 1. Animal verdaderamente no identificado (Txikiberri) comparte con Doraemon nº 07/15: 7 (Manga Kodomo) su orientación hacia el cómic infantil, pero pertenece a otra obra y está firmado por Romain Pujol en lugar de Fujiko F. Fujio. Animal Jack 2 la montaña mágica también se sitúa en el ámbito del cómic juvenil, aunque lleva la firma de Kid Toussaint y presenta personajes diferentes.",
+      "texto": "Doraemon nº 07/15 (català): 7 (Manga Kodomo) comparte autor, personaje y numeración con Doraemon nº 07/15: 7 (Manga Kodomo), pero el título distingue una edición en catalán frente a la edición en castellano. Animal Jack 2 la montaña mágica también pertenece a las lecturas infantiles del catálogo, aunque presenta otra serie y está firmado por Kid Toussaint en lugar de Fujiko F. Fujio.",
       "evidencias": [
         "titulo",
         "autores",
+        "idioma",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387744410",
-        "isbn-9788417575847"
+        "isbn-9791388102103",
+        "isbn-9791387744410"
       ]
     }
   ],

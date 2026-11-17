@@ -4,34 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tres de Tres se dirige a lectores de literatura juvenil y poesía en castellano. Por su clasificación editorial, se aleja de quienes buscan exclusivamente narrativa adulta o ensayos de carácter informativo.",
+      "texto": "Tres de Tres se sitúa entre la literatura juvenil y la poesía, por lo que encaja con lectores interesados en ambas formas de escritura. Quienes busquen exclusivamente narrativa adulta o un ensayo temático encontrarán una orientación distinta a la de esta obra de L. Rozas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "idioma"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tres de Tres está disponible en tapa blanda, con 168 páginas en castellano. Esta edición de Editorial Cuadranta permite leer el volumen en papel y consultar sus páginas sin depender de un dispositivo electrónico.",
+      "texto": "Tres de Tres está disponible en tapa blanda, con 168 páginas en castellano. Su extensión permite transportar el volumen y alternar sesiones de lectura con consultas a pasajes anteriores, una posibilidad útil en un libro vinculado tanto a la poesía como a la literatura juvenil.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tres de Tres puede compararse con s-t técnica mixta: (colección de poemas) por su relación con la poesía. El segundo título se presenta expresamente como una colección de poemas, mientras que Tres de Tres también figura entre la narrativa juvenil.",
+      "texto": "La muerte de Penélope (Poesía), de Carolina Corvillo, comparte con Tres de Tres su vinculación con la poesía. La diferencia está en que la obra de L. Rozas también se sitúa en el ámbito juvenil, mientras que el título de Carolina Corvillo se presenta expresamente como poesía.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "autores",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788498277500"
+        "isbn-9791387838928"
       ]
     }
   ],

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408326670",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bushcraft ilustrado: Una guía visual (SUPERVIVENCIA) está dirigido a quienes buscan una aproximación visual a la supervivencia y las actividades al aire libre. Su orientación práctica y sus 252 páginas lo diferencian de una novela de aventuras o de una lectura centrada en una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bushcraft ilustrado: Una guía visual (SUPERVIVENCIA) se presenta en tapa dura, con 252 páginas y un planteamiento visual. La encuadernación rígida permite mantenerlo como libro de consulta en una estantería y resulta apropiada para conservar una guía que puede revisarse en distintas ocasiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Warhammer Age of Sigmar. La guía visual definitiva comparte con Bushcraft ilustrado: Una guía visual (SUPERVIVENCIA) el planteamiento de guía visual. La primera se ocupa de un universo de fantasía, mientras que la obra de Dave Canterbury trata la supervivencia y se sitúa en el ámbito de las actividades prácticas y el tiempo libre.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241838044"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a4b6f91360b18727",
+  "origen": "chatgpt-web"
+}

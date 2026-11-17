@@ -4,27 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Warhammer the horus heresy: Siege OF terra 07 ecos de la ete está dirigido a lectores de ciencia ficción interesados en el universo Warhammer y sus conflictos. El título lo identifica con el número 07 de Siege OF terra, por lo que se aleja de una novela contemporánea independiente y sin referencias a una serie.",
+      "texto": "Warhammer the horus heresy: Siege OF terra 07 ecos de la ete se dirige a lectores interesados en la ciencia ficción. Sus 480 páginas corresponden a una obra de extensión considerable, publicada por Minotauro y escrita por Aaron Dembski-Bowden.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "editorial",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Warhammer the horus heresy: Siege OF terra 07 ecos de la ete se presenta en tapa blanda, con 480 páginas en castellano publicadas por Minotauro. Este formato permite conservar el volumen en una colección física y consultar sus páginas sin depender de un dispositivo electrónico.",
+      "texto": "La tapa blanda reúne las 480 páginas de Warhammer the horus heresy: Siege OF terra 07 ecos de la ete en una edición física de Minotauro. Es la opción disponible para quien prefiera leer el libro en papel y conservarlo en su biblioteca.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "idioma",
+        "autores",
         "editorial",
-        "formatos_disponibles"
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Warhammer the horus heresy: Siege OF terra 07 ecos de la ete y Aftermyth 1. Penelope y la prueba de los dioses comparten su vinculación con la ficción fantástica. El libro de Aaron Dembski-Bowden se sitúa en la ciencia ficción de Warhammer, mientras que el título de Tracy Wolff remite a pruebas relacionadas con dioses. Ambos títulos incorporan numeración, aunque pertenecen a universos narrativos diferentes.",
+      "texto": "Aunque se acabe el mundo plantea también un escenario extraordinario: una cúpula aparece sobre la Tierra y transforma a parte de la humanidad. Ambos títulos permiten acercarse a situaciones que alteran la realidad conocida, aunque sus planteamientos son distintos y la autoría corresponde a Aaron Dembski-Bowden y Clara Duarte, respectivamente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +35,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324102"
+        "isbn-9788427255968"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8c17c1c93c3d1fcb",
+  "fuente_hash": "58557b9387cc5b67",
   "origen": "chatgpt-web"
 }

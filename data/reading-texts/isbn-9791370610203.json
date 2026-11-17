@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370610203",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Derecho de la Energía (Estudios y Comentarios) se orienta a lectores interesados en el tratamiento jurídico de la energía. Sus 600 páginas y su enfoque de estudios y comentarios lo sitúan en la consulta especializada, lejos de los libros de divulgación general sobre energía o de la narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Derecho de la Energía (Estudios y Comentarios), de Francisca Rendich García, está disponible en tapa dura. Sus 600 páginas constituyen un volumen jurídico de extensión considerable, más cómodo para estudiar y consultar sobre una mesa que para transportar durante los desplazamientos diarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) comparte el enfoque jurídico de estudios y comentarios, pero se ocupa de la potestad sancionadora administrativa frente al derecho de la energía. Basura espacial: desafíos técnico-jurídicos (monografico) también relaciona un ámbito técnico con cuestiones jurídicas, aunque su objeto es la basura espacial.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610562",
+        "isbn-9791370650346"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8798650bf0911107",
+  "origen": "chatgpt-web"
+}

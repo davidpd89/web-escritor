@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788410289291",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Horizontes de fe: Una mirada creyente al mundo actual se dirige a lectores interesados en el ensayo y en una perspectiva religiosa sobre cuestiones contemporáneas. El título sitúa la fe en el centro del enfoque, por lo que se aleja de la narrativa de ficción y de los estudios planteados exclusivamente desde una perspectiva secular.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Horizontes de fe: Una mirada creyente al mundo actual está disponible en tapa blanda y Kindle. La edición física de Bibliotecaonline reúne 182 páginas en castellano y permite consultar el ensayo en papel; Kindle ofrece la alternativa digital para leerlo en dispositivos compatibles sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "20877aea51bb3402",
+  "origen": "chatgpt-web"
+}

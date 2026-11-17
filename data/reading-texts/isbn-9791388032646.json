@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388032646",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Éxtasis: 585 (Nuevos Tiempos / Policiaca), de Ivy Pochoda, se sitúa entre el misterio, el thriller y la narrativa contemporánea. Sus 256 páginas corresponden a una extensión menor que la de muchas novelas largas; por su orientación policial, encaja menos con quienes buscan exclusivamente romance juvenil o aventuras de ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Éxtasis: 585 (Nuevos Tiempos / Policiaca) puede leerse en tapa blanda o Kindle. La edición impresa de Ediciones Siruela tiene 256 páginas y permite conservar un ejemplar físico; Kindle facilita llevar el texto en un lector electrónico o dispositivo compatible sin cargar con el libro.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Éxtasis: 585 (Nuevos Tiempos / Policiaca) y Aguas turbulentas, de Rankin Ian, comparten el terreno del misterio y los conflictos oscuros. Aguas turbulentas sitúa el choque entre pasado y presente en Edimburgo, mientras que Éxtasis se presenta como una obra policial de Ivy Pochoda vinculada también a la narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50491e7684787ce3",
+  "origen": "chatgpt-web"
+}

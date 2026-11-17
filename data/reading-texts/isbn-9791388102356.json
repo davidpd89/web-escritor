@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388102356",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Star Wars: Honor entre ladrones (novela) (Star Wars: Novelas) se dirige a lectores de ciencia ficción y narrativa juvenil interesados en el universo Star Wars. Por su clasificación y planteamiento editorial, encaja menos con quienes buscan narrativa contemporánea ajena a la ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 328 páginas de Star Wars: Honor entre ladrones (novela) (Star Wars: Novelas) en una edición física de Planeta Cómic. Kindle permite llevar la novela en un lector electrónico o en el móvil, sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Star Wars: Honor entre ladrones (novela) (Star Wars: Novelas) comparte universo con Star Wars Boba Fett: Blanco, negro y rojo (Star Wars: Cómics Tomo Marvel). La diferencia está en su presentación: el primero se identifica como novela de James S.A. Corey y el segundo pertenece a una colección de cómics de Varios autores. Ambos se sitúan en la ciencia ficción, pero responden a preferencias de lectura distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388100932",
+        "isbn-9791388102349"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "094031e4d2616f84",
+  "origen": "chatgpt-web"
+}

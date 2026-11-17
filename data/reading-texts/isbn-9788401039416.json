@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788401039416",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El caso de las vías del tren (Éxitos), de Helena Tur, encaja con lectores que quieren encontrar romance y misterio en una misma novela. Sus 320 páginas ofrecen una extensión más contenida que la de las novelas muy largas; no es una elección centrada exclusivamente en la narrativa romántica sin elementos de intriga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El caso de las vías del tren (Éxitos) se presenta en tapa blanda, con 320 páginas en castellano publicadas por Plaza & Janés. Este formato permite leer la novela en papel con una cubierta flexible y guardarla sin la rigidez de una tapa dura; es la opción de compra incluida para este título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El caso de las vías del tren (Éxitos) puede compararse con Foxx (Los Soldados de Bedlam 3): El zorro y la diosa (Novela de intriga), de Paisley Hope, por la presencia de la intriga. La novela de Helena Tur combina misterio y romance, mientras que el título de Paisley Hope identifica expresamente una tercera entrega; otra referencia para quien prioriza la vertiente romántica es La última historia de Abby Bloom (Romántica), de Carmen Arteaga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425377068",
+        "isbn-9791388365041"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c6bed42aa5acea2a",
+  "origen": "chatgpt-web"
+}

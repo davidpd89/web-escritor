@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788432322181",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La espera amorosa: 1 (Singular), de Marta Díaz González, se dirige a quienes leen ensayos y tienen interés por la espera amorosa como asunto de reflexión. Con 184 páginas, ofrece una extensión contenida dentro de la no ficción; no encaja tanto con quien busca una historia romántica narrada como novela.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La espera amorosa: 1 (Singular) puede leerse en formato físico de tapa blanda. Sus 184 páginas permiten manejar el volumen con comodidad y regresar a determinados pasajes del ensayo. Siglo XXI de España Editores, S.a. firma esta edición en castellano, pensada para quienes prefieren conservar sus lecturas en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b8078fa6135a010b",
+  "origen": "chatgpt-web"
+}

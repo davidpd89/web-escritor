@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410489653",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "The Ascended (Serie Aesymarean 1) (Sin límites) se dirige a lectores que combinan fantasía, romance y aventuras en una misma novela. Sus 744 páginas plantean una lectura extensa; encaja menos con quienes buscan narrativa realista o una historia breve. El título lo identifica como el n.º 1 de la serie.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "The Ascended (Serie Aesymarean 1) (Sin límites) está publicado en tapa blanda por Alfaguara, con 744 páginas en castellano. Por su extensión, conviene considerar el espacio que ocupará al transportarlo y el tiempo dedicado a la lectura; la edición física permite avanzar sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte el terreno de la fantasía con The Ascended (Serie Aesymarean 1) (Sin límites), aunque presenta expresamente a Eira como personaje que oculta sus dones. Barbie dreamscape introduce el conflicto de un futuro aparentemente escrito; The Ascended se distingue por combinar fantasía, romance y aventuras y por su autoría compartida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387949938",
+        "isbn-9791388277481"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d83dafa087a877d0",
+  "origen": "chatgpt-web"
+}

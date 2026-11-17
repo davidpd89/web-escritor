@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388381478",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Proyecto de Ordenanzas de Buen Gobierno (Filipinas, 1838): 248 (Otros títulos), de Francisco Otín y Duaso, encaja con lectores interesados en historia, derecho y organización política. Su enfoque temático resulta menos próximo a quienes buscan narrativa de ficción o consejos de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Proyecto de Ordenanzas de Buen Gobierno (Filipinas, 1838): 248 (Otros títulos) se publica en tapa blanda, con 236 páginas. La edición en castellano de Editorial Renacimiento ofrece un volumen físico para lectura y consulta, con una encuadernación flexible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Proyecto de Ordenanzas de Buen Gobierno (Filipinas, 1838): 248 (Otros títulos) puede compararse con La formación de España: Una historia de pueblos, costumbres y leyes, de José María Pérez Zúñiga, por el interés histórico y jurídico. También se relaciona con Cómo ganar unas elecciones: El manual del candidato. Commentariolum petitionis: 68 (Historia y pensamiento), de Quinto Tulio Cicerón, aunque este último título se centra en la candidatura electoral y el de Francisco Otín y Duaso en ordenanzas de gobierno.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387624712",
+        "isbn-9788430629770"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "09603d58eb359abb",
+  "origen": "chatgpt-web"
+}

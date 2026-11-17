@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La naturaleza del poder: 34 (Tascabili) está dirigido a lectores interesados en la filosofía, la historia y las cuestiones políticas. Sus 136 páginas corresponden a un ensayo breve, diferente de una novela de entretenimiento o de un manual práctico sobre instituciones.",
+      "texto": "La naturaleza del poder: 34 (Tascabili) está dirigido a lectores interesados en la política, la historia y la filosofía. Su extensión de 136 páginas permite abordar el tema en un ensayo breve; no corresponde a una novela ni a una obra de ficción narrativa.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,17 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La naturaleza del poder: 34 (Tascabili) se presenta en tapa blanda, con 136 páginas y edición de Altamarea Ediciones. Es un formato físico de extensión contenida que permite conservar el ensayo, subrayarlo y volver a sus pasajes durante la consulta.",
+      "texto": "La tapa blanda reúne las 136 páginas de La naturaleza del poder: 34 (Tascabili) en un volumen compacto, adecuado para consultar y conservar junto a otros ensayos. Es el formato disponible para esta edición de Altamarea Ediciones.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
-        "editorial",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La naturaleza del poder: 34 (Tascabili) puede compararse con La biblioteca desaparecida: 150 (Biblioteca de Ensayo / Serie mayor), también de Luciano Canfora, por su autoría y su relación con el pensamiento histórico. El primero aborda el poder desde la filosofía y la política, mientras que el segundo orienta su título hacia una biblioteca desaparecida.",
+      "texto": "La biblioteca desaparecida: 150 (Biblioteca de Ensayo / Serie mayor), también de Luciano Canfora, permite comparar dos ensayos del mismo autor. La naturaleza del poder: 34 (Tascabili) sitúa su tema en el poder, la política, la historia y la filosofía; el otro título plantea desde su propio nombre una cuestión relacionada con las bibliotecas. Comparten autoría, pero presentan enfoques temáticos diferentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4f2bf7450e4f5be4",
+  "fuente_hash": "51064db47e0c24fe",
   "origen": "chatgpt-web"
 }

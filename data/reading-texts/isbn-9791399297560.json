@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399297560",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El marido de la señora Hinojosa se dirige a lectores de narrativa de misterio y thriller. Por su clasificación temática, encaja menos con quienes buscan ensayo, divulgación o una historia centrada principalmente en el romance.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El marido de la señora Hinojosa se ofrece en tapa blanda y reúne 290 páginas. Este formato permite llevar la novela en papel, utilizar un marcapáginas para interrumpir la lectura y conservar el ejemplar en una biblioteca doméstica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El marido de la señora Hinojosa comparte el terreno del misterio con Aberración, de Santiago López de Hoyos, y Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves. La diferencia comprobable está en la autoría y en la vinculación explícita de Aguas muertas con Shetland, que no forma parte del título de la novela de Hernán Fontanet.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399297508",
+        "isbn-9788410424524"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4539694dc8149b7c",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788416643868",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a quienes investigan la historia rural y las transformaciones de los territorios agrarios ourensanos durante los siglos XIV y XV. Su delimitación geográfica y temporal lo aleja de las historias generales que recorren épocas y regiones muy distintas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina la historia agraria de Ribeiro y Ribeira Sacra durante los siglos XIV y XV. El enfoque se concentra en dos territorios ourensanos y en un periodo medieval delimitado, con atención a su carácter rural en lugar de abordar procesos históricos de alcance general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se publica en tapa blanda, con 160 páginas en castellano. Esta extensión permite abordar el estudio por sesiones y consultar sobre papel los pasajes dedicados a cada territorio, sin recurrir a un dispositivo de lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coincide con 53 días: Cómo Hitler derribó una democracia (HISTORIA) en su interés por un periodo histórico delimitado. José Antonio López Sabatel estudia territorios agrarios medievales, mientras que Timothy W. Ryback se ocupa del derrumbe de una democracia bajo Hitler; cambian tanto la época como el problema histórico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "73aa2dde7284d8f8",
+  "origen": "chatgpt-web"
+}

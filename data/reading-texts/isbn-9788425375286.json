@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) se dirige a lectores interesados en las memorias personales, la reflexión filosófica y las cuestiones relacionadas con la muerte y el sentido de la vida. Por su enfoque biográfico y de desarrollo personal, resulta menos afín a quien busca una novela de ficción o una lectura alejada de asuntos existenciales.",
+      "texto": "Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) se dirige a lectores interesados en las memorias, la filosofía y las reflexiones sobre la mortalidad. Su temática encaja menos con quienes buscan una lectura práctica sobre productividad o prefieren evitar cuestiones relacionadas con la muerte.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,17 +12,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) ofrece 216 páginas en una edición física de Grijalbo, adecuada para conservar y consultar pasajes. Kindle permite leerlo en el móvil o en un dispositivo electrónico, mientras que el audiolibro facilita seguir el texto mediante la escucha.",
+      "texto": "Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) está disponible en tapa blanda, Kindle y audiolibro. La edición impresa de Grijalbo reúne 216 páginas; Kindle permite leerlo en formato digital y el audiolibro ofrece la alternativa de escucharlo durante los desplazamientos o las tareas cotidianas.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "formatos_disponibles"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos), de Séneca, comparte con Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) el interés por la reflexión filosófica, aunque presenta una estructura epistolar frente al enfoque biográfico de Paul Kalanithi. La gravedad y la gracia (Contemporánea | Narrativa), de Simone Weil, ofrece otra referencia filosófica, mientras que el libro de Paul Kalanithi relaciona las memorias personales con la muerte y el sentido de la vida.",
+      "texto": "Cuando solo queda aire: Aprender a morir es aprender a vivir (Crecimiento personal) puede compararse con Cartas a Lucilio: Edición íntegra (Clásicos) por su relación con la reflexión filosófica sobre la existencia. Paul Kalanithi aborda la vida desde la perspectiva de la mortalidad, mientras que la obra de Séneca reúne cartas de contenido filosófico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,8 +30,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182495",
-        "isbn-9788466392112"
+        "isbn-9791388182495"
       ]
     }
   ],

@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en el derecho a la intimidad laboral y los retos jurídicos y bioéticos de la nanotecnología. Por su enfoque de monografía jurídica, encaja menos con quienes buscan una introducción general a la tecnología sin cuestiones legislativas.",
+      "texto": "Está dirigido a lectores interesados en el derecho a la intimidad laboral y sus relaciones con la nanotecnología, la bioética y la legislación. Por su enfoque jurídico y sus 300 páginas, se aleja de las lecturas de divulgación tecnológica general y de la narrativa de ficción.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda, con 300 páginas en castellano publicadas por Aranzadi. Es una opción física para consultar los aspectos jurídicos y bioéticos de la nanotecnología en el trabajo, con posibilidad de señalar y revisar pasajes sobre papel.",
+      "texto": "Nanotecnología y el derecho a la intimidad en el ámbito laboral: retos bioéticos y legislativos (Monografía) se presenta en tapa blanda, con 300 páginas en castellano. Este formato permite consultar físicamente una monografía jurídica y volver a sus apartados durante el estudio.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "titulo"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte con Blockchain: un desafío legal (Monografía) el estudio de cuestiones jurídicas relacionadas con nuevas tecnologías. Mientras Tania Prieto Arbeo aborda la nanotecnología y la intimidad laboral, la obra de Ana Isabel Quiroz Ruiz se centra en los desafíos legales del blockchain. Ambas presentan enfoques jurídicos sobre tecnologías distintas.",
+      "texto": "Nanotecnología y el derecho a la intimidad en el ámbito laboral: retos bioéticos y legislativos (Monografía) puede compararse con Basura espacial: desafíos técnico-jurídicos (monografico) por abordar cuestiones jurídicas vinculadas a la tecnología. La primera se centra en la intimidad laboral y la nanotecnología; la segunda, en los desafíos técnico-jurídicos de la basura espacial. Ambas se distinguen también por su autoría: Tania Prieto Arbeo firma la primera, mientras que la segunda reúne varios autores.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610265"
+        "isbn-9791370650346"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2e1dd632306e7af9",
+  "fuente_hash": "0535926b423cddcc",
   "origen": "chatgpt-web"
 }

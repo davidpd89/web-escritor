@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388470905",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Conocer a Dios por la oración se dirige a lectores interesados en la relación entre la oración y el conocimiento religioso. Sus 74 páginas en castellano ofrecen una extensión breve para abordar esta temática; no responde a la búsqueda de una novela de aventuras ni de una obra científica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Conocer a Dios por la oración está disponible en tapa blanda, con 74 páginas. La edición de Editorial Autografía permite llevar el libro en papel y retomarlo en sesiones de lectura breves, una posibilidad vinculada a su reducida extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Conocer a Dios por la oración comparte el interés religioso con Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción, de Sofía Noemy Quintanilla Ramírez, aunque este último se centra en la adopción desde una perspectiva teológica y pastoral. También puede compararse con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, por su dimensión espiritual. La diferencia temática está en la oración dirigida a Dios frente al camino de liberación expresado en el segundo título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387625535",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2744113ee8318248",
+  "origen": "chatgpt-web"
+}

@@ -4,40 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "España a mi manera: Comer, beber y cocinar (Grandes chefs) se dirige a lectores interesados en la cocina, la gastronomía y las actividades vinculadas al tiempo libre. Sus 396 páginas encajan con quien busca una obra extensa sobre estos asuntos, pero menos con quien prefiere novelas de ficción o relatos de aventuras.",
+      "texto": "España a mi manera: Comer, beber y cocinar (Grandes chefs) se dirige a lectores interesados en la cocina y la gastronomía española desde una perspectiva de ocio. Por su temática, encaja menos con quienes buscan ficción o actividades de lógica y pasatiempos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "España a mi manera: Comer, beber y cocinar (Grandes chefs) se publica en tapa dura, con 396 páginas en castellano. Esta edición de Planeta Gastro permite consultar el volumen físicamente y conservarlo como libro de referencia sobre cocina y gastronomía.",
+      "texto": "España a mi manera: Comer, beber y cocinar (Grandes chefs) está disponible en tapa dura, con 396 páginas en castellano. Esta encuadernación permite conservar el volumen para consultarlo durante las sesiones de cocina y colocarlo en una biblioteca gastronómica.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "España a mi manera: Comer, beber y cocinar (Grandes chefs) comparte el interés por la gastronomía con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA). José Andrés plantea en su título una aproximación a comer, beber y cocinar en España, mientras David Villalón y Mario Villalón destacan la huerta, los vinos y los cócteles. La diferencia principal está en los asuntos gastronómicos que anuncia cada obra.",
+      "texto": "España a mi manera: Comer, beber y cocinar (Grandes chefs) y Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas comparten su orientación hacia las aficiones prácticas. El primero se centra en comer, beber y cocinar, mientras que el segundo aborda el bordado mediante letras, números y diagramas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387934293"
+        "isbn-9788498748208"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1aaf6752ab112237",
+  "fuente_hash": "515c86c9800c4c8c",
   "origen": "chatgpt-web"
 }

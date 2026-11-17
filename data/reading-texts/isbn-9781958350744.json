@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9781958350744",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Taz Turbo y la Mañana a las Carreras se dirige a quienes buscan una lectura infantil relacionada con el ámbito familiar y el bienestar. Sus 32 páginas ofrecen una extensión breve; por su clasificación temática, queda fuera de las búsquedas centradas exclusivamente en fantasía o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Taz Turbo y la Mañana a las Carreras está disponible en tapa blanda, con 32 páginas en castellano. Esta edición de RBG Publishing permite manejar un volumen breve en papel y guardarlo sin el espacio que requiere una obra extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Taz Turbo y la Mañana a las Carreras puede compararse con Camino a la felicidad por su vinculación temática con el bienestar. También comparte el ámbito familiar con CONECTANDO CON MI BEBÉ: Relatos y actividades para vivir el embarazo con presencia, conexión y conciencia. Regalo para embarazadas., aunque este último se centra expresamente en el embarazo y propone relatos y actividades, mientras que Taz Turbo y la Mañana a las Carreras pertenece al ámbito infantil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409923106",
+        "isbn-9788409936465"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3961dc84e0d5c68e",
+  "origen": "chatgpt-web"
+}

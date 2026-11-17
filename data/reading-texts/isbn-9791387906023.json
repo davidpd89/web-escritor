@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387906023",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A la luz de la oscuridad (La pequeña Salamandra) reúne fantasía, terror y desarrollo personal, por lo que se dirige a lectores interesados en esa combinación de temas. Sus 48 páginas plantean una lectura breve, menos ajustada a quien busque una novela extensa de fantasía o un tratado especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A la luz de la oscuridad (La pequeña Salamandra) se ofrece en tapa dura y Kindle. La edición física de 48 páginas permite conservarlo en un volumen de cubierta rígida o regalarlo; Kindle facilita leerlo en el móvil sin transportar el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la luz de la oscuridad (La pequeña Salamandra) puede compararse con Anatomía del miedo por su relación temática con el miedo y el terror. La obra de Aitor Saraiba incorpora también fantasía y desarrollo personal, mientras que el título de Rubin Editorial sitúa el miedo en el centro de su planteamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786316730589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f3d03834aeff24ac",
+  "origen": "chatgpt-web"
+}

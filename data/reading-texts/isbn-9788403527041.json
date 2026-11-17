@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación) está dirigido a quienes buscan historia de las mujeres, biografías y ensayo divulgativo. Su recorrido histórico de 3000 años no corresponde a una novela de ficción ni a un estudio centrado en una sola figura.",
+      "texto": "Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación) se dirige a quienes buscan historia feminista a través de figuras femeninas de distintas épocas. Su combinación de historia, biografías y ensayo encaja menos con lectores interesados exclusivamente en ficción o en una única biografía individual.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Tatiana Gómez Montero aborda la historia feminista mediante un recorrido que el título sitúa entre Hipatia de Alejandría y Simone de Beauvoir. El enfoque combina la atención a figuras femeninas con una perspectiva histórica y divulgativa, dentro de los ámbitos del ensayo y las biografías.",
+      "texto": "Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación) trata la historia feminista a través de un recorrido temporal de 3000 años. El título sitúa a Hipatia de Alejandría y Simone de Beauvoir como referencias de ese recorrido. Tatiana Gómez Montero aborda la materia desde la divulgación histórica, con un encuadre relacionado con las biografías y el ensayo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,32 +21,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Aguilar está disponible en tapa blanda y reúne 320 páginas. Su cubierta flexible permite llevar el volumen para leer fuera de casa, mientras que la extensión ofrece espacio para desarrollar el recorrido histórico anunciado en el título.",
+      "texto": "Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación) se ofrece en tapa blanda. La edición de Aguilar reúne 320 páginas en castellano, una extensión que permite organizar su lectura en varias sesiones. El volumen impreso facilita volver a las figuras y periodos históricos mencionados durante la lectura.",
       "evidencias": [
+        "titulo",
+        "formatos_disponibles",
         "edicion",
         "editorial",
-        "formatos_disponibles",
         "numero_paginas",
-        "titulo"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Nos quisieron histéricas, nos volvimos históricas (No ficción) comparte con este libro la atención a las mujeres y a su presencia en la historia, aunque el título de Tatiana Gómez Montero delimita un recorrido de 3000 años. Cuando el mundo mira hacia otro lado: 24 mujeres en la guerra de Ucrania se concentra en mujeres vinculadas a un conflicto concreto, frente al alcance histórico más amplio de Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación).",
+      "texto": "Mujeres que la liaron: De Hipatia de Alejandría a Simone de Beauvoir: 3000 años de historia feminista (Divulgación) puede compararse con Historia del salseo: Un viaje cotilla por el fenómeno universal del chisme (Voces de hoy), de Javi Hoyos, por su aproximación divulgativa a fenómenos humanos. Tatiana Gómez Montero se centra en la historia feminista y sus protagonistas, mientras que Javi Hoyos toma el chisme como objeto de estudio. Sus temas y perspectivas son diferentes, aunque ambos títulos proponen explorar asuntos sociales.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388406256",
-        "isbn-9788466685429"
+        "isbn-9791388279430"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3e7a4aa21a827ad0",
+  "fuente_hash": "c430d46bd565b2e4",
   "origen": "chatgpt-web"
 }

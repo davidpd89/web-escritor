@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786316947048",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todos nuestros silencios: Una historia en el universo de Hijos dorados (Umbriel narrativa) se dirige a lectores de fantasía interesados en historias situadas en un universo narrativo identificado. La obra de Patricia Ibárcena se aleja de la narrativa contemporánea sin elementos fantásticos y cuenta con 256 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todos nuestros silencios: Una historia en el universo de Hijos dorados (Umbriel narrativa) puede leerse en tapa blanda o Kindle. La edición impresa de Umbriel reúne 256 páginas y permite conservar o regalar un ejemplar físico; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dcb72ba413f47502",
+  "origen": "chatgpt-web"
+}

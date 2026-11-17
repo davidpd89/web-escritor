@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las muñecas no arden en el hielo: 3 (Áncora & Delfín) se dirige a lectores de misterio y thriller, con interés por las historias relacionadas con mujeres. Sus 512 páginas corresponden a una lectura extensa, alejada de los relatos breves y de los libros prácticos.",
+      "texto": "Las muñecas no arden en el hielo: 3 (Áncora & Delfín), de Jordi Llobregat, se orienta a lectores de misterio y thriller. Sus 512 páginas corresponden a una novela extensa dentro de ese género, por lo que se distancia de las lecturas breves o de quienes buscan una historia centrada en el romance.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Ediciones Destino consta de 512 páginas en tapa blanda, para quienes prefieren leer un volumen físico y conservarlo después. Kindle permite llevar esa misma extensión en el móvil o en un lector electrónico, sin el peso del ejemplar en papel.",
+      "texto": "Las muñecas no arden en el hielo: 3 (Áncora & Delfín) puede leerse en tapa blanda o Kindle. La edición física de Ediciones Destino tiene 512 páginas y permite conservar el volumen en papel; Kindle facilita llevar esa lectura extensa en un dispositivo electrónico sin cargar con el libro.",
       "evidencias": [
+        "titulo",
+        "formatos_disponibles",
         "editorial",
-        "edicion",
-        "numero_paginas",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las muñecas no arden en el hielo: 3 (Áncora & Delfín) y Las mujeres de New Jersey (THRILLER Y MISTERIO) coinciden en el ámbito del thriller y en la presencia de referencias femeninas en sus títulos. La primera es una obra de Jordi Llobregat publicada por Ediciones Destino; la segunda está firmada por Astrid Dahl y sitúa New Jersey en su título.",
+      "texto": "Las muñecas no arden en el hielo: 3 (Áncora & Delfín) comparte el ámbito del thriller con 25 días hasta Navidad, de Per Jacobsen. Este último se presenta como un thriller de adviento, mientras que la obra de Jordi Llobregat se clasifica dentro del misterio sin esa referencia temática navideña. Ambos permiten comparar dos propuestas de intriga con planteamientos editoriales distintos.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387595715"
+        "isbn-9788427055063"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "25b6eb614d3dc61e",
+  "fuente_hash": "2ae35a891313f0e5",
   "origen": "chatgpt-web"
 }

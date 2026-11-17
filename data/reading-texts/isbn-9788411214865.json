@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788411214865",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ayahuasca y sueños: en la Amazonía (Ensayo) se dirige a lectores interesados en la espiritualidad, los sueños y la ayahuasca en el contexto amazónico. Su clasificación como ensayo lo diferencia de una novela de aventuras o de una obra de ficción fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ayahuasca y sueños: en la Amazonía (Ensayo) cuenta con una edición en tapa blanda de 296 páginas, publicada por Editorial Kairós SA. El formato físico permite consultar y retomar apartados durante la lectura, mientras que su extensión requiere más tiempo que un ensayo breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ayahuasca y sueños: en la Amazonía (Ensayo) comparte el interés espiritual con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, aunque sus títulos señalan ámbitos distintos: la ayahuasca y los sueños frente a la astrología y la magia. Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, se acerca desde la reflexión y la meditación, con una propuesta de aforismos en lugar del ensayo de Josep M. Fericgla.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278",
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "89c3eb0a9bf3350d",
+  "origen": "chatgpt-web"
+}

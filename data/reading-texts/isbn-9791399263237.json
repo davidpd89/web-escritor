@@ -4,34 +4,20 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA) está dirigido a lectores interesados en la reflexión filosófica sobre el himno, el nombre y la voz. Sus 324 páginas pertenecen al ámbito del ensayo, por lo que no responde a quien busca una narración de ficción o un libro de partituras.",
+      "texto": "El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA) se dirige a lectores interesados en la reflexión filosófica sobre el himno, el nombre y la voz. El enfoque ensayístico de Nicoletta Di Vita se aleja de la narrativa de ficción y de los manuales prácticos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA) puede leerse en tapa blanda o Kindle. La edición impresa reúne 324 páginas y facilita las anotaciones sobre papel; Kindle permite llevar el ensayo en un lector electrónico o en el móvil y consultar sus pasajes sin transportar el volumen físico.",
+      "texto": "La tapa blanda permite leer y consultar las 324 páginas de El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA) en papel. La edición Kindle ofrece el mismo título en formato digital, para llevarlo en un lector electrónico o consultarlo desde el móvil.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El nombre y la voz: Para una filosofía del himno (ENSAYO Y TEORIA_FILOSOFIA) comparte el terreno filosófico con Arendt y la antropología de la condición plural en doble movimiento, de Javier Pons-Gallach. Nicoletta Di Vita sitúa el himno en el centro de su propuesta, mientras que el título de Javier Pons-Gallach señala la condición plural como eje de estudio; ambos se orientan a la lectura ensayística, pero plantean objetos de reflexión distintos.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791399308358"
+        "formatos_disponibles"
       ]
     }
   ],

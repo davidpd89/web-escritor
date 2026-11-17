@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409931736",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un Gallego en Argentina: Libro Uno: Buenos Aires y la Patagonia se dirige a lectores interesados en los viajes y las experiencias personales narradas desde una perspectiva biográfica. Su enfoque encaja menos con quienes buscan ficción de aventuras o una guía turística centrada exclusivamente en datos prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un Gallego en Argentina: Libro Uno: Buenos Aires y la Patagonia cuenta con una edición en tapa blanda de 269 páginas. Este formato permite llevar el libro durante los desplazamientos y conservar en papel la lectura sobre viajes y memorias.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un Gallego en Argentina: Libro Uno: Buenos Aires y la Patagonia comparte con Al andar: Vivencias del Camino de Santiago el vínculo entre desplazamiento y experiencia personal. Juan Salado sitúa su obra en Argentina, mientras que Carlos Díaz Ballesta identifica el Camino de Santiago como eje de sus vivencias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80874624a72527a7",
+  "origen": "chatgpt-web"
+}

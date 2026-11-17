@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La cena secreta (Roja y negra), de Raphael Montes, se dirige a lectores que buscan narrativa contemporánea. Sus 352 páginas forman una novela en edición de tapa blanda; no es un ensayo ni un libro de cómic o novela gráfica.",
+      "texto": "La cena secreta (Roja y negra), de Raphael Montes, se sitúa en la narrativa contemporánea y se dirige a quienes buscan ficción en castellano. Su clasificación la aleja de las lecturas centradas en consejos prácticos, formación o divulgación, aunque el título por sí solo no determina el tipo de conflicto narrativo.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "edicion"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es la edición disponible de La cena secreta (Roja y negra), con 352 páginas. Es un volumen físico de Reservoir Books para quien prefiera leer en papel y guardar el libro en su biblioteca.",
+      "texto": "La cena secreta (Roja y negra) está disponible en tapa blanda y Kindle, dos opciones para leer sus 352 páginas en papel o en formato electrónico. La edición física de Reservoir Books permite conservar el volumen en la biblioteca, mientras que Kindle facilita llevar la lectura en un dispositivo compatible.",
       "evidencias": [
         "titulo",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "edicion"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1af9e0f900354e88",
+  "fuente_hash": "9671fefcea467ccc",
   "origen": "chatgpt-web"
 }

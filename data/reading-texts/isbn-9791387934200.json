@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Símbolos mágicos: 300 símbolos para descubrir, comprender y vivir la magia (Mistica), de Federica Vanini, se dirige a lectores interesados en la simbología mágica y su interpretación. Por su planteamiento temático, se distingue de una novela de fantasía centrada en personajes y conflictos ficticios.",
+      "texto": "Símbolos mágicos: 300 símbolos para descubrir, comprender y vivir la magia (Mistica), de Federica Vanini, se dirige a quienes desean explorar símbolos relacionados con la magia como actividad de ocio. Su enfoque temático encaja menos con lectores que buscan una novela fantástica con personajes y argumento.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,9 +13,10 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura de Símbolos mágicos: 300 símbolos para descubrir, comprender y vivir la magia (Mistica) reúne 334 páginas en castellano. Su encuadernación rígida favorece la consulta repetida y la conservación de un volumen dedicado a numerosos símbolos, aunque resulta menos flexible para transportarlo que una edición de bolsillo.",
+      "texto": "Símbolos mágicos: 300 símbolos para descubrir, comprender y vivir la magia (Mistica) se publica en tapa dura, con 334 páginas en castellano. Esta encuadernación resulta práctica para conservar un libro de consulta y regresar a sus distintos símbolos a lo largo del tiempo.",
       "evidencias": [
         "titulo",
+        "edicion",
         "formatos_disponibles",
         "numero_paginas",
         "idioma"
@@ -23,20 +24,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Símbolos mágicos: 300 símbolos para descubrir, comprender y vivir la magia (Mistica) y Gatos cuquis para colorear: Colorea un universo de magia felina (Anti-stress coloring) comparten referencias a la magia. El primero se centra en comprender símbolos, mientras que el segundo propone colorear motivos felinos. Ambos se diferencian de 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), cuya actividad gira alrededor de los píxeles.",
+      "texto": "Símbolos mágicos: 300 símbolos para descubrir, comprender y vivir la magia (Mistica) y 80 crímenes imposibles de resolver (FUERA DE ESCENA) se relacionan con actividades de ocio, pero proponen contenidos diferentes. Federica Vanini aborda símbolos mágicos, mientras que Gareth Moore y Laura Jayne Ayres presentan crímenes para resolver; uno se centra en la interpretación simbólica y el otro en los enigmas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328803",
-        "isbn-9788408328384"
+        "isbn-9791388015816"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4748ccc977a1c944",
+  "fuente_hash": "33cb0c5bd41a9847",
   "origen": "chatgpt-web"
 }

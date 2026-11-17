@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388439124",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de historia política interesados en el comunismo durante el franquismo y en las formas de identidad militante. Su atención a símbolos y culturas políticas lo distancia de los manuales generales de historia del siglo XX y de los libros centrados en técnicas electorales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editorial Base (es) se presenta en tapa blanda y contiene 320 páginas en castellano. Este formato permite llevar el volumen a sesiones de estudio o consulta y marcar pasajes sobre culturas militantes, símbolos e identidades políticas.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comunistas bajo el franquismo: Culturas militantes, símbolos e identidades: 29 (Base Hispánica) comparte con 53 días: Cómo Hitler derribó una democracia (HISTORIA) el interés por la historia política del siglo XX. El primero se ocupa de la militancia comunista bajo el franquismo; el segundo centra su asunto en el derrumbe de una democracia. A sangre y fuego (Clásicos ilustrados) ofrece otra aproximación a la historia española, desde una obra de Manuel Chaves Nogales y no desde el estudio de identidades militantes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9791387752590"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "468bfdfe83f8e9be",
+  "origen": "chatgpt-web"
+}

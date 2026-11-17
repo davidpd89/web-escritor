@@ -4,38 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Being Biotiful: El libro de referencia sobre el método batch cooking (Gastronomía) se dirige a lectores interesados en la cocina y en el método batch cooking. Su enfoque gastronómico y práctico lo diferencia de una novela o de un libro dedicado exclusivamente al entretenimiento.",
+      "texto": "Está dirigido a lectores interesados en el método batch cooking y en organizar la cocina como actividad práctica. Por su enfoque gastronómico, se aleja de los libros de pasatiempos, juegos de lógica y manualidades decorativas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Being Biotiful: El libro de referencia sobre el método batch cooking (Gastronomía) cuenta con una edición en tapa blanda de 272 páginas. El soporte impreso permite consultar el contenido mientras se organiza el trabajo en la cocina y volver a distintas secciones sin utilizar dispositivos electrónicos.",
+      "texto": "Being Biotiful: El libro de referencia sobre el método batch cooking (Gastronomía) está disponible en tapa blanda, con 272 páginas en castellano. Es una edición física que permite consultar el contenido mientras se planifica la cocina y volver a distintas páginas durante su uso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Being Biotiful: El libro de referencia sobre el método batch cooking (Gastronomía), de Chloé Sucrée, puede compararse con Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA), de David Villalón y Mario Villalón, por su temática gastronómica. El primero se centra en el método batch cooking, mientras que el segundo reúne huerta, vinos, cocina y cócteles.",
+      "texto": "Being Biotiful: El libro de referencia sobre el método batch cooking (Gastronomía) y Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas comparten una orientación hacia actividades prácticas. El primero se centra en la organización culinaria mediante batch cooking, mientras que el segundo aborda el bordado de letras y números con diagramas. Son propuestas de ocio distintas, firmadas por Chloé Sucrée y Varios autores, respectivamente.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387934293"
+        "isbn-9788498748208"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cdd90ba7f6fe3b7a",
+  "fuente_hash": "74ca85aa0f758988",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La ciudad del sol: La obra utópica más importante de la Edad Moderna, inspirada en la «República» de Platón (No Ficción) se dirige a lectores interesados en filosofía, ensayo y pensamiento utópico. Su enfoque en la organización ideal de la sociedad se distancia de la fantasía orientada principalmente a la aventura y la acción.",
+      "texto": "La ciudad del sol encaja con lectores de filosofía interesados en las sociedades imaginadas y el pensamiento utópico. Su planteamiento vinculado a la República de Platón lo diferencia de la ciencia ficción centrada en aventuras o avances tecnológicos, aunque comparte con ella la imaginación de otras formas de organización social.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La obra aborda el pensamiento utópico y su relación con la tradición filosófica de la República de Platón. Tomasso Campanella plantea una propuesta vinculada a la Edad Moderna que puede leerse desde la filosofía y el ensayo, además de su proximidad temática con la ciencia ficción.",
+      "texto": "La ciudad del sol aborda la utopía como forma de reflexión filosófica sobre una sociedad imaginada. Tomasso Campanella parte de una tradición relacionada con la República de Platón y sitúa su propuesta en el pensamiento de la Edad Moderna, entre el ensayo y la ficción especulativa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,19 +21,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Biblioteca Nueva publica esta edición en tapa blanda, con 96 páginas en castellano. Su extensión permite abordar el texto filosófico en un volumen breve y conservarlo para consultas posteriores sobre pensamiento utópico.",
+      "texto": "La edición en tapa blanda reúne las 96 páginas de La ciudad del sol en un volumen físico de extensión reducida, manejable para consultar y releer. Kindle permite llevar el texto en formato digital y acceder a él desde dispositivos compatibles, sin necesidad de transportar el libro impreso.",
       "evidencias": [
-        "editorial",
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "idioma",
-        "categorias",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "SACU: Sistema de Asistencia Cognitiva Universal se relaciona con La ciudad del sol: La obra utópica más importante de la Edad Moderna, inspirada en la «República» de Platón (No Ficción) por su interés en modelos conceptuales, aunque el primero anuncia un sistema de asistencia cognitiva y el segundo una utopía filosófica. Al despertar, rompe el cascarón (Runas) ofrece otro punto de comparación desde la ciencia ficción, frente al enfoque ensayístico de Tomasso Campanella.",
+      "texto": "La ciudad del sol y Distopías: Cómo imaginar otros futuros posibles: 15 (Libros de FILOSOFÍA&CO) comparten la reflexión sobre sociedades alternativas desde la filosofía. Tomasso Campanella plantea una utopía inspirada en Platón, mientras que Lucía Hellín Nistal se aproxima a la imaginación de otros futuros mediante el concepto de distopía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,13 +38,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399229158",
-        "isbn-9791370093488"
+        "isbn-9788410086777"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "515f20e9e91891c5",
+  "fuente_hash": "8a36d171e031de9e",
   "origen": "chatgpt-web"
 }

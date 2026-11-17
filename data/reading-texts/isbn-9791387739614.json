@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387739614",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuando te atrevas a sentir (Novela romántica) está orientado a lectores de romance juvenil que buscan una novela de cierta extensión. Sus 544 páginas lo alejan de las lecturas breves, y su clasificación romántica no responde a quien busca principalmente fantasía o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Cuando te atrevas a sentir (Novela romántica) es de tapa dura y reúne 544 páginas en castellano. El formato físico resulta adecuado para conservarlo o regalarlo, mientras que su extensión requiere contar con un volumen considerable para llevarlo fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Saciar a la bestia - libro 1 (Faeris Editorial) comparte autora, Tamara Molina, con Cuando te atrevas a sentir (Novela romántica). La diferencia identificable es que el primero lleva una numeración de libro en el título, mientras que Cuando te atrevas a sentir (Novela romántica) se presenta como novela romántica juvenil sin esa indicación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388108365"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1a2fa1086360096f",
+  "origen": "chatgpt-web"
+}

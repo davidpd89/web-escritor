@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798982255211",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Felipe y Macio el Elefante Exploran Holanda: Molinos, Tulipanes y Canales - Una Aventura de Viaje para Leer en Voz Alta, para Niños que Exploran los Países Bajos: 2 (Las Aventuras de Felipe y Macio) está dirigido a niños interesados en los viajes y la lectura en voz alta. Sus 68 páginas se centran en una aventura ambientada en Holanda, por lo que se aleja de las historias infantiles centradas en misterios o conflictos escolares.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Este libro de Five Explorers Press se presenta en tapa blanda, con 68 páginas en castellano. El formato en papel permite compartir la lectura en voz alta y seguir la aventura de Felipe y Macio el Elefante sin utilizar una pantalla.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Felipe y Macio el Elefante Vuelan a Ámsterdam: La Primera Aventura Europea de un Niño y su Elefante: 1 (Las Aventuras de Felipe y Macio) comparte protagonistas y autoría con este libro, pero centra su título en el vuelo a Ámsterdam. Ambos son de Five Explorers Press; el título de la aventura por Holanda la identifica como el n.º 2 y destaca molinos, tulipanes y canales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798982255204"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2b61ad7f5eab9258",
+  "origen": "chatgpt-web"
+}

@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El misterio del colgante se dirige a lectores que buscan una obra de misterio en castellano y de extensión relativamente breve. Sus 142 páginas la distinguen de las lecturas más extensas; quienes prefieran ensayos o libros prácticos encontrarán aquí una propuesta de otro género.",
+      "texto": "El misterio del colgante, de Natalia Abril Castellano, se dirige a quienes buscan una lectura de misterio de extensión breve. Sus 142 páginas encajan con lectores que prefieren historias contenidas, mientras que quienes buscan novelas extensas tendrán menos recorrido.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El misterio del colgante está disponible en tapa blanda y Kindle, dos opciones para leer sus 142 páginas. La tapa blanda permite conservar el ejemplar físico publicado por Mr. Momo, mientras que Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el libro impreso.",
+      "texto": "La tapa blanda permite leer las 142 páginas de El misterio del colgante en un ejemplar físico de extensión reducida. La edición Kindle ofrece el mismo título para leer en un dispositivo electrónico o en el móvil, sin necesidad de transportar el libro impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Abre el misterio 1 - El robo de las croquetas comparte con El misterio del colgante el interés por un enigma, aunque parte de la desaparición de unas croquetas. Aguas turbulentas también pertenece al terreno del misterio, pero sitúa su conflicto entre el pasado y el presente de Edimburgo, mientras que el título de Natalia Abril Castellano señala un colgante como elemento central.",
+      "texto": "El misterio del colgante y Abre el misterio 1 - El robo de las croquetas comparten el misterio como punto de partida. El segundo presenta la desaparición de unas croquetas, mientras que El misterio del colgante se identifica por el objeto de su título. Frente a 25 días hasta Navidad, presentado como thriller de adviento, la obra de Natalia Abril Castellano se sitúa en el misterio sin esa referencia temática.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,8 +31,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427256644",
-        "isbn-9791370310318"
+        "isbn-9788427055063",
+        "isbn-9788427256644"
       ]
     }
   ],

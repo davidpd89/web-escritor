@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¡Que viene el lobo! (Salamandra Narrativa) se dirige a lectores de misterio y narrativa contemporánea que también buscan elementos de humor. Con 352 páginas, se sitúa en una extensión intermedia; su combinación de géneros resulta menos afín a quienes prefieren exclusivamente fantasía épica o romance.",
+      "texto": "¡Que viene el lobo! (Salamandra Narrativa) se dirige a lectores de misterio que también buscan narrativa contemporánea. Sus 352 páginas ofrecen una extensión intermedia, aunque por su clasificación encaja menos con quienes prefieren fantasía épica o romance como género principal.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,19 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de ¡Que viene el lobo! (Salamandra Narrativa), publicada por Salamandra, contiene 352 páginas en castellano y permite leer en papel. Kindle ofrece una alternativa digital para llevar la novela en el móvil o en un lector electrónico sin transportar el ejemplar físico.",
+      "texto": "La edición en tapa blanda de ¡Que viene el lobo! (Salamandra Narrativa) reúne 352 páginas en un volumen físico flexible. Kindle permite llevar la lectura en formato digital, una alternativa para quienes prefieren no transportar el ejemplar de papel.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¡Que viene el lobo! (Salamandra Narrativa), de Leonie Swann, comparte el interés por el misterio con Los pecados de la familia Ichinose 6 (Shônen), de Taizan 5. La obra de Leonie Swann combina misterio, narrativa contemporánea y humor, mientras que el título de Taizan 5 se identifica como una entrega de una serie Shônen. La diferencia también está en la autoría y en la orientación editorial de ambas obras.",
+      "texto": "¡Que viene el lobo! (Salamandra Narrativa) puede compararse con Aguas turbulentas por su relación con el misterio y los conflictos oscuros. La diferencia es que Aguas turbulentas sitúa expresamente su historia en Edimburgo y conecta un pasado siniestro con el presente, mientras que la obra de Leonie Swann se identifica por su combinación de misterio y narrativa contemporánea.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410305106"
+        "isbn-9791370310318"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "11ddaaadf15b2050",
+  "fuente_hash": "bdc65adb7de8362d",
   "origen": "chatgpt-web"
 }

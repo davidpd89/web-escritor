@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388153068",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo ganar a los fachas: (Leer antes de votar), de Gabriel Rufián Romero, se orienta a lectores interesados en política, poder y debate electoral. Sus 224 páginas abordan ese ámbito temático desde el planteamiento anunciado en el título; no corresponde a una lectura de ficción romántica o de entretenimiento fantástico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Cómo ganar a los fachas: (Leer antes de votar) contiene 224 páginas y está publicada por Now Books. Kindle ofrece una alternativa digital para consultar el texto desde el móvil o un lector electrónico, mientras que el papel facilita conservar y revisar físicamente sus páginas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brainwashing: Populismo en la era del like y Cómo ganar a los fachas: (Leer antes de votar) coinciden en su interés por la política y sus discursos. Andrés Roemer pone el foco en el populismo vinculado al entorno digital, mientras que Gabriel Rufián Romero plantea desde el título una confrontación política relacionada con el voto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399271379"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "847dca5249e20843",
+  "origen": "chatgpt-web"
+}

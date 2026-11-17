@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las termas (Colección Salamandra Juvenil) se dirige a lectores interesados en el romance, las relaciones de pareja y los vínculos familiares dentro de la narrativa juvenil. Sus 352 páginas ofrecen una extensión de novela, por lo que se aleja de las lecturas breves y de quienes buscan temas ajenos a las relaciones personales.",
+      "texto": "Las termas (Colección Salamandra Juvenil) se dirige a lectores que buscan narrativa romántica y se interesan por títulos de una colección juvenil. Con 352 páginas, se sitúa en una extensión intermedia; por su clasificación romántica, no es la elección más ajustada para quien busca principalmente ensayo o divulgación.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,34 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las termas (Colección Salamandra Juvenil) está disponible en tapa blanda, con 352 páginas en castellano. Esta edición permite leer una novela de extensión media en papel y conservarla en una estantería sin el volumen rígido de una tapa dura. Es la presentación física recogida para esta obra de E. Lockhart.",
+      "texto": "Las termas (Colección Salamandra Juvenil) cuenta con una edición en tapa blanda de 352 páginas, publicada por Salamandra. El formato permite llevar la novela en papel y guardarla sin la rigidez de una cubierta dura, aunque mantiene la extensión propia de una lectura de varios cientos de páginas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "autores",
-        "edicion"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las termas (Colección Salamandra Juvenil), de E. Lockhart, puede compararse con El clan Monet 1 - Tesoro (Ficción crossover), de Weronika Anna Marczak, por su vinculación con la narrativa dirigida a lectores jóvenes. La primera se clasifica en romance y familia, mientras que la segunda se presenta como ficción crossover. Las termas (Colección Salamandra Juvenil) tiene 352 páginas y se publica en tapa blanda.",
+      "texto": "A medio salto (Romántica), de Valera Gomalva, comparte con Las termas (Colección Salamandra Juvenil) su orientación hacia la narrativa romántica. La diferencia más clara está en su presentación: Las termas (Colección Salamandra Juvenil), de E. Lockhart, pertenece a una colección identificada como juvenil, mientras que A medio salto (Romántica) destaca su vinculación con el romance desde el propio título.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427226074"
+        "isbn-9791388365089"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "25896788034c6dfa",
+  "fuente_hash": "c7ee2fb2e54d75c8",
   "origen": "chatgpt-web"
 }

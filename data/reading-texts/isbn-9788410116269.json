@@ -4,31 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El velo de los sueños (TBR) se dirige a lectores de fantasía juvenil que buscan una combinación de romance y elementos fantásticos. Sus 480 páginas encajan con quienes prefieren novelas extensas; por su orientación juvenil y romántica, resulta menos afín a quienes buscan narrativa realista sin componentes fantásticos.",
+      "texto": "El velo de los sueños (TBR) se dirige a lectores de fantasía juvenil que buscan una historia con componente romántico. Por su clasificación como romantasy y romance, encaja menos con quienes prefieren narrativa realista o fantasía sin relaciones sentimentales como parte del género.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de El velo de los sueños (TBR), publicada por TBR, reúne 480 páginas en castellano y ofrece una edición física para conservar o regalar. Kindle permite leer esa misma obra en un dispositivo electrónico o en el móvil, sin transportar el volumen impreso.",
+      "texto": "La tapa dura de El velo de los sueños (TBR) reúne sus 480 páginas en un volumen físico, apropiado para conservar en la estantería o regalar. La edición Kindle permite leer el mismo título en formato digital, sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
-        "editorial",
         "numero_paginas",
-        "idioma",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El velo de los sueños (TBR) comparte la combinación de fantasía y romance con Asistente del villano (edición especial limitada) (Faeris Editorial), de Hannah Nicole Maehrer. También puede compararse con El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, por su orientación fantástica. La diferencia identificable está en la autoría: El velo de los sueños (TBR) está firmado conjuntamente por C.N. Crawford y Alex Rivers.",
+      "texto": "El velo de los sueños (TBR) puede compararse con El hechizo más oscuro (Faeris Editorial) por su vinculación con la fantasía romántica. También comparte terreno de lectura con Asistente del villano (edición especial limitada) (Faeris Editorial), aunque este último aparece identificado como una edición especial limitada, mientras que El velo de los sueños (TBR) se presenta en tapa dura.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
+        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -39,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b249042c2717d908",
+  "fuente_hash": "77a6578df51ee5c5",
   "origen": "chatgpt-web"
 }

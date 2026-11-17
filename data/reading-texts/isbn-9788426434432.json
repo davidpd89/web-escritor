@@ -4,35 +4,33 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Maruja. Una biografía de Maruja Mallo (Lumen Gráfica) está destinada a lectores interesados en las biografías y las trayectorias personales. La obra de María Herreros se centra en una figura identificada por su nombre, por lo que se diferencia de los ensayos generales y de las novelas de ficción.",
+      "texto": "Maruja. Una biografía de Maruja Mallo (Lumen Gráfica) se dirige a lectores interesados en conocer una trayectoria personal a través de una biografía. Por su enfoque, se distancia de las novelas de ficción y de los manuales prácticos, y responde mejor a una búsqueda de lecturas sobre vidas reales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Maruja. Una biografía de Maruja Mallo (Lumen Gráfica) se ofrece en tapa dura, con 192 páginas en castellano. Esta edición de Lumen proporciona una encuadernación rígida para conservar el volumen y volver a consultarlo, además de una presentación adecuada para regalar una biografía.",
+      "texto": "La edición en tapa dura de Lumen contiene 192 páginas, una extensión que permite leer la biografía por etapas. Su encuadernación rígida resulta apropiada para conservarla en una biblioteca personal o entregarla como regalo físico.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Maruja. Una biografía de Maruja Mallo (Lumen Gráfica) y Al andar: Vivencias del Camino de Santiago comparten el interés por las experiencias personales, pero la primera presenta la biografía de una persona concreta y la segunda se centra en vivencias vinculadas a un camino. Alfred y Emily (Narrativa), de Doris Lessing, ofrece otra aproximación a las vidas individuales, aunque aparece identificada como narrativa y no como biografía.",
+      "texto": "Maruja. Una biografía de Maruja Mallo (Lumen Gráfica) y 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) se relacionan con experiencias vitales, pero el primero reconstruye una biografía y el segundo presenta consejos sobre longevidad. Al andar: Vivencias del Camino de Santiago también aborda experiencias personales, aunque las sitúa en el contexto de un recorrido.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791388099496",
-        "isbn-9788426438515"
+        "isbn-9791387852290",
+        "isbn-9791388099496"
       ]
     }
   ],

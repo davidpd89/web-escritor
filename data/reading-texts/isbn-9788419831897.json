@@ -4,24 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de romance juvenil que buscan una historia de amor ambientada en las fiestas navideñas y con elecciones que intervienen en su desarrollo. Su planteamiento resulta menos afín a quienes prefieren una narración lineal sin decisiones del lector o buscan una historia alejada de las relaciones sentimentales.",
+      "texto": "Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica), de Michelle Durán, encaja con lectores de romance juvenil interesados en historias amorosas que plantean elecciones. Sus 336 páginas se alejan de las preferencias de quienes buscan una novela de misterio o una narración sin relaciones sentimentales como tema principal.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece las 336 páginas de Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica) en un volumen físico que facilita volver a las distintas elecciones. Kindle permite llevar la misma obra en un lector electrónico o en el móvil, sin transportar el libro impreso.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "autores",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica) se ofrece en tapa blanda y Kindle. La edición en papel de Fandom Books consta de 336 páginas y permite recorrer físicamente el libro; Kindle facilita su lectura en el móvil o en un lector electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Irresistibles Navidades comparte la temática navideña y reúne Imperfectas navidades e Inesperadas Navidades en un estuche. Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica), de Michelle Durán, se diferencia por plantear una historia de amor en la que el lector toma decisiones sobre su desarrollo.",
+      "texto": "Cozy love y crímenes navideños (TBR), de Anouk Filippini, comparte con Todas las navidades posibles: Esta historia de amor la eliges tú (Romántica) la referencia a las fiestas y al amor, pero incorpora los crímenes a su planteamiento. Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday), de John Green, ofrece otra obra relacionada con la narrativa juvenil y sentimental, sin el componente navideño anunciado en el título de Michelle Durán.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387871482"
+        "isbn-9788466395816",
+        "isbn-9788410116214"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3f5ab37314fec944",
+  "fuente_hash": "e4d4d1ae50676d01",
   "origen": "chatgpt-web"
 }

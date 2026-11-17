@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788408329008",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Megan Maxwell (Biblioteca Megan Maxwell) está orientado a lectores de romance y narrativa contemporánea que buscan una edición de gran extensión de la autora. Sus 1008 páginas lo alejan de quienes prefieren un volumen breve o una lectura que ocupe poco espacio físico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche Megan Maxwell (Biblioteca Megan Maxwell) se ofrece en tapa blanda, con una extensión total indicada de 1008 páginas. Por su presentación como estuche y su volumen, resulta una opción física para conservar o regalar narrativa romántica de Megan Maxwell, aunque requiere más espacio que una novela breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche Megan Maxwell (Biblioteca Megan Maxwell) comparte autoría y orientación romántica con Tampoco pido tanto: Edición limitada a precio especial (Colección Especial) y Todo bajo control, menos tú. La diferencia está en la presentación: el estuche de Esencia reúne una extensión declarada de 1008 páginas, mientras que los otros títulos se identifican como obras individuales de Megan Maxwell.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331599",
+        "isbn-9788467083378"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "53784f786350b6fc",
+  "origen": "chatgpt-web"
+}

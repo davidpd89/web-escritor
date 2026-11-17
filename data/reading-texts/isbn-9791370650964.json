@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370650964",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores interesados en el derecho tributario, especialmente en la responsabilidad solidaria y subsidiaria y los procedimientos de derivación. Su enfoque jurídico lo aleja de quienes buscan una introducción general a la economía o una lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Colex se presenta en tapa blanda y reúne 180 páginas en castellano. El formato impreso permite consultar los apartados sobre responsabilidad tributaria y procedimiento de derivación durante el estudio o el trabajo con documentación jurídica.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría y materia fiscal con Claves fiscales para grandes empresas. Paso a paso: De la adquisición a la pérdida de la condición de gran empresa: requisitos y consecuencias fiscales, del Departamento de Documentación Iberley. Mientras ese título aborda los requisitos y consecuencias fiscales de la condición de gran empresa, Los responsables tributarios. Paso a paso: Claves para comprender el régimen de responsabilidad solidaria y subsidiaria y el procedimiento de derivación se centra en la responsabilidad tributaria y su derivación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1149dea02bc40c98",
+  "origen": "chatgpt-web"
+}

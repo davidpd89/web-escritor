@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370650704",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes consultan cuestiones de derecho tributario empresarial, especialmente el tratamiento de las operaciones vinculadas en el Impuesto sobre Sociedades. Su enfoque jurídico y fiscal se aleja de las lecturas de divulgación general o de quienes buscan contenidos ajenos a la tributación de sociedades.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Colex se presenta en tapa blanda y reúne 164 páginas en castellano. Este formato permite consultar en papel los apartados sobre obligaciones y ajustes de las operaciones vinculadas, además de transportar el volumen sin el tamaño de una obra jurídica más extensa.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría y enfoque fiscal con Casos prácticos sobre la fiscalidad de las «holding» y sus grupos (monografico), aunque aquí el asunto central son las operaciones vinculadas en el Impuesto sobre Sociedades. Frente a Claves fiscales para grandes empresas. Paso a paso: De la adquisición a la pérdida de la condición de gran empresa: requisitos y consecuencias fiscales, delimita la consulta a un régimen tributario concreto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650186",
+        "isbn-9791370651725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7994c42d8ef180e3",
+  "origen": "chatgpt-web"
+}

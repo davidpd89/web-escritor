@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410171947",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Europeana: Una breve historia del siglo XX: 24 (Serie menor) se orienta a lectores interesados en la historia contemporánea y en textos que cruzan el ensayo con la narrativa. Sus 232 páginas delimitan una lectura de extensión moderada sobre el siglo XX; no responde a quien busca exclusivamente ficción de género o una obra centrada en otro periodo histórico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Europeana: Una breve historia del siglo XX: 24 (Serie menor) está editado en tapa blanda y tiene 232 páginas en castellano. El volumen permite una lectura en papel relativamente fácil de transportar y consultar, especialmente por su extensión frente a ensayos más largos. La edición corresponde a Editorial Periférica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Europeana: Una breve historia del siglo XX: 24 (Serie menor) puede compararse con Bajo la sombra del Vesubio: Vida de Plinio: 120 (Biblioteca de Ensayo / Serie mayor) por su relación con la escritura histórica y el ensayo. Patrik Ouredník aborda un siglo completo desde un título de alcance general, mientras que la obra de Daisy Dunn se centra en una figura histórica. Cambia así la escala del asunto tratado: un periodo frente a una vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418708459"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5cadeb5a02175b0c",
+  "origen": "chatgpt-web"
+}

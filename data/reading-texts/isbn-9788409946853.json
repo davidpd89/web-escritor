@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409946853",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "365 citas para progresar.: Una frase diaria con ciencia y casos reales. encaja con lectores interesados en el desarrollo personal mediante reflexiones breves de frecuencia diaria. Su planteamiento de citas y casos se distancia de quienes buscan una novela con personajes y una trama continuada.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de 365 citas para progresar.: Una frase diaria con ciencia y casos reales. contiene 394 páginas en castellano. El ejemplar físico permite señalar citas y recuperar las reflexiones de cada jornada sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "365 citas para progresar.: Una frase diaria con ciencia y casos reales. y La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad se relacionan con el desarrollo personal. José Vicente Martínez organiza su propuesta alrededor de una frase diaria, mientras que Sebastián Romero plantea un ensayo centrado en la disciplina, la libertad y la identidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409884339"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2db8a85dafc9243f",
+  "origen": "chatgpt-web"
+}

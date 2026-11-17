@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788411078528",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Se dice así? (Andanzas), de Leila Sucari, está orientado a lectores de narrativa contemporánea que prefieren libros de extensión reducida. Con 96 páginas, permite una lectura distribuida en pocas sesiones. Por su clasificación y longitud, encaja menos con quienes buscan una novela extensa de fantasía o una obra dirigida al público infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Se dice así? (Andanzas) dispone de una edición en tapa blanda de 96 páginas, publicada por Tusquets Editores. Su encuadernación flexible y su extensión reducida facilitan transportarlo y leerlo fuera de casa. El volumen está editado en castellano y ocupa poco espacio en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2742e35346014888",
+  "origen": "chatgpt-web"
+}

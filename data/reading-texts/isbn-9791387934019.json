@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9791387934019",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cocina casera vietnamita: 100 recetas, técnicas y consejos para que cocines en casa co (GASTRONOMIA) está dirigido a quienes quieren preparar platos vietnamitas en su propia cocina. Su enfoque práctico encaja menos con lectores que buscan exclusivamente historia gastronómica o estudios sobre bebidas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro reúne 100 recetas y plantea el aprendizaje mediante técnicas y consejos para cocinar en casa. Sus 236 páginas permiten utilizarlo como recetario de consulta y como apoyo para practicar preparaciones de cocina vietnamita, con la autoría de Hà Nội 1988.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, una encuadernación adecuada para consultar recetas repetidamente en la cocina. Las 236 páginas en castellano ofrecen un volumen físico que puede mantenerse en una estantería de recetarios y utilizarse durante la preparación de los platos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arroz (Comerse el mundo), de Tove Nilsson, comparte con este libro el ámbito culinario, pero delimita su propuesta mediante un ingrediente concreto. Cocina casera vietnamita: 100 recetas, técnicas y consejos para que cocines en casa co (GASTRONOMIA), de Hà Nội 1988, se centra en una tradición gastronómica y anuncia recetas, técnicas y consejos domésticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419483898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a2b2e22a3c697209",
+  "origen": "chatgpt-web"
+}

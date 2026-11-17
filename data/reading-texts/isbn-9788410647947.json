@@ -4,35 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a quienes leen divulgación histórica y quieren contrastar creencias populares con interpretaciones basadas en hechos. No se orienta a quienes buscan ficción histórica, ya que Fernando Díaz Villanueva examina episodios y personajes reales mediante 25 mitos.",
+      "texto": "Está dirigido a lectores de divulgación histórica interesados en revisar creencias populares sobre distintas épocas. Su planteamiento, basado en cuestionar relatos conocidos, encaja menos con quien busca una historia cronológica exhaustiva de un único periodo o una novela histórica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Examina 25 mitos de la historia universal y cuestiona versiones populares de acontecimientos y personajes. Entre sus asuntos figuran los espartanos de las Termópilas, los vikingos, la Edad Media y la estatura de Napoleón, tratados mediante divulgación y revisión histórica.",
+      "texto": "Examina 25 mitos de la historia universal y contrasta las versiones populares con una interpretación histórica. Entre sus asuntos figuran la batalla de las Termópilas, la imagen de los vikingos, los prejuicios sobre la Edad Media y la estatura de Napoleón. Fernando Díaz Villanueva organiza el recorrido alrededor de esas ideas extendidas.",
       "evidencias": [
         "titulo",
-        "sinopsis_editorial",
-        "categorias"
+        "autores",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar físicamente las 288 páginas y volver a los distintos episodios históricos. Kindle ofrece el mismo título en formato digital, una opción para leerlo en el móvil o en un lector electrónico sin transportar el ejemplar impreso.",
+      "texto": "La tapa blanda ofrece 288 páginas para leer y consultar los distintos mitos en papel. Kindle permite acceder al texto desde un dispositivo de lectura o móvil, mientras que el audiolibro ofrece una alternativa para escuchar la divulgación histórica durante desplazamientos u otras actividades.",
       "evidencias": [
-        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "titulo",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "76, de Felipe Pigna, comparte con La ContraHistoria del mundo en 25 mitos su vinculación con la historia, aunque los títulos delimitan asuntos distintos. Agustín penón y Federico García Lorca, de Juan Carlos García de Polavieja, se concentra en una investigación biográfica concreta, frente al examen de 25 creencias históricas que plantea Fernando Díaz Villanueva.",
+      "texto": "La ContraHistoria del mundo en 25 mitos y 53 días: Cómo Hitler derribó una democracia (HISTORIA) comparten el interés por comprender el pasado, pero el primero recorre creencias de distintas épocas y el segundo se concentra en el derrumbe de una democracia. A sangre y fuego (Clásicos ilustrados) ofrece otra aproximación histórica desde un título centrado en la narración, frente al análisis de mitos de Fernando Díaz Villanueva.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,13 +41,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329695",
-        "isbn-9788418567933"
+        "isbn-9788411005517",
+        "isbn-9791387752590"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "774c5b7e6fded6b6",
+  "fuente_hash": "a9035d489e842733",
   "origen": "chatgpt-web"
 }

@@ -4,37 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La gran transformación global: El declive de la globalización y el nuevo orden mundial (Economía) está dirigido a lectores interesados en la economía internacional y las relaciones de poder. Su enfoque sobre la globalización y el orden mundial se distancia de los manuales centrados en las finanzas personales o la gestión cotidiana de empresas.",
+      "texto": "La gran transformación global: El declive de la globalización y el nuevo orden mundial (Economía) se dirige a lectores interesados en economía internacional, relaciones de poder y cambios en el orden mundial. Su enfoque de ensayo económico y político lo distancia de las novelas y de los manuales centrados en la gestión empresarial cotidiana.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La gran transformación global: El declive de la globalización y el nuevo orden mundial (Economía) está disponible en tapa blanda y Kindle. La edición impresa de Taurus tiene 304 páginas y permite consultar el ensayo en papel; Kindle facilita transportarlo y acceder al texto desde un lector electrónico o móvil.",
+      "texto": "La edición en tapa blanda de Taurus tiene 304 páginas y permite trabajar sobre un ejemplar físico durante la lectura de sus argumentos económicos. Kindle ofrece la misma obra como opción digital para consultar el texto desde un dispositivo compatible y evitar llevar el volumen en papel.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La gran transformación global: El declive de la globalización y el nuevo orden mundial (Economía) y Cómo ganar una guerra comercial examinan cambios en las relaciones económicas internacionales. Branko Milanovic aborda el declive de la globalización y el orden mundial, mientras que Soumaya Keynes y Chad P. Bown se centran en las guerras comerciales y las transformaciones de las reglas del comercio global.",
+      "texto": "Cómo ganar una guerra comercial comparte el interés por las transformaciones del comercio internacional, pero se concentra en las guerras comerciales y sus consecuencias, frente al análisis más amplio del orden mundial de La gran transformación global: El declive de la globalización y el nuevo orden mundial (Economía). La batalla por la vivienda también aborda la economía política, aunque delimita su análisis a la crisis de la vivienda en lugar de la globalización.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788423441051"
+        "isbn-9788423441051",
+        "isbn-9788449346187"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "15db1c543adf3001",
+  "fuente_hash": "5bdd562bd0afe3c6",
   "origen": "chatgpt-web"
 }

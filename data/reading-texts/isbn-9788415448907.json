@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788415448907",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La NBA de los setenta (Baloncesto para leer) se dirige a lectores interesados en el baloncesto y en una etapa concreta de la NBA. Ignacio Morejón Guerrero y Marc Bret Cano firman un volumen de 528 páginas cuyo enfoque deportivo lo aleja de los libros de pasatiempos o de actividades manuales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La NBA de los setenta (Baloncesto para leer) se presenta en tapa blanda, con 528 páginas en castellano. La edición de Ediciones JC permite abordar una lectura extensa en papel y utilizar el volumen para consultar distintos pasajes, sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La NBA de los setenta (Baloncesto para leer) y Actividades de ocio y tiempo libre (CFGS ENSEÑANZA Y ANIMACIÓN SOCIODEPORTIVA) se relacionan con el tiempo libre, aunque desde enfoques distintos. Ignacio Morejón Guerrero y Marc Bret Cano se centran en el baloncesto de una época; el otro título aborda las actividades de ocio y tiempo libre desde su propio planteamiento formativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788417872038"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e5c28329a33d2b3",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788428377270",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "MP 1724. Prevención de riesgos laborales en construcción (Edificación y Obra Civil) se orienta a quienes estudian o trabajan con la prevención de riesgos en el sector de la construcción. Su ámbito específico de edificación y obra civil lo aleja de las lecturas generales sobre economía o ciencia sin aplicación sectorial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de MP 1724. Prevención de riesgos laborales en construcción (Edificación y Obra Civil) tiene 220 páginas. El volumen impreso permite consultar los contenidos sobre prevención de riesgos laborales durante el estudio y conservarlo como material de referencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MP 1782. Nivel básico de Prevención de riesgos laborales (Hostelería y Turismo) comparte autor y materia preventiva con el libro de Javier Rodrigo Agulló, pero cambia el ámbito de aplicación a la hostelería y el turismo. MP 1782. Nivel básico de Prevención de riesgos laborales (Química) mantiene esa orientación preventiva y la traslada al sector químico, frente a la construcción y la obra civil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428377355",
+        "isbn-9788428377348"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0b6297d6ed3b9fea",
+  "origen": "chatgpt-web"
+}

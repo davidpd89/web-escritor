@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388392122",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Psicología forense parte 2 se dirige a lectores interesados en la psicología forense dentro del ámbito del desarrollo personal. Por su temática, encaja menos con quienes buscan ficción o una lectura centrada en otros campos de la psicología.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Psicología forense parte 2 está disponible en tapa blanda, con 256 páginas en castellano. Esta edición permite consultar y volver a localizar pasajes en papel, además de transportarla sin la rigidez de una encuadernación de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Psicología forense y Psicología forense parte 1 comparten autoría editorial y materia con Psicología forense parte 2. La diferencia identificable está en sus títulos: uno presenta el tema sin numeración, mientras los otros distinguen partes; esa denominación no establece por sí sola una secuencia obligatoria de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388392108",
+        "isbn-9791388392115"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "650f669009a25dbd",
+  "origen": "chatgpt-web"
+}

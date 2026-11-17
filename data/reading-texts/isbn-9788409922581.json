@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La hora de la Hispanidad y la Iberofonía: Llegó el tiempo de volver a hacer historia se dirige a lectores interesados en la historia y en las cuestiones de poder y política. Sus 616 páginas y su enfoque ensayístico encajan con una lectura de análisis, no con quien busque una novela de ficción o una lectura breve.",
+      "texto": "La hora de la Hispanidad y la Iberofonía: Llegó el tiempo de volver a hacer historia se dirige a lectores interesados en historia, pensamiento político y relaciones culturales vinculadas a la Hispanidad y la Iberofonía. Por su temática y sus 616 páginas, encaja menos con quien busca una introducción breve o una lectura ajena al debate histórico y político.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,9 +13,8 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de La hora de la Hispanidad y la Iberofonía: Llegó el tiempo de volver a hacer historia se presenta en tapa blanda y reúne 616 páginas en castellano. Es una opción física para leer y consultar un ensayo extenso, aunque su volumen exige más espacio de transporte que un libro corto.",
+      "texto": "La edición en tapa blanda contiene 616 páginas en castellano, por lo que se trata de un volumen extenso para leer y consultar sobre papel. Permite colocar marcadores y tomar notas durante una lectura dedicada al análisis histórico y político.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
@@ -24,14 +23,14 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los pilares de la historia comparte con La hora de la Hispanidad y la Iberofonía: Llegó el tiempo de volver a hacer historia el interés por la interpretación histórica, aunque el segundo sitúa la Hispanidad y la Iberofonía en el centro de su planteamiento. El papel de la violencia en la historia aborda también la relación entre historia y poder, pero desde la violencia, Bismarck y la lucha de clases en la Alemania del siglo XIX.",
+      "texto": "Los pilares de la historia comparte con La hora de la Hispanidad y la Iberofonía: Llegó el tiempo de volver a hacer historia el interés por interpretar procesos históricos. Javier Fernández Sebastián plantea la capacidad de la historia para explicar un mundo en crisis, mientras que Marcelino Lastra Muñiz centra su título en la Hispanidad y la Iberofonía. Ambos se relacionan con la reflexión histórica, pero parten de preguntas distintas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388115479",
         "isbn-9788430629664"
       ]
     }

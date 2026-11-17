@@ -4,38 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a niños y niñas a partir de 3 años que disfrutan de los cuentos navideños con humor y búsquedas interactivas. La propuesta consiste en encontrar una prenda perdida de Papá Noel mediante la participación del lector. Sus 32 páginas y su planteamiento infantil lo alejan de las narraciones extensas destinadas a lectores de mayor edad.",
+      "texto": "Está pensado para niños y niñas a partir de 3 años que disfrutan de los cuentos navideños, el humor y las propuestas interactivas. Su planteamiento infantil y su temática festiva lo sitúan en una lectura distinta de la narrativa dirigida a jóvenes o adultos.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Se presenta en tapa dura, con 32 páginas pensadas para manejar el cuento como objeto físico durante la lectura. Este formato permite pasar las páginas y participar en la búsqueda de los calzoncillos de Papá Noel directamente sobre el libro. Su extensión facilita leerlo en sesiones breves y volver a recorrerlo.",
+      "texto": "La tapa dura contiene las 32 páginas del cuento en un formato físico pensado para pasar sus páginas y participar en la propuesta interactiva. También permite compartir la lectura y conservar el libro después de las fiestas navideñas.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "formato_edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El lago de los monstruos (INFANTIL) coincide en su orientación hacia la lectura infantil, pero cambia la búsqueda navideña y humorística por una historia identificada con monstruos. Pipoka y la Fábrica del Desastre también incorpora elementos fantásticos, aunque presenta a un cuentacuentos y una marioneta que recorren paisajes y conocen criaturas legendarias, en lugar de proponer una búsqueda relacionada con Papá Noel.",
+      "texto": "Manolito Gafotas (edición especial) comparte con este cuento el protagonismo infantil y su orientación hacia lectores jóvenes. La diferencia está en el planteamiento: el libro de Becky Davies propone una búsqueda interactiva con temática navideña, mientras que Manolito Gafotas presenta a un niño dicharachero de Carabanchel (Alto).",
       "evidencias": [
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "autores",
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791387884260",
-        "isbn-9791388277085"
+        "isbn-9788432251481"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d39c877a319eceea",
+  "fuente_hash": "9ef4032d7c41a98e",
   "origen": "chatgpt-web"
 }

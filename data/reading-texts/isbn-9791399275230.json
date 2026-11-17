@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399275230",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Operación Libreta: 1 (Vuelo, Toque y Remate) pertenece a la literatura infantil y juvenil y tiene 150 páginas. Se dirige a lectores de ese ámbito que buscan una obra en castellano; encaja menos con quienes prefieren narrativa dirigida específicamente a adultos. El título la identifica como el n.º 1.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Operación Libreta: 1 (Vuelo, Toque y Remate) se publica en tapa blanda, con 150 páginas en castellano. La edición de Ediciones de la Beluga Parda permite llevar el libro en papel y guardarlo con facilidad en una mochila, sin recurrir a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5e2abbe6838922c9",
+  "origen": "chatgpt-web"
+}

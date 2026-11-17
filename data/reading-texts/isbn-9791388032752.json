@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dilo como Jane Austen: 348 (Las Tres Edades) se dirige al público de narrativa juvenil interesado en una obra breve vinculada por su título a Jane Austen. Sus 80 páginas ofrecen una extensión reducida frente a novelas juveniles largas, mientras que su clasificación lo aleja de los manuales prácticos y de la divulgación científica.",
+      "texto": "Dilo como Jane Austen: 348 (Las Tres Edades), de Chiara Codecà, está dirigido al público de narrativa juvenil y a lectores interesados en referencias literarias vinculadas a Jane Austen. Su extensión de 80 páginas permite una lectura breve; no responde a quien busca una novela extensa de varios cientos de páginas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Dilo como Jane Austen: 348 (Las Tres Edades) tiene una edición en tapa dura de 80 páginas, publicada en castellano. Su tamaño de lectura breve y su cubierta rígida permiten conservarlo como volumen físico y regalarlo sin recurrir a una edición extensa.",
+      "texto": "Dilo como Jane Austen: 348 (Las Tres Edades) se presenta en tapa dura, con 80 páginas en castellano. La edición de Ediciones Siruela ofrece un volumen físico breve, manejable para leer y conservar, con una encuadernación rígida que también resulta práctica para regalar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dilo como Jane Austen: 348 (Las Tres Edades) y Amor Eterno nº 03: 3 (Thriller) se presentan como obras narrativas, aunque sus títulos y orientaciones son diferentes. La obra de Chiara Codecà pertenece a la narrativa juvenil y tiene 80 páginas; la de Tom King y Elsa Charretier aparece identificada como thriller y con el número 03 en el título.",
+      "texto": "Dilo como Jane Austen: 348 (Las Tres Edades) puede compararse con Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación por su vinculación con lectores jóvenes. Chiara Codecà firma una obra de narrativa juvenil de 80 páginas con una referencia literaria en el título; Ma. Teresa Araceli Esquivel Reyna presenta una obra cuyo título remite a la adolescencia y la autenticidad. Son propuestas de distinta autoría y planteamiento.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +34,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388103483"
+        "isbn-9781637659380"
       ]
     }
   ],

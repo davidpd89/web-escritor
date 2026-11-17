@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388032028",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El nazi y el peluquero: 587 (Nuevos Tiempos), de Edgar Hilsenrath, se dirige a lectores interesados en la narrativa contemporánea vinculada con la historia. Sus 400 páginas plantean una lectura de extensión media; por su orientación temática, se aleja de los manuales históricos y de los libros de consulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El nazi y el peluquero: 587 (Nuevos Tiempos) se presenta en tapa blanda, con 400 páginas en castellano. Esta edición de Ediciones Siruela permite conservar el volumen en papel y transportarlo sin la rigidez de una cubierta dura; también facilita consultar páginas anteriores durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El nazi y el peluquero: 587 (Nuevos Tiempos) puede compararse con Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) por su pertenencia a la narrativa, aunque Edgar Hilsenrath figura también en el ámbito histórico. La diferencia editorial es concreta: el primero tiene 400 páginas en tapa blanda, mientras que el título de Lev Tolstoi se identifica como una edición especial en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058397"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "272fe6992dd91f09",
+  "origen": "chatgpt-web"
+}

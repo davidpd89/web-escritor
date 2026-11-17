@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370520151",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los diarios de la boticaria Núm. 17 (Ed. Especial) se dirige a lectores de cómic y novela gráfica que buscan fantasía y aventuras. El título lo identifica como el n.º 17, por lo que se orienta especialmente a quienes siguen esa colección y no tanto a quienes buscan una historia presentada como primer volumen.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los diarios de la boticaria Núm. 17 (Ed. Especial) cuenta con una edición en tapa blanda de 208 páginas en castellano. El formato físico permite incorporarlo a una colección de cómics y novelas gráficas, manteniendo en papel este volumen identificado como edición especial.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Astro Royale 1 (Shônen): Universo Manga comparte con Los diarios de la boticaria Núm. 17 (Ed. Especial) su relación con el cómic, pero sus títulos identifican volúmenes diferentes dentro de sus respectivas colecciones. A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria) también aborda un ámbito mágico, mientras la obra de Nekokurage Hyuganatsu combina fantasía y aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399305517",
+        "isbn-9791387962845"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16f8f97969de2f26",
+  "origen": "chatgpt-web"
+}

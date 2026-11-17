@@ -4,35 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los dones de los niños altamente sensibles está dirigido a lectores interesados en comprender la sensibilidad durante la infancia y en abordar cuestiones relacionadas con la crianza. Se ajusta especialmente a las inquietudes de madres, padres y personas interesadas en el desarrollo infantil, no a quienes buscan un manual general de educación sin un enfoque específico en la alta sensibilidad.",
+      "texto": "Los dones de los niños altamente sensibles se dirige a madres, padres y personas interesadas en comprender la alta sensibilidad durante la infancia. Úrsula Perona aborda las reacciones intensas ante cambios y estímulos cotidianos; su enfoque de crianza queda alejado de quien busca una novela infantil.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 184 páginas en una edición rústica con solapas, adecuada para la consulta física y la lectura en casa. Kindle permite acceder al contenido desde un dispositivo electrónico, una alternativa para quienes prefieren guardar sus lecturas en formato digital.",
+      "texto": "La tapa blanda de Los dones de los niños altamente sensibles reúne 184 páginas en una edición rústica con solapas, adecuada para consultar y marcar pasajes sobre crianza. Kindle permite llevar el mismo título en un lector electrónico o en el móvil, sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "edicion",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El niño feliz (fuera de colección), de Dorothy Corkille Briggs, comparte el interés por la infancia y el desarrollo de los niños, aunque su título plantea un enfoque más amplio sobre el bienestar infantil. Los dones de los niños altamente sensibles, de Úrsula Perona, concentra la atención en una característica concreta de la experiencia infantil: la alta sensibilidad.",
+      "texto": "Los dones de los niños altamente sensibles y ¿Cómo aprenden los bebés? comparten el interés por comprender la infancia, pero el primero se centra en la sensibilidad y el segundo plantea cómo las experiencias influyen en el desarrollo mental y cerebral. Niños ancestrales también aborda la crianza, aunque desde la salud infantil y las decisiones tempranas sobre alimentación.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425452901"
+        "isbn-9791388038334",
+        "isbn-9788413445564"
       ]
     }
   ],

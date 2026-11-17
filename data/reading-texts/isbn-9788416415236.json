@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788416415236",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Análisis Bioquímico (CFGS LABORATORIO CLÍNICO Y BIOMÉDICO) se dirige a lectores interesados en la formación técnica sobre análisis bioquímico y laboratorio clínico. Su orientación académica lo aleja de las obras de divulgación científica general y de las lecturas centradas en descubrimientos o biografías.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Análisis Bioquímico (CFGS LABORATORIO CLÍNICO Y BIOMÉDICO) contiene 240 páginas en castellano. Este formato permite trabajar con el volumen físico, señalar apartados y mantenerlo como material de consulta durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, también aborda una materia científica, pero se centra en la inteligencia artificial. Análisis Bioquímico (CFGS LABORATORIO CLÍNICO Y BIOMÉDICO) se orienta al estudio técnico del análisis bioquímico y el laboratorio clínico. Ambos se diferencian por su especialización y por el ámbito de conocimiento que tratan.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e3653f2d281b148a",
+  "origen": "chatgpt-web"
+}

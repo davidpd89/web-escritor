@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788491999232",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cómo ser un disidente (Letras de Crítica), de Gal Beckerman, se orienta a lectores interesados en la disidencia, la filosofía política y la historia. Por su enfoque de ensayo sobre cuestiones de poder y pensamiento, encaja menos con quienes buscan ficción narrativa o una biografía extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cómo ser un disidente (Letras de Crítica) está disponible en tapa blanda, con 208 páginas en castellano. La edición de Editorial Crítica permite leer el ensayo en papel y volver a sus planteamientos sobre filosofía, historia y política sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo ser un disidente (Letras de Crítica) comparte con La naturaleza del poder: 34 (Tascabili) el interés por las cuestiones políticas, aunque el título de Gal Beckerman sitúa la disidencia en primer plano y el de Luciano Canfora se centra en el poder. Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, aborda una corriente política concreta, frente al enfoque de disidencia anunciado por Cómo ser un disidente (Letras de Crítica).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387938208",
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4e6361eefe45f85",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788448873554",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado al público infantil que disfruta de los cómics de aventuras con misterios por resolver. El conflicto anunciado gira alrededor de unas migas de pan, por lo que se aleja de las historias centradas en grandes batallas o conflictos de fantasía épica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda ofrece 208 páginas de cómic infantil en castellano. Permite seguir el misterio en papel y regresar a páginas anteriores para revisar detalles de la historia, además de resultar manejable para llevarla en una mochila.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pandilla Paloma 3 - El misterio del ladrón de nidos comparte autores y protagonistas con este libro, aunque presenta otro misterio; los títulos los identifican como los números 1 y 3. Abre el misterio 1 - El robo de las croquetas también parte de una desaparición, pero sustituye las migas de pan por unas croquetas robadas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448873547",
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "35d59a9f411fd749",
+  "origen": "chatgpt-web"
+}

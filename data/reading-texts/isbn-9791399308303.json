@@ -4,18 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ondina, de Jean Giraudoux, se sitúa en el ámbito de las publicaciones vinculadas al arte y el diseño. Su edición en castellano permite acercarse a la obra en un volumen de extensión contenida, aunque su clasificación editorial la diferencia de los manuales de desarrollo personal o de divulgación científica.",
+      "texto": "Ondina encaja con lectores interesados en publicaciones vinculadas al arte y el diseño, dentro de una edición en castellano de 180 páginas. Por su clasificación editorial, se aleja de las búsquedas centradas específicamente en manuales técnicos o libros de salud.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "idioma",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ondina se publica en tapa blanda, con 180 páginas en castellano. Esta edición de Ápeiron Ediciones ofrece un volumen físico flexible, fácil de guardar en una estantería o transportar para leer fuera de casa. Es una opción de lectura impresa sin necesidad de dispositivos electrónicos.",
+      "texto": "Ondina está disponible en tapa blanda, con 180 páginas en castellano. Esta edición de Ápeiron Ediciones permite conservar el volumen en papel y consultarlo sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -26,7 +25,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ondina puede compararse con Arde Talía: Una pieza teatral sobre el infierno de la creación artística por su proximidad al ámbito artístico. La obra de Jean Giraudoux figura entre las publicaciones de arte y diseño, mientras que el título de Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano identifica expresamente una pieza teatral sobre la creación.",
+      "texto": "Ondina puede compararse con 720 retrats por su vinculación editorial con el arte y el diseño, aunque son obras de Jean Giraudoux y Xavier Mollà i Revert, respectivamente. También figura entre sus afines Ahorcados, de Miguel Ávila Cabezas, otra obra de autoría distinta que permite ampliar la comparación dentro de este ámbito.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399289510"
+        "isbn-9788412678802",
+        "isbn-9791399276725"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a63f240e061ad7b4",
+  "fuente_hash": "f19523dc4c4d2115",
   "origen": "chatgpt-web"
 }

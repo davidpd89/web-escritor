@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este estuche de Albert Espinosa se dirige a lectores interesados en el desarrollo personal, las memorias y el bienestar. Reúne El mundo amarillo y Estaba preparado para todo menos para ti en una edición de bolsillo; no responde a quien busque una única obra independiente.",
+      "texto": "Este estuche de Albert Espinosa reúne El mundo amarillo y Estaba preparado para todo menos para ti, dos títulos vinculados al desarrollo personal y las experiencias vitales. Se dirige a quienes buscan lecturas relacionadas con el bienestar y las memorias; no responde a la búsqueda de una novela de aventuras o ciencia ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "edicion"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El universo amarillo (edición limitada): La luz siempre vuelve si esperas lo suficiente (Campaña | Libros firmados) comparte autoría con este estuche de Albert Espinosa. También coincide en autor con Nunca estuviste solo (Best Seller | Ficción), pero el estuche reúne dos obras distintas, El mundo amarillo y Estaba preparado para todo menos para ti, en lugar de presentar un solo título.",
+      "texto": "El universo amarillo (edición limitada): La luz siempre vuelve si esperas lo suficiente (Campaña | Libros firmados) comparte autoría con este estuche de Albert Espinosa, pero se presenta como un título individual y una edición limitada. Nunca estuviste solo (Best Seller | Ficción) también es de Albert Espinosa; la diferencia práctica es que el estuche agrupa El mundo amarillo y Estaba preparado para todo menos para ti.",
       "evidencias": [
         "titulo",
         "autores",
@@ -28,6 +27,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b4bc2f6e9c91f55a",
+  "fuente_hash": "ee7b276177f3fda4",
   "origen": "chatgpt-web"
 }

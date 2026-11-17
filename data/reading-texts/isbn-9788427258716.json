@@ -4,39 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Modo drama activado (El mundo según Cloe 1) (Ficción Kids), de Marta Moya, se orienta a lectores interesados en la amistad, las relaciones afectivas y los asuntos personales. Su identificación como Ficción Kids lo aleja de las expectativas de quienes buscan narrativa dirigida específicamente a adultos. El título lo identifica como el n.º 1.",
+      "texto": "Modo drama activado (El mundo según Cloe 1) (Ficción Kids) se orienta a lectores interesados en ficción infantil y cuestiones relacionadas con el desarrollo personal. El título lo identifica como el n.º 1 de El mundo según Cloe, por lo que no responde a quien busque expresamente una entrega posterior de la serie.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Modo drama activado (El mundo según Cloe 1) (Ficción Kids) tiene 232 páginas y se publica en tapa dura. La encuadernación rígida permite conservar el ejemplar en una colección física, especialmente si se desea mantener junto a otros títulos de la misma línea editorial.",
+      "texto": "Modo drama activado (El mundo según Cloe 1) (Ficción Kids) cuenta con una edición en tapa dura de 232 páginas. La encuadernación rígida permite conservar el ejemplar y utilizarlo para lecturas repetidas o como regalo físico; el título identifica esta entrega como el n.º 1.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Modo drama activado (El mundo según Cloe 1) (Ficción Kids) puede compararse con Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) por su relación con el desarrollo personal. El título de Marta Moya incorpora amistad y relaciones afectivas, mientras que el de Soledad Gutiérrez Puerto se presenta expresamente como un cuento centrado en la autoestima de las niñas.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791387724368"
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "aa176b479a117f6b",
+  "fuente_hash": "8051bb5ffc083491",
   "origen": "chatgpt-web"
 }

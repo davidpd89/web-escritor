@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "That Texas Blood nº 02 está orientado a lectores de cómic y novela gráfica que buscan misterio criminal y situaciones inquietantes. La presencia de una secta asesina, la muerte de un niño y una desaparición lo alejan de las historias detectivescas de tono infantil o humorístico.",
+      "texto": "That Texas Blood nº 02 está orientado a lectores de cómic interesados en el misterio criminal y las investigaciones relacionadas con sectas. Su trama incluye un asesinato infantil y una desaparición, elementos que pueden resultar incómodos para quienes buscan aventuras gráficas sin violencia ni situaciones perturbadoras.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "That Texas Blood nº 02 desarrolla un misterio criminal situado en septiembre de 1981, con una investigación relacionada con una secta y un ritual fallido. Chris Condon y Jacob Phillips articulan el conflicto alrededor de la intervención de un detective privado y la necesidad de impedir nuevos actos violentos; el título identifica el volumen como nº 02.",
+      "texto": "That Texas Blood nº 02 combina el cómic de intriga con una investigación criminal situada en septiembre de 1981. El detective privado Harlan Eversaul interviene en un caso relacionado con una secta, un menor fallecido y una desaparición. El título lo identifica como el n.º 02 y sus autores son Chris Condon y Jacob Phillips.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,28 +23,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "That Texas Blood nº 02 se publica en tapa dura de tipo cartoné, sin sobrecubierta. Sus 184 páginas componen un volumen físico de extensión relativamente contenida, cuya encuadernación rígida permite guardar y consultar la novela gráfica sin depender de una edición digital.",
+      "texto": "That Texas Blood nº 02 se publica en tapa dura, con encuadernación cartoné sin sobrecubierta. Sus 184 páginas reúnen la lectura gráfica en un volumen físico de cubierta rígida, apropiado para conservar en una colección de cómics. La edición en castellano corresponde a Planeta Cómic.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
+        "idioma",
+        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Estuche El nombre de la rosa (novela gráfica, vols. 1 y 2) (Lumen Gráfica), de Umberto Eco y Milo Manara, comparte con That Texas Blood nº 02 el formato narrativo gráfico. El primero se presenta como un estuche de volúmenes, mientras que la obra de Chris Condon y Jacob Phillips ofrece un misterio criminal ambientado en 1981 dentro de un tomo de 184 páginas.",
+      "texto": "Anna en la cueva: Anna Dédalus detective: 4 comparte con That Texas Blood nº 02 la presencia de una investigación, aunque sus títulos sitúan cada caso en una serie diferente. Caminando con la muerte 4 (Seinen) ofrece otra referencia vinculada a la muerte dentro del cómic, mientras la obra de Chris Condon y Jacob Phillips concreta su conflicto en una secta y una investigación criminal.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
-        "numero_paginas"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788426438072"
+        "isbn-9788419605528",
+        "isbn-9788410305830"
       ]
     }
   ],

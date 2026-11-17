@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788410859852",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en el derecho procesal penal y, en particular, en la doctrina de la sala segunda del Tribunal supremo sobre la prueba. La prueba en el proceso penal. Doctrina de la sala segunda del Tribunal supremo., de Antonio Pablo Rives Seva, aborda una materia jurídica especializada, distinta de la lectura narrativa o de divulgación general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Argumentacion Juridica, de Carlos Parma, comparte con La prueba en el proceso penal. Doctrina de la sala segunda del Tribunal supremo. el ámbito jurídico, pero sus títulos delimitan enfoques distintos: argumentación frente a prueba penal. Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal, de Víctor Rodríguez Alonso, se aproxima más al derecho penal, aunque se centra en una cuestión concreta de autoría y tipificación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370475949",
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "81b5475874e40338",
+  "origen": "chatgpt-web"
+}

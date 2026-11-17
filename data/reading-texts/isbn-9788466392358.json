@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788466392358",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta edición se dirige a lectores de fantasía y aventuras interesados en La Torre Oscura, la serie de Stephen King. El título la identifica como el n.º 6, por lo que resulta menos adecuada para quien busca comenzar una serie desde su primera entrega o prefiere una novela ajena a una continuidad numerada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta versión de Canción de Susannah se distingue por sus cantos tintados y su presentación como libro de bolsillo de Penguin Bolsillo. Contiene 496 páginas en castellano y fue publicada el 22 de octubre de 2026; el título la identifica como el n.º 6 de La Torre Oscura.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa blanda, presentada como libro de bolsillo con cantos tintados y una extensión de 496 páginas. Combina un tamaño editorial pensado para el transporte con un acabado específico en los bordes de las hojas, relevante para quienes reúnen las ediciones de la serie con esa misma presentación.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "titulo",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mago y cristal (edición cantos tintados) (La Torre Oscura 4) (Campaña | Edición con cantos tintados) y La Torre Oscura (edición cantos tintados) (La Torre Oscura 7) (Campaña | Edición con cantos tintados), ambos de Stephen King, comparten serie y acabado editorial. Sus títulos los identifican como los números 4 y 7, frente al n.º 6 de Canción de Susannah, lo que permite distinguir su posición indicada dentro de la colección.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392365",
+        "isbn-9788466392334"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d90a2b12f96f322a",
+  "origen": "chatgpt-web"
+}

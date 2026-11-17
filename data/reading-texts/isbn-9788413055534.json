@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Franco en guerra: Crónica cotidiana de un dictador (Historia Incógnita) se dirige a lectores interesados en la historia del siglo XX y en el estudio de figuras políticas desde una perspectiva histórica. Con 632 páginas, plantea una lectura extensa y documental, distinta de la novela histórica de ficción o de una introducción breve al periodo.",
+      "texto": "Franco en guerra: Crónica cotidiana de un dictador (Historia Incógnita) se dirige a lectores interesados en la historia y en la figura de Franco durante la guerra. El enfoque cotidiano anunciado en el título y sus 632 páginas lo alejan de una introducción breve a la historia general.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,31 +13,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Franco en guerra: Crónica cotidiana de un dictador (Historia Incógnita) se publica en tapa blanda, con 632 páginas en castellano. Por su extensión, la edición física resulta adecuada para una lectura por etapas, con posibilidad de marcar páginas y regresar a distintos pasajes durante la consulta.",
+      "texto": "La edición en tapa blanda contiene las 632 páginas de Franco en guerra: Crónica cotidiana de un dictador (Historia Incógnita). Por su extensión, permite organizar la lectura en varias sesiones y conservar un ejemplar físico para consultar pasajes relacionados con el periodo tratado.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Franco en guerra: Crónica cotidiana de un dictador (Historia Incógnita) puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback. Ambos títulos se ocupan de dirigentes autoritarios, aunque el de Eladio Romero y José María Prats anuncia una crónica cotidiana de Franco y el de Ryback se centra en el derrumbe de una democracia. Frente a 76, de Felipe Pigna, comparte su ubicación entre las lecturas históricas afines, con un asunto explícito diferente en el título.",
+      "texto": "Franco en guerra: Crónica cotidiana de un dictador (Historia Incógnita) puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA) por su atención a figuras políticas y conflictos históricos. Eladio Romero y José María Prats abordan la vida cotidiana de Franco en guerra, mientras que Timothy W. Ryback se ocupa del proceso por el que Hitler derribó una democracia.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411005517",
-        "isbn-9788408329695"
+        "isbn-9788411005517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4035fa5e954f308e",
+  "fuente_hash": "7d67a25adfef81c5",
   "origen": "chatgpt-web"
 }

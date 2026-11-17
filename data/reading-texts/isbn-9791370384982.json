@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370384982",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Psicometría avanzada con R (Plural -México-) se dirige a lectores interesados en la psicometría, la psicología y el uso de R. Su orientación temática y su nivel avanzado lo alejan de quienes buscan una introducción general al bienestar personal o una lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Psicometría avanzada con R (Plural -México-) está disponible en tapa blanda y Kindle. La edición impresa de Tirant Humanidades tiene 244 páginas y permite trabajar con el libro en papel; Kindle facilita su consulta desde un lector electrónico o un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Psicometría avanzada con R (Plural -México-) comparte sus cuatro autores con Arquitectura cognitivo-neuro sistémica de los falsos recuerdos (Plural -México-). Ambos títulos se relacionan con el estudio psicológico, pero el primero delimita su materia a la psicometría avanzada mediante R y el segundo se ocupa de los falsos recuerdos desde una perspectiva cognitivo-neuro sistémica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370384968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa39875fb7e45da4",
+  "origen": "chatgpt-web"
+}

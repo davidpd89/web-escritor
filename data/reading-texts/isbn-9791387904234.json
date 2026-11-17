@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la inteligencia artificial desde sus protagonistas, sus empresas y sus implicaciones científicas y económicas. Encaja menos con quienes buscan exclusivamente instrucciones técnicas para programar sistemas de inteligencia artificial.",
+      "texto": "La máquina infinita: Demis Hassabis, DeepMind y la búsqueda de la superinteligencia (Ciencia y Tecnología) se dirige a lectores interesados en la inteligencia artificial, sus protagonistas y su dimensión empresarial. Combina biografía, divulgación científica y economía, por lo que no responde a quien busque una guía práctica de programación o una novela de ciencia ficción.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El libro se centra en Demis Hassabis, DeepMind y la investigación orientada hacia la superinteligencia. Sebastian Mallaby aborda esta materia desde un marco que reúne biografía, divulgación científica y dimensión empresarial, en vez de presentarla como un manual técnico.",
+      "texto": "Sebastian Mallaby aborda la búsqueda de la superinteligencia tomando como ejes a Demis Hassabis y DeepMind. El libro relaciona el desarrollo de la inteligencia artificial con las personas y las organizaciones que intervienen en ese proceso. Su clasificación reúne biografías y memorias, divulgación científica y economía y empresa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,30 +21,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible para sus 576 páginas, una extensión considerable dentro de la divulgación científica. Permite leer en papel un volumen dedicado a la trayectoria de DeepMind y a la búsqueda de la superinteligencia, aunque requiere más espacio para transportarlo que un libro breve.",
+      "texto": "La máquina infinita: Demis Hassabis, DeepMind y la búsqueda de la superinteligencia (Ciencia y Tecnología) se ofrece en tapa blanda y Kindle. La edición de Debate tiene 576 páginas, una extensión que permite optar entre consultar el volumen físico o llevarlo en formato digital. Kindle evita transportar el libro impreso y facilita leerlo desde el móvil.",
       "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
         "titulo",
-        "categorias"
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Gestión de proyectos de inteligencia artificial comparte el campo tecnológico, pero se orienta desde su título a la organización de proyectos, mientras que La máquina infinita se centra en Demis Hassabis y DeepMind. La era de la extracción: Cómo las plataformas tecnológicas conquistaron la economía y amenazan nuestro futuro (Shackleton Books) permite otra comparación por la relación entre tecnología y economía, aunque plantea una crítica a las plataformas en lugar de una trayectoria biográfica.",
+      "texto": "La máquina infinita: Demis Hassabis, DeepMind y la búsqueda de la superinteligencia (Ciencia y Tecnología) comparte con Asistentes y agentes empresariales con IA el interés por la inteligencia artificial, pero Sebastian Mallaby aborda a Demis Hassabis y DeepMind desde la biografía y la divulgación, mientras Iván Rodríguez se centra en los asistentes y agentes para empresas. Gestión de proyectos de inteligencia artificial trata la organización de proyectos, frente al enfoque biográfico y tecnológico de La máquina infinita: Demis Hassabis, DeepMind y la búsqueda de la superinteligencia (Ciencia y Tecnología).",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788426742827",
-        "isbn-9788413619460"
+        "isbn-9788426742704",
+        "isbn-9788426742827"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e36fc8c5bac13527",
+  "fuente_hash": "a7c25ee4d694cfa0",
   "origen": "chatgpt-web"
 }

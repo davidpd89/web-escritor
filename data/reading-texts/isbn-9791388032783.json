@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388032783",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Champán: Una historia burbujeante: 466 (Libros del Tiempo), de Becky Sue Epstein, se orienta a lectores interesados en el champán desde el ámbito gastronómico y del ocio. Con 152 páginas, su enfoque temático se aleja de las novelas de ficción y de los recetarios generales de cocina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Champán: Una historia burbujeante: 466 (Libros del Tiempo) está disponible en tapa dura y Kindle. La edición física de Ediciones Siruela reúne 152 páginas y puede conservarse como libro de consulta o regalarse; Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Champán: Una historia burbujeante: 466 (Libros del Tiempo) comparte el interés por el vino con Champagne: El vino más famoso del mundo (GASTRONOMIA), de Aurélie Soubiran. También se relaciona con Atlas Mundial Del Vino (NATURART), de Hugh Johnson, aunque este último amplía el objeto de estudio al vino en general, mientras que Becky Sue Epstein se centra en el champán.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418075933",
+        "isbn-9791387934170"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16d01465c383bc56",
+  "origen": "chatgpt-web"
+}

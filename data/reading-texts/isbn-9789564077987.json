@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9789564077987",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vestigios De La Dogmatica Penal En La Jurisprudencia Alemana se dirige a lectores interesados en el derecho penal, especialmente en su dimensión dogmática y en la jurisprudencia alemana. Por su materia jurídica, queda fuera de las búsquedas de narrativa de ficción o de introducciones generales a otras ramas del derecho.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Vestigios De La Dogmatica Penal En La Jurisprudencia Alemana está disponible en tapa blanda, con 96 páginas. Este formato permite manejar un volumen físico relativamente breve y consultar sus páginas sin depender de un dispositivo electrónico. Ediciones Olejnik lo publica en castellano, en una edición identificada como Bunko.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vestigios De La Dogmatica Penal En La Jurisprudencia Alemana comparte el ámbito penal con Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal, de Víctor Rodríguez Alonso. La diferencia está en el objeto de estudio: Thomas Fischer se centra en la dogmática penal dentro de la jurisprudencia alemana, mientras que el otro título delimita su análisis a la actuación conjunta en una agresión sexual y a un artículo concreto del Código Penal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370475949"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cd07693b0ce8a544",
+  "origen": "chatgpt-web"
+}

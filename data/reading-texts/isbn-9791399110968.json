@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399110968",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sobre el final de algunas cosas, de Miguel Sanfeliu Brell, encaja con lectores de narrativa contemporánea que buscan una obra de extensión intermedia. Sus 202 páginas en castellano la sitúan lejos de las novelas especialmente extensas, mientras que quienes prefieren géneros distintos tendrán otras opciones más ajustadas a sus gustos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sobre el final de algunas cosas cuenta con una edición en tapa blanda de 202 páginas, publicada por Talentura. El formato permite leer en papel sin necesidad de batería ni pantalla y conservar el ejemplar físicamente; su extensión también permite organizar la lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "969fb3260e6be5f9",
+  "origen": "chatgpt-web"
+}

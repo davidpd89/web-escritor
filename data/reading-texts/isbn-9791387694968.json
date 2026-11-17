@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387694968",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La gran ocasión:: Los primeros encuentros entre Extremo Oriente y Occidente (Sílex Universidad) se dirige a lectores interesados en la historia de las relaciones entre regiones orientales y occidentales. Por su enfoque histórico y sus 296 páginas, se aleja de las novelas de aventuras y de las introducciones históricas muy breves.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La gran ocasión:: Los primeros encuentros entre Extremo Oriente y Occidente (Sílex Universidad) se presenta en tapa blanda, con 296 páginas en castellano. Esta edición de Sílex Ediciones permite consultar en papel un estudio histórico de extensión intermedia, con espacio para marcar páginas y volver a determinados apartados.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La gran ocasión:: Los primeros encuentros entre Extremo Oriente y Occidente (Sílex Universidad) comparte el interés por la historia con Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días). La obra de José Luis Caño Ortigosa y Yueyou Cui se centra en los primeros contactos entre Oriente y Occidente, mientras que la de Jacob Mikanowski aborda la trayectoria de Europa del Este.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e166ffd1b61714f6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798235239449",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cicatrices de un amor obsesivo, de Carlos Alberto Hernández Carreón, se dirige a lectores de terror y misterio interesados en relatos vinculados con la obsesión amorosa. Por su combinación de géneros, se distancia de las historias románticas planteadas exclusivamente desde las relaciones sentimentales, sin elementos de terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cicatrices de un amor obsesivo se presenta en tapa blanda y tiene 162 páginas. Su extensión permite leerlo en varias sesiones breves, mientras que el formato físico facilita conservarlo junto a otras obras de misterio y terror.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cicatrices de un amor obsesivo comparte con Carrie (edición serie), de Stephen King, su pertenencia al terreno del terror y el misterio. La obra de Carlos Alberto Hernández Carreón señala la obsesión amorosa desde el título, mientras que Carrie (edición serie) presenta a una joven acosada en el instituto y su convivencia con una madre de creencias religiosas extremas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466396806"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce2411a25f74672d",
+  "origen": "chatgpt-web"
+}

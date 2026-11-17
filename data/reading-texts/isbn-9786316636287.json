@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786316636287",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en las relaciones entre música, lenguaje, tecnología y estética. Su planteamiento de apuntes sobre estas materias encaja con la lectura de reflexión artística, no con quien busca una novela musical o un manual de interpretación instrumental.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La música cambia, la ciudad tiembla: Apuntes sobre lenguaje, tecnología y estética se presenta en tapa blanda, con 352 páginas en castellano. La edición impresa permite consultar y releer sus apuntes sobre cuestiones musicales, tecnológicas y estéticas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "21 Westerns del siglo XXI (Sílex Cine/Claqueta) comparte el interés por las manifestaciones artísticas, pero se ocupa del cine del oeste, mientras Eduardo Berti aborda música, lenguaje y tecnología. Al hollywood parisino la produccion hispana de paramount en también se sitúa en el ámbito cultural y cinematográfico, frente a la perspectiva musical y estética de esta obra.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388205842",
+        "isbn-9788486877590"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc2f8c39a491661f",
+  "origen": "chatgpt-web"
+}

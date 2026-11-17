@@ -4,17 +4,19 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un espejo lejano se dirige a lectores interesados en la historia de Europa Occidental durante el siglo XIV y en las crisis que marcaron aquella sociedad. Su tratamiento de epidemias, guerras, hambre y conflictos religiosos encaja menos con quienes buscan ficción histórica o una lectura centrada en acontecimientos contemporáneos.",
+      "texto": "Un espejo lejano está dirigido a lectores interesados en la historia de Europa occidental y en las consecuencias sociales de las guerras, las epidemias y las crisis religiosas. Su recorrido por el siglo XIV reúne acontecimientos políticos y condiciones de vida de una misma época. Con 656 páginas, se aleja de quienes buscan una novela de ficción o una explicación breve de un solo episodio histórico.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Barbara W. Tuchman examina la Europa Occidental del siglo XIV desde una perspectiva histórica que relaciona conflictos militares, epidemias, escasez alimentaria y tensiones religiosas. El enfoque permite observar cómo distintas crisis afectaron a una misma sociedad y periodo, en lugar de tratar cada fenómeno como un episodio aislado.",
+      "texto": "Un espejo lejano estudia las dificultades que atravesó Europa occidental durante el siglo XIV, desde la expansión de la peste negra hasta los enfrentamientos militares y las tensiones religiosas. Barbara W. Tuchman relaciona estos procesos con la escasez de alimentos y las condiciones de vida de la población. El enfoque es histórico y reúne distintas crisis para construir una visión de conjunto de aquel periodo.",
       "evidencias": [
+        "titulo",
         "autores",
         "sinopsis_editorial",
         "categorias"
@@ -22,27 +24,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda corresponde a una edición rústica con solapas de 656 páginas, pensada para quien prefiera consultar y recorrer una obra histórica extensa en papel. Kindle permite llevar el texto en formato digital y continuar la lectura en distintos momentos sin cargar con el volumen físico. Ambos formatos contienen la obra en castellano.",
+      "texto": "Un espejo lejano puede leerse en tapa blanda o Kindle. La edición impresa de Editorial Ariel contiene 656 páginas y se presenta en rústica con solapas, adecuada para conservar y consultar el volumen; Kindle permite acceder al texto desde un dispositivo compatible sin transportar el libro físico.",
       "evidencias": [
-        "edicion",
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "idioma"
+        "numero_paginas",
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un espejo lejano puede compararse con 76 por su pertenencia al ámbito histórico, aunque la obra de Barbara W. Tuchman se centra en la Europa Occidental medieval. Frente a Agustín penón y Federico García Lorca, que aborda una investigación relacionada con la vida y la muerte de Federico García Lorca, ofrece un panorama de crisis colectivas durante el siglo XIV, en lugar de concentrarse en una figura concreta.",
+      "texto": "Un espejo lejano comparte con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy Ryback, el estudio de periodos marcados por crisis históricas. Barbara W. Tuchman examina las guerras, epidemias y tensiones religiosas de Europa occidental durante el siglo XIV, mientras que la otra obra aborda el derrumbe de una democracia bajo Hitler. La diferencia está en el alcance: una visión de distintas crisis sociales frente al análisis de un proceso político concreto.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329695",
-        "isbn-9788418567933"
+        "isbn-9788411005517"
       ]
     }
   ],

@@ -4,41 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Gina, la jirafa que quería ser libre: 1 (Biblioteca de la Naturaleza) se dirige al público infantil interesado en los animales y las historias relacionadas con la naturaleza. Sus 44 páginas sitúan la obra de Sergi Castillo Lapeira en una extensión breve, distinta de las novelas juveniles largas o de los manuales científicos especializados.",
+      "texto": "Gina, la jirafa que quería ser libre: 1 (Biblioteca de la Naturaleza) se dirige al público infantil y juvenil interesado en historias protagonizadas por animales y en la libertad como tema. Sus 44 páginas ofrecen una extensión breve frente a las lecturas juveniles más largas.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Gina, la jirafa que quería ser libre: 1 (Biblioteca de la Naturaleza) está disponible en tapa blanda y contiene 44 páginas en castellano. Su extensión facilita manejar el libro durante una lectura infantil compartida, y la encuadernación flexible permite llevarlo en una mochila sin ocupar demasiado espacio.",
+      "texto": "Gina, la jirafa que quería ser libre: 1 (Biblioteca de la Naturaleza) está disponible en tapa blanda, con 44 páginas en castellano. Esta edición permite leer el libro en papel y manejarlo sin el peso de un volumen extenso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Gina, la jirafa que quería ser libre: 1 (Biblioteca de la Naturaleza) y Animales, de Susaeta Ediciones, comparten el protagonismo de los animales en lecturas infantiles. Sergi Castillo Lapeira centra su título en una jirafa y su deseo de libertad, mientras que Animales reúne seis cuentos ilustrados con distintos protagonistas animales.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791370341589"
+        "idioma"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6ab02bb42b7e04e3",
+  "fuente_hash": "b2a8543e386bc611",
   "origen": "chatgpt-web"
 }

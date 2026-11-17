@@ -4,39 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El viaje: Un año para transformar tu vida: 365 reflexiones para cultivar el autoconocimiento y la paz interior (Crecimiento personal) está dirigido a lectores interesados en el desarrollo personal y la reflexión cotidiana. Sus 365 reflexiones plantean un recorrido de lectura vinculado al autoconocimiento; no es una propuesta de ficción narrativa ni un relato de viajes centrado en destinos geográficos.",
+      "texto": "Se dirige a lectores interesados en el desarrollo personal, el autoconocimiento y la paz interior. El viaje: Un año para transformar tu vida: 365 reflexiones para cultivar el autoconocimiento y la paz interior (Crecimiento personal), de Yung Pueblo, plantea una lectura organizada alrededor de reflexiones; no responde a la búsqueda de una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 400 páginas de El viaje: Un año para transformar tu vida: 365 reflexiones para cultivar el autoconocimiento y la paz interior (Crecimiento personal). Es la edición disponible para quien prefiere leer en papel y conservar un ejemplar al que volver durante sus momentos de reflexión.",
+      "texto": "La edición en tapa blanda de Grijalbo reúne 400 páginas y permite consultar las reflexiones en papel. Es una opción física para mantener el libro a mano durante el año al que alude su título, marcar pasajes o regalar un ejemplar impreso.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Viaje al mundo de las emociones (de la A a la Z) (Cuentos que cuentan), de Ana Serna Vara, comparte con El viaje: Un año para transformar tu vida: 365 reflexiones para cultivar el autoconocimiento y la paz interior (Crecimiento personal) el interés por el mundo interior. La diferencia está en el enfoque: uno propone 365 reflexiones relacionadas con el autoconocimiento y la paz interior, mientras el otro organiza su recorrido alrededor de las emociones.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788410318953"
+        "numero_paginas",
+        "editorial",
+        "titulo"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e2c2506ebbf840bb",
+  "fuente_hash": "add2f22730ab8cc6",
   "origen": "chatgpt-web"
 }

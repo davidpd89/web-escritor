@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El regreso de Hermes, de Andrés Zuzunaga, se sitúa entre las lecturas relacionadas con el desarrollo personal, el bienestar y la familia. Por esa orientación temática, encaja menos con quienes buscan exclusivamente ficción de aventuras o una narración centrada en personajes imaginarios.",
+      "texto": "El regreso de Hermes se dirige a lectores interesados en libros del ámbito del bienestar y la salud. Sus 304 páginas permiten dedicarle una lectura prolongada; encaja menos con quien busque una obra breve o una novela de aventuras.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El regreso de Hermes se presenta en tapa blanda, con 304 páginas en castellano y edición de Cosmograma Ediciones. Su extensión permite una lectura por sesiones y el formato impreso facilita volver a pasajes concretos durante la consulta.",
+      "texto": "El regreso de Hermes está disponible en tapa blanda, con 304 páginas en castellano. Esta edición de Cosmograma Ediciones permite consultar el contenido en papel y transportarlo sin la rigidez de una encuadernación de tapa dura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El regreso de Hermes comparte con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito el interés por el bienestar y el desarrollo personal. La obra de Liz Moody anuncia expresamente un enfoque científico, mientras que la de Andrés Zuzunaga se presenta bajo un título de referencia mitológica.",
+      "texto": "El regreso de Hermes comparte el ámbito del bienestar con 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke. Este último anuncia consejos sobre longevidad y optimismo, mientras que El regreso de Hermes presenta una propuesta de Andrés Zuzunaga cuyo título no delimita un aspecto concreto de la salud.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9791387852290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a7dfb1ebeb184372",
+  "fuente_hash": "92390d4de0fd084c",
   "origen": "chatgpt-web"
 }

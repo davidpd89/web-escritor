@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Gran Bilbao se dirige a lectores interesados en el arte y el diseño, especialmente en obras cuyo título remite a un lugar concreto. Sus 220 páginas ofrecen una extensión intermedia, menos ajustada a quienes buscan un manual técnico de otra disciplina o una novela identificada como tal.",
+      "texto": "Gran Bilbao se dirige a lectores interesados en publicaciones de arte y diseño. Sus 220 páginas lo sitúan en una extensión intermedia; por su clasificación editorial, no es la elección más directa para quien busca una novela de aventuras o una historia de misterio.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Gran Bilbao se publica en tapa dura, con 220 páginas en castellano. La encuadernación rígida facilita conservar el volumen en una biblioteca y utilizarlo como libro de consulta o regalo relacionado con el arte y el diseño.",
+      "texto": "Gran Bilbao está disponible en tapa dura, con 220 páginas en castellano. Esta encuadernación permite conservar el volumen en una estantería y consultarlo físicamente, una opción práctica para una publicación de arte y diseño que se quiera mantener como parte de una colección.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Gran Bilbao puede compararse con 720 retrats por su vinculación con el ámbito artístico. Martin Mendo presenta una obra cuyo título remite a Bilbao, mientras que el libro de Xavier Mollà i Revert identifica expresamente los retratos como asunto y destaca su cantidad.",
+      "texto": "Gran Bilbao puede compararse con 720 retrats por su vinculación al arte y al trabajo visual, aunque sus títulos apuntan a asuntos diferentes. También comparte ámbito editorial con All Black Cuaderno (LIBRETAS ARTÖSTICAS), cuya denominación remite a un cuaderno, frente al título geográfico de la obra de Martin Mendo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412678802"
+        "isbn-9788412678802",
+        "isbn-9789879871119"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "77f3c022d81850c8",
+  "fuente_hash": "a7e8bbddc8efc5a1",
   "origen": "chatgpt-web"
 }

@@ -4,30 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pack Grant Cardone (Contiene: Vendes o vendes | La regla de oro de los negocios) (Best Seller | No Ficción) está dirigido a lectores interesados en ventas y gestión empresarial. Reúne dos títulos de Grant Cardone y se diferencia de las obras centradas exclusivamente en economía doméstica o teoría política.",
+      "texto": "El pack de Grant Cardone se dirige a lectores interesados en las ventas y la gestión de negocios. Contiene Vendes o vendes y La regla de oro de los negocios, dos títulos de no ficción publicados conjuntamente en edición de bolsillo. Su enfoque empresarial lo distingue de las lecturas de narrativa.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pack Grant Cardone (Contiene: Vendes o vendes | La regla de oro de los negocios) (Best Seller | No Ficción) comparte el ámbito empresarial con Antes de liderar: Una mirada interior a un oficio, aunque este último se centra en el liderazgo. Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS) aborda el branding desde una propuesta identificada como novela-ensayo, frente al conjunto de dos obras sobre ventas y negocios de Grant Cardone.",
+      "texto": "ANTES DE QUE OCURRA: Vender, formar y proteger el futuro, de Rafael De la Torre Pérez, comparte con el pack de Grant Cardone el interés por las ventas. La diferencia está en el alcance anunciado: el primero incorpora formación y protección del futuro, mientras que el pack reúne Vendes o vendes y La regla de oro de los negocios bajo una misma autoría.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409921980",
-        "isbn-9791399168648"
+        "isbn-9788409935604"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "71dbd12fea14d095",
+  "fuente_hash": "0505556490f2ae6a",
   "origen": "chatgpt-web"
 }

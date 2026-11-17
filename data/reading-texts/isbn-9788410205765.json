@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788410205765",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amistad historias: 45 (Cuentos de 5 minutos) se orienta al público infantil interesado en historias sobre la amistad. El título alude a cuentos de 5 minutos, por lo que encaja con momentos de lectura breve; quienes busquen una novela juvenil extensa encontrarán aquí un planteamiento distinto. El volumen tiene 48 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amistad historias: 45 (Cuentos de 5 minutos) se publica en tapa dura, con 48 páginas en castellano. La encuadernación rígida resulta práctica para manejarlo durante lecturas infantiles compartidas y para conservarlo en una estantería. Esta edición de Estudio Didactico reúne el contenido en un único libro físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d616be144988a8dc",
+  "origen": "chatgpt-web"
+}

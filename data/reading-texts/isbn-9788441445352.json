@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está pensado para lectores interesados en la Guerra Civil Española y en comprender acontecimientos históricos mediante datos, mapas e imágenes. Su planteamiento visual y documental se distancia de una novela histórica centrada en personajes ficticios.",
+      "texto": "Se dirige a lectores interesados en la Guerra Civil Española que prefieren estudiar la historia mediante datos, mapas e imágenes. Por su planteamiento visual y sus 192 páginas, encaja menos con quien busca una narración histórica extensa basada principalmente en texto continuo.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Miguel del Rey aborda la Guerra Civil Española desde una perspectiva histórica apoyada en infografías. Los datos, mapas e imágenes anunciados en el título constituyen los recursos explicativos de una obra situada en el ámbito del siglo XX.",
+      "texto": "La Guerra Civil Española constituye el tema central, abordado mediante infografías, datos, mapas e imágenes. Miguel del Rey organiza así una aproximación visual a este conflicto del siglo XX, con recursos gráficos como parte del planteamiento histórico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,25 +22,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda presenta las 192 páginas en un volumen físico que puede consultarse y transportarse sin la rigidez de una encuadernación de tapa dura. La lectura en papel permite examinar directamente los mapas y las imágenes que forman parte del planteamiento del libro.",
+      "texto": "La edición se ofrece en tapa blanda y contiene 192 páginas en castellano. El soporte impreso permite consultar directamente los mapas, las imágenes y los datos que forman parte del enfoque visual del libro.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "idioma",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "76, de Felipe Pigna, ofrece otra referencia para lectores interesados en obras históricas, aunque su título señala un asunto distinto al de la Guerra Civil Española. Agustín penón y Federico García Lorca se aproxima a la investigación sobre una figura literaria y su muerte, mientras que La Guerra Civil en infografías organiza su tema alrededor de datos, mapas e imágenes.",
+      "texto": "Puede compararse con A sangre y fuego (Clásicos ilustrados), de Manuel Chaves Nogales, por su relación con la historia y el tratamiento ilustrado. La Guerra Civil en infografías: La Historia de la Guerra Civil Española, Explicada a Través de Sus Datos, Mapas E Imágenes (Crónicas de la historia) identifica expresamente los datos y mapas como recursos explicativos, mientras que A sangre y fuego se presenta como una edición de clásicos ilustrados.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788408329695",
-        "isbn-9788418567933"
+        "isbn-9791387752590"
       ]
     }
   ],

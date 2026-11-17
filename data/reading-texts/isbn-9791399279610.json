@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399279610",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Charlie, Charlie encaja con lectores que buscan misterio y thriller en una obra de extensión moderada. Sus 220 páginas sitúan la lectura en un formato más breve que el de muchas novelas extensas, por lo que responde menos a quien busca una historia especialmente larga.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Charlie, Charlie se presenta en tapa blanda, con 220 páginas en castellano. La edición de Fuerte Letra reúne el texto en un único volumen físico, adecuado para quien prefiere leer en papel y llevar el libro consigo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Charlie, Charlie comparte el terreno del misterio con Aberración, de Santiago López de Hoyos, y con Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui. Frente al robo de croquetas que plantea este último, Charlie, Charlie se presenta como una obra de misterio y thriller sin concretar su conflicto en el título.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399297508",
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21e1109d274ab187",
+  "origen": "chatgpt-web"
+}

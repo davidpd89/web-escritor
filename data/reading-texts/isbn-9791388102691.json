@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Usagi Yojimbo Saga nº 09 se dirige a lectores de cómic fantástico interesados en samuráis, enfrentamientos feudales y aventuras ambientadas en el Japón histórico. Su combinación de acción y conflictos entre señores rivales se aleja de la fantasía contemporánea y de la narrativa sin ilustraciones.",
+      "texto": "Usagi Yojimbo Saga nº 09 encaja con lectores de fantasía y cómic interesados en historias de samuráis y conflictos ambientados en el Japón histórico. Puede no responder a las preferencias de quienes buscan novelas convencionales, ficción contemporánea o relatos sin acción ni contexto bélico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,27 +13,25 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Stan Sakai continúa la historia de un conejo ronin en un escenario inspirado en las guerras civiles japonesas de finales del siglo XVI. La pérdida de su señor durante una batalla forma parte del trasfondo del protagonista, mientras que el título identifica este tomo como el n.º 09 de la colección Saga.",
+      "texto": "La historia sitúa al protagonista en el Japón de finales del siglo XVI, durante un periodo de guerras civiles entre señores feudales. La pérdida de su señor durante una batalla constituye un antecedente central del relato, que combina ambientación histórica, fantasía y narración gráfica.",
       "evidencias": [
-        "titulo",
-        "autores",
+        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer las 392 páginas de Usagi Yojimbo Saga nº 09 en un ejemplar físico, con una edición en rústica con solapas de Planeta Cómic. Kindle ofrece la alternativa digital para llevar el cómic en un dispositivo compatible, sin transportar el volumen impreso.",
+      "texto": "La tapa blanda reúne sus 392 páginas en una edición física de rústica con solapas publicada por Planeta Cómic. Kindle ofrece una alternativa digital para leer el volumen en dispositivos electrónicos y acceder a la obra sin transportar el ejemplar.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
+        "formatos_disponibles",
         "edicion",
-        "editorial",
-        "formatos_disponibles"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "AVATAR. La leyenda de Aang 5 - Norte y sur comparte con Usagi Yojimbo Saga nº 09 la aventura fantástica en formato cómic, pero desarrolla el futuro de las Tribus Agua en vez de los conflictos feudales japoneses. After God 8 (Shônen) ofrece otra lectura gráfica de fantasía, identificada por su título como una entrega numerada de una serie distinta.",
+      "texto": "After God 7 (Shônen), de Sumi Eno, comparte con Usagi Yojimbo Saga nº 09 el formato de cómic y la presencia de fantasía. La diferencia está en el planteamiento: el primero se identifica como shônen, mientras que el segundo sitúa su relato en un contexto de guerras civiles y conflictos entre señores feudales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -41,8 +39,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962647",
-        "isbn-9788448874803"
+        "isbn-9791387962388"
       ]
     }
   ],

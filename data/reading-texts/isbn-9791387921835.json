@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9791387921835",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Planeta Manga: Mientras Yubooh Duerme n.º 01 (Edición especial): 1 (Universo Planeta Manga) se dirige al público infantil y juvenil interesado en el cómic y la novela gráfica. Por su formato narrativo visual, se diferencia de las novelas escritas únicamente en prosa y de los ensayos destinados a lectores de no ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Planeta Manga: Mientras Yubooh Duerme n.º 01 (Edición especial): 1 (Universo Planeta Manga) se presenta expresamente como edición especial y en tapa dura. Publicada por Planeta Cómic en castellano, reúne 312 páginas de una obra de Paulina Palacios; el título la identifica como el n.º 01.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible de Planeta Manga: Mientras Yubooh Duerme n.º 01 (Edición especial): 1 (Universo Planeta Manga), con 312 páginas. Esta presentación física permite conservar el cómic en una colección y consultar sus páginas ilustradas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Planeta Manga: Mientras Yubooh Duerme n.º 01 (Edición especial): 1 (Universo Planeta Manga) comparte el ámbito del cómic juvenil con Animal Jack 2 la montaña mágica, de Kid Toussaint. La obra de Paulina Palacios se identifica como edición especial de Universo Planeta Manga, mientras que Animal Jack 2 la montaña mágica señala en su título una aventura vinculada a una montaña mágica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387744410"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5367ea5975c9d865",
+  "origen": "chatgpt-web"
+}

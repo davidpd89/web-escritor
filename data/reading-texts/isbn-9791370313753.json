@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370313753",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EDIT & LIVE II: Una mirada extraordinaria (Cultura y Ocio) se dirige a lectores interesados en publicaciones sobre cultura, arte y diseño. Sus 304 páginas en castellano plantean una lectura de consulta más extensa que la de un folleto breve, por lo que encaja menos con quien busca una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de EDIT & LIVE II: Una mirada extraordinaria (Cultura y Ocio) se presenta en tapa blanda, con 304 páginas. Este formato permite manejar el volumen como libro físico, colocarlo en una estantería y volver a consultar sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EDIT & LIVE II: Una mirada extraordinaria (Cultura y Ocio) comparte el ámbito cultural con Píldoras culturales (edición ampliada): Un universo de cultura en 212 pequeñas dosis (DIVULGACIÓN), de Martín Escolar. La segunda obra anuncia una organización en pequeñas dosis, mientras que la primera se presenta como una publicación de cultura y ocio vinculada al arte y el diseño.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005043"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fe93c12c9de8ff7",
+  "origen": "chatgpt-web"
+}

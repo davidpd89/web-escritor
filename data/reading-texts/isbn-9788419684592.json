@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419684592",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sultan Khan, el tigre blanco del ajedrez (Paladines del deporte) se orienta al público juvenil interesado en la historia y en relatos vinculados al ajedrez. Por su combinación de narrativa juvenil y temática histórica, encaja menos con quienes buscan manuales técnicos de aperturas o ejercicios de juego.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sultan Khan, el tigre blanco del ajedrez (Paladines del deporte) se presenta en tapa dura, con 48 páginas en castellano. La encuadernación rígida favorece su conservación y su uso como regalo, mientras que la extensión permite una lectura breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sultan Khan, el tigre blanco del ajedrez (Paladines del deporte) coincide en su dimensión histórica con Ave César (Narrativas Históricas), de Rex Warner. La obra de Cristina Falcón Maldonado y Raquel Catalina se sitúa en la narrativa juvenil y toma el ajedrez como referencia, mientras que Ave César (Narrativas Históricas) se identifica con la narrativa histórica sin esa orientación deportiva en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788435064125"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab4938fcc551d4c8",
+  "origen": "chatgpt-web"
+}

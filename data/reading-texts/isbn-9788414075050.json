@@ -4,28 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las sirenas y otras quimeras (Enciclopedia de seres mágicos), de Cécile Roumiguière, se orienta al público infantil y juvenil interesado en criaturas fantásticas. Sus 63 páginas y su planteamiento de enciclopedia lo distinguen de una novela extensa de ciencia ficción o fantasía.",
+      "texto": "Las sirenas y otras quimeras (Enciclopedia de seres mágicos) está orientado al público infantil interesado en criaturas fantásticas. Su temática se aparta de los libros de conocimientos sobre animales reales y de las historias de ambientación cotidiana.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Las sirenas y otras quimeras (Enciclopedia de seres mágicos) se publica en tapa dura, con 63 páginas en castellano. La encuadernación rígida resulta apropiada para conservar el volumen en una biblioteca infantil y para entregarlo como regalo físico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura presenta las 63 páginas de Las sirenas y otras quimeras (Enciclopedia de seres mágicos) en una encuadernación rígida. Es una opción para mantener el volumen en una colección infantil y consultarlo en distintas ocasiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Las sirenas y otras quimeras (Enciclopedia de seres mágicos) y Duelo con varitas (Harry Potter): Guía oficial de hechizos para aprendices de magia comparten el interés por lo mágico. El libro de Cécile Roumiguière se centra, según su título, en seres fantásticos; el de J.K. Rowling, en hechizos y varitas.",
+      "texto": "Las sirenas y otras quimeras (Enciclopedia de seres mágicos) y Las sombras del Titanic (Contempla) comparten autora, Cécile Roumiguière. El primero aborda seres mágicos desde una propuesta infantil de fantasía, mientras que el segundo se identifica por su referencia al Titanic y pertenece a otra colección.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +29,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419868800"
+        "isbn-9788414071038"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5704a5a894f9722b",
+  "fuente_hash": "452e76ae3fa36eff",
   "origen": "chatgpt-web"
 }

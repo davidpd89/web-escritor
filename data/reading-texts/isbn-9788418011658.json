@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El arte de la victoria: el campeón más joven de la historia: Lecciones del Campeonato del Mundo de Ajedrez 2024 (Ajedrez para todos) se dirige a lectores interesados en el ajedrez competitivo y el aprendizaje a partir de un campeonato mundial. Su enfoque en las lecciones de una competición concreta lo distingue de los libros de ocio dedicados a actividades manuales o artísticas.",
+      "texto": "El arte de la victoria: el campeón más joven de la historia: Lecciones del Campeonato del Mundo de Ajedrez 2024 (Ajedrez para todos) se dirige a lectores interesados en el ajedrez competitivo y en aprender a partir de un campeonato mundial. Su enfoque temático lo separa de los libros de pasatiempos generales y de los manuales sobre juegos sin relación con el tablero.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,17 +12,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 224 páginas en castellano sobre las lecciones del Campeonato del Mundo de Ajedrez 2024. El soporte impreso permite consultar pasajes, retroceder entre páginas y mantener el volumen junto a otros materiales de estudio del ajedrez.",
+      "texto": "La edición en tapa blanda contiene 224 páginas dedicadas al ajedrez y al campeonato mencionado en el título. El ejemplar impreso permite alternar la lectura con la observación de un tablero físico y regresar a los pasajes durante el estudio.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El arte de la victoria: el campeón más joven de la historia: Lecciones del Campeonato del Mundo de Ajedrez 2024 (Ajedrez para todos) comparte su orientación hacia una actividad de ocio con 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), de Varios autores. El primero trata el aprendizaje del ajedrez competitivo; el segundo propone colorear mediante píxeles. Ambos se diferencian también por la autoría: Iván Salgado y Carlos Martínez Piqueras firman el primero.",
+      "texto": "99 Sudoku (LIBROS SINGULARES) y El arte de la victoria: el campeón más joven de la historia: Lecciones del Campeonato del Mundo de Ajedrez 2024 (Ajedrez para todos) se relacionan con las aficiones intelectuales, aunque el primero se centra en sudokus y el segundo en el ajedrez competitivo. Frente a 80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres, que plantea enigmas criminales, Iván Salgado y Carlos Martínez Piqueras toman como referencia un campeonato mundial de ajedrez.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328384"
+        "isbn-9791388015816",
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1dcfd66c5ae77972",
+  "fuente_hash": "740a6b34021d69d7",
   "origen": "chatgpt-web"
 }

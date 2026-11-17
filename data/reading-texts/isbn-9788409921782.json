@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "EL RECORRIDO DEL SÍ: El sistema para que tu paciente entienda, acepte, y tu equipo ejecute sin sorpresas ni repeticiones se orienta a profesionales que trabajan con pacientes y coordinan equipos. Su planteamiento relaciona comunicación, aceptación y ejecución de procesos, por lo que no está enfocado en quien busque una novela o un manual exclusivamente financiero.",
+      "texto": "Se dirige a profesionales sanitarios que buscan mejorar la comprensión y aceptación de sus propuestas por parte de los pacientes y coordinar su ejecución con el equipo. Su enfoque empresarial y asistencial encaja menos con quien busca consejos generales de bienestar sin relación con la gestión de pacientes.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,29 +12,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "EL RECORRIDO DEL SÍ: El sistema para que tu paciente entienda, acepte, y tu equipo ejecute sin sorpresas ni repeticiones cuenta con 296 páginas en tapa blanda. El formato en papel permite consultar apartados durante el trabajo, señalar páginas y recuperar explicaciones relacionadas con la coordinación entre pacientes y equipos.",
+      "texto": "La edición en tapa blanda reúne las 296 páginas de EL RECORRIDO DEL SÍ: El sistema para que tu paciente entienda, acepte, y tu equipo ejecute sin sorpresas ni repeticiones en un volumen físico. Permite consultar en papel las cuestiones relacionadas con la aceptación del paciente y la coordinación del equipo, sin depender de una pantalla.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "EL RECORRIDO DEL SÍ: El sistema para que tu paciente entienda, acepte, y tu equipo ejecute sin sorpresas ni repeticiones puede compararse con El factor tú: Claves para comunicar con autenticidad y conseguir lo que te propongas (No ficción). Luken de Arbeloa aborda la comprensión del paciente y la ejecución del equipo, mientras que Rafa Rodrigo sitúa la comunicación personal y la autenticidad en el centro de su propuesta.",
+      "texto": "Comparte con Burnout en el trabajo: Guía práctica para trabajadores, mandos y empresas: prevenirlo, detectarlo y actuar. Con casos, 170 test y modelos para fotocopiar el interés por los problemas que afectan a los equipos profesionales. Mientras José Luis Efraín Zeballos aborda la prevención y detección del desgaste laboral, Luken de Arbeloa se centra en la comprensión del paciente y la ejecución coordinada de las decisiones.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388139239"
+        "isbn-9791399320725"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "139fe00482a183e5",
+  "fuente_hash": "bef559f88f0745ac",
   "origen": "chatgpt-web"
 }

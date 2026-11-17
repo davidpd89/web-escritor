@@ -4,42 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está pensado para lectores interesados en pintar paisajes naturales con acuarela y trabajar sus distintos elementos. Paisajes naturales a la acuarela: Un recorrido por sus elementos y cómo pintarlos, de Johannes Vloothuis, pertenece al ámbito del arte y las actividades de tiempo libre. Su enfoque práctico lo diferencia de los ensayos sobre historia del arte y de los libros de narrativa.",
+      "texto": "Dirigido a quienes quieren aprender a pintar paisajes naturales con acuarela y trabajar sus distintos elementos. Su enfoque práctico sobre pintura y diseño no corresponde a una novela ni a una lectura centrada en personajes.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Paisajes naturales a la acuarela: Un recorrido por sus elementos y cómo pintarlos es en tapa blanda, con 144 páginas en castellano. El formato en papel permite mantener el libro abierto cerca de los materiales de pintura y volver a consultar sus contenidos mientras se practica. Está publicado por Editorial el Drac.",
+      "texto": "La edición en tapa blanda reúne 144 páginas dedicadas a los paisajes naturales y su representación en acuarela. El formato permite consultar el contenido durante las sesiones de pintura y trasladar el libro entre distintos espacios de trabajo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros), de Katy Hessel, comparte el interés por la práctica creativa, pero plantea inspiraciones artísticas generales frente al aprendizaje de paisajes a la acuarela de Johannes Vloothuis. Destinos vintage: 40 láminas misteriosas para colorear (GEOPLANETA COLOREA), de Sophie Guët, también propone una actividad visual, aunque centrada en colorear láminas y no en aprender a pintar elementos naturales con acuarela.",
+      "texto": "El desnudo femenino. De la estructura a la forma: La búsqueda de las líneas esenciales del dibujo comparte el interés por aprender técnicas de representación artística, pero se centra en la figura humana y el dibujo, frente a los paisajes en acuarela. Ambos abordan elementos visuales distintos y permiten orientar la elección según el motivo que se quiera representar.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388324239",
-        "isbn-9788408324836"
+        "isbn-9788498748253"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "288722bfc3db86c8",
+  "fuente_hash": "2eb37f7e92f6e965",
   "origen": "chatgpt-web"
 }

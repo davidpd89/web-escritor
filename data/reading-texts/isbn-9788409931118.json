@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409931118",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entre tú y nadie más: Romance contemporáneo | Slow burn, convivencia forzada, humor y secretos del pasado. se dirige a lectores de romance actual que buscan relaciones de desarrollo gradual y convivencia entre personajes. El humor y los asuntos pendientes del pasado forman parte de su propuesta; no responde a una búsqueda de fantasía romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Entre tú y nadie más: Romance contemporáneo | Slow burn, convivencia forzada, humor y secretos del pasado. se presenta en tapa blanda, con 340 páginas en castellano. La edición física reúne en un solo volumen la historia de Sira Mars y permite leerla sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los finales perfectos no existen comparte con Entre tú y nadie más: Romance contemporáneo | Slow burn, convivencia forzada, humor y secretos del pasado. el terreno de la comedia romántica, aunque el libro de Sira Mars identifica expresamente la convivencia forzada y el desarrollo sentimental lento. Navidades (in)voluntarias: Una comedia romántica navideña feel-good de grumpy x sunshine y magia inesperada incorpora un contexto navideño y elementos mágicos que no forman parte de los temas anunciados por Sira Mars.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425371745",
+        "isbn-9788409921010"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "01ec7f8b5d77dd75",
+  "origen": "chatgpt-web"
+}

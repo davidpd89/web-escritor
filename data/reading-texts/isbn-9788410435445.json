@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410435445",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Buscando a Emma (Maestrale), de Dacia Maraini, se orienta a quienes leen ensayo y prefieren este género frente a la narrativa de ficción. Sus 200 páginas ofrecen una extensión delimitada; encaja menos con lectores que buscan específicamente una novela de fantasía o terror.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Buscando a Emma (Maestrale) cuenta con una edición en tapa blanda de Altamarea Ediciones. El volumen reúne 200 páginas en castellano y permite una lectura en papel, con posibilidad de volver a pasajes anteriores y colocar marcadores físicos durante la consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "67b15e366e020edf",
+  "origen": "chatgpt-web"
+}

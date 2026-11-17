@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387806569",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "De entre sonidos se dirige a lectores que buscan poesía en castellano y prefieren un libro de extensión contenida. Con 106 páginas y una clasificación poética, se diferencia de las novelas de trama extensa y de los manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "De entre sonidos se ofrece en tapa blanda, con 106 páginas impresas. Esta edición permite llevar el poemario y regresar a sus textos sin depender de una pantalla, con una extensión manejable para la lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De entre sonidos comparte su orientación poética con A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza. Los tres títulos permiten explorar obras de autores diferentes dentro de la poesía; David García Lamela firma De entre sonidos, frente a las autorías de las otras dos obras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "17cf246b08c4819c",
+  "origen": "chatgpt-web"
+}

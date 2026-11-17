@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388279478",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bingo musical: Dale al play y que empiece la fiesta (Voces de hoy) se dirige a quienes buscan una actividad de ocio relacionada con la música y el juego. La propuesta de Cocoludic se sitúa en el entretenimiento, por lo que se distancia de las lecturas centradas en una trama narrativa o en el estudio teórico de la música.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bingo musical: Dale al play y que empiece la fiesta (Voces de hoy) tiene una edición en tapa blanda de 1024 páginas. Su extensión es un factor importante para decidir dónde guardarlo y cómo manejarlo durante las actividades; el formato físico permite consultar el contenido sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bingo musical: Dale al play y que empiece la fiesta (Voces de hoy) comparte autoría con Wordle in crime: La palabra asesina del día, de Cocoludic, pero cambia los enigmas criminales y las palabras por una propuesta de bingo musical. También se relaciona con El gen lúdico: Un recorrido personal y profesional por el diseño de juegos serios, aunque este último aborda el diseño de juegos desde una perspectiva profesional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388279553",
+        "isbn-9791399278613"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1eb028ab71e0b3e0",
+  "origen": "chatgpt-web"
+}

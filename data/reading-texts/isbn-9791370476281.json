@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370476281",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Derecho Penitenciario Iberoamericano: Pasado, presente y futuro está dirigido a lectores interesados en el derecho penitenciario y su evolución temporal. Por su materia jurídica y sus 986 páginas, encaja menos con quienes buscan una introducción breve o una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 986 páginas de Derecho Penitenciario Iberoamericano: Pasado, presente y futuro en un único volumen impreso. Por su extensión, resulta más apropiado reservarle un espacio de consulta estable que tratarlo como una lectura de bolsillo para desplazamientos frecuentes.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Derecho Penitenciario Iberoamericano: Pasado, presente y futuro comparte el campo jurídico con Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios), de Tomás Cano Campos. El primero se centra en el derecho penitenciario iberoamericano desde una perspectiva temporal, mientras que el segundo delimita su materia al derecho administrativo sancionador. Ambos se distinguen también por su autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610562"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "72a15d07a565f4b0",
+  "origen": "chatgpt-web"
+}

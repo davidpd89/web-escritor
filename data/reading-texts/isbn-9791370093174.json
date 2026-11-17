@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370093174",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guns N' Roses: La banda más peligrosa del planeta (Alianza Pop), de Jesús Casañas, se dirige a lectores interesados en la historia de la música y las biografías. Sus 504 páginas ofrecen una lectura extensa de no ficción, menos adecuada para quien busca una novela o un libro breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 504 páginas de Guns N' Roses: La banda más peligrosa del planeta (Alianza Pop) en papel, con una edición física de Alianza Editorial. Kindle ofrece el mismo título en formato digital, para llevarlo en un lector electrónico o consultarlo desde el móvil sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bad Bunny: Un icono: sin permiso, sin límite, sin miedo (No ficción), de Jaime Valero, comparte con Guns N' Roses: La banda más peligrosa del planeta (Alianza Pop) el interés por figuras musicales. La diferencia está en sus protagonistas y autores: Jesús Casañas aborda una banda, mientras Jaime Valero centra su libro en un artista individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388139482"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0a5a21d2425b666a",
+  "origen": "chatgpt-web"
+}

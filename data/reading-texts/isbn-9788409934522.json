@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Poemas y canciones para el alma. se dirige a lectores interesados en poesía y textos vinculados a la canción, dentro de una obra que también se clasifica como ensayo. No responde a la búsqueda de una novela de ficción ni de una narración extensa: el volumen de Dolors Coll Figueras tiene 72 páginas.",
+      "texto": "Poemas y canciones para el alma., de Dolors Coll Figueras, se dirige a lectores interesados en la poesía y en textos vinculados con la canción. Su clasificación también incluye el ensayo, por lo que se distancia de quienes buscan exclusivamente una novela o un manual práctico.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición física de este poemario se ofrece en tapa blanda y tiene 72 páginas. Su extensión permite transportarlo con facilidad y consultar composiciones concretas durante trayectos o pausas breves. El volumen publicado por City See Study Centre S.l. está pensado para la lectura en papel.",
+      "texto": "Poemas y canciones para el alma. está editado en tapa blanda, con 72 páginas en castellano. Es un volumen breve para leer en papel, volver sobre sus textos y transportarlo sin el peso de una recopilación extensa.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Poemas y canciones para el alma. comparte con Fuego y raíz: Cancionero (Primera persona) la relación entre poesía y canción que anuncian sus títulos. La obra de Dolors Coll Figueras también se clasifica como ensayo, mientras que la de Gata Cattana se presenta como cancionero. Son dos autorías distintas para explorar esa relación desde sus respectivos libros.",
+      "texto": "Poemas y canciones para el alma. puede compararse con El hacha de raskolnikov: 54 (Poesía - los libros del mississippi), de Teresa Sánchez Ruiz, por su vinculación con la poesía. También se relaciona con Estética del dharma: Tratados filosófico-poéticos (II) (Ensayo), de Jorge Gimeno, aunque este último anuncia una orientación filosófica y ensayística, frente a la combinación de poemas y canciones del libro de Dolors Coll Figueras.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +32,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788403524996"
+        "isbn-9791399132656",
+        "isbn-9791388054587"
       ]
     }
   ],

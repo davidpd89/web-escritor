@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388586859",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gestión de la morosidad-ADGN057PO (v2) se dirige a lectores interesados en la gestión de impagos dentro del ámbito económico y empresarial. Por su enfoque temático, resulta menos afín a quienes buscan narrativa de ficción o estudios sobre cuestiones económicas alejadas de la morosidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gestión de la morosidad-ADGN057PO (v2) está disponible en tapa blanda, con 164 páginas en castellano. Esta edición de Ediciones Playa Blanca permite consultar el contenido en papel, marcar apartados y conservarlo como material de referencia sobre morosidad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gestión de la morosidad-ADGN057PO (v2) y Análisis de la rentabilidad en los establecimientos hoteleros-ADGD08 (v2) comparten su vinculación con la gestión económica y la autoría de Avanza Editorial. El primero se centra en la morosidad, mientras que el segundo aborda la rentabilidad de establecimientos hoteleros. Gestión de la PRL en Pymes y MicroPymes-SEAD097PO (v2) desplaza el interés hacia la prevención de riesgos laborales en pequeñas empresas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411354684",
+        "isbn-9791388586835"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c6b8a5d6e369476f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9781805405146",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El enemigo de Europa y el destino de Estados Unidos se dirige a lectores interesados en la historia y el pensamiento político relacionados con Europa y Estados Unidos. Por su enfoque temático, no responde a la búsqueda de una novela de ficción ni de una guía práctica sobre política contemporánea.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El enemigo de Europa y el destino de Estados Unidos está disponible en tapa blanda, con 154 páginas en castellano. Esta edición de Omnia Veritas Ltd permite consultar el texto en papel y transportarlo sin el peso habitual de un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El enemigo de Europa y el destino de Estados Unidos comparte el interés por la historia política con 53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback. Mientras este último se centra en la caída de una democracia, el libro de Francis Parker Yockey plantea desde su título una cuestión sobre Europa y Estados Unidos. Ambos abordan asuntos políticos desde perspectivas temáticas distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "015b1b02b0cbf2ed",
+  "origen": "chatgpt-web"
+}

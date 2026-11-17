@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791388154683",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gran guía visual del cosmos. Nueva versión extendida y actualizada.: Una guía con sencillos gráficos e ilustraciones para entender los conceptos clave del universo se dirige a lectores que prefieren aprender astronomía mediante recursos gráficos. Su enfoque explicativo encaja menos con quien busque una novela espacial o una obra centrada en la narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La guía aborda los conceptos fundamentales del universo mediante gráficos e ilustraciones que acompañan las explicaciones. Esta versión extendida y actualizada, firmada por Toshifumi Futamase y Toshimiro Nakamaru, plantea un acercamiento visual al conocimiento del cosmos.",
+      "evidencias": [
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gran guía visual del cosmos. Nueva versión extendida y actualizada.: Una guía con sencillos gráficos e ilustraciones para entender los conceptos clave del universo puede elegirse en tapa dura o Kindle. La edición física reúne 328 páginas y permite consultar los gráficos en papel; Kindle facilita llevar el contenido en un dispositivo compatible y acceder a él durante los desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de la noche (¡incluye un póster que brilla en la oscuridad!): Explora las constelaciones y las historias de las estrellas (Cuentos que cuentan) comparte con esta guía el interés por el cielo y sus elementos. La obra de Davide Cenadelli se centra en las constelaciones y sus historias e incluye un póster, mientras que la de Toshifumi Futamase y Toshimiro Nakamaru explica conceptos generales del universo mediante gráficos e ilustraciones.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788410318823"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "807e61c79eb23205",
+  "origen": "chatgpt-web"
+}

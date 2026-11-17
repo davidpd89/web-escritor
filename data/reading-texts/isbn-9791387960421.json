@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387960421",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Steve McQueen. 66-76-26. (Libros de Autor.) se dirige a lectores interesados en el arte y el diseño y en publicaciones de autor. Sus 288 páginas en castellano corresponden a una edición de La Fábrica Editorial; por su enfoque, no responde a la búsqueda de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Steve McQueen. 66-76-26. (Libros de Autor.) está disponible en tapa dura, con 288 páginas. Esta encuadernación permite conservar el volumen en una biblioteca de arte y consultarlo repetidamente; también constituye una presentación física para regalar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Steve McQueen. 66-76-26. (Libros de Autor.) comparte el ámbito artístico con 720 retrats, de Xavier Mollà i Revert, aunque este último se identifica por el retrato en su título. También puede compararse con 21 Westerns del siglo XXI (Sílex Cine/Claqueta), de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga, cuyo título delimita su atención al cine del oeste contemporáneo, frente a la publicación de autor de Steve McQueen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842",
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a071c30bcec11914",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791370206086",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "ORIENTE: La señal del cielo (Mascarón ficción) encaja con lectores de narrativa contemporánea que prefieren novelas de extensión media o larga. La obra de Gonzalo Ortiz del Río Blas tiene 364 páginas y se ofrece en castellano; se aleja de lo que busca quien necesita un manual práctico o un ensayo especializado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "ORIENTE: La señal del cielo (Mascarón ficción) puede leerse en tapa blanda o en Kindle. La primera permite conservar, prestar o regalar un ejemplar físico de 364 páginas; Kindle facilita llevar la novela en un lector electrónico o en un dispositivo compatible sin transportar el volumen impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cedcc05716c3a2fa",
+  "origen": "chatgpt-web"
+}

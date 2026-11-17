@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388593000",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La voz de Aspasia (Empátheia) se sitúa en el ámbito del arte y el diseño, por lo que encaja con lectores interesados en publicaciones de esa temática. No está orientado a quienes buscan específicamente un manual de cocina o una guía jurídica, ya que su clasificación editorial corresponde al terreno artístico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La voz de Aspasia (Empátheia) cuenta con una edición en tapa blanda de 128 páginas, publicada en castellano por Guillermo Escolar Editor. Su extensión permite manejar el volumen físico durante la lectura y conservarlo en una biblioteca dedicada al arte y el diseño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La voz de Aspasia (Empátheia) y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) se relacionan por su vinculación con el ámbito artístico, aunque el segundo aborda expresamente el cine del oeste. También puede compararse con 720 retrats, de Xavier Mollà i Revert, cuyo título remite al retrato, frente a la referencia a Aspasia de la obra de Ernesto Caballero de las Heras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842",
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e6ed0fb43133d538",
+  "origen": "chatgpt-web"
+}

@@ -4,24 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La Madre / The Mother se encuadra en la novela histórica y está dirigida a lectores interesados en narraciones de ese género. No pertenece a la literatura práctica ni a los manuales de desarrollo personal, sino a la ficción de ambientación histórica.",
+      "texto": "La Madre / The Mother se dirige a lectores de novela histórica que buscan una obra extensa de José María Zavala. Sus 512 páginas y su clasificación histórica la distinguen de una lectura breve o de un manual de divulgación religiosa.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La Madre / The Mother cuenta con 512 páginas y puede elegirse en tapa dura, tapa blanda o Kindle. La tapa dura ofrece una encuadernación rígida para conservar el volumen, la tapa blanda facilita su transporte y Kindle permite llevar la lectura en formato digital.",
+      "texto": "La Madre / The Mother está disponible en tapa dura, tapa blanda, Kindle y audiolibro. La tapa dura permite conservar sus 512 páginas en una edición de cubierta rígida; la blanda ofrece una alternativa física flexible, Kindle permite leerla en formato digital y el audiolibro sustituye la lectura visual por la escucha.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La Madre / The Mother puede compararse con La madre, también de José María Zavala, por su autoría y la referencia a la maternidad. La primera se clasifica como novela histórica, mientras que la segunda presenta una historia centrada en la fe, la maternidad y el perdón. Ambas comparten un interés temático por la figura materna.",
+      "texto": "La madre comparte autor con La Madre / The Mother y se presenta como una historia de fe, maternidad y perdón, mientras que La Madre / The Mother figura como novela histórica. El reloj del Apocalipsis: Cómo sobrevivir a los últimos tiempos, también de José María Zavala, aborda por su título una temática religiosa vinculada al final de los tiempos, frente al enfoque histórico de La Madre / The Mother.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466685368"
+        "isbn-9788466685368",
+        "isbn-9788419809230"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c4901cb93693c46b",
+  "fuente_hash": "c5d7f64f15be6d46",
   "origen": "chatgpt-web"
 }

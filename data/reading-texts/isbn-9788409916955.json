@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409916955",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Antimadridismo, de Carlos Agrasar Celemín, se dirige a quienes buscan un ensayo centrado en el tema que anuncia su título. Su clasificación en ensayo y ocio lo diferencia de los libros de instrucciones prácticas o de ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Antimadridismo está editado en tapa blanda y tiene 235 páginas en castellano. Esta extensión permite leerlo por sesiones y conservar el ejemplar físico para consultar pasajes, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antimadridismo y Cervezasofía: Filosofía del pan líquido comparten una aproximación ensayística a asuntos reconocibles por sus títulos. Carlos Agrasar Celemín aborda el antimadridismo, mientras que María del Carmen Bengoechea Bernal vincula la cerveza con la filosofía; el punto de partida temático es distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388613111"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1d84f6db0fd36885",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788466390200",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A la deriva contigo (Best Seller | Ficción), de Beth O'Leary, encaja con lectores que buscan romance dentro de la narrativa contemporánea. Sus 400 páginas corresponden a una edición de bolsillo en castellano; no está orientada a quienes buscan fantasía épica o divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A la deriva contigo (Best Seller | Ficción) ofrece tapa blanda, Kindle y audiolibro. La edición de bolsillo de Penguin Bolsillo tiene 400 páginas para leer en papel; Kindle facilita llevarla en el móvil o lector electrónico, mientras que el audiolibro permite escucharla durante otras actividades.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo el muérdago, de Beth O'Leary, es la comparación más directa con A la deriva contigo porque ambas obras comparten autora. A mil por hora, de Hannah Grace, plantea un romance entre un piloto de F1 y una mujer que no consigue dejar atrás su pasado, mientras que A la deriva contigo se clasifica como romance contemporáneo. Esta última cuenta con 400 páginas en su edición de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas",
+        "edicion"
+      ],
+      "enlaces": [
+        "isbn-9788466394444",
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4fba892ba8537070",
+  "origen": "chatgpt-web"
+}

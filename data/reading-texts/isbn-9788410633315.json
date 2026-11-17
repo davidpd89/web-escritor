@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Panoramas del Nuevo Testamento (Estudios Bíblicos), de Giuseppe Segalla, se orienta a lectores interesados en el estudio de textos religiosos y en la espiritualidad. Por su temática y sus 490 páginas, responde a una búsqueda de lectura especializada más que a la de ficción narrativa o entretenimiento de aventuras.",
+      "texto": "Panoramas del Nuevo Testamento (Estudios Bíblicos) está dirigido a lectores interesados en el estudio del Nuevo Testamento y los textos religiosos. Sus 490 páginas responden a una lectura extensa, menos adecuada para quien busque una introducción muy breve o una narración de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Panoramas del Nuevo Testamento (Estudios Bíblicos) se presenta en tapa blanda y reúne 490 páginas en castellano. Es un volumen físico de cubierta flexible que permite consultar y retomar sus contenidos durante distintas sesiones de lectura, sin depender de un dispositivo electrónico.",
+      "texto": "Panoramas del Nuevo Testamento (Estudios Bíblicos) se publica en tapa blanda y tiene 490 páginas. La edición en castellano de Editorial Verbo Divino permite trabajar sobre un volumen físico extenso, con espacio para avanzar por sesiones de lectura y volver a apartados anteriores.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Panoramas del Nuevo Testamento (Estudios Bíblicos), de Giuseppe Segalla, comparte el ámbito religioso y espiritual con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe. El primero se centra en el Nuevo Testamento, mientras que el segundo aborda los fundamentos y la práctica del Dharma. Ambos se distinguen por el objeto concreto de estudio.",
+      "texto": "Panoramas del Nuevo Testamento (Estudios Bíblicos) y Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft comparten el interés por los textos bíblicos. El libro de Giuseppe Segalla se presenta como un estudio del Nuevo Testamento, mientras que el de Biblia de Jerusalén se identifica como una edición de la Biblia católica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210088"
+        "isbn-9798890989536"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "86a3d794c9ff89c4",
+  "fuente_hash": "68b431007d0cd0c6",
   "origen": "chatgpt-web"
 }

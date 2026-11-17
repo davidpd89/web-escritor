@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788411354752",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guion, contenido y publicidad en redes sociales-ADGG12 está orientado a quienes buscan información sobre creación de contenidos y comunicación publicitaria en redes sociales. Su temática empresarial lo aleja de las lecturas centradas en el entretenimiento narrativo o en disciplinas sin relación con la comunicación digital.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Guion, contenido y publicidad en redes sociales-ADGG12 es de tapa blanda y tiene 82 páginas. Su extensión permite manejar el volumen en papel con facilidad, tanto para una lectura seguida como para consultar apartados sobre guiones, contenidos o publicidad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Curso básico de protección de datos-CTRG0012 y Guion, contenido y publicidad en redes sociales-ADGG12 comparten autora, Elsa Rubio Duce, pero abordan materias distintas. El primero se centra en la protección de datos y el segundo en la elaboración de guiones, contenidos y publicidad para redes sociales; la elección depende del ámbito que se quiera estudiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411354714"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0c0f2f0fc6becdb6",
+  "origen": "chatgpt-web"
+}

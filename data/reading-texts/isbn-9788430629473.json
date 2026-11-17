@@ -4,46 +4,46 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El primer posmoderno se dirige a lectores adultos interesados en la historia literaria española, las biografías culturales y las transformaciones artísticas del siglo XX. No está planteado como una novela de ficción convencional, sino como una aproximación a la trayectoria y las innovaciones de Gonzalo Suárez en la escritura y el cine.",
+      "texto": "Dirigido a lectores adultos interesados en Gonzalo Suárez, la literatura española del siglo XX y los cambios en la narrativa y el cine. Sus 400 páginas se centran en la trayectoria creativa y la innovación cultural, por lo que no corresponden a una novela de ficción convencional.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
+        "titulo",
+        "sinopsis_editorial",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Javier Cercas examina la ruptura de Gonzalo Suárez con el realismo dominante en la España de los años sesenta. Su enfoque relaciona la literatura fantástica, la novela policíaca, la metaliteratura y el periodismo con una forma temprana de posmodernidad, y extiende el análisis a las innovaciones cinematográficas del autor.",
+      "texto": "Javier Cercas estudia el papel de Gonzalo Suárez como precursor de formas narrativas y cinematográficas asociadas a la posmodernidad española. El análisis parte de su actividad en los años sesenta y aborda su relación con la literatura fantástica, la novela policíaca, la metaliteratura y el cine.",
       "evidencias": [
         "autores",
         "sinopsis_editorial",
-        "categorias"
+        "titulo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El primer posmoderno se publica en tapa blanda con solapas, con 400 páginas para consultar y releer los pasajes dedicados a la literatura y el cine. La versión Kindle permite llevar el texto en formato digital y alternar su lectura con otras obras sin transportar el ejemplar físico.",
+      "texto": "La tapa blanda con solapas de Taurus reúne 400 páginas en papel y permite conservar el volumen para posteriores consultas. La edición Kindle ofrece la alternativa digital para leer El primer posmoderno en dispositivos compatibles sin transportar el ejemplar físico.",
       "evidencias": [
-        "titulo",
         "edicion",
+        "editorial",
         "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Esas muchachas que escriben poemas comparte con El primer posmoderno la atención a figuras vinculadas con la creación literaria, aunque se centra en mujeres poetas frente al estudio de Gonzalo Suárez. Canción de amor definitiva ofrece una perspectiva personal marcada por cambios vitales, mientras Javier Cercas aborda las transformaciones culturales a través de una trayectoria artística ajena.",
+      "texto": "Malentendidos de la modernidad (Random House), de Javier Cercas, comparte con El primer posmoderno el interés por la modernidad y sus interpretaciones culturales, además de la autoría. El primer posmoderno se centra en Gonzalo Suárez, su ruptura con el realismo y sus aportaciones a la literatura y al cine español de los años sesenta. La comparación permite pasar de una reflexión sobre la modernidad a un estudio centrado en un creador vinculado a la posmodernidad.",
       "evidencias": [
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788426434272",
-        "isbn-9788401042119"
+        "isbn-9788439747086"
       ]
     }
   ],

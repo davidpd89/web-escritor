@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788419509598",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la relación entre música y criminalidad a través de canciones que tratan el mal humano. Su planteamiento sobre composiciones musicales se diferencia de una novela policíaca construida alrededor de una investigación ficticia.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne 216 páginas sobre 50 canciones relacionadas con el mal y la criminalidad. La encuadernación rígida permite conservar el volumen como libro de consulta musical y presentarlo como regalo para personas interesadas en ese tema.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "21 Westerns del siglo XXI (Sílex Cine/Claqueta) y Baladas criminales abordan manifestaciones artísticas desde medios diferentes: el cine y la música. El primero se centra en 21 obras del género wéstern, mientras que el segundo reúne 50 canciones relacionadas con el mal humano. También difieren en su autoría: Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga firman el primero; Bosco Gil de Gárate, Fernando Ruibal Piai y Susana R. Barcia, el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8077522ebbc3d5a4",
+  "origen": "chatgpt-web"
+}

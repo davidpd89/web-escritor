@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388441301",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pack - grandes maestros del cómic, de Hugo Pratt y Milo Manara, está dirigido a lectores interesados en el cómic y la novela gráfica. Su clasificación también incluye el ensayo, por lo que no se presenta exclusivamente como una obra de narrativa convencional ni como una novela en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne sus 500 páginas en una edición física de mayor resistencia para conservar y consultar el volumen. Es el formato disponible para este pack, que ofrece un soporte encuadernado en lugar de una lectura digital o en audiolibro.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche El nombre de la rosa (novela gráfica, vols. 1 y 2) (Lumen Gráfica), de Umberto Eco y Milo Manara, comparte con Pack - grandes maestros del cómic la presencia de Milo Manara y el formato de cómic. El primero se centra en El nombre de la rosa, mientras que el segundo reúne a dos grandes maestros del cómic: Hugo Pratt y Milo Manara.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438072"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f7f890f7e7a3c545",
+  "origen": "chatgpt-web"
+}

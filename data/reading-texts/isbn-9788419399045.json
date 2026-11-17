@@ -4,35 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Desterrando: La arquitectura del genocidio (Historia) se dirige a lectores interesados en las relaciones entre historia, poder político y arquitectura. Sus 504 páginas plantean una lectura de no ficción centrada en estas cuestiones, alejada de quienes buscan una novela de entretenimiento.",
+      "texto": "Desterrando: La arquitectura del genocidio (Historia) se dirige a lectores interesados en las relaciones entre historia, poder político y violencia colectiva. Su enfoque sobre la arquitectura del genocidio lo distingue de una historia general de la arquitectura o de una obra de ficción histórica.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Desterrando: La arquitectura del genocidio (Historia) se presenta en tapa blanda, con 504 páginas en castellano. Este formato permite consultar y señalar pasajes durante una lectura de estudio, además de conservar el volumen como referencia física.",
+      "texto": "La edición de Debate está disponible en tapa blanda, con 504 páginas en castellano. Es un volumen físico extenso que permite consultar por separado los pasajes de una obra dedicada a la relación entre arquitectura y genocidio.",
       "evidencias": [
-        "titulo",
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción) comparte con Desterrando: La arquitectura del genocidio (Historia) el interés por el poder y los procesos históricos. El primero aborda la violencia y la lucha de clases; el libro de Eyal Weizman incorpora la arquitectura al estudio del genocidio.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte el interés por los procesos históricos vinculados al poder, aunque se concentra en la caída de una democracia. Aportaciones del exilio español a la esfera pública francesa (Ciencia Política - Semilla y Surco) aborda las relaciones entre desplazamiento y política, frente al análisis de la arquitectura del genocidio planteado por Eyal Weizman.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791388115479"
+        "isbn-9788411005517",
+        "isbn-9788430995233"
       ]
     }
   ],

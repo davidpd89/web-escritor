@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388200199",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo X encaja con quienes buscan lecturas sobre el pop-rock de los años sesenta desde el ámbito del arte y el diseño. Su orientación temática resulta menos afín a quienes prefieren relatos de ficción con una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de EL POP-ROCK DE LOS 60' - Capítulo X es de tapa blanda y tiene 85 páginas. Publicada por El Séptimo Cielo en castellano, ofrece un volumen físico de extensión reducida que puede transportarse y consultarse sin pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo IX y EL POP-ROCK DE LOS 60' - Capítulo I comparten con EL POP-ROCK DE LOS 60' - Capítulo X la temática del pop-rock de los sesenta y la autoría de Daniel Muneta. Se distinguen por su identificación como capítulos diferentes: el IX y el I llevan numeraciones anteriores al X.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388200106",
+        "isbn-9791388200113",
+        "isbn-9791388200120",
+        "isbn-9791388200137",
+        "isbn-9791388200182"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9fde86e43493c8f",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Quien aguarda en el puente del olvido 1 encaja con lectores de fantasía que también buscan romance y aventuras. Su combinación de géneros se aleja de una lectura centrada exclusivamente en relaciones sentimentales o en narrativa realista.",
+      "texto": "Quien aguarda en el puente del olvido 1 encaja con lectores que buscan fantasía con aventuras y romance. La combinación de estos géneros se aleja de una lectura centrada exclusivamente en relaciones sentimentales o de una novela realista.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,17 +12,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Quien aguarda en el puente del olvido 1 está disponible en tapa blanda, con 504 páginas en castellano. Esta edición física permite conservar una lectura extensa en un solo volumen y utilizar un marcapáginas para retomar la historia.",
+      "texto": "Quien aguarda en el puente del olvido 1 se presenta en tapa blanda, con 504 páginas en castellano. Es una edición física de Zona Abisal S.l. que permite conservar el volumen en papel y consultarlo sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Quien aguarda en el puente del olvido 1 comparte fantasía y romance con Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards. Frente al énfasis en el romance oscuro que anuncia ese título, la obra de Yi Yi Yi Yi también se sitúa en aventuras y ciencia ficción, por lo que ofrece una combinación de géneros más amplia.",
+      "texto": "Quien aguarda en el puente del olvido comparte autoría con Quien aguarda en el puente del olvido, de Yi Yi Yi Yi, aunque sus clasificaciones difieren: el primero incorpora romance y el segundo figura también entre los relatos. Alas de escarcha y oro: El canto del cisne, de Marta Morillo, ofrece otra referencia fantástica, con una protagonista que oculta sus dones y debilidades.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788415955559"
+        "isbn-9791399187342",
+        "isbn-9791387949938"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2ddc2f89a7aa49eb",
+  "fuente_hash": "037f510f58b8ef23",
   "origen": "chatgpt-web"
 }

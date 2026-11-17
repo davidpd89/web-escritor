@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amsterdam de cerca 2027-2028 está dirigido a quienes preparan una visita urbana y quieren conocer el contraste entre el patrimonio histórico y las transformaciones recientes de Ámsterdam. Su orientación viajera encaja menos con quien busca una novela o una historia política extensa del país.",
+      "texto": "Amsterdam de cerca 2027-2028 está dirigido a quienes preparan una visita urbana y quieren conocer el patrimonio y los contrastes de la capital neerlandesa. Su orientación viajera encaja menos con lectores que buscan una narración de ficción o un estudio exclusivamente histórico.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Amsterdam de cerca 2027-2028 propone una lectura práctica centrada en una capital europea y sus distintos paisajes urbanos. Catherine Le Nevez presenta una ciudad donde el núcleo medieval, los canales y la reconversión de antiguas áreas industriales permiten observar etapas diferentes de su desarrollo.",
+      "texto": "Amsterdam de cerca 2027-2028 propone una lectura de viajes centrada en la evolución urbana de Ámsterdam. Catherine Le Nevez presenta una ciudad donde el trazado medieval, los canales y la transformación de antiguas áreas industriales permiten observar distintas etapas de su desarrollo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,18 +23,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Amsterdam de cerca 2027-2028 se ofrece en tapa blanda, concretamente en rústica con solapas, y tiene 192 páginas. Este formato permite llevar la guía durante los desplazamientos, consultar sus apartados sobre la ciudad y conservarla como referencia física para preparar la visita.",
+      "texto": "Amsterdam de cerca 2027-2028 se ofrece en tapa blanda, con una edición de 192 páginas en rústica con solapas. Es un volumen físico que puede llevarse durante una visita a la ciudad y consultarse sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "edicion",
         "numero_paginas",
+        "edicion",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amsterdam de cerca 2027-2028 e Irlanda 7 comparten la autoría de Catherine Le Nevez y el enfoque viajero. La primera se concentra en el paisaje urbano de Ámsterdam y sus cambios históricos; Irlanda 7, firmada también por Isabel Albiston, Fionn Davenport y Neil Wilson, presenta tradiciones musicales, castillos y hospitalidad de otro destino.",
+      "texto": "Berlín: 7 (¡Buen viaje!) y Amsterdam de cerca 2027-2028 son títulos de viajes dedicados a ciudades europeas, aunque sus destinos son distintos. Austria 7 amplía el ámbito geográfico a un país y destaca su patrimonio y sus paisajes, mientras Catherine Le Nevez se centra en el entorno urbano de Ámsterdam.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,12 +43,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408319238"
+        "isbn-9788408322221",
+        "isbn-9791399142501"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5a41c13f5074c3bc",
+  "fuente_hash": "1fe99dca29122eab",
   "origen": "chatgpt-web"
 }

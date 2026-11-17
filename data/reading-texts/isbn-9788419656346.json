@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Astrología para el alma (Kepler), de Hans Thörn Durefelt y Martina Thörn Durefelt, se orienta a lectores interesados en la astrología desde una perspectiva vinculada al desarrollo personal. Su temática se aleja de la narrativa de ficción y de los libros centrados exclusivamente en acontecimientos históricos.",
+      "texto": "Astrología para el alma (Kepler), de Hans Thörn Durefelt y Martina Thörn Durefelt, aborda la astrología desde un título vinculado al bienestar. Sus 216 páginas se dirigen a lectores interesados en esa temática, más que a quienes buscan una novela de ficción o un manual centrado exclusivamente en alimentación y ejercicio.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Astrología para el alma (Kepler) puede leerse en tapa blanda o Kindle. La edición física de Kepler reúne 216 páginas para leer y consultar en papel; la versión Kindle permite acceder al contenido desde un dispositivo compatible y evita transportar el volumen.",
+      "texto": "Astrología para el alma (Kepler) puede leerse en tapa blanda o Kindle; la edición impresa de Kepler tiene 216 páginas en castellano. El papel permite mantener el volumen a mano para consultas, mientras que Kindle ofrece acceso digital desde dispositivos compatibles y evita transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astrología para el alma (Kepler) y Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida, de Kelly Ann Street, coinciden en su orientación hacia el desarrollo personal. El primero aborda la astrología, mientras que el segundo plantea el trabajo con las heridas personales y la búsqueda de equilibrio emocional.",
+      "texto": "Astrología para el alma (Kepler) se aproxima a 44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life, de Tania Karam, por su orientación hacia asuntos espirituales. Se diferencia por centrarse expresamente en la astrología, mientras que el título de Tania Karam plantea mensajes espirituales cotidianos. Frente a 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, cambia el enfoque astrológico por otro dedicado a la longevidad.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410451988"
+        "isbn-9791387852290",
+        "isbn-9786073881388"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0e875a947a887bf6",
+  "fuente_hash": "96fd7f604727368a",
   "origen": "chatgpt-web"
 }

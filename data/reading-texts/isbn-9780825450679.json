@@ -4,41 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Biblia de Una Chica Conforme Al Corazón de Dios (a Girl After God's Own Heart Bible) se dirige, por su propio título, a chicas interesadas en una lectura religiosa vinculada a la fe en Dios. Su contenido bíblico y su extensión de 1632 páginas la alejan de los libros breves de reflexión personal o de las introducciones generales a otras prácticas espirituales.",
+      "texto": "Está dirigida a lectoras interesadas en la Biblia y en la espiritualidad cristiana desde una perspectiva femenina. Biblia de Una Chica Conforme Al Corazón de Dios (a Girl After God's Own Heart Bible), de Elizabeth George, pertenece al ámbito religioso y no responde a la búsqueda de una novela de ficción.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura de Biblia de Una Chica Conforme Al Corazón de Dios (a Girl After God's Own Heart Bible) reúne 1632 páginas en castellano. Su encuadernación rígida resulta apropiada para conservarla y consultarla repetidamente, mientras que la extensión aconseja reservarle un lugar fijo de lectura en lugar de transportarla a diario.",
+      "texto": "La tapa dura es el formato de Biblia de Una Chica Conforme Al Corazón de Dios (a Girl After God's Own Heart Bible). Sus 1632 páginas forman un volumen extenso, por lo que esta encuadernación resulta práctica para conservarlo y consultarlo repetidamente en casa.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Biblia de Una Chica Conforme Al Corazón de Dios (a Girl After God's Own Heart Bible) comparte el ámbito religioso con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, pero se identifica como una Biblia dirigida a chicas, mientras que la obra de Tsondru Yeshe presenta un camino de liberación. Frente a Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, propone una lectura bíblica en vez de unas vivencias relacionadas con un recorrido espiritual.",
+      "texto": "Puede compararse con Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft, por su relación directa con la lectura bíblica. La obra de Elizabeth George se presenta específicamente para chicas, mientras que la otra se identifica como una edición católica latinoamericana.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496",
-        "isbn-9791399210088"
+        "isbn-9798890989536"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6bc220eb27b4bee1",
+  "fuente_hash": "0a838dbdaf0d8386",
   "origen": "chatgpt-web"
 }

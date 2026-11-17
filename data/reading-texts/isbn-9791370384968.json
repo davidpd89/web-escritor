@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791370384968",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la psicología de la memoria y el estudio científico de los falsos recuerdos. Su enfoque de ensayo y divulgación científica se aleja de la narrativa de ficción y de las lecturas centradas en experiencias personales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina los falsos recuerdos desde una perspectiva cognitiva, neurocientífica y sistémica, tal como indica su título. La obra se sitúa entre la psicología, el ensayo y la divulgación científica, con 414 páginas dedicadas a esta materia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 414 páginas de Arquitectura cognitivo-neuro sistémica de los falsos recuerdos (Plural -México-) en un volumen físico. Este formato permite consultar distintos pasajes y volver a ellos durante el estudio de la materia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Psicometría avanzada con R (Plural -México-) comparte los cuatro autores de esta obra, aunque su título apunta a la psicometría y al uso de R, frente al estudio de los falsos recuerdos. Instrumentos de evaluación para las fobias específicas (Psicología) también pertenece al ámbito psicológico, pero se centra en la evaluación de fobias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370384982",
+        "isbn-9788436851946"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c43454d2248514b8",
+  "origen": "chatgpt-web"
+}

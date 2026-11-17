@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409934508",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La biblia de la colorimetría: Domina el universo del color y las claves para convertirte en expert@ colorist@ se dirige a quienes quieren profundizar en el conocimiento del color y la formación como coloristas. Sus 178 páginas y su orientación práctica la separan de las lecturas narrativas o de quienes buscan exclusivamente ficción.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La biblia de la colorimetría: Domina el universo del color y las claves para convertirte en expert@ colorist@ está editada en tapa dura y contiene 178 páginas. Este formato proporciona una cubierta rígida para conservar el volumen y consultarlo repetidamente durante el estudio del color.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La biblia de la colorimetría: Domina el universo del color y las claves para convertirte en expert@ colorist@ comparte autor con Metamorfosis peluqueros empresarios: En quién tienes que convertirte para construir una peluquería rentable, de Mario A. Sánchez. La primera se concentra en el dominio del color y la formación como colorista, mientras que la segunda aborda la transformación profesional necesaria para construir una peluquería rentable. Ambas se relacionan con el ámbito profesional de la peluquería desde perspectivas diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409930814"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d3dce138099a07f",
+  "origen": "chatgpt-web"
+}

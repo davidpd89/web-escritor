@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788418998874",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pobre, paralítico y muerto seguido de El cochecito: 72 (Ficción) encaja con lectores de narrativa contemporánea que buscan obras de Rafael Azcona. El título reúne dos piezas nombradas expresamente y cuenta con 256 páginas; no está planteado como un manual práctico ni como un ensayo temático.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Pobre, paralítico y muerto seguido de El cochecito: 72 (Ficción) es en tapa blanda y tiene 256 páginas. Publicada por Pepitas de calabaza en castellano, reúne bajo una misma cubierta los dos títulos indicados, lo que permite leerlos en un único volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los europeos: 73 (Ficción) es una lectura afín a Pobre, paralítico y muerto seguido de El cochecito: 72 (Ficción) por su autor, Rafael Azcona. Ambos títulos se presentan dentro de Ficción con numeraciones diferentes, mientras que el segundo identifica expresamente dos obras reunidas en un volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418998911"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "595b86863fb930c0",
+  "origen": "chatgpt-web"
+}

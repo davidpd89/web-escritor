@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Que no se te pase la vida: Menos scroll, menos comparaciones y más tiempo para lo que te hace feliz (No ficción juvenil) se dirige a lectores interesados en reducir el tiempo dedicado a las pantallas y las comparaciones personales. Su enfoque de desarrollo personal y bienestar se aleja de la ficción y de los libros centrados en contar una historia.",
+      "texto": "Que no se te pase la vida: Menos scroll, menos comparaciones y más tiempo para lo que te hace feliz (No ficción juvenil) se dirige a lectores interesados en el desarrollo personal y en su relación con las pantallas y las comparaciones. Por su enfoque de no ficción juvenil, se aleja de lo que busca quien prefiere novelas con personajes y una trama ficticia.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Que no se te pase la vida: Menos scroll, menos comparaciones y más tiempo para lo que te hace feliz (No ficción juvenil) tiene una edición en tapa blanda de 160 páginas. El formato permite consultar sus contenidos sobre bienestar y hábitos de uso de pantallas en papel, sin depender de un dispositivo para la lectura.",
+      "texto": "La edición de Que no se te pase la vida: Menos scroll, menos comparaciones y más tiempo para lo que te hace feliz (No ficción juvenil) se presenta en tapa blanda. Sus 160 páginas en castellano forman un volumen de extensión relativamente breve, manejable para llevar en el bolso o la mochila y consultar en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Que no se te pase la vida: Menos scroll, menos comparaciones y más tiempo para lo que te hace feliz (No ficción juvenil) comparte con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito el interés por el bienestar personal. La obra de Noelia Méndez concreta ese enfoque en las pantallas y las comparaciones, mientras que la de Liz Moody abarca salud, relaciones y éxito.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9798890981776"
+        "idioma"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4b4aae8f2e6ccb14",
+  "fuente_hash": "2b73e9a0497e7823",
   "origen": "chatgpt-web"
 }

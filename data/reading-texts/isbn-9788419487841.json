@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Winnie the Pooh (La magia de un clásico Disney) (Los clásicos Disney) está dirigido al público infantil interesado en los personajes de Disney y los cuentos de fantasía. Sus 36 páginas lo sitúan entre las lecturas breves, frente a las novelas juveniles extensas o las historias destinadas principalmente a adultos.",
+      "texto": "Winnie the Pooh (La magia de un clásico Disney) (Los clásicos Disney) está dirigido al público infantil interesado en fantasía y personajes clásicos de Disney. Sus 36 páginas permiten plantear una lectura breve; encaja menos con quien busca una novela juvenil extensa o una historia de fantasía adulta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Winnie the Pooh (La magia de un clásico Disney) (Los clásicos Disney) se presenta en tapa dura, con 36 páginas en castellano. Su extensión permite leerlo en sesiones breves y la encuadernación rígida facilita conservarlo en una colección infantil de clásicos Disney o entregarlo como regalo físico.",
+      "texto": "Winnie the Pooh (La magia de un clásico Disney) (Los clásicos Disney) está disponible en tapa dura, con 36 páginas en castellano. Es una opción física para conservar entre los clásicos infantiles de Disney o entregar como regalo, con una extensión que facilita leerlo en sesiones breves.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -25,22 +25,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Agente Stitch 5. Los roedores de Roswell comparte con Winnie the Pooh (La magia de un clásico Disney) (Los clásicos Disney) la autoría de Disney y su orientación infantil, pero plantea un misterio intergaláctico en lugar de pertenecer a una colección de clásicos. Ice Age. ¿Dónde está Scrat?, también de Disney, gira en torno a la búsqueda de una bellota, mientras Winnie the Pooh se presenta como un clásico de fantasía infantil de 36 páginas.",
+      "texto": "Winnie the Pooh (La magia de un clásico Disney) (Los clásicos Disney) comparte autoría Disney y vinculación con los clásicos con Clásicos Disney. Cuento de Navidad: Una historia de Mickey y sus amigos. La diferencia principal está en los personajes y en la historia identificada por cada título: uno se centra en Winnie the Pooh y el otro en Mickey y sus amigos.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387901943",
-        "isbn-9791387902353"
+        "isbn-9788419487827"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9c927e74f169ba58",
+  "fuente_hash": "72127fcb026322e1",
   "origen": "chatgpt-web"
 }

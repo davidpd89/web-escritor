@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Elizabeth (libros de Autor) está orientado a quienes buscan publicaciones de arte y diseño en castellano. La obra de Alfredo Cortina pertenece a ese ámbito y no al de los manuales de desarrollo personal ni al de la narrativa de ficción.",
+      "texto": "Elizabeth (libros de Autor) se dirige a lectores interesados en publicaciones de arte y diseño firmadas por un autor concreto. La obra de Alfredo Cortina se sitúa en ese ámbito editorial, por lo que responde a una búsqueda distinta de la de un manual de dibujo o un libro de técnicas artísticas paso a paso.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "idioma"
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Elizabeth (libros de Autor) se presenta en tapa dura y reúne 160 páginas. La encuadernación rígida de esta edición de La Fábrica resulta adecuada para conservar el volumen en una biblioteca dedicada al arte y al diseño o entregarlo como regalo físico.",
+      "texto": "Elizabeth (libros de Autor) se publica en tapa dura, con 160 páginas y edición de La Fábrica. Este formato ofrece una encuadernación rígida para conservar el volumen en una biblioteca o regalarlo como libro físico. Es la opción de lectura y consulta incluida entre los formatos disponibles de la obra.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Elizabeth (libros de Autor) puede compararse con 720 retrats por su relación con el ámbito artístico, aunque son obras de Alfredo Cortina y Xavier Mollà i Revert, respectivamente. Frente a Aprende a dibujar con KPop Demon Hunters: Edición OFICIAL en español (Montena), Elizabeth (libros de Autor) se presenta como una publicación de autor y no como una guía de dibujo.",
+      "texto": "Elizabeth (libros de Autor) puede compararse con 720 retrats por su vinculación al arte y la publicación de obras de autor. Alfredo Cortina firma el primero y Xavier Mollà i Revert el segundo; Elizabeth presenta un título centrado en un nombre propio, mientras 720 retrats alude expresamente a retratos. Son dos puntos de entrada distintos para explorar libros de creación artística.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412678802",
-        "isbn-9791388322778"
+        "isbn-9788412678802"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6c8042585eadfc3b",
+  "fuente_hash": "a0736c6fbecd0a86",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788412890198",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tu madre leía novelas del oeste (Entre líneas), de Marisol Julve, se orienta a lectores de narrativa contemporánea que prefieren libros de poca extensión. Sus 104 páginas permiten abordar la obra en menos sesiones que una novela larga; encaja menos con quienes buscan lecturas extensas o manuales especializados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tu madre leía novelas del oeste (Entre líneas) cuenta con una edición en tapa blanda de 104 páginas. El formato de Los Libros del Gato Negro ofrece un volumen físico relativamente breve, que puede guardarse en una estantería, transportarse para leer fuera de casa o regalarse en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "46f3408ae496d0e4",
+  "origen": "chatgpt-web"
+}

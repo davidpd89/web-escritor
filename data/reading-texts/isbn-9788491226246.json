@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788491226246",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Elena, un futuro en borrador. Amistad en curso, de Raquel Arbeteta, se orienta a lectores interesados en historias sobre la amistad. Sus 184 páginas ofrecen una extensión intermedia, menos ajustada a quienes buscan una lectura centrada en otros temas o una obra especialmente larga.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Elena, un futuro en borrador. Amistad en curso está disponible en tapa blanda y reúne 184 páginas en castellano. La edición física permite llevar el libro, prestarlo y conservarlo en papel para volver a una historia vinculada a la amistad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Elena, un futuro en borrador. Amistad en curso comparte el tema de la amistad con Amigos de verdad, de Iris Pérez-Bonaventura. Este último aborda la importancia de las relaciones amistosas durante la infancia y la adolescencia, mientras que el título de Raquel Arbeteta vincula la amistad con un futuro todavía por definir. CRUSH 1 - Un secreto llamado tú (Montena), de África Vázquez, introduce en cambio la idea de un secreto personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994532",
+        "isbn-9791387973339"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "41025fd4a213e89e",
+  "origen": "chatgpt-web"
+}

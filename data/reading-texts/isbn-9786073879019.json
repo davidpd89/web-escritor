@@ -4,28 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La Prometida / The Fiancée, de Nieves Herrero, encaja con lectores de narrativa contemporánea que buscan una historia vinculada al romance. Sus 616 páginas corresponden a una novela extensa, más cercana a la lectura prolongada que a un relato breve. Por su clasificación temática, se aleja de quienes prefieren exclusivamente fantasía, divulgación o ensayo.",
+      "texto": "La Prometida / The Fiancée se dirige a lectores de romance y narrativa contemporánea que buscan una novela extensa. Sus 616 páginas la alejan de las lecturas breves, y su clasificación temática no corresponde a la fantasía ni al ensayo histórico.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La Prometida / The Fiancée se ofrece en tapa dura, tapa blanda, Kindle y audiolibro. La edición de Ediciones B tiene 616 páginas en tapa blanda, mientras que la tapa dura proporciona una cubierta más rígida para conservarla o regalarla. Kindle permite llevar una novela de esta extensión en el móvil, y el audiolibro sustituye la lectura visual por la escucha.",
+      "texto": "La tapa blanda ofrece las 616 páginas de La Prometida / The Fiancée en una encuadernación flexible, mientras que la tapa dura aporta una cubierta rígida para conservarla o regalarla. Kindle facilita la lectura digital en el móvil o lector electrónico y el audiolibro permite escuchar la obra en lugar de leerla en pantalla o papel.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
         "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La Prometida / The Fiancée comparte el componente romántico con A mil por hora y Amor en pole position (Dirty Air 3), aunque sus planteamientos temáticos son distintos. La novela de Nieves Herrero se clasifica como romance y narrativa contemporánea, mientras que las obras de Hannah Grace y Lauren Asher sitúan sus historias amorosas en el mundo de la Fórmula 1. La comparación permite distinguir un romance contemporáneo de otros vinculados al deporte del motor.",
+      "texto": "La Prometida / The Fiancée y A mil por hora comparten el romance como eje narrativo, aunque la obra de Hannah Grace incorpora un piloto de F1 y la de Nieves Herrero se clasifica también como narrativa contemporánea. Adversaria del villano (Faeris Editorial), de Hannah Nicole Maehrer, ofrece otra referencia para comparar, pero pertenece al ámbito de la fantasía, frente al enfoque contemporáneo de La Prometida / The Fiancée.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,7 +31,7 @@
       ],
       "enlaces": [
         "isbn-9788466683449",
-        "isbn-9788427055674"
+        "isbn-9791388108327"
       ]
     }
   ],

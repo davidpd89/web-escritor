@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388054587",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estética del dharma: Tratados filosófico-poéticos (II) (Ensayo), de Jorge Gimeno, se orienta a lectores interesados en el encuentro entre reflexión filosófica y poesía. Su planteamiento como tratado se aleja de la novela narrativa y de los libros centrados exclusivamente en contar una historia mediante personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estética del dharma: Tratados filosófico-poéticos (II) (Ensayo) está editado en tapa blanda, con 118 páginas en castellano. Su extensión permite manejarlo como volumen de consulta o lectura en papel, especialmente para volver sobre sus contenidos filosóficos y poéticos; la edición corresponde a Editorial Pre-Textos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, comparte con Estética del dharma: Tratados filosófico-poéticos (II) (Ensayo) la relación entre pensamiento y literatura, aunque el primero remite expresamente a la Ilíada y el segundo al dharma. Fuego y raíz: Cancionero (Primera persona), de Gata Cattana, se acerca por su dimensión poética, pero se presenta como cancionero y no como tratado filosófico-poético.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466394604",
+        "isbn-9788403524996"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2e6637a72faf19ea",
+  "origen": "chatgpt-web"
+}

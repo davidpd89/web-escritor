@@ -4,37 +4,23 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "The tin can society (El club de la lata) se dirige a lectores interesados en la ciencia ficción. Sus 256 páginas en castellano permiten distinguirlo de lecturas más extensas; por su clasificación temática, no responde a quien busque historia o biografías.",
+      "texto": "The tin can society (El club de la lata) encaja con lectores que buscan ciencia ficción en una edición física de 256 páginas. Su clasificación temática lo aleja de quienes prefieren obras realistas o ensayos, mientras que su extensión permite abordar una lectura de duración intermedia.",
       "evidencias": [
         "titulo",
         "categorias",
         "numero_paginas",
-        "idioma"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "The tin can society (El club de la lata) está disponible en tapa dura, con 256 páginas en castellano. Esta edición de Norma Editorial permite conservar el volumen en formato físico y consultarlo sin depender de un dispositivo electrónico.",
+      "texto": "La edición disponible de The tin can society (El club de la lata) es de tapa dura y contiene 256 páginas en castellano. El formato ofrece una cubierta rígida para conservar el ejemplar en una biblioteca personal o entregarlo como regalo, con el contenido reunido en un volumen de Norma Editorial.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
         "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Al despertar, rompe el cascarón (Runas), de Becky Chambers, es una referencia de comparación para The tin can society (El club de la lata) dentro de esta selección de lecturas. Son obras de distinta autoría: la primera corresponde a Becky Chambers y la segunda a Peter Warren, Francesco Mobili y Chris Chuckry. La segunda se presenta como ciencia ficción en una edición de 256 páginas.",
-      "evidencias": [
-        "afines_catalogo",
-        "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
-      ],
-      "enlaces": [
-        "isbn-9791370093488"
       ]
     }
   ],

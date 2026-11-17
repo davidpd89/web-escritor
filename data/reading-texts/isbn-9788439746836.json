@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788439746836",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi año en París con Gertrude Stein (Random House) se dirige a lectores de narrativa contemporánea interesados en obras vinculadas a figuras culturales y lugares concretos. Por su género y sus 168 páginas, encaja menos con quienes buscan una novela histórica extensa o un estudio académico especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi año en París con Gertrude Stein (Random House) está disponible en tapa blanda y Kindle. Sus 168 páginas permiten leer la edición física sin manejar un volumen extenso; la versión Kindle facilita continuar la lectura en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi año en París con Gertrude Stein (Random House) puede compararse con Una casa propia, otra obra de Deborah Levy. Ambas comparten autoría, pero la primera se vincula desde su título con París y Gertrude Stein, mientras que la segunda remite a la idea de disponer de una vivienda propia. La comparación permite elegir entre dos obras de la misma escritora con referencias temáticas diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390002"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8270d25782e5a5ee",
+  "origen": "chatgpt-web"
+}

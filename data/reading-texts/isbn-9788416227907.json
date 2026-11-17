@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Fantasmas de la dictadura: Una etnografía sobre apariciones, espectros y almas en pena (KAMCHATKA) se orienta a lectores de ensayo interesados en la política, las dictaduras y las representaciones de los muertos. Su enfoque etnográfico lo distingue de una novela de fantasmas o de una narración de terror concebida como ficción.",
+      "texto": "Fantasmas de la dictadura: Una etnografía sobre apariciones, espectros y almas en pena (KAMCHATKA) se dirige a lectores interesados en las relaciones entre memoria de la dictadura, política y creencias sobre los muertos. Su enfoque etnográfico lo aleja de quienes buscan una novela de fantasmas o una historia de terror.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,31 +12,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Fantasmas de la dictadura: Una etnografía sobre apariciones, espectros y almas en pena (KAMCHATKA) es de tapa blanda y tiene 316 páginas. El volumen de La Oveja Roja permite una lectura en papel con posibilidad de marcar pasajes y consultar apartados durante el estudio de sus cuestiones políticas y etnográficas.",
+      "texto": "La tapa blanda permite consultar y subrayar las 316 páginas de Fantasmas de la dictadura: Una etnografía sobre apariciones, espectros y almas en pena (KAMCHATKA) en papel. Kindle ofrece la misma elección de lectura en soporte digital, sin necesidad de transportar el volumen físico.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Fantasmas de la dictadura: Una etnografía sobre apariciones, espectros y almas en pena (KAMCHATKA) y Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparten el interés por cuestiones políticas. Mariana Tello Weiss aborda las apariciones y los espectros vinculados a la dictadura desde la etnografía, mientras Miguel Anxo Bastos Boubeta se centra en las bases económicas y políticas del anarcocapitalismo.",
+      "texto": "Fantasmas de la dictadura: Una etnografía sobre apariciones, espectros y almas en pena (KAMCHATKA) puede compararse con Caminos opuestos: Contra el sionismo (Biblioteca Judith Butler) por su relación con cuestiones políticas. El primero aborda apariciones y memoria de la dictadura desde la etnografía; el segundo centra su planteamiento en la oposición al sionismo.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388182457"
+        "isbn-9788449346071"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "27b5801c95d11b8b",
+  "fuente_hash": "d6351e280c73597b",
   "origen": "chatgpt-web"
 }

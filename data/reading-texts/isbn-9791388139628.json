@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La sombra del samurái: Del bushidō a Shōgun: historia de los guerreros que se convirtieron en leyenda (No ficción) se dirige a lectores interesados en la historia de los samuráis y su transformación en figuras legendarias. Su planteamiento histórico no corresponde a una novela de aventuras protagonizada por guerreros ficticios.",
+      "texto": "La sombra del samurái: Del bushidō a Shōgun: historia de los guerreros que se convirtieron en leyenda (No ficción) se dirige a lectores interesados en la historia de los samuráis y el bushidō. Su carácter histórico lo diferencia de una novela de aventuras protagonizada por guerreros japoneses.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,25 +12,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Roca Editorial publica esta obra en tapa blanda, con una extensión de 352 páginas. La encuadernación permite transportar el libro y retomar en papel la lectura sobre los guerreros y su historia, sin necesidad de una pantalla.",
+      "texto": "Roca Editorial publica esta obra en tapa blanda, con 352 páginas en castellano. El volumen reúne en papel una lectura histórica sobre los samuráis, adecuada para consultar y retomar pasajes relacionados con los asuntos anunciados en el título.",
       "evidencias": [
         "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "titulo"
+        "idioma",
+        "titulo",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Agustín penón y Federico García Lorca también se aproxima al pasado mediante la investigación de personas reales, pero se ocupa de una vida y una muerte concretas, frente a la historia de los samuráis. 76, de Felipe Pigna, constituye otra referencia del catálogo para lectores que buscan obras vinculadas a la historia, aunque su título no anuncia el mismo asunto.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte el enfoque histórico, pero se centra en el derrumbe de una democracia. Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días), de Jacob Mikanowski, también aborda el pasado, aunque desde una perspectiva territorial y social distinta de la historia guerrera tratada por Jonathan López-Vera.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "autores",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788408329695",
-        "isbn-9788418567933"
+        "isbn-9788411005517",
+        "isbn-9791399165142"
       ]
     }
   ],

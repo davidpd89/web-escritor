@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788445022863",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atlas de Lovecraft (Minotauro Ilustrados) encaja con lectores interesados en el universo de Lovecraft desde una perspectiva relacionada con el terror, la fantasía y el ensayo. Su identificación como atlas lo diferencia de quienes buscan específicamente una novela de ficción con una trama continua.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Atlas de Lovecraft (Minotauro Ilustrados) cuenta con una edición en tapa dura de 180 páginas, publicada por Minotauro. La cubierta rígida ofrece mayor protección para conservarlo y consultarlo repetidamente. Su extensión permite manejarlo como volumen de consulta sin alcanzar el tamaño de una obra de varios centenares de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atlas de Lovecraft (Minotauro Ilustrados) se aproxima a Anatomía del miedo por su relación temática con el terror. El libro de Alain T. Puysségur se presenta como un atlas vinculado a Lovecraft, mientras el de Rubin Editorial anuncia una aproximación al miedo. La comparación distingue un universo literario concreto de un tema más general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786316730589"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aa95534e8578a67e",
+  "origen": "chatgpt-web"
+}

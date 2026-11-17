@@ -4,24 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Criar juntos de verdad está dirigido a lectores interesados en la crianza compartida y en el papel de madres y padres dentro de la familia. Sus 320 páginas abordan la organización de la responsabilidad parental; no está planteado como una guía general de desarrollo personal ajena a la crianza.",
+      "texto": "Criar juntos de verdad está orientado a madres, padres y personas interesadas en compartir las responsabilidades de la crianza. Armando Bastida aborda el desequilibrio en el reparto de tareas familiares, por lo que su planteamiento no responde a quien busca únicamente consejos sobre alimentación o desarrollo infantil.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Criar juntos de verdad permite elegir entre tapa blanda y Kindle. La edición física tiene 320 páginas y rústica con solapas, mientras que Kindle ofrece una alternativa digital para leer en dispositivos electrónicos sin transportar el volumen.",
+      "texto": "Criar juntos de verdad se publica en tapa blanda con solapas y cuenta con 320 páginas, una presentación que permite consultar sus contenidos sobre crianza en papel. La edición Kindle facilita llevar la lectura en el móvil o en un lector electrónico sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "edicion",
+        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Criar juntos de verdad comparte con Conectados para el amor / Wired for Love, de Stan Tatkin, el interés por las relaciones de pareja. Armando Bastida centra su libro en el reparto desigual de las responsabilidades de crianza, mientras que la obra de Stan Tatkin aborda el vínculo amoroso. Ambos tratan las relaciones personales desde perspectivas distintas: la corresponsabilidad familiar frente a la conexión afectiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073876056"
       ]
     }
   ],

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Igor Yebra - ¿Por qué somos tan estúpidos y no estamos ya bailando? se orienta a lectores de biografías, memorias y reflexiones sobre el desarrollo personal. Quien busque una novela de aventuras o una historia de fantasía encontrará aquí un enfoque distinto, vinculado a experiencias personales y bienestar.",
+      "texto": "Igor Yebra - ¿Por qué somos tan estúpidos y no estamos ya bailando? se dirige a lectores interesados en las biografías, las memorias y el desarrollo personal. Su enfoque temático lo diferencia de los manuales técnicos y de las novelas cuya finalidad principal es contar una historia de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Igor Yebra - ¿Por qué somos tan estúpidos y no estamos ya bailando? es de tapa dura y tiene 288 páginas. Publicada por Bao Bilbao en castellano, ofrece una encuadernación rígida para conservar el volumen en una biblioteca personal o entregarlo como regalo.",
+      "texto": "Igor Yebra - ¿Por qué somos tan estúpidos y no estamos ya bailando? está disponible en tapa dura, con 288 páginas. Sus cubiertas rígidas favorecen la conservación del ejemplar y permiten elegir una edición física para regalar o incorporar a una biblioteca personal.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Igor Yebra - ¿Por qué somos tan estúpidos y no estamos ya bailando? puede compararse con 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) por su relación con el bienestar y el desarrollo personal. El segundo plantea consejos sobre longevidad, mientras que el libro de Igor Yebra se sitúa también en el ámbito biográfico y de las memorias.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ec30c265a37ad2f4",
+  "fuente_hash": "279f3a990890317c",
   "origen": "chatgpt-web"
 }

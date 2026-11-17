@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388227608",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El símbolo y la herida se sitúa entre el ensayo, la psicología y la narrativa juvenil, por lo que encaja con lectores interesados en esos ámbitos. Sus 194 páginas ofrecen una extensión relativamente breve; quien busque exclusivamente aventuras o ciencia ficción encontrará una orientación temática diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El símbolo y la herida se publica en tapa blanda, en una edición de Libros Indie de 194 páginas. Esta extensión permite manejar el libro en papel sin el volumen de una obra mucho más larga y facilita volver a pasajes concretos durante una lectura centrada en cuestiones psicológicas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia comparte con El símbolo y la herida el interés por cuestiones psicológicas, aunque el primero delimita su tema a la infancia y su reparación. A.C.T.I.V.A.: 8 etapas para construir dirección, capacidad y libertad en tiempos de cambio plantea desde el título un recorrido por etapas, frente al cruce de ensayo y narrativa juvenil de Miguel Morate.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789560848819",
+        "isbn-9788410944206"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6a2105cd0672cf0e",
+  "origen": "chatgpt-web"
+}

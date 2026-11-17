@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788418998911",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los europeos: 73 (Ficción) se dirige a lectores de narrativa contemporánea interesados en la obra de Rafael Azcona. Su clasificación como ficción lo distingue de los manuales y textos de consulta, por lo que no responde a una búsqueda de contenido técnico o jurídico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los europeos: 73 (Ficción) está disponible en tapa blanda, con 272 páginas publicadas por Pepitas de calabaza. Es una edición física en castellano que permite leer la obra sin dispositivo electrónico y conservar el volumen junto a otros títulos de Rafael Azcona.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Su comparación más directa es Pobre, paralítico y muerto seguido de El cochecito: 72 (Ficción), también de Rafael Azcona. Ambos comparten autoría e identificación editorial como ficción, aunque sus títulos corresponden a obras distintas y llevan los números 73 y 72, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418998874"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2fc0c44d8bc72786",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786073874410",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de ganar/ Victory!, de Brian Tracy, se dirige a lectores de desarrollo personal y de temas relacionados con la economía, la empresa y el bienestar. Con 384 páginas, se aleja de la ficción narrativa y de quienes buscan una lectura breve sobre un único asunto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El arte de ganar/ Victory! se publica en tapa blanda y tiene 384 páginas. La edición en castellano de Penguin Random House Grupo Editorial reúne el contenido en un volumen físico que puede consultarse por partes y conservarse para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de ganar/ Victory! y Domina el arte de los negocios comparten autor, Brian Tracy, y su relación con el desarrollo profesional. Domina el arte de los negocios se centra expresamente en habilidades empresariales y liderazgo, mientras que El arte de ganar/ Victory! abarca desarrollo personal, bienestar y economía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390514"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b5d48032287d9e1",
+  "origen": "chatgpt-web"
+}

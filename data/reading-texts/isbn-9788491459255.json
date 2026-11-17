@@ -4,41 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vamos al médico (Primeros lectores) está dirigido a quienes buscan una publicación infantil relacionada con las visitas médicas. Su planteamiento se identifica con los primeros lectores y el bienestar, por lo que no corresponde a quien busca narrativa extensa o contenidos dirigidos exclusivamente a adultos.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 5 páginas de Vamos al médico (Primeros lectores) en una edición física de Picarona. Este formato concentra toda la publicación en un volumen encuadernado en tapa dura, con una extensión breve y orientada a los primeros lectores.",
-      "evidencias": [
-        "titulo",
-        "edicion",
-        "editorial",
-        "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El ratoncito Pérez. Libro con solapas, de Ignacio Hernández Fernández, comparte con Vamos al médico (Primeros lectores) su orientación infantil, aunque se identifica específicamente como un libro con solapas. Otra comparación posible es Cuentos del mundo para ir a dormir (Recopilatorio de cuentos), de YOYO, que se presenta como una recopilación de cuentos y sitúa su propuesta en la lectura antes de dormir.",
+      "texto": "Vamos al médico (Primeros lectores), de Amanda Gummer, se dirige al público infantil que comienza a acercarse a los libros. Sus 5 páginas y su título relacionado con la visita al médico lo distinguen de las lecturas juveniles extensas y de las obras destinadas al público adulto.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408314592",
-        "isbn-9788408316022"
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vamos al médico (Primeros lectores) tiene una edición en tapa dura de 5 páginas. La encuadernación rígida permite manejarlo y guardarlo como libro físico, mientras que su reducida extensión facilita recorrerlo completo en una sesión de lectura compartida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "05bac69cba50cde2",
+  "fuente_hash": "115494e88c63584c",
   "origen": "chatgpt-web"
 }

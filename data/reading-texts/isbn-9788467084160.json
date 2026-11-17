@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores interesados en la Generación del 27, la poesía y la historia literaria del siglo XX. Su enfoque biográfico e histórico encaja menos con quienes buscan una novela de fantasía o una lectura centrada exclusivamente en poemas.",
+      "texto": "Plata en los ojos: Una historia de la Generación del 27 (Espasa Lengua y Literatura) se dirige a lectores interesados en la historia literaria y las biografías. Su enfoque histórico y sus 200 páginas lo alejan de quienes buscan una obra centrada en la fantasía o la aventura.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Aborda la Generación del 27 desde una perspectiva vinculada a la historia, la literatura y las biografías. Benjamín Prado sitúa ese movimiento literario en el centro de una obra que combina el interés por la poesía con la mirada histórica.",
+      "texto": "La Generación del 27 constituye el eje histórico y literario de este libro de Benjamín Prado. La obra se sitúa entre la historia, la memoria biográfica y la narrativa contemporánea, con la atención puesta en una generación literaria concreta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,30 +22,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Plata en los ojos: Una historia de la Generación del 27 (Espasa Lengua y Literatura) se presenta en tapa dura y tiene 200 páginas. Es una opción física para conservar en una biblioteca de literatura e historia o regalar a alguien interesado en la poesía.",
+      "texto": "Plata en los ojos: Una historia de la Generación del 27 (Espasa Lengua y Literatura) está disponible en tapa dura, con 200 páginas. Esta encuadernación permite conservar el volumen en una biblioteca personal y utilizarlo como regalo físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Esas muchachas que escriben poemas comparte el interés por las personas vinculadas a la creación poética, aunque centra su planteamiento en las mujeres que escriben. Rainer Maria Rilke o La vida abierta: Una biografía (Tiempo Recobrado) ofrece otra aproximación biográfica a la literatura, mientras que Plata en los ojos: Una historia de la Generación del 27 (Espasa Lengua y Literatura) dirige la atención a una generación literaria.",
+      "texto": "Campo de concentración: 82 (Biblioteca del Exilio) comparte con esta obra su vinculación con la historia, aunque su título sitúa el foco en el internamiento y el exilio. Plata en los ojos: Una historia de la Generación del 27 (Espasa Lengua y Literatura) se centra, en cambio, en una generación literaria y su contexto histórico.",
       "evidencias": [
         "afines_catalogo",
         "titulo",
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788426434272",
-        "isbn-9788413643687"
+        "isbn-9788410148659"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8d59a678f5707d0a",
+  "fuente_hash": "a6307d333d73e69f",
   "origen": "chatgpt-web"
 }

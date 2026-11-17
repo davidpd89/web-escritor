@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409936625",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "RECALIBRANDO: Tu llave maestra para una Buena Vida (Trilogía EBV) se dirige a lectores interesados en el desarrollo personal y el bienestar. Su enfoque temático se aleja de la narrativa de ficción y de los manuales dedicados exclusivamente a una disciplina sanitaria o nutricional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "RECALIBRANDO: Tu llave maestra para una Buena Vida (Trilogía EBV) se presenta en tapa blanda, con 248 páginas en castellano. El formato físico permite consultar distintos pasajes y conservar el volumen para futuras lecturas sobre desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "RECALIBRANDO: Tu llave maestra para una Buena Vida (Trilogía EBV) comparte con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito el interés por mejorar aspectos de la vida personal. El libro de Valeria Laborde plantea ese propósito desde la idea de recalibrar la propia vida, mientras que el de Liz Moody anuncia un conjunto de propuestas apoyadas en la ciencia. Ambos se sitúan en el ámbito del bienestar, aunque sus títulos presentan enfoques distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db772ba91c3601bb",
+  "origen": "chatgpt-web"
+}

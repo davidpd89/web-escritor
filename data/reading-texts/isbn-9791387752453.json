@@ -4,41 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Krabat (Alma Juvenil) se sitúa entre la fantasía, el terror y los clásicos, por lo que encaja con lectores interesados en relatos fantásticos con elementos oscuros. Su orientación juvenil y su clasificación literaria lo separan de los manuales divulgativos y de la narrativa estrictamente realista.",
+      "texto": "Krabat (Alma Juvenil) se orienta a lectores interesados en fantasía y clásicos literarios. La edición de 272 páginas, publicada por Editorial Alma, se diferencia de las obras centradas exclusivamente en el realismo contemporáneo por su vinculación con la literatura fantástica.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Editorial Alma publica Krabat (Alma Juvenil) en tapa dura, con 272 páginas en castellano. Esta encuadernación proporciona una cubierta rígida para conservar el ejemplar en la biblioteca y resulta adecuada para quienes prefieren leer y releer en papel.",
+      "texto": "Krabat (Alma Juvenil) está disponible en una edición de tapa dura de 272 páginas publicada por Editorial Alma. La encuadernación rígida resulta práctica para conservar el volumen en una biblioteca personal o entregarlo como regalo, especialmente cuando se busca una edición física.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Endemoniada (Faeris Editorial), de Laura Thalassa, comparte con Krabat (Alma Juvenil) una referencia a lo sobrenatural, aunque sus títulos presentan enfoques distintos. Otfried Preussler firma una obra clasificada entre los clásicos, la fantasía y el terror, mientras que el libro de Laura Thalassa se identifica por su temática demoníaca y su publicación bajo Faeris Editorial.",
+      "texto": "Krabat (Alma Juvenil) y Adversaria del villano (Faeris Editorial) comparten su relación con la fantasía. La primera es una obra de Otfried Preussler vinculada también a los clásicos, mientras que la segunda está firmada por Hannah Nicole Maehrer y se presenta con una identidad editorial diferente.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388108303"
+        "isbn-9791388108327"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "edede7b449915c02",
+  "fuente_hash": "c05a05d4d362ece4",
   "origen": "chatgpt-web"
 }

@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La máquina del tiempo: Ediciones icónicas (Penguin Clásicos), de H.G. Wells, se dirige a lectores de clásicos, ciencia ficción y fantasía interesados en los viajes temporales. Con 152 páginas, resulta más breve que una novela extensa; no corresponde a una lectura de realismo cotidiano sin elementos especulativos.",
+      "texto": "La máquina del tiempo: Ediciones icónicas (Penguin Clásicos), de H.G. Wells, encaja con lectores interesados en los clásicos y en la narrativa. Su clasificación también contempla el ensayo, por lo que puede interesar a quien busca obras fuera de la ficción contemporánea más reciente. No está planteado como un libro de romance o de temática gastronómica.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La máquina del tiempo: Ediciones icónicas (Penguin Clásicos) cuenta con una edición de bolsillo en tapa blanda de 152 páginas, cómoda para transportar y guardar. La versión Kindle permite llevar el texto en formato digital y leerlo desde dispositivos compatibles.",
+      "texto": "La tapa blanda reúne sus 152 páginas en un libro de bolsillo, un formato físico manejable para llevar y leer fuera de casa. Kindle permite acceder a la misma obra en digital desde un dispositivo compatible. Ambas opciones están disponibles para esta edición de La máquina del tiempo.",
       "evidencias": [
-        "titulo",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "formato_edicion",
+        "edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La máquina del tiempo: Ediciones icónicas (Penguin Clásicos) y Trilogia Nova, la (Compendium) son obras de ficción de H.G. Wells y William S. Burroughs, respectivamente; la primera se clasifica como ciencia ficción y clásico, mientras que la segunda se presenta como una recopilación de trilogía.",
+      "texto": "La máquina del tiempo: Ediciones icónicas (Penguin Clásicos) y Alfred y Emily (Narrativa), de Doris Lessing, comparten su vinculación con la narrativa, aunque parten de autores distintos. H.G. Wells figura entre los clásicos, mientras que la obra de Lessing se presenta como narrativa. La comparación permite distinguir entre dos propuestas literarias y dos trayectorias de autoría.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788433949820"
+        "isbn-9788426438515"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f39f1f747e20eba0",
+  "fuente_hash": "b7b6e613d55db799",
   "origen": "chatgpt-web"
 }

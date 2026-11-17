@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788409913961",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "la cultura que nos mira: retrospectiva crítica para algún futuro está dirigido a lectores de ensayo interesados en la reflexión crítica sobre la cultura. El libro de José Ramón Alba tiene 317 páginas y plantea, desde su título, una mirada retrospectiva orientada hacia el futuro; se aparta así de quienes buscan una obra de ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "la cultura que nos mira: retrospectiva crítica para algún futuro cuenta con una edición en tapa blanda de 317 páginas. Para este ensayo de José Ramón Alba, el formato impreso permite consultar pasajes anteriores y volver sobre las reflexiones durante la lectura, además de mantener el volumen en una biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0b946546d7ca1d8e",
+  "origen": "chatgpt-web"
+}

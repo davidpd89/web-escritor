@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Orientado al público infantil que disfruta de las aventuras clásicas, los viajes y las exploraciones. El estuche reúne relatos de Julio Verne, por lo que responde menos a quienes buscan historias actuales de vida cotidiana o libros de actividades.",
+      "texto": "Esta recopilación de Julio Verne está dirigida al público infantil interesado en los clásicos de aventuras. Reúne dos historias de viajes y exploración, por lo que se aleja de las lecturas centradas en situaciones cotidianas o conflictos contemporáneos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Este estuche reúne Vuelta al mundo en 80 días y Veinte mil leguas de viaje submarino, dos títulos de Julio Verne vinculados a la aventura y los viajes. Su presentación dentro de Julio Verne para niños sitúa estas obras clásicas en una colección dirigida al público infantil.",
+      "texto": "La obra aborda dos formas de exploración: el recorrido alrededor del mundo y la navegación por las profundidades marinas. Su enfoque reúne aventuras de Julio Verne en una colección infantil que permite contrastar escenarios terrestres y submarinos dentro de la tradición de los clásicos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,31 +22,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura permite conservar físicamente las 280 páginas del estuche, que reúne dos obras de Julio Verne y puede entregarse como regalo. Kindle ofrece una alternativa digital para llevar la lectura en el móvil o en un dispositivo compatible sin transportar los volúmenes físicos.",
+      "texto": "La edición en tapa dura de Molino reúne 280 páginas y los dos títulos en un estuche físico, una opción para conservarlos juntos o regalarlos. Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el volumen impreso.",
       "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
         "titulo",
-        "autores",
-        "edicion"
+        "editorial",
+        "numero_paginas",
+        "edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pipoka y la Fábrica del Desastre comparte con Mi biblioteca Julio Verne (Julio Verne para niños): Estuche con: Vuelta al mundo en 80 días y Veinte mil leguas de viaje submarino (Peques) el interés por los recorridos y las aventuras. El libro de Jose Such incorpora magia y criaturas legendarias en la Península, mientras que el estuche de Julio Verne reúne dos relatos clásicos de viajes.",
+      "texto": "La estocada de Nevers: El jorobado (Zenda-Edhasa), de Paul Féval, comparte con esta recopilación su relación con los clásicos y la aventura, aunque presenta una obra individual frente a dos relatos de Julio Verne. La emperatriz de las Galápagos: Aventuras alemanas en América Latina (Historia), de Michi Strausfeld, también remite a viajes, pero desde una temática histórica.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388277085"
+        "isbn-9791388387098",
+        "isbn-9788435055871"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fe3f79a8337961f2",
+  "fuente_hash": "c51c7d3d32f51c84",
   "origen": "chatgpt-web"
 }

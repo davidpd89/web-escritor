@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791259578235",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El cascanueces. Un cuento de Navidad en pop-up (FICCIÓN) se dirige a quienes buscan un cuento navideño en formato desplegable. Sus 12 páginas lo sitúan entre las lecturas breves, frente a las novelas extensas o los libros centrados exclusivamente en texto.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El cascanueces. Un cuento de Navidad en pop-up (FICCIÓN) está disponible en tapa dura, con 12 páginas y una propuesta desplegable indicada en el título. Esta edición física de Magazzini Salani permite consultar las páginas y sus elementos pop-up directamente, tanto en una lectura compartida como al hojear el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a3d8a06de034eb2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786287897090",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi, encaja con lectores de novela histórica y narrativa contemporánea. El título lo identifica como el n.º II, una característica relevante para quienes prefieren leer obras independientes frente a entregas numeradas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon está disponible en tapa blanda. La edición de Debolsillo tiene 190 páginas en castellano, una extensión que permite transportarla y leerla en papel sin manejar un volumen especialmente grueso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon se relaciona directamente con Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth. Ambas obras llevan la firma de Valerio Massimo Manfredi y comparten la denominación Aléxandros; sus títulos las identifican respectivamente como las entregas II y III.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897106"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9af0a586c28e3aaf",
+  "origen": "chatgpt-web"
+}

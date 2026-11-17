@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788467985788",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rosas y champan 07: 7, de Ttung Gae y ZIG, se dirige a quienes leen romance en formato de cómic o novela gráfica. Con 320 páginas, se aleja de las novelas exclusivamente en prosa y de las historias centradas en la fantasía; el título lo identifica como el n.º 7.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rosas y champan 07: 7 cuenta con una edición en tapa blanda de 320 páginas, publicada por Norma Editorial. Este formato permite leer el volumen en papel y conservarlo junto a otros títulos de la colección; su extensión es inferior a la de otras ediciones gráficas de mayor paginación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rosas y champan 07: 7 comparte el ámbito del romance gráfico con Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita. La diferencia está en la autoría y la numeración indicada en los títulos: Ttung Gae y ZIG firman el primero, identificado como el n.º 7, mientras que el de Keiko Iwashita lleva el número 1. Honey lemon soda 4 (Shôjo), de Mayu Murata, ofrece otra referencia dentro de las lecturas románticas gráficas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962494",
+        "isbn-9791387962487"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "51e8466012b33a8d",
+  "origen": "chatgpt-web"
+}

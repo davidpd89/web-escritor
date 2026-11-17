@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Kronos encaja con lectores de ciencia ficción y fantasía que buscan un libro de extensión contenida. Sus 142 páginas permiten una lectura relativamente breve, mientras que su orientación hacia la ficción especulativa lo aleja de quienes prefieren ensayos o relatos estrictamente realistas.",
+      "texto": "Kronos se dirige a lectores interesados en la ciencia ficción. Sus 142 páginas corresponden a una edición breve frente a las novelas extensas del género; quienes busquen romance, narrativa juvenil o fantasía encontrarán una clasificación temática diferente.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,32 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Kronos se publica en tapa blanda, con 142 páginas en castellano, una extensión manejable para llevar el libro durante los desplazamientos. La edición física de Rafael Godecasa permite leerlo sin pantalla y conservarlo en papel, tanto para una primera lectura como para posteriores consultas.",
+      "texto": "Kronos tiene 142 páginas y está disponible en tapa blanda y Kindle. La edición física permite conservar el ejemplar en papel, mientras que la digital facilita leerlo en un dispositivo electrónico sin transportar el libro.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "edicion",
-        "autores"
+        "formatos_disponibles",
+        "formato_edicion",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Kronos y Al despertar, rompe el cascarón (Runas), de Becky Chambers, pueden compararse desde el interés por la ficción especulativa. Kronos figura entre la fantasía y la ciencia ficción, mientras que el título de Becky Chambers se identifica mediante la referencia a Runas. Son obras de distinta autoría, por lo que la elección puede partir del interés por cada propuesta.",
+      "texto": "Kronos puede compararse con Aunque se acabe el mundo, otro título del catálogo cuyo planteamiento incluye una cúpula que aparece sobre la Tierra y transforma a parte de la humanidad. La diferencia está en el punto de partida: el segundo presenta una alteración global de la condición humana, mientras Kronos se identifica dentro de la ciencia ficción sin que su planteamiento se concrete aquí.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370093488"
+        "isbn-9788427255968"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "838af14d2f0828ba",
+  "fuente_hash": "428be8bdf5a19838",
   "origen": "chatgpt-web"
 }

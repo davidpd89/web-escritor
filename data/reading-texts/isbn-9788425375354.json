@@ -4,43 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Retos para jugones: Un libro-juego absurdamente divertido para dos personas que se tienen cariño (o eso dicen) (Ocio, entretenimiento y viajes), de Victor Escandell, está planteado para compartir una actividad entre dos personas. Sus 128 páginas se orientan al entretenimiento y no a quien busque una novela convencional para leer en solitario.",
+      "texto": "Está dirigido a quienes buscan juegos y retos para compartir con otra persona con la que tienen confianza. Su propuesta se centra en el entretenimiento en pareja, por lo que encaja menos con quien prefiere actividades individuales o una novela de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible para Retos para jugones: Un libro-juego absurdamente divertido para dos personas que se tienen cariño (o eso dicen) (Ocio, entretenimiento y viajes). La edición de Grijalbo reúne 128 páginas en castellano y permite utilizar el libro físicamente durante los retos compartidos.",
+      "texto": "La edición en tapa blanda reúne 128 páginas y permite tener los retos a mano durante una actividad compartida. Es una opción física para utilizar el libro entre dos personas, pasar páginas y consultar las propuestas sin recurrir a una pantalla.",
       "evidencias": [
-        "titulo",
-        "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "formatos_disponibles"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Retos para jugones: Un libro-juego absurdamente divertido para dos personas que se tienen cariño (o eso dicen) (Ocio, entretenimiento y viajes) comparte su orientación al ocio con El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes), de Joseángel Murcia, aunque el primero propone retos para dos personas. Frente a Destinos vintage: 40 láminas misteriosas para colorear (GEOPLANETA COLOREA), de Sophie Guët, sustituye la actividad de colorear por el juego compartido.",
+      "texto": "Frente a 99 Sudoku (LIBROS SINGULARES), centrado en un tipo concreto de pasatiempo, este libro plantea retos para dos personas. También comparte el componente de resolución de desafíos con 80 crímenes imposibles de resolver (FUERA DE ESCENA), aunque este último orienta sus enigmas hacia casos criminales.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324836",
-        "isbn-9788425376900"
+        "isbn-9791388015816",
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a7b9341d6307ed1d",
+  "fuente_hash": "73ad998108e6dc8a",
   "origen": "chatgpt-web"
 }

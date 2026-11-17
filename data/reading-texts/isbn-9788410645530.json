@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410645530",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta novela está dirigida a lectores de más de 7 años interesados en Minecraft, las aventuras y el humor. Su propuesta narrativa encaja con quienes buscan historias ambientadas en un mundo de videojuegos, pero no con quienes prefieren manuales de construcción, guías de juego o libros de consulta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y contiene 144 páginas en castellano. Es una opción física de extensión relativamente breve dentro de la narrativa infantil, con encuadernación flexible para llevarla en una mochila o leerla fuera de casa.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Minecraft Oficial: Enciclopedia de los exploradores (La guía definitiva de los biomas de Minecraft) comparte el universo de Minecraft, pero se plantea como guía de biomas, mientras que este libro es una novela de aventuras y humor. Golazos 04 - La maldición de la trenza negra: ¡Nunca el fútbol había sido tan divertido! Un equipo de fútbol insólito que lo rompe, amistad y mucho humor.: 4 también incorpora humor, aunque lo sitúa en torno a un equipo de fútbol en lugar de un mundo de videojuegos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410646070",
+        "isbn-9791387948351"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1ca1919a36950a2e",
+  "origen": "chatgpt-web"
+}

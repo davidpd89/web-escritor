@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788417951740",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los ojos del hermano eterno, de Stefan Sweig, se dirige a lectores de clásicos y narrativa contemporánea. Sus 70 páginas ofrecen una lectura de extensión breve dentro de esos géneros; quien prefiera novelas largas o busque específicamente literatura fantástica encontrará una propuesta diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los ojos del hermano eterno se ofrece en tapa blanda y Kindle. La edición física de Editorial Alfabeto reúne 70 páginas en castellano, un volumen breve para leer en papel; Kindle permite llevar la obra en formato digital y consultarla desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0217b4094906313b",
+  "origen": "chatgpt-web"
+}

@@ -4,50 +4,49 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Príncipe: El tratado político clave de Nicolás Maquiavelo sobre el poder y la estrategia de Estado. (No ficción) está dirigido a lectores interesados en filosofía política y en el ejercicio del poder. Por su naturaleza de tratado, encaja menos con quienes buscan una novela histórica protagonizada por personajes ficticios.",
+      "texto": "Encaja con lectores interesados en el poder, la política y la filosofía, especialmente en la estrategia de Estado. No responde al perfil de quien busca una novela de ficción: es un ensayo político de Nicolás Maquiavelo, presentado en una edición de 160 páginas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Nicolás Maquiavelo examina el poder político y la estrategia de Estado mediante un tratado centrado en el gobierno. El enfoque corresponde a la filosofía política y al ensayo, con atención a las decisiones relacionadas con el ejercicio y la organización del poder.",
+      "texto": "El Príncipe: El tratado político clave de Nicolás Maquiavelo sobre el poder y la estrategia de Estado. (No ficción) aborda el ejercicio del poder desde una perspectiva política y filosófica. Su enfoque se centra en la estrategia de Estado, dentro del ensayo y el pensamiento político.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Esta edición de El Príncipe: El tratado político clave de Nicolás Maquiavelo sobre el poder y la estrategia de Estado. (No ficción) se presenta en tapa blanda, con 160 páginas en castellano. Publicada por Biblioteca Nueva, permite una lectura en papel de extensión relativamente breve y la consulta de pasajes concretos del tratado.",
+      "texto": "La tapa blanda permite consultar y subrayar físicamente las 160 páginas de esta edición de Biblioteca Nueva. Kindle ofrece la lectura digital del tratado en el móvil o en un lector electrónico, sin necesidad de transportar el volumen impreso.",
       "evidencias": [
-        "titulo",
-        "edicion",
+        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial",
-        "formatos_disponibles"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Príncipe: El tratado político clave de Nicolás Maquiavelo sobre el poder y la estrategia de Estado. (No ficción) puede compararse con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta. Ambos tratan ideas políticas, pero Nicolás Maquiavelo se centra en el poder y la estrategia estatal, mientras que Miguel Anxo Bastos Boubeta presenta los fundamentos económicos y políticos del anarcocapitalismo.",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte el interés por el pensamiento político, pero se centra en las raíces del anarcocapitalismo, frente a la estrategia de Estado de Nicolás Maquiavelo. Ecología o economía: Hay que elegir: 136 (Ensayo) también plantea cuestiones políticas, aunque desde la relación entre ecología y economía.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791388182457"
+        "isbn-9791388182457",
+        "isbn-9788410476585"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "887f9319a18b90c4",
+  "fuente_hash": "44bb179f27a56cdc",
   "origen": "chatgpt-web"
 }

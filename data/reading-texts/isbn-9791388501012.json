@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388501012",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Supervivencia global de las terapias anti-BCMA se dirige a lectores interesados en una cuestión científica concreta relacionada con terapias y supervivencia global. Por su asunto especializado y su extensión de 4 páginas, se diferencia de los libros extensos de divulgación general y de los ensayos filosóficos de temática amplia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Supervivencia global de las terapias anti-BCMA se publica en tapa blanda y consta de 4 páginas. Esta edición de Permanyer en castellano permite una consulta breve en papel, centrada en el asunto específico que identifica el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Supervivencia global de las terapias anti-BCMA y Cuando se encuentran las especies (Sendas), de Donna Haraway, abordan asuntos diferentes dentro de un catálogo que incluye ciencia y filosofía. El primero se centra en la supervivencia global asociada a terapias anti-BCMA, mientras que el segundo plantea, desde su título, el encuentro entre especies; también difieren en su autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370093341"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d7809455df56106d",
+  "origen": "chatgpt-web"
+}

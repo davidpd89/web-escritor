@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta propuesta de G. T. Karber se dirige a quienes disfrutan resolviendo casos mediante puzles y actividades de lógica. Su planteamiento participativo encaja menos con lectores que buscan una novela convencional para leer de principio a fin.",
+      "texto": "Esta propuesta de G. T. Karber se dirige a quienes disfrutan resolviendo casos mediante puzles y actividades de lógica. Su planteamiento combina el montaje de un laberinto con la resolución de un misterio, por lo que se aleja de la lectura continuada de una novela convencional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,30 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de G. T. Karber se presenta en tapa dura y tiene 2 páginas registradas. Su formato físico permite realizar la actividad de montar un puzle y resolver un caso, por lo que responde a un uso recreativo y también puede entregarse como regalo.",
+      "texto": "La edición de Magazzini Salani está disponible en tapa dura y cuenta con 2 páginas. El formato físico permite abordar la actividad de montaje del puzle y la resolución del caso que plantea el título, en lugar de una lectura extensa.",
       "evidencias": [
         "titulo",
-        "autores",
+        "editorial",
         "formatos_disponibles",
-        "numero_paginas",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Murdle y Merry Murdle comparten autor, G. T. Karber, y el interés por resolver casos detectivescos. El primero propone montar un puzle para solucionar un caso, mientras que Merry Murdle presenta una investigación sobre asesinatos durante las fiestas.",
+      "texto": "Merry Murdle comparte con esta propuesta la autoría de G. T. Karber y los misterios criminales, pero sitúa sus asesinatos durante unas fiestas, mientras que aquí se plantea montar un puzle y resolver un caso. Por su parte, 80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres, reúne enigmas criminales en lugar de centrarse en el montaje de un laberinto.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388279324"
+        "isbn-9791388279324",
+        "isbn-9791388015816"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "339473336086a5a9",
+  "fuente_hash": "c6192183659fa966",
   "origen": "chatgpt-web"
 }

@@ -1,44 +1,43 @@
 {
   "id": "isbn-9788427257863",
-  "familia": "practico",
+  "familia": "narrativa",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este estuche reúne la saga Time Keeper para lectores de fantasía con elementos de romance y ciencia ficción. Sus 1888 páginas y sus tres títulos encajan con quien busca una lectura extensa, pero menos con quien prefiere una historia breve e independiente.",
+      "texto": "Estuche Time Keeper. La saga completa (Time Keeper): El eco del destino, El imperio del caos y La muerte del tiempo (Ficción crossover) reúne una historia encuadrada en la fantasía y el romance. Encaja con lectores que buscan narrativa crossover con esos componentes, mientras que quienes prefieren historias ajenas a la fantasía o al romance encontrarán aquí otros intereses narrativos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite tener reunidos los tres títulos del estuche en una edición física de 1888 páginas. Kindle ofrece la alternativa digital para leer en un dispositivo electrónico, sin transportar los volúmenes impresos.",
+      "texto": "La tapa blanda reúne los tres títulos en un estuche de 1888 páginas, una edición física para leer la saga completa y conservar sus volúmenes juntos. Kindle ofrece la alternativa digital para acceder a la lectura desde un dispositivo compatible, sin transportar el conjunto impreso.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "formato_edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards, comparte con el estuche Time Keeper la presencia de fantasía y romance. La diferencia principal está en la presentación: el estuche de Iria G. Parente y Selene M. Pascual reúne tres títulos con 1888 páginas, frente a la obra individual de Kayla Edwards.",
+      "texto": "Endemoniada (Faeris Editorial), de Laura Thalassa, aparece entre los títulos afines y permite comparar dos propuestas reunidas bajo el interés por la fantasía y el romance. Ever and after 2. La boda oscura: Edición con cantos tintados (Inlov Romantasy), de Stella Tack, comparte esa proximidad temática, mientras que su título identifica una segunda entrega y una edición con cantos tintados, frente al estuche que reúne la saga completa de Time Keeper.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas",
-        "afines_catalogo"
+        "afines_catalogo",
+        "autores"
       ],
       "enlaces": [
-        "isbn-9788415955559"
+        "isbn-9791388108303",
+        "isbn-9788410399426"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "644986a0dc631039",
+  "fuente_hash": "73c0bbed18746b9d",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788414073971",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lobo y Cuervo : El robo más misterioso: 2 (Lobo y Cuervo, Agencia de detectives, S.L.) se dirige al público infantil que busca misterios, robos y aventuras de detectives. Sus 136 páginas y su temática lo distinguen de las novelas juveniles centradas en conflictos románticos o relatos sin enigmas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lobo y Cuervo : El robo más misterioso: 2 (Lobo y Cuervo, Agencia de detectives, S.L.) se presenta en tapa blanda y tiene 136 páginas. Esta edición permite llevar la aventura detectivesca en papel sin el volumen propio de una novela de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lobo y Cuervo : El robo más misterioso: 2 (Lobo y Cuervo, Agencia de detectives, S.L.) comparte autoría y protagonistas con Lobo y Cuervo : El misterio más misterioso: 1 (Lobo y Cuervo, Agencia de detectives, S.L.). Los títulos los identifican como los números 2 y 1 de la misma colección, respectivamente. Frente a Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, mantiene el tema del robo, pero dentro de una agencia de detectives.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788414073964",
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9bbec786eb63596e",
+  "origen": "chatgpt-web"
+}

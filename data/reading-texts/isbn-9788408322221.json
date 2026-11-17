@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Austria 7 se dirige a viajeros interesados en combinar ciudades históricas, patrimonio cultural y recorridos por espacios naturales. Encaja menos con quien busca una novela de viajes o una lectura centrada exclusivamente en una ciudad, porque su contenido abarca distintos destinos del país.",
+      "texto": "Austria 7 encaja con quienes quieren preparar un recorrido por Austria que combine patrimonio urbano y paisajes de montaña. Sus referencias a Viena, Salzburgo, Graz, los Alpes y los lagos responden menos a quien busca exclusivamente una guía de una ciudad o una lectura de ficción.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Austria 7 plantea una lectura de viajes centrada en el patrimonio urbano y los paisajes de Austria. Incluye referencias a Viena, Salzburgo y Graz, además de los Alpes, lagos, pueblos de montaña y rutas panorámicas, por lo que combina intereses culturales y naturales dentro de un mismo destino.",
+      "texto": "Austria 7 propone una lectura práctica sobre un país donde conviven ciudades históricas, antiguas residencias imperiales y espacios naturales. El contenido abarca música, castillos, abadías, pueblos de montaña y rutas panorámicas, por lo que permite plantear recorridos con intereses culturales y paisajísticos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -22,22 +22,21 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Austria 7 contiene 432 páginas en una edición rústica sin solapas. Permite consultar el contenido en papel durante la preparación del viaje o llevarlo como guía física, aunque su extensión supone transportar un volumen relativamente amplio durante los desplazamientos.",
+      "texto": "La edición de Austria 7 es de tapa blanda, en rústica sin solapas, y tiene 432 páginas. Este formato permite consultar el contenido durante la planificación y trasladarlo en el equipaje, con una extensión que conviene considerar si se pretende llevar la guía durante las excursiones.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "edicion",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Polonia 6 (Guías de País Lonely Planet) y Suiza 5 (Guías de País Lonely Planet) son alternativas de lectura sobre otros destinos europeos y comparten la participación de Anthony Haywood con Austria 7. La diferencia principal está en el país tratado: Austria 7 reúne ciudades y paisajes austriacos, mientras las otras guías se identifican con Polonia y Suiza.",
+      "texto": "Suiza 5 (Guías de País Lonely Planet) y Austria 7 comparten la participación de Anthony Haywood y el enfoque de guía de país, pero tratan destinos distintos. Polonia 6 (Guías de País Lonely Planet) también incluye a Anthony Haywood y ofrece otra alternativa geográfica para quien compara guías europeas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -48,6 +47,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "38713a01c909415e",
+  "fuente_hash": "ed2d828e90fc5bdb",
   "origen": "chatgpt-web"
 }

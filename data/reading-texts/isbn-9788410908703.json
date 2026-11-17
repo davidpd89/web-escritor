@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788410908703",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de clásicos literarios que buscan una edición de El jugador acompañada de materiales explicativos. Su combinación de narrativa, prólogo y notas responde a una lectura contextualizada, mientras que quien prefiera únicamente el texto literario encontrará aquí contenido editorial adicional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de El jugador incorpora prólogo y notas, dos elementos anunciados expresamente en el título. Editorial Letra Minúscula la publica en castellano, en tapa blanda y con 230 páginas, características que permiten distinguir esta presentación editorial de otras versiones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa blanda de Editorial Letra Minúscula, con 230 páginas en castellano. El volumen reúne El jugador con prólogo y notas en un soporte físico que permite consultar esos materiales mientras se avanza por la lectura.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Carta al padre: Edición con prólogo y notas, de Franz Kafka, comparte con El jugador: Edición con prólogo y notas la presencia de materiales editoriales complementarios, aunque se trata de obras y autores diferentes. Alfred y Emily (Narrativa), de Doris Lessing, ofrece otra referencia de narrativa literaria, sin que su título anuncie prólogo y notas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515",
+        "isbn-9788410908239"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eac2e23167a1639f",
+  "origen": "chatgpt-web"
+}

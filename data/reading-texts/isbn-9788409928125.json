@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409928125",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los dos caminos: Qué hacer con tu futuro cuando la IA llega antes que tu primer trabajo se dirige a quienes buscan orientación personal ante la llegada de la inteligencia artificial al empleo. Su enfoque sobre el futuro laboral y el desarrollo personal se aleja de las lecturas centradas exclusivamente en la salud física o la nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los dos caminos: Qué hacer con tu futuro cuando la IA llega antes que tu primer trabajo está disponible en tapa blanda, con 175 páginas en castellano. Esta edición permite consultar y recuperar en papel las cuestiones relacionadas con el futuro profesional, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta comparte con Los dos caminos: Qué hacer con tu futuro cuando la IA llega antes que tu primer trabajo el interés por afrontar decisiones personales. El libro de Anca Martínez aborda la vida adulta en general, mientras que el de Pere Balcells Obeso centra su planteamiento en el futuro profesional ante la inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409938490"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "effb5821b89f3886",
+  "origen": "chatgpt-web"
+}

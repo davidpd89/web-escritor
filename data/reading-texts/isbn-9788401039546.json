@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788401039546",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orlando (Éxitos), de Harry Whittaker, se sitúa entre las lecturas de romance y está dirigido a quienes buscan ese género en una edición de cierta extensión. Sus 480 páginas lo alejan de las preferencias por relatos cortos o lecturas de pocas sesiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Orlando (Éxitos) se presenta en tapa dura, con 480 páginas en castellano publicadas por Plaza & Janés. La encuadernación rígida permite conservar el volumen en una biblioteca personal y resulta práctica para quienes prefieren regalar libros físicos de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Orlando (Éxitos) comparte su orientación romántica con A cinco segundos de ti, de Sandra Miró, aunque son obras de distinta autoría. Otra referencia es 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, que se diferencia por su estructura de relatos y su temática navideña, frente a las 480 páginas de Orlando (Éxitos).",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409929177",
+        "isbn-9788427055735"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e844d932a2bc8c5b",
+  "origen": "chatgpt-web"
+}

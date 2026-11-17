@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791388256066",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La patata y el sentido de la vida (Trampantojo), de Birte Müller, encaja con lectores interesados en la filosofía, el ensayo y las preguntas sobre el sentido de la vida. Su título sitúa una patata junto a una cuestión existencial. No responde a la búsqueda de una novela de aventuras ni de una narración centrada en una trama fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La patata y el sentido de la vida (Trampantojo), de Birte Müller, comparte el terreno de la reflexión con El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage), de Baltasar Gracián. El primero plantea desde su título una pregunta existencial, mientras que el segundo se centra en la prudencia. También puede compararse con La incomodidad te hace libre: Un ensayo sobre libertad, disciplina e identidad para dejar de obedecer a la comodidad, de Sebastián Romero, cuyo enfoque declarado es la libertad, la disciplina y la identidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058670",
+        "isbn-9788409884339"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f64ce7e38472c2f4",
+  "origen": "chatgpt-web"
+}

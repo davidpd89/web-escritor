@@ -1,39 +1,42 @@
 {
   "id": "isbn-9788411724210",
-  "familia": "practico",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) se dirige a lectores interesados en la magia, el ocultismo y su relación con la espiritualidad. Su enfoque temático se aleja de quienes buscan una novela de fantasía centrada en personajes y aventuras.",
+      "texto": "Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) se orienta a lectores interesados en la magia, el ocultismo y sus conexiones con la espiritualidad. Su clasificación como ensayo lo distancia de quienes buscan principalmente una novela fantástica con una trama de ficción.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) es en tapa dura y tiene 64 páginas. Este formato permite conservar el volumen en una estantería y consultarlo físicamente; su extensión facilita recorrerlo en sesiones breves.",
+      "texto": "Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) tiene una edición en tapa dura de 64 páginas. Su extensión permite recorrer el volumen en sesiones breves, mientras que la encuadernación rígida resulta práctica para conservarlo o regalarlo como libro físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Astrología, filosofía y magia: Un camino de práctica espiritual comparte con Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) el interés por la magia y la espiritualidad. El primero plantea un camino de práctica espiritual, mientras que el segundo se presenta como un catálogo de artefactos mágicos.",
+      "texto": "Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) puede compararse con Mitos y leyendas (Mundo 3D): Héroes, dioses y monstruos como nunca antes los habías visto (Enciclopedia visual juvenil) por su relación con lo fantástico. El título de DK aborda héroes, dioses y monstruos desde una propuesta juvenil, mientras que Emanuela Brumana y Marco Guadalupi se sitúan en el terreno del ensayo sobre magia y ocultismo.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214315"
+        "isbn-9780241839355"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "87321708b0921fd3",
+  "fuente_hash": "58b9501c2553fc01",
   "origen": "chatgpt-web"
 }

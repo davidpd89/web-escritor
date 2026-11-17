@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370310554",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Platos de cuchara (Gastronomía y cocina) se dirige a quienes buscan contenidos de cocina centrados en preparaciones de cuchara. Por su temática gastronómica, no responde a quienes prefieren libros sobre otras actividades de ocio, como el bordado o los juegos interactivos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Platos de cuchara (Gastronomía y cocina) está disponible en tapa blanda, con 120 páginas en castellano. Esta edición de RBA Libros permite consultar el contenido culinario en papel y tenerlo a mano durante la preparación de platos, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Platos de cuchara (Gastronomía y cocina) comparte autoría colectiva y temática culinaria con Sácale partido a tu horno (Gastronomía y cocina), aunque uno se centra en platos de cuchara y el otro en el uso del horno. Dulces caseros (Gastronomía y cocina), también de Varios autores, aborda la repostería en lugar de las preparaciones de cuchara.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310547",
+        "isbn-9791370310561"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "da9ae0a49cc807c0",
+  "origen": "chatgpt-web"
+}

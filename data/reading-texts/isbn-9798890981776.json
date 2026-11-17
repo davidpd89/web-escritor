@@ -4,31 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a quienes buscan contenidos de desarrollo personal relacionados con la salud, las relaciones, la felicidad y el éxito. Por su enfoque en el bienestar y la familia, se aleja de las lecturas centradas exclusivamente en la ficción o el entretenimiento narrativo.",
+      "texto": "100 formas de cambiar tu vida se orienta a lectores interesados en mejorar hábitos relacionados con la salud, el bienestar personal y las relaciones. Por su enfoque de desarrollo personal y sus 368 páginas, se aleja de las lecturas de ficción y de quienes buscan exclusivamente una guía sobre crianza.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición de 100 formas de cambiar tu vida se presenta en tapa blanda y tiene 368 páginas. Este formato permite consultar sus contenidos en papel, volver a apartados concretos y conservar el volumen en una biblioteca personal.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "categorias",
         "numero_paginas"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de 100 formas de cambiar tu vida está disponible en tapa blanda y reúne 368 páginas en castellano. El formato en papel permite consultar distintos apartados, marcar páginas y recuperar contenidos sobre bienestar, relaciones y desarrollo personal sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Comparte el interés por las relaciones personales con Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez. Mientras este último se concentra en el enamoramiento y el desenamoramiento, la obra de Liz Moody amplía su temática a la salud, la felicidad y el éxito.",
+      "texto": "Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida comparte con el libro de Liz Moody el interés por el bienestar personal y las relaciones. La obra de David C se centra en reconocer y abandonar vínculos perjudiciales, mientras que 100 formas de cambiar tu vida abarca también salud, felicidad y éxito.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387534370"
+        "isbn-9788409923595"
       ]
     }
   ],

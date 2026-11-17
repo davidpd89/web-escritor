@@ -4,30 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los pecados de la familia Ichinose 6 (Shônen) se dirige a lectores de manga interesados en conflictos familiares, misterio y narrativa contemporánea con elementos de humor. El título lo identifica como el n.º 6, por lo que se diferencia de una historia presentada como volumen único o independiente.",
+      "texto": "Los pecados de la familia Ichinose 6 (Shônen) encaja con lectores interesados en el misterio y la narrativa gráfica. Su clasificación incluye cómic y novela gráfica, además de narrativa contemporánea; no está dirigido a quien busque exclusivamente prosa narrativa sin elementos gráficos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los pecados de la familia Ichinose 6 (Shônen) cuenta con una edición de 200 páginas en tapa blanda publicada por Distrito Manga. Su formato físico de cubierta flexible permite incorporarlo a una colección de manga y consultar las páginas ilustradas sin utilizar una pantalla.",
+      "texto": "La tapa blanda reúne sus 200 páginas en un volumen físico, pensado para quien prefiere leer cómic en papel y conservar cada entrega. Es el formato disponible para esta edición de Los pecados de la familia Ichinose 6 (Shônen).",
       "evidencias": [
-        "titulo",
         "numero_paginas",
         "formatos_disponibles",
-        "editorial",
-        "categorias"
+        "formato_edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El pecado original de Takopi (pack 1-2) (Shônen) y Los pecados de la familia Ichinose 6 (Shônen) comparten autor, Taizan 5, y la identificación editorial shônen. El primero se presenta como un paquete de dos entregas, mientras que el título del segundo lo identifica como el n.º 6. Este último incorpora temas familiares y misterio.",
+      "texto": "El pecado original de Takopi (pack 1-2) (Shônen), también de Taizan 5, comparte autoría y clasificación editorial con Los pecados de la familia Ichinose 6 (Shônen). La diferencia está en la presentación: uno reúne los volúmenes 1-2 en un pack y el otro se identifica como el n.º 6 por su título.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -37,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0f4f9f98a808ca61",
+  "fuente_hash": "b89c618dc88af2f7",
   "origen": "chatgpt-web"
 }

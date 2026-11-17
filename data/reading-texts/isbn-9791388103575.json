@@ -4,27 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Kagurabachi nº 08: 8 (Manga Shonen) está dirigido a lectores interesados en el manga y el cómic, especialmente en publicaciones identificadas como shonen. Quienes busquen novelas convencionales o libros de desarrollo personal encontrarán aquí un formato de lectura diferente, con 192 páginas de contenido gráfico.",
+      "texto": "Kagurabachi nº 08: 8 (Manga Shonen) encaja con lectores interesados en el manga shonen y en entregas numeradas de cómic. Sus 192 páginas ofrecen una extensión contenida; quienes busquen una novela en prosa encontrarán aquí otro tipo de lectura.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible de Kagurabachi nº 08: 8 (Manga Shonen). Sus 192 páginas ofrecen un volumen físico de extensión más breve que una novela convencional, pensado para la lectura en papel y para conservarlo junto a otros ejemplares de manga.",
+      "texto": "Kagurabachi nº 08: 8 (Manga Shonen) está disponible en tapa blanda y Kindle. La edición impresa de Planeta Cómic tiene 192 páginas y permite conservar el tomo físicamente; Kindle facilita llevarlo en un dispositivo digital sin ocupar espacio en la estantería.",
       "evidencias": [
         "titulo",
+        "editorial",
         "numero_paginas",
-        "formatos_disponibles",
-        "formato_edicion"
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kagurabachi nº 07: 7 (Manga Shonen) es la comparación más directa con Kagurabachi nº 08: 8 (Manga Shonen): ambos llevan la firma de Takeru Hokazono y se identifican como manga shonen. La diferencia visible está en la numeración, pues sus títulos señalan respectivamente los números 07 y 08.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102233"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c3ea591d9d99360b",
+  "fuente_hash": "836d8119020050a7",
   "origen": "chatgpt-web"
 }

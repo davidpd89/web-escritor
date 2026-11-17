@@ -4,30 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Explora Japón 2027-2028 (Guías Explora Lonely Planet) está orientado a lectores que buscan una guía de viajes dedicada a Japón. Sus 258 páginas responden a una consulta sobre ese destino, por lo que encaja menos con quien prefiera narrativa de ficción o una guía centrada en varios países.",
+      "texto": "Explora Japón 2027-2028 (Guías Explora Lonely Planet) está dirigido a lectores que preparan una visita a Japón y buscan información sobre destinos y viajes. Su temática pertenece a los libros de viajes, no a la narrativa de ficción ni a las novelas ambientadas en ese país.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Explora Japón 2027-2028 (Guías Explora Lonely Planet) tiene 258 páginas y permite consultar la guía en papel durante la preparación del viaje. Kindle facilita llevarla en el móvil o en un lector electrónico, evitando añadir otro libro físico al equipaje.",
+      "texto": "La tapa blanda reúne sus 258 páginas en un volumen físico de Geoplaneta, pensado para consultar durante la preparación del viaje o conservar como guía. Kindle ofrece una edición digital para llevar el contenido en un dispositivo de lectura o en el móvil.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Japón 2027-2028 comparte destino con Explora Japón 2027-2028 (Guías Explora Lonely Planet), aunque se presenta como una guía sobre tradiciones, cultura pop, gastronomía y modernidad. Indonesia 7 pertenece también al ámbito de los viajes, pero cambia Japón por Indonesia; además, Ray Bartlett participa en las tres obras.",
+      "texto": "Japón 2027-2028 comparte destino con Japón 2027-2028, de Ray Bartlett, Craig Mclachlan, Rebecca Milner, Phillip Tang, Wendy Yanagihara, que también aborda el país desde la perspectiva viajera. Indonesia 7, de Anthony Ham, Ray Bartlett, Jade Bremner, Paul Harding, Sarah Reid, traslada ese planteamiento a Indonesia, por lo que cambia el destino y se mantiene el interés por las guías de viaje.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
         "isbn-9788408329534",
@@ -37,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bc4f4ca5a131fb3a",
+  "fuente_hash": "0a683e5b41d92e10",
   "origen": "chatgpt-web"
 }

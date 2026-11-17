@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788491429418",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Marmota Y El Tejon Patinan En Invierno (El Delfín. Primeras lecturas) se dirige al público infantil que busca historias breves relacionadas con animales y actividades de invierno. Sus 24 páginas y su pertenencia a la colección Primeras lecturas lo distinguen de las novelas juveniles extensas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Marmota Y El Tejon Patinan En Invierno (El Delfín. Primeras lecturas) se presenta en tapa blanda, con 24 páginas en castellano. Esta edición de Algar permite manejar un volumen breve en papel, tanto para leerlo de una vez como para volver a sus páginas durante las primeras prácticas de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El gigante de la nieve (ILUSTRADOS) comparte con La Marmota Y El Tejon Patinan En Invierno (El Delfín. Primeras lecturas) la autoría de Pep Molist y una referencia al invierno. La diferencia está en el enfoque anunciado por los títulos: uno gira alrededor de un gigante y el otro presenta animales que patinan, dentro de una colección de primeras lecturas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410016668"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eb20a67bf2607c89",
+  "origen": "chatgpt-web"
+}

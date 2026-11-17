@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Planes de pensiones: todo lo que debes saber sobre su fiscalidad. Paso a paso: Desde las primeras aportaciones hasta el cobro de las prestaciones: reglas generales y supuestos especiales se dirige a lectores interesados en las normas tributarias de los planes de pensiones. Su enfoque jurídico abarca aportaciones, prestaciones y supuestos especiales, por lo que no responde a quien busca una introducción general a la inversión sin contenido fiscal.",
+      "texto": "Planes de pensiones: todo lo que debes saber sobre su fiscalidad. Paso a paso: Desde las primeras aportaciones hasta el cobro de las prestaciones: reglas generales y supuestos especiales se dirige a quienes necesitan estudiar el tratamiento fiscal de los planes de pensiones. Su enfoque jurídico y tributario no responde a quien busca una introducción general al ahorro sin entrar en reglas fiscales.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,18 +12,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Planes de pensiones: todo lo que debes saber sobre su fiscalidad. Paso a paso: Desde las primeras aportaciones hasta el cobro de las prestaciones: reglas generales y supuestos especiales está disponible en tapa blanda, con 104 páginas en castellano. Esta edición de Colex permite consultar en papel las distintas etapas fiscales recogidas en el título, desde las aportaciones hasta las prestaciones.",
+      "texto": "La tapa blanda reúne en 104 páginas el recorrido fiscal desde las aportaciones a los planes de pensiones hasta el cobro de las prestaciones. El formato físico permite consultar las reglas generales y los supuestos especiales, así como volver a los apartados pertinentes durante una revisión tributaria.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas es otra obra del Departamento de Documentación Iberley dedicada a cuestiones fiscales. Mientras ese título aborda los plazos y las interrupciones de la prescripción tributaria, el libro sobre planes de pensiones trata las aportaciones, el cobro de prestaciones y sus reglas fiscales. Ambos comparten autoría y orientación jurídica, pero resuelven consultas tributarias diferentes.",
+      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) comparte autoría con el libro sobre planes de pensiones, pero aborda conflictos laborales en lugar de la fiscalidad del ahorro para la jubilación. La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas también pertenece al ámbito jurídico y tributario, aunque se centra en los plazos de las deudas fiscales y no en las aportaciones y prestaciones de los planes de pensiones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +29,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791370651749",
         "isbn-9791370651282"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a87921192afb68f1",
+  "fuente_hash": "eec464673e6d52fc",
   "origen": "chatgpt-web"
 }

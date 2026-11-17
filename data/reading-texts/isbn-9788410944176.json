@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Corona Nostra: De Felipe VI a Felipe V, de Nieves Concostrina, encaja con lectores interesados en historia, biografías y memorias, y especialmente en los asuntos históricos relacionados con la monarquía. Quienes busquen ficción, romance o aventuras encontrarán un libro de no ficción histórica, no una novela.",
+      "texto": "Corona Nostra: De Felipe VI a Felipe V se dirige a lectores interesados en historia y biografías relacionadas con figuras de la monarquía. Sus 528 páginas y su enfoque histórico lo separan de la ficción narrativa y de las introducciones breves a un periodo histórico.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda contiene sus 528 páginas en una edición física de La Esfera de los Libros. Kindle ofrece la alternativa digital para leer el contenido sin transportar un volumen de esa extensión.",
+      "texto": "Corona Nostra: De Felipe VI a Felipe V se publica en tapa blanda y también está disponible en Kindle. La edición impresa de La Esfera de los Libros contiene 528 páginas, mientras que la versión electrónica permite consultar el texto desde un lector compatible sin manejar el volumen físico.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "edicion",
-        "editorial",
+        "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Desastre del 98 y el fin del Imperio español: Visión inédita del Almirante Cervera (Biblioteca de Historia), de Ángel Luis Cervera Fantoni, comparte el enfoque histórico, aunque centra su título en el Desastre del 98 y el Almirante Cervera. Corona Nostra: De Felipe VI a Felipe V aborda la historia desde la perspectiva de la monarquía y sus dos figuras reales protagonistas.",
+      "texto": "Cesar La conquista de la eternidad y Corona Nostra: De Felipe VI a Felipe V comparten el interés por personajes históricos vinculados al poder. El libro de Alberto Angela aborda a un general romano, mientras que Nieves Concostrina sitúa su obra en el ámbito de la monarquía y la historia, con Felipe VI y Felipe V como referencias del título.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388444142"
+        "isbn-9788410944329"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "36562d3dd2ead4a8",
+  "fuente_hash": "6ab605cd5354f1bc",
   "origen": "chatgpt-web"
 }

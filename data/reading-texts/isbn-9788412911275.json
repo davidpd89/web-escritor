@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788412911275",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Horror giirls lationamerica encaja con lectores de narrativa contemporánea que buscan una obra cuyo título alude al horror. Su clasificación editorial lo sitúa fuera del cómic y la novela gráfica, por lo que resulta menos adecuado para quienes prefieran historias contadas mediante viñetas en lugar de narrativa escrita.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Horror giirls lationamerica está disponible en tapa blanda, con 214 páginas en castellano. La edición de Hermenaute ofrece una lectura física de extensión delimitada, con una cubierta flexible que facilita llevar el libro y guardarlo en una estantería; también permite regalar un ejemplar impreso sin depender de un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16b94ceff36400ce",
+  "origen": "chatgpt-web"
+}

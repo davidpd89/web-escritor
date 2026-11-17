@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419608598",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vejer fotográfico y algunas otras historias se dirige a lectores interesados en la historia, la fotografía y el arte vinculados a Vejer. Su orientación temática y sus 152 páginas lo diferencian de una guía general de ocio o de un manual de técnicas fotográficas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 152 páginas de Vejer fotográfico y algunas otras historias en una edición física de Q-book Cultura Integral, S.l. Permite conservar el libro y consultarlo en papel, una elección relacionada con su temática histórica y artística.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros) comparte con Vejer fotográfico y algunas otras historias el interés por el arte. La obra de Katy Hessel aborda la creatividad cotidiana, mientras que Antonio Morillo Crespo centra su título en Vejer, la fotografía y otras historias.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388324239"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ad1fb0494a6df85e",
+  "origen": "chatgpt-web"
+}

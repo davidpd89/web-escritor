@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387995430",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Incredible science fiction. ED castellano encaja con lectores de cómic interesados en la ciencia ficción y en obras de autoría colectiva. Quienes prefieran novelas exclusivamente narradas en prosa o historias atribuidas a un único escritor encontrarán aquí un planteamiento editorial diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Incredible science fiction. ED castellano se presenta en tapa dura y reúne 240 páginas en castellano. La encuadernación rígida resulta apropiada para conservar el volumen en una colección de cómics y consultarlo repetidamente en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Incredible science fiction. ED castellano comparte con Creepy nº 11/29 la autoría colectiva y el formato de cómic. La diferencia temática está en la ciencia ficción del primero frente al terror de la recopilación Creepy nº 11/29, una distinción útil para elegir según el género que se quiera leer.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411406130"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b7120535cd5b63b",
+  "origen": "chatgpt-web"
+}

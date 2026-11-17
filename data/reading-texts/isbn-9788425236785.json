@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788425236785",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Atensidad!: un manifiesto del movimiento por la liberación de la atención se orienta a quienes buscan ensayos sobre la atención desde una perspectiva relacionada con la psicología y la política. Su planteamiento de manifiesto se aparta de las novelas de ficción y de los manuales dedicados a una técnica profesional concreta.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Atensidad!: un manifiesto del movimiento por la liberación de la atención cuenta con una edición en tapa blanda de 242 páginas, publicada en castellano por Editorial GG. El soporte impreso permite subrayar argumentos, añadir anotaciones y regresar a determinados pasajes durante el análisis de sus propuestas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Atensidad!: un manifiesto del movimiento por la liberación de la atención, de Friends of Attention, comparte con A.C.T.I.V.A.: 8 etapas para construir dirección, capacidad y libertad en tiempos de cambio, de Jul Ore, el interés por la libertad, aunque el primero la relaciona con la atención. Frente a Un hilo interminable: Principios psíquicos del Trauma Transgeneracional, de Anna Miñarro, desplaza el foco desde el trauma hacia la atención y su dimensión política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399279115",
+        "isbn-9789560848819"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8bb8a79cf9566058",
+  "origen": "chatgpt-web"
+}

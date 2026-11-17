@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Costa amalfitana (VIAJES), de Natasha Penot, está dirigido a quienes buscan lecturas sobre destinos turísticos y viajes. Por su temática, encaja menos con lectores interesados en novelas de ficción o libros centrados en el desarrollo personal.",
+      "texto": "Costa amalfitana (VIAJES), de Natasha Penot, encaja con lectores que buscan publicaciones sobre destinos y viajes. Su temática se sitúa en el ocio y el tiempo libre, por lo que no corresponde a quien quiere una novela ambientada en esa región ni un ensayo de historia política.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Costa amalfitana (VIAJES) se presenta en tapa dura, con 290 páginas en castellano. La encuadernación rígida favorece su conservación en una estantería y su consulta sobre una mesa, aunque ocupa más espacio que una edición flexible de extensión semejante.",
+      "texto": "Costa amalfitana (VIAJES) se publica en tapa dura y tiene 290 páginas. Esta encuadernación permite conservar el libro como volumen de consulta sobre el destino y colocarlo en una biblioteca de viajes, aunque resulta menos flexible para transportarlo que una tapa blanda.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Costa amalfitana (VIAJES) comparte su orientación viajera con Córcega de cerca 1 (Guías De cerca Lonely Planet). La obra de Natasha Penot se centra en la costa amalfitana, mientras que la de Claire Angot, Élodie Lecadieu y Clara Jaeger aborda Córcega y se identifica expresamente como guía de viaje. La elección depende del destino que interese conocer.",
+      "texto": "Córcega de cerca 1 (Guías De cerca Lonely Planet) comparte con Costa amalfitana (VIAJES) el interés por destinos mediterráneos. La primera se identifica expresamente como guía de proximidad, mientras que la obra de Natasha Penot se presenta como un libro de viajes dedicado a la costa amalfitana.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d173b359f8254518",
+  "fuente_hash": "a89abdb5014d649c",
   "origen": "chatgpt-web"
 }

@@ -4,37 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Anna Kadabra. Estuche Aventuras legendarias 1 y 2 está dirigido a lectores que buscan aventuras con humor y componentes de terror. Encaja menos con quienes prefieren historias cotidianas sin elementos inquietantes o buscan un único volumen independiente.",
+      "texto": "Anna Kadabra. Estuche Aventuras legendarias 1 y 2 se orienta a lectores interesados en aventuras con elementos de terror. Su presentación en estuche reúne dos entregas, por lo que responde a una búsqueda distinta de la de quienes prefieren un único relato independiente o una lectura centrada en el realismo cotidiano.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El formato disponible es tapa dura, con una extensión total de 384 páginas. Anna Kadabra. Estuche Aventuras legendarias 1 y 2 se presenta como estuche, una opción física para conservar juntas las aventuras que el título identifica como 1 y 2.",
+      "texto": "Anna Kadabra. Estuche Aventuras legendarias 1 y 2 está disponible en tapa dura, con una edición presentada como libro de cartón. Sus 384 páginas y el formato de estuche permiten reunir las dos entregas en papel, tanto para conservarlas juntas como para entregarlas como regalo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Anna Kadabra. El Gran Libro de Anna Kadabra. El despertar de las brujas: 1 comparte universo y autoría con este estuche de Pedro Mañas y David Sierra Listón. Ambos combinan aventuras, humor y terror, pero el estuche reúne las aventuras identificadas como 1 y 2, mientras que el libro afín se presenta como un volumen individual.",
+      "texto": "Anna Kadabra. El Gran Libro de Anna Kadabra comparte con el estuche de aventuras legendarias el universo de Anna Kadabra y la autoría de Pedro Mañas y David Sierra Listón. El estuche reúne las entregas identificadas como 1 y 2, mientras que el otro título se centra en el despertar de las brujas. Gran zootel también incluye a Pedro Mañas entre sus autores, pero presenta una obra de autoría colectiva.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328933"
+        "isbn-9791387501679"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "40093b1d1ef8bfd2",
+  "fuente_hash": "1763f3b80e03085c",
   "origen": "chatgpt-web"
 }

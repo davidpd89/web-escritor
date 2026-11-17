@@ -4,38 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Grandes historias de la mitología griega: Los orígenes de dioses y héroes (Clásicos adaptados e ilustrados para jóvenes lectores) está dirigido a jóvenes interesados en los relatos mitológicos, los dioses y los héroes. Su planteamiento de clásicos adaptados e ilustrados se distancia de las obras que abordan estas tradiciones mediante estudios académicos extensos.",
+      "texto": "Grandes historias de la mitología griega: Los orígenes de dioses y héroes (Clásicos adaptados e ilustrados para jóvenes lectores) está dirigido a jóvenes interesados en los relatos mitológicos y las aventuras clásicas. Su planteamiento adaptado e ilustrado se aleja de los estudios académicos especializados sobre religión antigua.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Grandes historias de la mitología griega: Los orígenes de dioses y héroes (Clásicos adaptados e ilustrados para jóvenes lectores) contiene 103 páginas en castellano. Es un volumen de extensión reducida para leer y consultar relatos mitológicos, con una encuadernación flexible que facilita transportarlo.",
+      "texto": "La tapa dura ofrece una encuadernación rígida para conservar y regalar Grandes historias de la mitología griega: Los orígenes de dioses y héroes (Clásicos adaptados e ilustrados para jóvenes lectores). La tapa blanda facilita transportar sus 103 páginas, mientras Kindle permite leerlo digitalmente sin llevar un libro físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mitos y leyendas (Mundo 3D): Héroes, dioses y monstruos como nunca antes los habías visto (Enciclopedia visual juvenil), de DK, comparte con la obra de Frances Bianchi el interés por los seres mitológicos y el público juvenil, aunque se presenta como enciclopedia visual en lugar de clásicos adaptados. Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff, también incorpora dioses, pero su título plantea una prueba protagonizada por Penelope frente a la recopilación de orígenes mitológicos.",
+      "texto": "Grandes historias de la mitología griega: Los orígenes de dioses y héroes (Clásicos adaptados e ilustrados para jóvenes lectores) y La Guardia del Camino comparten su relación con las aventuras. Frances Bianchi trabaja con relatos clásicos de dioses y héroes para jóvenes, mientras Lucas Varona Muñoz presenta una obra distinta, identificada por su título con la vigilancia de un camino.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9780241839355",
-        "isbn-9788408324102"
+        "isbn-9791388037917"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4ced143d319ecfd2",
+  "fuente_hash": "f44ebb9ec722d461",
   "origen": "chatgpt-web"
 }

@@ -4,15 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un Final, de Hollywood / Hollywood Ending se orienta a lectores de narrativa contemporánea interesados en la superación personal y el duelo. Su clasificación temática lo diferencia de las novelas centradas en mundos fantásticos o conflictos históricos.",
+      "texto": "Un Final, de Hollywood / Hollywood Ending, de John Green, pertenece a la narrativa contemporánea y se dirige a lectores que buscan ficción de ese género. Sus 448 páginas plantean una lectura de cierta extensión, menos ajustada a quien prefiera libros breves.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Un Final, de Hollywood / Hollywood Ending se presenta en tapa blanda y tiene 448 páginas. La edición en castellano de Nube de Tinta reúne la lectura en un volumen físico de cubierta flexible, adecuado para transportarlo durante una lectura prolongada.",
+      "texto": "Un Final, de Hollywood / Hollywood Ending se publica en tapa blanda, con 448 páginas en castellano. La edición de Nube de Tinta permite leerlo en papel, aunque su extensión supone llevar un volumen más largo que una lectura breve; la cubierta flexible facilita su manipulación.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -20,23 +22,10 @@
         "idioma",
         "editorial"
       ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Un Final, de Hollywood / Hollywood Ending puede ponerse junto a Lo primero que se rompió fue el corazón (Hispánica) por su relación con la narrativa de asuntos personales. John Green figura como autor del primero y Julián Delgado Lopera del segundo; el libro de John Green está clasificado además dentro de superación y duelo.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9791388473111"
-      ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "043e0f2374b644b4",
+  "fuente_hash": "34bcd0e08df16651",
   "origen": "chatgpt-web"
 }

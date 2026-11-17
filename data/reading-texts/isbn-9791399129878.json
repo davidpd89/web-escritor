@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los tristes del Paseo, de Antonio Canalejo Santaella, se orienta a lectores de poesía interesados también en referencias a la Edad Media. Con 59 páginas, responde a la búsqueda de un libro breve, pero no a la de una novela extensa centrada en una trama de aventuras.",
+      "texto": "Los tristes del Paseo, de Antonio Canalejo Santaella, está dirigido a lectores que buscan poesía y prefieren los libros de extensión breve. Sus 59 páginas corresponden a una obra de formato reducido, alejada de las novelas extensas y de los ensayos de no ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,19 +14,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los tristes del Paseo cuenta con una edición en tapa blanda de 59 páginas, publicada por Editorial Tleo. El formato permite llevar el poemario en papel y consultar o releer sus páginas sin transportar un volumen extenso.",
+      "texto": "Los tristes del Paseo está disponible en tapa blanda y reúne 59 páginas. Es una edición física de extensión breve, adecuada para quien prefiere leer poesía en papel y conservar el ejemplar en su biblioteca.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "edicion",
-        "categorias"
+        "formato_edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los tristes del Paseo puede compararse con Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, dentro de la lectura poética. La diferencia identificable está en la autoría y el enfoque anunciado: Antonio Canalejo Santaella presenta un título asociado a la tristeza, mientras que el de Pedro Salinas señala expresamente el amor.",
+      "texto": "Advenir, de Jose Eceolaza, comparte con Los tristes del Paseo su presencia en un catálogo de poesía. 223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, ofrece otra referencia para comparar títulos de este ámbito literario, aunque corresponde a una obra identificada con una colección numerada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788412988833",
+        "isbn-9788410212749"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7c44247ab2a1d582",
+  "fuente_hash": "3c2ce207a2945bda",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388299490",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Iguanas en Dinamarca (Eria) pertenece a la poesía y se dirige a lectores que buscan ese género literario. Por su clasificación, encaja menos con quienes prefieren una novela de argumento continuado o un ensayo de carácter divulgativo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Iguanas en Dinamarca (Eria) tiene 78 páginas y se ofrece en tapa blanda. La edición en castellano de Eolas Ediciones permite leer el poemario en papel, llevarlo con facilidad y regresar a sus páginas en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Iguanas en Dinamarca (Eria) y A solas comparten su presencia entre las lecturas poéticas del catálogo. La diferencia comprobable está en la autoría: Iván Mariscal firma Iguanas en Dinamarca (Eria), mientras que A solas es de María Jesús Martínez Ramos. El primero cuenta con 78 páginas en su edición de tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ],
+      "enlaces": [
+        "isbn-9788410907539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5e11c815651f67f1",
+  "origen": "chatgpt-web"
+}

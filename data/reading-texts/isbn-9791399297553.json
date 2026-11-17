@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399297553",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La lengua de oro se sitúa entre el misterio y el ensayo, por lo que encaja con lectores interesados en ambos ámbitos. Sus 474 páginas la alejan de las lecturas breves y de los libros orientados exclusivamente a la aventura infantil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La lengua de oro cuenta con una edición en tapa blanda de 474 páginas, publicada por Ápeiron Ediciones. Por su extensión, conviene considerar el espacio que ocupa al transportarla y el tiempo necesario para una lectura completa en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La lengua de oro comparte su clasificación de misterio con La chica del puente, de Marc Sans, y El segador de almas: Los crímenes del agua II, de Samuel Vernal. La diferencia es que la obra de Luis Carlos Hernández también está clasificada como ensayo, mientras que los títulos comparados se presentan mediante referencias narrativas a un puente y a unos crímenes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412997286",
+        "isbn-9791399297546"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8368bd2a83a0327",
+  "origen": "chatgpt-web"
+}

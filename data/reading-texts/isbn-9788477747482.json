@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788477747482",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bass Culture: La historia del reggae: 3 (En la carretera), de Lloyd Bradley, se dirige a quienes buscan una lectura sobre la historia del reggae. Sus 424 páginas y su clasificación dentro del ámbito artístico lo alejan de una guía breve de escucha o de un manual para aprender a tocar un instrumento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bass Culture: La historia del reggae: 3 (En la carretera) cuenta con una edición en tapa blanda de 424 páginas. A. Machado Libros lo publica en castellano, en un volumen de papel apropiado para consultar distintos pasajes de una lectura extensa sobre historia musical.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bass Culture: La historia del reggae: 3 (En la carretera) y 21 Westerns del siglo XXI (Sílex Cine/Claqueta) se ocupan de manifestaciones culturales distintas. Lloyd Bradley aborda la historia del reggae, mientras que Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga se centran en el cine del oeste contemporáneo. Ambos permiten elegir una lectura sobre cultura artística según el interés por la música o el cine.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d1f0660bfef74e1b",
+  "origen": "chatgpt-web"
+}

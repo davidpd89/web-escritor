@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370079369",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Emilio Pucci | Colección Leyendas de la Moda | Libro LXVI está dirigido a quienes buscan lecturas de ensayo relacionadas con la moda, el arte y el diseño. Con 365 páginas, requiere más tiempo de lectura que un volumen breve de divulgación y no corresponde a quien busque una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Emilio Pucci | Colección Leyendas de la Moda | Libro LXVI se presenta en tapa dura, con 365 páginas en castellano. La encuadernación rígida de RBA Coleccionables facilita su conservación como volumen de consulta o como parte de una colección física, aunque ocupa más espacio que una edición breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Emilio Pucci | Colección Leyendas de la Moda | Libro LXVI comparte colección y autoría editorial con Junya Watanabe | Colección Leyendas de la Moda | Libro LXVII y Marni | Colección Leyendas de la Moda | Libro LXVIII. Cambia la figura o firma de moda que identifica cada título, mientras que RBA Coleccionables España figura como responsable de los tres.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079376",
+        "isbn-9791370079383"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "301344ff2b5eed23",
+  "origen": "chatgpt-web"
+}

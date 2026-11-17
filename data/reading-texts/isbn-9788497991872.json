@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788497991872",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Empoderar a las personas en las organizaciones, de Varios autores, se dirige a quienes buscan lecturas sobre personas y organizaciones desde el ámbito del ensayo y la psicología. Con 52 páginas, se aparta de los tratados extensos y de las obras centradas exclusivamente en entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Empoderar a las personas en las organizaciones está editado en tapa blanda y tiene 52 páginas en castellano. La edición de Medici ofrece un volumen físico breve que puede transportarse con facilidad y mantenerse a mano para consultas sobre su materia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Empoderar a las personas en las organizaciones y Mindfulness en la actividad física y el deporte. comparten la autoría indicada como Varios autores y se relacionan con cuestiones humanas y psicológicas. El primero sitúa su interés en las organizaciones, mientras que el segundo identifica la atención plena en el contexto deportivo como asunto central.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491446309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "508e16970dc40262",
+  "origen": "chatgpt-web"
+}

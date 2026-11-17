@@ -4,40 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Septimo izquierda se sitúa en el ámbito del arte y el diseño, por lo que encaja con lectores interesados en publicaciones de esta temática. Su clasificación editorial lo diferencia de los títulos orientados específicamente a la psicología, los viajes o el bienestar.",
+      "texto": "Septimo izquierda se dirige a lectores interesados en publicaciones de arte y diseño que prefieren volúmenes de extensión reducida. Con 80 páginas, se aleja de las novelas largas y de quienes buscan específicamente un manual deportivo o una lectura religiosa.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Septimo izquierda está publicado en tapa blanda y tiene 80 páginas en castellano. Esta edición de Editorial Berenice ofrece un volumen breve para leer y consultar en papel, sin depender de un dispositivo electrónico.",
+      "texto": "Septimo izquierda se publica en tapa blanda, con 80 páginas en castellano. La edición de Editorial Berenice ofrece un volumen físico breve, manejable para transportar, consultar y guardar en una colección de libros de arte y diseño.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Septimo izquierda puede compararse con 720 retrats, una obra de Xavier Mollà i Revert centrada en retratos. Ambos títulos se relacionan con el ámbito artístico, pero Septimo izquierda es una publicación de Pedro Lendinez de 80 páginas, mientras que 720 retrats identifica los retratos como asunto principal desde su título.",
+      "texto": "Septimo izquierda puede compararse con 720 retrats, de Xavier Mollà i Revert, por su relación con el ámbito del arte y el diseño. La diferencia visible está en sus títulos y autorías: Pedro Lendinez firma Septimo izquierda, mientras que 720 retrats identifica una colección de retratos. All Black Cuaderno (LIBRETAS ARTÖSTICAS), de Varios autores, se orienta por su título hacia el formato de cuaderno.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412678802"
+        "isbn-9788412678802",
+        "isbn-9789879871119"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "97f2bd64807fae04",
+  "fuente_hash": "5bbd064f6b66821a",
   "origen": "chatgpt-web"
 }

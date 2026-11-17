@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tú también tienes dislexia: Cómo compensarla en casa, en el aula o antes de estudiar un examen (Padres y educadores) se orienta a familias, educadores y personas interesadas en afrontar la dislexia durante el estudio. Por su enfoque de desarrollo personal y crianza, se aleja de las lecturas de ficción y de los manuales dedicados a materias de examen concretas.",
+      "texto": "Está orientado a familias, docentes y estudiantes interesados en compensar la dislexia en casa, en el aula o al preparar exámenes. Tú también tienes dislexia: Cómo compensarla en casa, en el aula o antes de estudiar un examen (Padres y educadores), de Fernando Alberca y Mercedes Alberca, trata una dificultad concreta de aprendizaje, no el desarrollo personal de manera general.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Tú también tienes dislexia: Cómo compensarla en casa, en el aula o antes de estudiar un examen (Padres y educadores) es de tapa blanda y tiene 200 páginas. El formato en papel permite consultar apartados durante el estudio, en casa o en el aula, y volver a ellos sin utilizar una pantalla.",
+      "texto": "Tú también tienes dislexia: Cómo compensarla en casa, en el aula o antes de estudiar un examen (Padres y educadores) cuenta con una edición en tapa blanda de 200 páginas. El formato en papel facilita tener el libro a mano para consultar sus contenidos relacionados con el hogar, el aula y la preparación de exámenes.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -21,19 +22,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tú también tienes dislexia: Cómo compensarla en casa, en el aula o antes de estudiar un examen (Padres y educadores) coincide con 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito en su orientación al desarrollo personal. El primero delimita su asunto a la dislexia en contextos familiares y educativos; el libro de Liz Moody aborda salud, felicidad, relaciones y éxito.",
+      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos), de Toño Ramos, comparte con Tú también tienes dislexia: Cómo compensarla en casa, en el aula o antes de estudiar un examen (Padres y educadores) la atención al entorno familiar. El primero aborda la convivencia y los cuidados en distintas edades; el de Fernando Alberca y Mercedes Alberca se concentra en la dislexia y su compensación en contextos educativos y domésticos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798890981776"
+        "isbn-9791399249682"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "84e6af12702ae01a",
+  "fuente_hash": "c2896ed256e78a1e",
   "origen": "chatgpt-web"
 }

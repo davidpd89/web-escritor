@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788498297461",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alpinismo de secano: La esencia de la escalada natural (Literatura no ficción Desnivel) se dirige a lectores interesados en la escalada, el alpinismo y las experiencias relacionadas con estas actividades. Su orientación hacia la literatura de no ficción lo diferencia de una novela de aventuras o de una guía turística general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La escalada natural constituye el tema central de la obra, dentro del ámbito del alpinismo. Eduard Sallent Vilanova aborda esta actividad desde un marco de literatura de no ficción relacionado con las experiencias personales y el tiempo libre.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda consta de 240 páginas en castellano y pertenece al catálogo de Ediciones Desnivel, S. L. Su encuadernación flexible facilita llevar el volumen durante desplazamientos y conservarlo como lectura sobre alpinismo y escalada natural.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Espíritu salvaje: La llamada de África a una veterinaria (Obras diversas), de Fabiola Quesada Fernández, comparte el ámbito de las experiencias personales vinculadas con actividades fuera del entorno cotidiano. Alpinismo de secano: La esencia de la escalada natural (Literatura no ficción Desnivel) se centra específicamente en la escalada, mientras que el otro título presenta una experiencia veterinaria relacionada con África.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401041662"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16ccae48354a0073",
+  "origen": "chatgpt-web"
+}

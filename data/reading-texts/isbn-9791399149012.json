@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399149012",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Latidos Invisibles: Ciencia, tecnología y políticas para la salud vascular de las mujeres se dirige a quienes buscan lecturas sobre salud femenina desde una perspectiva científica y social. Su enfoque de ensayo y bienestar encaja menos con lectores interesados únicamente en ficción o narrativa de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Latidos Invisibles: Ciencia, tecnología y políticas para la salud vascular de las mujeres se presenta en tapa blanda, con 164 páginas. Esta edición de Desenfoque Books permite leer en papel y volver a consultar apartados sobre ciencia, tecnología y políticas de salud vascular.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Latidos Invisibles: Ciencia, tecnología y políticas para la salud vascular de las mujeres y No estoy bien y no sé por qué: Cómo dejar de vivir en piloto automático y superar la ansiedad silenciosa (Kitaeru Libros) comparten el interés por la salud y el bienestar. El primero aborda la salud vascular femenina desde la ciencia, la tecnología y las políticas; el segundo sitúa la ansiedad silenciosa en el centro de su título. Sus autorías también son distintas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410428522"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "46103ffcb32f8bab",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410928695",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro de Javi Polinario se dirige a quienes gestionan un negocio y buscan organizar procesos, delegar tareas y coordinar equipos. Sus temas son la gestión empresarial, el tiempo y la salud, por lo que se aleja de la ficción y de las lecturas centradas exclusivamente en el ocio.",
+      "evidencias": [
+        "autores",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Javi Polinario está disponible en tapa blanda y tiene 168 páginas. El formato impreso permite consultar los contenidos sobre procesos, delegación y organización del equipo, así como regresar a los apartados relacionados con la gestión del tiempo.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La obra de Javi Polinario comparte el interés por la dirección de personas con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso. La primera aborda procesos, delegación y organización empresarial, mientras que la segunda plantea una mirada interior al liderazgo. Ambas tratan cuestiones de gestión desde enfoques distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ce321ec0784c75f",
+  "origen": "chatgpt-web"
+}

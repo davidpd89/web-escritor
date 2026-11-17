@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399297546",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La chica del puente se sitúa entre las lecturas de misterio y ensayo, por lo que encaja con quienes buscan esas dos orientaciones temáticas. Con 148 páginas, se aleja de los volúmenes extensos y de las búsquedas centradas en fantasía juvenil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La chica del puente tiene una edición en tapa blanda de 148 páginas, publicada en castellano por Ápeiron Ediciones. Su extensión permite llevarla en una bolsa pequeña y leerla en papel sin cargar con un volumen de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La chica del puente y El segador de almas: Los crímenes del agua II comparten su vinculación con el misterio, aunque son obras de Marc Sans y Samuel Vernal, respectivamente. También puede contrastarse con Las aventuras de Lucía el misterio de albohera: 0 (El gato León), de Concepción Prats Ortuño, cuyo título presenta expresamente un misterio y una aventura. La chica del puente añade una clasificación como ensayo y tiene 148 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412997286",
+        "isbn-9791388150395"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "428c0ddd8c5e2ffc",
+  "origen": "chatgpt-web"
+}

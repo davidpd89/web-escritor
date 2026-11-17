@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788413393001",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores de ensayo interesados en la historia del pensamiento, la filosofía y la teología. Su tratamiento de los antecedentes europeos de la escuela de Salamanca se aparta de una narración juvenil de ficción, aunque figure también entre las clasificaciones juveniles.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La escuela de salamanca.: Antecedentes, raíces europeas y vocación teológica: 192 (Nuevo Ensayo) examina los orígenes y las conexiones europeas de esta corriente intelectual. Su planteamiento relaciona la historia de las ideas con la dimensión teológica y filosófica de la escuela.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 282 páginas y permite leer el ensayo en papel o consultarlo por apartados. Su extensión ofrece un volumen manejable para estudiar las raíces europeas y la orientación teológica de la escuela de Salamanca.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El dinero: 193 (Nuevo Ensayo), de Charles Péguy, comparte colección con La escuela de salamanca.: Antecedentes, raíces europeas y vocación teológica: 192 (Nuevo Ensayo). Ambos se sitúan en el ámbito del ensayo, pero uno toma el dinero como asunto central y el otro se ocupa de los antecedentes europeos y la orientación teológica de una escuela de pensamiento.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788413393056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "979c139045c8d822",
+  "origen": "chatgpt-web"
+}

@@ -4,27 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Symphony. El arte de RossDraws (ARTBOOKS) se orienta a lectores interesados en el arte, el diseño y los libros dedicados al trabajo de un artista. Su carácter de artbook y sus 360 páginas lo diferencian de una novela centrada en una trama o de un manual exclusivamente técnico.",
+      "texto": "Symphony. El arte de RossDraws (ARTBOOKS), de Ross Tran, se orienta a lectores interesados en el arte y el diseño. Por su identificación como libro de arte, encaja menos con quienes buscan una novela de ficción o una guía centrada exclusivamente en técnicas científicas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "autores"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Symphony. El arte de RossDraws (ARTBOOKS) está disponible en tapa dura y tapa blanda, ambas opciones físicas para un libro de arte de 360 páginas. La tapa dura aporta una cubierta rígida para conservarlo o regalarlo, mientras que la tapa blanda ofrece una encuadernación más flexible para manejarlo y transportarlo.",
-      "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "formatos_disponibles",
+        "autores",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "Symphony. El arte de RossDraws (ARTBOOKS) está disponible en tapa dura y tapa blanda, ambas opciones para una obra de 360 páginas. La tapa dura proporciona una cubierta rígida para conservar el volumen y regalarlo; la blanda ofrece una encuadernación flexible para manejarlo durante la consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Symphony. El arte de RossDraws (ARTBOOKS) y Manual de ilustración científica - Nueva edición con láminas (Ilustrados) comparten su relación con la creación visual. El libro de Ross Tran se presenta como un artbook dedicado a su arte, mientras que el título de Varios autores se identifica como un manual de ilustración científica con láminas.",
+      "texto": "Symphony. El arte de RossDraws (ARTBOOKS), de Ross Tran, puede compararse con Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas), de Carlos Briones, por su relación con el arte. El primero se presenta como un libro dedicado al trabajo artístico de RossDraws, mientras que el segundo plantea un diálogo entre ciencia y arte, con una perspectiva temática diferente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +30,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328117"
+        "isbn-9788401039287"
       ]
     }
   ],

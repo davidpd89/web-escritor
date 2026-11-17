@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9786316599896",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una tentación de susurros y lobos: La isla mártir #1 (Puck fantasía romántica) se dirige a lectores de fantasía con interés por el componente romántico. Sus 456 páginas corresponden a una lectura extensa, menos ajustada a quien busca narrativa realista o libros breves. El título identifica la obra como el n.º 1 de La isla mártir.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una tentación de susurros y lobos: La isla mártir #1 (Puck fantasía romántica) puede leerse en tapa blanda o Kindle. La edición física de Puck reúne 456 páginas para quienes prefieren manejar un libro impreso; Kindle permite llevar la lectura en un dispositivo compatible sin transportar ese volumen de papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b6f5ab0f46746b5b",
+  "origen": "chatgpt-web"
+}

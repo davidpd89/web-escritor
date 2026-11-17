@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ama tu sistema nervioso, de Elsa Bonafonte, está orientado a adultos interesados en el autoconocimiento, el cuidado emocional y la regulación del sistema nervioso. Combina explicaciones sobre el sufrimiento con prácticas personales, por lo que se aleja de quienes buscan ficción o un tratamiento exclusivamente clínico.",
+      "texto": "Ama tu sistema nervioso, de Elsa Bonafonte, está dirigido a adultos interesados en el autoconocimiento, la regulación emocional y el cuidado personal. Aborda la relación entre el sistema nervioso, el sufrimiento y el amor propio mediante explicaciones y prácticas; no se centra en una narración de ficción ni en enseñanzas religiosas concretas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,18 +15,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ama tu sistema nervioso se ofrece en tapa blanda y Kindle. La edición impresa tiene 288 páginas con solapas y permite consultar las prácticas en papel; Kindle facilita acceder a las explicaciones y ejercicios desde un dispositivo electrónico o el móvil.",
+      "texto": "La tapa blanda con solapas de Ama tu sistema nervioso reúne 288 páginas que pueden consultarse para volver a las explicaciones y prácticas de regulación personal. Kindle permite llevar el contenido en un dispositivo digital y acceder a esas herramientas sin transportar el libro físico; la edición en papel facilita mantenerlo a mano durante la lectura.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "edicion",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ama tu sistema nervioso y Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow, coinciden en su interés por el conocimiento interior. Elsa Bonafonte aborda el funcionamiento del sistema nervioso y propone prácticas de regulación, mientras que el título de Barbara Hand Clow plantea el despertar de la consciencia desde las nueve dimensiones.",
+      "texto": "Ama tu sistema nervioso y El origen. La raíz invisible de lo que dirige tu vida comparten el interés por comprender el malestar personal, pero Elsa Bonafonte se centra en el sistema nervioso y Graciela del Campo Vara en las constelaciones familiares. El robot y el jardinero: Ser plenamente humano en una era artificial (Crecimiento personal) también aborda el crecimiento personal, aunque lo sitúa en el contexto de la inteligencia artificial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,7 +34,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9798888505335"
+        "isbn-9791388038372",
+        "isbn-9788425375965"
       ]
     }
   ],

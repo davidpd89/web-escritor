@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798237168525",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las cosas que dejamos de hacer está dirigido a lectores de ensayo y divulgación científica. El libro de Bill Hardy pertenece a un ámbito de no ficción y cuenta con 88 páginas, por lo que se distingue de las obras narrativas extensas y de los manuales organizados alrededor de una formación profesional concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las cosas que dejamos de hacer se publica en tapa blanda y tiene 88 páginas en castellano. Esta edición de Second Half Press reúne el texto en un volumen físico de extensión breve, manejable para transportarlo y consultar sus páginas durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las cosas que dejamos de hacer comparte el terreno de la no ficción con Arquitectura cognitivo-neuro sistémica de los falsos recuerdos (Plural -México-), de Pedro Muñoz-Arteaga, Vanessa Quito-Calle, Lorena Cañizares-Jarrín, Andrés Ramírez. La obra de Bill Hardy figura como ensayo y divulgación científica, mientras que el título afín identifica expresamente los falsos recuerdos como objeto de estudio y presenta una autoría colectiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370384968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1d265d4e9f03e4ca",
+  "origen": "chatgpt-web"
+}

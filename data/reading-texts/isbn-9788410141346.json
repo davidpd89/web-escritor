@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410141346",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Medea y sus hijos: 88 (Narrativa), de Liudmila Ulítskaya, se dirige a lectores de narrativa contemporánea que prefieren novelas de cierta extensión. Sus 368 páginas la sitúan lejos de los relatos muy breves y permiten prever una lectura de mayor recorrido. No encaja con quien busca un manual práctico o una obra de divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Medea y sus hijos: 88 (Narrativa) se presenta en tapa blanda, con 368 páginas en castellano. Este formato permite conservar la novela en papel sin recurrir a una encuadernación rígida y llevarla durante desplazamientos. La edición publicada por Narrativa corresponde a un volumen físico para lectura tradicional.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e232ebf911e4c4bd",
+  "origen": "chatgpt-web"
+}

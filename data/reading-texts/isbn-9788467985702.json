@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788467985702",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La blancanieves pelirroja 21 se orienta a lectores de romance desarrollado mediante narración gráfica. El título señala el volumen 21, por lo que se distingue de una novela romántica autónoma o de una historia presentada exclusivamente en texto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La blancanieves pelirroja 21 cuenta con una edición de tapa blanda de 192 páginas publicada por Norma Editorial. El volumen impreso puede guardarse junto a otros cómics y permite recorrer sus páginas ilustradas sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La blancanieves pelirroja 21 y Honey lemon soda 4 (Shôjo) comparten el ámbito del romance en cómic. La primera es obra de Sorata Akiduki y su título indica el volumen 21; la segunda está firmada por Mayu Murata y se identifica como volumen 4 dentro de una colección Shôjo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962487"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a1d8a1c3c7a71ba",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "isbn-9788414073568",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Para Jay... ¡todos los días son Navidad! (Álbumes ilustrados) se dirige a lectores infantiles interesados en los álbumes ilustrados y los libros relacionados con la Navidad. Sus 32 páginas lo sitúan entre las lecturas de extensión breve, frente a las novelas largas que buscan quienes prefieren historias más extensas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Para Jay... ¡todos los días son Navidad! (Álbumes ilustrados) se presenta en tapa dura y tiene 32 páginas. La edición física permite compartir la lectura y conservar el álbum en una colección infantil; también puede utilizarse como regalo relacionado con la temática navideña.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6d04c564235edbc5",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Super-Cannes se dirige a lectores de ciencia ficción interesados en el poder empresarial, la seguridad corporativa y la violencia dentro de organizaciones multinacionales. Su escenario en Edén-Olimpia, un complejo situado en Cannes, lo aleja de quienes buscan aventuras espaciales o historias centradas en exploraciones de otros planetas.",
+      "texto": "Super-Cannes se dirige a lectores de ciencia ficción interesados en el poder empresarial y la violencia que puede ocultarse tras un entorno de éxito profesional. Su conflicto en un complejo multinacional de Cannes se aleja de las aventuras espaciales y de las historias centradas en la exploración tecnológica.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,24 +13,27 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La novela utiliza un complejo empresarial de Cannes para explorar el poder y la brutalidad bajo una apariencia de prosperidad. Edén-Olimpia concentra grandes compañías y servicios avanzados de seguridad y comunicaciones, un entorno donde se desarrolla un experimento de consecuencias inquietantes.",
+      "texto": "Super-Cannes plantea una ficción sobre el funcionamiento de una comunidad empresarial sometida a un experimento de poder y brutalidad. J. G. Ballard sitúa el conflicto en Edén-Olimpia, un complejo de grandes compañías donde la seguridad, las comunicaciones y el bienestar profesional conviven con una amenaza interna.",
       "evidencias": [
+        "titulo",
+        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda, con solapas, contiene 480 páginas y ofrece un ejemplar físico para leer y conservar. Kindle permite acceder a la novela en formato electrónico, una opción para continuar la lectura en distintos lugares sin transportar el volumen de papel.",
+      "texto": "La tapa blanda de Super-Cannes reúne 480 páginas en una edición rústica con solapas, apropiada para conservar el volumen físico en la biblioteca. Kindle permite llevar esa misma lectura en un dispositivo electrónico sin transportar el libro impreso.",
       "evidencias": [
-        "edicion",
+        "titulo",
         "numero_paginas",
+        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Al despertar, rompe el cascarón (Runas), de Becky Chambers, figura entre las lecturas afines a Super-Cannes, aunque ambas obras tienen distinta autoría. La novela de Ballard sitúa su conflicto en un complejo empresarial de Cannes, donde el poder corporativo y la violencia forman parte de un experimento. Esta ambientación permite diferenciarla por su atención a las relaciones de poder dentro de una organización multinacional.",
+      "texto": "Super-Cannes y Amanecer Rojo I Deluxe Edition comparten el terreno de la ciencia ficción, aunque el primero examina el poder dentro de un complejo empresarial y el segundo se presenta asociado a la estrategia. Aunque se acabe el mundo plantea, en cambio, una transformación de la humanidad provocada por una cúpula sobre la Tierra, frente al experimento social localizado de J. G. Ballard.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,7 +42,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370093488"
+        "isbn-9791370313463",
+        "isbn-9788427255968"
       ]
     }
   ],

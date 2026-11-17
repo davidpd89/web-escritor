@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788416415205",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a quienes estudian dirección de cocina y necesitan abordar los procesos de preparación previa y conservación de alimentos. Su enfoque formativo y técnico lo diferencia de los recetarios domésticos y de las lecturas de entretenimiento relacionadas con la gastronomía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene 208 páginas en castellano y corresponde a una edición de Editorial Altamar. Por su extensión y contenido sobre preelaboración y conservación en cocina, puede utilizarse como volumen de consulta durante la formación y trasladarse entre el aula y otros espacios de estudio.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Control del aprovisionamiento de materias primas (MODULOS TRANSVERSALES - COCINA), también de G. Bartra D. Infantes, comparte el ámbito de la formación culinaria, pero se centra en el aprovisionamiento frente a los procesos de preelaboración y conservación. Al micro y listo, de Dani García, se aproxima a la cocina desde la facilidad de preparación, en lugar de tratar esos procesos dentro de la dirección de cocina.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788416415199",
+        "isbn-9788467084757"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d5b6b2935f94f7f3",
+  "origen": "chatgpt-web"
+}

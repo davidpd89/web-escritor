@@ -4,41 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft se dirige a lectores interesados en textos religiosos y espiritualidad católica. Su contenido y sus 1152 páginas la alejan de una lectura de ficción breve o de una introducción ligera a temas generales de bienestar.",
+      "texto": "Se dirige a lectores que buscan una Biblia católica de Jerusalén en su versión latinoamericana y en castellano. Por su contenido religioso y sus 1152 páginas, responde a una consulta de textos bíblicos, no a la búsqueda de una novela ni de un manual breve de espiritualidad.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición de Origen figura en tapa blanda, con 1152 páginas en castellano. El título identifica un acabado símil piel rosada, mientras que la ficha editorial clasifica la encuadernación como tapa blanda; por su extensión, resulta más manejable para consulta en un lugar fijo que para llevarla a diario.",
-      "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
-        "formatos_disponibles",
         "numero_paginas",
         "idioma"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, comparten el ámbito espiritual. La primera es una edición bíblica católica, mientras que la segunda presenta fundamentos y prácticas del Dharma. Se diferencian, por tanto, en la tradición religiosa y en el tipo de texto.",
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con acabado símil piel rosada indicado en el título y 1152 páginas en castellano. Es un volumen extenso para conservar y consultar como texto religioso, con una presentación diferenciada por su cubierta rosada.",
       "evidencias": [
         "titulo",
-        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft y Biblia de Una Chica Conforme Al Corazón de Dios (a Girl After God's Own Heart Bible) comparten su vinculación con la lectura bíblica. La primera se identifica como una Biblia católica latinoamericana de 1152 páginas, mientras que el título de Elizabeth George señala una orientación específica hacia las chicas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210088"
+        "isbn-9780825450679"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6b07353ac635dae6",
+  "fuente_hash": "965dda07a281de1e",
   "origen": "chatgpt-web"
 }

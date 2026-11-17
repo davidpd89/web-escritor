@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388581007",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yo quisiera ser poeta, de Noelia Pérez, se dirige a lectores interesados en publicaciones del ámbito del arte y el diseño. Sus 136 páginas ofrecen una extensión relativamente breve; por su clasificación editorial, no es la elección más directa para quien busca una novela de aventuras o un manual científico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yo quisiera ser poeta está disponible en tapa blanda, con 136 páginas en castellano. Esta edición de Uvedebe permite consultar el volumen en papel y guardarlo en una estantería sin el peso habitual de obras mucho más extensas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yo quisiera ser poeta puede compararse con 720 retrats por su vinculación editorial al ámbito del arte y el diseño. La diferencia comprobable está en la autoría: Noelia Pérez firma el primero y Xavier Mollà i Revert el segundo; sus títulos apuntan, respectivamente, a la poesía y al retrato como intereses de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3e80045f4126fa34",
+  "origen": "chatgpt-web"
+}

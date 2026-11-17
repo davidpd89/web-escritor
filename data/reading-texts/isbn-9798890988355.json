@@ -4,31 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Partido Más Largo / The Long Game (Game Changers) encaja con lectores que buscan novelas de romance. Rachel Reid firma esta obra de 520 páginas, cuya temática editorial se sitúa en ese género; no está orientada a quienes buscan narrativa de otros géneros.",
+      "texto": "El Partido Más Largo / The Long Game (Game Changers) se dirige a lectores de romance que buscan una novela de extensión considerable. Sus 520 páginas en castellano lo alejan de los relatos breves y de las lecturas centradas en géneros ajenos a las relaciones sentimentales.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "numero_paginas",
-        "categorias"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 520 páginas de El Partido Más Largo / The Long Game (Game Changers) en una edición física de Montena. Es el formato disponible para esta edición, con una extensión que permite identificarla como una novela de considerable longitud.",
+      "texto": "El Partido Más Largo / The Long Game (Game Changers) puede leerse en tapa blanda o Kindle. La edición impresa de Montena reúne 520 páginas y permite conservar el volumen en papel; Kindle facilita llevar esa misma lectura extensa en un dispositivo compatible, sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Partido Más Largo / The Long Game (Game Changers), de Rachel Reid, puede compararse con Más que rivales (Game Changers 2): Heated Rivalry, también de Rachel Reid. Ambos títulos pertenecen a la referencia Game Changers y comparten autoría. Otra comparación es Cambiar el juego (Game Changers 1): Game Changer, igualmente de Rachel Reid, cuyo título identifica una entrega diferente de la misma serie.",
+      "texto": "El Partido Más Largo / The Long Game (Game Changers) comparte autoría y serie con Cambiar el juego (Game Changers 1) y Más que rivales (Game Changers 2). Las tres obras son de Rachel Reid y pertenecen al ámbito de la ficción romántica. Los otros dos títulos identifican su posición mediante los números 1 y 2, mientras que El Partido Más Largo / The Long Game (Game Changers) no incluye numeración en el título.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -39,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "efe8907a7a2f2e57",
+  "fuente_hash": "4d241cde9d8f7ff0",
   "origen": "chatgpt-web"
 }

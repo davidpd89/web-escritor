@@ -4,40 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas se dirige a lectores interesados en el derecho tributario y en el cálculo de plazos de prescripción. Su enfoque jurídico no corresponde a una lectura de ficción ni a una introducción general a las finanzas personales.",
+      "texto": "La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas se dirige a lectores que necesitan estudiar cuestiones concretas de derecho tributario. Su enfoque en plazos, interrupciones y situaciones problemáticas resulta menos pertinente para quien busca una introducción general al derecho o una lectura narrativa.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas tiene una edición en tapa blanda de Colex, con 174 páginas en castellano. El formato en papel permite consultar las reglas de cómputo y las causas de interrupción que identifica el título.",
+      "texto": "La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas está disponible en tapa blanda. Sus 174 páginas, publicadas por Colex, permiten consultar en papel las cuestiones de cómputo y las causas de interrupción que identifica el título.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "editorial",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "ITPyAJD: de la norma a la liquidación. Paso a paso: Claves para comprender, liquidar y aplicar el impuesto en transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados comparte con La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas la autoría del Departamento de Documentación Iberley y el enfoque jurídico tributario. El primero trata la aplicación y liquidación de un impuesto, mientras que el segundo se ocupa de la prescripción de deudas tributarias.",
+      "texto": "La prescripción de la deuda tributaria comparte autoría y enfoque jurídico con Casos prácticos sobre el despido (Supuestos prácticos), de Departamento de Documentación Iberley. El primero aborda los plazos y las interrupciones de la prescripción tributaria, mientras que el segundo se ocupa de supuestos relacionados con el despido laboral.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791370651688"
+        "isbn-9791370651749"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8295e196aeeebf70",
+  "fuente_hash": "b3400a274ac87fde",
   "origen": "chatgpt-web"
 }

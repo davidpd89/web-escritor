@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370650568",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes necesitan entender las infracciones tributarias, las sanciones de Hacienda y las vías de defensa. Su enfoque jurídico y práctico se aleja de la narrativa de ficción y de las lecturas sobre fiscalidad centradas exclusivamente en beneficios o deducciones.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Se publica en tapa blanda, con 164 páginas en castellano. Esta edición de Colex permite consultar en papel los distintos aspectos de las infracciones tributarias y volver a los apartados sobre consecuencias y defensa cuando sea necesario.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría y materia tributaria con Claves fiscales para grandes empresas. Paso a paso: De la adquisición a la pérdida de la condición de gran empresa: requisitos y consecuencias fiscales, pero aborda las infracciones y las vías de defensa frente a las sanciones de Hacienda. El otro título se centra en los requisitos y las consecuencias fiscales de adquirir o perder la condición de gran empresa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370651725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf9ed0e65b3f01ed",
+  "origen": "chatgpt-web"
+}

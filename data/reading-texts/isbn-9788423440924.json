@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9788423440924",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La mente de los justos: Por qué la política y la religión dividen a la gente sensata (Ciencias Humanas y Sociales) se orienta a lectores de ensayo interesados en las divisiones políticas y religiosas. Su enfoque temático se aparta de la narrativa de ficción y de las lecturas centradas exclusivamente en acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Jonathan Haidt aborda las diferencias de criterio que surgen alrededor de la política y la religión, incluso entre personas consideradas sensatas. El planteamiento del libro sitúa estas divisiones en el terreno de las ciencias humanas y sociales, con atención a las razones que separan posiciones enfrentadas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La mente de los justos: Por qué la política y la religión dividen a la gente sensata (Ciencias Humanas y Sociales) se presenta en tapa blanda, dentro de la edición de bolsillo de Booket. Sus 496 páginas permiten disponer del ensayo completo en un volumen físico pensado para transportar y consultar durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La mente de los justos: Por qué la política y la religión dividen a la gente sensata (Ciencias Humanas y Sociales) y La generación ansiosa: Por qué las redes sociales están causando una epidemia de enfermedades mentales entre nuestros jóvenes (Ciencias Humanas y Sociales) comparten autor, Jonathan Haidt. El primero trata las divisiones políticas y religiosas; el segundo se ocupa de las redes sociales y la salud mental juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423441440"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d9c563e5e5b76cac",
+  "origen": "chatgpt-web"
+}

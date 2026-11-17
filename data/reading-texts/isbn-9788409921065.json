@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada se orienta a quienes buscan apoyo personal tras un fallecimiento. Su enfoque de duelo, familia y bienestar no corresponde al de una novela de entretenimiento ni al de un estudio exclusivamente académico.",
+      "texto": "Dirigido a quienes buscan orientación personal tras la muerte de alguien querido, El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada aborda la pérdida desde el cuidado emocional. Su enfoque de desarrollo personal y bienestar se aleja de los manuales centrados en cuestiones administrativas o legales.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda ofrece una edición de 132 páginas que puede transportarse y consultarse con facilidad. La tapa dura proporciona una encuadernación más rígida para conservar el libro y volver a sus páginas, mientras que Kindle permite leer El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada en formato digital.",
+      "texto": "La tapa blanda permite consultar y transportar las 132 páginas de esta guía sin recurrir a un dispositivo. La tapa dura ofrece una encuadernación más rígida para conservarla y volver a sus apartados; Kindle facilita llevar la lectura en el móvil o en un lector electrónico.",
       "evidencias": [
-        "titulo",
         "numero_paginas",
-        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada comparte el tema de la pérdida con Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal), de David Gómez. El libro de Irma Vallès Hernàndez aborda la muerte de una persona amada, mientras que el de David Gómez se centra en el duelo por un animal.",
+      "texto": "Anatomía de una relación tóxica: Como reconocerla, salir de ella y recuperar tu vida comparte con esta obra la atención a situaciones personales difíciles, pero trata la recuperación tras una relación perjudicial, frente al duelo por fallecimiento. La culpa materna: 01 (Psicologia) aborda otro ámbito del malestar emocional, vinculado a la maternidad y no a la pérdida de una persona amada.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9789507885365"
+        "isbn-9788409923595",
+        "isbn-9791370550240"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "48f1c763cf7dc64c",
+  "fuente_hash": "847620ec21b4f8cb",
   "origen": "chatgpt-web"
 }

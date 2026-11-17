@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791399033342",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juan Martínez Montañés: Un maestro determinante visto desde otra perspectiva se dirige a lectores interesados en el estudio del arte y en aproximaciones centradas en una figura artística. Su planteamiento temático se aleja de quienes buscan una novela de ficción o una introducción general a distintas disciplinas creativas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Juan Martínez Montañés: Un maestro determinante visto desde otra perspectiva es de tapa blanda y reúne 288 páginas. El volumen impreso permite mantener una referencia física para consultas sobre la figura que da título a la obra.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Juan Martínez Montañés: Un maestro determinante visto desde otra perspectiva y 720 retrats, de Xavier Mollà i Revert, comparten su vinculación con las artes visuales. El libro de Andres Luque Teruel se concentra en un maestro concreto, mientras que 720 retrats anuncia desde su título una aproximación centrada en retratos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5d2017bceb4abc9a",
+  "origen": "chatgpt-web"
+}

@@ -4,28 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Perverso, de Ivan Mourin, se encuadra en el misterio y el thriller, por lo que corresponde a lectores que buscan ficción de esos géneros. Sus 264 páginas en castellano suponen una extensión menor que la de muchas novelas largas; no está orientado a una búsqueda centrada específicamente en el romance.",
+      "texto": "Perverso, de Ivan Mourin, se dirige a lectores de misterio y thriller que buscan una obra de 264 páginas. Por su clasificación, encaja menos con quienes prefieren narrativa contemporánea ajena al misterio.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Perverso se ofrece en tapa blanda y Kindle, dos opciones para leer sus 264 páginas. El ejemplar físico de Fabula Nova puede guardarse, prestarse o regalarse; la edición Kindle permite leerlo en dispositivos compatibles y llevarlo en el móvil sin cargar con el libro impreso.",
+      "texto": "Perverso puede leerse en tapa blanda, Kindle o audiolibro. La edición física de Fabula Nova tiene 264 páginas y permite conservar el ejemplar en papel; Kindle facilita llevar la lectura en el móvil, mientras que el audiolibro permite escucharla sin mantener la vista en el texto.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial"
       ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Perverso y Aberración comparten su ubicación entre las lecturas de misterio, aunque están firmados por Ivan Mourin y Santiago López de Hoyos, respectivamente. Frente a 25 días hasta Navidad, de Per Jacobsen, presentado como un thriller de adviento, Perverso se identifica por su clasificación general de misterio y thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9791399297508"
+      ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "33eada90cc61db1f",
+  "fuente_hash": "a154461bf476613b",
   "origen": "chatgpt-web"
 }

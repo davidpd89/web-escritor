@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791399320008",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Es un cuento infantil orientado a la lectura antes de dormir, con Rosa, el dinosaurio Hilario y el gato Rosalino como personajes anunciados. Sus 28 páginas encajan con quienes buscan una lectura breve; no responde a la búsqueda de una novela juvenil extensa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite tener las 28 páginas en un ejemplar físico para leer antes de dormir o compartir la lectura. Kindle ofrece el mismo título en formato digital, con la comodidad de llevarlo en el móvil o en un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rosa, el troll Pol y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 10 comparte autor, personajes recurrentes y orientación hacia la lectura nocturna. La diferencia está en el personaje anunciado: aquí aparece el dinosaurio Hilario y en el otro, el troll Pol. Ambos pertenecen a los cuentos de David Valcárcel Crespo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399320015"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db3b41cdaeec99b2",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9786073881388",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life se dirige a quienes buscan lecturas sobre bienestar desde una perspectiva espiritual. Su enfoque temático se distancia de los manuales centrados en nutrición, ejercicio físico o explicaciones científicas de la salud.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de 44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life contiene 200 páginas en castellano. El formato impreso permite consultar los mensajes en papel, marcar puntos de lectura y guardar el volumen en una estantería sin necesitar un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life puede compararse con Abraza Tu Oscuridad: Sana tus heridas y encuentra el equilibrio en las sombras más profundas de tu vida, de Kelly Ann Street, por su relación con el bienestar personal. El primero plantea mensajes espirituales cotidianos, mientras que el segundo se orienta al trabajo con las heridas personales y la búsqueda de equilibrio.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410451988"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f33113da61fddd8c",
+  "origen": "chatgpt-web"
+}

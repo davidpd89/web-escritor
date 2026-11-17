@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788432322198",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "América victoriana: La invención de la clase Media en estados Unidos: 1 (Historia) se dirige a lectores interesados en la historia social estadounidense y en la formación de las clases sociales. Su enfoque histórico resulta menos afín a quienes buscan novelas ambientadas en el pasado o manuales prácticos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de América victoriana: La invención de la clase Media en estados Unidos: 1 (Historia) es de tapa blanda y reúne 356 páginas en castellano. El volumen publicado por Siglo XXI de España Editores, S.a. puede consultarse en papel durante el estudio de la historia estadounidense.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) comparte el interés por los procesos históricos, pero se concentra en el derrumbe de una democracia. América victoriana: La invención de la clase Media en estados Unidos: 1 (Historia), de Montserrat Huguet, desplaza la atención hacia la formación de una clase social en Estados Unidos, en lugar de centrarse en una crisis política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a50ddeed3276d4b",
+  "origen": "chatgpt-web"
+}

@@ -4,27 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a mujeres interesadas en el cuidado familiar y en cómo atender a los demás sin descuidarse a sí mismas. Su orientación hacia el desarrollo personal y las relaciones familiares lo distingue de una novela o de un manual especializado en una enfermedad concreta.",
+      "texto": "MANUAL PARA ALMAS ROTAS: Cómo cuidar de los tuyos sin desaparecer: siete restituciones para la mujer que lo sostiene todo se dirige a lectoras interesadas en el autocuidado y las responsabilidades familiares. Ena López Torres aborda estos asuntos desde el desarrollo personal y el ensayo, no desde una narración de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "MANUAL PARA ALMAS ROTAS: Cómo cuidar de los tuyos sin desaparecer: siete restituciones para la mujer que lo sostiene todo se publica en tapa blanda, con 158 páginas en castellano. Su extensión permite abordar el contenido en sesiones de lectura breves y conservar el ejemplar para posteriores consultas.",
+      "texto": "La tapa blanda reúne las 158 páginas de la obra de Ena López Torres en un ejemplar físico que permite consultar sus contenidos sin pantalla. Kindle ofrece una alternativa digital para leer en dispositivos compatibles y prescindir del volumen en papel. La edición impresa corresponde a ENA.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos) también aborda el cuidado familiar, pero desde herramientas de psicología conductual. MANUAL PARA ALMAS ROTAS: Cómo cuidar de los tuyos sin desaparecer: siete restituciones para la mujer que lo sostiene todo pone el foco en la mujer que sostiene esas responsabilidades y en su propio bienestar.",
+      "texto": "MANUAL PARA ALMAS ROTAS: Cómo cuidar de los tuyos sin desaparecer: siete restituciones para la mujer que lo sostiene todo comparte la atención al cuidado familiar con Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos). Ena López Torres se centra en la mujer que sostiene responsabilidades de cuidado, mientras que Toño Ramos plantea herramientas conductuales para la convivencia entre distintas generaciones.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
@@ -35,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9ae6bb39c21c241e",
+  "fuente_hash": "5c2fb1d06e7fd0aa",
   "origen": "chatgpt-web"
 }

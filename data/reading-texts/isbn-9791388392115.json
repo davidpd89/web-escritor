@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388392115",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Psicología forense parte 1 se dirige a lectores interesados en la psicología forense que prefieren una entrega identificada como primera parte. Sus 244 páginas ofrecen una extensión menor que la de Psicología forense, de la misma autoría, por lo que encaja menos con quien busca el volumen más largo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Psicología forense parte 1 se presenta en tapa blanda, con 244 páginas en castellano. Esta edición física permite consultar y marcar apartados durante el estudio, además de transportarla como un volumen independiente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Psicología forense parte 2 comparte autoría y materia con Psicología forense parte 1, pero sus títulos las identifican como entregas distintas. Psicología forense, también de Evimeria Editorial, aborda la misma disciplina sin indicar una división por partes en el título, mientras que Psicología forense parte 1 cuenta con 244 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388392108",
+        "isbn-9791388392122"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8223289ed9483400",
+  "origen": "chatgpt-web"
+}

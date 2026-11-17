@@ -1,42 +1,40 @@
 {
   "id": "isbn-9788477747475",
-  "familia": "practico",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Autismo en adultos: 15 (Nuevo Aprendizaje) se orienta a lectores interesados en el autismo durante la edad adulta y en la divulgación científica. Por su temática y sus 376 páginas, se diferencia de una novela de entretenimiento o de una guía breve de consulta general.",
+      "texto": "Se dirige a lectores adultos interesados en la divulgación científica sobre el autismo y su relación con la vida adulta. El tema y el enfoque lo distinguen de los libros de ficción y de las publicaciones centradas en otros campos del conocimiento.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Autismo en adultos: 15 (Nuevo Aprendizaje) está disponible en tapa blanda, con 376 páginas editadas por A. Machado Libros. El volumen impreso permite consultar apartados y regresar a páginas concretas durante una lectura de estudio o de interés personal, sin utilizar una pantalla.",
+      "texto": "La tapa blanda reúne sus 376 páginas en un volumen físico manejable para la consulta y la lectura por capítulos. Es el formato disponible para quienes prefieren tener el contenido en papel y conservarlo como material de referencia.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles",
+        "formato_edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Baropodometría clínica: Bases para una biomecánica integrada del control postural, de Fernando Ares, comparte con Autismo en adultos: 15 (Nuevo Aprendizaje) el interés por cuestiones relacionadas con el cuerpo y la salud. El primero se centra, según su título, en la biomecánica y el control postural, mientras que el libro de Daniel Valdez aborda el autismo en personas adultas desde un ámbito de divulgación científica.",
+      "texto": "50 cosas que hay que saber sobre IA comparte con este libro el enfoque divulgativo y la atención a un tema científico concreto. La diferencia está en la materia tratada: Autismo en adultos: 15 aborda el autismo en la edad adulta, mientras que el otro título se centra en la inteligencia artificial.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388377167"
+        "isbn-9788434441309"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b1a31539851271c9",
+  "fuente_hash": "108b030b6eacb586",
   "origen": "chatgpt-web"
 }

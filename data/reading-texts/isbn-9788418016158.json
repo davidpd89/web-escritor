@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788418016158",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yo soy español, español, español pertenece al ámbito del ocio y las aficiones, con una extensión de 80 páginas. Se orienta a quienes buscan publicaciones breves de tiempo libre, no a lectores que necesiten un tratado extenso o una obra identificada expresamente como thriller o fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yo soy español, español, español cuenta con una edición en tapa blanda de 80 páginas, publicada por Editorial Modus Operandi. Su extensión permite manejarlo como un volumen físico breve, tanto para lectura como para incorporarlo a una colección de libros de ocio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Yo soy español, español, español comparte el ámbito general del tiempo libre con 99 Sudoku (LIBROS SINGULARES), aunque este último identifica expresamente su contenido como pasatiempos numéricos. También se diferencia de Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas, cuyo título anuncia materiales concretos para labores de bordado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425",
+        "isbn-9788498748208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df142af8b2ebfdce",
+  "origen": "chatgpt-web"
+}

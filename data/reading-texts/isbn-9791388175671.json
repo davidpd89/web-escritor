@@ -1,42 +1,41 @@
 {
   "id": "isbn-9791388175671",
-  "familia": "narrativa",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a lectores que buscan comprender el vocabulario político y consultar conceptos relacionados con el poder y la política. Su planteamiento de diccionario encaja con una búsqueda de referencias concretas, no con quien espera una novela de ficción política.",
+      "texto": "Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos), de Eduardo Montagut, se dirige a quienes buscan una obra de consulta sobre vocabulario político. Por su enfoque de guía y referencia, encaja menos con lectores que prefieren una narración de acontecimientos históricos o una novela.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Editatum se presenta en tapa blanda, con 228 páginas en castellano. Es un volumen físico que puede mantenerse a mano para consultar términos políticos durante el estudio o la lectura de otros textos.",
+      "texto": "La tapa blanda permite consultar en papel las 228 páginas de Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos). La edición Kindle ofrece una alternativa digital para llevar el contenido en el móvil o en un lector electrónico, sin transportar el volumen físico.",
       "evidencias": [
-        "editorial",
-        "formatos_disponibles",
+        "titulo",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mujer y socialismo en España comparte autor con este diccionario: ambos son de Eduardo Montagut, aunque uno delimita su asunto al socialismo y las mujeres en España y el otro reúne terminología política. Diccionario de la lengua española. Vigesimocuarta edición también funciona como obra de consulta, pero aborda la lengua en general y se presenta en dos volúmenes.",
+      "texto": "Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos) y Mujer y socialismo en España comparten la autoría de Eduardo Montagut y su relación con la política. El primero se plantea como diccionario de consulta, mientras que el segundo delimita su asunto a las mujeres y el socialismo en España. La diferencia principal está entre consultar términos generales y abordar una cuestión histórica concreta.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399302523",
-        "isbn-9788467083965"
+        "isbn-9791399302523"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a454d49ea37f8ddb",
+  "fuente_hash": "108073bc17ff5586",
   "origen": "chatgpt-web"
 }

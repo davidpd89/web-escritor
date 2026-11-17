@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un invierno (in)esperado (Matchstories Romántica Contemporánea) se orienta a lectores de romance ambientado en un contexto contemporáneo, con el humor entre sus componentes. Quien prefiera relatos históricos, divulgación o fantasía sin trama romántica encontrará aquí un planteamiento distinto.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Un invierno (in)esperado (Matchstories Romántica Contemporánea) ofrece 440 páginas en una edición física publicada por Esencia. La versión Kindle permite leer esa extensión en dispositivos electrónicos y continuar la lectura desde el móvil sin llevar el volumen impreso.",
-      "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "editorial",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Un invierno (in)esperado (Matchstories Romántica Contemporánea) puede compararse con En mi Era Pistacho: Juliette's version por su presencia en un catálogo de narrativa romántica. La obra de Enara Ziaran combina romance contemporáneo y humor en 440 páginas, mientras que la de Emily Collins presenta otra propuesta narrativa con distinta autoría.",
+      "texto": "Un invierno (in)esperado (Matchstories Romántica Contemporánea) está dirigido a lectores de romance ambientado en la narrativa contemporánea. La novela de Enara Ziaran tiene 440 páginas y se aleja, por su clasificación editorial, de la fantasía épica y de la narrativa histórica.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un invierno (in)esperado (Matchstories Romántica Contemporánea) puede leerse en tapa blanda o Kindle. La edición impresa de Esencia tiene 440 páginas y permite conservar el libro en papel; Kindle ofrece la alternativa digital para leerlo desde un dispositivo compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un invierno (in)esperado (Matchstories Romántica Contemporánea) y A la deriva contigo comparten su vinculación con la ficción romántica. La primera es una novela contemporánea de Enara Ziaran, mientras que la segunda está firmada por Beth O'Leary. Frente al invierno mencionado en el título de la primera, la segunda introduce la idea de estar a la deriva junto a otra persona.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410648777"
+        "isbn-9788466390200"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "aa8e0d264b658c0b",
+  "fuente_hash": "4cf2c6850866a943",
   "origen": "chatgpt-web"
 }

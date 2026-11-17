@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788466394444",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bajo el muérdago (Best Seller | Ficción) encaja con lectores de romance y narrativa contemporánea que buscan una novela de Beth O'Leary. Sus 392 páginas en edición de bolsillo ofrecen una lectura de extensión media; por género, se aleja de quienes prefieren ensayos, manuales prácticos o narrativa centrada en mundos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bajo el muérdago (Best Seller | Ficción) se publica en tapa blanda, concretamente en una edición de bolsillo de Penguin Bolsillo. Sus 392 páginas en castellano permiten llevar la novela en un formato físico pensado para transportar y guardar con facilidad, sin recurrir a una edición de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo el muérdago (Best Seller | Ficción) y A la deriva contigo (Best Seller | Ficción) comparten autora, Beth O'Leary, y se sitúan en el ámbito de la narrativa romántica. También puede compararse con A mil por hora, de Hannah Grace, por su componente romántico, aunque esta última plantea una relación entre un piloto de F1 y una mujer vinculada a su pasado. La diferencia más clara entre estas lecturas está en la autoría y en los elementos temáticos que presentan sus títulos y descripciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390200",
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "abb3a4ee3c5544e3",
+  "origen": "chatgpt-web"
+}

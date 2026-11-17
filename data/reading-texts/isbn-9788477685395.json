@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788477685395",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lo que Navarra esconde: 50 historias, curiosidades y secretos de nuestra tierra que te sorprenderán se dirige a lectores interesados en la historia y las particularidades de Navarra. Su planteamiento territorial y sus 50 asuntos diferenciados lo alejan de las historias generales centradas en grandes periodos o acontecimientos internacionales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 192 páginas y permite conservar en papel las 50 historias anunciadas en el título. Es un volumen que puede consultarse por asuntos de interés sobre Navarra, además de leerse de forma continuada.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte con el libro de Iñigo Alzueta Aramburu su orientación histórica. Sin embargo, aquel se centra en la caída de una democracia, mientras que Lo que Navarra esconde: 50 historias, curiosidades y secretos de nuestra tierra que te sorprenderán aborda curiosidades y episodios vinculados a un territorio concreto.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "62367ae6c84f12fd",
+  "origen": "chatgpt-web"
+}

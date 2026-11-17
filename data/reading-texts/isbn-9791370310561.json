@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370310561",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sácale partido a tu horno (Gastronomía y cocina) está orientado a quienes buscan contenidos de cocina centrados en el uso del horno. Por su temática y sus 120 páginas, se aparta de los libros dedicados a otras aficiones y de los tratados gastronómicos extensos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite mantener las 120 páginas de Sácale partido a tu horno (Gastronomía y cocina) como libro de consulta en la cocina. Kindle facilita acceder al contenido desde un móvil o lector electrónico compatible, sin ocupar espacio físico entre los utensilios.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dulces caseros (Gastronomía y cocina) comparte con Sácale partido a tu horno (Gastronomía y cocina) la orientación culinaria y la autoría colectiva de Varios autores. Platos de cuchara (Gastronomía y cocina) se concentra en un tipo de plato, mientras que el libro sobre el horno organiza su propuesta alrededor de un aparato de cocina.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370310547",
+        "isbn-9791370310554"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5642374c5e0d9196",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9781971710709",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Despertar del Oniromante: Manual de Soberanía Astral y la Tierra Extendida se dirige a lectores interesados en la espiritualidad y la exploración de la consciencia desde una perspectiva astral. Por su temática y sus 626 páginas, se aleja de las lecturas breves centradas exclusivamente en hábitos de salud o nutrición.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Despertar del Oniromante: Manual de Soberanía Astral y la Tierra Extendida está disponible en tapa blanda, con 626 páginas en castellano. Esta edición física de Editorial Musa permite consultar y retomar apartados durante la lectura, aunque su extensión supone un volumen considerable para transportar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Despertar del Oniromante: Manual de Soberanía Astral y la Tierra Extendida y Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia comparten el interés por la consciencia y las dimensiones de la experiencia espiritual. El primero se centra, según su título, en la soberanía astral y la Tierra Extendida, mientras que el libro de Barbara Hand Clow plantea un recorrido por nueve dimensiones de la consciencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f0d5a28336f8caa2",
+  "origen": "chatgpt-web"
+}

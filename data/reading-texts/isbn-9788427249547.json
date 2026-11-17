@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788427249547",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La casa de Mamá Noela (Serres), de Leire Martín, está dirigida al ámbito de la lectura infantil y la fantasía. Sus 48 páginas encajan con quien busca una obra breve de temática fantástica, pero menos con lectores que prefieren novelas extensas de fantasía adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La casa de Mamá Noela (Serres) se presenta en tapa dura, en una edición de Molino de 48 páginas. La encuadernación rígida permite conservar el volumen para sucesivas lecturas y resulta adecuada para entregarlo como libro físico, especialmente cuando se busca un ejemplar resistente.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A la caza de Papá Noel: 3 comparte con La casa de Mamá Noela (Serres) las referencias navideñas presentes en sus títulos. El primero se presenta como una búsqueda de Papá Noel y su título lo identifica como el n.º 3; el segundo sitúa el foco en la casa de Mamá Noela. También difieren en la autoría: Emma S. Varela y Robert García frente a Leire Martín.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419135650"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38b87981e2d657ab",
+  "origen": "chatgpt-web"
+}

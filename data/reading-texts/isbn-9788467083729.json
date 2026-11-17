@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nada es lo que era, de Florentino Portero, se dirige a lectores interesados en la política internacional, la actualidad y los cambios provocados por la tecnología. Su planteamiento examina transformaciones del orden global, por lo que encaja menos con quienes buscan una narración de ficción o una explicación exclusivamente técnica de las nuevas ingenierías.",
+      "texto": "Nada es lo que era está orientado a lectores interesados en los cambios políticos y sociales asociados a la revolución tecnológica y al orden internacional. Su planteamiento de actualidad y análisis encaja menos con quien busca ficción narrativa o instrucciones prácticas para utilizar nuevas tecnologías.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Nada es lo que era propone una lectura de actualidad centrada en la transición entre un orden global anterior y otro condicionado por los avances tecnológicos. Florentino Portero relaciona las nuevas ingenierías con cambios en prácticas y estructuras consideradas normales durante décadas. El eje del libro es interpretar esa transformación política y social.",
+      "texto": "Florentino Portero examina en Nada es lo que era la transformación de un orden global marcado por décadas de certezas que empiezan a cuestionarse. El eje de la lectura es el cambio de época provocado por los avances tecnológicos y sus consecuencias sobre las estructuras políticas y sociales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -24,10 +23,9 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Nada es lo que era se ofrece en tapa blanda y Kindle. La edición física de Editorial Espasa tiene 328 páginas, encuadernación rústica y solapas, útil para conservar el texto y consultarlo en papel. Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el volumen.",
+      "texto": "La tapa blanda de Nada es lo que era reúne 328 páginas en una edición rústica con solapas, apropiada para mantener el volumen en una biblioteca y volver a sus argumentos. Kindle permite llevar esa misma lectura en un dispositivo electrónico y consultar sus capítulos sin transportar el ejemplar físico.",
       "evidencias": [
         "titulo",
-        "editorial",
         "numero_paginas",
         "edicion",
         "formatos_disponibles"
@@ -35,7 +33,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Nada es lo que era y El estado del Estado abordan cuestiones políticas en contextos de transformación e incertidumbre. Florentino Portero se ocupa del orden global y del impacto de la tecnología, mientras que Enrique López López centra su reflexión en España. La diferencia principal es el alcance internacional del primero frente al marco nacional del segundo.",
+      "texto": "El estado del Estado comparte con Nada es lo que era el análisis político y la preocupación por los cambios contemporáneos, pero centra su reflexión en España frente al alcance global de Florentino Portero. A la sombra del Estado examina mecanismos clandestinos de poder y desinformación, mientras Nada es lo que era aborda una transformación internacional impulsada por la tecnología.",
       "evidencias": [
         "titulo",
         "autores",
@@ -44,12 +42,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9788434441057",
         "isbn-9788423441013"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ebe6853504403a46",
+  "fuente_hash": "a4e0b983dbc3f44c",
   "origen": "chatgpt-web"
 }

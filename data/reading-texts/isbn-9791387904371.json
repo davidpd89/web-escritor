@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387904371",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El matadero: Gaza o la insoportable minuciosidad del mal (Crónica y Periodismo) se orienta a lectores interesados en la historia, el poder político y el ensayo sobre conflictos contemporáneos. Su enfoque temático lo distancia de quienes buscan una lectura de ficción fantástica o romántica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El matadero: Gaza o la insoportable minuciosidad del mal (Crónica y Periodismo) es de tapa blanda y reúne 504 páginas en castellano. El volumen publicado por Debate permite mantener la lectura y las consultas posteriores en un único ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El matadero: Gaza o la insoportable minuciosidad del mal (Crónica y Periodismo) puede compararse con Los pilares de la historia por su atención a cuestiones históricas. Mientras Mónica G. Prieto sitúa Gaza en el centro de su obra, Javier Fernández Sebastián plantea el papel de la historia para explicar un mundo en crisis.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "04e518161b168e0d",
+  "origen": "chatgpt-web"
+}

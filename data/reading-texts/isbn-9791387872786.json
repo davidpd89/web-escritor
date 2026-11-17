@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387872786",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Construir el ejército rojo: La revuelta alemana del mayo del 68 a la RAF se dirige a lectores interesados en la historia política alemana y en las ideas vinculadas a los movimientos de protesta. Su orientación histórica y filosófica lo diferencia de las aventuras juveniles centradas en conflictos ficticios, aunque también figure entre las lecturas juveniles.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Construir el ejército rojo: La revuelta alemana del mayo del 68 a la RAF cuenta con una edición en tapa blanda de 420 páginas. Este formato permite leer en papel un volumen dedicado a la historia y la filosofía, además de conservarlo para posteriores consultas sobre el periodo que aborda.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Construir el ejército rojo: La revuelta alemana del mayo del 68 a la RAF y Cómo ser un disidente (Letras de Crítica) pueden compararse por su interés en la oposición política y la disidencia. Adrián Almeida Díez delimita su estudio a la revuelta alemana y la RAF, mientras que Gal Beckerman plantea la disidencia como asunto central. Uno parte de un contexto histórico concreto; el otro presenta un enfoque temático más amplio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491999232"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8208f4f242baf7d7",
+  "origen": "chatgpt-web"
+}

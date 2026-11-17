@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399303971",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abrazos, amor y sexo, de Juan Luis Garitaonandia Ostolaza, se encuadra en la narrativa contemporánea en castellano. Sus 208 páginas pueden encajar con quienes prefieren novelas de extensión moderada, pero no con quienes buscan específicamente literatura infantil o cómic.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Abrazos, amor y sexo se ofrece en tapa blanda, con 208 páginas editadas por Lula Editorial. Su encuadernación flexible facilita llevar el ejemplar para leer durante desplazamientos y guardarlo en espacios más reducidos que los habituales para un volumen rígido.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cab03eaf2e3830dc",
+  "origen": "chatgpt-web"
+}

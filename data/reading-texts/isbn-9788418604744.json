@@ -4,28 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la historia del arte y en el estudio del color azul dentro de la creación artística. Por su enfoque temático, se diferencia de los manuales generales de dibujo y de los libros dedicados exclusivamente a técnicas de pintura.",
+      "texto": "La obra de Cristina Carrillo de Albornoz se dirige a lectores interesados en el papel del azul dentro de las artes visuales y su relación con la historia del arte. Su enfoque temático la distingue de los manuales generales de dibujo y de las novelas, ya que se sitúa en el ámbito del arte, el diseño y la historia.",
       "evidencias": [
-        "titulo",
         "autores",
+        "titulo",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Cristina Carrillo de Albornoz tiene 152 páginas en castellano y está publicada por Libros de Vanguardia. El formato físico permite consultar las páginas dedicadas al azul en el arte y volver a ellas sin utilizar un dispositivo electrónico.",
+      "texto": "La edición de Libros de Vanguardia está disponible en tapa blanda y contiene 152 páginas en castellano. El formato físico permite consultar el volumen sobre el azul en el arte, volver a sus páginas durante el estudio de esta materia y conservarlo en una biblioteca dedicada a las artes visuales.",
       "evidencias": [
-        "titulo",
-        "autores",
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "titulo",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El libro de Cristina Carrillo de Albornoz y Arte Matrio, de Sara Rubayo, abordan la historia del arte desde enfoques distintos. El primero se centra en el color azul y el segundo en la representación dentro del arte español. Civilización, de Kenneth Clark, amplía el campo de estudio hacia la historia del arte y la cultura que dieron forma a la civilización moderna.",
+      "texto": "La obra de Cristina Carrillo de Albornoz comparte el interés por las artes visuales con Art for All: Surrealistas, aunque esta última aborda un movimiento artístico y la primera se centra en el color azul. También se relaciona con Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION), de Maria Stavrinaki, que examina las relaciones entre el arte prehistórico y los tiempos modernos, frente al enfoque cromático de la obra de Cristina Carrillo de Albornoz.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,8 +33,9 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449346095",
-        "isbn-9791387592493"
+        "isbn-9783754401477",
+        "isbn-9783754401514",
+        "isbn-9791399236422"
       ]
     }
   ],

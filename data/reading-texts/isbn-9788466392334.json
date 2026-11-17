@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788466392334",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra de Stephen King se dirige a lectores de fantasía y aventuras que buscan una novela extensa dentro de una saga. Sus 928 páginas y su identificación como La Torre Oscura 4 la alejan de quien prefiera relatos breves o lecturas independientes de una serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Penguin Bolsillo se distingue por sus cantos tintados, señalados expresamente en el título. Publicada el 23 de septiembre de 2026, pertenece a la colección de bolsillo de la editorial y puede identificarse mediante el ISBN 9788466392334.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mago y cristal (edición cantos tintados) (La Torre Oscura 4) (Campaña | Edición con cantos tintados) está disponible en tapa blanda de bolsillo. Sus 928 páginas reúnen una lectura extensa en un volumen físico que puede transportarse y colocarse junto a otros títulos de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El pistolero (edición cantos tintados) (La Torre Oscura 1) comparte con esta obra la autoría de Stephen King y su pertenencia a La Torre Oscura. La diferencia está en la numeración: el título de El pistolero lo identifica como el n.º 1, mientras que el de Mago y cristal lo identifica como el n.º 4.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392365",
+        "isbn-9788466392259"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0a7722d77a7497e1",
+  "origen": "chatgpt-web"
+}

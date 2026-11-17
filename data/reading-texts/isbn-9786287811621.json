@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9786287811621",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La cuadra / The Block, de Gilmer Mesa, se dirige a quienes buscan obras clasificadas como cómic y novela gráfica. Sus 232 páginas en castellano encajan menos con lectores que buscan específicamente un ensayo o una novela de otro género.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La cuadra / The Block se presenta en tapa dura, con 232 páginas publicadas por Literatura Random House. Es una edición física con cubierta rígida, apropiada para conservar en la estantería o entregar como regalo; la lectura se realiza en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2bc7034ff36593ef",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466394598",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La trenza (Best Seller | Ficción) se orienta a lectores de narrativa contemporánea con interés por la novela histórica. Sus 208 páginas ofrecen una extensión relativamente breve; encaja menos con quienes buscan fantasía, divulgación o novelas de gran volumen.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La trenza (Best Seller | Ficción) se publica en tapa blanda, en una edición de bolsillo de 208 páginas. Este formato facilita llevar el libro en el bolso o la mochila y leerlo durante desplazamientos, sin el volumen de una edición de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La trenza (Best Seller | Ficción) y El vuelo de la cometa (Best Seller | Ficción) son obras de Laetitia Colombani vinculadas a la narrativa contemporánea y ambas tienen 208 páginas. La primera también se clasifica como novela histórica, mientras que la segunda aparece relacionada con historia y narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466380362"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "09752a4ca0c0aa83",
+  "origen": "chatgpt-web"
+}

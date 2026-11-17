@@ -4,9 +4,8 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) está dirigido a adultos que desean recopilar recuerdos familiares mediante preguntas, fotografías y textos escritos entre varias personas. No responde al formato de una novela ni al de una historia familiar ya redactada: requiere la participación de quienes van a completarlo.",
+      "texto": "Está dirigido a adultos que quieran reunir recuerdos familiares mediante una actividad compartida. Su propuesta consiste en responder preguntas, incorporar fotografías y registrar tradiciones, por lo que no responde a quien busque una novela con personajes y argumento.",
       "evidencias": [
-        "titulo",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -14,40 +13,38 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un cuaderno participativo para construir una memoria familiar compartida, no una narración con argumento cerrado. Sus páginas proponen responder preguntas, registrar tradiciones y recetas, incorporar fotografías y reconstruir relaciones entre generaciones mediante un árbol genealógico.",
+      "texto": "Es un cuaderno participativo de memoria familiar, pensado para completarse entre varias personas. Combina preguntas sobre experiencias personales con espacios para documentar antepasados, recetas, costumbres y relaciones genealógicas; el contenido final depende de las aportaciones de cada familia.",
       "evidencias": [
-        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es de tapa dura con sobrecubierta y tiene 208 páginas destinadas a conservar recuerdos familiares. El formato físico permite escribir respuestas, pegar fotografías y completar el árbol genealógico, por lo que también funciona como objeto para regalar y rellenar entre varias personas.",
+      "texto": "La edición en tapa dura con sobrecubierta reúne 208 páginas destinadas a escribir, pegar fotografías y conservar recuerdos. El soporte físico permite que distintos familiares intervengan directamente sobre el mismo ejemplar y que el cuaderno terminado se guarde como archivo doméstico.",
       "evidencias": [
         "edicion",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Familia, ¿contamos nuestra historia? (¿Me cuentas tu historia?) comparte el ámbito familiar con El pequeño libro de los padres (Somos B), de 72 Kilos. La diferencia está en su planteamiento: Elma van Vliet propone un cuaderno que los familiares completan con recuerdos, fotografías y respuestas, mientras que el otro título sitúa a los padres en el centro de su temática.",
+      "texto": "Comparte con 99 Sudoku (LIBROS SINGULARES) la orientación hacia una actividad realizada sobre las páginas del libro. La diferencia está en el propósito: el título de Elma van Vliet organiza recuerdos y aportaciones familiares, mientras que 99 Sudoku (LIBROS SINGULARES) se centra en pasatiempos numéricos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466684101"
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b615a4401895d2d0",
+  "fuente_hash": "69204617cee8e8d0",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388391583",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El rayo, de Serena Simón Vives, se dirige a lectores de narrativa juvenil con interés por las novelas contemporáneas. Su clasificación lo separa de las lecturas centradas en otros géneros, mientras que sus 196 páginas delimitan una extensión concreta para quien elige según la longitud del libro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El rayo está editado en tapa blanda por Editorial Cuadranta, con 196 páginas en castellano. Esta presentación permite leerlo en papel, transportarlo y conservarlo en una biblioteca de narrativa juvenil sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday), de John Green, es otra referencia de lectura juvenil con la que situar El rayo. La obra de Serena Simón Vives figura además como narrativa contemporánea, mientras que el título de John Green se identifica por una edición limitada vinculada a Black Friday.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee44d5cdf28cd062",
+  "origen": "chatgpt-web"
+}

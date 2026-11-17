@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370109059",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué diantres es eso de la Perspectiva de Género? Una Guía básica para entenderla y aplicarla (FACDYC UANL -México-), de Myrna Elia García Barrera e Irma Gámez Garza, se dirige a quienes quieren comprender la perspectiva de género y conocer su aplicación. Por su planteamiento de guía básica y su clasificación como ensayo, responde a una búsqueda explicativa, no a quien espera una novela o una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda qué significa la perspectiva de género y cómo aplicarla, con un enfoque introductorio y práctico anunciado desde su título. Myrna Elia García Barrera e Irma Gámez Garza presentan el tema en forma de guía básica, dentro del ámbito del ensayo. Sus 142 páginas delimitan la extensión de este tratamiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Qué diantres es eso de la Perspectiva de Género? Una Guía básica para entenderla y aplicarla (FACDYC UANL -México-) está disponible en tapa blanda, con 142 páginas en castellano. Esta edición en papel permite consultar sus contenidos y volver a los apartados de interés durante el estudio o la aplicación de los conceptos. La publica Editorial Tirant Lo Blanch.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1b6c620baa8a328f",
+  "origen": "chatgpt-web"
+}

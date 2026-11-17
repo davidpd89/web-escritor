@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra se dirige a lectores que buscan información jurídica sobre la fiscalidad de depósitos, bonos, acciones y cesiones de capital a terceros. El enfoque anunciado para inversores particulares la distingue de una introducción general a la inversión que no trate sus consecuencias tributarias.",
+      "texto": "Fiscalidad de la renta fija, la renta variable y la cesión de capitales a terceros. Paso a paso: De los depósitos y los bonos a las acciones: claves ... de productos para inversores particulares se dirige a lectores que buscan información jurídica y fiscal sobre inversiones. Su enfoque abarca depósitos, bonos y acciones; no responde a una búsqueda de ficción narrativa.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,18 +12,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Colex se publica en tapa blanda y reúne 128 páginas en castellano. Su extensión permite manejar en papel una consulta centrada en la tributación de productos de renta fija, renta variable y cesiones de capital, con posibilidad de señalar los apartados que se necesiten revisar.",
+      "texto": "La edición de Fiscalidad de la renta fija, la renta variable y la cesión de capitales a terceros. Paso a paso: De los depósitos y los bonos a las acciones: claves ... de productos para inversores particulares está disponible en tapa blanda. Sus 128 páginas permiten consultar físicamente los apartados dedicados a los distintos productos financieros, con una edición publicada por Colex.",
       "evidencias": [
-        "editorial",
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "ITPyAJD: de la norma a la liquidación comparte con este libro el enfoque jurídico y práctico del Departamento de Documentación Iberley, pero trata la tributación de transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados. Casos prácticos sobre el despido (Supuestos prácticos), del mismo autor, se centra en el ámbito laboral, mientras que esta obra aborda la fiscalidad de depósitos, bonos, acciones y cesiones de capital a terceros.",
+      "texto": "Esta obra sobre fiscalidad de inversiones comparte autoría y enfoque jurídico con Claves fiscales para grandes empresas. Paso a paso: De la adquisición a la pérdida de la condición de gran empresa: requisitos y consecuencias fiscales. Ambas pertenecen al Departamento de Documentación Iberley, pero la primera aborda depósitos, bonos y acciones de inversores particulares, mientras que la segunda trata las obligaciones fiscales de grandes empresas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370651749"
+        "isbn-9791370651725"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c54b2ef7ded777e9",
+  "fuente_hash": "ad107be01bb20942",
   "origen": "chatgpt-web"
 }

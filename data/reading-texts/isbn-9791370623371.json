@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370623371",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Temario parte general auxiliar de cuidadores xunta se orienta a quienes necesitan estudiar la parte general del temario de auxiliar de cuidadores de la Xunta. Sus 418 páginas corresponden a material de estudio, por lo que no responde a la búsqueda de una lectura narrativa o de divulgación general.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Temario parte general auxiliar de cuidadores xunta se publica en tapa blanda y reúne 418 páginas. El formato impreso de Editorial MAD permite subrayar, anotar y consultar apartados durante el estudio sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Temario parte general auxiliar de cuidadores xunta se relaciona directamente con Auxiliar cuidador temario parte especifica 2 comunidad auton, también de Varios autores. Ambos tratan el temario de auxiliar cuidador, pero uno corresponde a la parte general y el otro identifica una parte específica. Administrativo/a seguridad social 2027 temario especifico 1 comparte la orientación de preparación de temarios, aunque se refiere a otro ámbito administrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370623111",
+        "isbn-9791370623395"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dcb4e915a39e990e",
+  "origen": "chatgpt-web"
+}

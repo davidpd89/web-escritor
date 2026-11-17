@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9788411024754",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Realidad extendida e inteligencia artificial se dirige a lectores interesados en las tecnologías digitales desde una perspectiva de ensayo y divulgación científica. Sus 184 páginas y su temática tecnológica lo distinguen de los manuales sobre gestión empresarial o de las lecturas narrativas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro reúne dos ámbitos tecnológicos: la realidad extendida y la inteligencia artificial. Su clasificación como ensayo y divulgación científica sitúa ambos asuntos en un marco de reflexión y conocimiento sobre tecnología, más que en el de una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Fundación Universitaria Iberoamericana es de tapa dura y tiene 184 páginas. Este formato proporciona una encuadernación rígida para conservar el volumen y consultarlo físicamente, tanto en una biblioteca personal como en un entorno de estudio.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Búsqueda y Gestión de la información científica con herramientas TIC comparte con Realidad extendida e inteligencia artificial el ámbito tecnológico y la autoría de Leticia Victoria Fraga Colman y Silvia Pueyo Villa. El primero se centra en la búsqueda y gestión de información científica, mientras que el segundo aborda la realidad extendida y la inteligencia artificial.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788411024747"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9278c3ad85608b26",
+  "origen": "chatgpt-web"
+}

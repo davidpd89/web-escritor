@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798237674699",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La complacencia que destruye el criterio, de Silvio Dell'oglio, se dirige a lectores interesados en la divulgación científica y en cuestiones relacionadas con el criterio. Por su clasificación temática, se aleja de las novelas de ficción y de los manuales centrados en una actividad profesional concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La complacencia que destruye el criterio está disponible en tapa blanda, con 320 páginas en castellano. Esta edición física permite consultar distintos pasajes y conservar el volumen en una biblioteca dedicada a la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La complacencia que destruye el criterio puede compararse con 50 cosas que hay que saber sobre IA, de Keith Mansfield, por su vinculación con la divulgación científica. Mientras el libro de Silvio Dell'oglio plantea el criterio y la complacencia como asuntos centrales desde su título, el de Mansfield se centra en la inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "044eaf6184788ae9",
+  "origen": "chatgpt-web"
+}

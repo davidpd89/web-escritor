@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amor en tiempos de guerra: [nueva edición], de Iñaki Fuertes, se dirige a lectores de romance interesados en las relaciones de pareja. Su clasificación temática lo aleja de quienes buscan una lectura centrada en el misterio o la aventura sin componente romántico.",
+      "texto": "Amor en tiempos de guerra: [nueva edición] se dirige a lectores de romance interesados en historias que relacionan los vínculos amorosos con un contexto bélico. Por su orientación romántica, encaja menos con quienes buscan una obra centrada exclusivamente en operaciones militares o historia de la guerra.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Amor en tiempos de guerra: [nueva edición] se presenta en tapa blanda, con 260 páginas en castellano. Esta edición de Kabo&bero Ediciones permite leer el volumen en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "texto": "Amor en tiempos de guerra: [nueva edición] está disponible en tapa blanda, con 260 páginas en castellano. Esta presentación permite leer la obra en papel y guardarla en una estantería sin el volumen habitual de una encuadernación rígida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amor en tiempos de guerra: [nueva edición] y Amor en pole position (Dirty Air 3) comparten el interés por las relaciones románticas. Iñaki Fuertes sitúa la guerra en el título de su obra, mientras que la novela de Lauren Asher se ambienta en el mundo de la Fórmula 1. Son dos contextos distintos para lectores de romance.",
+      "texto": "Amor en tiempos de guerra: [nueva edición] y 24 historias para enamorarte en navidad: Relatos navideños comparten el interés por las relaciones amorosas. Iñaki Fuertes sitúa el romance en un contexto de guerra, mientras que Patricia Bonet reúne relatos asociados a la Navidad; la diferencia principal está en el marco temático de cada obra.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055674"
+        "isbn-9788409929177"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6276b04cf196904c",
+  "fuente_hash": "27e42adc36f719a2",
   "origen": "chatgpt-web"
 }

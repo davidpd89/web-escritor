@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388333460",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Te fuiste y empezó mi vida se dirige a lectores de narrativa contemporánea que buscan una obra de extensión considerable. Sus 432 páginas, firmadas por Viruca Yebra, la sitúan lejos de las lecturas breves; por su clasificación editorial, tampoco responde a una búsqueda específica de fantasía o ciencia ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Te fuiste y empezó mi vida se presenta en tapa blanda, con 432 páginas en castellano. Esta edición de Pigmalion permite conservar el volumen en papel y consultarlo sin dispositivos electrónicos; por su extensión, requiere más espacio de transporte que un libro breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c2701c7ce237eef9",
+  "origen": "chatgpt-web"
+}

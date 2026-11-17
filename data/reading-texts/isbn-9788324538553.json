@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788324538553",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Elaboración de jabón en casa: Recetas de jabón por proceso en frío y de base para fundir y verter para principiantes, con instrucciones paso a paso está dirigido a quienes desean iniciarse en la fabricación doméstica de jabón. Su orientación práctica lo separa de los libros dedicados a la historia de los productos o a la lectura recreativa sin actividades manuales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "contenido_y_uso",
+      "texto": "El libro reúne recetas de jabón mediante dos procedimientos: elaboración en frío y utilización de una base que se funde y se vierte. Las instrucciones paso a paso están planteadas para principiantes y permiten abordar ambas técnicas como actividades domésticas dentro de sus 144 páginas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Elaboración de jabón en casa: Recetas de jabón por proceso en frío y de base para fundir y verter para principiantes, con instrucciones paso a paso contiene 144 páginas. El soporte impreso permite mantener las instrucciones abiertas durante la preparación y consultar las recetas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Elaboración de jabón en casa: Recetas de jabón por proceso en frío y de base para fundir y verter para principiantes, con instrucciones paso a paso y Arroz (Comerse el mundo) comparten su relación con la preparación de productos cotidianos. Clement Aldridge se centra en fabricar jabón mediante recetas para principiantes, mientras que Tove Nilsson trata un alimento. Angelita: Huerta, vinos, cocina y cócteles (GASTRONOMIA) se diferencia por su enfoque gastronómico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934293",
+        "isbn-9788419483898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2dfe89a769d79b90",
+  "origen": "chatgpt-web"
+}

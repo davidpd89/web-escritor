@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388342219",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el damasquinado y en las trayectorias personales vinculadas a los oficios artísticos. La obra de Mariano San Félix Martín se centra en una vida dedicada a esta técnica, por lo que se aparta de los estudios generales de pintura, cine o diseño gráfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Oro incrustado. Latidos del corazón: Una vida dedicada al arte del damasquinado cuenta con 152 páginas en tapa blanda. Es una edición impresa de extensión contenida, adecuada para conservar junto a otros libros de arte y consultar los pasajes relacionados con este oficio artesanal.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Oro incrustado. Latidos del corazón: Una vida dedicada al arte del damasquinado y 720 retrats, de Xavier Mollà i Revert, se relacionan con el ámbito artístico, aunque sus títulos apuntan a enfoques distintos. Mariano San Félix Martín aborda una vida dedicada al damasquinado, mientras que 720 retrats sitúa el retrato en el centro de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2d52695860b55b01",
+  "origen": "chatgpt-web"
+}

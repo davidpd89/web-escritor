@@ -4,38 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El caballero de la capa negra se dirige a lectores de fantasía juvenil que buscan aventuras con elementos de terror y ciencia ficción. Por su combinación de géneros, encaja menos con quienes prefieren relatos realistas o narraciones centradas exclusivamente en el romance.",
+      "texto": "El caballero de la capa negra encaja con lectores juveniles que buscan fantasía y aventuras. Sus 310 páginas ofrecen una novela de narrativa juvenil; no está dirigida específicamente a quienes prefieren romance o narrativa adulta.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El caballero de la capa negra está disponible en tapa blanda y Kindle. La edición física de Obscura Editorial reúne 310 páginas y permite conservar el ejemplar en papel; Kindle ofrece la misma obra en formato digital para leerla desde dispositivos compatibles.",
+      "texto": "La tapa blanda permite leer sus 310 páginas en una edición física de Editorial Obscura Editorial. Kindle ofrece una alternativa digital para llevar el libro en el móvil o en un lector electrónico sin ocupar espacio en la estantería.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El caballero de la capa negra puede compararse con Brujas de Aerthea: El secreto de Violet por su vinculación con la fantasía. La obra de Carlos J. Sánchez incorpora también aventuras, terror y ciencia ficción, mientras que el título de Ángel Hache sitúa la brujería y un secreto en el centro de su propuesta nominal.",
+      "texto": "El caballero de la capa negra comparte el ámbito fantástico con El poder del fuego nº 06/06: 6 (Fantasía), de Robert Kirkman, Chris Samnee. La diferencia visible está en su presentación: el título de este último lo identifica como el número 06/06, mientras que El caballero de la capa negra se presenta como narrativa juvenil de aventuras y fantasía.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409934164"
+        "isbn-9791388103469"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8c8132cb40e3d161",
+  "fuente_hash": "9f3563d15362317b",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788401038136",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La letrada (Éxitos), de Beatriz Zamora, se sitúa entre la novela histórica y la narrativa contemporánea. Sus 448 páginas corresponden a una lectura de extensión considerable, alejada de los libros breves. Por su clasificación, no está orientada a quien busca exclusivamente fantasía o divulgación práctica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La letrada (Éxitos) está disponible en tapa dura, con 448 páginas publicadas por Plaza & Janés. Es una edición física que puede conservarse en una biblioteca personal o entregarse como regalo. Su extensión y encuadernación hacen que resulte menos ligera de transportar que una edición digital.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La letrada (Éxitos) y Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon comparten el ámbito de la narrativa histórica. La obra de Beatriz Zamora también se clasifica como narrativa contemporánea, mientras que el título de Valerio Massimo Manfredi identifica una entrega de Aléxandros. Son obras de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a214297919b8bfe1",
+  "origen": "chatgpt-web"
+}

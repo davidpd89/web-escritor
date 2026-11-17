@@ -4,34 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La lluvia en el Nilo: XI Premio Albert Jovell (Novela) se dirige a lectores de novela histórica que también buscan narrativa contemporánea. Sus 528 páginas corresponden a una lectura extensa, menos ajustada a quien prefiere libros breves o divulgación histórica sin elementos novelísticos.",
+      "texto": "La lluvia en el Nilo: XI Premio Albert Jovell (Novela), de Juan Castilla Brazales, encaja con lectores de novela histórica que también buscan narrativa contemporánea. Sus 528 páginas corresponden a una lectura extensa, menos adecuada para quien prefiere ensayos históricos breves o manuales de consulta.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La lluvia en el Nilo: XI Premio Albert Jovell (Novela) se presenta en tapa blanda, con 528 páginas en castellano. Es una edición física de extensión considerable, apropiada para organizar la lectura en varias sesiones y mantener el volumen en una biblioteca personal.",
+      "texto": "La lluvia en el Nilo: XI Premio Albert Jovell (Novela) cuenta con una edición en tapa blanda de 528 páginas, publicada por Almuzara. Este formato permite leer la novela completa en papel y conservarla en una biblioteca, aunque su extensión supone un volumen considerable para transportar.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La lluvia en el Nilo: XI Premio Albert Jovell (Novela) comparte el terreno de la ficción histórica con Bajo las cenizas de Pompeya (ESPASA NARRATIVA), de María Reig, y El médico de la reina (NdeNovela), de Rubén Moreno. Los títulos remiten a escenarios distintos: el Nilo, Pompeya y un entorno cortesano, respectivamente, lo que permite diferenciarlos por el contexto histórico sugerido.",
+      "texto": "La península de las casas vacías: 529 (Nuevos Tiempos), de David Uclés, permite comparar dos obras vinculadas a la narrativa histórica, aunque pertenecen a autores distintos. La lluvia en el Nilo: XI Premio Albert Jovell (Novela), de Juan Castilla Brazales, también puede ponerse junto a Ave César (Narrativas Históricas), de Rex Warner, por su relación con la ficción de ambientación histórica.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084870",
-        "isbn-9788410140776"
+        "isbn-9788419942319",
+        "isbn-9788435064125"
       ]
     }
   ],

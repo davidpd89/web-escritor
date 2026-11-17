@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419779045",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "FE Y TRABAJO: Cómo movilizar a tu iglesia para transformar la vida cotidiana se dirige a lectores interesados en relacionar la fe, la actividad laboral y la vida diaria desde una perspectiva religiosa. Su enfoque en la movilización de la iglesia encaja menos con quienes buscan una guía profesional desvinculada de la espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "FE Y TRABAJO: Cómo movilizar a tu iglesia para transformar la vida cotidiana se presenta en tapa blanda, con 288 páginas en castellano. El formato impreso permite consultar apartados, volver a las ideas sobre fe y trabajo y conservar el volumen como material de lectura o consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "FE Y TRABAJO: Cómo movilizar a tu iglesia para transformar la vida cotidiana aborda la espiritualidad desde su relación con la iglesia y la actividad cotidiana, mientras que El perdón: Una sabiduría silenciosa (ENSAYO) sitúa el perdón en el centro de su propuesta. El principio Zen / The Zen Principle plantea, desde su propio título, otro enfoque espiritual, distinto del marco eclesial de Missy Wallace y Lauren Gill.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410943896",
+        "isbn-9786073874342"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a6afe508ae01c784",
+  "origen": "chatgpt-web"
+}

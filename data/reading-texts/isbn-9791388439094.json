@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388439094",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dinodisea 1. Amigos para siempre se dirige al público infantil interesado en el cómic y las historias de amistad. La obra de Gaët's tiene 56 páginas y pertenece al ámbito de la narrativa gráfica infantil; no responde a la búsqueda de una novela extensa escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dinodisea 1. Amigos para siempre está disponible en tapa dura, con 56 páginas publicadas por Editorial Base (es). Es una edición física de extensión breve que permite recorrer sus páginas ilustradas y conservar el volumen en una colección de cómics infantiles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dinodisea 1. Amigos para siempre y Animal Jack 2 la montaña mágica pertenecen al ámbito de las lecturas infantiles relacionadas con animales. La primera, de Gaët's, presenta la amistad como tema en su título, mientras que la segunda, de Kid Toussaint, sitúa una montaña mágica en el centro de su denominación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387744410"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ed7e9508807c5fa0",
+  "origen": "chatgpt-web"
+}

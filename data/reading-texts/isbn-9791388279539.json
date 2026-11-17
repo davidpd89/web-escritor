@@ -4,33 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche Anthropos: Pandora + Troya (Historias de hoy), de Pol Gise, se dirige a lectores interesados en relatos de temática histórica y narrativa juvenil. Reúne dos títulos en una edición de 680 páginas, por lo que no corresponde a quien busca un único volumen breve o una lectura centrada en un solo título.",
+      "texto": "Estuche Anthropos: Pandora + Troya (Historias de hoy) se dirige a lectores interesados en la historia y la narrativa juvenil contemporánea. Su combinación de referencias históricas y presentación narrativa lo diferencia de los ensayos centrados exclusivamente en análisis político, económico o social.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas",
-        "edicion"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Estuche Anthropos: Pandora + Troya (Historias de hoy) se presenta en tapa dura y suma 680 páginas. El estuche agrupa Pandora y Troya en una edición física de Temas de Hoy, apropiada para conservar ambos títulos juntos o entregarlos como regalo. Está publicado en castellano.",
+      "texto": "La tapa dura reúne 680 páginas en un único estuche físico, con una presentación pensada para conservar los dos títulos juntos. Es el formato indicado para quien prefiere leer en papel y mantener ambos volúmenes en una misma edición; no hay una alternativa digital entre los formatos de esta ficha.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "formatos_disponibles",
+        "formato_edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Estuche Anthropos: Pandora + Troya (Historias de hoy) puede compararse con Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy), también de Pol Gise. Ambos comparten autor y la referencia a Troya, pero el estuche incorpora además Pandora y reúne 680 páginas. La otra edición destaca por sus cantos tintados y se presenta como un título individual.",
+      "texto": "Troya, la guerra que acabó con los dioses: EDICIÓN CANTOS TINTADOS (Historias de hoy), de Pol Gise, comparte autor y referencia histórica con Estuche Anthropos: Pandora + Troya (Historias de hoy). La diferencia está en la presentación: el estuche reúne Pandora y Troya, mientras que el otro título se centra en Troya y cuenta con una edición de cantos tintados.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -40,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d1d7f37a01645301",
+  "fuente_hash": "5a4c7bfa92140685",
   "origen": "chatgpt-web"
 }

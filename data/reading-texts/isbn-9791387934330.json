@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387934330",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cícladas (VIAJES) se dirige a lectores interesados en los viajes y las publicaciones sobre ocio y tiempo libre. Por su temática y sus 290 páginas, se aleja de los libros centrados en resolver acertijos o practicar actividades manuales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cícladas (VIAJES) está disponible en tapa dura, con 290 páginas en castellano. Esta encuadernación permite conservar el volumen en una biblioteca personal o entregarlo como regalo físico; su extensión también facilita consultar distintas partes del libro en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cícladas (VIAJES) comparte el ámbito del ocio con 99 Sudoku (LIBROS SINGULARES), de Anónimo, aunque el primero se presenta como una publicación de viajes y el segundo se centra en pasatiempos numéricos. Frente a Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas, de Varios autores, cambia el interés por las labores manuales por el de los viajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425",
+        "isbn-9788498748208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c99696830a852653",
+  "origen": "chatgpt-web"
+}

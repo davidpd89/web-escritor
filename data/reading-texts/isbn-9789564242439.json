@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9789564242439",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Decidiendo en qué emprender se dirige a lectores interesados en la economía y la empresa, especialmente en la elección de una actividad emprendedora. Por su enfoque temático, queda fuera de las búsquedas centradas en ficción o creación literaria.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Decidiendo en qué emprender está disponible en tapa blanda, con 168 páginas en castellano. Esta edición de Ediquid permite consultar el contenido en papel y volver a determinados apartados durante la planificación de una actividad empresarial.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Decidiendo en qué emprender comparte el ámbito empresarial con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso. El primero se centra, por su título, en elegir una actividad emprendedora; el segundo plantea una reflexión sobre el liderazgo y su ejercicio profesional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c65b0a1cd79358b5",
+  "origen": "chatgpt-web"
+}

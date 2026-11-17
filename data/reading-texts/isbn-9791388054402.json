@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388054402",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Teoría de la cordura: y de los hábitos del corazón (Ensayo), de Higinio Marín Pedreño, se dirige a lectores interesados en la reflexión filosófica y el desarrollo personal. Su clasificación como ensayo lo diferencia de los manuales centrados en instrucciones prácticas y de las obras de ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Teoría de la cordura: y de los hábitos del corazón (Ensayo) cuenta con una edición en tapa blanda de Editorial Pre-Textos. Sus 288 páginas en castellano permiten leer el ensayo en papel, subrayar pasajes y regresar a ellos durante una consulta posterior.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Teoría de la cordura: y de los hábitos del corazón (Ensayo) y El arte de la prudencia (Serie Great Ideas): Ediciones icónicas (Penguin Clásicos | Vintage) se relacionan por su interés en conceptos vinculados a la conducta humana. Higinio Marín Pedreño aborda desde el título la cordura y los hábitos del corazón; Baltasar Gracián sitúa la prudencia en el centro de su obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058670"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db08df4d09d824af",
+  "origen": "chatgpt-web"
+}

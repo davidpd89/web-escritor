@@ -4,38 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La ciencia del baloncesto para niños se dirige a niños y niñas interesados en comprender este deporte mediante preguntas, curiosidades y retos. Sus 145 propuestas se orientan al ocio y al aprendizaje deportivo; no es una lectura centrada en una historia de ficción.",
+      "texto": "La ciencia del baloncesto para niños se dirige a niños y niñas interesados en entender este deporte mediante preguntas, curiosidades y retos. Sus 145 propuestas responden a una lectura de ocio y aprendizaje deportivo, distinta de una novela infantil o de un manual técnico dirigido a entrenadores.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La ciencia del baloncesto para niños se publica en tapa blanda y reúne 100 páginas en castellano. El formato permite consultar las 145 curiosidades, preguntas y retos por separado, sin necesidad de leer todo el contenido seguido; también facilita llevar el libro a entrenamientos o actividades deportivas.",
+      "texto": "La edición en tapa blanda contiene 100 páginas y permite consultar las preguntas y los retos directamente en papel. Su extensión facilita distribuir las 145 curiosidades y actividades en varias sesiones, tanto para una lectura individual como para compartir preguntas sobre baloncesto.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La ciencia del baloncesto para niños y Moneyfútbol: big data y analítica de datos en el fútbol relacionan el deporte con explicaciones que van más allá del juego. El libro de Angel Manuel Montero Anaya plantea 145 curiosidades, preguntas y retos infantiles sobre baloncesto; el de Jorge Quintana Ortí aborda el análisis de datos y el rendimiento en el fútbol.",
+      "texto": "La ciencia del fútbol para niños: El libro de los porqués del fútbol: 145 curiosidades, preguntas y retos para niños y niñas futboleros de 8 a 12 años (La ciencia del deporte para niños), también de Angel Manuel Montero Anaya, comparte la estructura de preguntas y retos, pero cambia el baloncesto por el fútbol. Los récords del fútbol contados por los Futbolísimos, de Varios autores, se centra en marcas deportivas, frente a las explicaciones y curiosidades sobre baloncesto.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
-        "afines_catalogo"
+        "autores"
       ],
       "enlaces": [
-        "isbn-9791387955342"
+        "isbn-9788409925155",
+        "isbn-9788410558762"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cddde747f71dc02c",
+  "fuente_hash": "06e5b06b54527472",
   "origen": "chatgpt-web"
 }

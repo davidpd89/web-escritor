@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La caverniña (Cuentos infantiles), de Ana Duna, se sitúa entre las lecturas infantiles relacionadas con aventuras, amistad, humor y naturaleza. Con 32 páginas, se diferencia de los ensayos extensos y de las narraciones orientadas a lectores que buscan tramas largas.",
+      "texto": "La caverniña (Cuentos infantiles), de Ana Duna, encaja con quienes buscan cuentos infantiles vinculados a las aventuras y al desarrollo personal. Sus 32 páginas ofrecen una extensión breve; no responde a quien prefiera una lectura extensa o un ensayo de desarrollo personal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,30 +14,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La caverniña (Cuentos infantiles) está editado en tapa dura y tiene 32 páginas en castellano. Su extensión permite abordar la lectura en sesiones breves, mientras que la cubierta rígida protege el volumen durante su conservación y uso repetido.",
+      "texto": "La caverniña (Cuentos infantiles) está disponible en tapa dura, con 32 páginas en castellano. Esta edición de Beascoa permite conservar el cuento en formato físico y consultarlo en distintas ocasiones, sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La caverniña (Cuentos infantiles) puede compararse con El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles), de Steve Smallman, por su orientación hacia los cuentos infantiles. Ana Duna presenta una obra vinculada a aventuras, amistad y naturaleza, mientras que el título de Steve Smallman identifica una historia protagonizada por un mono dentro de La ovejita que vino a cenar.",
+      "texto": "La caverniña (Cuentos infantiles) comparte el terreno de las aventuras con Las aventuras de Lucía el misterio de albohera: 0 (El gato León), de Concepción Prats Ortuño. La diferencia está en su identificación editorial: el primero pertenece a los cuentos infantiles y tiene 32 páginas, mientras que el segundo presenta un misterio desde su título.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448874056"
+        "isbn-9791388150395"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d84204b07b7733ae",
+  "fuente_hash": "162327bb74a1531c",
   "origen": "chatgpt-web"
 }

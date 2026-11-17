@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388147500",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Post Mortem (edición limitada · Black Friday) (Doctora Kay Scarpetta 1) (Campaña | Black Friday) se dirige a lectores de misterio y thriller interesados en una serie protagonizada por una doctora forense. Por su género, encaja menos con quienes buscan romance o aventuras alejadas de la investigación criminal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Penguin Bolsillo se presenta como edición limitada de Black Friday, en tapa blanda y con 368 páginas. Publicada el 2026-10-01, lleva el ISBN 9791388147500 y el título la identifica como el n.º 1 de Doctora Kay Scarpetta.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "formato_edicion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción disponible es la tapa blanda de bolsillo, con 368 páginas en castellano. Su tamaño editorial facilita llevar la novela en el bolso o la mochila, mientras que la encuadernación flexible resulta práctica para leer durante los desplazamientos.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Causa de muerte (Doctora Kay Scarpetta 7) comparte con este libro la autoría de Patricia Cornwell y la protagonista forense. La diferencia está en su posición dentro de la serie: el título de Post Mortem lo identifica como el n.º 1, mientras que Causa de muerte se presenta como la séptima entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387871925"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e036c1412bd2961b",
+  "origen": "chatgpt-web"
+}

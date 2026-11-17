@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388202711",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amapolas de abril se dirige a lectores de narrativa juvenil que buscan una novela de extensión contenida. Sus 190 páginas y su clasificación juvenil la distinguen de las lecturas dirigidas específicamente al público adulto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amapolas de abril está disponible en tapa blanda, con 190 páginas en castellano. Esta edición de Editorial Cuadranta permite leerla en papel y transportarla sin el peso habitual de un volumen de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amapolas de abril puede compararse con Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación por su vinculación con el público juvenil. La diferencia está en su presentación: Amapolas de abril figura como narrativa juvenil, mientras que Adolescelandia plantea desde el título una cuestión relacionada con la autenticidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781637659380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a015f1167574a3f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788466392150",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Parque Jurásico: Contiene: Parque jurásico | El mundo perdido (Best Seller | Ficción), de Michael Crichton, reúne dos obras de ciencia ficción y aventuras. Encaja con lectores interesados en ambos géneros y en tener los dos títulos juntos; no está planteado como una lectura de divulgación científica sobre dinosaurios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El mundo perdido, de Michael Crichton, comparte autor y título con una de las obras incluidas en este estuche; su planteamiento menciona una isla de Costa Rica y cadáveres de dinosaurios. Clic y Clara en la era de los dinosaurios: Las aventuras más científicamente divertidas (Pequeños curiosos), de Carlos Pazos, también aborda los dinosaurios, pero desde una propuesta para pequeños curiosos, frente a la ciencia ficción y las aventuras del estuche.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466392143",
+        "isbn-9788448874742"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a55451d6892902b1",
+  "origen": "chatgpt-web"
+}

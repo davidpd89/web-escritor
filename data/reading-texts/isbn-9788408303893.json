@@ -4,33 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Osito Tito. Mi primer libro de memoria. Estaciones está orientado a primeras lecturas y actividades infantiles relacionadas con la memoria y las estaciones. Sus 8 páginas y su presentación en cartón lo diferencian de los cuentos extensos y de los libros destinados a una lectura continuada.",
+      "texto": "Osito Tito. Mi primer libro de memoria. Estaciones está dirigido a lectores infantiles que comienzan a trabajar la memoria mediante un libro protagonizado por Osito Tito. Su planteamiento se aleja de las lecturas juveniles extensas y de los libros destinados a lectores adultos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas",
-        "edicion"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición física de Osito Tito. Mi primer libro de memoria. Estaciones es un libro de cartón de 8 páginas, presentado entre los formatos de tapa dura. Su estructura breve permite manipularlo y volver a las páginas durante las actividades de memoria, sin depender de una pantalla.",
+      "texto": "La tapa dura presenta sus 8 páginas en formato de libro de cartón, con una estructura física adaptada a la manipulación de los pequeños lectores. Es una edición breve de Timun Mas Infantil, concebida como libro físico y no como lectura digital.",
       "evidencias": [
-        "titulo",
-        "edicion",
-        "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El gran libro de los colores de Osito Tito comparte personaje y autor, Benji Davies, con Osito Tito. Mi primer libro de memoria. Estaciones. El primero se centra en los colores, mientras que el segundo identifica las estaciones y la memoria como sus temas principales, de modo que plantean actividades infantiles diferentes.",
+      "texto": "El gran libro de los colores de Osito Tito, de Benji Davies, comparte protagonista y autoría, aunque se centra en los colores en lugar de la memoria y las estaciones. Osito Tito: Diversión En La Granja, de Benji Davies, mantiene también el personaje y la autoría, con la granja como referencia temática en su título.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788408318163",
@@ -40,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bc8f2ef999de6c1e",
+  "fuente_hash": "9c9630364acb5f3b",
   "origen": "chatgpt-web"
 }

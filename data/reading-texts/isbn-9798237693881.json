@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9798237693881",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Acuario 2027: Tu Guía de Horóscopos y Rituales se dirige a lectores interesados en la astrología, los horóscopos y las prácticas espirituales. La obra de Alina a Rubi se sitúa en el ámbito de la espiritualidad y el bienestar, por lo que se aleja de los manuales centrados exclusivamente en nutrición o salud física.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Acuario 2027: Tu Guía de Horóscopos y Rituales está disponible en tapa blanda, con 392 páginas en castellano. Esta edición física permite consultar los horóscopos y rituales en distintos momentos, así como volver a apartados anteriores sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Acuario 2027: Tu Guía de Horóscopos y Rituales comparte el ámbito espiritual con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia, de Barbara Hand Clow. La diferencia está en el enfoque anunciado por sus títulos: Alina a Rubi aborda horóscopos y rituales vinculados a un año concreto, mientras que Barbara Hand Clow se centra en la consciencia y sus dimensiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "79cf9aeab434e872",
+  "origen": "chatgpt-web"
+}

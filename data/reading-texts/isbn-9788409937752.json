@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El otro emperador: Lucio Vero, el hermano que Marco Aurelio no pudo salvar del olvido encaja con lectores interesados en la historia romana y las figuras del poder imperial. Su enfoque histórico y sus 327 páginas lo alejan de las lecturas breves sobre acontecimientos contemporáneos.",
+      "texto": "El otro emperador: Lucio Vero, el hermano que Marco Aurelio no pudo salvar del olvido se dirige a lectores interesados en la historia romana y la novela histórica. Su enfoque sobre Lucio Vero y Marco Aurelio sitúa el interés en personajes del pasado. Encaja menos con quien busca una historia ambientada en el presente o alejada de los acontecimientos históricos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,17 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El otro emperador: Lucio Vero, el hermano que Marco Aurelio no pudo salvar del olvido se publica en tapa blanda, con 327 páginas. Es una edición física que permite consultar pasajes anteriores y seguir la lectura histórica en papel, sin utilizar una pantalla.",
+      "texto": "El otro emperador: Lucio Vero, el hermano que Marco Aurelio no pudo salvar del olvido está disponible en tapa blanda y Kindle. La edición en papel reúne 327 páginas y permite consultar pasajes físicamente durante la lectura. Kindle ofrece la misma obra en formato digital para llevarla en el móvil o en un lector compatible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ave César (Narrativas Históricas) y El otro emperador: Lucio Vero, el hermano que Marco Aurelio no pudo salvar del olvido coinciden en su vinculación con la historia romana. El libro de Valentín Dueñas Jiménez identifica expresamente a Lucio Vero y Marco Aurelio, mientras que el de Rex Warner presenta una referencia más general a César.",
+      "texto": "El otro emperador: Lucio Vero, el hermano que Marco Aurelio no pudo salvar del olvido puede compararse con Ave César (Narrativas Históricas) por su vinculación con la historia romana. Valentín Dueñas Jiménez identifica expresamente a Lucio Vero y Marco Aurelio como figuras centrales, mientras que el título de Rex Warner plantea una referencia más general a la autoridad imperial. Ambas obras tienen distinta autoría.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "aadaac2a9e2b828b",
+  "fuente_hash": "3631bf854cb0f056",
   "origen": "chatgpt-web"
 }

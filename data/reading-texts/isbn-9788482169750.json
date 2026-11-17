@@ -4,7 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Lost in translation se dirige a lectores interesados en el montañismo, la historia oral del alpinismo y las experiencias de quienes trabajan junto a deportistas conocidos. Luca Calvi relata encuentros desde su oficio de traductor e intérprete. No está planteado como una guía de rutas ni como un manual de técnicas de escalada.",
+      "texto": "Lost in translation se dirige a lectores interesados en el alpinismo, la escalada y las experiencias personales de quienes trabajan con sus protagonistas. Luca Calvi cuenta encuentros vividos como traductor e intérprete en festivales de montaña. Encaja menos con quien busca una guía de rutas o instrucciones técnicas para escalar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Sua Edizioak publicó Lost in translation el 23 de septiembre de 2026 en castellano. Esta edición en tapa blanda consta de 176 páginas y lleva el ISBN 9788482169750. Su contenido recoge experiencias y encuentros narrados por Luca Calvi desde su trabajo como traductor e intérprete.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "isbn13",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Lost in translation trata la historia del alpinismo y la escalada desde los encuentros personales de Luca Calvi con figuras de ambas disciplinas. Su enfoque es testimonial: reúne recuerdos, anécdotas y cambios de percepción surgidos durante su trabajo de interpretación. Entre los protagonistas de esos encuentros aparecen Reinhold Messner, Alex Honnold y Tommy Caldwell.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,48 +36,28 @@
       ]
     },
     {
-      "modulo": "esta_edicion",
-      "texto": "Lost in translation se publica en castellano bajo el sello Sua Edizioak, en una edición de tapa blanda de 176 páginas. Su fecha editorial es el 23 de septiembre de 2026 y su ISBN es 9788482169750. Reúne recuerdos y anécdotas de Luca Calvi vinculados a su trabajo en festivales de montaña.",
-      "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
-        "fecha_publicacion",
-        "isbn13",
-        "sinopsis_editorial"
-      ]
-    },
-    {
-      "modulo": "temas_y_enfoque",
-      "texto": "Lost in translation aborda el alpinismo desde el trabajo de traducción e interpretación en encuentros públicos con escaladores y montañeros. Luca Calvi combina recuerdos profesionales, conversaciones y anécdotas para mostrar facetas personales de figuras como Reinhold Messner, Alex Honnold y Tommy Caldwell. El enfoque es testimonial y se apoya en el contacto directo con sus protagonistas.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial"
-      ]
-    },
-    {
       "modulo": "que_formato_elegir",
-      "texto": "Lost in translation está disponible en tapa blanda y contiene 176 páginas. Su extensión permite abordar los encuentros y recuerdos de Luca Calvi en un volumen físico relativamente breve. La encuadernación flexible facilita transportarlo y consultarlo durante una lectura repartida en varias sesiones.",
+      "texto": "Lost in translation se ofrece en tapa blanda, con 176 páginas en castellano. El formato impreso permite leer por separado los encuentros y las anécdotas que Luca Calvi recoge de su experiencia en festivales de montaña. Su extensión facilita alternar estas historias con otras lecturas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "autores"
+        "idioma",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Lost in translation y AGUSTÍN PENÓN Y FEDERICO GARCÍA LORCA se aproximan a personas conocidas mediante experiencias e investigaciones relacionadas con sus vidas. Luca Calvi escribe desde sus encuentros profesionales con figuras del alpinismo, mientras Juan Carlos García de Polavieja aborda una investigación sobre la vida y muerte de Federico García Lorca. Uno ofrece recuerdos de primera mano; el otro se sitúa en la investigación biográfica e histórica.",
+      "texto": "Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días) y Lost in translation se aproximan a la historia desde perspectivas personales. Jacob Mikanowski se ocupa de una región dividida, mientras que Luca Calvi recuerda encuentros con figuras del alpinismo y la escalada. El primero tiene un enfoque territorial; el segundo parte de experiencias como traductor.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "categorias",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788418567933"
+        "isbn-9791399165142"
       ]
     }
   ],

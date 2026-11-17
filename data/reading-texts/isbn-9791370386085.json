@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370386085",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi camino. Reflexiones para transformar tu vida en el Camino de Santiago (Plural -México-) se dirige a lectores interesados en la reflexión personal vinculada al Camino de Santiago. Su orientación hacia el tiempo libre y su extensión de 192 páginas lo distinguen de los manuales jurídicos especializados, aunque también figure clasificado en derecho.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi camino. Reflexiones para transformar tu vida en el Camino de Santiago (Plural -México-) está editado en tapa blanda y tiene 192 páginas. Es un volumen físico que permite leer sus reflexiones por etapas, transportarlo en una mochila y conservarlo para consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi camino. Reflexiones para transformar tu vida en el Camino de Santiago (Plural -México-) y Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos), de Mari Luz Sánchez García-Arista, pertenecen a ámbitos de reflexión y aprendizaje distintos. Jorge Ramos Campirán vincula el cambio personal con una experiencia de camino; Mari Luz Sánchez García-Arista se centra en la mediación educativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788429030372"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "56b264160ddadc23",
+  "origen": "chatgpt-web"
+}

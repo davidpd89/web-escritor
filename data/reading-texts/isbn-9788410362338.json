@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Spidey y su superequipo. ¡Equipo Spidey! Libro con solapas se dirige al público infantil que reconoce a los personajes de Marvel y disfruta manipulando elementos de un libro. Su propuesta de 24 páginas con solapas encaja menos con lectores que prefieren relatos extensos sin componentes interactivos.",
+      "texto": "Spidey y su superequipo. ¡Equipo Spidey! Libro con solapas está dirigido al público infantil que disfruta de los superhéroes y los libros interactivos. Sus 24 páginas y las solapas lo distinguen de una narración extensa sin elementos para manipular.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "El libro propone una lectura acompañada de la apertura de solapas, que permiten interactuar físicamente con sus páginas. Su extensión de 24 páginas facilita recorrerlo en sesiones breves y volver a explorar sus elementos móviles, con el superequipo de Spidey como referencia temática.",
+      "texto": "La lectura se combina con la apertura de solapas, que permiten interactuar físicamente con las páginas. El formato invita a detenerse, levantar cada solapa y continuar explorando el libro, en lugar de limitarse a pasar las 24 páginas de principio a fin.",
       "evidencias": [
         "titulo",
         "numero_paginas"
@@ -22,23 +21,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es de tapa dura y contiene 24 páginas con solapas. Este formato permite sujetar el libro mientras se levantan las piezas de papel y resulta apropiado para una lectura infantil compartida en la que se manipulan las páginas.",
+      "texto": "La edición en tapa dura reúne las 24 páginas y las solapas en un volumen físico que puede manipularse durante la lectura. Es una presentación adecuada para abrir y cerrar las solapas en sucesivas sesiones, con cubiertas rígidas que protegen el conjunto.",
       "evidencias": [
         "formatos_disponibles",
         "numero_paginas",
-        "titulo"
+        "titulo",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Spidey y su superequipo. Mi libro para llevar comparte personajes y autoría de Marvel con el libro de solapas. La diferencia está en su propuesta: el primero se presenta como un libro para llevar, mientras que el segundo incorpora solapas para interactuar con las páginas durante la lectura.",
+      "texto": "Spidey y su superequipo. Libro con 10 sonidos comparte personajes con el libro de solapas de Marvel, pero propone una interacción sonora en lugar de levantar elementos de papel. Frente a esa experiencia, el título con solapas centra la participación infantil en abrir partes de las páginas y explorar su contenido.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410362604"
+        "isbn-9788418610769"
       ]
     }
   ],

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788401031823",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Prêt à vivre (Éxitos), de Assunta Jiménez-Ontiveros, se dirige a lectores de narrativa contemporánea en castellano. Sus 264 páginas responden a una búsqueda de ficción de este género, no a la de un manual práctico o un libro de ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Prêt à vivre (Éxitos) tiene una edición en tapa blanda de 264 páginas publicada por Plaza & Janés. La cubierta flexible facilita transportarlo y leerlo fuera de casa, mientras que el formato físico permite conservarlo o regalarlo sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1eed6a1b19836f59",
+  "origen": "chatgpt-web"
+}

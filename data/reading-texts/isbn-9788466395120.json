@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este estuche de Gabriel García Márquez se dirige a lectores de narrativa contemporánea interesados en reunir varias obras del mismo escritor. Sus 1384 páginas y la presencia de distintos títulos lo hacen menos apropiado para quien busca una sola novela corta o una lectura exclusivamente ensayística.",
+      "texto": "Este estuche de Gabriel García Márquez encaja con quienes buscan narrativa contemporánea y relatos de un mismo autor reunidos en una colección. No responde a quien prefiera una única novela breve, pues el conjunto alcanza las 1384 páginas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,41 +14,41 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La propuesta combina narrativa contemporánea, relatos y obras vinculadas al amor y las relaciones personales. El estuche reúne Cien años de soledad, El amor en los tiempos del cólera, Crónica de una muerte anunciada y el título identificado como El ... agosto nos vemos, todos bajo la autoría de Gabriel García Márquez.",
+      "texto": "Propone una lectura de narrativa contemporánea que reúne cuatro obras de Gabriel García Márquez: Cien años de soledad, El amor en los tiempos del cólera, Crónica de una muerte anunciada y El ... agosto nos vemos. El conjunto combina títulos narrativos distintos dentro de un estuche de 1384 páginas.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Penguin Bolsillo reúne 1384 páginas distribuidas entre las obras incluidas en el estuche. Esta presentación permite conservar los títulos juntos y leerlos por separado, una opción más manejable que transportar toda la colección durante los desplazamientos.",
+      "texto": "La opción disponible es un estuche en tapa blanda, con edición de bolsillo de Penguin Bolsillo. Sus 1384 páginas se distribuyen entre las obras reunidas, por lo que el formato permite conservarlas juntas y sacar cada libro del estuche para leerlo por separado.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
         "editorial",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Entre cachacos: 1954-1955 / Among the Cachacos: 1954-1955: 2 (OBRA PERIODÍSTICA) comparte con este estuche la autoría de Gabriel García Márquez, pero pertenece a su obra periodística. Notas de prensa / Press Releases: 5 (OBRA PERIODÍSTICA) también recoge esa vertiente del escritor, frente a la selección de narrativa contemporánea y relatos reunida en el estuche.",
+      "texto": "Entre cachacos: 1954-1955 / Among the Cachacos: 1954-1955: 2 (OBRA PERIODÍSTICA) comparte con el estuche la autoría de Gabriel García Márquez, pero se centra en su producción periodística. El estuche reúne cuatro obras narrativas y suma 1384 páginas, mientras que Entre cachacos pertenece a una colección de obra periodística.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "afines_catalogo",
+        "numero_paginas"
       ],
       "enlaces": [
-        "isbn-9789588894164",
-        "isbn-9789588894256"
+        "isbn-9789588894164"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4c57536d3cb2f63a",
+  "fuente_hash": "173dd1e0c023d531",
   "origen": "chatgpt-web"
 }

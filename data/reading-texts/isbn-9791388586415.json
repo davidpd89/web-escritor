@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791388586415",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Transporte de viajeros con características especiales-TMVI0023 se orienta a lectores interesados en el transporte de pasajeros y sus necesidades particulares. Su temática vinculada a servicios de transporte y actividad profesional lo aleja de quienes buscan relatos de viajes o narrativa de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Transporte de viajeros con características especiales-TMVI0023 se presenta en tapa blanda, con 128 páginas en castellano. Es un volumen físico de extensión delimitada que puede utilizarse para consultar cuestiones relacionadas con el transporte de viajeros sin recurrir a dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Transporte de viajeros con características especiales-TMVI0023 puede compararse con Normas de operación de las redes de distribución eléctrica-ELEE013PO, de Beatriz Coronado García, por su atención a actividades técnicas. El primero trata el transporte de pasajeros con características especiales; el segundo se ocupa de las normas operativas de redes eléctricas, por lo que sus ámbitos profesionales son distintos.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586026"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "79fd583adf3f958e",
+  "origen": "chatgpt-web"
+}

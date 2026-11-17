@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467979060",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "AO ashi 40, de Yugo Kobayashi, encaja con lectores de cómic y novela gráfica que buscan una entrega identificada por su número. El título señala el 40, por lo que resulta menos adecuado para quien quiera escoger una obra sin numeración; la edición tiene 192 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de AO ashi 40 reúne 192 páginas en castellano. Publicada por Norma Editorial, ofrece una opción física para leer y conservar esta entrega numerada, con una cubierta flexible que facilita su manejo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "86dd9a08e9173df5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788432322167",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "John Berger: Modos de aprender se orienta a lectores de ensayo, biografías y memorias interesados en una obra centrada en John Berger. Su clasificación también incluye narrativa contemporánea, por lo que no responde al planteamiento de un manual técnico ni al de una novela de género fantástico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda facilita la consulta y relectura de John Berger: Modos de aprender sin recurrir a dispositivos electrónicos. Sus 228 páginas permiten trabajar sobre el texto en papel, marcar pasajes y recuperar reflexiones relacionadas con el ensayo y la escritura biográfica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo), de César Suárez, comparte con John Berger: Modos de aprender el interés por una figura concreta desde el ámbito del ensayo. La diferencia principal está en sus protagonistas: César Suárez se ocupa de Josefina Carabias, mientras que Iona Heath dedica su obra a John Berger.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788426433282"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12748437ec16dbc7",
+  "origen": "chatgpt-web"
+}

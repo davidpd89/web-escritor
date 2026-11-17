@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9780241856826",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores interesados en mejorar su técnica ciclista, desarrollar fuerza y revisar sus métodos de entrenamiento. Su orientación deportiva y práctica lo diferencia de las lecturas sobre naturaleza, observación de animales o relatos de viajes.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de DK se presenta en tapa blanda, con 224 páginas en castellano. Este formato permite transportar el libro y volver a sus contenidos sobre técnica, fuerza y entrenamiento sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciclismo: Mejora tu técnica, gana fuerza, revoluciona tu entrenamiento (Deportes DK) puede compararse con CÓMO AYUDAR A LOS ERIZOS: Más de 100 ideas para transformar tu jardín en un refugio para la naturaleza por su orientación hacia actividades prácticas. El primero aborda el rendimiento ciclista y el segundo propone actuaciones en el jardín para favorecer a los erizos. Frente a ambos, Del nacimiento al mar: Diario de un caminante por el Guadalquivir (Otras narrativas) plantea una experiencia narrada de desplazamiento a pie.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399220322",
+        "isbn-9788410286658"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3aead8d36910d8fa",
+  "origen": "chatgpt-web"
+}

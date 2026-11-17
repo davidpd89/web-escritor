@@ -4,33 +4,35 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores interesados en el ensayo y en el ámbito del arte y el diseño, especialmente por su relación con los programas de cine. Su enfoque temático se aleja de la narrativa de ficción y de los manuales prácticos de creación artística.",
+      "texto": "Personas sobresalientes en los programas de cine (Otium) se orienta a lectores interesados en el cine y el ensayo, dentro de un ámbito relacionado con el arte y el diseño. Sus 124 páginas plantean una extensión relativamente breve. Por su temática, encaja menos con quienes buscan una novela de aventuras o fantasía.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Personas sobresalientes en los programas de cine (Otium) está disponible en tapa blanda, con 124 páginas en castellano. Su extensión permite leerla en varias sesiones y el formato físico facilita volver a consultar pasajes concretos.",
+      "texto": "Personas sobresalientes en los programas de cine (Otium) se ofrece en tapa blanda y reúne 124 páginas en castellano. La encuadernación flexible permite llevar el ejemplar y consultarlo en papel; su extensión también facilita guardarlo junto a otros ensayos y libros dedicados al cine.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte el terreno del ensayo con El alfabeto infinito: Las leyes del conocimiento (Ensayo y Pensamiento), de César Hidalgo, aunque este último se centra en las leyes del conocimiento. Frente a Branding con criterio: Una novela-ensayo que, como brújula de arena, nos interpela (TEMATICOS), de Cristián Saracco, se distingue por situar los programas de cine en el centro de su título, en lugar del branding.",
+      "texto": "Personas sobresalientes en los programas de cine (Otium), de Carlos R. Vide, puede compararse con Marco teórico y principios normativos de la Calidad en la Edificación, de Alejandra Vidales Barriguete, por su orientación hacia materias especializadas. El primero se relaciona con el cine, el arte y el ensayo, mientras que el segundo aborda, desde su título, los principios normativos de la edificación. La diferencia está en el campo de estudio que interesa al lector.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399168648",
-        "isbn-9791388092701"
+        "isbn-9788418255861"
       ]
     }
   ],

@@ -4,39 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La guerra de las librerías (Lo más visto) está orientada a lectores de romance interesados también en el humor y las relaciones familiares. Su combinación de amor, pareja y familia se distancia de las lecturas centradas exclusivamente en la acción o en contenidos prácticos.",
+      "texto": "La guerra de las librerías (Lo más visto) se dirige a quienes buscan romance y sienten interés por una historia cuyo título sitúa las librerías en primer plano. Sus 464 páginas la alejan de las lecturas breves, mientras que su clasificación romántica la distingue de los ensayos sobre libros o el sector editorial.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La guerra de las librerías (Lo más visto) tiene una edición en tapa blanda de 464 páginas, publicada en castellano por Montena. El formato permite leerla en papel y transportarla sin una cubierta rígida; por su extensión, ocupa más espacio que una novela breve.",
+      "texto": "La guerra de las librerías (Lo más visto) tiene una edición en tapa blanda de 464 páginas, publicada en castellano por Montena. Su encuadernación flexible permite manejar el volumen durante sesiones prolongadas y conservarlo como ejemplar físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La guerra de las librerías (Lo más visto) se puede comparar con Mentiras y deseo (Bourbon Boys 1) (Lo más visto) por su orientación romántica y sus elementos de humor. La obra de Ali Brady añade la familia entre sus temas, mientras que la de Victoria Wilder se identifica en el título como el n.º 1 de Bourbon Boys.",
+      "texto": "La guerra de las librerías (Lo más visto) se relaciona con A medio salto (Romántica), de Valera Gomalva, por su orientación hacia el romance. También puede compararse con 24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, aunque esta última reúne relatos de temática navideña. La obra de Ali Brady se diferencia por su referencia a las librerías en el título y por su extensión de 464 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387972509"
+        "isbn-9788409929177",
+        "isbn-9791388365089"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "273de372357b4c56",
+  "fuente_hash": "73ae39a2b7167b8e",
   "origen": "chatgpt-web"
 }

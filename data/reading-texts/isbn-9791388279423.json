@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores que disfrutan resolviendo misterios y buscan entretenimiento con componentes de humor y participación. Por su propuesta de resolver un caso, resulta menos afín a quienes prefieren una novela policial convencional sin actividades para el lector.",
+      "texto": "Sopicidios se dirige a lectores que disfrutan resolviendo casos de misterio y participando activamente en desafíos detectivescos. Su combinación de investigación y entretenimiento se aleja de las novelas centradas exclusivamente en seguir una historia sin intervenir en su resolución.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,29 +12,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Sopicidios está disponible en tapa blanda, con 208 páginas publicadas por Temas de Hoy. El formato impreso permite consultar los casos y regresar a sus detalles mientras se intenta resolver el último, que el título relaciona con un sorteo cuyo destino es Roma.",
+      "texto": "Sopicidios está disponible en tapa blanda, con 208 páginas publicadas por Temas de Hoy. El formato impreso permite consultar las pistas, retroceder entre casos y revisar las deducciones durante la resolución de los misterios.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "formatos_disponibles"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Dónde está el asesino?: Rastrea pistas, descarta ciudades y caza al culpable comparte con Sopicidios la participación del lector en la resolución de misterios. El primero plantea una investigación basada en pistas y ciudades, mientras que Sopicidios incorpora humor y presenta la resolución del último caso como parte de una propuesta vinculada a un sorteo con destino a Roma.",
+      "texto": "Minemurder. 99 casos de lógica y misterio comparte con Sopicidios la resolución de casos mediante pistas y deducciones. El libro de Daniel Vergel destaca un último caso vinculado a un sorteo relacionado con Roma, mientras que el de Bucket reúne 99 casos de lógica y misterio.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425376924"
+        "isbn-9788410442856"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "908f4beac275f3c3",
+  "fuente_hash": "be5925da12ea4368",
   "origen": "chatgpt-web"
 }

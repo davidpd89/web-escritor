@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798237436327",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un Abordaje Esotérico a las Siete Leyes Universales de El Kybalion (Arcanah Bacana) se dirige a lectores interesados en el esoterismo y las corrientes espirituales. Sus 738 páginas corresponden a una obra extensa, menos adecuada para quien busca una introducción breve o un manual de bienestar centrado en hábitos físicos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda presenta las 738 páginas de Un Abordaje Esotérico a las Siete Leyes Universales de El Kybalion (Arcanah Bacana) en un único volumen físico. Por su extensión, resulta más apropiada para una lectura pausada y consultas sucesivas que para transportar un libro ligero de pocas páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Un Abordaje Esotérico a las Siete Leyes Universales de El Kybalion (Arcanah Bacana) comparte con Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia el interés por planteamientos espirituales y esotéricos. La obra de Lorena Tercon Arbiza se centra en las leyes universales de El Kybalion, mientras que la de Barbara Hand Clow aborda la consciencia mediante el concepto de nueve dimensiones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c9106211c650981a",
+  "origen": "chatgpt-web"
+}

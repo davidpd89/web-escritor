@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791387789923",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en las relaciones entre música y literatura y en las nuevas perspectivas para estudiar ambas disciplinas. Por su orientación hacia el ensayo, se aleja de quienes buscan una novela de ciencia ficción centrada en personajes y acontecimientos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina las relaciones entre música y literatura y propone explorar nuevos caminos para su estudio. El enfoque se sitúa en el análisis de ambas disciplinas y sus conexiones, con una orientación ensayística en lugar de una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 308 páginas en castellano, publicadas por Guillermo Escolar Editor. Es una opción física para consultar el ensayo, volver a sus apartados durante el estudio y conservarlo junto a otros trabajos de crítica literaria.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De Enrique Wanton a Ramón López Soler: Refundaciones novelescas al español entre la Ilustración y el Romanticismo (1769-1845): 319 (Biblioteca Filológica Hispana) comparte el interés por el estudio literario. Mientras ese título delimita un periodo histórico y las refundaciones novelescas, Melopoéticas: Nuevos caminos en los estudios sobre música y literatura (Análisis y Crítica) se centra en el vínculo entre literatura y música.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387745196"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4abb0743cbb91deb",
+  "origen": "chatgpt-web"
+}

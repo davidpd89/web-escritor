@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399236422",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION) se dirige a lectores interesados en las relaciones entre historia, arte y conocimiento científico. Su objeto de estudio conecta la prehistoria con los tiempos modernos a lo largo de 404 páginas. No se plantea como una novela histórica ni como una guía práctica de técnicas artísticas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION) está disponible en tapa blanda, con 404 páginas en castellano. Por su extensión y su carácter de investigación, el ejemplar impreso permite alternar lectura continuada, anotaciones y consultas de pasajes anteriores. Es un volumen para una lectura de largo recorrido.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION) y Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) comparten el interés por conectar la investigación científica con las manifestaciones artísticas. La obra de Maria Stavrinaki se centra en la prehistoria y su relación con la modernidad, mientras que la de Carlos Briones plantea un diálogo entre ciencia y arte desde el cosmos y la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788401039287"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a0fd6308b86f31be",
+  "origen": "chatgpt-web"
+}

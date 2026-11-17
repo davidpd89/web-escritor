@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399125290",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "DEstape, Tapa y Tapete se dirige a lectores de narrativa contemporánea en castellano que buscan una obra de cierta extensión. Sus 492 páginas la alejan de las lecturas breves y de quienes prefieren el cómic o la novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "DEstape, Tapa y Tapete está disponible en tapa blanda, con 492 páginas impresas en castellano. Es una edición física de Editorial Veintinueve que permite leer una obra extensa sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e34387d001e10f48",
+  "origen": "chatgpt-web"
+}

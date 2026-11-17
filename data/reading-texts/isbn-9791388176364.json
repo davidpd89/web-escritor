@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388176364",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Entre los enemigos: 6 (Los niños ocultos) se sitúa entre la narrativa contemporánea y los libros relacionados con la historia. Puede encajar con lectores de ficción interesados en esos ámbitos, mientras que se aleja de quienes buscan manuales históricos o libros de consulta académica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Entre los enemigos: 6 (Los niños ocultos) tiene una edición en tapa blanda de 214 páginas. Es un volumen físico de extensión delimitada que permite seguir la lectura y retomarla en distintas sesiones; el título lo identifica como el n.º 6 de Los niños ocultos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corazón de oro: Edición limitada a precio especial (Colección Especial), de Luz Gabás, comparte con Entre los enemigos: 6 (Los niños ocultos) su relación con la narrativa, aunque pertenece a otra autoría. Cuando el viento hable: Edición limitada a precio especial (Colección Especial), de Ángela Banzas, ofrece otra referencia narrativa independiente de la serie identificada en el título de Margaret Peterson Haddix.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408328353",
+        "isbn-9788408328414"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "15ddc737b37b7731",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410267879",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Medallas retrato y poder femenino en la Europa del Renacimiento (Sílex Universidad) está dirigido a lectores interesados en la historia europea, la representación femenina y el Renacimiento. Su temática histórica y sus 530 páginas lo alejan de una lectura breve de ficción o de una introducción general a la actualidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Medallas retrato y poder femenino en la Europa del Renacimiento (Sílex Universidad) es de tapa blanda y tiene 530 páginas. Publicada por Sílex Ediciones en castellano, permite trabajar con un volumen físico extenso y consultar sus contenidos históricos durante el estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Medallas retrato y poder femenino en la Europa del Renacimiento (Sílex Universidad) y Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días) abordan cuestiones históricas europeas. El primero se concentra en las medallas, los retratos y el poder femenino renacentista; el segundo presenta una historia íntima de Europa del Este. Frente a ambos, 53 días: Cómo Hitler derribó una democracia (HISTORIA) delimita su asunto mediante un proceso político concreto.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517",
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "314d99bd029d5e7b",
+  "origen": "chatgpt-web"
+}

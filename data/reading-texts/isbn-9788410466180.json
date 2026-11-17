@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410466180",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Infortunio (Trilogía de la Brecha 1) (Nova) se dirige a quienes buscan ciencia ficción con elementos de aventura. Por su clasificación temática, se aleja de las lecturas centradas exclusivamente en el realismo cotidiano o en asuntos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Infortunio (Trilogía de la Brecha 1) (Nova) está disponible en tapa blanda, con 448 páginas en castellano. Esta edición de Nova permite leer el volumen en papel y conservarlo en la estantería sin recurrir a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Infortunio (Trilogía de la Brecha 1) (Nova) puede compararse con El marciano (edición limitada · cantos tintados) (Campaña | Edición con cantos tintados) por su relación con la ciencia ficción. La diferencia está en la autoría y la presentación: Brandon Sanderson y Janci Patterson firman el primero, cuyo título lo identifica como parte de una trilogía, mientras que Andy Weir firma el segundo, disponible en una edición con cantos tintados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388147272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "75237a6c1105613c",
+  "origen": "chatgpt-web"
+}

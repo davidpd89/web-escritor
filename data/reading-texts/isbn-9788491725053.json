@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788491725053",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de historia contemporánea interesados en el papel de las instituciones locales durante la Guerra Civil. Su enfoque sobre la Diputación y los ayuntamientos de Pamplona y Tudela encaja menos con quienes buscan una historia militar general del conflicto.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina la actuación de la Diputación y los ayuntamientos de Pamplona y Tudela durante la Guerra Civil. El enfoque sitúa a las instituciones provinciales y municipales en el centro de un ensayo histórico sobre ese periodo, en lugar de abordar únicamente los acontecimientos militares.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 424 páginas en castellano y está publicada por Pamiela Argitaletxea. Su extensión permite dedicar una lectura continuada al estudio histórico y volver a consultar los apartados de interés en el ejemplar físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A sangre y fuego (Clásicos ilustrados), de Manuel Chaves Nogales, permite establecer una comparación por el contexto de la Guerra Civil. ¡Cómplices!: I. La Diputación y los Ayuntamientos de Pamplona y Tudela durante la Guerra Civil: 299 (Ensayo y Testimonio) delimita su estudio a instituciones concretas, mientras que el título de Manuel Chaves Nogales pertenece a una colección de clásicos ilustrados.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387752590"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4bf738636d10d21b",
+  "origen": "chatgpt-web"
+}

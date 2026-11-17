@@ -4,29 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mestra (AdN Editorial Grupo Anaya), de Madeline Miller, se sitúa en la narrativa contemporánea y tiene 80 páginas. Su extensión responde a quienes buscan una lectura breve en castellano, mientras que por género se distancia de las obras clasificadas como cómic o novela gráfica.",
+      "texto": "Mestra (AdN Editorial Grupo Anaya), de Madeline Miller, se encuadra en la narrativa contemporánea y se dirige a quienes buscan ficción en una extensión breve. Sus 80 páginas la distinguen de las novelas de varios cientos de páginas; no responde a la búsqueda de una lectura extensa.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mestra (AdN Editorial Grupo Anaya) cuenta con una edición en tapa dura de 80 páginas. El formato ofrece una encuadernación rígida para conservar el ejemplar, colocarlo en una biblioteca o entregarlo como regalo; Adn Editorial Grupo Anaya lo publica en castellano.",
+      "texto": "Mestra (AdN Editorial Grupo Anaya) está disponible en tapa dura y Kindle, con una extensión de 80 páginas. La tapa dura ofrece un ejemplar físico para conservar o regalar, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
-        "idioma"
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a0667bbe4b1ccbb7",
+  "fuente_hash": "e01c349812c88b58",
   "origen": "chatgpt-web"
 }

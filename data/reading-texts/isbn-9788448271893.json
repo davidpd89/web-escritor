@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788448271893",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Silvia Martí Marí: Un vacío en NY se dirige a lectores interesados en el arte y el diseño, con una obra firmada por Silvia Martí Marí y Agustín Pérez Rubio. Por su orientación artística y sus 122 páginas, se aleja de las lecturas centradas en aventuras o ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Silvia Martí Marí: Un vacío en NY se publica en tapa blanda, con 122 páginas en castellano. Esta edición de Generalitat Valenciana permite consultar el contenido en papel y manejar un volumen de extensión relativamente breve, tanto para una lectura seguida como para volver a sus páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Silvia Martí Marí: Un vacío en NY comparte el ámbito artístico con 720 retrats, de Xavier Mollà i Revert. La diferencia está en el enfoque anunciado por los títulos: el primero identifica una obra vinculada a Silvia Martí Marí y NY, mientras que el segundo hace referencia a retratos. Ambos permiten explorar publicaciones artísticas desde asuntos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a470d16695bc6fa9",
+  "origen": "chatgpt-web"
+}

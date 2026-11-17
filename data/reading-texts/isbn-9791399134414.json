@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399134414",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cartas de Ciudad Reloj se orienta a lectores interesados en el ensayo, el arte y el diseño, con una vertiente relacionada con el tiempo libre. No responde al mismo tipo de búsqueda que una novela histórica o un manual dedicado exclusivamente a una técnica artística.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cartas de Ciudad Reloj cuenta con una edición en tapa dura de 272 páginas, publicada en castellano. La encuadernación rígida permite mantener el ejemplar en una colección de libros sobre arte, diseño y ensayo, además de utilizarlo como lectura de consulta en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas de Ciudad Reloj y Cómo vivir una vida con arte: 366 inspiraciones de artistas para llevar la creatividad a tu día a día (Ático de los Libros) coinciden en su relación con el arte. El primero se clasifica también como ensayo y diseño, mientras que el segundo plantea la creatividad cotidiana mediante inspiraciones de artistas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388324239"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "171315de176d7a7c",
+  "origen": "chatgpt-web"
+}

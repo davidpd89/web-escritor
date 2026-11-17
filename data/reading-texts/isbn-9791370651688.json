@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores que necesitan comprender y aplicar el impuesto sobre transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados. Por su enfoque jurídico y tributario, no responde a quien busca una introducción general a la economía ni una lectura narrativa.",
+      "texto": "ITPyAJD: de la norma a la liquidación. Paso a paso: Claves para comprender, liquidar y aplicar el impuesto en transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados está dirigido a lectores que necesitan estudiar la aplicación práctica de este tributo. Su enfoque jurídico y fiscal responde a necesidades de consulta y formación, no a la búsqueda de narrativa de entretenimiento.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Colex se presenta en tapa blanda y reúne 210 páginas en castellano. El formato físico permite consultar los apartados sobre liquidación del impuesto, marcar páginas y volver a las cuestiones jurídicas durante el estudio o el trabajo.",
+      "texto": "ITPyAJD: de la norma a la liquidación. Paso a paso: Claves para comprender, liquidar y aplicar el impuesto en transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados está disponible en tapa blanda. Sus 210 páginas permiten consultar en papel los contenidos relativos a la liquidación del impuesto y volver a los apartados necesarios durante el estudio o el trabajo jurídico.",
       "evidencias": [
-        "editorial",
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "titulo"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas comparte autoría con esta obra del Departamento de Documentación Iberley. Mientras aquella aborda los plazos de prescripción y sus interrupciones, ITPyAJD se centra en la liquidación del impuesto sobre transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados.",
+      "texto": "ITPyAJD: de la norma a la liquidación. Paso a paso: Claves para comprender, liquidar y aplicar el impuesto en transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados comparte autoría y enfoque fiscal con Claves fiscales para grandes empresas. Paso a paso: De la adquisición a la pérdida de la condición de gran empresa: requisitos y consecuencias fiscales. El primero trata la liquidación de un impuesto concreto; el segundo se ocupa de los requisitos y efectos fiscales asociados a la condición de gran empresa.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370651282"
+        "isbn-9791370651725"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7bdb37c13247d165",
+  "fuente_hash": "1761ac7bcaee7842",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388387326",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jaque mate: Talento, mentiras y ambición en el mayor escándalo de la historia del ajedrez (Sociedad) se dirige a lectores interesados en el ajedrez, los conflictos deportivos y sus protagonistas. Por su orientación hacia la historia y las biografías, encaja menos con quienes buscan un manual de aperturas o ejercicios para jugar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Jaque mate: Talento, mentiras y ambición en el mayor escándalo de la historia del ajedrez (Sociedad) puede leerse en tapa blanda o Kindle. La edición física reúne 296 páginas para consultar en papel; Kindle permite llevar la obra en un lector electrónico o en el móvil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Jaque mate: Talento, mentiras y ambición en el mayor escándalo de la historia del ajedrez (Sociedad) comparte con Enzo Ferrari: Velocidad, sangre y gloria. La biografía definitiva sobre Ferrari y su legado en el mundo del automovilismo. (No ficción) el interés por las figuras y los conflictos del deporte. Ben Mezrich se ocupa del ajedrez y sus escándalos, mientras que Luca dal Monte aborda una trayectoria vinculada al automovilismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412955835"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cae4708a77da6c9d",
+  "origen": "chatgpt-web"
+}

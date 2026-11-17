@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La escalera del músculo: Ponte fuerte usando la ciencia (Fitness), de Jeff Nippard, está dirigida a lectores interesados en el entrenamiento muscular, el deporte y el bienestar. Sus 368 páginas corresponden a una obra extensa de temática práctica, alejada de quien busque ficción deportiva o una lectura narrativa breve.",
+      "texto": "La escalera del músculo: Ponte fuerte usando la ciencia (Fitness), de Jeff Nippard, se dirige a lectores interesados en el desarrollo muscular y su relación con la ciencia. Su temática encaja con quienes buscan conocimientos sobre fitness y bienestar físico, pero no con quienes prefieren un recetario de alimentación o un libro de ficción deportiva.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de La escalera del músculo: Ponte fuerte usando la ciencia (Fitness) reúne 368 páginas en un ejemplar rígido, adecuado para conservar y consultar en papel. Kindle facilita llevar la lectura en un dispositivo compatible y acceder al libro sin cargar con el volumen físico.",
+      "texto": "La escalera del músculo: Ponte fuerte usando la ciencia (Fitness) está disponible en tapa dura y Kindle, con 368 páginas en su edición impresa. La tapa dura permite conservar un volumen de consulta sobre entrenamiento, mientras que Kindle facilita llevar la lectura en un dispositivo compatible y acceder al contenido sin transportar el libro físico.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La escalera del músculo: Ponte fuerte usando la ciencia (Fitness) puede compararse con MENTE DE JUEGO: Psicología clínica, rendimiento mental y construcción de equipos aplicada al fútbol de competición. Ambos abordan aspectos del rendimiento deportivo desde disciplinas diferentes. Jeff Nippard se centra en la fuerza muscular y su fundamento científico, mientras que Sergio Pérez Serer y Thalía Pérez Vieco tratan la psicología y el trabajo en equipo dentro del fútbol competitivo.",
+      "texto": "La escalera del músculo: Ponte fuerte usando la ciencia (Fitness) y Chef sapiens: De los orígenes a la actualidad en 100 recetas saludables comparten el interés por la salud física, aunque Jeff Nippard aborda el desarrollo muscular y Marcos Vázquez y Elizabeth Ochoa se centran en la alimentación. Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante también trata el bienestar, pero desde los hábitos alimentarios y la relación con la salud. El libro de Jeff Nippard se diferencia por situar el entrenamiento muscular y la ciencia en el centro de su propuesta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409824816"
+        "isbn-9788466395939",
+        "isbn-9788411193900"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "95ba7724aefd19f8",
+  "fuente_hash": "9b19553589c1b97f",
   "origen": "chatgpt-web"
 }

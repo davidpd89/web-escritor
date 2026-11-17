@@ -4,25 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) se orienta a lectores interesados en la narrativa contemporánea con humor y cuestiones políticas. Su planteamiento filosófico y su relación con el poder encajan menos con quienes buscan exclusivamente romance o aventuras sin reflexión política.",
+      "texto": "Encaja con lectores de narrativa contemporánea que buscan humor, reflexión filosófica y cuestiones relacionadas con el poder y la política. Su planteamiento como comedia filosófica lo diferencia de las novelas románticas centradas en relaciones sentimentales y de los ensayos políticos expositivos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) cuenta con una edición en tapa blanda de 320 páginas. El volumen permite leer y retomar sus cuestiones filosóficas y políticas en papel, sin utilizar un dispositivo electrónico.",
+      "texto": "La edición de Tusquets Editores ofrece 320 páginas en tapa blanda y está escrita en castellano. Es un volumen físico manejable para leer una comedia filosófica de narrativa contemporánea y conservarla junto a otras obras de ficción.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "titulo",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) puede compararse con La máquina del tiempo: Ediciones icónicas (Penguin Clásicos) por su relación con la ficción especulativa. Steven Lukes incorpora humor y cuestiones políticas a una comedia filosófica, mientras que el título de H.G. Wells sitúa el desplazamiento temporal en el centro de su propuesta.",
+      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas) comparte con El día que lo fuimos todo la presencia del humor en una obra narrativa. Steven Lukes lo vincula a la filosofía y la política, mientras que el libro de Ángel Martín aborda experiencias que transforman la vida personal. Frente a Entre tú y nadie más: Romance contemporáneo | Slow burn, convivencia forzada, humor y secretos del pasado., el conflicto no se presenta como un romance.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788491052395"
+        "isbn-9788408327134",
+        "isbn-9788409931118"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "03d15d478566a99f",
+  "fuente_hash": "aef10acbb961f5af",
   "origen": "chatgpt-web"
 }

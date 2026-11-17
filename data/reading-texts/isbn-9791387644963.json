@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387644963",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Medea: 062 (Vdb Mérida), de Manuel Canseco, se dirige a lectores interesados en publicaciones de arte y diseño en castellano. Sus 122 páginas ofrecen una extensión contenida; quien busque una obra extensa tendrá otras opciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Medea: 062 (Vdb Mérida) está disponible en tapa blanda, con una extensión de 122 páginas. Esta edición física de Vdb permite consultar el contenido en papel y transportarlo sin el volumen habitual de publicaciones más extensas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Medea: 062 (Vdb Mérida) puede compararse con 720 retrats por su vinculación editorial al ámbito del arte y el diseño. La diferencia identificable está en la autoría: Manuel Canseco firma el primero y Xavier Mollà i Revert el segundo; sus títulos también apuntan a enfoques distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60ddf26e7f9670ff",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "isbn-9786630495881",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Más allá de las barreras: Más allá del déficit: resignificar las barreras para el aprendizaje y la participación en la educación secundaria se dirige a quienes se interesan por el aprendizaje y la participación en secundaria. Su enfoque educativo se aleja de las lecturas centradas en finanzas personales o hábitos de bienestar.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar las 52 páginas en papel y volver a pasajes concretos durante el trabajo o el estudio. Su extensión facilita llevar el ejemplar en una carpeta o mochila sin reservar demasiado espacio.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a Burnout en el trabajo: Guía práctica para trabajadores, mandos y empresas: prevenirlo, detectarlo y actuar. Con casos, 170 test y modelos para fotocopiar, este libro sitúa su atención en las barreras educativas y la participación en secundaria. Ambos abordan dificultades en contextos organizados, pero uno se ocupa del aprendizaje y el otro del desgaste laboral.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399320725"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8ae65ef60c8170f2",
+  "origen": "chatgpt-web"
+}

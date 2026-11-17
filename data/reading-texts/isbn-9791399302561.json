@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399302561",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El vientre que persigue a dios está dirigido a lectores de poesía en castellano interesados en un volumen de 296 páginas. Su clasificación poética lo separa de las obras narrativas que desarrollan una historia mediante capítulos de novela.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El vientre que persigue a dios se presenta en tapa blanda, con 296 páginas publicadas por Ondina Ediciones. El ejemplar físico permite señalar poemas, regresar a páginas concretas y mantener la lectura reunida en un solo volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El vientre que persigue a dios comparte el ámbito de la poesía con 223 esquinas: 16 (La garza roja) y A solas. La diferencia identificable está en la autoría: Antonino Nieto Rodríguez firma el primero, Antonio Fernández Lera el segundo y María Jesús Martínez Ramos el tercero.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410907539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "352e1f1261c47f36",
+  "origen": "chatgpt-web"
+}

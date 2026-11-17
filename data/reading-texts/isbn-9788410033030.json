@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra de Xavi Forcadell Drago se orienta a lectores interesados en la fantasía, el circo y las lecturas relacionadas con el entorno familiar. Sus 40 páginas ofrecen una extensión breve, distinta de la que busca quien prefiere novelas largas o estudios extensos de psicología.",
+      "texto": "Esta obra de Xavi Forcadell Drago se relaciona con la lectura familiar, la crianza y la psicología, con el circo como motivo de su título. Sus 40 páginas ofrecen una extensión breve; no responde a quien busca un manual extenso de psicología o una obra de consulta especializada.",
       "evidencias": [
         "autores",
         "titulo",
@@ -14,22 +14,22 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Xavi Forcadell Drago está disponible en tapa dura y contiene 40 páginas. Su encuadernación rígida protege las cubiertas durante las lecturas compartidas y permite conservar el ejemplar en una biblioteca familiar.",
+      "texto": "La edición de Editorial Germinar se presenta en tapa dura y contiene 40 páginas en castellano. La cubierta rígida permite conservar el libro para sucesivas lecturas y manejarlo durante sesiones compartidas en familia. Su extensión facilita guardarlo y transportarlo sin ocupar tanto espacio como un volumen de mayor tamaño.",
       "evidencias": [
-        "autores",
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La obra de Xavi Forcadell Drago y Cuentoterapia social: El cuento como herramienta en la intervención social y la relación de ayuda comparten su relación con la infancia y el ámbito familiar. La primera combina fantasía y circo en 40 páginas, mientras que Marian López Muñoz aborda el cuento como herramienta de intervención social.",
+      "texto": "Cuentoterapia social: El cuento como herramienta en la intervención social y la relación de ayuda comparte con la obra de Xavi Forcadell Drago su vinculación con el ámbito de la ayuda y las relaciones humanas. El libro de Marian López Muñoz trata el uso de los cuentos en la intervención social, mientras que el de Xavi Forcadell Drago presenta un cangrejo y el circo como elementos de su propuesta.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -39,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3522603a20e7eee3",
+  "fuente_hash": "cfba3bf6c6b6fda4",
   "origen": "chatgpt-web"
 }

@@ -1,46 +1,53 @@
 {
   "id": "isbn-9788467083965",
-  "familia": "narrativa",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Diccionario de la lengua española. Vigesimocuarta edición está dirigido a quienes necesitan consultar vocabulario y cuestiones relacionadas con la lengua española. Por su carácter lexicográfico y sus 3672 páginas, responde a un uso de referencia más que a una lectura narrativa continuada.",
+      "texto": "Diccionario de la lengua española. Vigesimocuarta edición está dirigido a quienes consultan el significado y el uso del vocabulario español mediante una obra académica de referencia. Su organización lexicográfica responde a búsquedas puntuales, no a quienes buscan una narración de lectura continuada.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "numero_paginas"
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra se ocupa de la lengua española desde un enfoque lexicográfico académico. Real Academia Española continúa con esta edición una tradición editorial iniciada en 1780, presentada aquí en dos volúmenes destinados a la consulta del idioma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa dura con sobrecubierta y estuche, distribuida en dos volúmenes que suman 3672 páginas. Esta presentación permite mantener juntos ambos tomos y consultarlos físicamente, aunque su extensión la hace menos práctica para transportar a diario que para conservar en un lugar fijo.",
+      "texto": "Diccionario de la lengua española. Vigesimocuarta edición se presenta en tapa dura con sobrecubierta y estuche. Sus 3672 páginas se distribuyen en dos volúmenes, una configuración física destinada a la consulta y conservación en una biblioteca o espacio de trabajo.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "formatos_disponibles",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos) comparte su función de consulta, pero delimita el contenido al vocabulario político, mientras que Diccionario de la lengua española. Vigesimocuarta edición aborda el idioma de forma general. Récords para entender el planeta también ofrece información de referencia, centrada esta vez en curiosidades geográficas.",
+      "texto": "Diccionario de la lengua española. Vigesimocuarta edición y Diccionario de conceptos y términos para entender y moverse en política: 16 (Biblos) comparten el formato conceptual de obra de consulta. La primera aborda el idioma español desde la lexicografía académica; la segunda delimita su campo a los conceptos y términos políticos.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388175671",
-        "isbn-9788411005494"
+        "isbn-9791388175671"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "28f2f89e58deaebe",
+  "fuente_hash": "fb2b662de6fbd5d5",
   "origen": "chatgpt-web"
 }

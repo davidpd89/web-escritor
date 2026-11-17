@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9786316617576",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La biblioteca de los márgenes (Plata) se encuadra en la narrativa contemporánea y se dirige a lectores interesados en ese género. Sus 256 páginas ofrecen una extensión intermedia, distinta de las novelas especialmente largas. Por su clasificación, no responde a una búsqueda centrada específicamente en fantasía o literatura histórica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La biblioteca de los márgenes (Plata) está disponible en tapa blanda y Kindle. La edición impresa de Plata tiene 256 páginas y permite leerla en papel; Kindle ofrece la alternativa digital para continuar la lectura desde un móvil o lector electrónico compatible, sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e99a2dcf6443ba70",
+  "origen": "chatgpt-web"
+}

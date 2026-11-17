@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788411354745",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Técnicas culinarias para pescados, crustáceos y moluscos-HOTR0069 se dirige a lectores interesados en la preparación culinaria de productos del mar. Su enfoque temático encaja con la consulta de técnicas de cocina, pero no con quien busca recetas centradas en carnes, verduras o repostería.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Técnicas culinarias para pescados, crustáceos y moluscos-HOTR0069 se presenta en tapa blanda, con 250 páginas en castellano. Esta edición física permite consultar el contenido durante el trabajo en cocina y volver a las secciones necesarias sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ciclismo: Mejora tu técnica, gana fuerza, revoluciona tu entrenamiento (Deportes DK) comparte con Técnicas culinarias para pescados, crustáceos y moluscos-HOTR0069 el interés por mejorar técnicas en una actividad concreta. El primero se ocupa del ciclismo y el entrenamiento físico, mientras que el libro de Javier Sainz Sánchez se centra en la cocina de productos marinos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9780241856826"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5434165ec4772946",
+  "origen": "chatgpt-web"
+}

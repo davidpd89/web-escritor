@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La poesía es el nuevo punk se dirige a lectores de poesía contemporánea interesados en el amor, la infancia, la pérdida y las heridas emocionales. No sigue una trama novelesca continua: reúne poemas de Claudia Masin escritos durante tres décadas, con una mirada crítica hacia la violencia y la crueldad.",
+      "texto": "La poesía es el nuevo punk se dirige a lectores de poesía interesados en la infancia, el amor, la pérdida y la capacidad del lenguaje para abordar el daño. Claudia Masin reúne textos de distintas etapas de su escritura, por lo que encaja menos con quien busca una novela de argumento continuo o una narración de ficción tradicional.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,8 +14,9 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una antología poética que aborda el daño, la memoria afectiva y la posibilidad de reparación mediante el lenguaje. Claudia Masin vincula la expresión lírica con una actitud de resistencia frente a la violencia, reuniendo textos de distintas etapas de su trayectoria.",
+      "texto": "La poesía es el nuevo punk es una antología poética seleccionada y prologada por Claudia Masin, con textos de 30 años de trayectoria. La propuesta relaciona la escritura con la desobediencia frente a la violencia y la crueldad. También trata las heridas emocionales, la pérdida y las posibilidades reparadoras de la palabra.",
       "evidencias": [
+        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -23,41 +24,42 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La edición de La poesía es el nuevo punk publicada por Visor Libros el 30 de septiembre de 2026 reúne 252 páginas en tapa blanda. Se trata de una antología seleccionada y prologada por Claudia Masin, con poemas escritos a lo largo de 30 años, en lugar de un poemario compuesto para una única etapa.",
+      "texto": "Visor Libros publicó La poesía es el nuevo punk en castellano el 30 de septiembre de 2026. Esta edición en tapa blanda tiene 252 páginas y reúne una selección de poemas preparada por Claudia Masin, que también firma el prólogo. El ISBN 9791387745462 identifica el volumen.",
       "evidencias": [
         "titulo",
         "editorial",
         "fecha_publicacion",
         "numero_paginas",
-        "edicion",
-        "autores",
+        "formato_edicion",
+        "idioma",
+        "isbn13",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La poesía es el nuevo punk se presenta en tapa blanda, con 252 páginas publicadas por Visor Libros. Este formato permite consultar poemas concretos, volver a ellos y recorrer la selección en papel, sin necesidad de seguir una lectura continua de principio a fin.",
+      "texto": "La poesía es el nuevo punk está disponible en tapa blanda, con 252 páginas. El volumen impreso permite alternar poemas, volver a textos anteriores y consultar la selección de Claudia Masin sin necesidad de seguir una lectura lineal. Es una edición de Visor Libros en castellano.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "sinopsis_editorial",
         "editorial",
-        "categorias",
-        "sinopsis_editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas, comparte con La poesía es el nuevo punk el formato poético y la presencia del amor como asunto literario. La selección de Claudia Masin amplía ese enfoque hacia la infancia, el daño y la pérdida, con textos reunidos de 30 años de escritura.",
+      "texto": "A solas y La poesía es el nuevo punk comparten su vinculación con la poesía, aunque corresponden a autoras distintas: María Jesús Martínez Ramos y Claudia Masin. La segunda reúne textos de 30 años y aborda el amor, la infancia, el daño y la pérdida desde una perspectiva que atribuye al lenguaje una función reparadora. A solas se presenta con un título centrado en la soledad.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788466396288"
+        "isbn-9788410907539"
       ]
     }
   ],

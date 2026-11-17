@@ -4,36 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) se dirige a lectoras infantiles interesadas en historias sobre autoestima y emociones positivas. Su enfoque en el desarrollo personal mediante un cuento lo diferencia de las novelas centradas principalmente en la aventura o la acción.",
+      "texto": "Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) se dirige a quienes buscan un cuento centrado en la autoestima infantil femenina. Soledad Gutiérrez Puerto vincula el relato con la felicidad y una visión positiva de una misma. No responde a quien busca un manual técnico de psicología o una novela para adultos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) tiene 160 páginas y permite compartir la lectura en papel. Kindle ofrece una opción digital para llevar el cuento en el móvil o en un lector electrónico compatible.",
+      "texto": "Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) puede elegirse en tapa blanda o Kindle. La edición física reúne 160 páginas y permite regalar el cuento en papel o compartir su lectura; Kindle ofrece acceso digital desde un dispositivo compatible. La elección depende de cómo se quiera leer o acompañar la lectura.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Modo drama activado (El mundo según Cloe 1) (Ficción Kids) y Eres perfecta tal y como eres: Un cuento para potenciar la autoestima, la felicidad y la positividad de las niñas (Montena) se sitúan en el ámbito de las lecturas infantiles. El primero se presenta como ficción protagonizada por Cloe; el segundo plantea expresamente el trabajo de la autoestima, la felicidad y la positividad de las niñas.",
-      "evidencias": [
-        "titulo",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788427258716"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1ea37266ba128d67",
+  "fuente_hash": "bf81662099c7417b",
   "origen": "chatgpt-web"
 }

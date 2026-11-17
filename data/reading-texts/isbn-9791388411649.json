@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388411649",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nordeste amargo, de Eduardo Noriega Seijas, encaja con lectores que buscan misterio y thriller dentro de la narrativa contemporánea. Con 544 páginas, plantea una lectura de mayor extensión que una novela breve y se aparta de quienes prefieren textos prácticos o divulgativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nordeste amargo puede leerse en tapa blanda o en Kindle. La primera opción reúne sus 544 páginas en un ejemplar físico para conservar o regalar; Kindle facilita transportar una obra de esa extensión y continuarla desde el móvil o un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nordeste amargo comparte su orientación hacia el misterio con Aguas turbulentas, de Rankin Ian, donde Edimburgo conecta un pasado siniestro con un presente oscuro. También se aproxima a Corazón de sílex, de Emilia Landaluce y Rosa Belmonte, que parte de una joven incapaz de recordar una noche; ambos títulos ofrecen puntos de comparación desde el enigma, aunque sus planteamientos concretos son distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370310318",
+        "isbn-9788467083330"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a653573ec6df0cec",
+  "origen": "chatgpt-web"
+}

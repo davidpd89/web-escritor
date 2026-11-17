@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399176421",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una patria pequeña en la garganta: Pensamientos sobre el lenguaje hoy, de Carmen Amores, se orienta a lectores interesados en reflexionar sobre el lenguaje contemporáneo desde el ensayo. Por su planteamiento temático, encaja menos con quienes buscan una narración de aventuras o una historia construida alrededor de una trama de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una patria pequeña en la garganta: Pensamientos sobre el lenguaje hoy está disponible en tapa blanda, con 138 páginas en castellano. Su extensión permite abordar las reflexiones sobre el lenguaje en sesiones breves y volver a determinados pasajes en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El dinero: 193 (Nuevo Ensayo) y Una patria pequeña en la garganta: Pensamientos sobre el lenguaje hoy coinciden en su orientación ensayística. Charles Péguy aborda el dinero desde el título de su obra, mientras que Carmen Amores sitúa el lenguaje actual en el centro de la suya. La elección depende de cuál de esos asuntos interese explorar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413393056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e31ac3a3fbfb6757",
+  "origen": "chatgpt-web"
+}

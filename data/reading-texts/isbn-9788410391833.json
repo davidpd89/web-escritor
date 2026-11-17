@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788410391833",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "All your perfects (Titania fresh) se orienta a lectores que buscan una novela romántica de Colleen Hoover. Por su clasificación dentro del romance, encaja menos con quienes prefieren divulgación, ensayo o relatos cuyo eje no sean las relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "All your perfects (Titania fresh) se publica en tapa blanda y reúne 288 páginas en castellano. Esta edición permite leer la novela en papel, llevarla en el bolso o colocarla en una colección física de libros de Colleen Hoover.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Finding cinderella (Titania fresh) y Losing Hope: Buscando la redención (Titania fresh) son lecturas afines a All your perfects (Titania fresh) por su autoría: las tres obras están firmadas por Colleen Hoover. También comparten la identificación editorial Titania fresh, aunque son títulos diferentes. All your perfects (Titania fresh) pertenece al romance y cuenta con 288 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410391826",
+        "isbn-9788410391796",
+        "isbn-9781668270493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c549664c1a2fa96a",
+  "origen": "chatgpt-web"
+}

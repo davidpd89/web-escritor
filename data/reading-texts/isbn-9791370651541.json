@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370651541",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensado para lectores que necesiten comprender la impugnación del valor de referencia catastral y sus consecuencias tributarias. Su enfoque jurídico y práctico encaja con consultas sobre valoración de inmuebles, pero no con quien busque una explicación general del mercado inmobiliario o una novela.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra en 112 páginas el tratamiento de la impugnación del valor de referencia catastral y su relación con los tributos. Esta edición de Colex permite manejar el texto impreso durante una consulta y marcar las diferencias entre valor de referencia y valor catastral.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Se relaciona por su contenido tributario con Cómo aplicar la exención por reinversión en vivienda habitual. Paso a paso: Todas las claves para aplicar con éxito este beneficio fiscal (requisitos, ... que pueden generar dudas) (monografico). Ambas obras son del Departamento de Documentación Iberley, pero una estudia la exención por reinversión y la otra la impugnación del valor de referencia catastral.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f8a315c2700cc123",
+  "origen": "chatgpt-web"
+}

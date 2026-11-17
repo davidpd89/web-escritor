@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399306200",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sobrevivir no es reconstruirse: Reconstrucción humana después de la pérdida se dirige a quienes buscan lecturas de desarrollo personal relacionadas con las consecuencias de una pérdida. Su enfoque en la reconstrucción personal lo diferencia de los libros dedicados a la productividad, la organización cotidiana o el bienestar físico como asunto principal.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sobrevivir no es reconstruirse: Reconstrucción humana después de la pérdida se ofrece en tapa blanda y Kindle. La edición impresa reúne 228 páginas para una lectura en papel y consultas posteriores; Kindle permite llevar el texto en un dispositivo compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sobrevivir no es reconstruirse: Reconstrucción humana después de la pérdida y Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta tratan la respuesta personal ante situaciones difíciles. Deissy Olarte centra su libro en la reconstrucción después de una pérdida; Fausto Alfaro Cádiz plantea 10 principios para fortalecer la capacidad de afrontar la adversidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938193"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d46469da0586f9bd",
+  "origen": "chatgpt-web"
+}

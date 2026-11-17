@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los diarios de la boticaria (la novela original) 2 se dirige al público juvenil interesado en misterios conectados, intrigas de palacio y relaciones marcadas por los celos y las jerarquías. Su argumento sigue investigaciones dentro de una corte, por lo que encaja menos con lectores que buscan acción fantástica constante o historias sin enigmas.",
+      "texto": "Los diarios de la boticaria (la novela original) 2 se dirige al público juvenil que busca misterio con elementos románticos y conflictos dentro de una corte. Sus investigaciones sobre incidentes aparentemente separados encajan menos con quien prefiere una historia centrada exclusivamente en la relación sentimental.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "edad_y_sensibilidad",
-      "texto": "Los diarios de la boticaria (la novela original) 2 tiene clasificación juvenil y presenta misterios relacionados con un incendio, una intoxicación alimentaria grave y el fallecimiento de un artesano. También aparecen rivalidades entre las damas de la corte y un militar que muestra interés por Maomao. Son conflictos de intriga con referencias a daños físicos y muerte.",
+      "texto": "Los diarios de la boticaria (la novela original) 2 está clasificado como lectura juvenil. Entre sus conflictos aparecen un incendio, una intoxicación alimentaria grave y tensiones personales relacionadas con los celos. Son elementos que conviene tener presentes para lectores sensibles a situaciones de peligro o enfermedad.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -23,7 +23,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Los diarios de la boticaria (la novela original) 2 es una novela de misterio juvenil con componentes de romance e intriga cortesana. Maomao vuelve a trabajar cerca de Jinshi y debe investigar sucesos aparentemente separados que podrían responder a una misma causa. La observación de indicios y las relaciones de poder sostienen el conflicto narrativo.",
+      "texto": "La novela combina investigación de misterios, intrigas de palacio y romance juvenil. Maomao trabaja al servicio de Jinshi mientras examina sucesos que podrían estar relacionados entre sí. El título identifica esta entrega como el n.º 2, y la trama incorpora tanto problemas de la corte como interrogantes sobre otros personajes.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -32,28 +32,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los diarios de la boticaria (la novela original) 2 se ofrece en tapa blanda con solapas, con 344 páginas en castellano. La encuadernación flexible permite llevar la novela en el bolso o la mochila y conservarla como volumen físico. Las solapas distinguen su presentación de una tapa blanda sencilla y también permiten utilizarla como regalo.",
+      "texto": "Los diarios de la boticaria (la novela original) 2 está disponible en tapa blanda con solapas, publicada por Distrito Manga. Sus 344 páginas permiten leer la historia en un único volumen físico, con solapas que también pueden utilizarse para señalar la página durante la lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "edicion",
-        "numero_paginas",
-        "idioma"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los diarios de la boticaria (la novela original) 1 comparte con Los diarios de la boticaria (la novela original) 2 la autoría de Touko Shino y Hyuganatsu y el personaje de Maomao, pero aborda su llegada forzada al palacio, mientras que el segundo título presenta su regreso al servicio y nuevas investigaciones. No podrás esconderte, de Megan Lally, también pertenece al terreno del thriller, aunque parte de la importancia de la imagen personal para Brooke.",
+      "texto": "Los diarios de la boticaria (la novela original) 1 comparte autoría y protagonista con Los diarios de la boticaria (la novela original) 2, pero presenta la llegada de Maomao al palacio imperial, mientras que el segundo título aborda su regreso al servicio de la corte y nuevas investigaciones. Los diarios de la boticaria (la novela original) 4 (Distrito Novela) pertenece a la misma serie identificada por los títulos, aunque corresponde a otra entrega.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
         "isbn-9791387962821",
-        "isbn-9788427257375"
+        "isbn-9791388347061"
       ]
     }
   ],

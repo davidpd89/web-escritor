@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419942319",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La península de las casas vacías: 529 (Nuevos Tiempos) encaja con lectores de novela histórica y narrativa contemporánea que buscan una lectura extensa. Sus 700 páginas requieren más tiempo que una novela breve; no responde al formato de un ensayo histórico centrado exclusivamente en la exposición de hechos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La península de las casas vacías: 529 (Nuevos Tiempos) se presenta en tapa blanda, con 700 páginas en castellano. Para una lectura prolongada en papel, conviene tener en cuenta el volumen físico que supone esa extensión, tanto al transportarlo como al sostenerlo durante las sesiones de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La península de las casas vacías: 529 (Nuevos Tiempos) puede compararse con Estuche La ciudad de las luces muertas (Áncora & Delfín) por su autoría: ambos corresponden a David Uclés. La primera es una novela histórica de 700 páginas; la segunda se presenta como un estuche, por lo que también cambia el tipo de producto editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788423371068"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2319073b00a98f6d",
+  "origen": "chatgpt-web"
+}

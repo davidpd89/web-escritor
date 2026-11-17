@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388495182",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La boda de las luciérnagas, vol.11 está dirigida a lectores de cómic y novela gráfica en castellano que buscan una entrega numerada de Oreco Tachibana. El título la identifica como el volumen 11, por lo que quien quiera comenzar por una primera entrega deberá distinguirla de esta edición. No está planteada como una novela convencional en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La boda de las luciérnagas, vol.11 está disponible en tapa blanda, con 192 páginas impresas en castellano. Es la edición física publicada por Milky Way Ediciones y permite conservar el volumen junto a otros ejemplares de la colección. La oferta de formatos recogida para este título se limita a tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bad0e259ae56a1ac",
+  "origen": "chatgpt-web"
+}

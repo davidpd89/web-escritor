@@ -4,39 +4,44 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores interesados en el derecho tributario y en los motivos económicos que justifican una reestructuración bajo el régimen FEAC. Su enfoque sobre riesgos y consecuencias fiscales se aleja de las lecturas de divulgación jurídica general.",
+      "texto": "Los motivos económicos válidos en el régimen FEAC. Paso a paso: Cómo saber si una reestructuración está amparada por motivos económicos válidos y cuáles son sus riesgos y consecuencias se dirige a lectores que necesitan estudiar el tratamiento jurídico de las reestructuraciones empresariales. Su enfoque especializado y sus 196 páginas encajan menos con quienes buscan una introducción general al derecho o una lectura divulgativa ajena a la fiscalidad.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda reúne 196 páginas en castellano publicadas por Colex. El formato físico permite consultar los apartados sobre reestructuraciones y consecuencias fiscales, así como volver a ellos durante el estudio o el trabajo.",
-      "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial",
-        "titulo"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La prescripción de la deuda tributaria. Paso a paso: Reglas de cómputo, causas de interrupción y situaciones problemáticas comparte el ámbito tributario y la orientación práctica, pero se centra en los plazos de prescripción. ITPyAJD: de la norma a la liquidación. Paso a paso: Claves para comprender, liquidar y aplicar el impuesto en transmisiones patrimoniales, operaciones societarias y actos jurídicos documentados aborda la aplicación de otro impuesto, frente al análisis de reestructuraciones del régimen FEAC.",
+      "texto": "Los motivos económicos válidos en el régimen FEAC. Paso a paso: Cómo saber si una reestructuración está amparada por motivos económicos válidos y cuáles son sus riesgos y consecuencias se relaciona con Casos prácticos sobre la fiscalidad de las «holding» y sus grupos (monografico), por su atención a cuestiones fiscales empresariales. También comparte autoría institucional con Claves fiscales para grandes empresas. Paso a paso: De la adquisición a la pérdida de la condición de gran empresa: requisitos y consecuencias fiscales, aunque este último trata la condición de gran empresa y no los motivos económicos de una reestructuración.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370651688",
-        "isbn-9791370651282"
+        "isbn-9791370650186",
+        "isbn-9791370651725"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los motivos económicos válidos en el régimen FEAC. Paso a paso: Cómo saber si una reestructuración está amparada por motivos económicos válidos y cuáles son sus riesgos y consecuencias se presenta en tapa blanda, con 196 páginas. El formato físico permite consultar apartados, señalar pasajes y conservar anotaciones durante el estudio de la materia jurídica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "categorias"
       ]
     }
   ],
-  "descartados": [],
+  "descartados": [
+    "que_formato_elegir: repite otro bloque",
+    "faltan módulos: que_formato_elegir"
+  ],
   "version": 3,
-  "fuente_hash": "936c492cdaa3852a",
+  "fuente_hash": "2c099fc9926b8de1",
   "origen": "chatgpt-web"
 }

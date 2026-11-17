@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399295849",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Leonor y sus homólogas europeas, de Jesús Reyes, se dirige a lectores interesados en las biografías y en las figuras europeas que anuncia su título. Su orientación biográfica lo distancia de las novelas de ficción y de quienes buscan una guía práctica sobre instituciones políticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Leonor y sus homólogas europeas cuenta con una edición en tapa blanda de 232 páginas, publicada por Ediciones Ruser. El volumen reúne su contenido biográfico en un único libro físico, con una extensión que permite repartir la lectura entre varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, comparte con Leonor y sus homólogas europeas su proximidad a las experiencias y trayectorias personales. La diferencia está en el foco anunciado: el primero se centra en vivencias del Camino de Santiago, mientras que Jesús Reyes aborda figuras europeas desde una perspectiva biográfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21b383f9cbb8033e",
+  "origen": "chatgpt-web"
+}

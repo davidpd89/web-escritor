@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9789564242019",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Proyecto Filo-Sofía se dirige a lectores que buscan una combinación de ciencia ficción y aventuras. Sus 354 páginas corresponden a una lectura de mayor extensión que una novela breve, mientras que su orientación de género la separa de las obras centradas en el realismo cotidiano o el ensayo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Proyecto Filo-Sofía se publica en tapa blanda y tiene 354 páginas. La edición en castellano de Ediquid ofrece una lectura de extensión media en papel, apropiada para quienes prefieren conservar el ejemplar físico y avanzar por capítulos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Proyecto Filo-Sofía comparte el terreno de la aventura con Aventura Total 7 - Blastofia (Primeras lecturas), aunque este último se presenta como una propuesta de primeras lecturas. También puede relacionarse con Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos), que explicita una orientación infantil y científica frente a la combinación de ciencia ficción y aventuras de Juan López Márquez.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788448875008",
+        "isbn-9788448874759"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a0645eb7194b45d",
+  "origen": "chatgpt-web"
+}

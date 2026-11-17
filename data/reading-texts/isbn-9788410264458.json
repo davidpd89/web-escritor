@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788410264458",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dos personas: Dos personas (NOVELA GRAFICA), de Teresa Ferreiro, se dirige a lectores de cómic y novela gráfica que prefieren una obra de 160 páginas. Su formato narrativo la distingue de las novelas construidas únicamente mediante prosa, por lo que no responde a la búsqueda de ese tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dos personas: Dos personas (NOVELA GRAFICA) cuenta con una edición en tapa blanda de 160 páginas, publicada por Ediciones la Cúpula, S.l. El formato físico permite recorrer sus páginas impresas y consultar directamente las secuencias gráficas, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c9f35cbe854170ec",
+  "origen": "chatgpt-web"
+}

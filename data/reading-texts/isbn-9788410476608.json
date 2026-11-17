@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Habla como un hombre: 28 (Vidas) se dirige a lectores interesados en las memorias personales y su relación con el arte. La obra de Nacho Duato y Lupe Bohorques se sitúa entre la biografía y el ensayo, por lo que se aleja de quienes buscan una novela de ficción.",
+      "texto": "Habla como un hombre: 28 (Vidas), de Nacho Duato y Lupe Bohorques, se sitúa entre las biografías y memorias, el ensayo y el arte. Está dirigido a lectores interesados en estas formas de no ficción, más que a quienes buscan una novela fantástica o una narración de aventuras.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 276 páginas de Habla como un hombre: 28 (Vidas) en un volumen físico adecuado para conservar en una biblioteca o regalar. La edición Kindle permite leer el mismo título en un dispositivo electrónico, sin transportar el libro impreso.",
+      "texto": "Habla como un hombre: 28 (Vidas) puede leerse en tapa dura o en Kindle, con 276 páginas en su edición impresa. La tapa dura ofrece un ejemplar físico para conservar o regalar, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Habla como un hombre: 28 (Vidas) comparte el interés por las experiencias personales con Desde que era un crío, de Locus, aunque incorpora una dimensión ensayística y artística. También se relaciona con Notas desde una isla: 62 (Tour de force), de Tove Jansson, por su vinculación con las vivencias personales, mientras que la obra de Nacho Duato y Lupe Bohorques se sitúa entre las memorias, el ensayo y el arte.",
+      "texto": "Habla como un hombre: 28 (Vidas) puede compararse con Elisabeth Vigée-Le Brun. Pintora de reinas: 23 (Biblioteca de la Memoria) por su relación con las trayectorias personales y el arte. La segunda obra se identifica con una pintora concreta y está firmada por Carlota O'Neill, mientras que Habla como un hombre: 28 (Vidas) reúne las firmas de Nacho Duato y Lupe Bohorques. Rafael Moneo, construir las ideas: 530 (El Acantilado) ofrece otra conexión con la creación artística, esta vez desde la arquitectura.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,8 +31,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399173185",
-        "isbn-9791399084894"
+        "isbn-9791388381430",
+        "isbn-9791387964177"
       ]
     }
   ],

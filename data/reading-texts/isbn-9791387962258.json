@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi amor por Yamada está al Nv. 999 9 (Shôjo) encaja con lectores de manga que buscan romance, humor y relaciones de pareja en un contexto contemporáneo. Sus 176 páginas se centran en una propuesta gráfica y sentimental, alejada de quienes prefieren aventuras históricas o relatos sin componente romántico.",
+      "texto": "Mi amor por Yamada está al Nv. 999 9 (Shôjo) se dirige a lectores de manga romántico con ambientación contemporánea. Sus 176 páginas corresponden a una entrega identificada en el título con el número 9, por lo que puede interesar especialmente a quienes siguen esta colección. Encaja menos con lectores que buscan una historia ajena al romance o una novela escrita únicamente en prosa.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,29 +13,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mi amor por Yamada está al Nv. 999 9 (Shôjo) puede leerse en tapa blanda o Kindle. La edición física reúne 176 páginas en castellano y permite conservar el tomo en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el ejemplar.",
+      "texto": "Mi amor por Yamada está al Nv. 999 9 (Shôjo) está disponible en tapa blanda y Kindle. La edición física permite conservar sus 176 páginas junto a otros tomos de manga, mientras que Kindle facilita llevar la lectura en un dispositivo compatible. Distrito Manga publica esta entrega de Mashiro en castellano.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
+        "autores",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mi amor por Yamada está al Nv. 999 1 (Shôjo): Universo Manga comparte autora y serie con Mi amor por Yamada está al Nv. 999 9 (Shôjo), ambos de Mashiro. Sus títulos los identifican como los números 1 y 9, respectivamente; la diferencia para el lector es la entrega de la historia que tiene entre manos.",
+      "texto": "Honey lemon soda 4 (Shôjo), de Mayu Murata, comparte con el libro de Mashiro su orientación hacia el manga romántico. La diferencia está en la autoría y en la colección: Mi amor por Yamada está al Nv. 999 9 (Shôjo) pertenece a una serie distinta y su título identifica la entrega 9. Ambas opciones se sitúan en el romance, pero permiten seguir historias de autoras diferentes.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962951"
+        "isbn-9791387962487"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b12722c1b7489ea7",
+  "fuente_hash": "ce03276563eebc0c",
   "origen": "chatgpt-web"
 }

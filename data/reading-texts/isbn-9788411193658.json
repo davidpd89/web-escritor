@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788411193658",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La revolución de la abundancia: El manifiesto para reclamar tu parte del infinito (Autoconocimiento), de Ismael Cala, se orienta a lectores interesados en el desarrollo personal y el autoconocimiento. Su planteamiento como manifiesto lo distingue de los manuales técnicos de economía y de los libros centrados exclusivamente en procedimientos empresariales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La revolución de la abundancia: El manifiesto para reclamar tu parte del infinito (Autoconocimiento) cuenta con una edición en tapa blanda de 320 páginas. Publicada por Diana en castellano, ofrece un volumen físico para leer y retomar sus contenidos sobre autoconocimiento, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La revolución de la abundancia: El manifiesto para reclamar tu parte del infinito (Autoconocimiento) comparte el terreno del desarrollo personal con Conviértete en un descifrador de personas: Trucos y consejos para conocerlas e influir en ellas (Espasa Crecimiento personal), de Alexandre Monteiro. El primero plantea la abundancia desde el autoconocimiento; el segundo se centra en comprender e influir en otras personas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084283"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7419ac66d98c7aca",
+  "origen": "chatgpt-web"
+}

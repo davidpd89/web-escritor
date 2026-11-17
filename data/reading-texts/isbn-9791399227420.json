@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399227420",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La tiranía de la fe: 2 (Richard Swan) encaja con lectores de fantasía y aventuras interesados en obras de extensión amplia dentro del ámbito juvenil. Sus 544 páginas y su orientación fantástica la alejan de quienes prefieren narrativa realista o lecturas breves; el título la identifica como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tiranía de la fe: 2 (Richard Swan) se ofrece en tapa blanda y tiene 544 páginas. El formato permite leer en papel una obra extensa de fantasía y aventuras, aunque su volumen exige más espacio para transportarla que el de un libro breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ira del invierno: Reinos de las Estaciones I, de Nuria Mínguez García, comparte con La tiranía de la fe: 2 (Richard Swan) su orientación hacia la fantasía. Ambos títulos incorporan numeración, aunque el primero utiliza I y el segundo se identifica como el n.º 2; además, sus autores son distintos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409941179"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c9ebcef684689f8",
+  "origen": "chatgpt-web"
+}

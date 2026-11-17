@@ -4,41 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La novela de N V Peacock se dirige a lectores de thriller psicológico interesados en las consecuencias de huir del pasado. Su conflicto gira en torno al miedo y la amenaza, por lo que se aleja de las lecturas de misterio de tono ligero o humorístico.",
+      "texto": "Encaja con lectores de thriller psicológico interesados en los secretos del pasado y las consecuencias de intentar escapar de él. Su planteamiento de misterio y amenaza puede resultar poco adecuado para quienes prefieren historias sin tensión psicológica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La novela de N V Peacock se publica en tapa blanda, con 368 páginas en castellano y edición de Harper+. Este formato permite transportarla en una mochila o bolso y leerla en papel sin la rigidez de una cubierta dura.",
+      "texto": "La tapa blanda ofrece las 368 páginas de la novela en un volumen físico, mientras que Kindle permite llevar la lectura en un dispositivo electrónico compatible. La primera opción sirve para quien prefiere el papel; la segunda facilita leer sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "autores",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La novela de N V Peacock comparte con Aguas turbulentas, de Rankin Ian, el misterio relacionado con acontecimientos del pasado. La primera se centra en la huida y sus consecuencias psicológicas, mientras que Aguas turbulentas sitúa el encuentro entre pasado y presente en Edimburgo.",
+      "texto": "Aberración, de Santiago López de Hoyos, comparte con ¿Tú me crees? su ubicación en el terreno del misterio, aunque este último se presenta expresamente como thriller psicológico sobre la huida del pasado. Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir) ofrece otra referencia de narrativa de misterio, vinculada además a una serie televisiva.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370310318"
+        "isbn-9791399297508",
+        "isbn-9788410424524"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d1eabeecfdd711a8",
+  "fuente_hash": "15493757542e4882",
   "origen": "chatgpt-web"
 }

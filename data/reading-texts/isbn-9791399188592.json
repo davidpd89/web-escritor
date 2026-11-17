@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mecanópolis: Cuentos filosóficos para todas las edades se dirige a quienes buscan relatos con contenido filosófico y un planteamiento abierto a distintas edades. Su estructura de cuentos se distancia de las novelas de argumento continuo y de los libros centrados en actividades prácticas.",
+      "texto": "Mecanópolis: Cuentos filosóficos para todas las edades se dirige a lectores interesados en relatos con contenido filosófico, sin restringirse a una franja de edad concreta. Su planteamiento como colección de cuentos lo diferencia de una novela de argumento único o de un tratado filosófico.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mecanópolis: Cuentos filosóficos para todas las edades se publica en tapa blanda, con 250 páginas en castellano. El volumen reúne cuentos en papel, un formato que permite alternar las lecturas y regresar a cada relato sin utilizar dispositivos electrónicos.",
+      "texto": "Mecanópolis: Cuentos filosóficos para todas las edades cuenta con una edición en tapa blanda de 250 páginas, publicada por Gadir Editorial, S.l. El formato permite leer los cuentos en papel y volver a ellos de manera independiente, de acuerdo con su presentación como colección de relatos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
+        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mecanópolis: Cuentos filosóficos para todas las edades y Atrápame si puedes (Libro interactivo) comparten la autoría atribuida a Varios autores, pero presentan propuestas distintas. El primero se identifica como una colección de cuentos filosóficos; el segundo anuncia expresamente una experiencia interactiva.",
+      "texto": "Mecanópolis: Cuentos filosóficos para todas las edades puede compararse con Antología final: 282 (LITORAL) por reunir una autoría colectiva. Ambas obras están atribuidas a Varios autores, pero Mecanópolis se presenta expresamente como cuentos filosóficos para todas las edades, mientras que Antología final se identifica como una antología.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388220500"
+        "isbn-9788412931075"
       ]
     }
   ],

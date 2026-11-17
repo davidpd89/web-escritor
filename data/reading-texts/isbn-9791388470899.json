@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791388470899",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Voces de Camden, de Sara Tabares, está dirigido a lectores que buscan poesía contemporánea en castellano. Su clasificación como obra poética lo diferencia de las novelas y de los ensayos, tanto por el género literario como por las expectativas de lectura. La edición tiene 202 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Voces de Camden está disponible en tapa blanda, en una edición de 202 páginas publicada por Editorial Autografía. El papel permite consultar y releer pasajes de este libro de poesía sin depender de un dispositivo electrónico. Su extensión también permite distribuir la lectura entre distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Voces de Camden, de Sara Tabares, comparte su género literario con A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza. Son títulos vinculados a la poesía, aunque corresponden a autores distintos. La edición de Voces de Camden tiene 202 páginas en castellano, un dato concreto para distinguirla al comparar las obras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b47f212be263c11",
+  "origen": "chatgpt-web"
+}

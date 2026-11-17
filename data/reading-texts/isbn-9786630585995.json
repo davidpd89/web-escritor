@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786630585995",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nefrostomía convencional. Uropatía obstructiva de causa oncológica se dirige a lectores interesados en contenidos científicos sobre procedimientos urológicos y enfermedades de origen oncológico. Sus 52 páginas y su temática específica lo alejan de la divulgación científica generalista y de las lecturas de entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nefrostomía convencional. Uropatía obstructiva de causa oncológica está editado en tapa blanda y tiene 52 páginas. El volumen de Arian Pupo Peña, publicado por Editorial Academica Espanola en castellano, ofrece una extensión corta para la lectura y consulta física de su temática especializada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Nefrostomía convencional. Uropatía obstructiva de causa oncológica y Abonado y fertilización en agricultura ecológica-AGAU001PO comparten una orientación hacia materias técnicas concretas. El libro de Arian Pupo Peña trata una cuestión médica relacionada con la obstrucción urinaria de causa oncológica, mientras que el de Elsa Rubio Duce se ocupa de prácticas agrícolas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7af531f32df10ca4",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399291759",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "entre el amor y la pena se dirige a lectores de poesía interesados en el amor y la pena como temas literarios. La obra de Paula Ferga cuenta con 116 páginas en castellano y se diferencia de una novela por su clasificación como poesía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "entre el amor y la pena está disponible en tapa blanda, con una extensión de 116 páginas. La edición de Postdata Ediciones permite leer el volumen en papel y conservarlo como parte de una colección de poesía, sin necesidad de un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "entre el amor y la pena comparte género con A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza. La obra de Paula Ferga menciona expresamente el amor y la pena en su título, mientras que A solas alude a la soledad y Advenir a la idea de llegar o suceder. Son títulos de poesía con autores diferentes, por lo que la comparación se establece por el género y los temas sugeridos por sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3835f23662eb1302",
+  "origen": "chatgpt-web"
+}

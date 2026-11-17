@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788433951007",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sobre la igualdad de todas las cosas: Lecciones americanas (Argumentos), de Carlo Rovelli, se dirige a lectores interesados en el ensayo y la divulgación científica. Sus 208 páginas ofrecen una extensión más contenida que la de otros ensayos extensos; no corresponde a quienes buscan una novela o un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 208 páginas de Sobre la igualdad de todas las cosas: Lecciones americanas (Argumentos), de Carlo Rovelli, en un volumen físico para leer y consultar. Kindle permite llevar el mismo libro en un dispositivo electrónico y leerlo desde el móvil sin transportar el ejemplar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Arquitectura cognitivo-neuro sistémica de los falsos recuerdos (Plural -México-) comparte con Sobre la igualdad de todas las cosas: Lecciones americanas (Argumentos), de Carlo Rovelli, su orientación hacia el conocimiento científico y la reflexión. Se diferencian en el asunto que aborda cada título: el primero se centra en los falsos recuerdos y el segundo se presenta como un ensayo de divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370384968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8e0f535ff1b3550",
+  "origen": "chatgpt-web"
+}

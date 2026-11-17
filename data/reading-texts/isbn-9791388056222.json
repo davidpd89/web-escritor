@@ -4,28 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El mundo de Juan Lobón: 377 (Libros del Asteroide), de Luis Berenguer, se encuadra en la narrativa contemporánea y se dirige a lectores de ficción de este género. Sus 384 páginas suponen una extensión mayor que la de una novela breve; no corresponde a quien busque un manual o un ensayo.",
+      "texto": "El mundo de Juan Lobón: 377 (Libros del Asteroide), de Luis Berenguer, se dirige a lectores de narrativa contemporánea en castellano. Sus 384 páginas plantean una lectura de extensión media; por su clasificación editorial, no está orientado a quien busca específicamente cómic o ensayo.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El mundo de Juan Lobón: 377 (Libros del Asteroide) cuenta con una edición de 384 páginas en tapa blanda. Publicada por Libros del Asteroide en castellano, ofrece un volumen físico que puede llevarse durante los desplazamientos y conservarse para posteriores lecturas.",
+      "texto": "El mundo de Juan Lobón: 377 (Libros del Asteroide) puede leerse en tapa blanda o Kindle. La edición física de Libros del Asteroide reúne 384 páginas y permite conservar el volumen en papel; Kindle ofrece la alternativa digital para llevar la lectura en un dispositivo compatible sin transportar el libro.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "edicion",
         "editorial",
-        "idioma"
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e34c6b6a531210db",
+  "fuente_hash": "bc9bb3eac6ba9086",
   "origen": "chatgpt-web"
 }

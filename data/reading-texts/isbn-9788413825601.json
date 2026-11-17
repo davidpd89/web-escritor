@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788413825601",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ejercicio terapeutico en el tratamiento del dolor se orienta a quienes buscan una lectura científica centrada en el ejercicio terapéutico y el dolor. Sus 400 páginas responden a una consulta de cierta extensión, no a quien busque una novela o una lectura de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ejercicio terapeutico en el tratamiento del dolor cuenta con una edición en tapa blanda de 400 páginas, publicada por Elsevier. El formato impreso permite consultar apartados y regresar a ellos durante el estudio, con un volumen físico que puede utilizarse como material de referencia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ejercicio terapeutico en el tratamiento del dolor puede compararse con (ENAC0019) Herramientas de análisis coste/beneficio aplicadas a la eficiencia energética por su orientación hacia materias técnicas. El primero aborda el ejercicio terapéutico y el dolor, mientras que el segundo se centra en herramientas de análisis económico aplicadas a la energía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388334627"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4c80db0700a3576b",
+  "origen": "chatgpt-web"
+}

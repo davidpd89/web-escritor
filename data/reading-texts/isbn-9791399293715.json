@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399293715",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Guía andaluza para el manejo de la endometriosis se dirige a lectores interesados en el abordaje de esta enfermedad desde el ámbito de la ginecología y la divulgación científica. Por su enfoque sanitario y sus 106 páginas, se aparta de las lecturas narrativas y de los manuales generales de bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Guía andaluza para el manejo de la endometriosis está disponible en tapa blanda, con 106 páginas en castellano. Su extensión permite consultar el contenido en papel y localizar apartados durante sucesivas lecturas, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Guía andaluza para el manejo de la endometriosis y 50 cosas que hay que saber sobre IA comparten su orientación hacia cuestiones científicas, aunque tratan ámbitos distintos. La primera se centra en una enfermedad ginecológica y la segunda en inteligencia artificial. Frente a Abonado y fertilización en agricultura ecológica-AGAU001PO, también de carácter técnico, cambia el campo de aplicación: de la agricultura a la salud.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309",
+        "isbn-9791388586422"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5b0ff760a7f4ef0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788467982534",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Moriarty el patriota 19 encaja con lectores interesados en el misterio narrado mediante cómic y novela gráfica. Con 192 páginas, se orienta a quienes prefieren una narración visual; resulta menos afín a quienes buscan exclusivamente novelas de investigación en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Moriarty el patriota 19 es de tapa blanda y reúne 192 páginas en castellano. El volumen publicado por Norma Editorial permite leer y conservar la obra en papel, sin necesidad de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anna en la cueva: Anna Dédalus detective: 4, de Miguel Ángel Giner Bou, comparte con Moriarty el patriota 19 su relación con el misterio, aunque corresponde a otra obra y autoría. Detective Conan: The Complete Color Works (30.º Aniversario) (Manga Shonen), de Gosho Aoyama, también se vincula al ámbito detectivesco, pero su título identifica una recopilación de trabajos en color.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419605528",
+        "isbn-9791388103247"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f636136cf682460f",
+  "origen": "chatgpt-web"
+}

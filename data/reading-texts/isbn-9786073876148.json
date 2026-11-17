@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La teoría sintérgica (Edición Tapa Dura ) / The Synergistic Theory, de Jacobo Grinberg-Zylberbaum, se dirige a lectores interesados en psicología, divulgación científica y ensayo, con conexiones temáticas con el desarrollo personal y el bienestar. No encaja tanto con quien busque ficción o una obra extensa, ya que esta edición tiene 128 páginas.",
+      "texto": "La teoría sintérgica (Edición Tapa Dura ) / The Synergistic Theory se orienta a lectores interesados en el ensayo, la psicología y la divulgación científica. Sus 128 páginas ofrecen una extensión delimitada para abordar las ideas de Jacobo Grinberg-Zylberbaum, frente a quienes buscan ficción narrativa o un manual de actividades recreativas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,18 +14,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura ofrece las 128 páginas de La teoría sintérgica (Edición Tapa Dura ) / The Synergistic Theory, de Jacobo Grinberg-Zylberbaum, en un volumen físico de encuadernación rígida. Es la única edición incluida en este catálogo y permite conservar el libro en papel.",
+      "texto": "La edición de Penguin Random House Grupo Editorial está encuadernada en tapa dura y tiene 128 páginas en castellano. Su extensión permite manejar el volumen como una obra de consulta relativamente breve, mientras que la cubierta rígida aporta protección durante el almacenamiento. Es una presentación física apropiada para conservar junto a otros ensayos del autor.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "numero_paginas",
+        "editorial",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "idioma",
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El doble / The Double y La voz del ver / The Voice of Seeing, ambos de Jacobo Grinberg-Zylberbaum, son las comparaciones más directas por compartir autoría con La teoría sintérgica (Edición Tapa Dura ) / The Synergistic Theory. Los tres títulos permiten localizar otras obras del mismo autor, aunque sus denominaciones apuntan a enfoques distintos: la teoría, el doble y la percepción.",
+      "texto": "El doble / The Double y La voz del ver / The Voice of Seeing comparten con La teoría sintérgica (Edición Tapa Dura ) / The Synergistic Theory la autoría de Jacobo Grinberg-Zylberbaum. La diferencia identificable está en el asunto anunciado por cada título: la teoría sintérgica, el doble y la experiencia de ver, respectivamente. Son referencias relacionadas por autoría, sin que sus títulos impliquen una secuencia de lectura.",
       "evidencias": [
         "titulo",
         "autores",
@@ -39,6 +40,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "de3e9681b73890d8",
+  "fuente_hash": "be5c949be10095dd",
   "origen": "chatgpt-web"
 }

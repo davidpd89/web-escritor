@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores de ensayo interesados en el narcisismo y su relación con la política reaccionaria. Sé tú mismo y que arda el mundo: El narcisismo como combustible de la revolución reaccionaria (Ensayo), de Pedro Vallín, aborda esa cuestión desde un enfoque político y psicológico, distinto de los manuales de desarrollo personal centrados en hábitos individuales.",
+      "texto": "Sé tú mismo y que arda el mundo: El narcisismo como combustible de la revolución reaccionaria (Ensayo), de Pedro Vallín, aborda el narcisismo desde una perspectiva vinculada a la política y la psicología. Se orienta a lectores de ensayo interesados en las conductas individuales y su dimensión colectiva, más que a quienes buscan ejercicios prácticos de autoayuda.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,18 +13,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Sé tú mismo y que arda el mundo: El narcisismo como combustible de la revolución reaccionaria (Ensayo) está disponible en tapa blanda, con 128 páginas en castellano. Su extensión permite leer el ensayo por sesiones y volver a determinados pasajes en papel; Arpa publica esta edición física.",
+      "texto": "Sé tú mismo y que arda el mundo: El narcisismo como combustible de la revolución reaccionaria (Ensayo) se ofrece en tapa blanda y Kindle. La edición de Arpa consta de 128 páginas, una extensión que permite manejar el ensayo en papel; la versión Kindle facilita la lectura digital y el subrayado electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sé tú mismo y que arda el mundo: El narcisismo como combustible de la revolución reaccionaria (Ensayo) comparte el interés por la psicología con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, pero trata el narcisismo desde su dimensión política. También se relaciona con Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio., de Beatriz García Saez, aunque este último se centra en el trabajo personal y el cambio individual.",
+      "texto": "Sé tú mismo y que arda el mundo: El narcisismo como combustible de la revolución reaccionaria (Ensayo) y Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, tratan cuestiones relacionadas con la psicología. El ensayo de Pedro Vallín vincula el narcisismo con una corriente política, mientras que el título de Victoria Cadarso se centra en la infancia y la reparación personal.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410944206",
-        "isbn-9788409924059"
+        "isbn-9788410944206"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5f5068fb46de58ea",
+  "fuente_hash": "8ac1c62dc0481e4d",
   "origen": "chatgpt-web"
 }

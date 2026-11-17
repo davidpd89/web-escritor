@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9798887696980",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a niños que buscan actividades relacionadas con la relajación, la ansiedad y el descanso, mediante una historia protagonizada por un oso. Por su enfoque infantil y sus 32 páginas, no responde a quien busca un tratado extenso sobre espiritualidad o bienestar para adultos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El Oso Teo y un relajante viaje espacial: Técnicas divertidas para ayudar a los niños a reducir la ansiedad.: Técnicas Divertidas Para Ayudar a Los ... Relajarse Y Dormir Mejor (Storybook) está disponible en tapa blanda. Sus 32 páginas permiten manejarlo como un cuento físico breve y guardarlo junto a otras lecturas infantiles.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El oso Teo y un día de paz en la playa: Técnicas divertidas para ayudar a los niños.: Técnicas Divertidas Para Ayudar a Los Niños a Reducir La Ansiedad, Relajarse Y Dormir Mejor (Storybook) comparte autoría con este libro: ambos son de Daniela Vega. La diferencia está en el escenario anunciado por sus títulos: una playa frente al espacio, dos contextos para abordar el descanso infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798887697000"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cfb0e1bbf606c152",
+  "origen": "chatgpt-web"
+}

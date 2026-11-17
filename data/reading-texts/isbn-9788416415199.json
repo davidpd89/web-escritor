@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788416415199",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Control del aprovisionamiento de materias primas (MODULOS TRANSVERSALES - COCINA) se dirige a lectores interesados en la gestión de suministros dentro del ámbito culinario. Su materia es el aprovisionamiento, por lo que se aparta de los libros centrados en recetas, técnicas de cocción o preparación de bebidas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de Control del aprovisionamiento de materias primas (MODULOS TRANSVERSALES - COCINA) reúne 176 páginas en castellano. El volumen físico facilita su uso como material de estudio y consulta sobre el control de materias primas en cocina.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Control del aprovisionamiento de materias primas (MODULOS TRANSVERSALES - COCINA) y Arroz (Comerse el mundo), de Tove Nilsson, comparten su relación con la alimentación. El primero aborda el control de suministros en cocina, mientras que el segundo se centra en un alimento concreto. Quien busque gestión de materias primas encontrará un enfoque distinto al de una obra dedicada al arroz.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419483898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9209dc39e5e0935d",
+  "origen": "chatgpt-web"
+}

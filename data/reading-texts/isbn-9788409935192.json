@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409935192",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Despertar, de Raúl Pablos Pastor, se orienta a lectores de narrativa juvenil que buscan historias de misterio y thriller. Su clasificación combina intriga y literatura juvenil, por lo que se aleja de las lecturas centradas exclusivamente en narrativa adulta contemporánea o ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Despertar se presenta en tapa blanda, con una extensión de 349 páginas. Esta edición de Job Estudios permite leerlo en papel, marcar el avance con un punto de lectura y conservar el ejemplar en una biblioteca personal. Es la opción física recogida para esta obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Despertar puede compararse con El asesino del metro, de Andrew Reid, y El acantilado de cristal, de Alberto Muriel Pina, por su presencia entre las lecturas relacionadas con el misterio. La diferencia identificable está en la orientación juvenil de la obra de Raúl Pablos Pastor, mientras que los otros títulos aparecen como referencias de intriga sin esa clasificación juvenil explícita.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388290718",
+        "isbn-9791399227406"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f2a76074996f7b0",
+  "origen": "chatgpt-web"
+}

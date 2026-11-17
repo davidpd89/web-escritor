@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388391316",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La herencia del odio, de Sergio Moreno López, se orienta al público juvenil que busca historias de misterio y thriller. Sus 414 páginas plantean una lectura de cierta extensión dentro de la narrativa juvenil, menos ajustada a quienes prefieren relatos breves o libros de carácter divulgativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La herencia del odio se presenta en tapa blanda, con 414 páginas en castellano, bajo el sello Editorial Cuadranta. El formato permite leer una novela juvenil extensa en papel y conservar el ejemplar para futuras lecturas, aunque requiere más espacio que un libro de menor paginación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La herencia del odio puede compararse con El acantilado de cristal, de Alberto Muriel Pina, porque ambas obras se dirigen al público juvenil y se sitúan en el misterio y el thriller. La diferencia comprobable está en la extensión: Sergio Moreno López firma una obra de 414 páginas, mientras que la comparación con el otro título se establece por su orientación temática y su distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388290718"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab3fc3580b97f0e9",
+  "origen": "chatgpt-web"
+}

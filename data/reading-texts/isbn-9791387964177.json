@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387964177",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rafael Moneo, construir las ideas: 530 (El Acantilado) encaja con lectores de ensayo, biografía y estudios sobre arte y diseño. Sus 736 páginas apuntan a una lectura extensa, menos adecuada para quien busca una introducción breve o un manual práctico de dibujo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Rafael Moneo, construir las ideas: 530 (El Acantilado) reúne 736 páginas en castellano. Por su extensión, resulta más apropiada para leer y consultar sobre una mesa que para llevar habitualmente en desplazamientos cortos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rafael Moneo, construir las ideas: 530 (El Acantilado) puede compararse con Elisabeth Vigée-Le Brun. Pintora de reinas: 23 (Biblioteca de la Memoria), de Carlota O'Neill, por su relación con las trayectorias artísticas. El primero se centra, desde su título, en la construcción de ideas; el segundo presenta una figura vinculada a la pintura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388381430"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16498586803a770d",
+  "origen": "chatgpt-web"
+}

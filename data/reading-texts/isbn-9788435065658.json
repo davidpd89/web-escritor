@@ -4,26 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El sitio de Calais: 3 (Narrativas Históricas) encaja con lectores de novela histórica interesados en relatos vinculados a acontecimientos y lugares del pasado. Sus 456 páginas corresponden a una obra narrativa, por lo que responde menos a quien busque un ensayo documental o una explicación académica de la historia.",
+      "texto": "El sitio de Calais: 3 (Narrativas Históricas), de Bernard Cornwell, se orienta a quienes leen novela histórica y buscan una narración extensa, de 456 páginas. Por su género, queda fuera de las preferencias de quienes buscan principalmente romance contemporáneo o ciencia ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El sitio de Calais: 3 (Narrativas Históricas) está disponible en tapa blanda, con 456 páginas en castellano. Esta edición reúne la novela en un volumen físico que puede llevarse de viaje o leerse por capítulos; frente a una encuadernación rígida, la cubierta flexible facilita guardarlo en una mochila.",
+      "texto": "La tapa blanda es el formato disponible para El sitio de Calais: 3 (Narrativas Históricas). El volumen reúne 456 páginas en castellano, publicadas por Editora y Distribuidora Hispano Americana, S.a.; su cubierta flexible permite manejarlo durante la lectura y conservarlo en una biblioteca personal.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth comparte el marco de la narrativa histórica, aunque su título remite a Aléxandros y no al sitio de Calais. Ave César (Narrativas Históricas) pertenece igualmente al ámbito de la ficción histórica, pero señala un contexto romano frente al acontecimiento que identifica el título de Bernard Cornwell.",
+      "texto": "El sitio de Calais: 3 (Narrativas Históricas) puede compararse con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi, por su vinculación con la narrativa histórica. El primero identifica Calais en su título, mientras que el segundo remite a Amón; también cambia la autoría.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,8 +33,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786287897106",
-        "isbn-9788435064125"
+        "isbn-9786287897090"
       ]
     }
   ],

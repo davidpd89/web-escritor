@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788445022788",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Saga de Dhamon nº 03/03 Redención: 3 (D&D Dragonlance) se dirige a lectores de fantasía y aventuras interesados en la serie Dhamon y en el universo Dragonlance. El título lo identifica como el n.º 03/03, por lo que se diferencia de las novelas de fantasía presentadas como historias independientes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Saga de Dhamon nº 03/03 Redención: 3 (D&D Dragonlance) está disponible en tapa blanda, en una edición de Minotauro con 352 páginas. El formato físico permite conservar este volumen junto a los demás de la serie y leerlo sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria), de Sergio Sánchez Morán, y La Saga de Dhamon nº 03/03 Redención: 3 (D&D Dragonlance), de Jean Rabe, comparten referencias a mundos de fantasía y numeración en sus títulos. La obra de Sergio Sánchez Morán remite a la enseñanza mágica, mientras que la de Jean Rabe se identifica con Dragonlance y se presenta como fantasía de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399305517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cbd73bf59f5a2e54",
+  "origen": "chatgpt-web"
+}

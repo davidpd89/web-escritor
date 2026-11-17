@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387548223",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cántico del hermano Sol y otros escritos: 102 (Fragmentos), de Francisco de Asís, se dirige a lectores interesados en escritos de autor y textos relacionados con el ensayo y las memorias. Con 110 páginas, se ajusta a quien prefiere una lectura breve; encaja menos con quien busca una narración de ficción extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cántico del hermano Sol y otros escritos: 102 (Fragmentos) tiene una edición en tapa blanda de 110 páginas. Fragmenta Editorial, SL lo publica en castellano, en un volumen breve que facilita la lectura en papel y la consulta posterior de los escritos reunidos bajo ese título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cántico del hermano Sol y otros escritos: 102 (Fragmentos) y Exilio y palabra: 11 (Voces 5W) permiten acercarse a la palabra escrita desde asuntos diferentes. Francisco de Asís figura como autor de un cántico y otros escritos, mientras que Andrea Aldana y Khadija Amin presentan una obra centrada, según su título, en el exilio y la palabra. Secretos y mentiras: Crónica sentimental de la Transición (Espasa Periodismo) desplaza el interés hacia la crónica histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399087321",
+        "isbn-9788467084269"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c834e30111fc6132",
+  "origen": "chatgpt-web"
+}

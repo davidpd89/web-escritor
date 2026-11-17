@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788446059394",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Judaísmo vs. sionismo: Por qué Israel no es un Estado judío: 137 (Pensamiento crítico) se dirige a lectores interesados en la relación entre religión, historia y poder político. La tesis expresada en el título plantea una distinción entre judaísmo y sionismo; no corresponde a una introducción general a las prácticas religiosas ni a una obra narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Judaísmo vs. sionismo: Por qué Israel no es un Estado judío: 137 (Pensamiento crítico) se presenta en tapa blanda y consta de 144 páginas. Su extensión permite abordar el ensayo en sesiones relativamente breves y volver a pasajes concretos durante una consulta sobre historia, religión o política.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Una breve historia de Gaza (Ensayo) comparte autor, Ilan Pappé, y un ámbito de interés histórico con Judaísmo vs. sionismo: Por qué Israel no es un Estado judío: 137 (Pensamiento crítico). La primera obra delimita su asunto a Gaza, mientras que la segunda plantea una discusión sobre la relación entre judaísmo, sionismo y la definición política de Israel.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399230086"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0d8c113868414d6e",
+  "origen": "chatgpt-web"
+}

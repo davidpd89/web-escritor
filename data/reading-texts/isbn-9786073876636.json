@@ -4,27 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El dios hambriento / The Hungry God encaja con lectores interesados en novela histórica y narrativa contemporánea. Sus 576 páginas ofrecen una extensión considerable dentro de la ficción literaria; no está planteado como fantasía, romance ni libro de divulgación práctica.",
+      "texto": "El dios hambriento / The Hungry God está dirigido a lectores de novela histórica y narrativa contemporánea interesados en obras extensas de Enrique Serna. Sus 576 páginas en castellano requieren una lectura de mayor recorrido que una novela corta; no responde a quien busca fantasía o una obra de pocas páginas.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "numero_paginas",
-        "categorias"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El dios hambriento / The Hungry God está disponible en tapa blanda y tiene 576 páginas. El formato físico permite conservar una novela extensa en la biblioteca y retomar la lectura en papel, sin depender de un dispositivo electrónico.",
+      "texto": "El dios hambriento / The Hungry God puede leerse en tapa blanda o Kindle. La edición impresa reúne 576 páginas publicadas por Penguin Random House Grupo Editorial, mientras que Kindle permite llevar esa extensión en un dispositivo electrónico o consultarla desde el móvil sin cargar con el volumen físico.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El dios hambriento / The Hungry God puede compararse con Chamán (Trilogía de la familia Cole 2), de Noah Gordon, por su relación con la novela histórica. Conspiración en Londres, de Felipe Pigna, ofrece otra referencia de lectura vinculada a la historia, con una autoría y un título diferentes.",
+      "texto": "El dios hambriento / The Hungry God comparte el ámbito de la novela histórica con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon, de Valerio Massimo Manfredi. La diferencia está en la autoría y en que el título de Aléxandros II identifica la obra como una segunda entrega, mientras que la novela de Enrique Serna no presenta numeración. Ambas permiten explorar la narrativa histórica desde obras distintas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +34,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329688"
+        "isbn-9786287897090"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c3104e9d64287932",
+  "fuente_hash": "fff34d7eb8f0e91b",
   "origen": "chatgpt-web"
 }

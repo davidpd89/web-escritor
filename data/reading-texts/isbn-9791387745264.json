@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791387745264",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Breve historia de la literatura taiwanesa (Ediciones Especiales), de Luisa Shu-Ying Chang y Luisa Cheng-Fan Chen, se dirige a lectores interesados en la historia de la literatura y el ensayo. Sus 224 páginas en castellano permiten abordar ese ámbito desde una obra de extensión delimitada, mientras que su carácter ensayístico la aleja de quienes buscan una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Breve historia de la literatura taiwanesa (Ediciones Especiales) se publica en tapa blanda, con 224 páginas en castellano. La cubierta flexible facilita trasladar el ensayo entre lugares de lectura, mientras que la edición impresa permite consultar pasajes y hacer anotaciones durante el estudio de la historia literaria.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5805f5c227250823",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388283000",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vital alsar: Una vida de aventuras, de Andrea Ballesteros, se dirige a quienes buscan lecturas de aventuras en castellano y de extensión breve. Sus 44 páginas encajan con quien prefiere un libro corto, pero no con quien busca una narración extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vital alsar: Una vida de aventuras está disponible en tapa dura, con 44 páginas. Esta edición de Editorial Gusanillo permite tener un volumen físico de extensión breve, tanto para conservarlo como para regalarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vital alsar: Una vida de aventuras puede compararse con A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini), de Núria Parera Ciuró, por su relación con las aventuras. El primero se presenta como una obra de aventuras de Andrea Ballesteros; el segundo sitúa su propuesta en tierra de vikingos desde el propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412857597"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "16b857d4f9131f01",
+  "origen": "chatgpt-web"
+}

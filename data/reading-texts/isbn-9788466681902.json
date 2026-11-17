@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788466681902",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores de novela histórica y aventuras que buscan una obra extensa de Santiago Posteguillo. Sus 720 páginas y su identificación como parte de una trilogía lo alejan de las novelas breves o de quienes prefieren historias independientes sin continuidad de serie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Africanus (Trilogía Africanus 1) (edición conmemorativa 20.º aniversario) (Histórica) se presenta en tapa dura, con 720 páginas y el sello Ediciones B. Su título identifica esta publicación como una edición conmemorativa del 20.º aniversario y como la primera entrega de la trilogía.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa dura y contiene 720 páginas, una extensión considerable para una novela histórica de aventuras. La cubierta rígida favorece su conservación y la presentación como regalo, mientras que el volumen físico resulta menos manejable para leer durante desplazamientos frecuentes.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Africanus se relaciona directamente con Las legiones malditas (Trilogía Africanus 2) (edición conmemorativa 20.º aniversario) (Histórica) y La traición de Roma (Trilogía Africanus 3) (edición conmemorativa 20.º aniversario) (Histórica). Los tres títulos pertenecen a la misma trilogía de Santiago Posteguillo; el título identifica Africanus como el n.º 1, frente al n.º 2 y al n.º 3 de los otros volúmenes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466685009",
+        "isbn-9788466684996"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fa67a68198fab29",
+  "origen": "chatgpt-web"
+}

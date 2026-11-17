@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791370520212",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kakegurui Twin: Jugadores dementes Núm. 12, de Homura Kawamoto, se dirige a lectores juveniles de misterio y thriller en formato de cómic o novela gráfica. El título lo identifica como el n.º 12, una característica relevante para quienes prefieren comenzar por volúmenes con numeración inicial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kakegurui Twin: Jugadores dementes Núm. 12 está editado en tapa blanda, con 226 páginas en castellano. El volumen de Devir permite mantener una colección física ordenada por numeración y transportarlo sin recurrir a un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kakegurui Twin: Jugadores dementes Núm. 12 y Son of Violence: 1 pertenecen al ámbito del misterio y el thriller juvenil en formato de cómic o novela gráfica. La obra de Homura Kawamoto tiene 226 páginas y el título la identifica como el n.º 12, mientras que Son of Violence: 1, de Number 8, lleva el número 1 en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370520250"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7723065c87612240",
+  "origen": "chatgpt-web"
+}

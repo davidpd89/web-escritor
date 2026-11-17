@@ -4,38 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores de romance y novela histórica interesados en relatos vinculados al siglo XX y a temas de superación y duelo. Sus 288 páginas se alejan de los ensayos históricos y de las novelas que no incorporan relaciones sentimentales entre sus ejes temáticos.",
-      "evidencias": [
-        "categorias",
-        "numero_paginas",
-        "titulo"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La carta perdida (Clean Romance) puede leerse en tapa blanda o en Kindle, con una edición impresa de 288 páginas. El papel permite conservar el ejemplar en la biblioteca, mientras que Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen físico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Cómo arruinar a un vizconde (Academia Miriñaque 1) (CLEAN ROMANCE) comparte con La carta perdida (Clean Romance) la autoría de Mimi Matthews y la identificación editorial Clean Romance. La carta perdida se vincula además con la novela histórica, el siglo XX y el duelo, mientras que el título de la otra obra identifica su pertenencia a Academia Miriñaque y la señala como número 1.",
+      "texto": "La carta perdida (Clean Romance) se orienta a lectores interesados en el romance y la novela histórica. Sus 288 páginas ofrecen una lectura narrativa de Mimi Matthews, distinta de la que busca quien prefiere exclusivamente ensayo histórico o literatura sin componente romántico.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La carta perdida (Clean Romance) puede leerse en tapa blanda o Kindle. La edición impresa de Libros de Seda tiene 288 páginas y permite conservar el volumen en papel; Kindle facilita llevar la novela en un lector electrónico o en el móvil sin transportar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cita en Bath: Historias de Somerset 4 (Clean Romance) y La carta perdida (Clean Romance) comparten autora, Mimi Matthews, y la identificación Clean Romance en sus títulos. La diferencia es que Cita en Bath: Historias de Somerset 4 (Clean Romance) se presenta con una numeración de serie, mientras que La carta perdida (Clean Romance) no lleva esa indicación. El título identifica al primero con el n.º 4.",
+      "evidencias": [
+        "titulo",
+        "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410481329"
+        "isbn-9788410481503"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d4df6d0cfbbde6dd",
+  "fuente_hash": "dfff1e8bb6a3832d",
   "origen": "chatgpt-web"
 }

@@ -4,36 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "223 esquinas: 16 (La garza roja) está dirigido a lectores de poesía que prefieren este género frente a la narrativa convencional. Sus 124 páginas ofrecen una extensión contenida para la lectura en papel, pero no responden a quien busca una novela con una trama de aventuras.",
+      "texto": "223 esquinas: 16 (La garza roja), de Antonio Fernández Lera, se dirige a quienes buscan poesía en castellano en un volumen breve. Sus 124 páginas encajan con una lectura centrada en este género, no con quien prefiere una novela de desarrollo narrativo extenso.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
+        "idioma",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "223 esquinas: 16 (La garza roja) se publica en tapa blanda y contiene 124 páginas en castellano. El formato físico permite consultar los poemas, detenerse en pasajes concretos y regresar a ellos sin utilizar una pantalla.",
+      "texto": "La tapa blanda es el formato disponible de 223 esquinas: 16 (La garza roja). Sus 124 páginas permiten manejar el volumen en papel y volver a poemas concretos sin depender de un dispositivo electrónico; la edición está publicada por Aflera.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "223 esquinas: 16 (La garza roja) comparte el género poético con Antología, de Antonio Cano, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. La obra de Antonio Fernández Lera se presenta como un volumen de 124 páginas, mientras que Antología reúne la obra completa de su autor y el libro de Pedro Salinas identifica expresamente una selección amorosa.",
+      "texto": "A solas comparte con 223 esquinas: 16 (La garza roja) su pertenencia al ámbito poético, aunque son obras de María Jesús Martínez Ramos y Antonio Fernández Lera, respectivamente. También puede compararse con Advenir, de Jose Eceolaza, como alternativa de lectura dentro de la poesía de distintos autores.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288",
-        "isbn-9791370140908"
+        "isbn-9788410907539",
+        "isbn-9788410212749"
       ]
     }
   ],

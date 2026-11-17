@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408331001",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El gran libro de la dieta mediterránea: Hábitos, ciencia y salud para prevenir enfermedades (No Ficción) está dirigido a lectores interesados en nutrición, hábitos alimentarios y prevención de enfermedades. Sus 520 páginas plantean una lectura extensa sobre salud y alimentación, no una obra de ficción ni una consulta especialmente breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El gran libro de la dieta mediterránea: Hábitos, ciencia y salud para prevenir enfermedades (No Ficción) se presenta en tapa dura, con 520 páginas publicadas por Editorial Planeta. Es una edición física que permite tener el volumen en casa y volver a consultar sus contenidos sobre alimentación y salud.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Reset alimentario: Nutrición del futuro para el día a día (Alienta), de Pablo Ojeda, comparte el interés por la nutrición, pero pone el foco en la alimentación cotidiana. Cuidarse no debería ser tan difícil: Una visión más humana de la alimentación y la salud ante la cultura de la optimización constante (Salud natural), de Sarah Ann Macklin, aborda la relación entre alimentación y salud desde una perspectiva crítica con la optimización constante. La obra de Miguel Ángel Martínez-González y Miguel Ruiz-Canela se diferencia por centrarse en la dieta mediterránea y la prevención de enfermedades.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411193900",
+        "isbn-9788413445625"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f02f67ad6e066b99",
+  "origen": "chatgpt-web"
+}

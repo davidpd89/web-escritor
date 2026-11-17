@@ -4,25 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El último día del invierno (Matchstories), de Alejandra Abad, se dirige a lectores de romance interesados también en la superación y el duelo. Por su orientación temática, encaja menos con quienes buscan una historia centrada en la aventura o el misterio.",
+      "texto": "El último día del invierno está dirigido a lectores que buscan ficción romántica. Sus 432 páginas y su pertenencia al género romance sitúan la obra de Alejandra Abad dentro de la narrativa centrada en las relaciones sentimentales.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de El último día del invierno (Matchstories) reúne 432 páginas y permite leerlo en papel sin recurrir a una edición de cubierta rígida. Kindle ofrece la alternativa digital para llevar la lectura en el móvil o en un lector electrónico, sin transportar el volumen físico.",
+      "texto": "La tapa blanda ofrece las 432 páginas de El último día del invierno en papel, mientras que Kindle permite acceder a la novela desde un dispositivo electrónico. La elección depende de si se prefiere conservar una edición física o llevar la lectura en formato digital.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "formato_edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando fuimos todo comparte con El último día del invierno (Matchstories) el ámbito del romance, aunque su presentación se centra en las expectativas de Emma sobre Gael. Cómo me gustaría contarte plantea una trayectoria personal marcada por las expectativas ajenas, mientras que la obra de Alejandra Abad combina romance, superación y duelo.",
+      "texto": "24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, comparte el componente romántico, pero se presenta como una colección de relatos navideños. El último día del invierno, de Alejandra Abad, ofrece una novela de romance, frente al formato de historias breves del libro de Patricia Bonet.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387598440",
-        "isbn-9788403526723"
+        "isbn-9788409929177"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8a97f5cb054e7d85",
+  "fuente_hash": "7fe8d8df5d6bec45",
   "origen": "chatgpt-web"
 }

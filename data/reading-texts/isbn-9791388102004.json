@@ -4,33 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Book of Clash nº 07/08: 7 (Cómic infantil juvenil) se dirige al público infantil y juvenil interesado en aventuras narradas mediante cómic. Sus 144 páginas ofrecen una lectura gráfica de extensión moderada, menos adecuada para quien busca una novela exclusivamente en prosa.",
+      "texto": "Book of Clash nº 07/08: 7 (Cómic infantil juvenil) se dirige a lectores infantiles y juveniles interesados en las aventuras contadas mediante viñetas. Sus 144 páginas corresponden a un cómic de Gene Luen Yang, Alison Acton y Les McClaine. No responde al formato de una novela tradicional en prosa y el título lo identifica como el n.º 7.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Book of Clash nº 07/08: 7 (Cómic infantil juvenil) se publica en tapa blanda, con 144 páginas que pueden consultarse y releerse en papel. Este formato permite recorrer las viñetas y volver a páginas anteriores sin depender de una pantalla.",
+      "texto": "Book of Clash nº 07/08: 7 (Cómic infantil juvenil) se publica en tapa blanda, con 144 páginas en castellano. Este formato permite llevar el cómic en una mochila y leerlo en papel, manteniendo juntas sus páginas ilustradas. También facilita colocarlo junto a otros volúmenes de la colección.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Book of Clash nº 07/08: 7 (Cómic infantil juvenil) puede compararse con MOBS: La vida secreta de los monstruos de Minecraft. Cómic 1 por su orientación hacia el cómic juvenil. La diferencia está en que el segundo título presenta criaturas de Minecraft, mientras que Book of Clash se identifica como una entrega de aventuras de su propia serie.",
+      "texto": "Book of Clash nº 07/08: 7 (Cómic infantil juvenil) puede compararse con Teenage Mutant Ninja Turtles vol. 3, que también cuenta con Gene Luen Yang entre sus autores. Ambos se relacionan por su autoría y por sus personajes vinculados a franquicias diferentes. El primero figura como cómic infantil juvenil de aventuras, mientras que el segundo identifica en su título a Teenage Mutant Ninja Turtles.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329978"
+        "isbn-9791388484049"
       ]
     }
   ],

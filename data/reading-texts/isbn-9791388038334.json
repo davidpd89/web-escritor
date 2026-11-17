@@ -4,10 +4,9 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Cómo aprenden los bebés? está dirigido a adultos interesados en la crianza y el desarrollo infantil, especialmente en los procesos de aprendizaje durante los primeros años. Héctor Ruiz Martín aborda cuestiones relacionadas con la psicología y la neurociencia, por lo que su enfoque se aleja de los cuentos infantiles y de los manuales centrados exclusivamente en actividades prácticas.",
+      "texto": "¿Cómo aprenden los bebés? está dirigido a adultos interesados en la crianza y en cómo se desarrolla el aprendizaje durante la primera infancia. Aborda el lenguaje, las emociones y el pensamiento desde la psicología y la neurociencia; no es un libro de actividades para que lo lean los propios bebés.",
       "evidencias": [
         "titulo",
-        "autores",
         "edad_recomendada",
         "categorias",
         "sinopsis_editorial"
@@ -15,27 +14,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Cómo aprenden los bebés? está disponible en tapa blanda y Kindle. La edición impresa tiene 288 páginas y solapas, apropiadas para una consulta física en casa; la versión Kindle permite acceder al contenido desde el móvil o un lector electrónico, algo útil para revisar cuestiones sobre el desarrollo infantil durante los desplazamientos.",
+      "texto": "¿Cómo aprenden los bebés? puede leerse en tapa blanda o Kindle. La edición física tiene 288 páginas y solapas, útil para consultar apartados en papel; Kindle permite llevar el contenido en un lector electrónico o dispositivo compatible sin transportar el volumen.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "categorias"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Cómo aprenden los bebés? comparte con El niño feliz (fuera de colección) el interés por la infancia y su desarrollo. Héctor Ruiz Martín se centra en cómo se forman las capacidades de aprendizaje desde las primeras etapas, mientras que el título de Dorothy Corkille Briggs pone el foco en el bienestar infantil.",
+      "texto": "¿Cómo aprenden los bebés? y Los dones de los niños altamente sensibles, de Úrsula Perona, comparten el interés por comprender la infancia. Héctor Ruiz Martín examina cómo se adquieren capacidades desde las primeras etapas de vida, mientras que el libro de Úrsula Perona se centra específicamente en los niños altamente sensibles.",
       "evidencias": [
         "titulo",
         "autores",
         "sinopsis_editorial",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788425452901"
+        "isbn-9788408325260"
       ]
     }
   ],

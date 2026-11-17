@@ -4,42 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro de Michael Pollan se dirige a lectores interesados en comprender la conciencia desde la filosofía, la psicología y la divulgación científica. Su enfoque temático se distancia de los manuales centrados en técnicas de productividad, organización personal o aprendizaje.",
+      "texto": "El libro de Michael Pollan está dirigido a lectores interesados en comprender la conciencia desde la filosofía, la psicología y la divulgación científica. Sus 352 páginas abordan una temática vinculada al conocimiento y al pensamiento, por lo que se aleja de quienes buscan ficción narrativa o aventuras.",
       "evidencias": [
         "autores",
         "categorias",
+        "numero_paginas",
         "titulo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Debate está disponible en tapa blanda, con 352 páginas en castellano. Este formato permite leer el estudio sobre la conciencia en papel, señalar pasajes y volver a las cuestiones filosóficas y psicológicas durante distintas sesiones de lectura.",
+      "texto": "La edición de Debate se presenta en tapa blanda, con 352 páginas en castellano. La cubierta flexible facilita transportar y manejar este volumen sobre la conciencia durante la lectura, sin la rigidez de una encuadernación de tapa dura.",
       "evidencias": [
         "editorial",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "titulo",
-        "categorias"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El perfecto cerebro imperfecto / The Perfect Imperfect Brain, de Eduardo Calixto, comparte el interés por la mente, aunque sitúa el cerebro en el centro de su planteamiento. El efecto ritual: El poder transformador de nuestros hábitos cotidianos (Divulgación), de Michael Norton, aborda los hábitos y sus efectos, mientras Michael Pollan centra su libro en la conciencia desde una perspectiva filosófica, psicológica y científica.",
+      "texto": "La obra de Michael Pollan comparte el interés por la conciencia y la experiencia humana con De cuerpo presente: Las ciencias cognitivas y la experiencia humana (Caja Verde). Michael Pollan sitúa la conciencia como asunto principal, mientras que Francisco Varela, Evan Thompson y Eleanor Rosch identifican las ciencias cognitivas como el campo de su libro.",
       "evidencias": [
-        "afines_catalogo",
+        "titulo",
         "autores",
         "categorias",
-        "titulo"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449346163",
-        "isbn-9786073880107"
+        "isbn-9788425454851"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f8cbca09c47cde79",
+  "fuente_hash": "e80ba9bbc4f5003e",
   "origen": "chatgpt-web"
 }

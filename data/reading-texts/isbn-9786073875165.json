@@ -4,39 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los recuerdos del porvenir (Edición ilustrada) / Memories of the Future (Illustrated Edition) se dirige a lectores interesados en los clásicos, la narrativa contemporánea y la memoria como tema literario. Su presentación ilustrada en tapa dura se aleja de quien busque una edición de bolsillo ligera o una lectura de no ficción.",
+      "texto": "Los recuerdos del porvenir (Edición ilustrada) / Memories of the Future (Illustrated Edition) se dirige a lectores de clásicos y narrativa contemporánea interesados en una obra de Elena Garro presentada con ilustraciones. No responde a la búsqueda de un ensayo ni de una lectura centrada en contenidos prácticos.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "edicion",
-        "formato_edicion"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La característica distintiva es su presentación como edición ilustrada de Los recuerdos del porvenir (Edición ilustrada) / Memories of the Future (Illustrated Edition). Penguin Random House Grupo Editorial la publicó en tapa dura y castellano el 20 de octubre de 2026; el ISBN 9786073875165 identifica esta versión concreta.",
+      "texto": "Esta edición de Los recuerdos del porvenir (Edición ilustrada) / Memories of the Future (Illustrated Edition) se distingue por su presentación ilustrada y su encuadernación en tapa dura. Publicada por Penguin Random House Grupo Editorial el 2026-10-20, reúne 312 páginas en castellano.",
       "evidencias": [
         "titulo",
-        "editorial",
         "edicion",
-        "idioma",
+        "editorial",
         "fecha_publicacion",
-        "isbn13"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es el formato disponible para esta edición ilustrada de 312 páginas. Su encuadernación rígida resulta apropiada para conservarla en una biblioteca o regalarla, mientras que las ilustraciones forman parte de la presentación anunciada en el propio título.",
+      "texto": "La tapa dura ofrece una edición ilustrada de 312 páginas, indicada para quien desea conservar el volumen físico y consultar sus ilustraciones. Kindle facilita llevar la lectura en un dispositivo digital, mientras que el audiolibro permite escuchar la obra durante desplazamientos u otras actividades.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La semana de colores y Andamos huyendo Lola comparte autoría con Los recuerdos del porvenir (Edición ilustrada) / Memories of the Future (Illustrated Edition): ambas obras son de Elena Garro. La primera reúne dos obras vinculadas a la imaginación literaria de la autora; la segunda se presenta como una novela asociada a los clásicos, la narrativa contemporánea y la memoria, en edición ilustrada.",
+      "texto": "La semana de colores y Andamos huyendo Lola comparte con Los recuerdos del porvenir (Edición ilustrada) / Memories of the Future (Illustrated Edition) la autoría de Elena Garro y su presencia en el ámbito narrativo. La primera reúne dos obras de imaginación literaria, mientras que la segunda se presenta como una edición ilustrada de un título individual, dentro de los clásicos y la narrativa contemporánea.",
       "evidencias": [
         "titulo",
         "autores",
@@ -50,6 +48,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e6d609f875aa3fcf",
+  "fuente_hash": "46140242a73f93e1",
   "origen": "chatgpt-web"
 }

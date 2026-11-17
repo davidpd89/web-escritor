@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tras el grito: En busca de la verdad sobre la adicción (PENINSULA) se dirige a lectores interesados en comprender la adicción desde una perspectiva de no ficción. Su relación con la divulgación científica y los asuntos sociales lo diferencia de una novela sobre personajes ficticios o de un manual dedicado exclusivamente a técnicas de productividad.",
+      "texto": "Tras el grito: En busca de la verdad sobre la adicción (PENINSULA), de Johann Hari, se dirige a quienes buscan una lectura de no ficción centrada en la adicción. Su clasificación abarca divulgación científica, biografías y memorias, y economía y empresa, por lo que se aparta de la novela de entretenimiento.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tras el grito: En busca de la verdad sobre la adicción (PENINSULA) cuenta con una edición en tapa blanda de 448 páginas. El formato físico de Ediciones Península permite marcar pasajes y volver a ellos sin depender de un dispositivo electrónico; su extensión requiere reservar espacio para un volumen de papel.",
+      "texto": "La edición de Ediciones Península se presenta en tapa blanda, con 448 páginas en castellano. Es una opción física para leer de manera continuada o volver a consultar pasajes sobre el tema de la adicción.",
       "evidencias": [
-        "titulo",
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tras el grito: En busca de la verdad sobre la adicción (PENINSULA), de Johann Hari, puede compararse con El enemigo conoce el sistema: Manipulación de ideas, personas e influencias después de la economía de la atenc (Sociedad), de Marta Peirano. Los dos permiten abordar cuestiones que afectan al comportamiento humano, aunque el primero trata la adicción y el segundo se ocupa de la manipulación de ideas e influencias.",
+      "texto": "La máquina infinita: Demis Hassabis, DeepMind y la búsqueda de la superinteligencia (Ciencia y Tecnología), de Sebastian Mallaby, y Tras el grito: En busca de la verdad sobre la adicción (PENINSULA), de Johann Hari, se sitúan en el ámbito de la no ficción con asuntos vinculados a la ciencia. El primero aborda la superinteligencia, mientras que el segundo centra su tema en la adicción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,7 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387951"
+        "isbn-9791387904234"
       ]
     }
   ],

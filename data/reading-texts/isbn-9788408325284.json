@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los capullos regalan flores está orientado a lectores de cómic que buscan humor y una mirada crítica sobre el paso del tiempo y la percepción de uno mismo. Moderna de Pueblo plantea una revisión personal desde la distancia de diez años, en lugar de una historia de aventuras o fantasía.",
+      "texto": "Los capullos regalan flores encaja con lectores de cómic y novela gráfica interesados en el humor sobre la propia identidad y el paso del tiempo. Moderna de Pueblo aborda la distancia entre la imagen personal y la perspectiva adquirida diez años después. No responde a quien busque una novela de narrativa exclusivamente textual.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,29 +14,29 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Los capullos regalan flores es un cómic de Moderna de Pueblo construido alrededor de una mirada retrospectiva. La autora examina cómo se percibe a sí misma diez años después y utiliza el humor para introducir una perspectiva crítica. Su punto de partida es la evolución de la propia identidad con el paso del tiempo.",
+      "texto": "Los capullos regalan flores propone una lectura gráfica de humor con una perspectiva crítica sobre la identidad personal. Moderna de Pueblo toma como punto de partida la revisión de su propia imagen tras diez años. Sus 272 páginas sitúan esa reflexión dentro del formato del cómic, con una extensión delimitada.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los capullos regalan flores está disponible en tapa dura. La edición de Zenith reúne 272 páginas en encuadernación cartoné sin sobrecubierta, una presentación rígida para leer y conservar el cómic en papel. También puede entregarse como regalo en ese mismo formato físico.",
+      "texto": "Los capullos regalan flores está disponible en tapa dura y tapa blanda, ambas opciones para leer su contenido en papel. La edición de Zenith en tapa dura tiene 272 páginas y encuadernación en cartoné, apropiada para conservarla en una estantería o regalarla. La tapa blanda ofrece una alternativa de encuadernación más flexible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
         "editorial",
-        "categorias"
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8e158f17852519a6",
+  "fuente_hash": "1ab3ee13f007097a",
   "origen": "chatgpt-web"
 }

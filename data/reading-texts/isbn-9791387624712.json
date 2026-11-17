@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791387624712",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en las campañas electorales, el poder político y su relación con la historia. Por su orientación hacia la política y el derecho, se aleja de las lecturas centradas en la ficción o en cuestiones ajenas a la vida pública.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje es la conquista del apoyo electoral desde la perspectiva de quien aspira a ganar unas elecciones. Su planteamiento de manual del candidato conecta las estrategias políticas con una obra de interés histórico, situada también en el ámbito del pensamiento y el derecho.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda y reúne 208 páginas en castellano. Es un volumen manejable para consultar distintos pasajes sobre la actividad electoral, tomar notas durante la lectura y conservarlo como referencia sobre pensamiento político.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con El momento es ahora: Un manifiesto contra la resignación (Espasa Ensayo) el interés por la intervención en la vida pública. La diferencia está en el enfoque: Quinto Tulio Cicerón se centra en la candidatura electoral, mientras que el otro título plantea un manifiesto frente a la resignación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467085174"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ebefc09153aa007",
+  "origen": "chatgpt-web"
+}

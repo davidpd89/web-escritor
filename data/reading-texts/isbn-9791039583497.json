@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791039583497",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Juego de busca y encuentra. Los colores - pequeñas manitas está dirigido a quienes buscan una actividad de observación relacionada con los colores. Su planteamiento de búsqueda visual se diferencia de los libros de lectura narrativa y de los manuales extensos de actividades para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Juego de busca y encuentra. Los colores - pequeñas manitas está disponible en tapa blanda y figura con una extensión de 1 página. Su presentación física permite utilizarlo directamente como actividad de búsqueda y observación, sin recurrir a una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Juego de busca y encuentra. Los colores - pequeñas manitas y 99 Sudoku (LIBROS SINGULARES) comparten su orientación hacia las actividades de ocio. La propuesta de Kathrin FEHRL gira alrededor de localizar elementos relacionados con los colores, mientras que el libro de Anónimo se centra en pasatiempos de sudoku.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1e12158708945e87",
+  "origen": "chatgpt-web"
+}

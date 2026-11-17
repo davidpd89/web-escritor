@@ -4,40 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las pequeñas vampiras, de Maria Guasch, se orienta a lectores de misterio y narrativa contemporánea. Encaja menos con quienes buscan aventuras históricas o libros de divulgación, ya que su clasificación editorial sitúa la obra en la ficción contemporánea con elementos de misterio.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Las pequeñas vampiras se edita en tapa dura y reúne 256 páginas en castellano. La publicación de Lava ofrece una encuadernación rígida para lectura en papel, conservación en estantería o regalo, con una extensión intermedia.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Las pequeñas vampiras puede compararse con Corazón de sílex, de Emilia Landaluce y Rosa Belmonte, por su relación con el misterio. Mientras Corazón de sílex parte de una joven que no recuerda la noche anterior, Las pequeñas vampiras se sitúa en la narrativa contemporánea y el misterio, bajo la autoría de Maria Guasch.",
+      "texto": "Las pequeñas vampiras encaja con lectores de misterio y narrativa contemporánea que buscan una novela de extensión intermedia. Maria Guasch firma una obra de 256 páginas, menos orientada a quienes prefieren aventuras infantiles o relatos de carácter exclusivamente histórico.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Las pequeñas vampiras reúne 256 páginas publicadas por Lava y permite conservar el libro en formato físico. La versión Kindle evita transportar el ejemplar impreso y facilita la lectura digital en el móvil o en un lector compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "editorial",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las pequeñas vampiras se relaciona con Aguas turbulentas por su pertenencia al ámbito del misterio, aunque esta última sitúa su conflicto entre el pasado y el presente de Edimburgo. También puede compararse con Corazón de sílex, que parte de una joven sin recuerdos de la noche anterior; Maria Guasch firma una obra de misterio y narrativa contemporánea de 256 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791370310318",
         "isbn-9788467083330"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2fdccf2afa3fc6ce",
+  "fuente_hash": "ccfcb7cb7c502e37",
   "origen": "chatgpt-web"
 }

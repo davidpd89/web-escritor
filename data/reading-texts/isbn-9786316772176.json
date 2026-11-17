@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9786316772176",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en la espiritualidad, la pobreza y el desapego como asuntos de reflexión religiosa. Su orientación temática se aparta de la narrativa de ficción y de los libros centrados en cuestiones materiales o económicas de la pobreza.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La pobreza y el desapego (traducción): Libro 34 del Ihya `ulum ad-din es una edición en castellano de Editorial Yerrahi, publicada el 10 de octubre de 2026. Tiene 224 páginas en tapa blanda y el título la identifica como el libro n.º 34 del Ihya `ulum ad-din.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "numero_paginas",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La pobreza y el desapego (traducción): Libro 34 del Ihya `ulum ad-din está disponible en tapa blanda, con 224 páginas. Es una edición física que permite marcar pasajes y volver a las reflexiones sobre pobreza y desapego durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, comparte el interés por la reflexión espiritual, pero su título se orienta hacia los fundamentos y la práctica del Dharma. La pobreza y el desapego (traducción): Libro 34 del Ihya `ulum ad-din, de Abu Hamid Muhammad Al-Gazzali, concentra su temática en la pobreza y el desapego dentro de una obra identificada por su numeración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3c5c0cdb719391dc",
+  "origen": "chatgpt-web"
+}

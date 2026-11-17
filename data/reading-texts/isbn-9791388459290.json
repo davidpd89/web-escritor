@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388459290",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Yuru days 03. el dia a dia de unos chicos con poderes sobrenaturales encaja con lectores interesados en personajes con capacidades sobrenaturales y situaciones cotidianas tratadas en formato de cómic. El título lo identifica como el n.º 03, por lo que resulta menos adecuado para quien busque una historia presentada como entrega inicial o una novela convencional en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Yuru days 03. el dia a dia de unos chicos con poderes sobrenaturales está editado en tapa blanda (Bunko), con 144 páginas en castellano. La encuadernación flexible y la extensión relativamente breve favorecen su transporte y almacenamiento; esta edición de Arechi está destinada a la lectura física, con páginas que pueden consultarse sin dispositivos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "443d929e6c68fe11",
+  "origen": "chatgpt-web"
+}

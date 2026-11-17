@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791388441318",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pack - johnny hazard, de Frank Robbins, se dirige a lectores de cómic y novela gráfica que prefieren ediciones extensas en papel. Sus 400 páginas lo diferencian de las publicaciones breves y no responde a quien busca una novela contemporánea presentada únicamente como texto narrativo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pack - johnny hazard se publica en tapa dura, con 400 páginas en castellano. Esta edición de Plan B Publicaciones, S.l. ofrece una encuadernación rígida para consultar y conservar un volumen extenso de cómic, aunque requiere más espacio que una edición breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3349a68d28de55b",
+  "origen": "chatgpt-web"
+}

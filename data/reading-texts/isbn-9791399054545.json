@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399054545",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Cómo estoy?: Un fotolibro de emociones: 2 (La Liebre de Marzo), de George Ancona, se dirige al público infantil interesado en identificar y explorar emociones mediante fotografías. Su enfoque visual y emocional lo separa de las narraciones infantiles centradas en aventuras o mundos imaginarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de ¿Cómo estoy?: Un fotolibro de emociones: 2 (La Liebre de Marzo) es de tapa dura y contiene 40 páginas en castellano. Este soporte permite consultar repetidamente sus fotografías y compartir la lectura en papel, especialmente cuando se utiliza para conversar sobre emociones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Cómo estoy?: Un fotolibro de emociones: 2 (La Liebre de Marzo) puede compararse con 30 misiones para ver el mundo con otros ojos: Retos de fotografía con móvil para descubrir, crear y contar historias por su relación con la fotografía. George Ancona aborda las emociones mediante un fotolibro infantil; Gustavo Duarte propone retos para crear imágenes y contar historias con el móvil. La diferencia principal está entre observar fotografías y producirlas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409910434"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7ff4df57d72a8697",
+  "origen": "chatgpt-web"
+}

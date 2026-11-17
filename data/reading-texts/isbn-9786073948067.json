@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dirigido a lectores de novela negra y misterio que buscan una obra de Carmen Mola con elementos de narrativa contemporánea y familia. Por su orientación hacia el thriller, se aleja de las lecturas centradas exclusivamente en las relaciones familiares cotidianas.",
+      "texto": "Los Huérfanos (Novela Negra) / The Orphans (Noir), de Carmen Mola, se dirige a lectores de misterio y thriller interesados también en los conflictos familiares. Por su orientación hacia la novela negra y la narrativa contemporánea, encaja menos con quienes buscan manuales de crianza o lecturas centradas exclusivamente en las relaciones familiares.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,17 +13,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Los Huérfanos (Novela Negra) / The Orphans (Noir) se presenta en tapa blanda y reúne 448 páginas en castellano. Este formato permite transportar la novela y continuar la lectura en distintos lugares sin depender de un dispositivo electrónico.",
+      "texto": "La tapa blanda reúne las 448 páginas de Los Huérfanos (Novela Negra) / The Orphans (Noir) en un volumen físico que puede prestarse o colocarse en la estantería. Kindle permite llevar la lectura en el móvil o en un lector electrónico, mientras que el audiolibro ofrece la opción de escucharla durante desplazamientos o tareas cotidianas.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ovejas descarriadas (Salamandra Narrativa), de Madeline Cash, ofrece otra referencia dentro de la narrativa contemporánea, aunque con distinta autoría. Cuando el viento hable: Edición limitada a precio especial (Colección Especial), de Ángela Banzas, permite comparar otra propuesta narrativa; Los Huérfanos (Novela Negra) / The Orphans (Noir) se distingue por su identificación expresa con la novela negra y el misterio.",
+      "texto": "Los Huérfanos (Novela Negra) / The Orphans (Noir) puede compararse con Cuando el viento hable: Edición limitada a precio especial (Colección Especial) por su presencia entre las lecturas de narrativa contemporánea del catálogo. La diferencia comprobable está en la autoría, Carmen Mola frente a Ángela Banzas, y en que el primero se presenta expresamente como novela negra.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387928216",
         "isbn-9788408328414"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "691756ecb0d406e2",
+  "fuente_hash": "dccc43ce027a6f90",
   "origen": "chatgpt-web"
 }

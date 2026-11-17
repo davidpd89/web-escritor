@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Un caballero en Moscú (Salamandra Narrativa), de Amor Towles, se dirige a lectores de novela histórica y narrativa contemporánea interesados en el poder y la política. Sus 512 páginas plantean una lectura extensa, alejada de las novelas breves y de los libros centrados exclusivamente en la acción fantástica.",
+      "texto": "Un caballero en Moscú (Salamandra Narrativa), de Amor Towles, se dirige a lectores interesados en la novela histórica y en las historias relacionadas con el poder y la política. Su planteamiento editorial también lo sitúa en la narrativa contemporánea, por lo que no responde a quien busca principalmente fantasía o romance.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa dura de Un caballero en Moscú (Salamandra Narrativa) contiene 512 páginas y permite conservar el volumen para futuras lecturas. Kindle ofrece una alternativa digital para llevar esa misma obra en un lector electrónico o dispositivo compatible.",
+      "texto": "La tapa dura reúne sus 512 páginas en un ejemplar físico, una opción para quien prefiere conservar una novela extensa en papel. Kindle ofrece la alternativa digital para leer Un caballero en Moscú sin transportar el volumen físico. Los dos formatos están disponibles.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "edicion"
+        "formatos_disponibles",
+        "formato_edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un caballero en Moscú (Salamandra Narrativa) puede compararse con Conspiración en Londres por su vinculación con la narrativa de ambientación histórica y política. La obra de Amor Towles reúne novela histórica, narrativa contemporánea y poder político; la de Felipe Pigna se presenta mediante una conspiración situada en Londres. La autoría y el enfoque anunciado son diferentes.",
+      "texto": "Un caballero en Moscú puede ponerse en relación con Los desafíos de la sociedad abierta: La libertad y sus enemigos (Obra periodística Vargas Llosa IV), de Mario Vargas Llosa, por su conexión con las cuestiones del poder y la política. La diferencia está en el planteamiento: Amor Towles firma una novela, mientras que el título de Vargas Llosa se presenta como obra periodística centrada en la libertad.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +31,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329688"
+        "isbn-9788420460444"
       ]
     }
   ],

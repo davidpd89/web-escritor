@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788408327073",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Corbin Crow 1. El misterio de Crowhills se dirige al público infantil y juvenil que busca aventuras con elementos de misterio. El título lo identifica como el n.º 1 y su propuesta se aleja de los relatos realistas sin enigmas y de las lecturas centradas en contenidos divulgativos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Corbin Crow 1. El misterio de Crowhills está disponible en tapa dura y Kindle, con 224 páginas en castellano. La tapa dura permite conservar el volumen en una colección física o regalarlo, mientras que Kindle facilita leerlo desde un dispositivo compatible sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abre el misterio 1 - El robo de las croquetas comparte con Corbin Crow 1. El misterio de Crowhills el misterio como elemento central, aunque el primero plantea la desaparición de unas croquetas y el segundo sitúa el enigma en Crowhills. Agente Stitch 5. Los roedores de Roswell también combina misterio y aventura, pero incorpora personajes y conflictos intergalácticos frente al escenario de Crowhills.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9791387901943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a611b51b6938812c",
+  "origen": "chatgpt-web"
+}

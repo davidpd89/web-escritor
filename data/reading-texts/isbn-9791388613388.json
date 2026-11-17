@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388613388",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este ensayo de María del Carmen Bengoechea Bernal se dirige a quienes buscan reflexionar sobre su propio sistema filosófico. Su enfoque en la filosofía lo diferencia de las novelas de aventuras y de las narraciones centradas en personajes y conflictos de ficción.",
+      "evidencias": [
+        "autores",
+        "categorias",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa dura y contiene 150 páginas en castellano. La cubierta rígida facilita su conservación en una biblioteca personal, mientras que su extensión permite repartir la lectura y volver a consultar las reflexiones filosóficas.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dinerosofía: Conoce y cuida la Economía con Filosofía comparte con esta obra la autoría de María del Carmen Bengoechea Bernal, pero traslada la reflexión filosófica al ámbito económico. Cervezasofía: Filosofía del pan líquido también relaciona la filosofía con otro asunto concreto, la cerveza, mientras que el libro de Zarafa se centra en el sistema filosófico personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388613111",
+        "isbn-9791388613098"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8242fd1363ad78f2",
+  "origen": "chatgpt-web"
+}

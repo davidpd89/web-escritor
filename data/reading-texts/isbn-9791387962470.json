@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387962470",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El dios de la muerte no puede matar (BL), de Mikka Mita, se dirige a lectores de cómic y novela gráfica interesados en la fantasía con elementos de misterio. Sus 208 páginas ofrecen una extensión contenida frente a novelas más largas; quienes busquen narrativa histórica o realista encontrarán aquí un género distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El dios de la muerte no puede matar (BL) se presenta en tapa blanda, con 208 páginas en castellano. Esta edición de Distrito Manga permite leer el cómic en papel y conservar sus páginas para volver a consultar las secuencias gráficas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El dios de la muerte no puede matar (BL) puede compararse con Coraline por la combinación de fantasía y elementos inquietantes. Mientras Coraline parte de una puerta que conduce a una versión distinta del hogar de su protagonista, la obra de Mikka Mita se presenta como cómic de fantasía y misterio. Cuando vi a la muerte prestar su sombrero / When I Saw Death Lend Its Hat ofrece otra referencia relacionada con la figura de la muerte desde su propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "lib-0001",
+        "isbn-9786073879613"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf0590c9bf52adfa",
+  "origen": "chatgpt-web"
+}

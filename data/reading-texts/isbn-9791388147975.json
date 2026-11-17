@@ -4,38 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción) está dirigido a lectores de romance y relatos sobre relaciones de pareja. El título lo identifica como el n.º 1 de Game Changers y la edición tiene 432 páginas. No responde tanto a quienes buscan una novela de misterio o fantasía.",
+      "texto": "Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción) encaja con lectores que buscan una novela romántica de Rachel Reid. Sus 432 páginas sitúan la lectura en una extensión considerable; por su género, resulta menos afín a quienes prefieren historias centradas en el misterio o la investigación histórica.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción) se ofrece en tapa blanda, Kindle y audiolibro. El ejemplar de bolsillo publicado por Penguin Bolsillo tiene 432 páginas y permite conservar una copia física. Kindle facilita la lectura en pantalla, mientras que el audiolibro permite escuchar la obra sin mantener el libro abierto.",
+      "texto": "La edición de Penguin Bolsillo tiene 432 páginas en tapa blanda, apropiada para llevarla en el bolso o la mochila. Kindle permite leer Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción) en formato digital, mientras que el audiolibro ofrece la posibilidad de escucharlo sin sostener el ejemplar.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Más que rivales (Game Changers 2): Heated Rivalry (Best Seller | Ficción) comparte autora, Rachel Reid, y serie con Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción). Los títulos los distinguen por su posición en Game Changers: n.º 2 frente a n.º 1. La comparación permite elegir entre dos entregas de la misma autora en lugar de cambiar de serie.",
+      "texto": "Más que rivales (Game Changers 2): Heated Rivalry (Best Seller | Ficción) comparte autora y denominación de serie con Cambiar el juego (Game Changers 1): Game Changer (Best Seller | Ficción), pero el título identifica al primero como n.º 2 y al segundo como n.º 1. El Partido Más Largo / The Long Game (Game Changers) también pertenece al conjunto de títulos de Rachel Reid asociados a Game Changers, aunque su nombre no indica una posición numerada.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9798890988355",
         "isbn-9791388147982"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b53922437cac419a",
+  "fuente_hash": "c9ddaf25a1071295",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth se dirige a lectores de novela histórica que prefieren la ficción ambientada en el pasado. Sus 392 páginas ofrecen una extensión intermedia; por su género, no responde a quien busca un manual de historia o una obra de divulgación.",
+      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth se dirige a lectores de novela histórica interesados en una narración de extensión media. Sus 392 páginas y su identificación como Aléxandros III lo alejan de quienes buscan una obra breve o una historia presentada como independiente de otros títulos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,18 +13,19 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth se presenta en tapa blanda, con 392 páginas publicadas por Debolsillo. Es una edición física que permite consultar y releer pasajes en papel, sin depender de una pantalla; su encuadernación resulta apropiada para guardarla junto a otras novelas históricas.",
+      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth se ofrece en tapa blanda. La edición de Debolsillo reúne 392 páginas en castellano, una opción física para quienes prefieren leer novela histórica en papel y conservar el volumen junto a otros títulos del mismo autor.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "categorias"
+        "idioma",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth, de Valerio Massimo Manfredi, puede compararse con Conspiración en Londres, de Felipe Pigna, dentro de la narrativa histórica. También se relaciona con Cosamala, de Alana S. Portero, por su vínculo con acontecimientos del pasado. La diferencia está en que Cosamala aborda un crimen de la guerra civil mediante elementos góticos y brujería, mientras que la obra de Valerio Massimo Manfredi se presenta como novela histórica.",
+      "texto": "Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth comparte autor y orientación histórica con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon. Los títulos identifican entregas diferentes de Aléxandros, ambas firmadas por Valerio Massimo Manfredi, y sus subtítulos permiten distinguirlas dentro del conjunto.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,8 +33,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408329688",
-        "isbn-9788432251436"
+        "isbn-9786287897090"
       ]
     }
   ],

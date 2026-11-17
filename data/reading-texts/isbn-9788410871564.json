@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788410871564",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rogers. Manual de cuidados intensivos pediátricos se dirige a lectores que buscan documentación médica sobre la atención intensiva infantil. Su orientación especializada lo distancia de los libros de divulgación científica general y de las lecturas sobre salud cotidiana.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El manual aborda los cuidados intensivos pediátricos desde una perspectiva médica especializada. Su enfoque se concentra en la atención de pacientes infantiles que requieren cuidados intensivos, en lugar de tratar la pediatría como una introducción general a la salud de los niños.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 688 páginas en castellano y está publicada por Lippincott Williams & Wilkins. Su extensión permite utilizarla como volumen de estudio o consulta, mientras que la encuadernación flexible facilita manejar un manual de estas dimensiones.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, también pertenece al ámbito de la ciencia, pero se centra en conceptos de inteligencia artificial. Rogers. Manual de cuidados intensivos pediátricos, en cambio, delimita su contenido a una especialidad médica relacionada con la atención intensiva infantil.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8fa58109a5b22f9f",
+  "origen": "chatgpt-web"
+}

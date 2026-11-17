@@ -4,17 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Partidas, de Beatriz Bowles Vilela, se sitúa entre la poesía y la historia, por lo que encaja con lectores interesados en esos dos ámbitos. Sus 96 páginas ofrecen una extensión reducida frente a obras de estudio más largas; no responde a una búsqueda centrada exclusivamente en narrativa de ficción.",
+      "texto": "Partidas, de Beatriz Bowles Vilela, se sitúa en el ámbito de la poesía y la historia. Sus 96 páginas en castellano corresponden a una obra breve en extensión, distinta de una novela extensa o de un manual técnico.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Partidas se publica en tapa blanda, con 96 páginas en castellano. Esta edición de RIL Editores permite conservar el volumen en papel y transportarlo sin el peso habitual de libros mucho más extensos.",
+      "texto": "Partidas se presenta en tapa blanda, con 96 páginas en castellano. La edición de RIL Editores reúne el contenido en un volumen físico de extensión reducida, adecuado para leerlo y volver a consultar sus páginas en papel.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -25,16 +26,16 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Partidas comparte el ámbito poético con 223 esquinas: 16 (La garza roja) y Políticas poéticas, canon y texto en la poesía española contemporánea. Frente al enfoque investigador sobre poesía contemporánea de este último, Partidas figura también en historia y tiene 96 páginas, sin presentarse en su título como un estudio del canon.",
+      "texto": "Partidas comparte el ámbito de la poesía con La voz se nos expande: 25 (MÍNIMA), de María Gómez Lara, y Oficios de otros tiempos: 13 (Akipoeta), de María Márquez. La obra de Beatriz Bowles Vilela se distingue por su clasificación conjunta en poesía e historia, mientras que los títulos afines identifican otras autorías y líneas temáticas.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387745202",
-        "isbn-9788412988833"
+        "isbn-9788412792577",
+        "isbn-9791388223099"
       ]
     }
   ],

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370079383",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marni | Colección Leyendas de la Moda | Libro LXVIII encaja con lectores interesados en publicaciones de moda vinculadas al arte, el diseño y el ensayo. Su extensión de 128 páginas permite abordar un volumen relativamente breve, mientras que su enfoque temático lo separa de la narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Marni | Colección Leyendas de la Moda | Libro LXVIII cuenta con una edición en tapa dura de 128 páginas. El formato físico de RBA Coleccionables permite incorporarlo a una estantería dedicada a la moda o regalarlo como libro encuadernado, con una extensión menor que la de otros volúmenes más largos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Marni | Colección Leyendas de la Moda | Libro LXVIII puede compararse con Junya Watanabe | Colección Leyendas de la Moda | Libro LXVII y Emilio Pucci | Colección Leyendas de la Moda | Libro LXVI. Comparten colección y la firma de RBA Coleccionables España, pero permiten centrar la lectura en tres nombres diferentes del ámbito de la moda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079369",
+        "isbn-9791370079376"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a937534f0aa0064a",
+  "origen": "chatgpt-web"
+}

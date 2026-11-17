@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9788410649149",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historia natural de las hadas (edición revisada) (HARPERKIDS) está orientado al público infantil interesado en las hadas y los seres fantásticos. Su planteamiento, anunciado como una historia natural, se diferencia de las aventuras protagonizadas por personajes humanos y de las lecturas realistas ajenas a la fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Se trata de la edición revisada de Historia natural de las hadas (edición revisada) (HARPERKIDS), publicada por Harperkids en tapa dura y castellano. Tiene 64 páginas y fecha editorial del 10 de febrero de 2027; la indicación de revisión forma parte de su identificación frente a otras ediciones.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "fecha_publicacion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es de tapa dura y reúne 64 páginas en castellano. El soporte rígido permite conservar el libro como volumen físico y volver a consultar sus páginas, mientras que su extensión facilita dividir la lectura infantil en varias sesiones breves.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste, de Ledicia Costas y Luis Miguel Pérez, comparte con Historia natural de las hadas (edición revisada) (HARPERKIDS) la presencia de criaturas vinculadas a la fantasía infantil. El primero anuncia una historia centrada en una bruja, mientras que Emily Hawkins presenta a las hadas desde el enfoque de historia natural que figura en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387501877"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "24583a2c3adf90c7",
+  "origen": "chatgpt-web"
+}

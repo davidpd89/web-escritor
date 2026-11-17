@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9788409930319",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a lectores que quieren iniciarse en inteligencia artificial y utilizarla para crear, automatizar tareas o explorar oportunidades sin programar. Por su orientación práctica, encaja menos con quienes buscan una obra centrada exclusivamente en teoría científica o desarrollo de software.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda el aprendizaje de inteligencia artificial desde un nivel inicial, con aplicaciones relacionadas con la creación, la automatización y la generación de oportunidades. El enfoque es práctico y plantea el uso de estas herramientas sin exigir conocimientos de programación.",
+      "evidencias": [
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 554 páginas en castellano y permite consultar los contenidos en papel. Por su extensión y orientación práctica, puede utilizarse como volumen de estudio y consulta durante el aprendizaje de inteligencia artificial.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "50 cosas que hay que saber sobre IA, de Keith Mansfield, comparte el interés por explicar la inteligencia artificial a lectores que quieren conocerla. La diferencia está en el planteamiento: Inteligencia Artificial Desde Cero: Guía práctica para aprender, crear, automatizar y generar oportunidades con IA sin necesidad de programar se centra expresamente en aprender a utilizarla, crear y automatizar sin programar.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f6e936313c4b86c2",
+  "origen": "chatgpt-web"
+}

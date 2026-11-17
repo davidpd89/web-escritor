@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Stranger Things se dirige a lectores adultos interesados en los materiales de creación de una serie audiovisual. Incluye entrevistas, diseños de criaturas, documentos de producción y fotografías de vestuario. Su enfoque documental y visual se aparta de una novela que desarrolla su historia únicamente mediante la narración.",
+      "texto": "Stranger Things está dirigido al público adulto interesado en la serie, su producción audiovisual y sus materiales de creación. No responde a la búsqueda de una novela que continúe la trama: reúne entrevistas, documentos, imágenes y otros contenidos relacionados con su elaboración.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,42 +14,40 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Stranger Things es una publicación sobre la creación y el universo visual de la serie, no una narración convencional de sus acontecimientos. Gina McIntyre reúne intervenciones del equipo, arte conceptual, mapas, planos y materiales de guion. También incorpora un código secreto que conduce a contenido adicional en una web.",
+      "texto": "Stranger Things, de Gina McIntyre, propone una lectura documental y visual sobre la creación de la serie. Incluye declaraciones de los hermanos Duffer, entrevistas al reparto, diseños de criaturas, vestuario, guiones y materiales de planificación, además de un código para acceder a contenido digital adicional.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Stranger Things se ofrece en tapa dura, con 304 páginas publicadas por Grijalbo. El formato físico permite consultar fotografías, mapas, diseños y documentos de producción en un volumen encuadernado. También reúne materiales visuales y entrevistas que pueden revisarse por separado sin seguir una lectura narrativa continua.",
+      "texto": "La edición en tapa dura contiene 304 páginas y reúne fotografías, arte conceptual, mapas y documentos relacionados con la serie. El soporte físico permite consultar juntos estos materiales visuales y conservar el volumen como libro de referencia sobre su producción.",
       "evidencias": [
-        "titulo",
-        "edicion",
-        "editorial",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "sinopsis_editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Stranger Things y El diablo viste de Helvetica se relacionan con la creación visual, aunque abordan asuntos diferentes. Gina McIntyre reúne materiales gráficos y testimonios de una producción audiovisual; Elena López plantea las consecuencias que puede tener el diseño de una papeleta electoral. Uno se centra en el universo de una serie y el otro introduce una cuestión de diseño mediante un caso electoral.",
+      "texto": "21 Westerns del siglo XXI (Sílex Cine/Claqueta) comparte con Stranger Things el interés por las obras audiovisuales. El primero se identifica con el cine del oeste contemporáneo, mientras que el libro de Gina McIntyre se concentra en una serie concreta y ofrece entrevistas, diseños y documentos de producción.",
       "evidencias": [
         "titulo",
         "autores",
+        "afines_catalogo",
         "sinopsis_editorial",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788466685443"
+        "isbn-9791388205842"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "12fbe5c3d6b0aa0b",
+  "fuente_hash": "22ed7fb1e40c56ed",
   "origen": "chatgpt-web"
 }

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Unicornia - El libro de recetas mágicas: ¡Más de 25 recetas para cocinar en familia con mucho brilli-brilli! (Universo Unicornia) está dirigido a familias que quieren cocinar juntas con una ambientación fantástica. Su planteamiento práctico encaja menos con quienes buscan una novela de aventuras o una lectura exclusivamente narrativa.",
+      "texto": "Está dirigido a familias que quieren cocinar juntas mediante recetas vinculadas al universo de Unicornia. Encaja con quienes buscan actividades culinarias con un componente de fantasía, pero no con quien espere una novela de aventuras protagonizada por los personajes de ese universo.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El libro reúne más de 25 recetas para preparar en familia dentro del Universo Unicornia. Sus 144 páginas ofrecen una propuesta de cocina vinculada a la fantasía, concebida para trasladar la actividad del libro a la cocina doméstica.",
+      "texto": "Reúne más de 25 recetas para preparar en familia dentro del Universo Unicornia. Sus 144 páginas están dedicadas a una propuesta que combina cocina y fantasía, de modo que puede utilizarse para escoger preparaciones y llevarlas a la práctica en casa.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -21,16 +21,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar físicamente las 144 páginas mientras se cocina y volver a las recetas en otras ocasiones. La versión Kindle ofrece el mismo tipo de lectura en un dispositivo compatible, con la posibilidad de consultar las preparaciones sin transportar el ejemplar impreso.",
+      "texto": "La tapa blanda permite tener las 144 páginas en papel mientras se consultan las recetas en la cocina. La edición Kindle ofrece el mismo título en formato digital, útil para consultar las preparaciones desde un dispositivo compatible sin manejar el libro físico.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Unicornia 18 - Una noche luminosa: ¡Un libro mágico con purpurina en la cubierta! (Universo Unicornia) comparte universo y autoría con este recetario de Ana Punset. La diferencia es su finalidad: uno pertenece a la serie de libros de Unicornia, mientras que Unicornia - El libro de recetas mágicas: ¡Más de 25 recetas para cocinar en familia con mucho brilli-brilli! (Universo Unicornia) propone cocinar en familia.",
+      "texto": "Unicornia 18 - Una noche luminosa: ¡Un libro mágico con purpurina en la cubierta! (Universo Unicornia) comparte con este recetario la autoría de Ana Punset y el universo fantástico, pero pertenece a la serie de libros de Unicornia. Por su orientación culinaria, también puede compararse con 20 minutos ¡y listo!, de Jamie Oliver, aunque este último pone el foco en el tiempo de preparación y no en cocinar en familia dentro de un universo de fantasía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,12 +39,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387973001"
+        "isbn-9791387973001",
+        "isbn-9788425374074"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "75234a641fd6b5b4",
+  "fuente_hash": "8f237a31df5188fa",
   "origen": "chatgpt-web"
 }

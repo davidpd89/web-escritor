@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cabello de ángel: si la vida te da calabazas..., de Esperanza Redondo Morales, pertenece al ámbito de las biografías y memorias. Se dirige a lectores que prefieren obras relacionadas con experiencias vitales frente a novelas de fantasía o relatos de aventuras. Sus 94 páginas permiten identificarlo como una publicación breve dentro de la no ficción personal.",
+      "texto": "Cabello de ángel: si la vida te da calabazas... se dirige a lectores interesados en biografías y memorias. Sus 94 páginas permiten abordar una lectura breve; por su clasificación, encaja menos con quien busca una novela de ficción o un manual práctico.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cabello de ángel: si la vida te da calabazas... se publica en tapa blanda y reúne 94 páginas. Su extensión facilita llevar el ejemplar en un bolso o una mochila y leerlo en desplazamientos. También permite conservarlo como libro físico sin ocupar tanto espacio como una obra de memorias de mayor longitud.",
+      "texto": "La tapa blanda permite leer y conservar las 94 páginas de Cabello de ángel: si la vida te da calabazas... en papel. Kindle ofrece la misma obra en formato digital, con la posibilidad de llevarla en el móvil o ajustar el tamaño de letra durante la lectura.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cabello de ángel: si la vida te da calabazas... y Al andar: Vivencias del Camino de Santiago se relacionan con las experiencias personales y las memorias. La obra de Esperanza Redondo Morales presenta un título de alcance vital general, mientras que Carlos Díaz Ballesta identifica expresamente el Camino de Santiago como eje de sus vivencias. Ambas ofrecen una alternativa a la ficción.",
+      "texto": "Cabello de ángel: si la vida te da calabazas... comparte con Al andar: Vivencias del Camino de Santiago el interés por las experiencias personales, aunque este último delimita su asunto al Camino de Santiago. Frente a 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, la obra de Esperanza Redondo Morales se presenta como biografía o memoria, no como una recopilación de consejos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791387852290",
         "isbn-9791388099496"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0f5bb72c2f320add",
+  "fuente_hash": "4daa50c5c8225351",
   "origen": "chatgpt-web"
 }

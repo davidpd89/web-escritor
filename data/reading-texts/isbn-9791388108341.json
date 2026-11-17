@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388108341",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mortal & Inmortal: Dos romances paranormales (Faeris Editorial) encaja con lectores de fantasía romántica juvenil interesados en las relaciones amorosas con elementos sobrenaturales. Su planteamiento se aleja de la narrativa realista y de quienes prefieren historias sin romance como componente central.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mortal & Inmortal: Dos romances paranormales (Faeris Editorial) está disponible en tapa blanda y reúne 408 páginas. Esta edición física permite leer los dos romances anunciados en el título dentro de un mismo volumen, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mortal & Inmortal: Dos romances paranormales (Faeris Editorial) y Alfa (Romantasy) comparten autora, Ali Hazelwood, y su vinculación con la fantasía romántica. El primero anuncia expresamente dos romances paranormales, mientras que el segundo se presenta como una obra de romantasy sin esa estructura indicada en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387739638"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bc127a2c78a92e22",
+  "origen": "chatgpt-web"
+}

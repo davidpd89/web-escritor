@@ -4,28 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Encaja con lectores infantiles interesados en la fantasía y las historias vinculadas a la magia. Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil), de Alena Pons, tiene 120 páginas y se aleja de la narrativa realista y de las lecturas dirigidas específicamente al público adulto.",
+      "texto": "Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) se dirige a lectores infantiles interesados en la fantasía y las historias de ficción. Por su orientación infantil y sus 120 páginas, no está planteado como una lectura de ensayo o narrativa adulta.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer sus 120 páginas en un volumen físico de narrativa infantil, mientras que Kindle ofrece una alternativa digital para llevar la lectura en un dispositivo compatible. Ambas opciones corresponden a Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil), de Alena Pons.",
+      "texto": "La tapa blanda ofrece una edición física de 120 páginas, mientras que Kindle permite llevar la lectura en un dispositivo electrónico. Ambos formatos están disponibles para Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil), de Alena Pons.",
       "evidencias": [
-        "formatos_disponibles",
-        "numero_paginas",
         "titulo",
         "autores",
-        "categorias"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Brujas y dragones 2: La bruja mala del oeste coincide con Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil) en su relación con la magia. La primera obra, de Ledicia Costas y Luis Miguel Pérez, sitúa una bruja en el título, mientras que la de Alena Pons identifica un dodo musical y se presenta como narrativa infantil de fantasía.",
+      "texto": "Brujas y dragones 2: La bruja mala del oeste, de Ledicia Costas, Luis Miguel Pérez, comparte con Dream Magic. El dodo musical: Libro 4 (LITERATURA INFANTIL - Narrativa infantil), de Alena Pons, la orientación fantástica dentro de la literatura infantil. A la caza de Papá Noel: 3, de Emma S. Varela, Robert García, ofrece otra referencia de narrativa infantil, aunque su título sitúa la historia en un contexto navideño.",
       "evidencias": [
         "afines_catalogo",
         "titulo",
@@ -33,12 +31,13 @@
         "categorias"
       ],
       "enlaces": [
+        "isbn-9788419135650",
         "isbn-9791387501877"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "304d9c55831fcf64",
+  "fuente_hash": "2e9527baa8ab4279",
   "origen": "chatgpt-web"
 }

@@ -4,33 +4,32 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El enigma de Navidad, de Nicola Upson, se dirige a lectores de misterio que buscan una historia vinculada a la Navidad. Sus 208 páginas y su clasificación como misterio y thriller lo separan de los libros navideños centrados exclusivamente en celebraciones o tradiciones.",
+      "texto": "El enigma de Navidad está dirigido a lectores que buscan misterio en una obra vinculada a la Navidad. Por su clasificación como misterio y thriller, se aparta de los libros navideños centrados únicamente en celebraciones o tradiciones.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El enigma de Navidad está disponible en tapa blanda, con 208 páginas impresas. Esta edición de Catedral permite llevar la novela de misterio en papel, marcar el punto de lectura y conservar el ejemplar para volver a leerlo.",
+      "texto": "El enigma de Navidad se ofrece en tapa blanda y Kindle, con una edición física de 208 páginas en castellano. La tapa blanda permite leerlo y conservarlo en papel, mientras que Kindle facilita llevar la obra en un dispositivo de lectura compatible.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "categorias"
+        "idioma",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El enigma de Navidad y 25 días hasta Navidad, de Per Jacobsen, combinan el misterio con el contexto navideño. La obra de Per Jacobsen se presenta como un thriller de adviento, mientras que El enigma de Navidad, de Nicola Upson, se publica como un volumen de misterio y thriller de 208 páginas.",
+      "texto": "El enigma de Navidad y 25 días hasta Navidad coinciden en combinar una referencia navideña con el misterio o el thriller. El primero es una obra de Nicola Upson publicada en tapa blanda, mientras que el segundo, de Per Jacobsen, se presenta como un thriller de adviento, con una referencia temporal más marcada.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
+        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -40,6 +39,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c3542ee8915dcf2a",
+  "fuente_hash": "ffe22a2b77a41017",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410907898",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los ojos de antes, de Jana Franco, encaja con lectores de narrativa contemporánea que prefieren relatos y libros de extensión reducida. Con 66 páginas, responde menos a quien busca una novela larga o una lectura centrada en géneros alejados de la ficción contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los ojos de antes se presenta en tapa blanda, con 66 páginas en castellano. Es una edición física de poca extensión, apropiada para transportar en el bolso o consultar en papel sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los ojos de antes y Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa) comparten su relación con el relato. La obra de Jana Franco se sitúa en la narrativa contemporánea, mientras que el título de Daphne Du Maurier anuncia trece historias vinculadas al desasosiego y la lectura nocturna.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788467084429"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d7758134f46e59f0",
+  "origen": "chatgpt-web"
+}

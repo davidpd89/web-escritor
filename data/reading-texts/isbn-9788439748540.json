@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788439748540",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Todos los cuentos (Random House), de Gabriel García Márquez, se dirige a lectores de narrativa contemporánea interesados también en la fantasía y las aventuras. Sus 512 páginas reúnen cuentos, por lo que responde a una búsqueda de narraciones breves recopiladas y no a la de una única novela continua.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Todos los cuentos (Random House) está disponible en tapa dura, tapa blanda, Kindle y audiolibro. La edición en tapa blanda de Random House tiene 512 páginas; la tapa dura ofrece una encuadernación rígida, Kindle facilita la lectura digital y el audiolibro permite escuchar los relatos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Todos los cuentos (Random House) puede compararse con Notas de prensa / Press Releases: 5 (OBRA PERIODÍSTICA), también de Gabriel García Márquez. Ambos pertenecen a la obra del mismo autor, pero el primero reúne cuentos en 512 páginas y el segundo se identifica como una publicación de carácter periodístico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789588894256"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "790184e4a448d23b",
+  "origen": "chatgpt-web"
+}

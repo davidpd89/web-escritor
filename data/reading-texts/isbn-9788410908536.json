@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se orienta a lectores interesados en la obtención de información mediante fuentes humanas, la psicología y las relaciones de poder. Su enfoque sobre reclutamiento de fuentes y procesos HUMINT lo distancia de los manuales centrados exclusivamente en el bienestar personal o la convivencia familiar.",
+      "texto": "HUMINT para principiantes: cómo conseguir que la gente hable: Lo que nadie te cuenta sobre reclutar fuentes humanas, sobrevivir al proceso y no volverte loco se dirige a lectores interesados en la psicología y las relaciones de poder. Por su enfoque en la obtención de información mediante fuentes humanas, queda fuera de una búsqueda centrada exclusivamente en el bienestar personal.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,19 +12,15 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "HUMINT para principiantes está disponible en tapa blanda, en una edición de Editorial Letra Minúscula. Sus 386 páginas en castellano permiten leer el contenido en papel, consultar apartados concretos y conservar el volumen como material de lectura sobre reclutamiento y comunicación interpersonal.",
+      "texto": "La tapa blanda permite consultar el contenido en papel y volver a pasajes concretos mediante marcadores físicos. La edición Kindle facilita buscar términos, subrayar fragmentos y llevar la lectura en un dispositivo electrónico, sin transportar el volumen impreso.",
       "evidencias": [
-        "titulo",
-        "editorial",
-        "edicion",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte el interés por la psicología aplicada a las relaciones humanas con Diseñar la convivencia en familia: Herramientas de psicología conductual para hogares que cuidan de la infancia, la adolescencia o la vejez: 2 (Sistemas domésticos). La diferencia es el ámbito: Lucky B. M. aborda la obtención de información mediante fuentes humanas, mientras Toño Ramos se centra en la convivencia doméstica.",
+      "texto": "Comparte con Cuentoterapia social: El cuento como herramienta en la intervención social y la relación de ayuda el interés por la comunicación entre personas. Sin embargo, Lucky B. M. aborda la obtención de información mediante fuentes humanas, mientras que Marian López Muñoz sitúa el cuento en el ámbito de la intervención social y la ayuda.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +28,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399249682"
+        "isbn-9788409930005"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "dc888087dcb3985b",
+  "fuente_hash": "d5cffb488c684a83",
   "origen": "chatgpt-web"
 }

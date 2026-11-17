@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788432251412",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La piedad (Biblioteca Breve) se sitúa entre la narrativa contemporánea y el ensayo, por lo que encaja con lectores interesados en esas dos formas de escritura. No está orientado específicamente a quienes buscan manuales prácticos o ficción de género fantástico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La piedad (Biblioteca Breve) se ofrece en tapa blanda, con una extensión de 240 páginas. La edición de Seix Barral está escrita en castellano y permite una lectura íntegra en papel, además de su conservación en una biblioteca doméstica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La piedad (Biblioteca Breve) puede ponerse junto a Alfred y Emily (Narrativa) por su relación con la escritura narrativa. Jorge Begega presenta una obra clasificada también como ensayo, mientras que el libro de Doris Lessing aparece identificado como narrativa. La diferencia permite distinguir entre una propuesta de clasificación mixta y otra presentada desde su vertiente narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "80eda1428e164273",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El último secreto: Edición limitada a precio especial (Colección Especial) se orienta a lectores de misterio y thriller interesados también en la novela histórica y los secretos. Por su extensión de 832 páginas, se aleja de la lectura breve y de quienes buscan una obra centrada en la fantasía o el romance.",
+      "texto": "El último secreto: Edición limitada a precio especial (Colección Especial) se dirige a lectores de misterio y thriller interesados también en la novela histórica. Por su combinación de géneros y sus 832 páginas, encaja menos con quienes buscan una lectura breve o centrada exclusivamente en conflictos contemporáneos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta presentación de El último secreto se identifica como edición limitada a precio especial dentro de Colección Especial. Booket la publica en tapa dura, con 832 páginas en castellano y fecha editorial del 27 de enero de 2027; el título y la encuadernación permiten distinguirla de otras ediciones.",
+      "texto": "Esta edición de El último secreto: Edición limitada a precio especial (Colección Especial) se presenta en tapa dura bajo el sello Booket. Reúne 832 páginas en castellano y está identificada como edición limitada a precio especial dentro de la Colección Especial, con publicación prevista para el 27 de enero de 2027.",
       "evidencias": [
         "titulo",
         "editorial",
@@ -25,17 +25,16 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura permite conservar las 832 páginas de El último secreto en un único volumen físico, aunque su extensión supone más peso al transportarlo. El audiolibro evita llevar ese volumen y permite seguir la narración mediante escucha, una opción distinta para desplazamientos o actividades cotidianas.",
+      "texto": "La tapa dura permite conservar y consultar físicamente las 832 páginas de El último secreto: Edición limitada a precio especial (Colección Especial), además de ofrecer una presentación apropiada para regalar. El audiolibro permite seguir la obra mediante escucha, sin necesidad de sostener un volumen extenso durante la lectura.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "edicion",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El último secreto y El divorcio comparten el interés por los secretos y los conflictos que generan tensión narrativa. Dan Brown combina misterio y novela histórica, mientras que la obra de Freida McFadden parte de una relación amorosa aparentemente perfecta; la diferencia está en el tipo de conflicto que sirve de punto de partida.",
+      "texto": "El último secreto: Edición limitada a precio especial (Colección Especial) puede compararse con El asesino de la almarada (Novela Histórica) por su relación con la narrativa histórica. La obra de Dan Brown incorpora también misterio y thriller, mientras que el título de Gastón Morata destaca explícitamente su pertenencia a la novela histórica. Ambos permiten orientar la elección hacia distintas combinaciones de historia y ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -43,12 +42,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388163531"
+        "isbn-9791370205362"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "aa95f726296e7bdd",
+  "fuente_hash": "aea7c896152e495e",
   "origen": "chatgpt-web"
 }

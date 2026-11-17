@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388155413",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La octava carta (Novela), de Miguel Juan Jiménez Rollán, se sitúa en la narrativa contemporánea y se dirige a lectores interesados en ese tipo de ficción. Sus 450 páginas plantean una lectura de cierta extensión, distinta de la que busca quien prefiere relatos breves o libros de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La octava carta (Novela) se presenta en tapa blanda, en una edición de Kolima de 450 páginas. Este formato permite leerla y conservarla en papel, además de consultar páginas anteriores sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9cf5421fa8fcc848",
+  "origen": "chatgpt-web"
+}

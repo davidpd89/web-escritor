@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La ovejita va al espacio (La ovejita que vino a cenar. Libro de cartón con mecanismos) (Pequeñas manitas) está dirigido al público infantil interesado en las aventuras espaciales y los libros manipulativos. Sus 10 páginas y su construcción en cartón responden a una lectura breve con participación física; no está planteado como una novela de ciencia ficción extensa.",
+      "texto": "Está pensado para lectores infantiles que disfrutan de los libros de cartón con mecanismos y de las aventuras espaciales. Su extensión de 10 páginas y su formato manipulativo lo alejan de los cuentos largos destinados a una lectura continuada.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -14,7 +14,7 @@
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Este libro combina la lectura con la manipulación de mecanismos integrados en sus páginas de cartón. El título identifica una aventura espacial de la ovejita y la edición pertenece a la colección Pequeñas manitas. Sus 10 páginas permiten recorrer el contenido en una sesión breve, alternando la observación con el uso de los elementos móviles.",
+      "texto": "Se utiliza pasando las páginas de cartón y accionando los mecanismos que anuncia el propio título. Sus 10 páginas permiten explorar la aventura espacial mediante una lectura breve en la que la manipulación física forma parte de la experiencia.",
       "evidencias": [
         "titulo",
         "edicion",
@@ -23,31 +23,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa dura, con páginas de cartón y mecanismos pensados para manipularse durante la lectura. Sus 10 páginas forman un volumen físico breve, apropiado para compartir y explorar los elementos móviles. El formato conserva la interacción manual que identifica a esta entrega de La ovejita que vino a cenar.",
+      "texto": "La tapa dura es el formato disponible y corresponde a un libro de cartón de 10 páginas con mecanismos. Permite manipular las páginas y sus elementos móviles durante la lectura, una característica vinculada al objeto físico y a su uso infantil.",
       "evidencias": [
         "formatos_disponibles",
         "edicion",
         "numero_paginas",
-        "titulo"
+        "titulo",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic) comparte con este libro la autoría de Steve Smallman y el protagonismo de animales, pero se presenta como cómic en lugar de libro de cartón con mecanismos. Buenas noches, robot también introduce una referencia al despegue, mientras que La ovejita va al espacio se distingue por su personaje y su formato manipulativo.",
+      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) comparte autor y colección con este libro, pero presenta otra historia dentro de ese universo. Caja metálica con cinco cuentos (La ovejita que vino a cenar): Incluye las historias de la ovejita, los lobos, el cocodrilo, el tigre y la patita (Cuentos infantiles) reúne varias narraciones, frente a la propuesta espacial con mecanismos de este volumen.",
       "evidencias": [
-        "afines_catalogo",
-        "autores",
         "titulo",
-        "edicion"
+        "autores",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788448875381",
-        "isbn-9788491459354"
+        "isbn-9788448874056",
+        "isbn-9788448874278"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "36356c1551004d9c",
+  "fuente_hash": "f5c4d7104073b86e",
   "origen": "chatgpt-web"
 }

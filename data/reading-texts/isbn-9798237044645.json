@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9798237044645",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Perdida en la Traducción Parte II: 2 se sitúa en el ámbito de la religión y la espiritualidad, por lo que encaja con lectores interesados en esas cuestiones. Su clasificación temática lo diferencia de una obra orientada al estudio técnico de idiomas o de traducción profesional, pese a la referencia a la traducción en el título.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Perdida en la Traducción Parte II: 2 está publicada por Frank Lopez en castellano y cuenta con 284 páginas en tapa blanda. El título la identifica como Parte II y lleva además el número 2, dos elementos útiles para distinguirla de otras entregas o ediciones de nombre semejante.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Perdida en la Traducción Parte II: 2 está disponible en tapa blanda, con 284 páginas y edición de Frank Lopez. El volumen impreso permite leer y volver sobre los pasajes en papel, una opción para quien prefiere conservar físicamente sus lecturas de religión y espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Perdida en la Traducción Parte II: 2 y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se relacionan por su temática religiosa y espiritual. La obra de Frank Lopez se identifica como una segunda parte, mientras que la de Tsondru Yeshe anuncia fundamentos y práctica de un camino de liberación. Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción presenta, en cambio, un asunto teológico delimitado por la adopción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387625535",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ebe5fce4ce6a935",
+  "origen": "chatgpt-web"
+}

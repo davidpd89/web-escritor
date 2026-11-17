@@ -4,38 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La venganza de Odessa (Best Seller | Ficción) se dirige a lectores interesados en el thriller, la novela histórica y los conflictos de poder y política. La venganza figura entre sus temas y la edición tiene 440 páginas. Encaja menos con quienes buscan una historia romántica o una lectura breve.",
+      "texto": "La venganza de Odessa (Best Seller | Ficción) se dirige a lectores de misterio, thriller y novela histórica. Frederick Forsyth y Tony Kent firman una obra de 440 páginas; por su clasificación, encaja menos con quien busca una novela centrada en el romance o el humor.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La venganza de Odessa (Best Seller | Ficción) ofrece cuatro opciones: tapa dura, tapa blanda, Kindle y audiolibro. La edición de bolsillo de Penguin Bolsillo tiene 440 páginas; la tapa dura ofrece una encuadernación más rígida para conservar o regalar. Kindle evita transportar el volumen físico y el audiolibro permite seguir la historia mediante escucha.",
+      "texto": "La edición de Penguin Bolsillo presenta 440 páginas en tapa blanda, una opción para transportar el libro. También está disponible en tapa dura para conservarlo en la estantería o regalarlo, en Kindle para leerlo en dispositivos compatibles y en audiolibro para escucharlo.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "edicion",
-        "numero_paginas"
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pack Forsyth (contiene: Odessa | La venganza de Odessa) (Best Seller | Ficción) reúne dos títulos, incluido La venganza de Odessa (Best Seller | Ficción). La obra individual está firmada por Frederick Forsyth y Tony Kent, mientras que el pack figura bajo la autoría de Frederick Forsyth. Para quien compara ambas opciones, la diferencia principal es adquirir únicamente la novela o el conjunto que también incluye Odessa.",
+      "texto": "Pack Forsyth (contiene: Odessa | La venganza de Odessa) (Best Seller | Ficción) reúne el título de Frederick Forsyth con Odessa, mientras que La venganza de Odessa (Best Seller | Ficción) figura como obra de Frederick Forsyth y Tony Kent. El asesino de la almarada (Novela Histórica), de Gastón Morata, ofrece otra referencia vinculada a la novela histórica, aunque se distingue por su autoría.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466395601"
+        "isbn-9788466395601",
+        "isbn-9791370205362"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0da5516c1a2ea994",
+  "fuente_hash": "5a9950fe63a04008",
   "origen": "chatgpt-web"
 }

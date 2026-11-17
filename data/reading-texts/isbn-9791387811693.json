@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387811693",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Club de la Derrota, de Fernando Mendez Germain, se encuadra en la narrativa contemporánea y se dirige a quienes buscan ficción dentro de ese género. Con 184 páginas, plantea una lectura de extensión moderada frente a novelas mucho más largas; no responde a una búsqueda específica de fantasía o literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Club de la Derrota está disponible en tapa blanda, en una edición de Editorial Berenice de 184 páginas. Su extensión permite llevarlo como lectura física habitual sin el volumen de una novela de muchas más páginas. El texto está publicado en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5fe2e6119c9aaabf",
+  "origen": "chatgpt-web"
+}

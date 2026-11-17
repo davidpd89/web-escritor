@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788418689772",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "José María Fernández y Santiago Téllez Loriguillo. Pinceles antequeranos se orienta a lectores interesados en el arte y en la producción artística vinculada a Antequera. Por su temática, se aleja de quienes buscan una novela de ficción o una introducción general a técnicas de dibujo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física de 130 páginas publicada por Servicio de Publicaciones Fundación Unicaja. Permite consultar el volumen sobre papel y regresar a sus apartados, una opción para quien prefiere conservar sus lecturas sobre arte en una biblioteca personal.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats comparte con José María Fernández y Santiago Téllez Loriguillo. Pinceles antequeranos su relación con la representación artística. El título de Xavier Mollà i Revert pone el foco en los retratos, mientras que la obra firmada por Fundación Unicaja y Excelentísimo Ayuntamiento de Antequera identifica a dos pintores y su vínculo con Antequera.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "58dae092373d9d9c",
+  "origen": "chatgpt-web"
+}

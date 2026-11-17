@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791399297591",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "César Vallejo como profeta andino está dirigido a lectores de ensayo interesados en aproximarse a César Vallejo desde la perspectiva anunciada en el título. Sus 146 páginas ofrecen una extensión delimitada para abordar esa lectura; no responde a la búsqueda de una novela de ficción o de una antología poética.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "César Vallejo como profeta andino se publica en tapa blanda, con 146 páginas en castellano. Es una edición física que puede transportarse para leer fuera de casa y conservarse como material de consulta; su extensión permite distribuir la lectura del ensayo en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a11a018bef73387",
+  "origen": "chatgpt-web"
+}

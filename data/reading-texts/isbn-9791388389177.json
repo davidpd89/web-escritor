@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388389177",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi rincón cozy (Cozy coloring) se orienta a quienes buscan una actividad de coloreado vinculada al ocio y al tiempo libre. Sus 80 páginas y su planteamiento de coloring lo separan de los ensayos de desarrollo personal basados principalmente en la lectura de explicaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi rincón cozy (Cozy coloring) se presenta en tapa blanda, con 80 páginas editadas por Editorial Alma. El soporte físico permite trabajar directamente sobre las páginas en una actividad de coloreado, frente al uso exclusivamente lector de otros libros de ocio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi rincón cozy (Cozy coloring) y Japón Kawaii (Cozy coloring) comparten la propuesta de coloreado y la identificación Cozy coloring en sus títulos. El primero es de Pomiechi y plantea un rincón acogedor; el segundo, de Chickie Cafe, sitúa su temática en Japón y la estética kawaii.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388389184"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "76a3945e3919dd69",
+  "origen": "chatgpt-web"
+}

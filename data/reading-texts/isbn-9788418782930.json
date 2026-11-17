@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788418782930",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Verborrea: 78 (Libros robados), de Pablo Remón, se dirige a lectores interesados en la narrativa contemporánea y en publicaciones relacionadas con el arte y el diseño. También figura entre las lecturas juveniles, aunque su clasificación temática lo aleja de quienes buscan exclusivamente fantasía o aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Verborrea: 78 (Libros robados) se publica en tapa blanda, con 108 páginas en castellano. Esta edición de Ediciones la Uña Rota permite llevar el volumen en papel sin el peso habitual de una obra extensa y conservarlo junto a otros títulos de la colección.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Verborrea: 78 (Libros robados) puede compararse con Chema Madoz.: Manual de un distraído. (Libros de Autor.) por su relación con el ámbito artístico. La diferencia está en la autoría: Pablo Remón firma el primero, mientras que el segundo reúne a Chema Madoz, Irene Vallejo, Nazareth Castellanos y Borja Casani. También comparte espacio temático con Esencia oculta: La belleza de la impermanencia, cuyo título sitúa la belleza en el centro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387960391",
+        "isbn-9791388285769"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a6e08eee48501f4e",
+  "origen": "chatgpt-web"
+}

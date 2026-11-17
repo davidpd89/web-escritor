@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370176341",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Por negocios o por amor? - Del despacho al dormitorio: 587 (Ómnibus Deseo) se orienta a lectores de romance contemporáneo y relatos con relaciones sentimentales como eje. Su combinación de negocios y amor, anunciada en el título, lo aleja de quienes prefieren ensayos o narraciones centradas en otros géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Por negocios o por amor? - Del despacho al dormitorio: 587 (Ómnibus Deseo) cuenta con una edición en tapa blanda de 320 páginas. El formato de Harlequin Ibérica, S.a. permite leerlo en papel y conservarlo junto a otros títulos de romance, con una extensión superior a la de un relato breve individual.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¿Por negocios o por amor? - Del despacho al dormitorio: 587 (Ómnibus Deseo) y Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf coinciden en el ámbito de la narrativa y los relatos. La obra de Jules Bennett se identifica con el romance contemporáneo, mientras que el título de Pilar Quintana remite a una reinterpretación de un cuento tradicional. Son propuestas de distinta autoría y planteamiento temático.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287880610"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "908efef972af124e",
+  "origen": "chatgpt-web"
+}

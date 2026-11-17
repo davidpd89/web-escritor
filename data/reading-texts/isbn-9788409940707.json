@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409940707",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Colores de mis memorias (Las estaciones de los McKee), de Joaquín Renero, se sitúa entre la narrativa contemporánea y las biografías y memorias. Puede interesar a quienes buscan lecturas vinculadas con la memoria personal, pero encaja menos con lectores que prefieren historias de terror o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Colores de mis memorias (Las estaciones de los McKee) tiene 159 páginas y puede elegirse en tapa dura, tapa blanda o Kindle. La tapa dura ofrece una encuadernación rígida para conservar el ejemplar; la blanda facilita transportarlo y Kindle permite leerlo en un dispositivo compatible sin llevar el libro físico.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Colores de mis memorias (Las estaciones de los McKee), de Joaquín Renero, puede compararse con Alfred y Emily (Narrativa), de Doris Lessing, por su relación con la narrativa y las experiencias personales. También comparte el ámbito biográfico con Dostoievski, mi marido, de Ana G. Dostoievskaia, aunque este último título identifica expresamente una relación matrimonial como eje de su propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515",
+        "isbn-9791399078251"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f9fe5999984233f0",
+  "origen": "chatgpt-web"
+}

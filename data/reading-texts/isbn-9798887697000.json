@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9798887697000",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a niños que necesitan recursos para reducir la ansiedad, relajarse y conciliar mejor el sueño. El oso Teo y un día de paz en la playa plantea estas cuestiones mediante una historia infantil, por lo que no responde a quien busca un manual clínico de psicología para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La ansiedad infantil, la relajación y el descanso son los asuntos centrales de El oso Teo y un día de paz en la playa. Daniela Vega los aborda mediante técnicas divertidas integradas en un relato ambientado en la playa, con una orientación hacia el bienestar emocional de los niños.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El oso Teo y un día de paz en la playa está disponible en tapa blanda, con 32 páginas en castellano. Su extensión permite leer la historia en sesiones breves y volver a las técnicas de relajación sin manejar un volumen extenso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Oso Teo y un relajante viaje espacial: Técnicas divertidas para ayudar a los niños a reducir la ansiedad.: Técnicas Divertidas Para Ayudar a Los ... Relajarse Y Dormir Mejor (Storybook) comparte con El oso Teo y un día de paz en la playa la autoría de Daniela Vega y el propósito de trabajar la ansiedad infantil. La diferencia está en el escenario: uno recurre al espacio y el otro a la playa para situar sus propuestas de relajación.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9798887696980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1d3946089a2b0f7d",
+  "origen": "chatgpt-web"
+}

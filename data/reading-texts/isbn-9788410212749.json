@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Advenir, de Jose Eceolaza, se dirige a lectores de poesía en castellano que buscan un libro breve de 104 páginas. Por su género, se aleja de las lecturas centradas en una trama narrativa extensa y continuada.",
+      "texto": "Advenir, de Jose Eceolaza, está dirigido a lectores que buscan poesía en castellano. Sus 104 páginas corresponden a una edición de este género, distinta de las propuestas centradas en una trama de misterio o en contenidos de divulgación.",
       "evidencias": [
         "titulo",
         "autores",
@@ -15,7 +15,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Advenir está disponible en tapa blanda, con 104 páginas publicadas por La Consentida Editorial. Su extensión permite llevar el volumen en el bolso y consultar o releer pasajes en papel sin transportar un libro voluminoso.",
+      "texto": "Advenir se presenta en tapa blanda, con 104 páginas, en una edición de La Consentida Editorial. Su extensión permite transportarlo como libro físico de pequeño volumen y volver a consultar sus páginas sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -25,17 +25,16 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Advenir comparte el género poético con Antología, de Antonio Cano, y Antologia amorosa la voz a ti debida y razon de amor, de Pedro Salinas. Frente a la recopilación de la obra completa de Antonio Cano y la orientación amorosa indicada en el título de Pedro Salinas, Advenir es un volumen de 104 páginas firmado por Jose Eceolaza.",
+      "texto": "Advenir comparte su vinculación con la poesía con A solas, de María Jesús Martínez Ramos, y Ahora que te has ido: Corona poética en homenaje a José Manuel de Lara: 249 (Otros títulos), de Manuel José de Lara Ródenas. La segunda obra se identifica expresamente como un homenaje poético, mientras que Advenir se presenta bajo un título independiente. También cambia la autoría: Advenir está firmado por Jose Eceolaza.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288",
-        "isbn-9791370140908"
+        "isbn-9788410907539",
+        "isbn-9791388381485"
       ]
     }
   ],

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399185898",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La primera casa (GATOPARDO), de Avni Doshi, se dirige a lectores interesados en narrativa contemporánea, relaciones familiares y romance. Sus 272 páginas ofrecen una extensión intermedia; por su clasificación temática, queda alejada de quienes buscan aventuras fantásticas o manuales técnicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La primera casa (GATOPARDO) puede leerse en tapa blanda o Kindle. La edición en papel de Gatopardo Ediciones tiene 272 páginas y permite conservar un ejemplar físico; Kindle resulta más práctico para leer en el móvil o en un lector electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La primera casa (GATOPARDO) puede ponerse junto a Al faro: Nueva traducción al español: 82 (Clásicos en español) por su relación con la narrativa literaria. La diferencia está en que el libro de Avni Doshi se clasifica como narrativa contemporánea, romance y familia, mientras que el de Virginia Woolf se presenta como un clásico en nueva traducción. Dime, niña bonita (Narrativa), de Laura Galve, constituye otra comparación dentro de la narrativa, con distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781836472568",
+        "isbn-9791387605964"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6d60940926131492",
+  "origen": "chatgpt-web"
+}

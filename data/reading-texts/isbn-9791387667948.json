@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cultos y sombras se dirige a lectores interesados en las tradiciones ocultas, las creencias religiosas y la espiritualidad. La obra de Acheron Delacroix tiene 208 páginas y aborda estas materias desde una perspectiva temática, por lo que se aleja de quienes buscan novelas de aventuras o relatos de fantasía protagonizados por personajes ficticios.",
+      "texto": "El libro de Acheron Delacroix se dirige a lectores interesados en los cultos, las tradiciones ocultas y la espiritualidad. Su temática se aleja de quienes buscan manuales de nutrición, explicaciones médicas sobre la salud o novelas centradas en una trama de ficción.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "titulo",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Cultos y sombras está disponible en tapa blanda y Kindle, dos opciones para leer sus 208 páginas. La edición física de Luciérnaga CAS permite consultar pasajes en papel y conservar el volumen en una biblioteca; Kindle facilita la lectura en el móvil o en un dispositivo electrónico, sin transportar el ejemplar impreso.",
+      "texto": "La obra de Acheron Delacroix está disponible en tapa blanda y Kindle. La edición física de Luciérnaga CAS tiene 208 páginas y permite consultar el contenido en papel; Kindle facilita llevar la lectura en el móvil o en un lector electrónico compatible.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "autores",
+        "editorial",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cultos y sombras comparte con Artefactos mágicos: El catálogo secreto (MAGIA Y OCULTISMO) su interés por las materias relacionadas con el ocultismo. Acheron Delacroix centra su obra en las tradiciones ocultas del mundo, mientras que Emanuela Brumana y Marco Guadalupi abordan los artefactos mágicos desde una propuesta de catálogo. La diferencia principal está en el objeto de estudio: prácticas y tradiciones frente a objetos vinculados con la magia.",
+      "texto": "Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia comparte con la obra de Acheron Delacroix el interés por la espiritualidad, pero aborda la consciencia en lugar de las tradiciones ocultas. Caminando a través de la sombra, de Calvin Amandus, también incorpora la sombra a su planteamiento, mientras que el libro de Delacroix centra su temática en los cultos y las tradiciones ocultas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411724210"
+        "isbn-9798888505335",
+        "isbn-9798182903509"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c8e34d83a890ded2",
+  "fuente_hash": "2aa98e69c4b43d71",
   "origen": "chatgpt-web"
 }

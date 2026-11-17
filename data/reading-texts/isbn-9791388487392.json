@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388487392",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sss class revival hunter vol.04 se dirige a lectores de cómic y novela gráfica que buscan una entrega identificada por volumen. El título señala el vol.04, por lo que no responde a quien busca una obra presentada como volumen único. La edición en castellano reúne 350 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sss class revival hunter vol.04 está disponible en tapa blanda, en edición bunko de Ivrea. Sus 350 páginas forman un volumen físico que puede guardarse junto a otras entregas de una colección. Es la opción para quien prefiere leer en papel y conservar el ejemplar en una estantería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "628222cec02d6910",
+  "origen": "chatgpt-web"
+}

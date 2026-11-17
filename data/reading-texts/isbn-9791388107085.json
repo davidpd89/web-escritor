@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388107085",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El ebanista del Cristo Negro se dirige a lectores que buscan una obra de misterio. Su título introduce la figura de un ebanista y una referencia religiosa, aunque el encuadre editorial es el de misterio y thriller. Se aleja de quienes prefieren libros centrados exclusivamente en técnicas de carpintería o artesanía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El ebanista del Cristo Negro está disponible en tapa blanda, con 304 páginas en castellano. Esta edición de Editorial Sargantana ofrece una lectura en papel con cubierta flexible, adecuada para transportarla y continuarla en distintas sesiones. Su extensión permite repartir el misterio a lo largo de varios días de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El ebanista del Cristo Negro comparte el terreno del misterio con Aberración, de Santiago López de Hoyos, y Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), de Ann Cleeves. La obra de Loli Galeano se distingue por la referencia a un ebanista y al Cristo Negro en su título, mientras las otras presentan identidades temáticas diferentes. Las tres permiten explorar propuestas de misterio de distintas autorías.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399297508",
+        "isbn-9788410424524"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "caf61ef852e58698",
+  "origen": "chatgpt-web"
+}

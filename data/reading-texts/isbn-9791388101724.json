@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388101724",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La caja azul nº 15 (Manga Shonen) está orientado a lectores de manga juvenil y cómic en formato de novela gráfica. Por su presentación como manga shonen, encaja menos con quienes buscan una novela escrita únicamente en prosa o un libro de divulgación sin viñetas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La caja azul nº 15 (Manga Shonen) se ofrece en tapa blanda, con 192 páginas editadas por Planeta Cómic. El volumen físico permite seguir las viñetas en papel y conservarlo junto a otros tomos de la colección, sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La caja azul nº 15 (Manga Shonen) y Animal Jack 2 la montaña mágica pertenecen al ámbito del cómic juvenil. La diferencia está en su identificación editorial y autoría: la obra de Köji Miura se presenta como manga shonen, mientras que la de Kid Toussaint se identifica mediante un título de aventura con un componente mágico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387744410"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "84c2a0e87e05bc9b",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rosa, el troll Pol y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 10 está dirigido al público infantil y a quienes buscan cuentos para la hora de acostarse. Sus 28 páginas permiten una lectura breve; no responde a la búsqueda de una novela juvenil extensa.",
+      "texto": "Rosa, el troll Pol y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 10 se dirige al público infantil y a quienes buscan cuentos para la hora de acostarse. Por su planteamiento y sus 28 páginas, se aleja de las novelas juveniles extensas y de las lecturas dirigidas a adultos.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,20 +13,20 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Rosa, el troll Pol y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 10 se presenta en tapa blanda, con 28 páginas en castellano. Es una opción física de extensión reducida para leer en casa o llevar de viaje, sin necesidad de un dispositivo electrónico.",
+      "texto": "La tapa blanda permite leer y compartir físicamente las 28 páginas de Rosa, el troll Pol y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 10. La edición Kindle ofrece el mismo título en formato digital, para llevarlo en un lector electrónico o consultarlo desde el móvil.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rosa, la dragona Ramona y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 11 comparte autor, personajes y orientación hacia la lectura antes de dormir. La diferencia está en la criatura que acompaña a Rosa y Rosalino: un troll en este título y una dragona en el otro. Ambos pertenecen a los cuentos de David Valcárcel Crespo.",
+      "texto": "Rosa, la dragona Ramona y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 11 comparte autor, protagonistas recurrentes y orientación hacia los cuentos para dormir. En Rosa, el troll Pol y el gato Rosalino: Un cuento para dormir de Rosa y Rosalino: 10, el personaje que distingue el título es un troll, mientras que en el otro es una dragona; ambos pertenecen a la propuesta infantil de David Valcárcel Crespo.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -36,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4fcd44d408c8b345",
+  "fuente_hash": "2efe6fc95ebef5b9",
   "origen": "chatgpt-web"
 }

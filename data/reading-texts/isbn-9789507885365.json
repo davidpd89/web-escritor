@@ -4,25 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal), de David Gómez, trata la pérdida de un animal desde el duelo y el desarrollo personal. Se dirige a lectores interesados en afrontar esa ausencia, más que a quienes buscan una novela de ficción o una guía centrada exclusivamente en relaciones de pareja.",
+      "texto": "Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal) se orienta a lectores interesados en afrontar la pérdida de un animal desde el desarrollo personal y el bienestar. Por su enfoque en el duelo y la ausencia, no corresponde a quienes buscan una novela de ficción o un manual de alimentación.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal) ofrece 264 páginas en tapa blanda para leer y consultar en papel. Kindle facilita la consulta digital desde el móvil o un lector electrónico; el audiolibro permite escuchar el contenido sin mantener la atención en una pantalla o página.",
+      "texto": "Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal) ofrece tres opciones: tapa blanda, Kindle y audiolibro. Sus 264 páginas pueden consultarse en papel o leerse desde un dispositivo compatible con Kindle; el audiolibro permite escuchar el contenido mientras se realizan otras actividades.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal) comparte el tema de la pérdida con El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada. David Gómez centra su obra en la ausencia de un animal, mientras que Irma Vallès Hernàndez aborda el fallecimiento de una persona querida.",
+      "texto": "Duelo animal: Entre el dolor de la ausencia y el amor que permanece (Crecimiento personal) comparte autor con El Escudo de Valor / The Value Shield, también de David Gómez. Frente a 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, centrado por su título en la longevidad, aborda específicamente la pérdida de un animal y el vínculo afectivo que permanece.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409921065"
+        "isbn-9786287878389",
+        "isbn-9791387852290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "26a1fdb0b4ebcc4e",
+  "fuente_hash": "b75aca9f007163d0",
   "origen": "chatgpt-web"
 }

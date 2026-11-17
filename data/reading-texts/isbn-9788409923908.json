@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409923908",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Plantación adentro: El precio biológico del azúcar en Cuba encaja con lectores de historia y ensayo interesados en las consecuencias biológicas de la producción azucarera cubana. No está dirigido a quienes buscan ficción histórica con personajes y una trama novelesca, sino a quienes prefieren abordar ese asunto desde la no ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Plantación adentro: El precio biológico del azúcar en Cuba tiene una edición en tapa blanda de 252 páginas. El soporte impreso permite consultar el ensayo y regresar a pasajes concretos sobre su asunto histórico, con una extensión intermedia para una lectura de no ficción.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Plantación adentro: El precio biológico del azúcar en Cuba y Amor y sexo en España contado para escépticos (Historia) comparten el tratamiento de asuntos históricos desde la no ficción. Reinier B. Moreno se centra en el azúcar y sus costes biológicos en Cuba, mientras que Juan Eslava Galán aborda la historia del amor y el sexo en España. Los temas y ámbitos geográficos de ambos libros son distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326441"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "053633a362be4a16",
+  "origen": "chatgpt-web"
+}

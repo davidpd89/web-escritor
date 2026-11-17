@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388075476",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historias de la curiosidad cientifica, de Carly Anne York, encaja con lectores interesados en la divulgación científica y los enfoques biográficos. Sus 224 páginas se sitúan en el terreno de la no ficción, por lo que responde menos a quien busca una novela de misterio o una aventura imaginaria.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historias de la curiosidad cientifica se ofrece en tapa blanda y Kindle. La edición impresa reúne 224 páginas para leer y consultar en papel, mientras que Kindle permite llevar el contenido digital en un lector electrónico o en un móvil compatible.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historias de la curiosidad cientifica comparte el interés por la ciencia con El universo espiritual de Einstein: Cómo la ciencia moldeó su visión de Dios, la conciencia y el cosmos (Divulgación científica). Carly Anne York aborda la curiosidad científica desde un título de alcance general, mientras que Kieran Fox centra el suyo en la relación entre ciencia y pensamiento de Einstein.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388075469"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f82703caf79204e5",
+  "origen": "chatgpt-web"
+}

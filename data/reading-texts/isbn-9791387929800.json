@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387929800",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "UE ante el nuevo escenario global. se dirige a lectores interesados en la política y las relaciones de poder en el contexto internacional. Por su enfoque político, encaja menos con quienes buscan una narración histórica o una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "UE ante el nuevo escenario global. y A la sombra del Estado abordan cuestiones relacionadas con el poder. El libro de Tomas Gutierrez Roa plantea el escenario global desde la perspectiva de la UE, mientras que el de Luis de la Corte Ibáñez se centra en el espionaje, las operaciones encubiertas y la guerra híbrida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441057"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4b2f29db73795da1",
+  "origen": "chatgpt-web"
+}

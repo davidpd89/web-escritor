@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791388376092",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Salus in periculis: el mundo sanitario como sujeto de investigación histórica se dirige a lectores interesados en la historia de la sanidad y la investigación sobre el pasado. Sus 117 páginas y su planteamiento divulgativo lo distinguen de los manuales de formación técnica o de las publicaciones centradas exclusivamente en la práctica clínica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Salus in periculis: el mundo sanitario como sujeto de investigación histórica aborda la sanidad desde una perspectiva historiográfica. Su planteamiento convierte el ámbito sanitario en objeto de estudio histórico, en lugar de centrar el análisis en procedimientos médicos o explicaciones clínicas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda concentra las 117 páginas de Salus in periculis: el mundo sanitario como sujeto de investigación histórica en un volumen físico manejable. Es el formato de esta edición para quien prefiere consultar el contenido en papel, tomar notas o conservarlo como parte de una biblioteca temática.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Salus in periculis: el mundo sanitario como sujeto de investigación histórica puede compararse con A Força Aerea Portuguesa en Africa, 1961-74 por su aproximación histórica a un ámbito específico. Se diferencian en el objeto de estudio: el primero aborda el mundo sanitario y el segundo se ocupa de la actividad de una fuerza aérea durante un periodo histórico concreto.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798237728583"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "35cfd970b9602eb6",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388324253",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El libro de los pájaros: Una guía de campo para los amantes de la belleza (Ático de los Libros) se dirige a quienes se interesan por las aves, la naturaleza y la divulgación científica vinculada al tiempo libre. Su planteamiento como guía de campo lo aleja de quienes buscan una novela o una obra centrada en actividades deportivas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El libro de los pájaros: Una guía de campo para los amantes de la belleza (Ático de los Libros) se publica en tapa dura, con 384 páginas en castellano. La cubierta rígida aporta protección para conservarlo y consultarlo repetidamente, aunque resulta menos flexible que una encuadernación blanda para transportarlo en salidas al campo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El libro de los pájaros: Una guía de campo para los amantes de la belleza (Ático de los Libros) y CÓMO AYUDAR A LOS ERIZOS: Más de 100 ideas para transformar tu jardín en un refugio para la naturaleza comparten el interés por los animales y su entorno. Robert Macfarlane presenta una guía de campo centrada en las aves, mientras que Helen Bostock y Sophie Collins se ocupan de medidas para favorecer a los erizos en el jardín. La diferencia principal está entre la observación de pájaros y la intervención en un espacio doméstico para ayudar a otra especie.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399220322"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a9dc9bb59ea7877c",
+  "origen": "chatgpt-web"
+}

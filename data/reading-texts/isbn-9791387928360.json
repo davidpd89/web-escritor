@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas) se dirige a lectores de historia, memorias y relatos personales vinculados a un territorio concreto. Su enfoque testimonial y sus 432 páginas encajan menos con quien busca ficción o una introducción histórica muy breve.",
+      "texto": "El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas) se dirige a lectores interesados en historia, memorias y testimonios personales vinculados a un país y su población. Por su planteamiento documental y su extensión de 432 páginas, encaja menos con quien busca ficción o una introducción breve y generalista.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "El libro aborda Afganistán y sus habitantes desde una perspectiva en primera persona, tal como anuncia su título. La obra de Lyse Doucet se sitúa entre las memorias, la historia y el ensayo, por lo que combina un enfoque personal con el interés por el contexto histórico y humano.",
+      "texto": "El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas) aborda Afganistán y sus habitantes desde una perspectiva en primera persona. La obra de Lyse Doucet se sitúa entre la historia, las biografías y memorias y el ensayo. Su planteamiento vincula el conocimiento de un país con una mirada testimonial, en lugar de presentarse como una historia de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,30 +22,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible de El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas) es en tapa blanda. Sus 432 páginas permiten una lectura prolongada en papel, con una encuadernación flexible que facilita llevar el libro en una bolsa o mochila.",
+      "texto": "El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas) está disponible en tapa blanda. Esta edición de Salamandra contiene 432 páginas en castellano, una extensión que conviene tener en cuenta para transportarla o leerla durante desplazamientos. El formato físico permite consultar y retomar sus páginas sin utilizar un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "edicion",
+        "editorial",
         "numero_paginas",
-        "edicion"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Campo de concentración: 82 (Biblioteca del Exilio) comparte con El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas) el interés por la historia y las experiencias humanas. El primero remite al exilio y al internamiento, mientras que la obra de Lyse Doucet sitúa su perspectiva personal en Afganistán y sus habitantes.",
+      "texto": "El mejor hotel de Kabul: Una historia en primera persona de Afganistán y sus gentes (Salamandra Miradas) se aproxima a La ruta de la alfalfa: Diarios en tiempos de guerra por el interés en experiencias personales situadas en contextos históricos. Lyse Doucet centra su título en Afganistán y sus habitantes, mientras que Luis Fernando Novales presenta una obra identificada como diarios de guerra. La primera destaca su perspectiva testimonial sobre un país; la segunda, la forma de diario.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410148659"
+        "isbn-9788410929982"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ad937d7ff42d6a5d",
+  "fuente_hash": "6bf10155e8da26fc",
   "origen": "chatgpt-web"
 }

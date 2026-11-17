@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786073874298",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Misticismo indígena / Indigenous Mysticism, de Jacobo Grinberg-Zylberbaum, se orienta a lectores interesados en el misticismo desde el ensayo, la filosofía y la psicología. Sus 192 páginas en castellano ofrecen una extensión acotada; no responde a quien busca una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Misticismo indígena / Indigenous Mysticism se presenta en tapa blanda, con 192 páginas en castellano. Esta edición de Penguin Random House Grupo Editorial permite leerlo en papel y transportarlo sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Misticismo indígena / Indigenous Mysticism y La cosmovisión de los chamanes / The Worldview of the Shamans comparten autor, Jacobo Grinberg-Zylberbaum, y una referencia temática a tradiciones espirituales. El primero señala el misticismo indígena como asunto central; el segundo dirige la atención hacia la cosmovisión de los chamanes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9786073874274"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b4bdd9e444dbcd26",
+  "origen": "chatgpt-web"
+}

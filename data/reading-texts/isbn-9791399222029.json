@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9791399222029",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "G Alicia en el País de las Maravillas: Una aproximación a la realidad de Galicia inspirada en el ensueño se dirige a lectores interesados en el ensayo político y en la realidad gallega. Su planteamiento combina una referencia literaria con un asunto territorial concreto, por lo que se distancia de una lectura centrada exclusivamente en la ficción fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Fernando González Laxe y José Luis Gómez proponen una aproximación a la realidad de Galicia mediante una referencia al universo de Alicia en el País de las Maravillas. El título vincula esa mirada con el ensueño, mientras que su clasificación editorial la sitúa en el ensayo y la política. El centro temático es Galicia, tratada desde un planteamiento que incorpora elementos literarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra está disponible en tapa blanda, con 374 páginas publicadas por Mundiediciones. El soporte en papel facilita subrayar argumentos, añadir anotaciones y consultar fragmentos durante la lectura. Es una edición en castellano para quienes prefieran trabajar con un ensayo extenso en formato físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte el interés por las cuestiones políticas, pero se centra en una corriente de pensamiento económico y político. Crítica de la razón geopolítica (Nuevos cuadernos Anagrama) también plantea una reflexión política desde su título. La obra de Fernando González Laxe y José Luis Gómez delimita su mirada a la realidad de Galicia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788433951175"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4808a56121247a0",
+  "origen": "chatgpt-web"
+}

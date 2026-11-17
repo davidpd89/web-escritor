@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788411078344",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El corazón revolucionario del mundo: XXI Premio Tusquets Editores de Novela 2025 (MAXI) se orienta a lectores de narrativa contemporánea interesados en el poder y la política. Su clasificación temática lo separa de las novelas centradas exclusivamente en el romance o la fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El corazón revolucionario del mundo: XXI Premio Tusquets Editores de Novela 2025 (MAXI) se presenta en una edición de bolsillo de tapa blanda y 224 páginas. El formato facilita llevar el libro en una bolsa y leerlo fuera de casa, manteniendo una edición física en castellano.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formato_edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El corazón revolucionario del mundo: XXI Premio Tusquets Editores de Novela 2025 (MAXI) puede compararse con Inverness, California (Andanzas), también de Francisco Serrano. La coincidencia de autoría permite explorar dos obras del mismo escritor, mientras que el primero se identifica expresamente con la narrativa contemporánea y los asuntos de poder y política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411078672"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a9710c567556b5a",
+  "origen": "chatgpt-web"
+}

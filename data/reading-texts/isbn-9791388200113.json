@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388200113",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo II se orienta a lectores interesados en el pop-rock y en publicaciones dedicadas a ese periodo musical. Con 105 páginas, ofrece una extensión mayor que otras entregas relacionadas, aunque no responde a quien busque una lectura ajena a la música.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo II está disponible en tapa blanda y reúne 105 páginas. Esta edición permite consultar el contenido en papel y conservarlo junto a los demás capítulos de Daniel Muneta, con una extensión manejable para transportarlo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo II guarda relación directa con EL POP-ROCK DE LOS 60' - Capítulo I y EL POP-ROCK DE LOS 60' - Capítulo III. Todos llevan la firma de Daniel Muneta y abordan el periodo musical anunciado por sus títulos, pero corresponden a capítulos identificados con numeración diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388200106",
+        "isbn-9791388200120",
+        "isbn-9791388200137",
+        "isbn-9791388200182",
+        "isbn-9791388200144"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "37503da2b6fa70b4",
+  "origen": "chatgpt-web"
+}

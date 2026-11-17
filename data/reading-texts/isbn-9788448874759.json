@@ -4,30 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos), de Carlos Pazos, se dirige a lectores infantiles interesados en aventuras espaciales y ciencia ficción. Sus 40 páginas lo distinguen de una novela extensa y de los libros centrados exclusivamente en situaciones cotidianas.",
+      "texto": "Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos) se orienta a lectores interesados en aventuras espaciales y ciencia ficción. Sus 40 páginas ofrecen una extensión reducida frente a novelas largas, aunque el enfoque científico y aventurero se aleja de quien busca historias realistas sin elementos espaciales.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos) cuenta con una edición en tapa dura de 40 páginas. La cubierta rígida permite conservar este volumen breve de aventuras espaciales para lecturas repetidas y su presentación física resulta adecuada para regalar.",
+      "texto": "La tapa dura es el formato disponible de Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos). Sus 40 páginas forman un volumen físico de Beascoa, manejable para sesiones de lectura cortas y para conservar junto a otros libros de aventuras científicas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos) se relaciona directamente con Clic y Clara en la era de los dinosaurios: Las aventuras más científicamente divertidas (Pequeños curiosos). Ambos títulos son de Carlos Pazos y comparten protagonistas y planteamiento de aventuras científicas; el primero se sitúa en el espacio y el segundo remite a la era de los dinosaurios.",
+      "texto": "Clic y Clara en el espacio: Las aventuras más científicamente divertidas (Pequeños curiosos) comparte autoría y orientación aventurera con Clic y Clara en la era de los dinosaurios: Las aventuras más científicamente divertidas (Pequeños curiosos), también de Carlos Pazos. La diferencia principal está en el escenario anunciado por cada título: el espacio frente a la era de los dinosaurios. Ambos mantienen la referencia a la ciencia y a las aventuras.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -37,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "581dd4ab783cafe1",
+  "fuente_hash": "488e381ef5a53571",
   "origen": "chatgpt-web"
 }

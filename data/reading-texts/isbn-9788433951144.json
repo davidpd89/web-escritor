@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788433951144",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Qué soy, un ciervo? (Panorama de narrativas) se encuadra en la narrativa contemporánea y se dirige a quienes buscan ficción dentro de ese ámbito editorial. La obra de Polly Barton tiene 272 páginas, por lo que se ajusta mejor a una búsqueda de extensión intermedia que a la de una novela especialmente larga; no está clasificada como fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Qué soy, un ciervo? (Panorama de narrativas) cuenta con una edición en tapa blanda de 272 páginas. El volumen de Editorial Anagrama ofrece lectura en papel, sin necesidad de batería ni pantalla, y su extensión permite transportarlo con menos volumen que una edición de muchas más páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1bf6924ceaf931cf",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388401428",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El sueño de una loca, de Fernando Markaida Arcona, está dirigido a lectores de poesía que buscan un libro de extensión contenida. Sus 114 páginas lo diferencian de las novelas largas y lo alejan de quienes prefieren una narración desarrollada mediante capítulos de prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El sueño de una loca cuenta con una edición en tapa blanda de 114 páginas, publicada por Diversidad Literaria SL. Su extensión facilita llevar el ejemplar en papel y volver a consultar distintas páginas durante la lectura de poesía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El sueño de una loca se puede comparar con A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza, dentro de una selección de lecturas poéticas. La diferencia identificable está en la autoría: El sueño de una loca pertenece a Fernando Markaida Arcona, mientras que las otras obras corresponden a escritores distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b23bdeb699899279",
+  "origen": "chatgpt-web"
+}

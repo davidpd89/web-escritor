@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Bodas de sangre. Edición ilustrada (Austral Ilustrados) se dirige a quienes buscan una obra de Federico García Lorca en una presentación que incorpora el componente visual. Su extensión de 144 páginas permite distinguirla de recopilaciones amplias; no responde a quien busque una edición centrada exclusivamente en el texto y sin ilustraciones.",
+      "texto": "Se dirige a lectores interesados en la obra de Federico García Lorca y en ediciones que incorporan una dimensión visual. Bodas de sangre. Edición ilustrada (Austral Ilustrados) combina su clasificación en poesía y arte y diseño con una extensión de 144 páginas. Quien busque narrativa contemporánea de gran extensión encontrará aquí una propuesta editorial distinta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,42 +14,42 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Austral Editorial publica Bodas de sangre. Edición ilustrada (Austral Ilustrados) en tapa dura y con una extensión de 144 páginas. La identificación como edición ilustrada diferencia esta presentación de otras versiones de la obra de Federico García Lorca. Está prevista para el 25 de noviembre de 2026, en castellano, con ISBN 9788408328148.",
+      "texto": "Bodas de sangre. Edición ilustrada (Austral Ilustrados) se presenta como una edición ilustrada en tapa dura publicada por Austral Editorial. Contiene 144 páginas en castellano y su fecha de publicación es el 25 de noviembre de 2026. El ISBN 9788408328148 identifica esta presentación específica de la obra de Federico García Lorca.",
       "evidencias": [
         "titulo",
         "autores",
         "editorial",
         "edicion",
         "numero_paginas",
-        "fecha_publicacion",
         "idioma",
+        "fecha_publicacion",
         "isbn13"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 144 páginas de esta edición ilustrada de Austral Editorial en un volumen físico que puede conservarse o regalarse. Kindle permite leer la obra desde un dispositivo electrónico, mientras que el audiolibro ofrece una experiencia de escucha. Quien busque específicamente la presentación ilustrada en papel puede optar por la tapa dura.",
+      "texto": "La tapa dura permite conservar físicamente las 144 páginas de Bodas de sangre. Edición ilustrada (Austral Ilustrados), una presentación orientada también al regalo. Kindle facilita la lectura digital en dispositivos compatibles, mientras que el audiolibro ofrece una alternativa basada en la escucha. Para quien prioriza el objeto ilustrado, la edición física de Austral Editorial aporta el formato anunciado en su título.",
       "evidencias": [
         "titulo",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Trilogía rural (edición coleccionista): Bodas de sangre, Yerma y La casa de Bernarda Alba comparte autor y contiene Bodas de sangre, pero reúne tres obras de Federico García Lorca en lugar de centrarse en una sola. Romancero gitano (VINTAGE) permite comparar otro título del mismo autor vinculado a la poesía. Bodas de sangre. Edición ilustrada (Austral Ilustrados) se distingue por su presentación ilustrada en tapa dura y sus 144 páginas.",
+      "texto": "Bodas de sangre. Edición ilustrada (Austral Ilustrados) puede compararse con Romancero gitano (edición especial con cantos tintados) (Literatura ilustrada), ya que ambas propuestas vinculan la obra de Federico García Lorca con una presentación visual diferenciada. La primera se identifica como edición ilustrada en tapa dura; la segunda destaca expresamente sus cantos tintados. También comparten autoría con Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada), aunque se trata de títulos diferentes.",
       "evidencias": [
         "titulo",
         "autores",
         "edicion",
-        "numero_paginas",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388435157",
-        "isbn-9788427257467"
+        "isbn-9791388220272",
+        "isbn-9791388220265",
+        "isbn-9791388435157"
       ]
     }
   ],

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370385804",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mecanismos y dispositivos. Narrativa audiovisual para nuevos cineastas (Márgenes) se dirige a lectores interesados en la construcción de relatos audiovisuales y el aprendizaje cinematográfico. Su enfoque temático resulta más pertinente para quienes estudian o practican la creación audiovisual que para quienes buscan una novela juvenil de ficción. Reúne trabajos de siete autores en 268 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Mecanismos y dispositivos. Narrativa audiovisual para nuevos cineastas (Márgenes) está publicada en tapa blanda y contiene 268 páginas. El soporte físico facilita consultar apartados, tomar notas y recuperar contenidos durante el estudio de la narrativa audiovisual. Tirant Humanidades la edita en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El cine doméstico. Definición, preservación y apropiación (Plural) comparte con este libro el interés por el ámbito audiovisual y la autoría colectiva; el primero aborda la conservación y reutilización del cine doméstico, mientras que el segundo se centra en la narrativa para nuevos cineastas. Ambos tratan cuestiones cinematográficas desde perspectivas distintas: el estudio de materiales existentes frente a la construcción de relatos audiovisuales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370384128"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ddc61df83da6ad42",
+  "origen": "chatgpt-web"
+}

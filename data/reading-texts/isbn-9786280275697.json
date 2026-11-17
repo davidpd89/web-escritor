@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786280275697",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sanar el alma financiera: Un camino de restauración para administrar con libertad se dirige a lectores interesados en relacionar la administración del dinero con la espiritualidad. Sus 128 páginas sitúan la propuesta en una extensión breve, distinta de un manual centrado exclusivamente en cálculos económicos o inversiones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sanar el alma financiera: Un camino de restauración para administrar con libertad está disponible en tapa blanda. La edición de 128 páginas ofrece un volumen físico relativamente corto, que puede transportarse y consultarse sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sanar el alma financiera: Un camino de restauración para administrar con libertad puede compararse con Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación por su orientación espiritual. Diana M. Campos vincula esa perspectiva con la administración financiera, mientras que Tsondru Yeshe se centra en los fundamentos y la práctica del Dharma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "47d43614da8ca5fd",
+  "origen": "chatgpt-web"
+}

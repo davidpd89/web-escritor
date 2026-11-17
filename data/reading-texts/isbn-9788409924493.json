@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409924493",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "IRREMPLAZABLE EN LA ERA DE LA IA: Cómo volverte clave en tu sector se dirige a lectores interesados en la inteligencia artificial y su relación con el posicionamiento profesional. Su enfoque combina cuestiones empresariales y divulgación científica, por lo que se aleja de quienes buscan ficción o una lectura desvinculada del entorno laboral.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "IRREMPLAZABLE EN LA ERA DE LA IA: Cómo volverte clave en tu sector está disponible en tapa blanda y Kindle. La edición impresa reúne 244 páginas y facilita la consulta física; Kindle permite llevar el contenido en un lector electrónico o en el móvil sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "IRREMPLAZABLE EN LA ERA DE LA IA: Cómo volverte clave en tu sector y Asistentes y agentes empresariales con IA comparten el interés por la inteligencia artificial aplicada al trabajo. El primero se centra, desde su título, en el papel profesional de la persona; ChatGPT para tu clínica dental: Usa la inteligencia artificial con criterio y protege los datos de tus pacientes (Colección Inteligencia Clínica) acota su aplicación al ámbito odontológico y a la protección de datos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426742704",
+        "isbn-9788409928231"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bf32127ee8afc59b",
+  "origen": "chatgpt-web"
+}

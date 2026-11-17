@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370520243",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cadenas invisibles Núm. 02: 2, de Minami Qta, se dirige a lectores juveniles interesados en el cómic y la novela gráfica, con una clasificación que también incluye el ensayo. El título lo identifica como el n.º 02, por lo que se distingue de las obras presentadas sin numeración.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cadenas invisibles Núm. 02: 2 se presenta en tapa blanda, con 318 páginas en castellano. La edición de Devir ofrece un volumen físico que puede colocarse junto a otros títulos numerados y consultarse en papel, sin necesidad de pantalla ni conexión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cadenas invisibles Núm. 02: 2 y El Barón Rampante: 5 (Siruela Gráfica) comparten su vinculación con la narrativa gráfica. La primera obra, de Minami Qta, se clasifica también como ensayo y narrativa juvenil; la segunda, de Sara Colaone, aparece identificada con la colección Siruela Gráfica y una numeración diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388032776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "db1b70493e6a04b1",
+  "origen": "chatgpt-web"
+}

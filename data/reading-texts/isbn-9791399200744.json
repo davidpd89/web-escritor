@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399200744",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Recuerdos se dirige a lectores interesados en las memorias personales y su relación con el ámbito artístico. La obra de Manuel Iborra pertenece a la no ficción biográfica, por lo que se distancia de las novelas de argumento inventado y de los manuales prácticos de arte y diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Recuerdos se publica en tapa blanda y reúne 300 páginas en castellano. Esta edición ofrece una lectura física de extensión media, adecuada para avanzar por sesiones y conservar el volumen en una biblioteca personal sin recurrir a dispositivos de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Recuerdos puede ponerse junto a Desde que era un crío por su vinculación con la memoria y la mirada hacia experiencias pasadas. La obra de Manuel Iborra se sitúa en las memorias y el ámbito artístico, mientras que el título de Locus apunta expresamente a una perspectiva sobre la infancia. Son propuestas de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399084894"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea5c17be90f44b29",
+  "origen": "chatgpt-web"
+}

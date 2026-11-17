@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388078705",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta obra se dirige a lectores que necesitan estudiar la pensión de viudedad y otras prestaciones desde sus dimensiones económicas, laborales y civiles, incluidos supuestos especiales. Sus 1500 páginas y su materia jurídica la alejan de una guía breve o de una lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La pensión de viudedad y otras prestaciones: Económicas, laborales, civiles y supuestos especiales se publica en tapa blanda bajo el sello La LEY. Sus 1500 páginas hacen que resulte más manejable como volumen de consulta sobre una mesa que como lectura de bolsillo, aunque la cubierta flexible facilita su apertura.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) comparte el carácter jurídico especializado, pero se centra en las sanciones administrativas frente a las prestaciones de viudedad. Argumentacion Juridica, de Carlos Parma, aborda la argumentación en derecho, mientras que esta obra delimita su materia a prestaciones y supuestos económicos, laborales y civiles.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610562",
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a63b86f1230ace4d",
+  "origen": "chatgpt-web"
+}

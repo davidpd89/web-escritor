@@ -4,35 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los pecados de mis hermanas, de J. V. Gachs, encaja con lectores interesados en relatos de terror escritos en castellano. Sus 184 páginas ofrecen una extensión contenida dentro del género, por lo que se aleja de las preferencias de quien busca una novela larga o una lectura ajena al terror.",
+      "texto": "Los pecados de mis hermanas está dirigido a lectores de relatos de terror. J. V. Gachs firma una obra de 184 páginas que encaja con quienes buscan este género en una extensión contenida, pero no con quienes prefieren lecturas ajenas al miedo o a la narrativa breve.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los pecados de mis hermanas se presenta en tapa blanda, con 184 páginas en castellano. Su extensión permite disponer de una edición física relativamente breve para leer y guardar, sin necesidad de recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
         "idioma"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "Los pecados de mis hermanas está disponible en tapa blanda, con una extensión de 184 páginas. Esta edición de Stoker permite leer los relatos en papel y transportar el volumen sin recurrir a un dispositivo electrónico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "editorial",
-        "categorias"
-      ]
-    },
-    {
       "modulo": "lecturas_afines",
-      "texto": "Los pecados de mis hermanas comparte el género de terror con Cuentos de Terror / Horror Stories, de H P Lovecraft, y Después de medianoche, de Daphne Du Maurier. Los tres títulos se relacionan con relatos de terror, pero el libro de J. V. Gachs ofrece 184 páginas en castellano y se distingue por su autoría frente a las otras dos obras.",
+      "texto": "Los pecados de mis hermanas se relaciona con Cuentos de Terror / Horror Stories, de H P Lovecraft, por su vinculación con los relatos de terror. La diferencia está en la autoría: J. V. Gachs firma el primero, mientras que el segundo reúne una propuesta de terror asociada a H P Lovecraft.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "idioma",
         "afines_catalogo"
       ],
       "enlaces": [

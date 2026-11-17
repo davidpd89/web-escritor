@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788409923342",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Terrarium: El iluminador de las cavernas, de Nefta Nervo, se dirige a quienes buscan ciencia ficción en castellano. Sus 238 páginas lo sitúan en una extensión intermedia; por género, queda fuera de las preferencias centradas exclusivamente en narrativa realista o libros prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Terrarium: El iluminador de las cavernas puede leerse en tapa blanda o Kindle. La edición física reúne sus 238 páginas en papel, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Terrarium: El iluminador de las cavernas comparte el terreno de la ciencia ficción con Al despertar, rompe el cascarón (Runas), de Becky Chambers, y Aunque se acabe el mundo, de Clara Duarte. Este último plantea una transformación de la humanidad ligada a una cúpula sobre la Tierra; Terrarium: El iluminador de las cavernas se distingue por su autoría, Nefta Nervo, y su identidad editorial propia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370093488",
+        "isbn-9788427255968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aaa6123cac9e02c3",
+  "origen": "chatgpt-web"
+}

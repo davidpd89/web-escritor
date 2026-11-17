@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388540066",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "PISANDO FUERTE: Dejando huella sin permiso está dirigido a quienes buscan un ensayo relacionado, por su título, con la afirmación personal y la voluntad de dejar huella. Su clasificación como ensayo lo diferencia de una novela de ficción o de una colección de relatos narrativos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "PISANDO FUERTE: Dejando huella sin permiso se presenta en tapa blanda, con 150 páginas en castellano. Esta edición de Livensoul ofrece un volumen físico de extensión contenida, que puede leerse de principio a fin o retomarse para consultar pasajes concretos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "PISANDO FUERTE: Dejando huella sin permiso comparte autor con DEPRESIÓN: La enfermedad invisible y PÁRKINSON: Vivir mejor es posible, ambos de Manel Rodriguez Moreno. Mientras estos dos títulos se centran expresamente en enfermedades y sus implicaciones, PISANDO FUERTE: Dejando huella sin permiso plantea desde su título una reflexión sobre la iniciativa personal. La coincidencia está en la autoría, no en el asunto anunciado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388540042",
+        "isbn-9791388540080"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fa33a4f09bfb95d",
+  "origen": "chatgpt-web"
+}

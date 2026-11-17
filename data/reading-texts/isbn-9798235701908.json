@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798235701908",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Caída De Los Fantasmas se dirige a lectores de aventuras y novela histórica que buscan una obra de extensión breve. Sus 46 páginas la distinguen de las novelas históricas de mayor recorrido, mientras que su clasificación temática la aleja de los manuales y la no ficción práctica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Caída De Los Fantasmas cuenta con una edición en tapa blanda de 46 páginas, publicada en castellano. Su extensión permite abordar el libro en una sesión de lectura relativamente corta y conservarlo como un volumen físico de dimensiones reducidas en número de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Caída De Los Fantasmas comparte autor con Sensaciones Antes De Asesinar, ambas obras firmadas por Edgar Sehuincho Mamani. También se relaciona con Africanus (Trilogía Africanus 1) (edición conmemorativa 20.º aniversario) (Histórica) por su adscripción a la narrativa histórica, aunque La Caída De Los Fantasmas consta de 46 páginas y combina esa clasificación con aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9798237863215",
+        "isbn-9788466681902"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d1d910f701059815",
+  "origen": "chatgpt-web"
+}

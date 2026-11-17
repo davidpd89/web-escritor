@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788466390842",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "The Master: Retrato del novelista adulto (Contemporánea | Narrativa) se dirige a quienes leen novela histórica y narrativa contemporánea, con interés por los retratos de figuras literarias. Su combinación de géneros queda lejos de las lecturas centradas en la fantasía o en la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "The Master: Retrato del novelista adulto (Contemporánea | Narrativa) tiene una edición de bolsillo en tapa blanda, con 472 páginas en castellano. El formato de Penguin Bolsillo permite transportar la novela en papel y guardarla ocupando menos espacio que una edición de mayor tamaño.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Mago. La historia de Thomas Mann (Contemporánea | Narrativa) y The Master: Retrato del novelista adulto (Contemporánea | Narrativa) comparten autor, Colm Tóibín, y su interés por figuras vinculadas a la literatura. El primero identifica expresamente a Thomas Mann como protagonista de su historia; el segundo plantea desde su título un retrato del novelista adulto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395090"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb0595f007e54e6d",
+  "origen": "chatgpt-web"
+}

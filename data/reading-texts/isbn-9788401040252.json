@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788401040252",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El desorden de cumplir años (Obras diversas), de María Fernández-Miranda, se dirige a quienes leen ensayo y textos de carácter biográfico o memorialístico. Por su clasificación editorial, se aleja de las novelas de ficción y de los manuales prácticos centrados en instrucciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El desorden de cumplir años (Obras diversas) está disponible en tapa blanda, con 208 páginas en castellano. Esta edición de Plaza & Janés permite leerlo en papel y conservarlo en una estantería sin el volumen de una obra de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El desorden de cumplir años (Obras diversas) comparte el ámbito biográfico con Alfred y Emily (Narrativa), de Doris Lessing, aunque este último se presenta como narrativa. También puede compararse con Asuntos pendientes: Hay historias que terminan, pero no se acaban (Autoconocimiento), de Frish Brandt, cuyo título sitúa el foco en las historias inconclusas y el autoconocimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515",
+        "isbn-9788411193795"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b9f39dea6edc4995",
+  "origen": "chatgpt-web"
+}

@@ -4,38 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El diario de Gurty. Vacaciones en la Provenza (Imagina) se orienta al público infantil interesado en el humor, la amistad y las historias relacionadas con la naturaleza. Por su temática, se aleja de las lecturas que buscan conflictos adultos o relatos de terror.",
+      "texto": "El diario de Gurty. Vacaciones en la Provenza (Imagina), de Bertrand Santini, se dirige al público infantil y juvenil. Por su clasificación editorial, encaja con quienes buscan lecturas de ese ámbito, mientras que quienes prefieren narrativa contemporánea para adultos tendrán que acudir a otro tipo de libro.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El diario de Gurty. Vacaciones en la Provenza (Imagina) está disponible en tapa dura, con 144 páginas en castellano. La encuadernación rígida permite guardarlo y prestarlo conservando la cubierta, mientras que su extensión admite repartir la lectura entre varios días.",
+      "texto": "El diario de Gurty. Vacaciones en la Provenza (Imagina) se presenta en tapa dura, con 144 páginas en castellano. Esta encuadernación ofrece cubiertas rígidas para conservar el ejemplar y permite regalarlo en formato físico; su extensión también facilita organizar la lectura en varias sesiones.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma"
       ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "El mono que vino a cenar (La ovejita que vino a cenar) (Cuentos infantiles) y El diario de Gurty. Vacaciones en la Provenza (Imagina) comparten el público infantil y la presencia de animales en sus títulos. El primero plantea una visita a cenar, mientras que el libro de Bertrand Santini sitúa su propuesta en unas vacaciones en la Provenza, con humor y amistad.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788448874056"
-      ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "449fb85d014f6460",
+  "fuente_hash": "2b4139124f4080ca",
   "origen": "chatgpt-web"
 }

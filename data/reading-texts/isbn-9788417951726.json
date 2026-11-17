@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788417951726",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El yo digital: En qué nos estamos convirtiendo en la era del algoritmo se dirige a lectores interesados en la identidad personal y su relación con los algoritmos. Su enfoque reúne filosofía, psicología y divulgación científica, por lo que se aleja de los manuales de programación y de las novelas centradas en conflictos ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El yo digital: En qué nos estamos convirtiendo en la era del algoritmo se publica en tapa blanda, con 232 páginas en castellano. Esta edición de Editorial Alfabeto permite leer y consultar en papel las cuestiones filosóficas y psicológicas relacionadas con la identidad digital, en un volumen de extensión moderada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "De cuerpo presente: Las ciencias cognitivas y la experiencia humana (Caja Verde) comparte con El yo digital: En qué nos estamos convirtiendo en la era del algoritmo el interés por la experiencia humana, aunque el libro de Vittorio Gallese sitúa el foco en la era algorítmica. El arte de organizar los pensamientos: Sabiduría pausada para un mundo acelerado aborda la actividad mental desde la organización del pensamiento, frente a la reflexión sobre el yo digital.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788425454851",
+        "isbn-9788430629657"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "45742f5ffb3a4f51",
+  "origen": "chatgpt-web"
+}

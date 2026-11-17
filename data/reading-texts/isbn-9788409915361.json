@@ -1,39 +1,47 @@
 {
   "id": "isbn-9788409915361",
-  "familia": "practico",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Dental Sales Intelligence: Estándar para observar, conversar, explicar, acompañar y aprender a partir de la primera visita dental. se dirige a lectores interesados en la comunicación y el acompañamiento durante la atención odontológica. Su enfoque en la primera visita dental lo aleja de las lecturas centradas exclusivamente en nutrición o bienestar general.",
+      "texto": "Está orientado a profesionales interesados en estructurar la comunicación y el acompañamiento del paciente desde la primera visita dental. Su enfoque en la observación, la conversación y la explicación encaja menos con quien busca un manual centrado exclusivamente en procedimientos clínicos odontológicos.",
       "evidencias": [
         "titulo",
         "categorias"
       ]
     },
     {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 308 páginas de Dental Sales Intelligence: Estándar para observar, conversar, explicar, acompañar y aprender a partir de la primera visita dental. en un volumen físico. Permite consultar sobre papel las distintas fases de la primera visita dental y volver a los apartados relacionados con la conversación y el acompañamiento.",
+      "modulo": "temas_y_enfoque",
+      "texto": "Dental Sales Intelligence: Estándar para observar, conversar, explicar, acompañar y aprender a partir de la primera visita dental. plantea una secuencia de actuaciones vinculadas al primer contacto con el paciente. David González Zamora sitúa la observación, el diálogo, la explicación y el seguimiento como elementos de un estándar de trabajo en el entorno dental.",
       "evidencias": [
         "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne sus 308 páginas en un ejemplar físico, apropiado para consultar el estándar durante sesiones de trabajo o formación. Kindle ofrece el mismo título como opción digital para leerlo en dispositivos compatibles y acceder al contenido sin transportar el volumen impreso.",
+      "evidencias": [
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Dental Sales Intelligence: Estándar para observar, conversar, explicar, acompañar y aprender a partir de la primera visita dental. y Baropodometría clínica: Bases para una biomecánica integrada del control postural comparten su orientación hacia cuestiones relacionadas con la salud. El primero aborda la interacción durante la visita odontológica; el segundo se centra, desde su título, en la biomecánica y el control postural.",
+      "texto": "Mantenimiento básico de equipos, aplicaciones y red comparte la orientación hacia procedimientos profesionales, aunque se ocupa de recursos tecnológicos en lugar de la atención dental. 50 cosas que hay que saber sobre IA aborda conocimientos de inteligencia artificial, mientras que la obra de David González Zamora se centra en la observación, la comunicación y el acompañamiento desde la primera visita dental.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "categorias",
-        "afines_catalogo"
+        "autores"
       ],
       "enlaces": [
-        "isbn-9791388377167"
+        "isbn-9788434441309"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "87bd2b80a37b3d48",
+  "fuente_hash": "f7ce28dd35522e30",
   "origen": "chatgpt-web"
 }

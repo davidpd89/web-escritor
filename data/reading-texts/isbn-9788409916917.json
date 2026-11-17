@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409916917",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Te pagaron en humo: Tu tiempo es finito, el dinero no encaja con lectores interesados en la relación entre el tiempo, el dinero y el desarrollo personal. El libro de Ramón Merino tiene 100 páginas y se sitúa en el ámbito del ensayo y la economía, no en el de la ficción o la narrativa histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Te pagaron en humo: Tu tiempo es finito, el dinero no ofrece tapa dura, tapa blanda y Kindle. Sus 100 páginas permiten elegir una edición física de extensión breve: la tapa dura aporta una encuadernación rígida para conservar o regalar, la blanda resulta más flexible y Kindle facilita la lectura en el móvil.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Te pagaron en humo: Tu tiempo es finito, el dinero no y Que el éxito no te joda: Humildad expansiva para construir un éxito que merezca la pena relacionan decisiones personales con cuestiones económicas o de éxito. Ramón Merino contrapone tiempo y dinero, mientras Tomás Arriero sitúa la humildad en el centro de su planteamiento; Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio., de Beatriz García Saez, se distingue por presentar un método de trabajo personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409924059",
+        "isbn-9788409924950"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "021befbd868b3e2a",
+  "origen": "chatgpt-web"
+}

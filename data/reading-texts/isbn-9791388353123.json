@@ -4,23 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El rugido de la máquina está dirigido a lectores de poesía en castellano y a quienes buscan obras de Zheng Xiaoqiong. Su clasificación literaria lo diferencia de una novela narrativa o de un manual técnico, aunque el título haga referencia a una máquina.",
+      "texto": "El rugido de la máquina corresponde a lectores interesados en poesía contemporánea publicada en castellano. La obra de Zheng Xiaoqiong tiene 180 páginas y pertenece al género poético, por lo que no responde a la búsqueda de una novela de trama continuada ni de un manual práctico.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El rugido de la máquina se presenta en tapa blanda, con 180 páginas y edición en castellano de RIL Editores. El formato impreso permite marcar poemas o pasajes concretos y regresar a ellos sin depender de un dispositivo electrónico.",
+      "texto": "El rugido de la máquina se ofrece en tapa blanda, con 180 páginas editadas por RIL Editores. Esta presentación permite leer y releer el texto en papel, consultar pasajes y conservar el volumen en una biblioteca física. Es la opción de compra recogida para esta edición.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rugido de la máquina puede compararse con Advenir y 223 esquinas: 16 (La garza roja) por su vinculación con la poesía. La diferencia comprobable está en la autoría: Zheng Xiaoqiong firma el primero, Jose Eceolaza el segundo y Antonio Fernández Lera el tercero. Además, 223 esquinas: 16 (La garza roja) incorpora una referencia numérica y de colección en su título, mientras que El rugido de la máquina no.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410212749"
       ]
     }
   ],

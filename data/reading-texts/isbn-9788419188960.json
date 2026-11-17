@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "This is Macarena (MEMORIA), de José de León, se dirige a lectores interesados en la memoria, la historia y el tiempo libre. Su clasificación temática lo aleja de quienes buscan una novela de aventuras o una historia romántica.",
+      "texto": "Se dirige a lectores interesados en obras de memoria e historia relacionadas con el ámbito cultural y el tiempo libre. Su planteamiento se aleja de la ficción narrativa y de los manuales técnicos, al situarse en una línea editorial vinculada a la recuperación de recuerdos y asuntos históricos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "This is Macarena (MEMORIA) está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de El Paseo Editorial permite consultar sus contenidos en papel y llevar el volumen sin recurrir a un dispositivo electrónico.",
+      "texto": "This is Macarena (MEMORIA) cuenta con una edición en tapa blanda de 192 páginas, publicada en castellano por El Paseo Editorial. Su extensión permite abordar el volumen en sesiones de lectura relativamente breves y mantenerlo como ejemplar físico dentro de una colección de historia y memoria.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
+        "formatos_disponibles",
         "idioma",
-        "editorial"
+        "editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "This is Macarena (MEMORIA) comparte el ámbito histórico con Los pilares de la historia, de Javier Fernández Sebastián. Mientras este último plantea la capacidad de la historia para explicar un mundo en crisis, el libro de José de León combina memoria, historia y tiempo libre en su clasificación temática.",
+      "texto": "Historia del Puerta Bonita. La cantera de Carabanchel comparte con This is Macarena (MEMORIA) el interés por asuntos históricos concretos. El libro de J. Nicolás Ferrando y José María Sánchez Molledo identifica una institución deportiva y su cantera, mientras que el de José de León se presenta bajo el título This is Macarena y la denominación MEMORIA.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788430629664"
+        "isbn-9788419355805"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "8487c7b64e9174c1",
+  "fuente_hash": "8b9bf630189f4a1e",
   "origen": "chatgpt-web"
 }

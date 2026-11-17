@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788467985924",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "The boxer 13 se orienta a lectores de cómic y novela gráfica interesados en la obra de Jihun Jung. El título lo identifica como el n.º 13 y sus 320 páginas suponen una extensión considerable para quien busque un cómic corto o una primera entrega.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "The boxer 13 se publica en tapa blanda, con 320 páginas en castellano. La edición de Norma Editorial ofrece un volumen impreso que puede leerse sin conexión ni batería y conservarse en una colección física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f23317bf59a8874",
+  "origen": "chatgpt-web"
+}

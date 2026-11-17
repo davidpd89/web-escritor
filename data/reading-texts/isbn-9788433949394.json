@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pido el fin de la vida se dirige a lectores de poesía que buscan una reflexión intensa sobre la mortalidad, el deseo y la creación artística. Sus referencias al suicidio, la autodestrucción y la violencia histórica pueden resultar difíciles para quienes prefieren una poesía de tono sereno o centrada en experiencias cotidianas.",
+      "texto": "Pido el fin de la vida se dirige a lectores de poesía interesados en las relaciones entre deseo, belleza y mortalidad. Su tratamiento explícito de la autodestrucción y del suicidio lo aleja de quienes buscan versos de temática cotidiana o una lectura emocionalmente ligera.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Pido el fin de la vida adopta la forma de un poema extenso sobre las relaciones entre belleza, erotismo y desaparición. Angélica Liddell incorpora referencias a Yukio Mishima, el Hagakure y distintas figuras culturales para examinar la muerte como cuestión estética y filosófica, junto con sus implicaciones personales.",
+      "texto": "Pido el fin de la vida adopta la forma de un poema extenso que relaciona la experiencia personal con referencias literarias, cinematográficas y filosóficas. Angélica Liddell incorpora el pensamiento de Yukio Mishima y la tradición ética del Hagakure para explorar la tensión entre la conservación de la vida y la búsqueda de belleza.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,28 +23,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pido el fin de la vida está disponible en tapa blanda y Kindle. La edición en papel de La Bella Varsovia contiene 112 páginas y permite volver a los pasajes del poema en un volumen físico; Kindle ofrece la misma opción de lectura en formato digital, sin necesidad de transportar el libro.",
+      "texto": "Pido el fin de la vida puede leerse en tapa blanda o en Kindle. La edición impresa reúne 112 páginas y permite consultar físicamente sus pasajes poéticos, mientras que Kindle facilita llevar el texto en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Antologia amorosa la voz a ti debida y razon de amor permite comparar distintas aproximaciones poéticas al amor: Pedro Salinas aparece vinculado a la temática amorosa, mientras Angélica Liddell relaciona el deseo con la muerte. Bestiario de lo frágil (Un pájaro de niebla) ofrece otra referencia poética del catálogo, frente al poema extenso y las referencias filosóficas de Pido el fin de la vida.",
+      "texto": "El Silk Road comparte autoría con Pido el fin de la vida: ambos son títulos de Angélica Liddell. La diferencia documentada está en el planteamiento de Pido el fin de la vida, un poema extenso centrado en la muerte, el deseo y la estética, con referencias a Yukio Mishima.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396288",
-        "isbn-9791387766320"
+        "isbn-9791399035766"
       ]
     }
   ],

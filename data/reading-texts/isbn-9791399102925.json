@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399102925",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las amantes encaja con lectores de romance y narrativa contemporánea que buscan una novela de extensión intermedia. La obra de Patricia Castro tiene 252 páginas; por su clasificación temática, queda fuera de las búsquedas centradas específicamente en fantasía o novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las amantes se ofrece en tapa blanda, con 252 páginas en castellano. Esta edición física de Editorial Dosmanos permite leer la novela de Patricia Castro y conservarla en una estantería sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las amantes puede compararse con A mil por hora por su pertenencia al romance. La novela de Patricia Castro se clasifica también como narrativa contemporánea y tiene 252 páginas, mientras que la obra de Hannah Grace plantea una relación entre un piloto de F1 y una mujer que no consigue dejar atrás su pasado. La diferencia está en que A mil por hora identifica ese contexto deportivo, mientras que Las amantes se presenta como narrativa romántica contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466683449"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0258ea3b0a85671d",
+  "origen": "chatgpt-web"
+}

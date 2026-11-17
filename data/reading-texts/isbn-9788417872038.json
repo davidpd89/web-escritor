@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788417872038",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en las actividades de ocio y tiempo libre dentro de la enseñanza y animación sociodeportiva. Su encuadre formativo lo separa de los libros de pasatiempos y de las propuestas de entretenimiento individual, por lo que no responde a quien busca únicamente juegos para resolver.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Editorial Altamar se presenta en tapa blanda y contiene 224 páginas en castellano. Su formato permite llevar el libro a clase y consultar los contenidos sobre actividades de ocio y tiempo libre durante el estudio de enseñanza y animación sociodeportiva.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Contexto de la animación sociocultural (CFGS ANIMACIÓN SOCIOCULTURAL Y TURÍSTICA), de P. Figueras, comparte el ámbito de la animación, aunque aborda su contexto sociocultural y turístico en vez de las actividades de ocio y tiempo libre de la formación sociodeportiva. Por otra parte, 99 Sudoku (LIBROS SINGULARES), de Anónimo, se centra en pasatiempos concretos y no en la formación sobre actividades de ocio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415309093",
+        "isbn-9788411724425"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4aee261109cc1a05",
+  "origen": "chatgpt-web"
+}

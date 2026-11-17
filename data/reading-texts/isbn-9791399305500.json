@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399305500",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rajaestrellas: 1 (La espada más larga jamás contada) encaja con lectores de fantasía y aventuras que buscan una novela de extensión considerable. Sus 444 páginas y su clasificación temática la alejan de quienes prefieren relatos breves o narraciones realistas sin elementos fantásticos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rajaestrellas: 1 (La espada más larga jamás contada) se ofrece en tapa blanda, con 444 páginas en castellano. Por su extensión, es un volumen para dedicar varias sesiones de lectura; el formato físico permite conservarlo y consultarlo sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rajaestrellas: 1 (La espada más larga jamás contada) puede compararse con A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria), también de Sergio Sánchez Morán, y Alas de escarcha y oro: El canto del cisne, de Marta Morillo. Comparte autoría con el primero y el terreno fantástico con el segundo, cuya descripción presenta a una protagonista que oculta sus dones; Rajaestrellas: 1 (La espada más larga jamás contada) se identifica en su título con una espada y una aventura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399305517",
+        "isbn-9791387949938"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "91f234cd69a86b50",
+  "origen": "chatgpt-web"
+}

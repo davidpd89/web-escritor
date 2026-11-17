@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Evangelio según San Marcos está dirigido a lectores interesados en los textos cristianos y su estudio dentro del ámbito religioso. Sus 544 páginas lo sitúan entre las lecturas extensas, por lo que se aleja de quien busque una introducción breve o una novela de entretenimiento.",
+      "texto": "Evangelio según San Marcos está dirigido a lectores interesados en la tradición cristiana y los textos religiosos. Su temática concreta lo diferencia de obras de espiritualidad centradas en otras tradiciones, y sus 544 páginas requieren una dedicación mayor que la de una lectura breve.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,31 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Evangelio según San Marcos se publica en tapa blanda, con 544 páginas en castellano. Por su extensión, el volumen en papel permite avanzar por sesiones, marcar puntos de lectura y consultar fragmentos anteriores; la edición corresponde a BAC.",
+      "texto": "Evangelio según San Marcos se ofrece en tapa blanda, con 544 páginas en castellano. La extensión favorece su consulta en un lugar fijo, donde el lector puede señalar pasajes y regresar a ellos sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Evangelio según San Marcos y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparten su orientación hacia cuestiones religiosas y espirituales. El libro de Pedro Cabello Morales se centra en un evangelio cristiano, mientras que el de Tsondru Yeshe aborda los fundamentos y la práctica del Dharma.",
+      "texto": "Evangelio según San Marcos puede compararse con Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft por su vinculación con los textos cristianos. Pedro Cabello Morales centra su título en un evangelio concreto, mientras que la segunda obra se presenta como una Biblia católica en una edición de símil piel rosada.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210088"
+        "isbn-9798890989536"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "55410824dc4c92b0",
+  "fuente_hash": "1170c0e56ac196dc",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419408822",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LAS RAZONES DE LA ESPERANZA: Comentario a los Evangelios dominicales Ciclo C: 86 (Candil encendido) se dirige a quienes desean profundizar en la lectura religiosa de los Evangelios dominicales. Su enfoque de comentario espiritual no corresponde a una novela ni a un estudio general de religiones ajeno a los textos evangélicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 293 páginas en castellano y está publicada por Editorial Paulinas. El soporte impreso facilita localizar pasajes y realizar consultas sucesivas durante la lectura de los comentarios a los Evangelios dominicales.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AKITA: Las lágrimas y el mensaje de María comparte con LAS RAZONES DE LA ESPERANZA: Comentario a los Evangelios dominicales Ciclo C: 86 (Candil encendido) el ámbito de la espiritualidad cristiana. Teiji Yasuda se centra en María y su mensaje, mientras que Ermes Ronchi y Marina Marcolini trabajan sobre los Evangelios dominicales del Ciclo C.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388176357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4bd49b20ff46b7ba",
+  "origen": "chatgpt-web"
+}

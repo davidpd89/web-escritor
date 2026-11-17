@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791399294200",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en la historia de las matemáticas en España y en el contexto de las intervenciones académicas. Su enfoque sobre un discurso concreto y sus implicaciones encaja menos con quien busque ejercicios matemáticos o una introducción general a todas las ramas de la disciplina.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Examina el discurso de Oviedo de D. Julio Rey Pastor sobre las matemáticas en España, atendiendo a su contexto y sus implicaciones. El planteamiento se centra en un episodio concreto relacionado con la disciplina matemática, dentro del ámbito de la divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible para esta obra de 174 páginas, publicada por el Real Instituto de Estudios Asturianos. Su extensión permite manejarla como volumen de consulta física sobre el discurso y su contexto, sin recurrir a una encuadernación rígida.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte con 50 cosas que hay que saber sobre IA su orientación hacia cuestiones científicas, aunque aborda las matemáticas en España desde el estudio de un discurso concreto. El libro de Keith Mansfield se centra en la inteligencia artificial, mientras que el de María Ángeles Gil Álvarez toma como referencia a D. Julio Rey Pastor y el contexto de su intervención en Oviedo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788434441309"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5c353e45963e60ea",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388586873",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Riesgos de crédito-ADGN098PO está orientado a lectores que buscan contenidos sobre el riesgo crediticio desde una perspectiva económica y empresarial. Su materia lo diferencia de los manuales técnicos de instalaciones industriales y de las obras de ficción, dirigidas a otros intereses de lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Riesgos de crédito-ADGN098PO se presenta en tapa blanda y reúne 258 páginas en castellano. El volumen publicado por Ediciones Playa Blanca ofrece un soporte físico para estudiar el tema, subrayar conceptos y volver a consultar los apartados relacionados con el crédito.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Riesgos de crédito-ADGN098PO comparte autora, Beatriz Coronado García, con Iniciación en mantenimiento eléctrico industrial-ELEE0012 y Normas de operación de las redes de distribución eléctrica-ELEE013PO. La diferencia está en la materia: el primero pertenece al ámbito económico y crediticio, mientras que los otros títulos tratan el mantenimiento industrial y la distribución eléctrica. La coincidencia de autoría no implica que sus contenidos respondan a las mismas necesidades formativas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411354783",
+        "isbn-9791388586026"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5cdb65925912a263",
+  "origen": "chatgpt-web"
+}

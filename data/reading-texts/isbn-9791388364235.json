@@ -4,42 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Frenesí (Literaturas), de Joyce Carol Oates, se dirige a lectores de narrativa contemporánea que prefieren los relatos a una novela extensa. Por su clasificación literaria, encaja menos con quienes buscan fantasía, aventuras o una historia de romance como eje principal.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Frenesí (Literaturas) está disponible en tapa blanda, con 344 páginas en castellano publicadas por Alfaguara. Esta edición física permite leer los relatos por separado y volver a ellos sin depender de un dispositivo electrónico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Frenesí (Literaturas) comparte el terreno del relato con Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa), de Daphne Du Maurier. La diferencia está en la orientación: el segundo título anuncia historias para no dormir, mientras que la obra de Joyce Carol Oates se presenta como narrativa contemporánea. En lengua privada / In Private Language, de Emiliano Monge, es otra referencia de autoría distinta dentro de las lecturas relacionadas.",
+      "texto": "Frenesí (Literaturas), de Joyce Carol Oates, se dirige a quienes buscan narrativa contemporánea en forma de relatos. Sus 344 páginas corresponden a una obra clasificada dentro de la narrativa breve, por lo que no responde a la búsqueda de una novela juvenil o de un manual práctico.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Frenesí (Literaturas) puede leerse en tapa blanda o en Kindle. La edición impresa de Alfaguara reúne 344 páginas para conservar y consultar en papel, mientras que Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Después de medianoche. Trece historias para no dormir: Prólogo de Stephen King (Espasa Narrativa), de Daphne Du Maurier, permite comparar dos propuestas vinculadas al relato. Mientras ese título anuncia trece historias orientadas a inquietar, Frenesí (Literaturas), de Joyce Carol Oates, se presenta como una obra de relatos contemporáneos de 344 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788467084429",
-        "isbn-9786073878289"
+        "isbn-9788467084429"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b67904009b333b46",
+  "fuente_hash": "dca7092a27ca6901",
   "origen": "chatgpt-web"
 }

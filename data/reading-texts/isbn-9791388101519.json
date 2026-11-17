@@ -4,34 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Sacamantecas (Novela gráfica) encaja con lectores interesados en el misterio narrado mediante imágenes y texto. Su clasificación combina thriller y novela gráfica, por lo que responde menos a quienes buscan una investigación desarrollada exclusivamente en prosa o una lectura centrada en el humor.",
-      "evidencias": [
-        "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Sacamantecas (Novela gráfica) reúne sus 144 páginas en un volumen físico de cubierta rígida, adecuado para conservarlo en una biblioteca o entregarlo como regalo. Kindle permite leer la obra digitalmente y evita ocupar espacio con el ejemplar impreso.",
-      "evidencias": [
-        "titulo",
-        "numero_paginas",
-        "formatos_disponibles",
-        "edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Anna en la cueva: Anna Dédalus detective: 4 comparte con Sacamantecas (Novela gráfica) el terreno del misterio en formato gráfico, aunque está firmada por Miguel Ángel Giner Bou y su título remite a una serie detectivesca. Estuche El nombre de la rosa (novela gráfica, vols. 1 y 2) (Lumen Gráfica) también combina narración gráfica y misterio, pero reúne dos volúmenes y lleva las firmas de Umberto Eco y Milo Manara.",
+      "texto": "Sacamantecas (Novela gráfica), de Miguel Herraiz y Ángel Abellán Victorio, se dirige a lectores de cómic interesados en el misterio y las historias de intriga. Sus 144 páginas corresponden a una novela gráfica, por lo que no encaja con quien busca una narración exclusivamente en prosa o un libro centrado en el humor.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sacamantecas (Novela gráfica) se ofrece en tapa dura y Kindle. La edición impresa de Planeta Cómic tiene 144 páginas y permite consultar las ilustraciones en papel; Kindle facilita llevar la novela gráfica en formato digital, aunque la visualización de las páginas dependerá del dispositivo utilizado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sacamantecas (Novela gráfica) y Anna en la cueva: Anna Dédalus detective: 4 comparten su relación con el misterio y la investigación dentro de la narrativa gráfica. Miguel Herraiz y Ángel Abellán Victorio firman una novela gráfica de 144 páginas, mientras que Miguel Ángel Giner Bou presenta una obra protagonizada por una detective, según indica el título. El título de esta última la identifica con el número 4.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788419605528",
-        "isbn-9788426438072"
+        "isbn-9788419605528"
       ]
     }
   ],

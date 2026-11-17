@@ -4,38 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La Biblia. Nuevo Testamento (Literatura ilustrada) se dirige a lectores interesados en los textos religiosos y su relación con el arte y el diseño. Su clasificación en religión y espiritualidad y su presentación como literatura ilustrada la alejan de quienes buscan una novela de ficción contemporánea.",
+      "texto": "Está dirigido a lectores interesados en el Nuevo Testamento desde una edición vinculada a la literatura ilustrada. La obra de Carlota Santos combina una temática religiosa con un enfoque editorial relacionado con el arte y el diseño. Se aparta de las novelas de ficción y de los manuales centrados en técnicas artísticas sin contenido religioso.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La Biblia. Nuevo Testamento (Literatura ilustrada) está disponible en tapa dura, con 368 páginas en castellano. Esta encuadernación permite conservar el volumen para consultas y relecturas, además de ofrecer una presentación física adecuada para regalar un libro de temática religiosa y artística.",
+      "texto": "Se publica en tapa dura, con 368 páginas en castellano. La cubierta rígida facilita conservar y consultar esta edición de literatura ilustrada, además de presentarla como libro de regalo. Lunwerg Editores firma la edición de la obra de Carlota Santos.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "categorias"
+        "titulo",
+        "editorial",
+        "autores"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La Biblia. Nuevo Testamento (Literatura ilustrada) comparte el interés por la religión y el arte con ROMÁNICO LA PALABRA DE DIOS: El mensaje silencioso de los canteros medievales (Historia), de Mariano F. Urresti. El primero se centra en el Nuevo Testamento desde una propuesta ilustrada; el segundo aborda el mensaje de los canteros medievales.",
+      "texto": "Puede compararse con 720 retrats, de Xavier Mollà i Revert, por su relación con las obras visuales y el arte. La Biblia. Nuevo Testamento (Literatura ilustrada), de Carlota Santos, se distingue por abordar un texto religioso dentro de una colección de literatura ilustrada. Frente al enfoque en retratos anunciado por 720 retrats, aquí el asunto central es el Nuevo Testamento.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370205515"
+        "isbn-9788412678802"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f69d6d8f8309b736",
+  "fuente_hash": "6d6f0770b1d8c33e",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788498891720",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Flux Rabiata: 131 (Alamut Serie Fantástica), de Alberto Moreno Pérez, se sitúa en la ciencia ficción y cuenta con 192 páginas. Encaja con lectores interesados en ese género y en extensiones moderadas, pero menos con quienes buscan específicamente fantasía o poesía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Flux Rabiata: 131 (Alamut Serie Fantástica) se presenta en tapa dura y contiene 192 páginas. La edición de Alamut permite leerlo en papel y conservarlo con cubierta rígida; su extensión también facilita calcular el tiempo que se dedicará a la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Flux Rabiata: 131 (Alamut Serie Fantástica) puede compararse con Aunque se acabe el mundo, de Clara Duarte, por su relación con la ciencia ficción. La obra de Clara Duarte plantea una transformación de la humanidad tras la aparición de una cúpula sobre la Tierra; Flux Rabiata: 131 (Alamut Serie Fantástica) se identifica por su género y su pertenencia editorial a Alamut Serie Fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427255968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "09e2a3d16bdd3ca7",
+  "origen": "chatgpt-web"
+}

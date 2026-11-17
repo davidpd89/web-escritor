@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pack biografias en viñetas se dirige a quienes buscan biografías presentadas mediante el lenguaje del cómic. Su combinación de memoria y narración gráfica se aparta de la novela de ficción y de las biografías exclusivamente en prosa.",
+      "texto": "Pack biografias en viñetas se dirige a quienes buscan biografías contadas mediante cómic y novela gráfica. Su enfoque combina la narración visual con contenidos biográficos, por lo que se aleja de las novelas de ficción y de los ensayos presentados únicamente en prosa.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,18 +12,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Cascaborra Ediciones tiene 256 páginas en tapa dura y está escrita en castellano. La encuadernación rígida favorece su conservación y permite regalar un volumen de biografías en formato de cómic.",
+      "texto": "Pack biografias en viñetas está disponible en tapa dura, con 256 páginas en castellano. Esta encuadernación permite conservar juntos los contenidos biográficos ilustrados y resulta práctica para consultar o releer distintas partes del volumen.",
       "evidencias": [
-        "editorial",
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
+        "numero_paginas",
         "idioma",
         "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Creepy nº 11/29 coincide con Pack biografias en viñetas en la autoría colectiva de Varios autores, pero ofrece una recopilación de terror en lugar de biografías. La llamada del oeste. 5 historias de lucky luke también presenta historias gráficas con varios autores, aunque se centra en relatos del oeste y no en vidas de personas.",
+      "texto": "Pack biografias en viñetas comparte con Creepy nº 11/29 la autoría colectiva y el formato de cómic, pero se centra en biografías en lugar de relatos de terror. Frente a Incredible science fiction. ED castellano, también de Varios autores, cambia la temática de ciencia ficción por la representación de vidas reales mediante viñetas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,7 +32,7 @@
       ],
       "enlaces": [
         "isbn-9788411406130",
-        "isbn-9788467981421"
+        "isbn-9791387995430"
       ]
     }
   ],

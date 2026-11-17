@@ -4,37 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra se dirige a lectores de Derecho interesados en la protección de las personas mayores y con discapacidad desde las perspectivas civil y procesal. Su ámbito especializado la distancia de quienes buscan relatos personales sobre el envejecimiento o una aproximación sanitaria a la discapacidad.",
+      "texto": "Pensado para lectores interesados en los derechos de las personas mayores y con discapacidad desde el Derecho civil y procesal. Sus 322 páginas se concentran en cuestiones jurídicas de vulnerabilidad, por lo que no responde a quien busca una guía general de cuidados o envejecimiento.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mayores, ancianos y discapacidad se publica en tapa blanda, con 322 páginas en castellano. La edición de Aranzadi permite trabajar sobre el texto impreso, marcar pasajes y volver a las cuestiones civiles y procesales durante su consulta.",
+      "texto": "La edición de Aranzadi se presenta en tapa blanda y contiene 322 páginas. El papel permite subrayar y consultar los aspectos civiles y procesales relacionados con los derechos de las personas vulnerables, con una extensión más manejable que la de un tratado de varios volúmenes.",
       "evidencias": [
-        "titulo",
+        "editorial",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) también trata cuestiones vinculadas a las relaciones y los conflictos, pero desde la mediación educativa. Mayores, ancianos y discapacidad se concentra en los derechos de las personas vulnerables y en su tratamiento civil y procesal, no en la convivencia escolar.",
+      "texto": "Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal también aborda cuestiones jurídicas vinculadas a situaciones de vulnerabilidad, pero desde el Derecho penal. Esta obra se diferencia por estudiar los derechos de personas mayores y con discapacidad mediante una doble perspectiva civil y procesal.",
       "evidencias": [
-        "afines_catalogo",
-        "titulo"
+        "titulo",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788429030372"
+        "isbn-9791370475949"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a20a41009851f705",
+  "fuente_hash": "672f058bd6088081",
   "origen": "chatgpt-web"
 }

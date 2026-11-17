@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788466393737",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Marcado a fuego (El Rancho Wells 1) (Best Seller | Ficción) está orientado a lectores de narrativa romántica que buscan una obra vinculada a una serie. El título lo identifica como el n.º 1 de El Rancho Wells; encaja menos con quienes prefieren el misterio o la fantasía frente a las relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Marcado a fuego (El Rancho Wells 1) (Best Seller | Ficción) cuenta con una edición de bolsillo en tapa blanda de Penguin Bolsillo. Sus 352 páginas permiten calcular la extensión de la lectura y hacen de esta edición una opción física para transportar, prestar o guardar junto a otros volúmenes de la serie.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sangre caliente (El Rancho Wells 2) (Best Seller | Ficción) comparte autoría y nombre de serie con Marcado a fuego (El Rancho Wells 1) (Best Seller | Ficción); sus títulos los identifican como los números 2 y 1, respectivamente. A cinco segundos de ti, de Sandra Miró, también se sitúa en el ámbito romántico, pero presenta como punto de partida la exigencia de perfección de su personaje.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466393744",
+        "isbn-9788427055735"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "52767905098e76ee",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9791388441325",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pack - papyrus, de Lucien de Gieter, está dirigido a lectores de cómic y novela gráfica que prefieren una edición física en castellano. Con 300 páginas, ofrece una extensión mayor que la de un volumen breve. No responde a la búsqueda de una novela exclusivamente en prosa ni de un manual práctico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pack - papyrus se publica en tapa dura, con 300 páginas en castellano, bajo el sello Plan B Publicaciones, S.l. La encuadernación rígida permite conservar el volumen en una estantería y consultarlo repetidamente. Por su extensión, conviene tener en cuenta el espacio que ocupará al transportarlo frente a libros más breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0f70f6569f98672c",
+  "origen": "chatgpt-web"
+}

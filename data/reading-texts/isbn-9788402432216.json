@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en las mujeres, el ensayo y los relatos vinculados a Bruguera. Lo mejor de las mujeres de Bruguera (Bruguera Clásica), de Raquel Gu y Antoni Guiral, se aparta de la novela de ficción extensa por su clasificación temática y sus 144 páginas.",
+      "texto": "Lo mejor de las mujeres de Bruguera (Bruguera Clásica) se dirige a lectores interesados en publicaciones de Bruguera que combinan ensayo y relatos. Sus 144 páginas en castellano ofrecen una extensión intermedia; no corresponde a quien busque exclusivamente una novela de aventuras.",
       "evidencias": [
         "titulo",
-        "autores",
+        "editorial",
         "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición de Lo mejor de las mujeres de Bruguera (Bruguera Clásica) se presenta en tapa dura, con 144 páginas en castellano. Es una opción física para conservar en una estantería, consultar de nuevo o regalar, con una encuadernación rígida que protege las páginas.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "idioma"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "Comparte el interés por las mujeres con Nosotras también contamos. Mujeres célebres del México Antiguo / We Matter Too: Famous Women of Ancient Mexico, aunque este último título delimita su asunto al México Antiguo. Lo mejor de las mujeres de Bruguera (Bruguera Clásica) se centra en Bruguera y combina ensayo y relatos, con Raquel Gu y Antoni Guiral como autores.",
+      "modulo": "que_formato_elegir",
+      "texto": "Lo mejor de las mujeres de Bruguera (Bruguera Clásica) se publica en tapa dura, con 144 páginas. La edición física de Bruguera permite conservar el volumen en una biblioteca y volver a consultar sus contenidos; su extensión también facilita distribuir la lectura en varias sesiones.",
       "evidencias": [
         "titulo",
-        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lo mejor de las mujeres de Bruguera (Bruguera Clásica) puede compararse con El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, por su vinculación con el ensayo. La diferencia reside en el enfoque anunciado: el primero se centra en las mujeres de Bruguera y el segundo en textos relacionados con el genio griego.",
+      "evidencias": [
+        "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073879088"
+        "isbn-9788466394604"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "28e077939ed21a6f",
+  "fuente_hash": "59526e071a476fe6",
   "origen": "chatgpt-web"
 }

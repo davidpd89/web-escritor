@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791399274523",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bestias extrañas, de Yan Ge, se orienta a lectores de narrativa contemporánea que prefieren libros de extensión moderada. Con 192 páginas en castellano, se distancia de las novelas especialmente largas y de quienes buscan una obra clasificada específicamente como fantasía o romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bestias extrañas está disponible en tapa blanda, con 192 páginas en castellano. Esta edición de Shiro Libros permite leer el texto en papel, pasar las páginas físicamente y conservar el ejemplar en una estantería. También puede transportarse para leer fuera de casa sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6105d10c00b691be",
+  "origen": "chatgpt-web"
+}

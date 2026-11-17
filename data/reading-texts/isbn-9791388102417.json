@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388102417",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Kase y Yamada nº 02: 2 (Manga Yuri) está orientado al público juvenil que lee manga y narrativa gráfica. Por su formato de cómic, se aparta de las novelas juveniles escritas únicamente en prosa y de la narrativa dirigida específicamente a adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Kase y Yamada nº 02: 2 (Manga Yuri) tiene una edición en tapa blanda de 178 páginas, publicada en castellano por Planeta Cómic. Este formato permite conservar el volumen físico dentro de una colección de manga y transportarlo sin el peso añadido de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Kase y Yamada nº 02: 2 (Manga Yuri) y Blue Lock nº 33 (Manga Shonen) comparten el formato manga, pero sus títulos identifican líneas distintas: yuri y shonen. La obra de Hiromi Takashima también puede compararse con Alya a veces me susurra en ruso 9 (Shônen - Alya) por su orientación juvenil, aunque esta última pertenece a SunSunSun.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791043309670",
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6d3c66a216f61620",
+  "origen": "chatgpt-web"
+}

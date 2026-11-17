@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Zeinab (Doble orilla narrativa), de Muhammad Husayn Haykal, encaja con lectores interesados en los clásicos y en obras situadas entre la narrativa y el ensayo. Su clasificación editorial lo aleja de una búsqueda centrada en manuales prácticos o literatura infantil.",
+      "texto": "Zeinab (Doble orilla narrativa), de Muhammad Husayn Haykal, encaja con lectores interesados en obras clasificadas entre los clásicos, el ensayo y la narrativa contemporánea. No responde a quien busca específicamente poesía o una obra presentada como manual práctico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,27 +13,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Zeinab (Doble orilla narrativa) se publica en tapa blanda y reúne 310 páginas en castellano. La edición de Cántico permite una lectura continuada en papel y facilita marcar el avance o consultar pasajes anteriores sin depender de un dispositivo electrónico.",
+      "texto": "Zeinab (Doble orilla narrativa) está disponible en tapa blanda y tiene 310 páginas. La edición de Cántico reúne el texto en un volumen físico en castellano, adecuado para leerlo por sesiones y volver a pasajes anteriores.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Alfred y Emily (Narrativa), de Doris Lessing, comparte con Zeinab (Doble orilla narrativa) su vinculación con la narrativa literaria, aunque corresponde a otra autoría. El largo regreso de Josefina Carabias (Ensayo), de César Suárez, ofrece una comparación desde la vertiente ensayística; Zeinab (Doble orilla narrativa), de Muhammad Husayn Haykal, reúne ambas clasificaciones y también figura entre los clásicos.",
+      "texto": "Alfred y Emily (Narrativa), de Doris Lessing, ofrece otra referencia narrativa, mientras que Carta al padre: Edición con prólogo y notas, de Franz Kafka, incorpora expresamente materiales complementarios en su título. Zeinab (Doble orilla narrativa), de Muhammad Husayn Haykal, se distingue por su clasificación conjunta como clásico, ensayo y narrativa contemporánea.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
         "isbn-9788426438515",
-        "isbn-9788426433282"
+        "isbn-9788410908239"
       ]
     }
   ],

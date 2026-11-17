@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9789560848819",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A.C.T.I.V.A.: 8 etapas para construir dirección, capacidad y libertad en tiempos de cambio se dirige a lectores interesados en el desarrollo personal y los procesos de cambio. Su enfoque en ocho etapas se aleja de la narrativa de ficción y de los libros centrados exclusivamente en el entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de A.C.T.I.V.A.: 8 etapas para construir dirección, capacidad y libertad en tiempos de cambio está disponible en tapa blanda. Sus 172 páginas permiten consultar las ocho etapas en un volumen físico, con posibilidad de volver a los apartados anteriores durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. comparte con A.C.T.I.V.A.: 8 etapas para construir dirección, capacidad y libertad en tiempos de cambio el interés por orientar procesos de transformación personal. El primero se centra en el trabajo con partes internas y el autoliderazgo, mientras que el segundo organiza su propuesta alrededor de ocho etapas vinculadas a la dirección, la capacidad y la libertad.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409924059"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "efc25a37b6a8c143",
+  "origen": "chatgpt-web"
+}

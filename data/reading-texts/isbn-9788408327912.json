@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788408327912",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Agnès y la felicidad (Planeta), de Tom Liberty, se dirige a quienes buscan narrativa contemporánea en castellano. Con 296 páginas, ofrece una extensión intermedia para lectores acostumbrados a obras de varios cientos de páginas. Por su clasificación editorial, encaja menos con quienes prefieren específicamente fantasía o literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Agnès y la felicidad (Planeta) se presenta en tapa dura, con 296 páginas publicadas por Editorial Planeta. La encuadernación rígida resulta práctica para conservar el ejemplar y colocarlo en una biblioteca personal, además de darle presencia como regalo físico. Es una edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2b473c8c8bf68f68",
+  "origen": "chatgpt-web"
+}

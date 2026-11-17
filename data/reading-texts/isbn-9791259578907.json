@@ -4,40 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen (FICCIÓN), de Sarah Dvojack, se orienta a quienes disfrutan resolviendo enigmas como actividad de ocio. Su propuesta de resolver casos criminales se diferencia de una novela convencional destinada únicamente a seguir una narración.",
+      "texto": "Pensado para quienes disfrutan resolviendo enigmas criminales y quieren participar en los casos asociados a Agatha Christie. Su orientación hacia el entretenimiento y la resolución de misterios lo distingue de una novela policíaca convencional destinada únicamente a seguir una historia.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen (FICCIÓN) tiene 64 páginas y se publica en tapa dura. Esta edición en castellano de Magazzini Salani permite consultar y retomar los casos en un volumen breve de encuadernación rígida.",
+      "texto": "La tapa dura reúne las 64 páginas de Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen (FICCIÓN) en un volumen físico. Su extensión permite manejarlo como libro de actividades y volver a consultar los casos sin depender de una pantalla.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "formatos_disponibles",
-        "editorial",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen (FICCIÓN) y 80 crímenes imposibles de resolver (FUERA DE ESCENA) comparten la resolución de casos criminales como actividad. Sarah Dvojack toma como referencia los casos de Agatha Christie, mientras que Gareth Moore y Laura Jayne Ayres presentan una colección de 80 crímenes.",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA) comparte el planteamiento de resolver misterios criminales, pero propone una colección de crímenes en lugar de centrarse en los casos asociados a Agatha Christie. Por su parte, 99 Sudoku (LIBROS SINGULARES) también ofrece entretenimiento basado en resolver problemas, aunque sustituye la investigación de casos por pasatiempos numéricos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388015816"
+        "isbn-9791388015816",
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "3450c5d30a95a56d",
+  "fuente_hash": "76da9f821f6072c1",
   "origen": "chatgpt-web"
 }

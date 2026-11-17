@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Esta obra se dirige a lectores interesados en la historia de PlayStation y en una selección de 150 videojuegos de la consola. Su enfoque histórico y de ensayo encaja con quienes buscan conocer ese legado, pero no con quienes prefieren una novela de ficción o un manual práctico para aprender a jugar.",
+      "texto": "Está dirigido a lectores interesados en la historia de los videojuegos y en el legado de PlayStation. El libro reúne una selección de 150 juegos de la consola y adopta un enfoque de ensayo histórico, por lo que no responde a quien busca una novela de ficción o una guía de instrucciones para jugar.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,25 +12,24 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 232 páginas de esta obra sobre el legado de PlayStation en un volumen físico que puede conservarse y consultarse. Kindle ofrece la misma obra en formato electrónico para leerla en dispositivos compatibles, sin necesidad de transportar el ejemplar impreso.",
+      "texto": "La tapa dura reúne las 232 páginas dedicadas al legado de PlayStation en una edición física de Random Cómic, apropiada para conservar en una colección de videojuegos. Kindle permite leer el mismo título en formato digital y prescindir del volumen impreso durante los desplazamientos.",
       "evidencias": [
         "titulo",
+        "editorial",
         "numero_paginas",
-        "formatos_disponibles",
-        "formato_edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Esta obra sobre el legado de PlayStation puede compararse con Bestiario de España: Mitos y leyendas de nuestro país (No ficción ilustrados), de Javier Prado Coronel, por su interés en recopilar elementos de un ámbito cultural. La primera se ocupa de 150 videojuegos, mientras que la segunda aborda mitos y leyendas españoles. También comparte el terreno de la no ficción con Charlotte Perriand. La libertad de repensar el mundo, de Varios autores, aunque sus asuntos son diferentes.",
+      "texto": "Amarte: Cuando amor y arte se dan la mano (Espasa Ensayo), de Carlos del Amor, comparte con el libro sobre el legado de PlayStation su enfoque ensayístico sobre manifestaciones culturales. Mientras el primero relaciona el amor con el arte, el segundo examina la historia de una consola mediante una selección de 150 videojuegos. Ambos abordan temas culturales distintos desde la no ficción.",
       "evidencias": [
         "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387949976",
-        "isbn-9788416411993"
+        "isbn-9788467084122"
       ]
     }
   ],

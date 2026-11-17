@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399315707",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El árbol de los cuervos: Los cuentos del fénix II.: 2, de Andrea Manfredini Font, se orienta a quienes leen fantasía, aventuras y relatos. Su combinación de géneros encaja menos con lectores que buscan una historia contemporánea realista o una obra centrada exclusivamente en el romance; el título lo identifica como el n.º 2 de Los cuentos del fénix.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El árbol de los cuervos: Los cuentos del fénix II.: 2 se presenta en tapa blanda, con 392 páginas en castellano. Esta edición de Somos Fénix Books S.l permite conservar el volumen en papel y consultarlo sin dispositivos electrónicos, una opción para quienes prefieren una biblioteca física de fantasía y aventuras.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean), de Rebecca Yarros, ofrece otra referencia dentro de la fantasía. El árbol de los cuervos: Los cuentos del fénix II.: 2, de Andrea Manfredini Font, se distingue por su clasificación adicional en aventuras y relatos, además de presentarse en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073950664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "07c07096795dc352",
+  "origen": "chatgpt-web"
+}

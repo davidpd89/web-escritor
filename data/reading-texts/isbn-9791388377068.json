@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791388377068",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Vocabulario naval se dirige a quienes desean familiarizarse con la terminología del ámbito marítimo y naval. Por su orientación hacia el léxico especializado, encaja menos con lectores que buscan una narración de viajes por mar o una historia de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Vocabulario naval aborda la terminología especializada del ámbito marítimo y naval desde un enfoque centrado en el lenguaje técnico. Sus 362 páginas sitúan el vocabulario como objeto principal de estudio, dentro de una obra vinculada a la divulgación científica y publicada en castellano.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Vocabulario naval se presenta en tapa blanda, con 362 páginas en castellano. El soporte impreso permite mantener el volumen a mano para consultar términos durante el estudio o el trabajo con documentación marítima.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Vocabulario naval y 33 islas: Un periplo mediterráneo. De Marettimo a Venecia. comparten una vinculación temática con el mar. El primero se centra en la terminología naval, mientras que el libro de Lucio Bellomo plantea un recorrido geográfico por islas mediterráneas; uno responde a una consulta de vocabulario y el otro a un interés por los lugares.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387873127"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "149d3a4333e59868",
+  "origen": "chatgpt-web"
+}

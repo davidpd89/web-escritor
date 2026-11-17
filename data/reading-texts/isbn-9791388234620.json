@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388234620",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Reflexiones de una loca, de María Escudero Muñoz, se sitúa en la narrativa juvenil y los relatos, por lo que encaja con lectores que buscan textos de ese ámbito literario. Quienes prefieren manuales prácticos o ensayos especializados encontrarán aquí un género distinto.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Reflexiones de una loca cuenta con una edición en tapa blanda de 152 páginas, publicada por Npq Editores. La extensión permite llevar el libro en papel y organizar su lectura en varias sesiones, sin necesitar un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Reflexiones de una loca e Irisación artificial aparecen vinculados a la narrativa y los relatos dentro del catálogo. La primera obra, de María Escudero Muñoz, está clasificada como juvenil y tiene 152 páginas; la segunda lleva la firma de Adrian Hyde, por lo que permite explorar otra autoría dentro de las lecturas afines.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388372933"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f3ad5c7de6191aae",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9789564242101",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pasajes de la ciudad radiante: Poemario sobre una batalla perdida se dirige a quienes buscan poesía en castellano alrededor de la derrota, un asunto anunciado en el propio título. Por su género y sus 48 páginas, se distingue de una novela extensa de aventuras o misterio, por lo que no responde a esa clase de lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pasajes de la ciudad radiante: Poemario sobre una batalla perdida puede leerse en tapa blanda o Kindle. La edición impresa reúne 48 páginas en un volumen físico breve, mientras que Kindle permite llevar el poemario en un lector electrónico o en la aplicación del móvil sin transportar el ejemplar en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pasajes de la ciudad radiante: Poemario sobre una batalla perdida puede compararse con A solas, de María Jesús Martínez Ramos, por su proximidad dentro de la poesía y la sugerencia de una experiencia íntima en sus títulos. El libro de Omar Medina sitúa la derrota en primer plano, mientras que A solas apunta hacia la soledad; son obras de distinta autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c84ab3c038969220",
+  "origen": "chatgpt-web"
+}

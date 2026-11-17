@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Pentateuco: Introducción a los cinco primeros libros de la Biblia (Estudios Bíblicos) está dirigido a lectores interesados en el estudio de textos bíblicos. La obra de Joseph Blenkinsopp aborda los primeros libros de la Biblia, por lo que no está planteada como narrativa de ficción ni como una guía general de bienestar.",
+      "texto": "Dirigido a lectores interesados en el estudio de los cinco primeros libros de la Biblia y en la religión. El Pentateuco: Introducción a los cinco primeros libros de la Biblia (Estudios Bíblicos), de Joseph Blenkinsopp, aborda ese conjunto de textos desde una perspectiva introductoria; no está planteado como una novela de ficción.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,30 +13,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El Pentateuco: Introducción a los cinco primeros libros de la Biblia (Estudios Bíblicos) cuenta con una edición en tapa blanda de 348 páginas. El soporte impreso permite consultar capítulos, tomar notas y regresar a pasajes durante el estudio, sin depender de un dispositivo electrónico.",
+      "texto": "La edición disponible es en tapa blanda, con 348 páginas en castellano y publicada por Editorial Verbo Divino. Este formato permite consultar el contenido en papel y volver a distintos apartados durante el estudio de los cinco primeros libros de la Biblia.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "idioma",
+        "editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Pentateuco: Introducción a los cinco primeros libros de la Biblia (Estudios Bíblicos) y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación tratan tradiciones religiosas distintas. Joseph Blenkinsopp se centra en los textos bíblicos, mientras que Tsondru Yeshe aborda los fundamentos y la práctica del Dharma; ambos permiten estudiar contenidos religiosos desde perspectivas diferentes.",
+      "texto": "El Pentateuco: Introducción a los cinco primeros libros de la Biblia (Estudios Bíblicos) comparte materia bíblica con Biblia Católica Biblia de Jerusalén Latinoamericana símil piel rosada / Spanish Catholic Jerusalem Bible, Pink Leathersoft, pero se centra en introducir los cinco primeros libros. Frente a Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, cambia el objeto de estudio: de los fundamentos y la práctica del Dharma a los textos bíblicos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210088"
+        "isbn-9791399210088",
+        "isbn-9798890989536"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "68efe24630db2b9d",
+  "fuente_hash": "c15c997d2a69f354",
   "origen": "chatgpt-web"
 }

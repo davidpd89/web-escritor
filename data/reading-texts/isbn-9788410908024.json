@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788410908024",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "YOGASUTRA: Nueva traducción del sánscrito, anotada y con prólogo se dirige a lectores interesados en la filosofía y la espiritualidad. Su planteamiento como traducción anotada de Patañjali encaja menos con quien busque una novela o un manual de ejercicios físicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "La particularidad de esta edición es la nueva traducción del sánscrito, acompañada de anotaciones y prólogo. Editorial Letra Minúscula la publicó el 21 de septiembre de 2026 en castellano, con 166 páginas y el ISBN 9788410908024.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "fecha_publicacion",
+        "idioma",
+        "numero_paginas",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "YOGASUTRA: Nueva traducción del sánscrito, anotada y con prólogo está disponible en tapa blanda. Sus 166 páginas permiten consultar el texto traducido y sus anotaciones en papel, con la posibilidad de regresar a pasajes concretos durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, comparte con YOGASUTRA: Nueva traducción del sánscrito, anotada y con prólogo el interés por la reflexión y la meditación. La diferencia es editorial y textual: la obra de Patañjali se presenta como una traducción del sánscrito con notas y prólogo, mientras que la de Raimon Panikkar se identifica como una recopilación de aforismos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ccfcb8528a42fa8c",
+  "origen": "chatgpt-web"
+}

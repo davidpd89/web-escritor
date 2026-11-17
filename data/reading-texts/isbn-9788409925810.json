@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo se dirige a lectores interesados en las experiencias personales, las relaciones afectivas y el desarrollo personal. Por su clasificación entre biografías y memorias, se aleja de quienes buscan una novela de ficción o una guía centrada exclusivamente en nutrición.",
+      "texto": "Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo, de Dani Paz, se orienta a lectores interesados en las relaciones afectivas desde una perspectiva de desarrollo personal y experiencias vitales. Su clasificación entre biografías y memorias lo aleja de quien busca exclusivamente ficción romántica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,16 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite leer las 344 páginas de Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo en una edición física flexible. La tapa dura ofrece una encuadernación rígida para conservarlo o regalarlo, mientras que Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el volumen.",
+      "texto": "Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo está disponible en tapa dura, tapa blanda y Kindle. La tapa dura favorece la conservación y el regalo; la tapa blanda permite manejar en papel sus 344 páginas y Kindle facilita llevar la lectura en un dispositivo compatible.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Camino a la felicidad: Segunda parte, de Maria de los Angelres De Leon Mesa, comparte con Mi chico de Utah: 30 años, 4 amores, un mapa para reconocer el tuyo el interés por el bienestar personal. El libro de Dani Paz sitúa las relaciones amorosas y la experiencia vital en primer plano, mientras que el título de Maria de los Angelres De Leon Mesa presenta una orientación más general hacia la felicidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409941506"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a06ff46ace0b753e",
+  "fuente_hash": "6b424427f1405073",
   "origen": "chatgpt-web"
 }

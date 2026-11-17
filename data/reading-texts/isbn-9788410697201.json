@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788410697201",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Blancanieves y los siete enanitos (Levanta las solapas) se dirige al público infantil interesado en los cuentos y los libros con elementos que se pueden levantar. Sus 10 páginas y su presentación en cartón lo distinguen de una lectura juvenil extensa o de una novela sin componentes manipulables.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "La propuesta de Blancanieves y los siete enanitos (Levanta las solapas) consiste en levantar las solapas mientras se recorren sus páginas. El libro de cartón tiene 10 páginas, por lo que combina la exploración manual con una lectura breve del cuento.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Esta edición de Todolibro Ediciones se presenta como libro de cartón, dentro del formato de tapa dura, con 10 páginas. Su soporte físico permite manipular las solapas, una característica vinculada directamente a la forma de utilizar este título infantil.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "formato_edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Principito. Mi pequeño planeta, de Equipo Todolibro, y Blancanieves y los siete enanitos (Levanta las solapas) comparten la autoría, el público infantil y la interacción mediante elementos levantables. La diferencia está en la historia de referencia: el primero se centra en El Principito y el segundo en Blancanieves y los siete enanitos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410696549"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "069e91da3e4e2c7a",
+  "origen": "chatgpt-web"
+}

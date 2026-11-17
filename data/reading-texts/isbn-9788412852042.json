@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788412852042",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Una mirada en el tiempo: De cómo contemplar lo eterno en lo cotidiano: 2 (Agustín de Azara) se dirige a lectores interesados en la espiritualidad y su relación con la experiencia cotidiana. Por su orientación religiosa y biográfica, se aleja de las lecturas centradas en la ficción o el entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra aborda la relación entre el tiempo, la vida cotidiana y la contemplación de lo eterno. Juan Pablo Navarro Rivas sitúa estas cuestiones en un marco de espiritualidad y reflexión personal, vinculado también al ámbito biográfico.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Una mirada en el tiempo: De cómo contemplar lo eterno en lo cotidiano: 2 (Agustín de Azara) está disponible en tapa blanda, con 152 páginas en castellano. Es una edición física que permite consultar y releer pasajes concretos sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Al andar: Vivencias del Camino de Santiago comparte el interés por las experiencias personales relacionadas con la espiritualidad, aunque se centra en las vivencias de un camino concreto. Una mirada en el tiempo: De cómo contemplar lo eterno en lo cotidiano: 2 (Agustín de Azara) plantea, desde su título, una reflexión más amplia sobre lo eterno y la vida diaria.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791388099496"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3c4329785147050f",
+  "origen": "chatgpt-web"
+}

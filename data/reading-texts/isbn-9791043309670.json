@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Alya a veces me susurra en ruso 9 (Shônen - Alya) está orientado a lectores juveniles que buscan narrativa contemporánea en formato de cómic y novela gráfica. Quienes prefieran novelas extensas de texto o lecturas alejadas del manga encontrarán una propuesta de formato diferente.",
+      "texto": "Alya a veces me susurra en ruso 9 (Shônen - Alya), de SunSunSun, se dirige a lectores de narrativa juvenil y cómic que siguen publicaciones identificadas como Shônen. El título señala una novena entrega, de modo que no es la opción más directa para quien quiera comenzar por un volumen inicial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,16 +13,18 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es la única opción disponible para Alya a veces me susurra en ruso 9 (Shônen - Alya). Sus 192 páginas quedan reunidas en un volumen físico, una opción para quien prefiere leer manga en papel y conservar los tomos en una estantería.",
+      "texto": "Alya a veces me susurra en ruso 9 (Shônen - Alya) se ofrece en tapa dura, con 192 páginas en castellano. Esta edición de Pika Ediciones proporciona una encuadernación rígida para conservar el volumen y consultarlo en papel.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura y Muneyuki Kaneshiro, comparte con Alya a veces me susurra en ruso 9 (Shônen - Alya) la identificación del público shonen y el formato manga. One Piece nº 114 (Manga Shonen), de Eiichiro Oda, presenta esa misma referencia editorial, aunque cambia la autoría y el título de la obra.",
+      "texto": "Alya a veces me susurra en ruso 9 (Shônen - Alya) puede compararse con Blue Lock nº 33 (Manga Shonen) porque ambos títulos se identifican con la línea Shônen y presentan numeración. El primero está firmado por SunSunSun y el segundo por Yusuke Nomura y Muneyuki Kaneshiro; cada uno pertenece a una serie identificada con un nombre diferente.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,8 +32,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388101991",
-        "isbn-9791388102271"
+        "isbn-9791388101991"
       ]
     }
   ],

@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788409927647",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Metaimagen: Una visión humanista para construir y comunicar la imagen personal y corporativa desde la coherencia se dirige a lectores interesados en la identidad pública, la comunicación y el desarrollo personal. Su enfoque humanista sobre la imagen individual y empresarial lo diferencia de los libros dedicados exclusivamente a la salud física o al entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene las 120 páginas de Metaimagen: Una visión humanista para construir y comunicar la imagen personal y corporativa desde la coherencia. El volumen físico facilita volver a las cuestiones de imagen personal y corporativa y mantenerlo como referencia de consulta.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cambiar para Vivir, Colección Autoayuda comparte con Metaimagen: Una visión humanista para construir y comunicar la imagen personal y corporativa desde la coherencia su orientación hacia el desarrollo personal. La obra de Raúl M. Mir Coll plantea el cambio personal desde su propio título, mientras que César Augusto Arias Mujica delimita su propuesta a la construcción y comunicación coherente de la imagen personal y corporativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415122562"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6e6c3990ae6ec3c2",
+  "origen": "chatgpt-web"
+}

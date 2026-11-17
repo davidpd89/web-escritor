@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399296495",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Telenovela: Historias para el corazón se orienta a lectores interesados en las telenovelas y en historias vinculadas a las emociones, tal como indica su título. La obra de Reyes Collado tiene 208 páginas y se clasifica en el ámbito del arte; encaja menos con quien busca una lectura centrada en asuntos técnicos o científicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Telenovela: Historias para el corazón está disponible en tapa blanda, con una extensión de 208 páginas. Esta edición de 100 Acres permite leerlo en papel y conservarlo como volumen físico, con una encuadernación flexible frente a la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Telenovela: Historias para el corazón puede compararse con 21 Westerns del siglo XXI (Sílex Cine/Claqueta) por las referencias a géneros de ficción presentes en sus títulos. La obra de Reyes Collado alude a historias sentimentales, mientras que la de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga se centra, desde su título, en el género wéstern del siglo XXI.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aab02d349957673c",
+  "origen": "chatgpt-web"
+}

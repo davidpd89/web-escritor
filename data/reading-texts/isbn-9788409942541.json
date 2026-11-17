@@ -4,27 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La piel del duelo, de Esther Ramirez Matos, encaja con lectores interesados en el duelo, la superación personal y las relaciones familiares. Sus 120 páginas ofrecen una extensión breve; por su temática, queda lejos de quienes buscan una lectura de ficción o humor.",
+      "texto": "La piel del duelo se orienta a lectores interesados en el duelo y en cuestiones relacionadas con el bienestar personal. Su título señala una temática vinculada a la pérdida, por lo que se distancia de las lecturas centradas específicamente en nutrición, ejercicio o longevidad.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La piel del duelo está disponible en tapa blanda, con una extensión de 120 páginas. Es una edición física relativamente breve que permite volver a los pasajes relacionados con el duelo y la superación personal sin manejar un volumen extenso.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "numero_paginas",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La piel del duelo se presenta en tapa blanda, con 120 páginas en castellano. Su extensión permite transportarlo en formato físico y la cubierta flexible facilita guardarlo en un bolso o mochila; la edición figura a nombre de Esther Ramirez Matos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "edicion"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "La piel del duelo coincide en su temática con El duelo: cómo atenderte: Una guía para acompañarte después de la muerte de una persona amada, de Irma Vallès Hernàndez. El segundo título delimita el acompañamiento tras una muerte, mientras que el de Esther Ramirez Matos se sitúa también en el desarrollo personal y el ámbito familiar.",
+      "texto": "La piel del duelo y 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) se sitúan en el ámbito del bienestar, aunque sus títulos plantean asuntos distintos. Esther Ramirez Matos aborda el duelo como eje temático, mientras que Dick Van Dyke presenta consejos relacionados con la longevidad, el optimismo y el humor. La elección depende de si interesa la pérdida o el cuidado personal a largo plazo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409921065"
+        "isbn-9791387852290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5edd31a64bd0c7d4",
+  "fuente_hash": "07fe6e2342922c10",
   "origen": "chatgpt-web"
 }

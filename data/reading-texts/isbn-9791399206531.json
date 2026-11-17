@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399206531",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Código Editorial - La guía definitiva para hackear los filtros de la industria y lograr que publiquen tu libro: Los secretos invisibles para superar ... la industria y lograr que publiquen tu libro se dirige a quienes buscan publicar un manuscrito y comprender los filtros editoriales. Su enfoque práctico sobre la industria del libro se aleja de las lecturas centradas en bienestar personal o ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Libros Libres reúne 200 páginas en castellano. Es una opción física para consultar las cuestiones editoriales tratadas por Álex Rosal y volver a ellas durante la preparación de un manuscrito.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "autores",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Frente a Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta, centrado en aprendizajes de la vida adulta, el libro de Álex Rosal aborda los mecanismos para acceder a la publicación editorial. Ambos se ocupan de conocimientos prácticos, pero sus ámbitos son distintos: uno trata la vida cotidiana y el otro, la relación entre escritores e industria del libro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409938490"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8e8a3f3858578106",
+  "origen": "chatgpt-web"
+}

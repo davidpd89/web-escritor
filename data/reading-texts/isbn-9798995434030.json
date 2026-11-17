@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798995434030",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Mundo Gremial: Del gremio a la fraternidad en la Europa medieval y moderna se dirige a lectores interesados en la historia de los gremios y su dimensión fraternal. Conrado Milanes aborda ese marco histórico en un ensayo de 439 páginas, distinto de una novela ambientada en la Edad Media.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Mundo Gremial: Del gremio a la fraternidad en la Europa medieval y moderna está editado en tapa blanda. Sus 439 páginas en castellano, publicadas por Athena Ediciones, permiten una lectura prolongada en papel y la consulta de apartados sobre el asunto histórico que anuncia el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Mundo Gremial: Del gremio a la fraternidad en la Europa medieval y moderna y Astrología, filosofía y magia: Un camino de práctica espiritual comparten un espacio de lectura relacionado con las ideas y la espiritualidad. Conrado Milanes sitúa su ensayo en los gremios de la Europa medieval y moderna; Soledad Davies aborda la práctica espiritual desde la astrología, la filosofía y la magia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411214315"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8d8614b828c8a90d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788432175800",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Siglo de Oro español: De Garcilaso a Calderón (Libros sobre libros), de Mariano Fazio Fernández, se dirige a lectores interesados en el ensayo sobre literatura española. Su enfoque anunciado en el título y sus 208 páginas lo separan de la novela de ficción y de las narraciones centradas en personajes inventados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Siglo de Oro español: De Garcilaso a Calderón (Libros sobre libros) se publica en tapa blanda, con 208 páginas en castellano. Esta edición de Ediciones Rialp S.a. permite consultar y releer pasajes en papel, una opción práctica para un ensayo centrado en la literatura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "01254c507d56f681",
+  "origen": "chatgpt-web"
+}

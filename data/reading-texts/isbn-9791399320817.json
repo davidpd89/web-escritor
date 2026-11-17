@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "No deberías haberme buscado: La continuación de 'No podrás demostrar tu inocencia' se dirige a quienes buscan continuar una lectura anterior. Su título establece esa relación, mientras que sus 186 páginas y su clasificación en ocio y tiempo libre lo distinguen de una obra extensa o de consulta histórica.",
+      "texto": "No deberías haberme buscado: La continuación de 'No podrás demostrar tu inocencia' se dirige a quienes buscan seguir la obra mencionada en su subtítulo. La relación de continuidad aparece expresamente en el título, por lo que no responde a la misma búsqueda que una lectura independiente. Sus 186 páginas están editadas en castellano.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "categorias"
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible de No deberías haberme buscado: La continuación de 'No podrás demostrar tu inocencia'. Sus 186 páginas permiten manejar un volumen físico relativamente breve, publicado en castellano por Inkgenium Books.",
+      "texto": "No deberías haberme buscado: La continuación de 'No podrás demostrar tu inocencia' está disponible en tapa blanda, con 186 páginas. La extensión permite llevar el volumen en papel y utilizar separadores para retomar la lectura. La edición en castellano está publicada por Inkgenium Books.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,11 +24,12 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA) y No deberías haberme buscado: La continuación de 'No podrás demostrar tu inocencia' se relacionan por sus títulos vinculados a la investigación y la inocencia. El primero plantea crímenes por resolver; el segundo se presenta como continuación de una obra anterior, con 186 páginas.",
+      "texto": "No deberías haberme buscado: La continuación de 'No podrás demostrar tu inocencia' puede compararse con 80 crímenes imposibles de resolver (FUERA DE ESCENA) por su relación con la inocencia y los crímenes. El título de Inkgenium Books presenta una continuación, mientras que la obra de Gareth Moore y Laura Jayne Ayres plantea crímenes que deben resolverse. Son planteamientos distintos dentro del ocio relacionado con el misterio.",
       "evidencias": [
         "titulo",
-        "afines_catalogo",
-        "numero_paginas"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791388015816"
@@ -37,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "71d1858fb47d59ca",
+  "fuente_hash": "bede5983b99724fd",
   "origen": "chatgpt-web"
 }

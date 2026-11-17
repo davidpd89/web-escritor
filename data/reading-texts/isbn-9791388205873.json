@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) se dirige a lectores interesados en el cine y en la figura de Denis Villeneuve. La obra de Juan Laborda Barceló se sitúa en el ámbito artístico y no está planteada como una novela de ciencia ficción.",
+      "texto": "Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) se dirige a lectores interesados en el cine y en la figura de Denis Villeneuve. Su enfoque en un creador concreto lo diferencia de los libros de arte y diseño que tratan técnicas generales o disciplinas ajenas al ámbito cinematográfico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,32 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) tiene 149 páginas y se presenta en tapa blanda. Esta edición en castellano de Sílex Ediciones permite una lectura en papel relativamente breve y facilita volver a consultar pasajes concretos.",
+      "texto": "Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) se presenta en tapa blanda y reúne 149 páginas en castellano. Su extensión permite abordar en papel un estudio centrado en Denis Villeneuve y conservarlo para consultas posteriores sobre el cineasta y su relación con Dune.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "formatos_disponibles",
-        "idioma",
-        "editorial"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "720 retrats comparte con Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) el interés por las figuras individuales dentro del ámbito artístico, aunque el primero se presenta como una colección de retratos y el segundo se centra en Denis Villeneuve. Arde Talía: Una pieza teatral sobre el infierno de la creación artística aborda el proceso creativo desde el teatro, mientras que Juan Laborda Barceló dedica su obra al cine.",
+      "texto": "21 Westerns del siglo XXI (Sílex Cine/Claqueta) comparte con Denis Villeneuve: Dune y otras alquimias (Cine/Claqueta) el interés por el cine, pero se centra en el western en lugar de un creador concreto. Al hollywood parisino la produccion hispana de paramount en aborda la producción hispana de Paramount, mientras Juan Laborda Barceló dedica su libro a Denis Villeneuve y Dune.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788412678802",
-        "isbn-9791399289510"
+        "isbn-9791388205842",
+        "isbn-9788486877590"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "72ba2769f5befefb",
+  "fuente_hash": "ed70ed3c3cd55445",
   "origen": "chatgpt-web"
 }

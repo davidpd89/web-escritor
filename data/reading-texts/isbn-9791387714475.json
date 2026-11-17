@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791387714475",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche saga Compostela (Istoría), de Francisco Narla, está orientado a lectores de novela histórica que buscan una lectura extensa en castellano. Sus 1816 páginas lo alejan de quienes prefieren libros breves o lecturas centradas en la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Estuche saga Compostela (Istoría) se presenta en tapa dura, con una extensión total indicada de 1816 páginas. El formato de estuche permite conservar la edición de Francisco Narla como conjunto físico y resulta una opción de regalo para lectores interesados en la novela histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Estuche saga Compostela (Istoría) comparte el ámbito de la narrativa histórica con Aléxandros II: Las Arenas de Amón / Aléxandros II: The Sands of Ammon y Aléxandros III: El Confín del Mundo / Aléxandros III: The Ends of the Earth. Los títulos de Valerio Massimo Manfredi identifican entregas numeradas y lugares concretos, mientras que la obra de Francisco Narla se presenta como un estuche de saga con 1816 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897090",
+        "isbn-9786287897106"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "76f629460f5b8d56",
+  "origen": "chatgpt-web"
+}

@@ -4,36 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El incidente Darwin 1 (Seinen): Universo Manga se dirige a lectores de manga interesados en la ciencia ficción y la fantasía. Su identificación como seinen lo diferencia de las obras orientadas expresamente al público infantil, mientras que su presentación como cómic lo separa de la narrativa escrita únicamente en prosa.",
+      "texto": "El incidente Darwin 1 (Seinen): Universo Manga se dirige a quienes buscan ciencia ficción contada mediante viñetas. La obra de Shun Umezawa pertenece al ámbito del manga seinen; quien prefiera una novela de prosa o una historia ajena a la ciencia ficción encontrará aquí otro tipo de lectura.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El incidente Darwin 1 (Seinen): Universo Manga está disponible en tapa blanda, con 192 páginas. Esta edición permite leer y conservar físicamente las páginas del manga, sin depender de una pantalla.",
+      "texto": "La edición de El incidente Darwin 1 (Seinen): Universo Manga está disponible en tapa blanda y reúne 192 páginas. Este formato permite leer el manga en papel y conservarlo junto a otros volúmenes de la colección, con una encuadernación flexible frente a la rigidez de la tapa dura.",
       "evidencias": [
         "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El incidente Darwin 9 (Seinen) y El incidente Darwin 1 (Seinen): Universo Manga comparten autor, Shun Umezawa, y pertenecen a la misma serie identificada en sus títulos. El segundo lleva el número 1 y el primero el 9; esa diferencia permite distinguir ambos volúmenes sin atribuirles acontecimientos argumentales concretos.",
+      "texto": "El incidente Darwin 9 (Seinen) comparte autoría con El incidente Darwin 1 (Seinen): Universo Manga, pues ambos son de Shun Umezawa, aunque sus títulos indican números distintos. El mesias de Dune. La novela grafica libro 01 también combina ciencia ficción y narración gráfica, pero está firmado por Frank Herbert, Michael Shelfer, Brian Herbert y Kevin J. Anderson.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962616"
+        "isbn-9791387962616",
+        "isbn-9788467986174"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e6b7150de063c1f1",
+  "fuente_hash": "3793ad1836794d59",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9788410552753",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprende y construye. El cuerpo humano se dirige al público infantil interesado en el cuerpo humano y en los libros de aprendizaje. Por su clasificación infantil y sus 32 páginas, se diferencia de un manual extenso de anatomía destinado a lectores que buscan un estudio especializado.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aprende y construye. El cuerpo humano está disponible en tapa dura, con 32 páginas en castellano. Esta encuadernación permite conservar el libro en una biblioteca infantil y consultarlo repetidamente; su extensión también facilita organizar la lectura en sesiones breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "48ff6fcd2cd7281f",
+  "origen": "chatgpt-web"
+}

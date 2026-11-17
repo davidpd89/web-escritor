@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788412907766",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Resonancia del pájaro, de Luis Baeza Andreu, encaja con lectores que buscan poesía en castellano y prefieren libros de extensión reducida. Con 84 páginas, se aleja de las novelas largas y de la lectura centrada en una trama narrativa continuada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Resonancia del pájaro se presenta en tapa blanda, con 84 páginas publicadas por Maclein y Parker, Editorial. Su extensión permite manejar el volumen físico con facilidad y volver a sus páginas durante distintas sesiones de lectura, sin necesitar un libro de gran tamaño.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza, son referencias del mismo ámbito poético que Resonancia del pájaro. La diferencia identificable está en la autoría: Resonancia del pájaro pertenece a Luis Baeza Andreu, mientras los otros títulos corresponden a escritores distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fe699136d40bcd82",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791387546786",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Repensar la evaluación formativa y compartida en la era de la inteligencia artificial (Educación física y deporte en la escuela) se orienta a lectores interesados en la evaluación educativa y la enseñanza de la educación física. No responde a la búsqueda de un manual general sobre inteligencia artificial ni de una guía de entrenamiento deportivo.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra examina la evaluación formativa y compartida en el contexto de la inteligencia artificial. Miriam Molina Soria sitúa esta cuestión en el ámbito de la educación física y el deporte escolar, con un enfoque de reflexión educativa sobre las prácticas de evaluación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa blanda tiene 184 páginas en castellano y está publicada por Miño y Dávila Editores. Su extensión permite trabajar el contenido como lectura de estudio o conservarlo para consultas relacionadas con la evaluación educativa.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Antimadridismo, de Carlos Agrasar Celemín, comparte con esta obra su clasificación como ensayo, aunque aborda una cuestión deportiva distinta. Repensar la evaluación formativa y compartida en la era de la inteligencia artificial (Educación física y deporte en la escuela) se concentra en la enseñanza, la evaluación y la inteligencia artificial, no en las rivalidades deportivas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409916955"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "853c05960ca19a81",
+  "origen": "chatgpt-web"
+}

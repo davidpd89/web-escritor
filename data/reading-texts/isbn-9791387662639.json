@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El libro de Mikel Alonso se dirige a lectores interesados en la relación entre neurociencia, optimismo y desarrollo personal. Su enfoque combina psicología y bienestar, por lo que encaja menos con quienes buscan ficción o una obra centrada exclusivamente en nutrición y ejercicio físico.",
+      "texto": "La obra de Mikel Alonso se dirige a lectores interesados en la neurociencia, el optimismo y el desarrollo personal. Su enfoque psicológico encaja con quienes buscan comprender la relación entre el cerebro y la percepción del mundo, pero menos con quienes prefieren ficción o manuales centrados en técnicas profesionales.",
       "evidencias": [
         "autores",
         "titulo",
@@ -13,30 +13,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La obra de Mikel Alonso está disponible en tapa blanda, Kindle y audiolibro. La edición impresa de Urano tiene 264 páginas y permite consultar pasajes en papel; Kindle facilita la lectura en el móvil y el audiolibro permite escuchar el contenido mientras se realizan otras actividades.",
+      "texto": "La obra de Mikel Alonso está disponible en tapa blanda, Kindle y audiolibro. La edición impresa de Urano tiene 264 páginas y permite consultar el contenido en papel; Kindle facilita la lectura en dispositivos compatibles y el audiolibro permite escucharlo durante desplazamientos u otras actividades.",
       "evidencias": [
         "autores",
-        "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La obra de Mikel Alonso comparte su orientación hacia el desarrollo personal con Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias), de Seung-hwan Jeon. Mientras Mikel Alonso aborda el optimismo desde la neurociencia, el libro de Seung-hwan Jeon plantea la búsqueda de orientación personal mediante 150 enseñanzas.",
+      "texto": "La obra de Mikel Alonso aborda el optimismo desde la neurociencia, mientras que Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso, centra su propuesta en la infancia y la sanación emocional. También puede compararse con Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio., de Beatriz García Saez, que plantea un método de trabajo personal frente al enfoque psicológico y divulgativo de Mikel Alonso.",
       "evidencias": [
-        "autores",
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431684"
+        "isbn-9788410944206",
+        "isbn-9788409924059"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "819b06f0d95c3a39",
+  "fuente_hash": "5a13279a4d327a91",
   "origen": "chatgpt-web"
 }

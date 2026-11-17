@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791370650360",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes necesitan comprender el procedimiento administrativo común regulado por la Ley 39/2015, de 1 de octubre. Su enfoque jurídico y práctico encaja con lectores interesados en conocer sus reglas y trámites, pero no con quienes buscan ensayos políticos generales o relatos de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda consta de 182 páginas en castellano. Es un formato en papel para consultar el procedimiento administrativo común, marcar apartados de interés y recuperar explicaciones durante el estudio o la preparación de trámites.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Comparte autoría y enfoque práctico con Cómo aplicar la exención por reinversión en vivienda habitual. Paso a paso: Todas las claves para aplicar con éxito este beneficio fiscal (requisitos, ... que pueden generar dudas) (monografico). La diferencia está en el ámbito jurídico: una obra aborda el procedimiento administrativo común y la otra, un beneficio fiscal relacionado con la vivienda habitual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370650421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "505b6a4ae58fc8a6",
+  "origen": "chatgpt-web"
+}

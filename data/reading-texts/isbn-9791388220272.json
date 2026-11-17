@@ -4,50 +4,46 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Poeta en Nueva York se dirige a lectores de poesía que también muestran interés por las ediciones ilustradas y el diseño editorial. Esta versión asociada a Federico García Lorca y Ricardo Cavolo tiene 256 páginas y no responde a quien busca una novela convencional de argumento lineal.",
+      "texto": "Esta edición se dirige a lectores de poesía interesados en una presentación ilustrada de la obra de Federico García Lorca. También tiene un componente de arte y diseño por la participación de Ricardo Cavolo; no está planteada como una novela narrativa convencional.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La particularidad de esta edición de Poeta en Nueva York es su presentación ilustrada con cantos tintados y encuadernación en tapa dura. Lunwerg Editores publica el volumen de 256 páginas en castellano el 11 de noviembre de 2026, con Federico García Lorca y Ricardo Cavolo como autores acreditados.",
+      "texto": "Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada) se distingue por sus cantos tintados y su presentación ilustrada. Lunwerg Editores la publica en tapa dura, con 256 páginas y la participación de Federico García Lorca y Ricardo Cavolo. La fecha de publicación es el 11 de noviembre de 2026.",
       "evidencias": [
         "titulo",
         "autores",
         "editorial",
         "edicion",
-        "fecha_publicacion",
         "numero_paginas",
-        "idioma"
+        "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura de Poeta en Nueva York ofrece una presentación rígida con cantos tintados, vinculada a su carácter de edición ilustrada. Sus 256 páginas permiten conservar la obra como volumen de biblioteca o regalar una versión en papel que incorpora el diseño editorial a la experiencia de lectura.",
+      "texto": "La tapa dura es el formato disponible para Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada). Sus 256 páginas se presentan en una edición física con cantos tintados, un detalle que se aprecia en el ejemplar y que puede influir en la elección para regalo o colección.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "categorias",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Sonetos del amor oscuro y Diván del Tamarit comparte con Poeta en Nueva York la autoría de Federico García Lorca y el género poético, aunque reúne otros títulos de su obra. Bodas de sangre. Edición ilustrada también permite comparar presentaciones visuales del mismo autor, pero pertenece a una obra distinta y no a este volumen de poesía.",
+      "texto": "Romancero gitano (edición especial con cantos tintados) (Literatura ilustrada) comparte autoría, participación de Ricardo Cavolo y presentación especial con cantos tintados. La diferencia está en la obra poética que contiene cada volumen: uno corresponde a Romancero gitano y el otro a Poeta en Nueva York.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
+        "afines_catalogo",
         "categorias"
       ],
       "enlaces": [
-        "isbn-9788408328148",
-        "isbn-9788466396943"
+        "isbn-9791388220265",
+        "isbn-9791388435157"
       ]
     }
   ],

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788414074190",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tarot de los gatos místicos (Patas) se orienta al público juvenil interesado en los gatos y en la temática del tarot. Su propuesta temática se distancia de las lecturas centradas en conflictos realistas de la adolescencia, y sus 95 páginas permiten abordarlo como un volumen breve.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tarot de los gatos místicos (Patas) se ofrece en tapa blanda, con 95 páginas en castellano. Su extensión permite manejarlo como un volumen físico breve, tanto para leerlo seguido como para volver a consultar sus páginas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adolescelandia: Más que un parque de diversiones, es un lugar de autentificación y Tarot de los gatos místicos (Patas) permiten comparar dos enfoques de lectura vinculados al ámbito juvenil. La obra de Michelle Romo se identifica por los gatos y el tarot; la de Ma. Teresa Araceli Esquivel Reyna remite desde su título a un espacio de autentificación asociado a la adolescencia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781637659380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a1184e227b9a5cde",
+  "origen": "chatgpt-web"
+}

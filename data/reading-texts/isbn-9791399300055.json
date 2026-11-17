@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399300055",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La promesa de la esperanza: 2 (La saga de la luz) pertenece al ámbito de la lectura infantil y juvenil. Sus 102 páginas y su pertenencia a una saga la sitúan entre las opciones para quienes buscan una lectura breve vinculada a una serie, no un volumen independiente de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La promesa de la esperanza: 2 (La saga de la luz) se publica en tapa blanda, con 102 páginas en castellano. La edición de Cometas ofrece un ejemplar físico manejable para leer y guardar junto a otros títulos de la misma saga.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El libro olvidado: 1 (La saga de la luz) es la comparación más directa para La promesa de la esperanza: 2 (La saga de la luz), porque ambos títulos pertenecen a la misma saga y están firmados por Vanesa Roca Pallarès. El título identifica al primero como el n.º 1 y al segundo como el n.º 2, una diferencia relevante para elegir el orden de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399300048"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "20518ccafb5c5428",
+  "origen": "chatgpt-web"
+}

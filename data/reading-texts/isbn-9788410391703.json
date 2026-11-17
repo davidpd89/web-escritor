@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410391703",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Seduciendo a MR. Bridgerton (Bridgerton 4) (Titania época) se dirige a lectores que buscan romance dentro de una ambientación histórica. Su clasificación como novela histórica y romántica lo diferencia de la fantasía juvenil y de la narrativa contemporánea sin componente histórico.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Seduciendo a MR. Bridgerton (Bridgerton 4) (Titania época) está editado en tapa blanda, con 384 páginas en castellano. El ejemplar físico permite conservarlo junto a otros títulos de Julia Quinn y leerlo sin depender de una pantalla o de una conexión digital.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Seduciendo a MR. Bridgerton (Bridgerton 4) (Titania época) comparte autoría y orientación romántica de época con Corazón de una bridgerton (Titania época), de Julia Quinn. También se relaciona con Por un beso (Bridgerton 7) Edición Especial (Titania época), de Julia Quinn, aunque sus títulos identifican los números 4 y 7 respectivamente y el segundo se presenta como edición especial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410391710",
+        "isbn-9788410391772",
+        "isbn-9786316863201"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2f877a73c38d2f2e",
+  "origen": "chatgpt-web"
+}

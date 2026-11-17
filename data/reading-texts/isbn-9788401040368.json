@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El color de la esperanza encaja con lectores de romance y narrativa contemporánea interesados en el duelo, los nuevos comienzos y los vínculos que surgen tras una pérdida. Su historia se desarrolla en el País Vasco francés y aborda también la acogida de niños; se aleja de las aventuras fantásticas y de los romances centrados exclusivamente en la pareja.",
+      "texto": "El color de la esperanza se dirige a lectores de romance y narrativa contemporánea interesados en las segundas oportunidades después de una pérdida. La relación entre Sabrina y Xavier, el duelo y la reconstrucción de una vida ocupan el centro del relato; no responde a la búsqueda de una novela de acción o aventuras.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,8 +13,9 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es una novela de romance contemporáneo en la que la reconstrucción personal tiene tanto peso como la relación entre sus protagonistas. Danielle Steel sitúa la acción en un castillo del País Vasco francés, donde una amistad, las dificultades económicas y una historia familiar vinculada a la Segunda Guerra Mundial impulsan las decisiones de los personajes.",
+      "texto": "El color de la esperanza combina una historia sentimental con conflictos familiares y memoria histórica. Danielle Steel sitúa la acción en el País Vasco francés, donde la recuperación de un castillo conecta el duelo de Sabrina con las dificultades económicas de Xavier y el pasado de su familia durante la Segunda Guerra Mundial.",
       "evidencias": [
+        "titulo",
         "autores",
         "categorias",
         "sinopsis_editorial"
@@ -22,28 +23,25 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El color de la esperanza está disponible en tapa blanda, con 288 páginas en castellano publicadas por Plaza & Janés. Es una edición física que permite llevar la novela en el bolso o leerla sin dispositivo electrónico; su extensión facilita distribuir la lectura en sesiones breves.",
+      "texto": "El color de la esperanza está disponible en tapa blanda, con 288 páginas en la edición de Plaza & Janés. Es una opción física para leer en casa, transportar en el bolso o prestar después de terminarla. Su extensión permite conocer de antemano el volumen de lectura y el espacio que ocupará en la estantería.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un baile en Versalles comparte con El color de la esperanza la autoría de Danielle Steel y una ambientación francesa, aunque sitúa su historia en una gala de 1959, frente al duelo y la reconstrucción personal de la segunda. A mil por hora, de Hannah Grace, también gira alrededor del romance, pero lo vincula a un piloto de F1 en lugar de a una nueva vida en el País Vasco francés.",
+      "texto": "El color de la esperanza comparte autoría con Un baile en Versalles, de Danielle Steel, pero presenta un conflicto diferente. Mientras Un baile en Versalles parte de una gala celebrada en el verano de 1959, El color de la esperanza se centra en una mujer que afronta la viudedad y encuentra nuevas relaciones personales en el País Vasco francés. Ambas obras pertenecen a la narrativa de la misma autora, aunque sus escenarios y situaciones iniciales son distintos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial",
-        "afines_catalogo"
+        "afines_catalogo",
+        "sinopsis_editorial"
       ],
       "enlaces": [
-        "isbn-9788401037894",
-        "isbn-9788466683449"
+        "isbn-9788401037894"
       ]
     }
   ],

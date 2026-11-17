@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788480489737",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La aldea vacía: 224 (Teatroautor) se sitúa en un ámbito que reúne ensayo, ciencia y artes. Sus 78 páginas pueden encajar con quienes buscan un volumen breve relacionado con estas materias, pero no con lectores que prefieren una novela extensa de romance o aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La aldea vacía: 224 (Teatroautor) puede leerse en tapa blanda o en Kindle. La edición física de 78 páginas resulta manejable para consultar y conservar en papel; Kindle permite llevar la obra en un dispositivo compatible sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La aldea vacía: 224 (Teatroautor) comparte el ámbito del arte y la reflexión con Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION), de Maria Stavrinaki, aunque este último explicita una investigación histórica sobre el arte. También se relaciona con Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas), de Carlos Briones, cuyo título plantea expresamente el encuentro entre ambas disciplinas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399236422",
+        "isbn-9788401039287"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6bd557149883c90b",
+  "origen": "chatgpt-web"
+}

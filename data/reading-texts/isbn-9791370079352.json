@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370079352",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Thom Browne | Colección Leyendas de la Moda | Libro LXV está dirigido a lectores interesados en la moda y en publicaciones sobre figuras del diseño. Por su planteamiento de arte y ensayo, responde a una búsqueda distinta de la de quienes prefieren novelas, relatos de ficción o historias con una trama narrativa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Thom Browne | Colección Leyendas de la Moda | Libro LXV cuenta con una edición en tapa dura de 128 páginas en castellano. Su presentación física permite incorporarlo a una colección de libros sobre moda, conservarlo en una estantería y consultarlo sin necesidad de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Emilio Pucci | Colección Leyendas de la Moda | Libro LXVI comparte con Thom Browne | Colección Leyendas de la Moda | Libro LXV la autoría editorial de RBA Coleccionables España y su pertenencia a una serie dedicada a la moda. La diferencia está en la figura que identifica cada volumen y en su posición dentro de la colección, señalada expresamente en ambos títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079369"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6f869c255c62d722",
+  "origen": "chatgpt-web"
+}

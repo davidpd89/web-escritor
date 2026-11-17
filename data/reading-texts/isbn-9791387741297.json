@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores) está dirigido al público juvenil interesado en la fantasía, los secretos y los entornos escolares con elementos extraordinarios. Por su orientación hacia los jóvenes lectores, se aparta de las obras de fantasía concebidas específicamente para adultos.",
+      "texto": "Está dirigido a jóvenes lectores que buscan fantasía ambientada en un colegio de poderes secretos. Por su temática y sus 128 páginas, encaja con quienes prefieren historias fantásticas breves, pero no con quienes buscan una novela extensa de corte realista.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores) tiene 128 páginas y permite conservar el libro en una colección física. Kindle facilita llevar la lectura en un dispositivo digital sin transportar el ejemplar impreso.",
+      "texto": "La tapa blanda permite leer sus 128 páginas en papel y llevar el libro en la mochila. Kindle ofrece la misma obra en formato digital para leerla desde un dispositivo compatible, sin ocupar espacio físico en la estantería.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -21,19 +22,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El secreto de los unicornios: Especial Unicornios 2 (Tea Stilton) comparte con Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores) el interés por los secretos y la fantasía. La diferencia está en su planteamiento anunciado: el primero gira alrededor de los unicornios y el segundo pertenece a una serie sobre un colegio de poderes secretos.",
+      "texto": "Franco: Una historia alternativa: 135 (Alamut Serie Fantástica) comparte con Colegio de poderes secretos 8 - En busca de Trece (Jóvenes lectores) la presencia de César Mallorquí en la autoría. La diferencia está en el planteamiento: el primero anuncia una historia alternativa y reúne varios autores, mientras el segundo se presenta como fantasía para jóvenes lectores centrada en un colegio de poderes secretos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408323969"
+        "isbn-9788498891768"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bdbbbfa1bc8f6a12",
+  "fuente_hash": "a34f004313b78d3a",
   "origen": "chatgpt-web"
 }

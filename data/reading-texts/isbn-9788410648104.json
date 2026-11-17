@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788410648104",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los juegos más peligrosos: la novela gráfica está dirigido a lectores que buscan misterio y narración en formato de cómic. Su clasificación como novela gráfica lo diferencia de las novelas convencionales en prosa y de los libros centrados en contenidos divulgativos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Los juegos más peligrosos: la novela gráfica se publica en tapa blanda y contiene 224 páginas. Este formato permite leer y consultar físicamente la obra, además de conservarla en una estantería sin recurrir a un dispositivo digital.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anna en la cueva: Anna Dédalus detective: 4, de Miguel Ángel Giner Bou, comparte con Los juegos más peligrosos: la novela gráfica una orientación hacia el misterio. La diferencia visible está en su presentación: el primero se identifica como una entrega de una serie detectivesca, mientras que la obra de MrBeast y James Patterson se presenta expresamente como novela gráfica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419605528"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b25dc16040da525",
+  "origen": "chatgpt-web"
+}

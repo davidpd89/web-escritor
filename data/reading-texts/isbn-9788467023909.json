@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ricardo II: 1 (Clásica), de William Shakespeare, encaja con lectores interesados en obras clásicas vinculadas al ámbito artístico. La edición en castellano tiene 160 páginas y está clasificada en arte y diseño; no responde a la búsqueda de un manual práctico de dibujo o de técnicas artísticas.",
+      "texto": "Ricardo II: 1 (Clásica), de William Shakespeare, encaja con lectores interesados en obras clásicas relacionadas con el teatro y las artes. Su edición de 160 páginas ofrece una extensión contenida; por su orientación literaria, no responde a quien busque un manual práctico de creación artística.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "numero_paginas",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ricardo II: 1 (Clásica) está disponible en tapa blanda, con 160 páginas. Su extensión y encuadernación flexible facilitan transportarlo para leer fuera de casa o trabajar sobre el texto durante varias sesiones; la edición corresponde a Austral Editorial.",
+      "texto": "Ricardo II: 1 (Clásica) se presenta en tapa blanda, con 160 páginas en castellano. La edición de Austral Editorial facilita llevar el volumen en el bolso o la mochila y consultarlo durante una lectura de estudio, sin el peso habitual de una encuadernación rígida.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ricardo II: 1 (Clásica) y Arde Talía: Una pieza teatral sobre el infierno de la creación artística comparten su relación con el teatro. William Shakespeare firma el primero, mientras que el segundo reúne a Alba Quintas Garciandia, Ana Saiz, Talita Isla, Carmen Romero Lorenzo e Inés Galiano y centra su título en la creación artística.",
+      "texto": "Ricardo II: 1 (Clásica) puede compararse con Romeo y Julieta: 3 (Shakespeare en el Mediterráneo), ya que ambos títulos pertenecen a William Shakespeare. La diferencia inmediata está en la obra y en la colección indicada por cada título: uno figura como Clásica y el otro como Shakespeare en el Mediterráneo.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399289510"
+        "isbn-9791399252316"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "01a01f04ce4a41bc",
+  "fuente_hash": "dd1c7c840278e0c8",
   "origen": "chatgpt-web"
 }

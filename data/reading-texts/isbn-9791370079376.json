@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370079376",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Junya Watanabe | Colección Leyendas de la Moda | Libro LXVII se orienta a lectores interesados en la moda desde el arte, el diseño y el ensayo. Sus 128 páginas y su pertenencia a una colección temática lo distinguen de una novela de ficción o de un estudio de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Junya Watanabe | Colección Leyendas de la Moda | Libro LXVII es de tapa dura y tiene 128 páginas. Publicada por RBA Coleccionables en castellano, su encuadernación rígida resulta práctica para conservar el volumen junto a otros títulos de la colección o entregarlo como regalo físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Junya Watanabe | Colección Leyendas de la Moda | Libro LXVII se relaciona directamente con Emilio Pucci | Colección Leyendas de la Moda | Libro LXVI y Marni | Colección Leyendas de la Moda | Libro LXVIII. Los tres pertenecen a la misma colección y comparten la autoría editorial de RBA Coleccionables España, pero cada título está dedicado a un nombre distinto de la moda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079369",
+        "isbn-9791370079383"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "663607c13cda775c",
+  "origen": "chatgpt-web"
+}

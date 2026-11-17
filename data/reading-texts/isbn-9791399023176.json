@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Obras completas III: Ensayo. Narrativa. Poesía: 285 (Biblioteca Castro) se dirige a lectores interesados en estudiar distintos géneros de la escritura de Antonio Buero Vallejo. Sus 1880 páginas reúnen ensayo, narrativa y poesía, por lo que no responde a quien busca una lectura breve centrada en un único género.",
+      "texto": "Obras completas III: Ensayo. Narrativa. Poesía: 285 (Biblioteca Castro) se dirige a lectores interesados en reunir ensayo, narrativa y poesía de Antonio Buero Vallejo en un mismo volumen. Sus 1880 páginas lo sitúan lejos de las lecturas breves y de quienes buscan una única obra independiente.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Obras completas III: Ensayo. Narrativa. Poesía: 285 (Biblioteca Castro) es de tapa dura, presentada como libro de tela. Sus 1880 páginas hacen de ella un volumen pensado para conservar en una biblioteca y consultar sobre una superficie estable, más que para transportarlo habitualmente.",
+      "texto": "Obras completas III: Ensayo. Narrativa. Poesía: 285 (Biblioteca Castro) se presenta en tapa dura, con encuadernación descrita como libro de tela. Sus 1880 páginas favorecen un uso de consulta y lectura en casa, mientras que el tamaño de la recopilación puede resultar menos práctico para transportarla diariamente.",
       "evidencias": [
         "titulo",
-        "edicion",
         "formatos_disponibles",
+        "edicion",
         "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Obras completas III: Ensayo. Narrativa. Poesía: 285 (Biblioteca Castro) comparte con El genio griego: Ilíada o el poema de la fuerza y otros textos (Contemporánea | Narrativa), de Simone Weil, el interés por el ensayo. La diferencia está en la amplitud: Antonio Buero Vallejo reúne también narrativa y poesía en 1880 páginas, mientras que el título de Simone Weil identifica una selección de textos alrededor de un asunto concreto.",
+      "texto": "Obras completas III: Ensayo. Narrativa. Poesía: 285 (Biblioteca Castro) comparte la presencia de poesía con Fuego y raíz: Cancionero (Primera persona), de Gata Cattana, pero incorpora también ensayo y narrativa. Frente a Canciones de inocencia y de experiencia (Letras Universales), de William Blake, la obra de Antonio Buero Vallejo reúne varios géneros y alcanza las 1880 páginas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,7 +33,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466394604"
+        "isbn-9788403524996",
+        "isbn-9788437650487"
       ]
     }
   ],

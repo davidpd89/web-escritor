@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791399285079",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sobre la libertad: 236 (Los pequeños libros de la sabiduria) se dirige a lectores interesados en la filosofía y en reflexionar sobre la libertad desde la obra de EPICTETO. No responde a quienes buscan un manual práctico de economía o una exposición centrada en cuestiones políticas contemporáneas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sobre la libertad: 236 (Los pequeños libros de la sabiduria) se presenta en tapa blanda y tiene 102 páginas. La edición en castellano de Olañeta Ediciones reúne en un volumen físico de extensión breve un contenido filosófico que puede consultarse y releerse por separado.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sobre la libertad: 236 (Los pequeños libros de la sabiduria), de EPICTETO, puede compararse con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, por su orientación hacia la reflexión filosófica, aunque el primero se centra en la libertad y el segundo en aforismos para meditar. Analectas. El arte de la estrategia, de CONFUCIO, ofrece otra referencia de pensamiento clásico con una orientación temática distinta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278",
+        "isbn-9791399286526"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c8816ae945cfb123",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788408326441",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Amor y sexo en España contado para escépticos (Historia) se dirige a lectores de ensayo histórico interesados en las relaciones afectivas y sexuales en España. Sus 512 páginas plantean una lectura de no ficción centrada en ese ámbito, por lo que se aparta de la novela romántica y de los manuales prácticos sobre relaciones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Amor y sexo en España contado para escépticos (Historia) cuenta con una edición de bolsillo en tapa blanda publicada por Booket. Sus 512 páginas ofrecen una lectura extensa en un formato físico que puede transportarse y consultarse por partes, tanto en casa como durante desplazamientos.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amor y sexo en España contado para escépticos (Historia) y La Guerra Fría contada para escépticos comparten autor, Juan Eslava Galán, y un planteamiento histórico dirigido a lectores escépticos. El primero trata el amor y la sexualidad en España; el segundo aborda la Guerra Fría y sitúa su materia en el siglo XX. La coincidencia está en la autoría y el enfoque histórico, no en el periodo o asunto tratado.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408326380"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "562895888f361b5a",
+  "origen": "chatgpt-web"
+}

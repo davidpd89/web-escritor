@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9788409938193",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta se dirige a lectores interesados en el desarrollo personal y la fortaleza ante situaciones difíciles. Su planteamiento mediante 10 principios se aparta de la narrativa de ficción y de los manuales centrados exclusivamente en cuestiones físicas de salud.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta puede leerse en tapa dura, tapa blanda o Kindle. Sus 140 páginas forman un volumen manejable en papel: la tapa dura ofrece una encuadernación más rígida, la blanda resulta más flexible y Kindle permite consultar los principios desde un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alma de vencedor: Los 10 principios innegociables para hacerte más fuerte cuando la vida más aprieta comparte con Cómo sobrevivir a las putadas de la vida (Vivir Mejor) el interés por afrontar dificultades personales. Fausto Alfaro Cádiz organiza su propuesta alrededor de 10 principios de fortaleza, mientras que el título de Lorena Gascón plantea la supervivencia ante los contratiempos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055957"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f25c4e344df5085e",
+  "origen": "chatgpt-web"
+}

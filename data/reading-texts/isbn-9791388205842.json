@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388205842",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "21 Westerns del siglo XXI (Sílex Cine/Claqueta) se orienta a lectores interesados en el cine del oeste y su producción contemporánea. Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga firman un volumen de 276 páginas centrado, por su título, en obras cinematográficas, no en una narración de ficción ambientada en el oeste.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "21 Westerns del siglo XXI (Sílex Cine/Claqueta) se ofrece en tapa blanda, con 276 páginas en castellano. Esta edición de Sílex Ediciones permite mantener el volumen en una biblioteca de cine y consultarlo físicamente cuando se busquen referencias sobre el western.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "21 Westerns del siglo XXI (Sílex Cine/Claqueta) y Al hollywood parisino la produccion hispana de paramount en comparten su interés por asuntos cinematográficos. El primero se centra en el western del siglo XXI y está firmado por Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga; el segundo, de Santiago Aguilar y Felipe Cabrerizo, dirige la atención hacia la producción hispana de Paramount.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788486877590"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1b65ae25591904ac",
+  "origen": "chatgpt-web"
+}

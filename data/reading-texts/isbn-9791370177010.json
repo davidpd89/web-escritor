@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791370177010",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A bordo del Destino: 347 (HQN), de Maia Clark, se sitúa entre la narrativa contemporánea y la novela histórica, con vinculación temática a la familia y la crianza. Sus 288 páginas responden a una extensión de novela; no corresponde a quien busque un manual práctico de educación familiar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A bordo del Destino: 347 (HQN) cuenta con una edición en tapa blanda de 288 páginas, publicada por Harlequin Ibérica, S.a. Es una opción física para leer y guardar en la estantería, con una encuadernación flexible frente a la rigidez de la tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A bordo del Destino: 347 (HQN) puede compararse con Cuando el viento hable: Edición limitada a precio especial (Colección Especial) y The Master: Retrato del novelista adulto (Contemporánea | Narrativa) por su presencia en un conjunto de lecturas narrativas. La obra de Maia Clark se clasifica también como novela histórica y aborda el ámbito familiar, mientras que los títulos afines corresponden a Ángela Banzas y Colm Tóibín, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466390842",
+        "isbn-9788408328414"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "88ff0e34f321c2e9",
+  "origen": "chatgpt-web"
+}

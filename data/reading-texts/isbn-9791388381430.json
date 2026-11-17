@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388381430",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de biografías, memorias y estudios sobre arte, Elisabeth Vigée-Le Brun. Pintora de reinas: 23 (Biblioteca de la Memoria) aborda una figura de la pintura. Por su enfoque biográfico y ensayístico, se aleja de quienes buscan una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Elisabeth Vigée-Le Brun. Pintora de reinas: 23 (Biblioteca de la Memoria) se presenta en tapa blanda, con 332 páginas en castellano. Este formato permite consultar el volumen físico, marcar pasajes y conservarlo junto a otros títulos de biografía y arte.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Elisabeth Vigée-Le Brun. Pintora de reinas: 23 (Biblioteca de la Memoria) comparte el ámbito biográfico con Las desobedientes (Biografías), aunque el primero identifica a una pintora como protagonista. También se relaciona con Rafael Moneo, construir las ideas: 530 (El Acantilado) por su vinculación con las artes, pero este último se centra en una figura de la arquitectura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788477653325",
+        "isbn-9791387964177"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea541509dfe6ad7b",
+  "origen": "chatgpt-web"
+}

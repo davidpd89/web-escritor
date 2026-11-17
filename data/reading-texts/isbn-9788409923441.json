@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409923441",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El año en que perdí mi nombre se dirige a lectores de narrativa contemporánea y relatos interesados en historias vinculadas, por su título, a la pérdida de identidad. No responde a la búsqueda de un ensayo documental o un manual práctico, pues está clasificado como literatura narrativa de J.A. Iáñez Fernández.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El año en que perdí mi nombre se publica en tapa blanda y tiene 255 páginas. Esta edición reúne la obra narrativa en un volumen físico que puede transportarse para leer fuera de casa y conservarse en la biblioteca personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El año en que perdí mi nombre comparte el ámbito de la narrativa contemporánea y los relatos con En lengua privada / In Private Language, de Emiliano Monge. La obra de J.A. Iáñez Fernández alude desde su título a la pérdida del nombre, mientras que la de Emiliano Monge pone el lenguaje en primer plano. También puede compararse con Caperucita se come al lobo / Little Red Riding Hood Eats the Wolf, de Pilar Quintana, aunque sus títulos apuntan a asuntos diferentes: la identidad personal frente a la reinterpretación de un cuento conocido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287880610",
+        "isbn-9786073878289"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ab7862767303516c",
+  "origen": "chatgpt-web"
+}

@@ -4,15 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "ROBARTE: Volumen 1 (ROBARTE - Expedientes de lógica.) se orienta a lectores interesados en la lógica como actividad de ocio. Por su planteamiento, encaja menos con quienes buscan una novela centrada en las relaciones personales o una historia de fantasía.",
+      "texto": "ROBARTE: Volumen 1 (ROBARTE - Expedientes de lógica.) se dirige a lectores interesados en los ejercicios de lógica y las actividades de ocio que requieren razonamiento. Por su orientación hacia los expedientes de lógica, encaja menos con quienes buscan una novela centrada en personajes y relaciones.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "ROBARTE: Volumen 1 (ROBARTE - Expedientes de lógica.) tiene una edición en tapa blanda de 280 páginas en castellano. El volumen físico permite tener el contenido a mano para dedicarle sesiones de lectura o trabajo con la lógica, sin utilizar una pantalla.",
+      "texto": "ROBARTE: Volumen 1 (ROBARTE - Expedientes de lógica.) está disponible en tapa blanda, con 280 páginas en castellano. Esta edición física permite consultar los expedientes, retroceder entre páginas y mantener el libro a mano durante las actividades de lógica.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,19 +24,19 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "ROBARTE: Volumen 1 (ROBARTE - Expedientes de lógica.) se aproxima a 80 crímenes imposibles de resolver (FUERA DE ESCENA) por el interés en resolver problemas. Patricia Mestres López presenta su obra bajo el concepto de expedientes de lógica, mientras que Gareth Moore y Laura Jayne Ayres sitúan sus retos en crímenes imposibles.",
+      "texto": "ROBARTE: Volumen 1 (ROBARTE - Expedientes de lógica.) comparte con 99 Sudoku (LIBROS SINGULARES) el interés por las actividades de lógica y entretenimiento. El primero se presenta como una colección de expedientes, mientras que el segundo se centra en el sudoku; ambos ofrecen una alternativa a la lectura narrativa convencional.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388015816"
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "040c58e99df27cae",
+  "fuente_hash": "13cb8fe7a7645008",
   "origen": "chatgpt-web"
 }

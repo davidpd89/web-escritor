@@ -4,32 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA) está dirigido a lectores interesados en los enigmas criminales y en los retos relacionados con la resolución de crímenes. Sus 256 páginas concentran la propuesta en un volumen de ocio; quien busque una novela de ficción convencional encontrará un planteamiento distinto.",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA) se dirige a quienes buscan entretenimiento relacionado con la resolución de crímenes y los desafíos de ingenio. Por su enfoque en el ocio y las aficiones, encaja menos con quien prefiere una lectura centrada en el ensayo filosófico o la divulgación científica.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "autores"
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda contiene los 80 crímenes imposibles de resolver (FUERA DE ESCENA) en 256 páginas. Es la opción disponible para trabajar con el libro en papel y conservarlo junto a otros libros de enigmas; no se ofrecen aquí ediciones Kindle, tapa dura ni audiolibro.",
+      "texto": "La edición de 80 crímenes imposibles de resolver (FUERA DE ESCENA) se presenta en tapa blanda y reúne 256 páginas. Este formato permite consultar el volumen físicamente, avanzar por sus páginas y volver a ejercicios anteriores sin depender de una pantalla.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "numero_paginas",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen, de Sarah Dvojack, comparte con 80 crímenes imposibles de resolver (FUERA DE ESCENA) el interés por los casos criminales y su resolución. La diferencia está en el enfoque: el primero se centra en los casos asociados a Agatha Christie, mientras que el segundo presenta 80 crímenes en su propia propuesta.",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA) comparte con Cluedo el interés por resolver casos mediante desafíos de deducción, aunque este último se vincula a un juego de detectives. Frente a los crímenes imposibles del libro de Gareth Moore y Laura Jayne Ayres, Agatha Christie. ¿Quién lo hizo? Resuelve los casos más famosos de la Reina del Crimen (FICCIÓN) plantea la resolución de casos asociados a Agatha Christie.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791259578907"
@@ -38,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c2bd2d36c3de35bc",
+  "fuente_hash": "1fcc81201ab34917",
   "origen": "chatgpt-web"
 }

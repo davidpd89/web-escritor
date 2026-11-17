@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El campo de la dictadura: Latifundio, peronismo y derechos humanos (HISTORIA URGENTE) se dirige a lectores interesados en las relaciones entre propiedad agraria, política y derechos humanos. Su enfoque de ensayo histórico y político se distancia de la ficción y de las memorias centradas exclusivamente en experiencias personales.",
+      "texto": "El campo de la dictadura: Latifundio, peronismo y derechos humanos (HISTORIA URGENTE) está dirigido a lectores interesados en la historia política, la cuestión agraria y los derechos humanos. Su planteamiento histórico y ensayístico se aparta de las lecturas centradas en la ficción o en el entretenimiento narrativo.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,28 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El campo de la dictadura: Latifundio, peronismo y derechos humanos (HISTORIA URGENTE) cuenta con una edición en tapa blanda de 348 páginas. El volumen físico permite consultar distintos pasajes sobre latifundio, peronismo y derechos humanos, además de conservarlo como lectura de referencia sobre esos asuntos.",
+      "texto": "La tapa blanda de El campo de la dictadura: Latifundio, peronismo y derechos humanos (HISTORIA URGENTE) reúne 348 páginas en un volumen físico que puede consultarse y anotarse. Kindle permite leerlo digitalmente y llevar la lectura en un dispositivo compatible, sin cargar con el ejemplar impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El campo de la dictadura: Latifundio, peronismo y derechos humanos (HISTORIA URGENTE) puede compararse con Campo de concentración: 82 (Biblioteca del Exilio) por su relación temática con la represión y los derechos humanos. Pedro Peretti centra su obra en el latifundio y el peronismo, mientras que el título de Eduardo de Ontañón sitúa el campo de concentración en el centro de su planteamiento.",
+      "texto": "El campo de la dictadura: Latifundio, peronismo y derechos humanos (HISTORIA URGENTE) puede ponerse junto a Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes por su atención a asuntos históricos y políticos. Pedro Peretti se centra en el latifundio, el peronismo y los derechos humanos; Andrew Paxman presenta una biografía organizada en episodios.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410148659"
+        "isbn-9786073873154"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a7a07eb65d64a50f",
+  "fuente_hash": "291e2f34b68b93c1",
   "origen": "chatgpt-web"
 }

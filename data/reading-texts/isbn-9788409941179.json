@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409941179",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La ira del invierno: Reinos de las Estaciones I se dirige a lectores de fantasía juvenil interesados en las aventuras y los mundos imaginarios. Sus 627 páginas suponen una lectura extensa, por lo que se distancia de las novelas breves y de los libros de carácter realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La ira del invierno: Reinos de las Estaciones I se publica en tapa blanda, con 627 páginas en castellano. Por su extensión, la edición física requiere más espacio para transportarla que un volumen breve y permite conservar la novela en papel para futuras lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ira del invierno: Reinos de las Estaciones I y El caballero de la capa negra se sitúan entre las lecturas de fantasía del catálogo. La primera está firmada por Nuria Mínguez García y se identifica como fantasía juvenil de aventuras, mientras que la segunda corresponde a Carlos J. Sánchez. Frente a La tiranía de la fe: 2 (Richard Swan), el título de Nuria Mínguez García se identifica con el número I y no con el 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399254419",
+        "isbn-9791399227420"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d9e7f687c80072f7",
+  "origen": "chatgpt-web"
+}

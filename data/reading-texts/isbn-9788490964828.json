@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788490964828",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Velázquez: el arte alusiva: 16 (Essais de la Casa de Velázquez) se dirige a lectores interesados en el ensayo y el estudio del arte. La obra de Mercedes Blanco encaja menos con quienes buscan una novela de ficción o un manual de actividades artísticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Velázquez: el arte alusiva: 16 (Essais de la Casa de Velázquez) está disponible en tapa blanda. Sus 260 páginas permiten consultar el ensayo en papel y volver a distintos pasajes sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Velázquez: el arte alusiva: 16 (Essais de la Casa de Velázquez) puede compararse con Alberta Ferretti | Colección Leyendas de la Moda | Libro LXII por su vinculación con las disciplinas artísticas y el diseño. Mercedes Blanco aborda el arte desde el ensayo, mientras que el título de RBA Coleccionables España se centra en una figura de la moda.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370079321"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ecffb570e48542b5",
+  "origen": "chatgpt-web"
+}

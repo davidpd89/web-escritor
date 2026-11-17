@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388495076",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "TÚ y yo somos polos opuestos, vol 8 se dirige a lectores de cómic y novela gráfica que buscan obras de Kocha Agasawa editadas en castellano. El título lo identifica como el volumen 8, por lo que no es la entrega inicial para quien pretenda empezar por el comienzo. Tampoco responde al formato narrativo de una novela escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "TÚ y yo somos polos opuestos, vol 8 cuenta con una edición de tapa blanda de 224 páginas, publicada por Milky Way Ediciones. El volumen físico puede guardarse junto a otras entregas y consultarse sin dispositivo electrónico. Para este título, la modalidad disponible es la tapa blanda en castellano.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df17ecd773a2841c",
+  "origen": "chatgpt-web"
+}

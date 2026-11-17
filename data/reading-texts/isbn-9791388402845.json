@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388402845",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dificultades en la lecto-escritura se dirige a quienes buscan un ensayo sobre los problemas relacionados con la lectura y la escritura. Por su enfoque temático, encaja con el interés por estas dificultades, pero no con la búsqueda de una novela o una historia de ficción. Maider Berrio Goñi firma esta obra de 72 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dificultades en la lecto-escritura se presenta en tapa blanda, con 72 páginas en castellano. Esta extensión permite manejar el libro en papel sin cargar con un volumen grueso y volver a consultar sus páginas durante la lectura. La edición física corresponde a Palmito Books, S.l.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5f7f57d319177ffa",
+  "origen": "chatgpt-web"
+}

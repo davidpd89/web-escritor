@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788467084214",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Estuche Obras completas Miguel de Cervantes (Biblioteca clásica básica RAE) está dirigido a lectores interesados en reunir la obra de Miguel de Cervantes y dedicar tiempo a los clásicos. Sus 4592 páginas exigen una lectura prolongada; encaja menos con quienes buscan una sola novela breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El estuche de Editorial Espasa se presenta en tapa blanda y reúne 4592 páginas en castellano. Por su extensión, Estuche Obras completas Miguel de Cervantes (Biblioteca clásica básica RAE) resulta más apropiado para conservarlo y consultarlo en casa que para transportarlo diariamente; también puede regalarse como conjunto de obras de un mismo autor.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Don Quijote de la Mancha (Clásicos ilustrados) y El ingenioso hidalgo don Quijote de la Mancha comparten con Estuche Obras completas Miguel de Cervantes (Biblioteca clásica básica RAE) la autoría de Miguel de Cervantes. Los dos primeros títulos se centran en una obra concreta, mientras que el estuche plantea una recopilación de obras completas con 4592 páginas. La edición de Don Quijote de la Mancha (Clásicos ilustrados) se distingue además por su presentación ilustrada.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752385",
+        "isbn-9788410648371"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "10d61160e78bbe1d",
+  "origen": "chatgpt-web"
+}

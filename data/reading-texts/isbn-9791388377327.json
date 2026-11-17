@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791388377327",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores interesados en analizar los efectos económicos de las decisiones políticas mediante modelos de equilibrio general aplicado. Su planteamiento metodológico encaja menos con quienes buscan una introducción a la economía doméstica o un ensayo centrado en posiciones ideológicas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda los Modelos de Equilibrio General Aplicado (MEGA) y su denominación en inglés, Computable General Equilibrium (CGE), como herramientas para estudiar los efectos de las políticas sobre la economía. Alberto Bañón Serrano presenta el asunto desde una perspectiva práctica, desarrollada en 270 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece las 270 páginas de Guía práctica para Modelos de Equilibrio General Aplicado (MEGA) Computable General Equilibrium (CGE): Predecir como afecta la política a la economía en soporte físico. Es una opción para estudiar el contenido, señalar pasajes y volver a consultar los conceptos de modelización económica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Puede compararse con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), porque ambos relacionan economía y política. La obra de Miguel Anxo Bastos Boubeta se ocupa de las bases de una corriente de pensamiento, mientras que Alberto Bañón Serrano se centra en modelos para analizar los efectos económicos de las políticas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "048dd48ff8fe1294",
+  "origen": "chatgpt-web"
+}

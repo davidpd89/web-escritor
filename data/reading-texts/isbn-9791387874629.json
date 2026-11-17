@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791387874629",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "IA. Guía práctica para pymes: Planes de acción, herramientas y casos prácticos está orientado a lectores que buscan aplicar la inteligencia artificial en pequeñas y medianas empresas. Su planteamiento empresarial y práctico se distancia de una introducción puramente teórica a la tecnología o de una novela sobre inteligencia artificial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "IA. Guía práctica para pymes: Planes de acción, herramientas y casos prácticos cuenta con una edición en tapa blanda de 238 páginas. El soporte impreso facilita consultar los planes de acción y regresar a los apartados sobre herramientas y casos prácticos durante el trabajo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "IA. Guía práctica para pymes: Planes de acción, herramientas y casos prácticos y ANTES DE QUE OCURRA: Vender, formar y proteger el futuro comparten una orientación hacia la actividad empresarial. David García Martín se centra en la aplicación de la inteligencia artificial a las pymes, mientras que Rafael De la Torre Pérez plantea cuestiones de venta, formación y protección del futuro. Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso, desplaza la atención hacia el liderazgo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980",
+        "isbn-9788409935604"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e2c851607675014f",
+  "origen": "chatgpt-web"
+}

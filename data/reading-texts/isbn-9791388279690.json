@@ -4,43 +4,43 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mantequilla (Novela), de Asako Yuzuki, se dirige a lectores de misterio y narrativa contemporánea que buscan una novela extensa. Sus 496 páginas en castellano encajan menos con quienes prefieren lecturas breves o relatos centrados exclusivamente en la acción.",
+      "texto": "Mantequilla (Novela), de Asako Yuzuki, se dirige a quienes leen narrativa contemporánea con elementos de misterio y thriller. Sus 496 páginas ofrecen una extensión considerable, alejada de los relatos breves y de las lecturas centradas únicamente en la acción fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mantequilla (Novela) se presenta en tapa blanda, concretamente en una edición de bolsillo de Booket. Sus 496 páginas permiten acceder a una novela extensa en un volumen pensado para transportarse y guardarse con mayor facilidad que una edición rígida de dimensiones superiores.",
+      "evidencias": [
+        "titulo",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mantequilla (Novela), de Asako Yuzuki, puede compararse con Los ojos de Mona, de Thomas Schlesser, por su vinculación con la narrativa y el ámbito artístico. La primera combina misterio y narrativa contemporánea en 496 páginas, mientras que la segunda presenta una historia organizada alrededor de 52 obras maestras. También se diferencia de Jesulito Jesulín (Cómic), de Guillermo Saavedra, por su formato de novela frente al cómic.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
         "numero_paginas",
-        "idioma"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "Mantequilla (Novela) está disponible en tapa blanda, en una edición de bolsillo de Booket. Sus 496 páginas permiten leerla por etapas y el formato facilita llevarla en el bolso o la mochila sin recurrir a un dispositivo electrónico.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
-        "edicion",
-        "editorial",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Mantequilla (Novela) puede compararse con Aguas turbulentas por su vinculación con el misterio y la narrativa de intriga. La obra de Rankin Ian sitúa su conflicto en Edimburgo y enfrenta acontecimientos del pasado con el presente; la de Asako Yuzuki se presenta también como narrativa contemporánea, con una extensión de 496 páginas.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo",
-        "numero_paginas"
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370310318"
+        "isbn-9791399267709",
+        "isbn-9788466378604"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "277c005153f6be03",
+  "fuente_hash": "2a714540de4ad5a8",
   "origen": "chatgpt-web"
 }

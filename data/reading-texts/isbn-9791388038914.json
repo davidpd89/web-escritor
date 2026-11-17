@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Vortibooks: Expediente Nexus (Vergara) se dirige a quienes buscan títulos relacionados con el ocio y el tiempo libre. Sus 240 páginas en castellano lo distinguen de los manuales breves de actividades; por su clasificación editorial, tampoco responde a una búsqueda específica de fantasía o romance.",
+      "texto": "Vortibooks: Expediente Nexus (Vergara) se dirige a quienes buscan lecturas vinculadas al ocio y las aficiones. Sus 240 páginas permiten valorar la extensión antes de elegirlo; quien prefiera una novela identificada expresamente como fantasía o romance encontrará aquí un enfoque editorial distinto.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Vortibooks: Expediente Nexus (Vergara) se presenta en tapa blanda, con 240 páginas en castellano. Esta edición de Vergara permite consultar el contenido en papel y transportarlo sin la rigidez de una cubierta dura; su extensión también cuenta a la hora de reservarle espacio en una estantería.",
+      "texto": "Vortibooks: Expediente Nexus (Vergara) está disponible en tapa blanda, con 240 páginas en castellano. Esta edición de Vergara permite consultar el contenido en papel y transportarlo sin la rigidez de una cubierta dura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -25,20 +24,22 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Vortibooks: Expediente Pesadilla (Vergara) es la comparación más directa: comparte autor, David Velasco, y la denominación Vortibooks, pero presenta un expediente distinto. Frente a 100% Roblox. Pinta Píxeles: Libro para colorear (Libros basados en juegos), centrado en colorear, Vortibooks: Expediente Nexus (Vergara) se identifica por su propuesta de expediente.",
+      "texto": "Vortibooks: Expediente Pesadilla (Vergara) es una lectura afín a Vortibooks: Expediente Nexus (Vergara) por su autoría compartida, David Velasco, y su pertenencia a la misma línea editorial de Vergara. Se diferencian por el expediente que identifica cada título; Vortibooks: Expediente Nexus (Vergara) tiene 240 páginas y se sitúa en el ámbito del ocio y las aficiones.",
       "evidencias": [
         "titulo",
         "autores",
+        "editorial",
+        "numero_paginas",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388038921",
-        "isbn-9788408328384"
+        "isbn-9791388038921"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a781cf2e3841bf13",
+  "fuente_hash": "b8ad68168b4b3420",
   "origen": "chatgpt-web"
 }

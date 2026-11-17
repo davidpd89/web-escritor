@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Rusia y Ucrania en guerra, de Luis Fraga, se dirige a lectores interesados en los conflictos internacionales y el poder político. Su temática bélica y política lo distancia de quienes buscan una historia de ficción centrada en relaciones personales o aventuras imaginarias.",
+      "texto": "Rusia y Ucrania en guerra está dirigido a lectores interesados en conflictos internacionales y política contemporánea. Su asunto central es la guerra entre ambos países, por lo que se aleja de los libros sobre política exclusivamente española o de los manuales generales de teoría económica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Rusia y Ucrania en guerra cuenta con una edición en tapa blanda de 172 páginas, publicada por El Manifiesto Ediciones. El formato permite leer y consultar el volumen en papel, con una cubierta flexible y una extensión delimitada para organizar su lectura.",
+      "texto": "Rusia y Ucrania en guerra se presenta en tapa blanda, con 172 páginas en castellano. Esta encuadernación flexible permite transportar el volumen y consultar sus páginas en papel, tanto para una lectura continuada como para regresar a determinados pasajes.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "idioma",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Rusia y Ucrania en guerra y A la sombra del Estado comparten el interés por el poder y los conflictos. La obra de Luis Fraga se identifica por la guerra entre Rusia y Ucrania, mientras que A la sombra del Estado aborda el espionaje, las operaciones encubiertas, la guerra híbrida y la desinformación.",
+      "texto": "A la sombra del Estado comparte con Rusia y Ucrania en guerra el interés por el poder y los conflictos, aunque aborda específicamente el espionaje, las operaciones encubiertas y la guerra híbrida. Brainwashing: Populismo en la era del like desplaza la atención hacia el populismo y la comunicación política, frente al conflicto internacional que identifica el título de Luis Fraga.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441057"
+        "isbn-9788434441057",
+        "isbn-9791399271379"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "e40ba8e429a1810d",
+  "fuente_hash": "f7408f9ee926049a",
   "origen": "chatgpt-web"
 }

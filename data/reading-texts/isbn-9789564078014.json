@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9789564078014",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Argumentacion Juridica, de Carlos Parma, se orienta a quienes buscan una lectura sobre la argumentación en el ámbito del derecho. Su enfoque temático encaja con intereses jurídicos generales, más que con una consulta centrada exclusivamente en derecho penal, civil o administrativo. Tampoco responde a la búsqueda de una obra de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Argumentacion Juridica se presenta en tapa blanda, con una extensión de 130 páginas. Es una edición física de Ediciones Olejnik, identificada como Bunko, que permite consultar el contenido directamente sobre papel. Su extensión facilita transportarla como volumen individual y mantenerla a mano para consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Argumentacion Juridica puede compararse con Actuación conjunta en la agresión sexual: Análisis dogmático y comparado del artículo 180.1.1ª del Código Penal, de Víctor Rodríguez Alonso, por su vinculación con el razonamiento jurídico. Carlos Parma aborda la argumentación jurídica como asunto central, mientras que el título de Víctor Rodríguez Alonso concentra su análisis en una cuestión específica del derecho penal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370475949"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e7ade466b0f4dd0f",
+  "origen": "chatgpt-web"
+}

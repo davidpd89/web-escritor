@@ -4,16 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Las mujeres de New Jersey (THRILLER Y MISTERIO) encaja con lectores que buscan una novela de misterio y thriller con presencia temática de mujeres. La obra de Astrid Dahl se aleja de las preferencias por la narrativa romántica o las historias sin componentes de intriga.",
+      "texto": "Las mujeres de New Jersey (THRILLER Y MISTERIO) está dirigido a quienes buscan una lectura de misterio y thriller. Sus 320 páginas corresponden a una novela de extensión media, alejada de los libros infantiles de enigmas y de las lecturas centradas en otros géneros.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las mujeres de New Jersey (THRILLER Y MISTERIO) puede leerse en tapa blanda o en Kindle. La edición impresa reúne 320 páginas y permite conservar el libro en papel, mientras que Kindle facilita llevar la lectura en un dispositivo compatible o en el móvil mediante la aplicación correspondiente.",
+      "texto": "Las mujeres de New Jersey (THRILLER Y MISTERIO) se ofrece en tapa blanda y Kindle. La edición física reúne sus 320 páginas en un volumen que puede prestarse o conservarse; Kindle permite llevar la lectura en un dispositivo electrónico sin transportar el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -22,7 +22,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Las mujeres de New Jersey (THRILLER Y MISTERIO), de Astrid Dahl, comparte el terreno del suspense con Donde callan los niños (Imágica Intriga), de Eva Zamora Zamora. El primer título destaca expresamente a las mujeres y sitúa New Jersey como referencia geográfica; el segundo pone el foco de su título en los niños y el silencio. La comparación permite distinguir dos puntos de partida dentro de la narrativa de intriga.",
+      "texto": "Las mujeres de New Jersey (THRILLER Y MISTERIO) comparte el terreno del thriller con 25 días hasta Navidad, de Per Jacobsen. Este último se presenta como un thriller de adviento, mientras que el libro de Astrid Dahl sitúa New Jersey en su título. También puede compararse con Aberración, de Santiago López de Hoyos, por su vinculación al misterio, aunque son obras de distinta autoría.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791399210729"
+        "isbn-9788427055063",
+        "isbn-9791399297508"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bb5ab77685ede29d",
+  "fuente_hash": "ccae474bb5944dc2",
   "origen": "chatgpt-web"
 }

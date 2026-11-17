@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788439747086",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en el ensayo, las memorias y los relatos vinculados a la modernidad. Malentendidos de la modernidad (Random House), de Javier Cercas, reúne estas referencias de género en una edición de 128 páginas; no responde a la búsqueda de una novela extensa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Malentendidos de la modernidad (Random House) se presenta en tapa dura, con 128 páginas en castellano. Es una edición física de extensión breve que puede conservarse en una biblioteca personal o elegirse como regalo para lectores de Javier Cercas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El primer posmoderno comparte autor con Malentendidos de la modernidad (Random House): ambos son de Javier Cercas y se relacionan con la creación literaria. El primero aborda la singularidad narrativa de Gonzalo Suárez en los años sesenta, mientras que el segundo plantea desde su título una reflexión más amplia sobre la modernidad.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788430629473"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "835ef84accabe936",
+  "origen": "chatgpt-web"
+}

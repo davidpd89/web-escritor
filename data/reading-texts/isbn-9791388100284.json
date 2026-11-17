@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388100284",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores juveniles de manga interesados en materiales complementarios de My Hero Academia. My Hero Academia: Ultra Age Final Guide (Manga Shonen), de Kohei Horikoshi, se presenta como una guía y no como una novela convencional, por lo que responde a un interés diferente del de quienes buscan narrativa en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "My Hero Academia: Ultra Age Final Guide (Manga Shonen) cuenta con una edición en tapa blanda de 328 páginas. Planeta Cómic la publica en castellano, en un volumen físico que permite consultar la guía y volver a sus distintas páginas.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "My Hero Academia: Ultra Age Final Guide (Manga Shonen) y My Hero Academia: Ultra Artworks pertenecen al universo creativo de Kohei Horikoshi. El primero se identifica como guía final, mientras que My Hero Academia: Ultra Artworks reúne material artístico relacionado con la creación de sus héroes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388102493"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ced255458eab033",
+  "origen": "chatgpt-web"
+}

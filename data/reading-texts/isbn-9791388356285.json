@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388356285",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El rito (POESIA) se dirige a lectores que buscan poesía en castellano en un volumen de extensión contenida. Sus 98 páginas lo sitúan lejos de las recopilaciones extensas, por lo que no responde a quien busca una novela narrativa o una obra de consulta de gran tamaño.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El rito (POESIA) está disponible en tapa blanda, con 98 páginas. Esta extensión permite manejar el volumen en papel sin recurrir a una edición de gran tamaño; la publicación corresponde a Valparaiso Ediciones y está escrita en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El rito (POESIA) y A solas pertenecen al ámbito de la poesía, pero son obras de autoría diferente: Carlota Roby firma la primera y María Jesús Martínez Ramos la segunda. También comparte ese ámbito con Advenir, de Jose Eceolaza. La elección entre ellas puede partir de la autoría, mientras que El rito (POESIA) ofrece una extensión concreta de 98 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4ca87ae18a3d5e5e",
+  "origen": "chatgpt-web"
+}

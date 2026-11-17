@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Tienen alma los animales?: El vínculo eterno entre humanos y animales.: sobre la evolución espiritual de nuestras mascotas: 46 (TEOSOFÍA, LA SABIDURÍA ANTIGUA) se dirige a lectores interesados en la dimensión espiritual de la relación entre personas y animales. Su enfoque filosófico y religioso se aparta de los libros centrados exclusivamente en cuidados veterinarios o comportamiento animal.",
+      "texto": "¿Tienen alma los animales?: El vínculo eterno entre humanos y animales.: sobre la evolución espiritual de nuestras mascotas: 46 (TEOSOFÍA, LA SABIDURÍA ANTIGUA) se dirige a lectores interesados en la espiritualidad animal y las cuestiones filosóficas. Su planteamiento encaja menos con quien busca una guía veterinaria o un manual de adiestramiento.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,31 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La obra de Helena Petovna Blavatsky está disponible en tapa blanda, con 148 páginas publicadas por Ediciones Librería Argentina (ela). Su extensión facilita transportarla y consultar en papel las cuestiones espirituales relacionadas con los animales que anuncia el título.",
+      "texto": "La obra de Helena Petovna Blavatsky se ofrece en tapa blanda, con una extensión de 148 páginas. Es una edición en papel que permite consultar y releer sus planteamientos sobre los animales y la espiritualidad, sin necesidad de una pantalla.",
       "evidencias": [
         "autores",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
         "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¿Tienen alma los animales?: El vínculo eterno entre humanos y animales.: sobre la evolución espiritual de nuestras mascotas: 46 (TEOSOFÍA, LA SABIDURÍA ANTIGUA) comparte con Consciencia Inmortal: Conversaciones con Sri Ramana Maharshihi el interés por cuestiones espirituales. Helena Petovna Blavatsky centra su título en el alma y la evolución espiritual de los animales, mientras que Paul Brunton y Munagala Venkataramiah presentan conversaciones con Sri Ramana Maharshihi.",
+      "texto": "¿Tienen alma los animales?: El vínculo eterno entre humanos y animales.: sobre la evolución espiritual de nuestras mascotas: 46 (TEOSOFÍA, LA SABIDURÍA ANTIGUA) comparte el interés espiritual con Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies. El primero sitúa a los animales en el centro de la reflexión, mientras que el segundo aborda la astrología y la magia como prácticas espirituales.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9791399252705"
+        "isbn-9788411214315"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9233ee43b39a216d",
+  "fuente_hash": "9585914610d5c259",
   "origen": "chatgpt-web"
 }

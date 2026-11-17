@@ -4,36 +4,34 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El arte de tener la razón (El arte de...) se dirige a lectores interesados en filosofía, psicología y desarrollo personal. Es una obra de Arthur Schopenhauer de 176 páginas, menos orientada a quienes buscan una novela de ficción que a quienes prefieren textos de reflexión.",
+      "texto": "El arte de tener la razón (El arte de...) se dirige a lectores interesados en la filosofía, la psicología y el desarrollo personal. Por su orientación hacia el pensamiento y la argumentación, encaja menos con quienes buscan ficción narrativa o una historia protagonizada por personajes.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura ofrece una edición física de 176 páginas, apropiada para conservar en una biblioteca o regalar. Kindle permite consultar El arte de tener la razón (El arte de...) en un dispositivo electrónico sin transportar el volumen impreso.",
+      "texto": "La tapa dura ofrece una edición física de 176 páginas, adecuada para conservar el libro y consultarlo repetidamente. La versión Kindle permite leer la misma obra en un dispositivo compatible o en el móvil, sin necesidad de transportar el volumen impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
         "formatos_disponibles",
-        "formato_edicion"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El arte de tener la razón (El arte de...) y La cara B del amor: Más allá de las dificultades (Contextos) se relacionan por su interés en la psicología, aunque el primero se sitúa también en la filosofía y el segundo aborda las dificultades del amor. Arthur Schopenhauer firma una obra de 176 páginas centrada editorialmente en filosofía y desarrollo personal, frente al enfoque sobre las relaciones afectivas del libro de Gabriel Rolón.",
+      "texto": "El arte de organizar los pensamientos: Sabiduría pausada para un mundo acelerado comparte con El arte de tener la razón (El arte de...) el interés por los procesos de pensamiento, pero orienta su título hacia la organización mental en lugar de la argumentación. El descubrimiento de la vida interior: Sentir, pensar, decidir (Espasa Bienestar y Salud) amplía esa perspectiva hacia la experiencia personal y la toma de decisiones, frente al enfoque filosófico de Arthur Schopenhauer.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788449346224"
+        "isbn-9788430629657",
+        "isbn-9788467084528"
       ]
     }
   ],

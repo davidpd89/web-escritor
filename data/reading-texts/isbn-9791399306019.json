@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791399306019",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a quienes buscan un ensayo sobre inteligencia artificial y sus implicaciones para la música y el ecosistema creativo. Música Sin Músicos: Inteligencia artificial y el futuro del ecosistema creativo, de Jesús Rivas Melchor, aborda ese ámbito desde una publicación clasificada también en economía y arte y diseño, no desde la ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Música Sin Músicos: Inteligencia artificial y el futuro del ecosistema creativo está disponible en tapa blanda. Sus 316 páginas permiten consultar el ensayo en papel, subrayar pasajes y volver a los apartados relacionados con la inteligencia artificial y el sector creativo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Biblia del Concejal de Fiestas: Un manual de oficio para gestionar las fiestas de tu municipio comparte autor, Jesús Rivas Melchor, pero se centra en la gestión de celebraciones municipales. Música Sin Músicos: Inteligencia artificial y el futuro del ecosistema creativo se ocupa de la inteligencia artificial en el ámbito creativo, mientras que Última Columna: Artículos de opinión, veinticinco años después se presenta como una recopilación de artículos de opinión del mismo autor.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399306002",
+        "isbn-9791399306040"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2ca208f24b057c26",
+  "origen": "chatgpt-web"
+}

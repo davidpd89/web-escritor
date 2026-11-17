@@ -4,40 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tailandia 10 (Guías de País Lonely Planet) se dirige a lectores que preparan una estancia en Tailandia y buscan una guía de país en castellano. Sus 632 páginas corresponden a una publicación de viajes pensada para consultar, por lo que encaja menos con quienes prefieren una novela o un relato personal de experiencias viajeras.",
+      "texto": "Tailandia 10 (Guías de País Lonely Planet) está dirigida a quienes buscan una guía de viaje dedicada a Tailandia. Sus 632 páginas corresponden a una obra de consulta sobre un país, por lo que responde a una necesidad distinta de la de quienes buscan una novela ambientada en un destino turístico.",
       "evidencias": [
         "titulo",
         "categorias",
-        "idioma",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 632 páginas de Tailandia 10 (Guías de País Lonely Planet) en un volumen físico que puede consultarse durante la preparación del viaje. Kindle permite llevar la guía en el móvil o en un lector electrónico y evita cargar con el ejemplar impreso durante los desplazamientos.",
+      "texto": "La tapa blanda ofrece las 632 páginas de Tailandia 10 (Guías de País Lonely Planet) en un volumen físico que puede consultarse durante la preparación del viaje. Kindle permite llevar la guía en formato digital y acceder a ella desde el móvil o un lector electrónico, sin añadir el peso del ejemplar en papel al equipaje.",
       "evidencias": [
         "titulo",
         "numero_paginas",
-        "formatos_disponibles",
-        "formato_edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tailandia 10 (Guías de País Lonely Planet) y Amsterdam de cerca 2027-2028 son publicaciones de viajes, pero la primera aborda un país y la segunda se centra en una ciudad. También puede compararse con Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, aunque esta última se presenta como un relato de vivencias y no como una guía de país.",
+      "texto": "Austria 7 y Tailandia 10 (Guías de País Lonely Planet) comparten su orientación hacia la consulta de destinos de viaje, pero se centran en países distintos. Amsterdam de cerca 2027-2028 acota su ámbito a una ciudad, mientras que Tailandia 10 (Guías de País Lonely Planet) se presenta como guía de país y cuenta con 632 páginas.",
       "evidencias": [
         "titulo",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496",
-        "isbn-9788408320890"
+        "isbn-9788408320890",
+        "isbn-9788408322221"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a870bfe788a9cda2",
+  "fuente_hash": "bce6a63f03bbec96",
   "origen": "chatgpt-web"
 }

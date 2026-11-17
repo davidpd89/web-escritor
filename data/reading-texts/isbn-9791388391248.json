@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388391248",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Con la mosca detrás de la oreja, de Vera Nómada, se dirige a lectores de narrativa juvenil y contemporánea. Sus 216 páginas corresponden a una novela de extensión contenida; por género, queda fuera de las preferencias de quienes buscan ensayo, divulgación o narrativa específicamente adulta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 216 páginas de Con la mosca detrás de la oreja, de Vera Nómada, en un volumen físico de extensión contenida. Es el formato disponible de esta edición de Editorial Cuadranta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday) comparte con Con la mosca detrás de la oreja, de Vera Nómada, su vinculación con el público juvenil y la narrativa. La diferencia está en la autoría y en la extensión de las obras: el título de John Green se presenta en una edición limitada, mientras que el de Vera Nómada tiene 216 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788466395816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eae8ac8642a39c5a",
+  "origen": "chatgpt-web"
+}

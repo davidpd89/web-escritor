@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798235129719",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bajo El Halo de Venus: 2 (La Memoria de la Ceniza) reúne romance, novela histórica y narrativa contemporánea, por lo que se orienta a lectores interesados en esos ámbitos narrativos. Sus 102 páginas ofrecen una extensión breve frente a novelas más largas, y el título lo identifica como el n.º 2 de La Memoria de la Ceniza.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bajo El Halo de Venus: 2 (La Memoria de la Ceniza) tiene una edición en tapa blanda de 102 páginas. Este formato permite conservar el volumen en papel y transportarlo sin depender de un lector electrónico, con una extensión física reducida para una obra vinculada a una serie.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bajo El Halo de Venus: 2 (La Memoria de la Ceniza) puede compararse con Cita en Bath: Historias de Somerset 4 (Clean Romance) por su vinculación con el romance y por pertenecer a obras numeradas. Jaren Vossler firma la primera y Mimi Matthews la segunda; sus títulos las identifican como las entregas n.º 2 y n.º 4 de series diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410481503"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5d5d50198b7cbffd",
+  "origen": "chatgpt-web"
+}

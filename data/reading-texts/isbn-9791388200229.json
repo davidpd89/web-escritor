@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388200229",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo XIII encaja con quienes buscan publicaciones sobre la música pop-rock de los sesenta dentro del ámbito del arte y el diseño. Su enfoque temático lo aleja de las lecturas de ficción y de los libros dedicados a otros estilos musicales.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción para EL POP-ROCK DE LOS 60' - Capítulo XIII es la tapa blanda, en una edición de 113 páginas publicada por El Séptimo Cielo. Su extensión permite manejarlo como volumen independiente y guardarlo junto a otros libros de la misma temática, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo II y EL POP-ROCK DE LOS 60' - Capítulo IV tratan el mismo ámbito musical que este volumen y también llevan la firma de Daniel Muneta. Los títulos los distinguen por su numeración: este se presenta como el n.º XIII, mientras los otros se identifican como II y IV.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388200106",
+        "isbn-9791388200113",
+        "isbn-9791388200120",
+        "isbn-9791388200137",
+        "isbn-9791388200182"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4f11cf26f297f516",
+  "origen": "chatgpt-web"
+}

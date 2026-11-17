@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Amor Eterno nº 03: 3 (Thriller) se dirige a lectores de narrativa juvenil interesados en el misterio y las relaciones de pareja. Sus 144 páginas ofrecen una extensión relativamente breve; encaja menos con quienes buscan fantasía épica o relatos centrados exclusivamente en aventuras. El título lo identifica como el n.º 3.",
+      "texto": "Amor Eterno nº 03: 3 (Thriller) se orienta a lectores de misterio y thriller dentro del ámbito juvenil. Su edición de 144 páginas resulta más breve que una novela extensa, pero no responde a quien busque una lectura ajena al suspense.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,31 +13,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Amor Eterno nº 03: 3 (Thriller) está disponible en tapa dura, con 144 páginas en castellano. La edición física de Planeta Cómic permite conservar el volumen y releerlo sin dispositivos, con una extensión menor que la de una novela larga.",
+      "texto": "La tapa dura de Amor Eterno nº 03: 3 (Thriller) contiene 144 páginas y ofrece una edición física de Planeta Cómic para guardar o regalar. La alternativa Kindle permite leerlo en formato digital y prescindir del volumen impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amor Eterno nº 03: 3 (Thriller) puede compararse con CUANDO TODO FALLA. Solo nos queda la promesa del nosotros.: Una novela romántica New Adult de superación, pasión por el arte y segundas oportunidades (La promesa del nosotros). Ambos se relacionan con el amor y las relaciones, pero el libro de Tom King y Elsa Charretier incorpora el misterio juvenil, mientras el de Marta Monroy se presenta como romance New Adult de superación y segundas oportunidades.",
+      "texto": "American Caper nº 01: 1 (Thriller) comparte con Amor Eterno nº 03: 3 (Thriller) la identificación como thriller, aunque sus autores son distintos. Mientras Amor Eterno nº 03: 3 (Thriller) lleva las firmas de Tom King y Elsa Charretier, American Caper nº 01: 1 (Thriller) reúne a Dan Houser, Lazlow, David Lapham y Brent Anderson.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409942572"
+        "isbn-9788491738107"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7f4ba1dca3441bc9",
+  "fuente_hash": "766b0d02297b90ed",
   "origen": "chatgpt-web"
 }

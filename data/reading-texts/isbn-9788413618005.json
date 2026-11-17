@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788413618005",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se orienta a lectores interesados en la historia mundial a través de hallazgos de arqueología submarina y naufragios. Su planteamiento histórico y su extensión de 420 páginas lo diferencian de una novela juvenil centrada en personajes ficticios, aunque también figura entre las lecturas juveniles.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "David Gibbins aborda la historia mundial mediante 12 naufragios y los descubrimientos de la arqueología submarina. La estructura anunciada utiliza restos y hallazgos marítimos como vía para estudiar el pasado, en lugar de organizar el recorrido únicamente por épocas o territorios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer y consultar físicamente las 420 páginas del libro, mientras que Kindle facilita llevar la obra en un lector electrónico o en el móvil. La primera opción ofrece un ejemplar para biblioteca; la segunda evita transportar el volumen impreso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La historia del mundo en 12 naufragios: Los mayores descubrimientos de la arqueología submarina (Shackleton Books) y Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días) comparten el interés por comprender el pasado. David Gibbins utiliza naufragios y arqueología submarina como hilo conductor, mientras que el libro de Jacob Mikanowski se concentra en la historia de una región dividida desde una perspectiva íntima.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "efd717d0d340b962",
+  "origen": "chatgpt-web"
+}

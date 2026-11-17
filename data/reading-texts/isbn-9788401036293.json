@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788401036293",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El pacto de las sombras (Inspectora Julia Arrondo 3) (Éxitos), de Laura Azcona, se dirige a lectores de misterio, thriller y aventuras. No responde a la búsqueda de una novela centrada exclusivamente en relaciones sentimentales o conflictos cotidianos; el título lo identifica como el n.º 3 de Inspectora Julia Arrondo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible de El pacto de las sombras (Inspectora Julia Arrondo 3) (Éxitos) es de tapa blanda y tiene 464 páginas. Publicada por Plaza & Janés en castellano, reúne una lectura de extensión considerable en un único volumen físico que puede transportarse sin la rigidez de una encuadernación de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El pacto de las sombras (Inspectora Julia Arrondo 3) (Éxitos) comparte el misterio con Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, aunque este último plantea la desaparición de unas croquetas. También coincide en el componente de investigación con Agente Stitch 5. Los roedores de Roswell, de Disney, que traslada el misterio a un contexto intergaláctico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644",
+        "isbn-9791387901943"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eed8779c444c249d",
+  "origen": "chatgpt-web"
+}

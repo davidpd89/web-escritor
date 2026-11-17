@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388182358",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Las claves de la guerra: Armamento y conceptos para entender los conflictos modernos (Ensayo) está dirigido a lectores interesados en comprender el armamento y los conceptos asociados a los conflictos actuales. Su enfoque de ensayo político lo diferencia de una narración bélica centrada en personajes ficticios.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las claves de la guerra: Armamento y conceptos para entender los conflictos modernos (Ensayo) tiene una edición en tapa blanda de 352 páginas. El volumen en castellano permite consultar en papel los conceptos militares tratados y regresar a apartados concretos durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Las claves de la guerra: Armamento y conceptos para entender los conflictos modernos (Ensayo) se relaciona con Crítica de la razón geopolítica (Nuevos cuadernos Anagrama) por su interés en los conflictos y el poder. Juanjo Fernández delimita su asunto al armamento y los conceptos de la guerra moderna, mientras que Carlos Corrochano aborda la razón geopolítica desde una perspectiva crítica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788433951175"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "44456f1a2e1768c8",
+  "origen": "chatgpt-web"
+}

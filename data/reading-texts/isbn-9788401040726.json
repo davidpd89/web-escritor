@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788401040726",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de memorias personales sobre terrorismo, política e historia, desde la perspectiva de Consuelo Ordóñez. Por su enfoque biográfico y su atención a la desmemoria, se aleja de la ficción histórica y de los estudios centrados exclusivamente en acontecimientos políticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Plaza & Janés reúne 320 páginas en castellano. Es una opción física para conservar una obra de memorias, consultarla de nuevo o regalarla a lectores interesados en la historia y la política.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sin tiempo para el odio: Una vida frente al terrorismo y la desmemoria (Obras diversas) comparte con El Cuento de Vasconia: Mi adiós a la tribu el interés por experiencias personales vinculadas a cuestiones políticas. El primero se centra en la vida de Consuelo Ordóñez frente al terrorismo y la desmemoria; el segundo plantea, desde su título, una despedida personal de la tribu. Ambos se distinguen de una biografía de una figura histórica como Stalin: Una biografía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399165173",
+        "isbn-9788432322143"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f5856a512021d5f7",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399286564",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Tarot, de Maria Jose Quiroz, se dirige a lectores interesados en publicaciones sobre salud y bienestar. Por su clasificación editorial, queda fuera de una búsqueda centrada en narrativa de ficción o estudios históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Tarot se presenta en tapa blanda, con 300 páginas en castellano. Esta edición física permite consultar el volumen por partes y conservarlo en una estantería sin recurrir a un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Tarot puede compararse con 44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life, de Tania Karam, por su proximidad temática al ámbito espiritual. El primero figura en el apartado de salud y bienestar, mientras que el segundo presenta desde su título una orientación hacia mensajes espirituales cotidianos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073881388"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "34dfdb135ac08aa5",
+  "origen": "chatgpt-web"
+}

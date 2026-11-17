@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9788467982862",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Akame GA kill! Edición coleccionista 02: 2, de TAKAHIRO y Tetsuya Tashiro, está orientado a lectores de cómic y novela gráfica con interés por la fantasía. Sus 692 páginas pueden resultar excesivas para quien busca una lectura gráfica breve; el título lo identifica como el n.º 2.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Akame GA kill! Edición coleccionista 02: 2 se presenta en tapa blanda, con 692 páginas en castellano. La extensión de esta edición de Norma Editorial permite reunir una cantidad considerable de lectura gráfica en un volumen físico, tanto para conservarlo como para consultarlo de nuevo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Akame GA kill! Edición coleccionista 02: 2 comparte el terreno del cómic con After God 7 (Shônen), de Sumi Eno. La diferencia está en la autoría: TAKAHIRO y Tetsuya Tashiro firman el primero, que también se clasifica como fantasía, mientras que Sumi Eno firma el segundo. After God 8 (Shônen) ofrece otra referencia de la misma autora, con una numeración distinta de la edición coleccionista de Akame GA kill!",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387962388",
+        "isbn-9791387962647"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "03d6c7251298a17a",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388540080",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "PÁRKINSON: Vivir mejor es posible se dirige a lectores interesados en cuestiones de salud, bienestar y su relación con el entorno familiar. Por su enfoque temático y su vinculación con la divulgación científica, se aleja de las novelas de ficción y de los libros centrados en el entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "PÁRKINSON: Vivir mejor es posible se presenta en tapa blanda, con 142 páginas en castellano. Esta extensión permite manejar el libro en papel y retomar su lectura en distintas sesiones, especialmente cuando se busca consultar cuestiones relacionadas con la salud y el bienestar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "DEPRESIÓN: La enfermedad invisible comparte con PÁRKINSON: Vivir mejor es posible la autoría de Manel Rodriguez Moreno y el interés por cuestiones de salud, aunque cada título aborda una enfermedad diferente. El último baile pertenece también a la obra de Manel Rodriguez Moreno, pero su título no plantea de forma explícita el mismo asunto sanitario.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388540042",
+        "isbn-9791388540073"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "11fdcee9877a795e",
+  "origen": "chatgpt-web"
+}

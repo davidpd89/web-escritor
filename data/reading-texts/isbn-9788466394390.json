@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores interesados en la alimentación, la inflamación y los cambios de hábitos mediante un programa de cinco semanas. Combina orientación nutricional con menús y recetas, por lo que encaja menos con quien busca exclusivamente un recetario sin pautas de bienestar.",
+      "texto": "5 semanas para desinflamarte (edición limitada) se dirige a quienes buscan introducir cambios en su alimentación mediante un programa de cinco semanas. Combina nutrición, hábitos cotidianos y cocina; no está planteado como un recetario independiente de un programa de bienestar.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,9 +13,10 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta edición limitada de 5 semanas para desinflamarte (edición limitada) se publica en tapa blanda bajo el sello Penguin Bolsillo. Tiene 368 páginas, está escrita en castellano y lleva el ISBN 9788466394390. Su fecha de publicación es 2027-01-07, lo que permite identificar esta versión frente a otras ediciones del mismo título.",
+      "texto": "5 semanas para desinflamarte (edición limitada), de Blanca García-Orea Haro, se publica en tapa blanda bajo el sello Penguin Bolsillo. Esta edición en castellano contiene 368 páginas y lleva el ISBN 9788466394390. Su fecha de publicación editorial es 2027-01-07.",
       "evidencias": [
         "titulo",
+        "autores",
         "editorial",
         "edicion",
         "numero_paginas",
@@ -26,16 +27,15 @@
     },
     {
       "modulo": "contenido_y_uso",
-      "texto": "El contenido articula un programa de cinco semanas con pautas para incorporar hábitos alimentarios y reconocer posibles desencadenantes de inflamación. Incluye consejos prácticos, menús y recetas que permiten trasladar esas pautas a las comidas cotidianas. Su planteamiento combina explicaciones sobre bienestar y propuestas de aplicación.",
+      "texto": "El contenido se articula alrededor de un programa de cinco semanas orientado a modificar hábitos relacionados con la alimentación y la inflamación. Incluye consejos prácticos, menús y recetas, además de pautas para reconocer posibles desencadenantes. Puede utilizarse como guía de consulta durante el seguimiento del programa.",
       "evidencias": [
-        "titulo",
         "sinopsis_editorial",
-        "categorias"
+        "titulo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 368 páginas en un volumen físico que permite consultar menús y recetas mientras se cocina. Kindle ofrece el mismo título en formato digital para llevarlo en el móvil o consultar sus pautas sin transportar el libro. La elección depende de si se prefiere manejar páginas impresas o leer desde una pantalla.",
+      "texto": "La tapa blanda reúne las 368 páginas de 5 semanas para desinflamarte (edición limitada) en un volumen físico que permite consultar menús y recetas mientras se cocina. Kindle ofrece una alternativa digital para llevar el contenido en el móvil o en un lector electrónico, sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -45,7 +45,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Quemar grasa no es perder grasa: Guía práctica de 4 semanas para decir adiós a la ansiedad y a los antojos​ (Bienestar, salud y vida sana) comparte la autoría de Blanca García-Orea Haro, pero centra su propuesta en la ansiedad alimentaria y los antojos. La fibra es la solución, de Kristen Stavridis, también aborda la inflamación, aunque lo hace desde el consumo diario de fibra, frente al programa de hábitos y recetas de 5 semanas para desinflamarte (edición limitada).",
+      "texto": "Quemar grasa no es perder grasa comparte autora con el libro de Blanca García-Orea Haro, pero aborda la ansiedad alimentaria y los antojos frente al programa centrado en la inflamación. Cuidarse no debería ser tan difícil, de Sarah Ann Macklin, también trata la alimentación y la salud, aunque plantea una reflexión sobre la cultura de la optimización constante en lugar de un programa de hábitos, menús y recetas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -54,7 +54,7 @@
       ],
       "enlaces": [
         "isbn-9788425363061",
-        "isbn-9788425374869"
+        "isbn-9788411193900"
       ]
     }
   ],

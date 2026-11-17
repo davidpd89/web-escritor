@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399200126",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Club: Todos corren. Uno muere., de Haizea López, se dirige a lectores de misterio y thriller que buscan una novela de extensión intermedia. Sus 326 páginas encajan con quien prefiere desarrollar la lectura durante varias sesiones, mientras que quienes buscan poesía o ensayos tendrán que acudir a otros géneros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Club: Todos corren. Uno muere. puede leerse en tapa blanda o en Kindle. La edición impresa de Novae Editorial reúne 326 páginas y permite conservar el ejemplar físico; Kindle facilita llevar la novela en un lector electrónico o dispositivo compatible sin transportar el volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Club: Todos corren. Uno muere. comparte el terreno del thriller con 25 días hasta Navidad, de Per Jacobsen, aunque este último plantea su propuesta alrededor del Adviento. También puede compararse con Aberración, de Santiago López de Hoyos, por su pertenencia al ámbito del misterio; la diferencia comprobable está en la autoría y en la identidad de cada obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9791399297508"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ca1af61cbb1098b",
+  "origen": "chatgpt-web"
+}

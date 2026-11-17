@@ -1,10 +1,10 @@
 {
   "id": "isbn-9788433951298",
-  "familia": "narrativa",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Perder la guerra, de Jon Lee Anderson, está dirigido a lectores interesados en el periodismo de guerra, la historia reciente de Afganistán y las consecuencias de la intervención internacional. Al reunir crónicas sobre acontecimientos reales, se distancia de la ficción bélica y de los relatos construidos alrededor de una trama inventada.",
+      "texto": "Perder la guerra encaja con lectores interesados en el periodismo internacional, la historia reciente y los conflictos políticos de Afganistán. Se dirige a quienes prefieren la crónica documental y el análisis de acontecimientos reales frente a la ficción narrativa.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,30 +13,28 @@
       ]
     },
     {
-      "modulo": "encaje_documentado",
-      "texto": "Perder la guerra es una recopilación de reportajes periodísticos sobre Afganistán publicados originalmente en el New Yorker y centrados en el periodo de 2001 a 2021. Jon Lee Anderson aborda la presencia militar extranjera, el Gobierno de Hamid Karzai y las condiciones de vida de la población, especialmente de las mujeres. Su estructura documental responde al género de la crónica, no al de la novela histórica.",
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro examina las transformaciones políticas y sociales de Afganistán entre 2001 y 2021, con especial atención a la intervención occidental y sus consecuencias. Jon Lee Anderson aborda también la situación de las tropas extranjeras, el funcionamiento del Gobierno, la vida cotidiana en Kabul y las zonas rurales y la realidad de las mujeres, mediante reportajes periodísticos.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Perder la guerra se ofrece en tapa blanda y Kindle, con 408 páginas en la edición impresa de Editorial Anagrama. El ejemplar físico permite tener reunidas las crónicas de Jon Lee Anderson para consultarlas; Kindle facilita transportar digitalmente el conjunto de reportajes y leerlos desde distintos dispositivos.",
+      "texto": "La tapa blanda reúne sus 408 páginas en una edición de Editorial Anagrama, con un formato manejable para consultar y releer las crónicas. Kindle permite acceder al mismo libro en formato digital, una alternativa para leerlo en dispositivos electrónicos sin transportar el volumen.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "editorial",
+        "edicion",
         "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "editorial",
+        "titulo"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4a0d843dd9bb8787",
+  "fuente_hash": "5c40ff6281c1f650",
   "origen": "chatgpt-web"
 }

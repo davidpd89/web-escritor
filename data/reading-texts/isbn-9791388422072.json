@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388422072",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La niebla de ninguna parte, de David Fox, se dirige a lectores de misterio que buscan una obra de extensión media. Sus 322 páginas ofrecen más recorrido que una lectura breve, por lo que encaja menos con quienes prefieren libros de pocas páginas o géneros alejados del suspense.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La niebla de ninguna parte se publica en tapa blanda y reúne 322 páginas en un único volumen. Este formato permite leerlo en papel, marcar el punto de lectura con un separador y conservar el ejemplar físico para posteriores consultas o relecturas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La niebla de ninguna parte puede compararse con La isla de los pájaros porque ambas obras están firmadas por David Fox, aunque sus títulos remiten a imágenes diferentes. También comparte el ámbito del misterio con Aberración, de Santiago López de Hoyos; la diferencia verificable está en la autoría, mientras que La niebla de ninguna parte cuenta con 322 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388422065",
+        "isbn-9791399297508"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4c7ad98eb268d76",
+  "origen": "chatgpt-web"
+}

@@ -4,16 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tyler. Piezas rotas: 6 (Novela), de Alina Not, se dirige a lectores de romance y relatos centrados en las relaciones de pareja. El título lo identifica como el n.º 6, un dato relevante para quien sigue entregas numeradas; su enfoque romántico lo aleja de quienes buscan una lectura centrada en la investigación histórica.",
+      "texto": "Tyler. Piezas rotas: 6 (Novela), de Alina Not, se dirige a lectores de romance que buscan una novela extensa en castellano. Sus 624 páginas requieren más tiempo de lectura que una obra breve y no responden a quien busca otros géneros.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tyler. Piezas rotas: 6 (Novela) cuenta con una edición de bolsillo en tapa blanda publicada por Booket. Sus 624 páginas suponen una extensión considerable para un volumen de cubierta flexible, que puede llevarse fuera de casa y retomarse en distintas sesiones sin utilizar un lector electrónico.",
+      "texto": "La edición disponible es un libro de bolsillo en tapa blanda publicado por Booket. Reúne las 624 páginas de Tyler. Piezas rotas: 6 (Novela) en un volumen físico que puede transportarse y guardarse sin necesitar un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "edicion",
@@ -24,20 +26,22 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Amor en pole position (Dirty Air 3), de Lauren Asher, comparte con Tyler. Piezas rotas: 6 (Novela) su orientación hacia las historias románticas. La obra de Lauren Asher sitúa la relación en el mundo de la Fórmula 1, mientras que la de Alina Not se identifica por su título como el n.º 6 y se clasifica dentro del romance y las relaciones de pareja.",
+      "texto": "A cinco segundos de ti, de Sandra Miró, y Tyler. Piezas rotas: 6 (Novela), de Alina Not, se relacionan por su orientación hacia el romance. La obra de Alina Not cuenta con 624 páginas y se publica en formato de bolsillo, mientras que A cinco segundos de ti introduce el tema de la perfección personal a través de su protagonista.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "afines_catalogo"
+        "afines_catalogo",
+        "numero_paginas",
+        "edicion"
       ],
       "enlaces": [
-        "isbn-9788427055674"
+        "isbn-9788427055735"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "00bfe48c7810dd7a",
+  "fuente_hash": "114ad94c00e574c8",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388290749",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Soñaré con galápagos se dirige a lectores de narrativa juvenil que también buscan historias de corte contemporáneo. Por su clasificación editorial, se sitúa fuera de la narrativa histórica y del ensayo, y no responde a una búsqueda centrada en esos géneros.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Soñaré con galápagos es de tapa blanda y tiene 218 páginas en castellano. Su extensión permite organizar la lectura en varias sesiones y el formato físico facilita llevar el ejemplar en una mochila o consultarlo sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Soñaré con galápagos, de Anabel Caride, comparte el ámbito juvenil con Bajo la misma estrella (edición limitada · Black Friday) (Campaña | Black Friday), de John Green. Frente a Blue Lock nº 33 (Manga Shonen), de Yusuke Nomura y Muneyuki Kaneshiro, se presenta como narrativa contemporánea juvenil y no como una entrega identificada como manga en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788466395816",
+        "isbn-9791388101991"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "10a7a405c4395e9d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788428378703",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "1786 Competencia digital para la práctica docente (Servicios Socioculturales y a la Comunidad) se orienta a lectores interesados en la dimensión digital del trabajo docente. Su temática se distingue de la programación didáctica general y de la acción tutorial, por lo que encaja menos con quienes buscan exclusivamente esas materias.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de 1786 Competencia digital para la práctica docente (Servicios Socioculturales y a la Comunidad) tiene 234 páginas. Ediciones Paraninfo la publica en castellano, en un volumen físico que permite realizar anotaciones y consultar sus contenidos sobre competencia digital docente sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "1786 Competencia digital para la práctica docente (Servicios Socioculturales y a la Comunidad) comparte autora, Mónica Suárez Martínez, con 1784 Procesos para impartir acciones formativas (Servicios Socioculturales y a la Comunidad). La diferencia reside en el objeto de estudio: competencia digital docente frente a procesos de impartición. También se relaciona con 1706 Gestión de materiales, medios y recursos didácticos (Servicios Socioculturales y a la Comunidad), cuyo título sitúa el foco en los recursos utilizados para enseñar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788428378680",
+        "isbn-9788428378697"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "214706733fb11d59",
+  "origen": "chatgpt-web"
+}

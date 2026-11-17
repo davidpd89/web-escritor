@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Itálica (Arte y patrimonio) se dirige a lectores interesados en el patrimonio, el arte y los viajes. Rosa García Perea trata ese ámbito en una publicación de 112 páginas, distinta de las novelas centradas en personajes ficticios o de los manuales de desarrollo personal.",
+      "texto": "Itálica (Arte y patrimonio) se dirige a lectores interesados en el patrimonio, el arte y los lugares vinculados a la cultura. Sus 112 páginas, firmadas por Rosa García Perea, responden a un enfoque de divulgación cultural más que a la búsqueda de una novela de ficción con personajes y trama.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,32 +14,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Itálica (Arte y patrimonio) está disponible en tapa blanda, con 112 páginas en la edición de Almuzara. Su extensión permite transportarlo en papel durante desplazamientos y conservarlo como referencia física sobre arte y patrimonio, sin depender de un dispositivo electrónico.",
+      "texto": "Itálica (Arte y patrimonio) se presenta en tapa blanda, con 112 páginas en castellano. Es una edición física de extensión contenida, que permite consultar el contenido sobre patrimonio sin depender de una pantalla y transportarlo sin el volumen de una obra más extensa.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "categorias"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Itálica (Arte y patrimonio) comparte con 33 islas: Un periplo mediterráneo el interés por los lugares y su dimensión cultural. Rosa García Perea aborda el arte y el patrimonio en una obra de 112 páginas, mientras que Lucio Bellomo centra su libro en un recorrido por islas del Mediterráneo, de Marettimo a Venecia.",
+      "texto": "720 retrats y Itálica (Arte y patrimonio) comparten su vinculación con el ámbito artístico. La obra de Xavier Mollà i Revert se identifica por sus retratos, mientras Rosa García Perea centra su título en Itálica y el patrimonio; la diferencia está entre el retrato como asunto artístico y el interés por un lugar patrimonial.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387873127"
+        "isbn-9788412678802"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5ab9c03ca3544ae0",
+  "fuente_hash": "4bfab7cc05fc2e28",
   "origen": "chatgpt-web"
 }

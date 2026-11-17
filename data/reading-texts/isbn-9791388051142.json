@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388051142",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El arte de la guerra (SEXTO PISO ILUSTRADO), de Sun-tzu, se dirige a lectores interesados en el poder, la política y la historia desde el ensayo. Sus 240 páginas en castellano responden a una lectura de no ficción, no a quien busque una novela de aventuras.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El arte de la guerra (SEXTO PISO ILUSTRADO) se presenta en tapa blanda, con 240 páginas en castellano. Esta edición de Clásicos Ilustrados permite consultar el texto en papel y llevarlo de un lugar a otro sin recurrir a un dispositivo de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El arte de la guerra (SEXTO PISO ILUSTRADO) puede compararse con A sangre y fuego (Clásicos ilustrados), de Manuel Chaves Nogales, por su relación con la historia y su presentación editorial ilustrada. También comparte el interés histórico con Los pilares de la historia, de Javier Fernández Sebastián, aunque este último plantea expresamente la capacidad de la historia para explicar un mundo en crisis, mientras que el libro de Sun-tzu se sitúa en el ámbito del poder y la política.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752590",
+        "isbn-9788430629664"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c703b608d8bcd13b",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788418266546",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de novela gráfica que buscan fantasía sobrenatural, aventuras y escenarios embrujados. Teatro fantasma: Novela gráfica sobrenatural ambientada en un teatro embrujado. (Cómic), de Thiago Souto, se diferencia de las novelas convencionales por su formato de cómic y no responde a la búsqueda de narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Teatro fantasma: Novela gráfica sobrenatural ambientada en un teatro embrujado. (Cómic) está disponible en tapa blanda, con 384 páginas en castellano. La edición física permite seguir la narración gráfica en papel y conservar el volumen para posteriores lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Caballero del Alba (Novela Gráfica) / The Knight at Dawn (Graphic Novel) (Magic Tree House Novela Gráfica) comparte con Teatro fantasma: Novela gráfica sobrenatural ambientada en un teatro embrujado. (Cómic) el formato de novela gráfica y los elementos de aventura. La obra de Thiago Souto sitúa su componente sobrenatural en un teatro embrujado, mientras que el título de Mary Pope Osborne remite a un caballero y al alba.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890989659"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8dcb4010a6290870",
+  "origen": "chatgpt-web"
+}

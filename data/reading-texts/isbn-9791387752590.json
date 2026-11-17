@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9791387752590",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "A sangre y fuego (Clásicos ilustrados) se dirige a lectores de Manuel Chaves Nogales interesados en la historia, la política y el ensayo. Esta edición de 272 páginas en tapa dura se aleja de los libros prácticos y de las narraciones centradas exclusivamente en el entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "A sangre y fuego (Clásicos ilustrados) se ofrece en tapa dura, en una edición de Editorial Alma con 272 páginas en castellano. La encuadernación rígida resulta apropiada para conservar el libro y regalarlo, aunque ocupa más espacio que una edición equivalente en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A sangre y fuego y A sangre y fuego (Clásicos ilustrados) comparten título principal y autor, Manuel Chaves Nogales. La segunda se presenta en tapa dura, con 272 páginas y una edición identificada como clásico ilustrado. Ambas se relacionan con el testimonio literario de un enfrentamiento, aunque la edición de Editorial Alma destaca por su presentación editorial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331810"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9fa9f4aabf50446e",
+  "origen": "chatgpt-web"
+}

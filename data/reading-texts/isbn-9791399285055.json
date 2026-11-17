@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399285055",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores de filosofía y ensayo interesados en las reflexiones de Marco Aurelio. Meditaciones: 103 (Los pequeños libros de la sabiduría) pertenece a una colección de pensamiento y se aparta tanto de la ficción narrativa como de los manuales de ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Meditaciones: 103 (Los pequeños libros de la sabiduría), de Marco Aurelio, se ofrece en tapa blanda y cuenta con 266 páginas en castellano. La edición en papel facilita la consulta de pasajes y la relectura de reflexiones filosóficas dentro de un mismo volumen.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, comparte con Meditaciones: 103 (Los pequeños libros de la sabiduría), de Marco Aurelio, el interés por la reflexión filosófica. El primero se presenta como una recopilación de aforismos y fragmentos, mientras que el segundo reúne las Meditaciones de Marco Aurelio en la colección Los pequeños libros de la sabiduría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ee64455b48cdf353",
+  "origen": "chatgpt-web"
+}

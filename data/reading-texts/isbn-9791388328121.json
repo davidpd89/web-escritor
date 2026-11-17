@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la polarización política en España y en cómo se ha desarrollado durante 20 años. Por su enfoque sobre el poder y la política, encaja menos con quien busca ficción o una introducción general a la historia española.",
+      "texto": "Nosotros o ellos: 20 años de polarización política en España está dirigido a lectores interesados en la política española y en el fenómeno de la polarización política. No encaja con quien busca ficción, entretenimiento narrativo o lecturas alejadas de la actualidad y el análisis político.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es en tapa blanda, publicada por Ciudadela Libros, con 176 páginas en castellano. Su extensión permite consultar el análisis político por partes y volver a los pasajes de interés sin manejar un volumen especialmente largo.",
+      "texto": "La tapa blanda reúne sus 176 páginas en una edición física de Ciudadela Libros, con una extensión que permite consultar el volumen en papel sin manejar una obra extensa. Es el formato disponible para esta edición.",
       "evidencias": [
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "formatos_disponibles",
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Comparte con A la sombra del Estado el interés por el poder político, aunque aquel aborda el espionaje, las operaciones encubiertas y la desinformación, mientras este se centra en la polarización española. Frente a Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta, cambia el estudio de una corriente de pensamiento por el análisis de un fenómeno político concreto.",
+      "texto": "Brainwashing: Populismo en la era del like, de Andrés Roemer, comparte el interés por los fenómenos políticos y su relación con la sociedad, aunque se centra en el populismo. Crónicas de la amnistía: De la conciencia republicana de España, de Pedro Manuel González López, también aborda cuestiones políticas españolas, con la amnistía como asunto central.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441057",
-        "isbn-9791388182457"
+        "isbn-9791399271379",
+        "isbn-9788494545894"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "fd00b64e04fcc873",
+  "fuente_hash": "4b362271865d63e2",
   "origen": "chatgpt-web"
 }

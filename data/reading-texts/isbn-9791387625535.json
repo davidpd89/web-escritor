@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387625535",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción se dirige a lectores interesados en la adopción desde una perspectiva teológica, bíblica y pastoral. Por ese enfoque religioso, encaja menos con quienes buscan exclusivamente una guía jurídica, administrativa o psicológica sobre los procesos de adopción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción está disponible en tapa blanda y tiene 192 páginas en castellano. Su extensión permite abordar el tema en un volumen físico relativamente breve, que puede conservarse para consultar sus planteamientos bíblicos y pastorales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adoptados para adoptar: Hacia una teología bíblica y pastoral de la adopción trata la adopción desde la teología bíblica y pastoral, mientras que Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación aborda los fundamentos y la práctica del dharma. Ambos pertenecen al ámbito espiritual, pero difieren en la tradición y el asunto que anuncian sus títulos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c46652813e3568d3",
+  "origen": "chatgpt-web"
+}

@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques se dirige a lectores interesados en la memoria histórica, la infancia y el cómic de temática histórica. Sus 56 páginas lo sitúan en una extensión breve, distinta de la de los estudios históricos extensos o las novelas exclusivamente textuales.",
+      "texto": "Se dirige a quienes buscan historia y memorias personales contadas mediante cómic o novela gráfica. Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques, de Vincent Dugomier, reúne estos ámbitos en 56 páginas; no responde a la búsqueda de una novela histórica extensa en prosa.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques se presenta en tapa dura y consta de 56 páginas. Esta edición física permite consultar sus páginas como obra gráfica, conservarla en una colección y regalar un volumen encuadernado de extensión breve.",
+      "texto": "La edición en tapa dura reúne las 56 páginas de Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques en un volumen físico. Su encuadernación rígida resulta práctica para conservarlo y volver a consultar sus páginas; también permite regalarlo sin depender de un dispositivo de lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Los niños de la Resistencia comparte temática histórica y autoría con el volumen titulado Los niños de la Resistencia 10. La guerra no ha acabado, de Benoît Ers y Vincent Dugomier. Ambos están vinculados a la Resistencia y cuentan con la participación de Vincent Dugomier. La obra centrada en Josette y Jean-Jacques adopta un enfoque de memorias, mientras que el otro título alude a la continuidad de la guerra.",
+      "texto": "Los niños de la Resistencia 10. La guerra no ha acabado comparte con Los niños de la Resistencia. Memorias vivas 1: Josette y Jean-Jacques la autoría de Vincent Dugomier y la referencia a la Resistencia, aunque el primero también está firmado por Benoît Ers. Los jacobinos negros: La novela gráfica (GENERAL) ofrece otra aproximación a la historia mediante la narración gráfica, pero con un asunto histórico distinto.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388439254"
+        "isbn-9791388439254",
+        "isbn-9788410344433"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9e1b3aa7bf580a7d",
+  "fuente_hash": "c499843566f1ba90",
   "origen": "chatgpt-web"
 }

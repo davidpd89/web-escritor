@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788410696549",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Este libro se dirige al público infantil que disfruta de las historias de El Principito y de la interacción física con las páginas. Con 10 páginas de cartón y elementos levantables, ofrece una experiencia distinta de una novela juvenil extensa o de un libro exclusivamente textual.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Este libro infantil propone levantar elementos de sus páginas para explorar el contenido relacionado con El Principito. Sus 10 páginas de cartón permiten combinar la lectura con la manipulación física, mediante una actividad vinculada directamente al mecanismo anunciado en el título.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Todolibro Ediciones es un libro de cartón de 10 páginas, presentado dentro del formato de tapa dura. Esta versión física permite utilizar los elementos levantables asociados a El Principito. Su extensión facilita recorrer el contenido en sesiones breves.",
+      "evidencias": [
+        "editorial",
+        "edicion",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Blancanieves y los siete enanitos (Levanta las solapas), de Equipo Todolibro, comparte con este libro de El Principito la autoría y la propuesta infantil basada en elementos levantables. Ambos pertenecen al catálogo de Todolibro Ediciones, pero utilizan personajes de historias diferentes: Blancanieves y los siete enanitos en uno y El Principito en el otro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410697201"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "dccffa716f519f2a",
+  "origen": "chatgpt-web"
+}

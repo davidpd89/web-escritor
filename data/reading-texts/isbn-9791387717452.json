@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387717452",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Metafísica de la evolución: Una cosmovisión evolutiva de la creación se dirige a lectores interesados en la filosofía y en examinar la creación desde una perspectiva evolutiva. Sus 692 páginas y su carácter ensayístico lo alejan de quienes buscan una introducción breve o una narración de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Metafísica de la evolución: Una cosmovisión evolutiva de la creación está disponible en tapa blanda, con 692 páginas en castellano. Es un volumen extenso para leer en papel y consultar por partes; su encuadernación flexible permite manejarlo sin la rigidez de una tapa dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Metafísica de la evolución: Una cosmovisión evolutiva de la creación comparte con Amo ergo sum: Mi visión del mundo: el sentido de la vida, los estados expandidos de la consciencia y el contacto con lo trascendente (Ensayo) el interés por cuestiones filosóficas de alcance general. Ricard Casadesús aborda la creación desde una cosmovisión evolutiva, mientras que el título de Josep Maria Fericgla sitúa el foco en la consciencia, el sentido de la vida y lo trascendente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182365"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "87414686f9ecb6ea",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410908017",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Abrazo agricultor se sitúa entre la narrativa contemporánea, la economía y la divulgación científica, por lo que puede interesar a lectores que buscan obras en esos ámbitos. Encaja menos con quienes prefieren una novela histórica o una narración centrada exclusivamente en la aventura.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Abrazo agricultor se presenta en tapa blanda y tiene 156 páginas en castellano. La edición de Editorial Letra Minúscula ofrece una extensión relativamente breve para leer en papel y volver a consultar pasajes sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abrazo agricultor comparte el ámbito económico con Análisis de la rentabilidad en los establecimientos hoteleros-ADGD08 (v2), aunque este último delimita su contenido al análisis de establecimientos hoteleros. También puede contrastarse con Asistentes y agentes empresariales con IA, centrado por su título en herramientas de inteligencia artificial para empresas, frente a la combinación de narrativa, economía y ciencia de Abrazo agricultor.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411354684",
+        "isbn-9788426742704"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12cd606b8ac042b6",
+  "origen": "chatgpt-web"
+}

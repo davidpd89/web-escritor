@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399308365",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cuestiones liberales: Historia de una metamorfosis, de Luis Martínez de Velasco, se dirige a lectores interesados en el pensamiento liberal desde el ensayo y la filosofía. Por su planteamiento temático y sus 110 páginas, se aparta de las novelas de ficción y de los manuales organizados como ejercicios prácticos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cuestiones liberales: Historia de una metamorfosis se publica en tapa blanda, con 110 páginas en castellano. La edición de Ápeiron Ediciones permite leer el ensayo en papel y volver a sus apartados durante una consulta o una relectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cuestiones liberales: Historia de una metamorfosis comparte el terreno de las ideas políticas con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo). El libro de Miguel Anxo Bastos Boubeta anuncia una introducción al anarcocapitalismo, mientras que Luis Martínez de Velasco sitúa el liberalismo y su transformación en el centro del título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "497a8281cbe6e320",
+  "origen": "chatgpt-web"
+}

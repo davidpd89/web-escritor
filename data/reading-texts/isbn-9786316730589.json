@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786316730589",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Anatomía del miedo se sitúa entre el terror y la fantasía, por lo que responde a la búsqueda de lecturas relacionadas con ambos géneros. Quien prefiera una novela de misterio sin componentes fantásticos encontrará aquí una orientación temática diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Anatomía del miedo está disponible en tapa blanda, con 374 páginas en castellano. La edición de Luna Roja permite leerlo en papel y conservar un volumen físico de extensión considerable dentro de los géneros de terror y fantasía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anatomía del miedo puede compararse con Atlas de Lovecraft (Minotauro Ilustrados) por su vinculación con el terror, aunque el segundo se presenta como un atlas y el primero se clasifica también como fantasía. Otra referencia es A la luz de la oscuridad (La pequeña Salamandra), cuyo título comparte el interés por lo oscuro, sin que eso implique un tratamiento narrativo equivalente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387906023",
+        "isbn-9788445022863"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ef4575ee65ba0b3c",
+  "origen": "chatgpt-web"
+}

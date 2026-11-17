@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388391408",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Obeliscos se dirige a lectores de poesía y literatura juvenil que buscan una obra breve en castellano. Sus 62 páginas permiten distinguirlo de las novelas juveniles extensas; no es una elección orientada a quien busca específicamente un manual de estudio o un ensayo académico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Obeliscos está editado en tapa blanda y tiene 62 páginas, una extensión que permite transportarlo con facilidad. El formato impreso favorece la consulta de pasajes y la relectura de textos dentro de una publicación vinculada a la poesía y la literatura juvenil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Obeliscos comparte su vinculación con la poesía con s-t técnica mixta: (colección de poemas), de Aldo Sanz. La diferencia está en su presentación: la obra de Aldo Sanz se identifica expresamente como colección de poemas, mientras que Obeliscos, de Javier Mansilla Calderón, figura tanto en poesía como en literatura juvenil y consta de 62 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498277500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2571d966acdf8432",
+  "origen": "chatgpt-web"
+}

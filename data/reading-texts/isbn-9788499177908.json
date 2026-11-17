@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788499177908",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La virtud de la sensibilidad se orienta a lectores interesados en el desarrollo personal y el bienestar, especialmente en cuestiones relacionadas con la sensibilidad. Su enfoque temático se aleja de las narraciones de ficción y de los libros dedicados exclusivamente a acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La virtud de la sensibilidad está disponible en tapa blanda, con 176 páginas en castellano. La edición de Redbook permite leer en papel y marcar los apartados a los que se quiera volver durante una lectura sobre desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La virtud de la sensibilidad y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito se relacionan con el desarrollo personal y el bienestar. Noelia L. Vigil sitúa la sensibilidad en el centro de su obra, mientras que Liz Moody presenta un planteamiento más amplio sobre cambios personales, salud y relaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c10da38d864900fb",
+  "origen": "chatgpt-web"
+}

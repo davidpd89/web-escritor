@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791370596477",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Valuación de Empresas e Intangibles. Aspectos fiscales y financieros (Derecho tributario y fiscal -México-), de Ismael Bustamante Sámano, se dirige a lectores interesados en la valoración empresarial y sus implicaciones tributarias y financieras. Su orientación especializada encaja menos con quienes buscan una introducción general a la economía o consejos de gestión personal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 324 páginas de Valuación de Empresas e Intangibles. Aspectos fiscales y financieros (Derecho tributario y fiscal -México-) en un volumen físico. Este formato permite señalar apartados y consultar cuestiones fiscales y financieras durante el estudio o el trabajo con documentación empresarial.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Valuación de Empresas e Intangibles. Aspectos fiscales y financieros (Derecho tributario y fiscal -México-) y Antes de liderar: Una mirada interior a un oficio comparten el ámbito empresarial. Ismael Bustamante Sámano trata la valoración y la fiscalidad, mientras que Miguel Reinoso sitúa el foco en el liderazgo y la reflexión sobre ese oficio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409921980"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "88b816eaa4b08e2b",
+  "origen": "chatgpt-web"
+}

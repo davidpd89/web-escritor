@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399297577",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Leer hoy a María Zambrano: (Monográfico) se orienta a lectores interesados en el estudio filosófico de María Zambrano desde una publicación colectiva. Sus 250 páginas y su carácter monográfico lo alejan de una introducción general a distintas disciplinas o de una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 250 páginas dedicadas al tema anunciado en Leer hoy a María Zambrano: (Monográfico). El soporte impreso permite señalar pasajes y volver a ellos durante el estudio, una utilidad concreta para una publicación filosófica de varios autores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Leer hoy a María Zambrano: (Monográfico) comparte la firma colectiva de Varios autores con Empoderar a las personas en las organizaciones. Sin embargo, el primero se centra en María Zambrano desde el ensayo filosófico, mientras que el segundo anuncia una temática relacionada con las personas y las organizaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788497991872"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f89f7344abb5f8b2",
+  "origen": "chatgpt-web"
+}

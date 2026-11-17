@@ -1,0 +1,64 @@
+{
+  "id": "isbn-9788466393126",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gomorra (edición limitada · Black Friday): Un viaje al imperio económico y al sueño de poder de la Camorra (Campaña | Black Friday) se dirige a lectores interesados en el poder económico y la organización de la Camorra. Su enfoque de ensayo encaja menos con quien busca una novela de ficción o una historia centrada en relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Penguin Bolsillo se presenta en tapa blanda y formato de bolsillo, con 336 páginas en castellano. Su título incorpora la identificación de edición limitada Black Friday, vinculada a la campaña editorial. El ISBN 9788466393126 permite distinguir esta presentación de otras ediciones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda la Camorra desde su dimensión económica y sus aspiraciones de poder. Roberto Saviano sitúa estos asuntos en el terreno del ensayo, por lo que el interés principal está en comprender una estructura de poder y no en seguir una trama romántica o fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de esta edición de Gomorra (edición limitada · Black Friday): Un viaje al imperio económico y al sueño de poder de la Camorra (Campaña | Black Friday). Sus 336 páginas se presentan en un volumen de bolsillo, una opción física para llevar y consultar durante la lectura. La elección corresponde a una edición impresa en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mi amor no muere comparte con Gomorra (edición limitada · Black Friday): Un viaje al imperio económico y al sueño de poder de la Camorra (Campaña | Black Friday) la autoría de Roberto Saviano. La diferencia está en el punto de partida: el primero presenta a Rossella Casini, mientras que el segundo se centra en la Camorra, su economía y sus aspiraciones de poder.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387846794"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "20185e1854f58432",
+  "origen": "chatgpt-web"
+}

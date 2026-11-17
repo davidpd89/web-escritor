@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788430995264",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Historias de vida y mediación: El secreto para resolver conflictos (Ventana Abierta) se dirige a lectores interesados en la mediación y la resolución de conflictos desde un ámbito vinculado al derecho. Sus 176 páginas ofrecen una extensión contenida para abordar esa materia. No corresponde a una lectura centrada en aventuras o ficción fantástica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Historias de vida y mediación: El secreto para resolver conflictos (Ventana Abierta) se presenta en tapa blanda, con 176 páginas editadas por Tecnos. El ejemplar físico permite consultar y señalar pasajes relacionados con la mediación. Por su extensión, ocupa menos espacio que un volumen jurídico de varios centenares de páginas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Historias de vida y mediación: El secreto para resolver conflictos (Ventana Abierta) y Aprendiendo convivencia: la mediación educativa contextualizada (Mediación y resolución de conflictos) comparten el interés por la mediación. Carmen Gil Orozco plantea el tema desde las historias de vida y la resolución de conflictos, mientras que Mari Luz Sánchez García-Arista lo sitúa expresamente en la convivencia educativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788429030372"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b93ff0ba147c48fa",
+  "origen": "chatgpt-web"
+}

@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pink & Habanero 3 (Shôjo) se dirige a quienes leen manga romántico con elementos de humor y relaciones de pareja. La obra de Mika Satonaka pertenece al cómic y la narrativa contemporánea, por lo que se aleja de los ensayos y de las novelas históricas. El título lo identifica como el n.º 3.",
+      "texto": "Pink & Habanero 3 (Shôjo), de Mika Satonaka, encaja con lectores de manga que buscan romance y narrativa contemporánea. El título lo identifica como el n.º 3, por lo que quien prefiera empezar una serie desde su primera entrega puede optar por un volumen inicial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pink & Habanero 3 (Shôjo) está editado en tapa blanda, con 172 páginas en castellano. Este formato permite guardar el volumen junto a otros tomos de manga y transportarlo como libro físico. La edición corresponde a Distrito Manga.",
+      "texto": "Pink & Habanero 3 (Shôjo) está disponible en tapa blanda, con 172 páginas en castellano. La edición de Distrito Manga permite leer las páginas impresas y guardarlas junto a otros tomos de la colección; su extensión es menor que la de una novela de varios cientos de páginas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,7 +24,7 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pink & Habanero 3 (Shôjo) comparte el romance y la identificación shôjo con Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita. Son obras de autoría diferente: Mika Satonaka firma la primera y Keiko Iwashita la segunda. Sus títulos identifican entregas distintas dentro de sus respectivas obras.",
+      "texto": "Pink & Habanero 3 (Shôjo) puede compararse con Honey lemon soda 4 (Shôjo), de Mayu Murata, por su orientación al manga romántico. Ambos títulos identifican entregas posteriores a la primera, pero pertenecen a obras de autoras distintas. Amarte hasta perder el aliento 1 (Shôjo), de Keiko Iwashita, ofrece en cambio un volumen identificado como inicial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387962494"
+        "isbn-9791387962494",
+        "isbn-9791387962487"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "793c0b94a9365869",
+  "fuente_hash": "5bce159f620e8cd1",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9788427734319",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La prisión como entorno educativo: 78 (Sociocultural) se dirige a lectores interesados en la educación dentro del sistema penitenciario y en las cuestiones sociales, psicológicas y jurídicas relacionadas con la prisión. Su planteamiento corresponde al ensayo y no a quien busca una narración de ficción ambientada en una cárcel.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La prisión como entorno educativo: 78 (Sociocultural) aborda la dimensión educativa del espacio penitenciario desde un enfoque relacionado con la psicología y el derecho. El título sitúa la educación en el centro de su objeto de estudio, mientras que su clasificación como ensayo delimita su carácter no narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda es el formato disponible de La prisión como entorno educativo: 78 (Sociocultural). Sus 208 páginas permiten manejar un volumen físico de extensión moderada, apropiado para la consulta y lectura de un ensayo sobre educación, prisión y cuestiones socioculturales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La prisión como entorno educativo: 78 (Sociocultural) puede compararse con Justicia, ¿quién responde?: El mundo cambia, la justicia no (Ensayo), de Álvaro Lobato Lavín, por su relación con el ámbito jurídico. La diferencia está en el objeto de interés: el primero se centra en la dimensión educativa de la prisión, mientras que el título de Álvaro Lobato Lavín plantea una cuestión más amplia sobre la justicia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370206017"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7a57e917dfe6a807",
+  "origen": "chatgpt-web"
+}

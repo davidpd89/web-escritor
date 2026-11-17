@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788483813256",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El que pueda hacer que haga: Crónica documental del zafarrancho aquel de Las Vulpes (Episodios Nacionales), de Eduardo Bravo, se dirige a lectores interesados en la narrativa contemporánea y las crónicas documentales. Por su planteamiento documental, se aleja de las lecturas que buscan una historia de fantasía o una novela de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El que pueda hacer que haga: Crónica documental del zafarrancho aquel de Las Vulpes (Episodios Nacionales) se presenta en tapa blanda. Sus 144 páginas permiten llevar el volumen en papel sin cargar con una obra extensa; la edición en castellano está publicada por Episodios Nacionales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "08e437d2159b987c",
+  "origen": "chatgpt-web"
+}

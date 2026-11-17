@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Para Dafne 2 se dirige a lectores adultos interesados en la fantasía romántica con conflictos de rechazo, imposición amorosa y venganza. Su tratamiento del sufrimiento emocional y de las relaciones de poder lo aleja de quienes buscan un romance ligero o una historia infantil.",
+      "texto": "Para Dafne 2 está dirigido a lectores adultos de cómic y novela gráfica que buscan fantasía romántica con conflictos de rechazo, control y sufrimiento emocional. La relación entre Dafne y Febo incorpora una dimensión opresiva, por lo que se aleja de las historias románticas basadas en la reciprocidad y los vínculos afectivos tranquilos.",
       "evidencias": [
         "titulo",
         "edad_recomendada",
@@ -14,38 +14,37 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Para Dafne 2 combina fantasía, romance y narrativa gráfica con una reinterpretación conflictiva del vínculo entre Dafne y Febo. El deseo impuesto, la resistencia al amor y las consecuencias emocionales del rechazo articulan una lectura centrada en la autonomía personal, más que en la conquista romántica.",
+      "texto": "Para Dafne 2 combina fantasía, romance y elementos de venganza en una narración gráfica para adultos. El conflicto enfrenta el amor impuesto de Febo con el rechazo de Dafne, cuya pérdida de autonomía introduce una tensión psicológica que va más allá de la atracción romántica. El título lo identifica como el n.º 2.",
       "evidencias": [
         "titulo",
         "categorias",
+        "edad_recomendada",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Para Dafne 2 está disponible en tapa blanda con solapas, en la edición castellana de Distrito Manga. Sus 288 páginas permiten conservar el volumen en una estantería y volver a consultar sus escenas sin depender de un dispositivo electrónico.",
+      "texto": "Para Dafne 2 se ofrece en tapa blanda con solapas, en una edición de 288 páginas publicada por Distrito Manga. Es un volumen físico en castellano que permite consultar las secuencias gráficas y volver a las escenas anteriores durante la lectura.",
       "evidencias": [
         "titulo",
         "edicion",
-        "editorial",
         "numero_paginas",
+        "editorial",
+        "idioma",
         "formatos_disponibles",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Para Dafne 3 (Distrito Manhwa) comparte con Para Dafne 2 la autoría de KKAM y 3_jokseom, mientras que sus títulos identifican entregas distintas. La bestia del rey 14 (Shôjo), de Rei Tôma, ofrece otra referencia de narrativa gráfica; frente a ella, Para Dafne 2 sitúa el conflicto en el rechazo amoroso y la imposición del deseo.",
+      "texto": "Para Dafne 3 (Distrito Manhwa) comparte con Para Dafne 2 la autoría de KKAM y 3_jokseom, además del nombre que identifica ambos volúmenes. La diferencia visible está en su numeración: el título de Para Dafne 2 indica el n.º 2 y el de Para Dafne 3 (Distrito Manhwa) indica el n.º 3, sin establecer por sí sola el orden argumental.",
       "evidencias": [
-        "titulo",
-        "autores",
         "afines_catalogo",
-        "categorias",
-        "sinopsis_editorial"
+        "titulo",
+        "autores"
       ],
       "enlaces": [
-        "isbn-9791387962067",
-        "isbn-9791387962708"
+        "isbn-9791387962067"
       ]
     }
   ],

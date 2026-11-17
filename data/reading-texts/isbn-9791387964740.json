@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791387964740",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pinacoteca soñada: Caminando entre pintores: 535 (El Acantilado) se dirige a lectores interesados en arte, pintura y reflexión filosófica. Sus 375 páginas corresponden a un ensayo, por lo que no responde a quien busca una novela de ficción o un manual centrado exclusivamente en técnicas de dibujo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Pinacoteca soñada: Caminando entre pintores: 535 (El Acantilado) se ofrece en tapa blanda, en una edición de Editorial Acantilado. Sus 375 páginas permiten mantener el ensayo en una biblioteca física y volver a sus reflexiones sobre arte y pintura durante sucesivas lecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pinacoteca soñada: Caminando entre pintores: 535 (El Acantilado) puede compararse con El oscuro mito del arte: Cuestiones disputadas sobre arte y estética por su interés común en el arte y la reflexión estética. Rafael Argullol plantea un recorrido entre pintores, mientras que Luis Carlos Martín Jiménez anuncia cuestiones sobre arte y estética. Ambos se sitúan en el terreno del ensayo, pero sus títulos señalan enfoques diferentes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788478486656"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cf76f5cfac194383",
+  "origen": "chatgpt-web"
+}

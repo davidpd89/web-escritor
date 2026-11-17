@@ -4,54 +4,52 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial) encaja con lectores que buscan romance combinado con misterio, thriller y aventuras. Por esa mezcla de géneros, se aparta tanto del romance sin intriga como de la narrativa dedicada exclusivamente a la acción.",
+      "texto": "Dirigido a quienes buscan romance combinado con misterio y aventuras en una misma novela. Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial), de Autumn Woods, se aleja de las lecturas centradas exclusivamente en una relación romántica o en una aventura sin componente sentimental.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Booket publica Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial), de Autumn Woods, en una presentación de bolsillo con tapa blanda. Esta versión contiene 432 páginas, está fechada el 2027-01-08 y se identifica con el ISBN 9788408331681; el título señala su posición como n.º 1 de Universidad Sorrowsong.",
+      "texto": "Esta edición de Booket pertenece a la Colección Especial y se presenta como una edición limitada a precio especial. Reúne 432 páginas en castellano, con encuadernación de bolsillo y tapa blanda, y tiene como fecha de publicación 2027-01-08.",
       "evidencias": [
         "titulo",
-        "autores",
         "editorial",
         "edicion",
-        "formato_edicion",
         "numero_paginas",
+        "idioma",
         "fecha_publicacion",
-        "isbn13"
+        "formato_edicion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de tapa blanda ofrece 432 páginas en formato de bolsillo para leer la historia en papel. Es una opción transportable para una novela que combina romance, aventuras y misterio, y permite conservar físicamente esta entrega de Universidad Sorrowsong.",
+      "texto": "La tapa blanda es el formato disponible para esta edición de Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial). Sus 432 páginas se presentan en un volumen de bolsillo, una opción para transportar la novela y leerla en papel sin recurrir a un dispositivo electrónico.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "edicion",
         "numero_paginas",
-        "categorias",
-        "titulo"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Universidad Sorrowsong 2. Daybreak, también de Autumn Woods, se presenta como el desenlace de Nightshade y comparte su ambientación académica oscura. Fuera de pista (Corazones al límite 2) (Sin límites), de Sara Hernández, ofrece otra lectura vinculada al romance, pero pertenece a una serie distinta y no comparte la combinación de misterio y aventuras indicada para Nightshade.",
+      "texto": "Universidad Sorrowsong 2. Daybreak comparte autoría con Nightshade (Universidad Sorrowsong, 1): Edición limitada a precio especial (Colección Especial) y se presenta como su desenlace, por lo que plantea una lectura de continuación. Estuche Universidad Sorrowsong: Nightshade + Daybreak (Ficción) reúne ambos títulos, mientras que esta edición de Autumn Woods corresponde únicamente a Nightshade.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408324485",
-        "isbn-9791388277009"
+        "isbn-9788408328018",
+        "isbn-9788408324485"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b5710bfa83e9f9ae",
+  "fuente_hash": "2c58d93ae9039877",
   "origen": "chatgpt-web"
 }

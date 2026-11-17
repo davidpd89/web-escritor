@@ -1,0 +1,47 @@
+{
+  "id": "isbn-9781806072835",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La Orquestra de los animales toca música de Handel, de Sam Taplin, se dirige a lectores infantiles interesados en los animales y en un acercamiento a la música clásica. Su edición de cartón de 10 páginas corresponde a una experiencia breve, distinta de la lectura de novelas extensas o de estudios musicales especializados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La Orquestra de los animales toca música de Handel se publica en tapa dura, con 10 páginas de cartón. La encuadernación permite manipularlo durante lecturas compartidas y conservarlo como libro físico relacionado con la música clásica. Por su extensión, también resulta manejable para llevarlo fuera de casa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La Orquestra de los animales toca música de Handel puede compararse con ¡Ya es Nochebuena! (Un cuento con puzles), también de Sam Taplin. Ambos comparten autoría y una orientación hacia propuestas infantiles, pero el primero aborda la música de Handel mediante animales y el segundo se identifica como un cuento navideño con puzles. También coincide en su temática musical con 124 zarzuelas montañesas en la cueva del olvido: Escritas entre 1853 y 1958, aunque esta última obra se ocupa de zarzuelas históricas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9781806072828",
+        "isbn-9791399183030"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "fcc3e077f58568cc",
+  "origen": "chatgpt-web"
+}

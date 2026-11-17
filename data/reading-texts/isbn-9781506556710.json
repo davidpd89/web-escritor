@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9781506556710",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Gritos Silenciosos se sitúa entre la poesía, el desarrollo personal y el bienestar, por lo que encaja con lectores interesados en esas materias. Quien busque un manual técnico de nutrición o un estudio clínico encontrará un planteamiento editorial diferente al de esas obras especializadas.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Gritos Silenciosos se publica en tapa blanda y reúne 112 páginas en castellano. Su extensión permite manejar el volumen con facilidad y volver a pasajes concretos en papel, una opción práctica para la lectura de poesía y contenidos de desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gritos Silenciosos puede compararse con Mientras tanto... aquí estoy contigo: Poemas para recordar quién eres y descubrir todo lo que puedes llegar a ser, de Runa Luna. Los dos se relacionan con la poesía y la reflexión personal, aunque el título de Runa Luna explicita la identidad y el crecimiento individual, mientras que Gritos Silenciosos también se sitúa en el ámbito del bienestar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409937707"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0ae66632c741a317",
+  "origen": "chatgpt-web"
+}

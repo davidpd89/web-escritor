@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores de ensayo, memorias e historia interesados en textos relacionados con el siglo XX. Un infarto de miocardio: Sergi Pàmies (Destino Clásicos), de Josep Pla, tiene 128 páginas y se aleja de las expectativas de quien busca una novela de aventuras o una ficción de misterio.",
+      "texto": "Un infarto de miocardio: Sergi Pàmies (Destino Clásicos), de Josep Pla, se orienta a lectores interesados en textos de carácter biográfico, histórico y ensayístico. Con 128 páginas, ofrece una extensión contenida frente a obras de mayor recorrido; no se dirige a quien busque aventuras de ficción o una novela de fantasía.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,8 +14,9 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 128 páginas en castellano, una extensión que facilita llevar el volumen en el bolso o la mochila. Su presentación física permite consultar y releer pasajes sin depender de un dispositivo electrónico. Está publicada por Ediciones Destino.",
+      "texto": "La edición de Un infarto de miocardio: Sergi Pàmies (Destino Clásicos) es de tapa blanda y tiene 128 páginas en castellano. Su extensión permite llevar el ejemplar físico para leer fuera de casa sin afrontar un volumen especialmente largo; Ediciones Destino publica esta presentación.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
@@ -24,21 +25,22 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Un señor de Barcelona (Contemporánea) comparte autor con Un infarto de miocardio: Sergi Pàmies (Destino Clásicos): ambos son de Josep Pla, aunque pertenecen a colecciones editoriales distintas. Lectora amiga: Primeras crónicas (1926-1927): 29 (Biblioteca Elena Fortún), de Elena Fortún, ofrece otra referencia vinculada a la escritura del siglo XX, pero centrada expresamente en crónicas de un periodo concreto.",
+      "texto": "Un señor de Barcelona (Contemporánea) comparte con Un infarto de miocardio: Sergi Pàmies (Destino Clásicos) la autoría de Josep Pla. Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978) ofrece otra referencia de escritura vinculada a una vida y a su contexto histórico, aunque corresponde a Tomeu Canyelles Canyelles. El libro de Josep Pla se distingue aquí por su extensión de 128 páginas.",
       "evidencias": [
         "titulo",
         "autores",
+        "afines_catalogo",
         "categorias",
-        "afines_catalogo"
+        "numero_paginas"
       ],
       "enlaces": [
         "isbn-9788423371037",
-        "isbn-9791388381416"
+        "isbn-9788417645311"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d3963f230b4a7566",
+  "fuente_hash": "d29db4cd08b399b2",
   "origen": "chatgpt-web"
 }

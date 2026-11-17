@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387634858",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Temáticas pedagógicas #5: Utopías (Arquitectura) se dirige a lectores interesados en la arquitectura, las utopías y su relación con el arte y el diseño. Por su temática y sus 64 páginas, se aleja de las novelas de ficción y de los manuales extensos de arquitectura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Temáticas pedagógicas #5: Utopías (Arquitectura) está disponible en tapa blanda, con 64 páginas en castellano. Esta edición física permite consultar el volumen y volver a sus contenidos sobre arquitectura sin depender de una pantalla; su extensión facilita transportarlo junto con otros materiales de estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Temáticas pedagógicas #5: Utopías (Arquitectura) comparte con Ilusión y persuasión (Ensayos) su vinculación con el arte y las ideas, aunque el primero delimita su asunto a las utopías arquitectónicas. Frente a Banksy: I want to be what you saw in me (MISCELANEAS), cambia el foco de un nombre artístico concreto a una cuestión relacionada con la arquitectura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789509509504",
+        "isbn-9788408327608"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d3200ba0c65aa3f9",
+  "origen": "chatgpt-web"
+}

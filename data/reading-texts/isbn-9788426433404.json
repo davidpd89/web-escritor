@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788426433404",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El amor inventado (Premio Lumen 2026) (Narrativa) se dirige a lectores de narrativa contemporánea interesados en una obra cuyo título sitúa el amor como referencia temática. Paula Klein firma este libro de 320 páginas en castellano. Por su clasificación editorial, se diferencia de las obras presentadas específicamente como fantasía o ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El amor inventado (Premio Lumen 2026) (Narrativa) cuenta con una edición en tapa blanda de 320 páginas. Publicada por Lumen en castellano, permite tener el texto completo en un volumen de cubierta flexible, tanto para leer en casa como para llevar fuera. Es el formato recogido para esta edición.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c3196a63e68e0fad",
+  "origen": "chatgpt-web"
+}

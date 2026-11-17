@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9786125258250",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de narrativa contemporánea y relatos que buscan una lectura breve en castellano. Sus 116 páginas encajan menos con quienes prefieren novelas extensas o libros de consulta.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 116 páginas de El impredecible Rufino Vasconcelos: El hombre que ~no~ jamás aceptó perder en un volumen físico. Su extensión permite llevarlo en el bolso o consultarlo sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El impredecible Rufino Vasconcelos: El hombre que ~no~ jamás aceptó perder comparte con El año en que perdí mi nombre su ubicación en un catálogo de narrativa en castellano. La diferencia comprobable está en la autoría: Francisco Sáenz Ráez firma el primero y J.A. Iáñez Fernández el segundo; el primero tiene 116 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "idioma",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788409923441"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6ee48e8b3db72ff5",
+  "origen": "chatgpt-web"
+}

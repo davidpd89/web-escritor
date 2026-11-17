@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370310547",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dulces caseros (Gastronomía y cocina) se dirige a lectores interesados en la cocina dulce y en preparar alimentos en casa. Por su temática gastronómica, se aleja de los libros dedicados a otras actividades de ocio, como el bordado o los juegos interactivos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dulces caseros (Gastronomía y cocina) está disponible en tapa blanda, con 120 páginas en castellano. Esta edición permite consultar el contenido en papel mientras se cocina y volver a las páginas necesarias durante la preparación.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dulces caseros (Gastronomía y cocina) comparte autoría y temática culinaria con Sácale partido a tu horno (Gastronomía y cocina), ambos de Varios autores. El primero se centra en los dulces caseros, mientras que el segundo aborda el aprovechamiento del horno. JOSPER: Pasión por las brasas (Tendencias gastronómicas) también trata de cocina, pero orientada a las brasas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408327295",
+        "isbn-9791370310561"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9a198df61b538ff1",
+  "origen": "chatgpt-web"
+}

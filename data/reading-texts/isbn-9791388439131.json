@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388439131",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de aventuras contadas mediante cómic y novela gráfica. Las aventuras de Jo, Zette y Jocko 3. El \"Manitoba\" no contesta tiene 52 páginas y está firmado por Georges Prosper Remi \"Hergé\"; quien busque una novela extensa en prosa encontrará aquí otro tipo de lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne 52 páginas de aventuras gráficas en castellano. Es un volumen breve que puede guardarse con otros cómics de la colección y cuya encuadernación rígida resulta práctica para conservarlo y releerlo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anatol Lapifia Vol 10 ¡Sálvese quien pueda!: 9 y Las aventuras de Jo, Zette y Jocko 3. El \"Manitoba\" no contesta comparten su presentación como entregas numeradas de cómic. El segundo pertenece a las aventuras de Jo, Zette y Jocko y está firmado por Georges Prosper Remi \"Hergé\", mientras que el primero figura bajo la autoría de Anne Didier y Olivier Muller.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387744366"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c5b9f69096a91776",
+  "origen": "chatgpt-web"
+}

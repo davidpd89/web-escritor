@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388154690",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "ENEIDA Liberada (Clásicos Liberados), de Virgilio, se dirige a lectores interesados en obras clásicas y su relación con la historia. Sus 400 páginas la sitúan lejos de las lecturas breves y de quienes buscan específicamente una novedad de romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "ENEIDA Liberada (Clásicos Liberados) cuenta con una edición en tapa dura de 400 páginas, publicada por Clásicos Liberados. Este formato favorece su conservación en una biblioteca personal y ofrece una presentación física adecuada para regalar una obra clásica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "ENEIDA Liberada (Clásicos Liberados) y Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) comparten su vinculación con la lectura de obras clásicas. La primera está firmada por Virgilio y se presenta en la colección Clásicos Liberados; la segunda es una obra de Lev Tolstoi ofrecida en una edición especial de tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788491058397"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "858c24523ff0adf3",
+  "origen": "chatgpt-web"
+}

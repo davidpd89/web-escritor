@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788423370696",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La dama de la niebla (Novela), de Carla Montero, se dirige a lectores interesados en la novela histórica con componentes románticos. Su clasificación combina historia y romance, de modo que se aparta de quienes buscan una lectura centrada exclusivamente en divulgación histórica o en asuntos contemporáneos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La dama de la niebla (Novela) se ofrece en tapa blanda, dentro de la edición de bolsillo de Booket. Sus 544 páginas forman una lectura extensa en un único volumen físico; el formato permite llevarla en una bolsa y conservarla en una estantería sin recurrir a un lector electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La dama de la niebla (Novela) y La carta perdida (Clean Romance) coinciden en su relación con la narrativa romántica. La obra de Carla Montero aparece clasificada también como novela histórica, mientras que el título de Mimi Matthews se identifica expresamente con Clean Romance. La diferencia visible está en esas denominaciones y en su autoría.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410481442"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "3554e98fb7c203b1",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9786073873529",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mi Vida En La Escuela / The New School (El Diario de Wiska) se dirige a lectores infantiles interesados en la fantasía y las historias ambientadas en el colegio. Sus 208 páginas ofrecen una extensión intermedia dentro de la lectura infantil; no responde a quien busca narrativa adulta o una historia ajena a la fantasía.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mi Vida En La Escuela / The New School (El Diario de Wiska) está disponible en tapa blanda, con 208 páginas en castellano. Esta edición de Alfaguara Infantil permite leerlo en papel y transportarlo sin el peso habitual de una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El diario de Wiska 2 - Un secreto entre amigas comparte con Mi Vida En La Escuela / The New School (El Diario de Wiska) la autoría de Harriet Muncaster y el personaje de Wiska presente en sus títulos. Isadora Moon 1 - Isadora Moon va al colegio (edición 10º aniversario): ¡Un libro mágico con purpurina en la cubierta! (Harriet Muncaster) también es de Harriet Muncaster y aborda el entorno escolar, pero pertenece a otra protagonista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388277023",
+        "isbn-9791388277290"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "97d890a6ab65fe98",
+  "origen": "chatgpt-web"
+}

@@ -4,44 +4,45 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores de divulgación científica interesados en la relación entre cerebro, orientación, memoria y percepción temporal. Su enfoque conecta la investigación neuronal con experiencias cotidianas y procesos evolutivos; no está planteado como una novela de ficción ni como un manual de ejercicios de memoria.",
+      "texto": "Cerebro, espacio y tiempo se dirige a lectores interesados en la neurociencia y en cómo el cerebro relaciona orientación, memoria y percepción temporal. Su enfoque divulgativo, centrado en los circuitos neuronales, se aleja de los manuales de ejercicios para mejorar la memoria.",
       "evidencias": [
+        "titulo",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Examina cómo los circuitos neuronales permiten orientarse, ordenar recuerdos y representar mentalmente el pasado y el futuro. Liset Ménendez de la Prida relaciona investigaciones sobre animales y seres humanos con la navegación virtual, las interfaces cerebro-máquina y la inteligencia artificial. El enfoque es divulgativo y parte del estudio experimental de los mecanismos cerebrales.",
+      "texto": "La obra examina los mecanismos neuronales que permiten situarse en el espacio, recordar experiencias y anticipar recorridos. Liset Ménendez de la Prida conecta investigaciones sobre navegación animal y memoria humana con aplicaciones como las interfaces cerebro-máquina y la inteligencia artificial.",
       "evidencias": [
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición disponible es de tapa blanda, publicada por Guadalmazán, con 152 páginas en castellano. Reúne la explicación de los procesos neuronales en un volumen físico relativamente breve, que puede consultarse por apartados o leerse de forma continuada. Es la opción indicada para quien desea conservar el texto en papel.",
+      "texto": "Cerebro, espacio y tiempo está disponible en tapa blanda, con 152 páginas publicadas por Guadalmazán. Esta edición permite consultar en papel las explicaciones sobre orientación espacial, percepción del tiempo y memoria, además de transportarla sin el volumen de una obra extensa.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial",
         "numero_paginas",
-        "idioma"
+        "editorial",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas), de Carlos Briones, comparte el interés divulgativo por la ciencia, pero propone una relación con el arte en lugar de centrarse en los circuitos cerebrales. El juego de tronos de la IA: Cómo un puñado de hombres se disputa el dominio del mundo, de Gustavo Entrala, aborda la inteligencia artificial desde el poder, mientras Cerebro, espacio y tiempo la relaciona con la memoria y la orientación neuronal.",
+      "texto": "Cerebro, espacio y tiempo y Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas) tratan cuestiones científicas, pero el primero examina los circuitos neuronales relacionados con la orientación, el tiempo y la memoria, mientras que el segundo aborda la relación entre ciencia y arte. Breve historia de la alquimia: El arte que unió química, magia y espíritu se centra en la alquimia y su dimensión histórica, frente al enfoque neurocientífico de Liset Ménendez de la Prida.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
+        "autores",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788401039287",
-        "isbn-9788410944374"
+        "isbn-9791388395031",
+        "isbn-9788401039287"
       ]
     }
   ],

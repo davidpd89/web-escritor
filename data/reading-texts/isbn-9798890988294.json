@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9798890988294",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El club de los ansiosos / The Anxious Club está orientado a lectores interesados en la ansiedad desde el ámbito del desarrollo personal y el bienestar. Por su clasificación temática, se diferencia de una obra de ficción y de un tratado exclusivamente académico sobre psicología.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El club de los ansiosos / The Anxious Club se ofrece en tapa blanda, con 240 páginas en castellano y edición de Aguilar. Su extensión permite una lectura por sesiones y la consulta posterior de pasajes en papel, dentro de un volumen dedicado al desarrollo personal y el bienestar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito, de Liz Moody, comparte el interés por el bienestar personal. El club de los ansiosos / The Anxious Club, de Alma Lozano, centra su título en la ansiedad, mientras que la obra de Liz Moody anuncia un abanico más amplio de asuntos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "11fd0ed58766f436",
+  "origen": "chatgpt-web"
+}

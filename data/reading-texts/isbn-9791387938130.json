@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387938130",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los afectos: 36 (Barlovento), de Patricia Capdevila, se encuadra en la narrativa contemporánea y corresponde a lectores que buscan ficción de este ámbito. No pertenece al ensayo ni a la divulgación histórica; su edición de 152 páginas ofrece una extensión delimitada para quien selecciona lecturas por número de páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los afectos: 36 (Barlovento) está editado en tapa blanda por Altamarea Ediciones y tiene 152 páginas. El formato físico permite leerlo sin pantalla, dejarlo en una biblioteca personal o prestarlo; la extensión de esta edición facilita identificar cuánto ocupa el libro antes de adquirirlo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "397a7cf6d922b998",
+  "origen": "chatgpt-web"
+}

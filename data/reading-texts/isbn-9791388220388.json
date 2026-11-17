@@ -4,29 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mamutland 3 (Lunwergg), de KOLDERIU, se sitúa entre las lecturas relacionadas con el deporte y el tiempo libre. Su clasificación lo aleja de los manuales especializados de investigación académica, mientras que sus 200 páginas delimitan una extensión concreta para quien busca una lectura de ocio.",
+      "texto": "Mamutland 3 (Lunwergg) encaja con lectores interesados en publicaciones de ocio y aficiones que buscan un libro de KOLDERIU. Su clasificación se aleja de la novela histórica y del ensayo biográfico, por lo que no responde a esas preferencias de lectura.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mamutland 3 (Lunwergg) está disponible en tapa blanda, con 200 páginas en castellano publicadas por Lunwerg Editores. Es una edición física que puede transportarse y guardarse sin la rigidez de una encuadernación en cartoné, por lo que la elección se centra en la lectura sobre papel.",
+      "texto": "Mamutland 3 (Lunwergg) se presenta en tapa blanda, con 200 páginas en castellano. Es una edición física que permite conservar el volumen en una estantería o prestarlo, sin depender de un dispositivo de lectura.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "edicion"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mamutland 3 (Lunwergg) y El árbitro / The Referee figuran entre los títulos relacionados con el ámbito deportivo, aunque corresponden a obras de KOLDERIU y Augusto Cruz, respectivamente. Frente a la identificación general de Mamutland 3 (Lunwergg) con el ocio y el deporte, El árbitro / The Referee señala desde su título una figura concreta del deporte.",
+      "texto": "80 crímenes imposibles de resolver (FUERA DE ESCENA) comparte con Mamutland 3 (Lunwergg) su presencia entre las propuestas de ocio, pero orienta su título hacia la resolución de crímenes. 99 Sudoku (LIBROS SINGULARES) se centra en pasatiempos numéricos, mientras que Mamutland 3 (Lunwergg) se identifica como una obra de KOLDERIU dentro de las aficiones.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +31,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073877817"
+        "isbn-9791388015816",
+        "isbn-9788411724425"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6ba8bfaab25369a6",
+  "fuente_hash": "18475cb801dc4616",
   "origen": "chatgpt-web"
 }

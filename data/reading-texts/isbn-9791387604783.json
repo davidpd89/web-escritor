@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387604783",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Thomas y Beulah: 251 (Poesía), de Rita Dove, está dirigido a quienes buscan leer poesía en castellano. Sus 152 páginas lo sitúan en una extensión contenida frente a volúmenes más largos, mientras que su clasificación poética lo distancia de la narrativa en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Thomas y Beulah: 251 (Poesía) se presenta en tapa blanda, con 152 páginas. El volumen físico permite alternar entre poemas, retroceder a páginas anteriores y mantener señalados los pasajes a los que se quiera regresar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Thomas y Beulah: 251 (Poesía) comparte género con 223 esquinas: 16 (La garza roja) y Advenir. La diferencia más clara está en la autoría: Rita Dove firma el primero, Antonio Fernández Lera el segundo y Jose Eceolaza el tercero; son opciones distintas dentro de la poesía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412988833",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b7922be1d41bd261",
+  "origen": "chatgpt-web"
+}

@@ -4,39 +4,42 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El niño (Andanzas), de Fernando Aramburu, encaja con lectores que buscan narrativa contemporánea, novela histórica y relatos relacionados con la infancia. Quienes prefieren otros géneros narrativos pueden encontrar aquí un enfoque alejado de sus intereses.",
+      "texto": "El niño (Andanzas), de Fernando Aramburu, se dirige a lectores de narrativa contemporánea y novela histórica. Sus 272 páginas en castellano encajan con quien busca una obra de extensión media, no con quien prefiere una lectura centrada en la fantasía.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 272 páginas en una edición física de Tusquets Editores. Kindle permite acceder al texto en formato digital, mientras que el audiolibro ofrece la alternativa de escuchar la obra en lugar de leerla.",
+      "texto": "La tapa blanda de El niño (Andanzas) reúne 272 páginas y permite leer la edición impresa sin el volumen de una tapa dura. Kindle facilita llevar el texto en un dispositivo y el audiolibro permite escucharlo durante desplazamientos o actividades cotidianas.",
       "evidencias": [
+        "titulo",
         "numero_paginas",
-        "edicion",
-        "editorial",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El niño (MAXI), de Fernando Aramburu, comparte autor y título principal con El niño (Andanzas), por lo que permite comparar dos ediciones de la misma obra. Infancia. Adolescencia. Juventud: 404 (El Acantilado), de Lev Tolstói, también sitúa la infancia en primer plano desde una obra de otro autor.",
+      "texto": "El niño (MAXI) comparte título y autoría con El niño (Andanzas): ambos figuran como obras de Fernando Aramburu, aunque se identifican con denominaciones editoriales distintas. Amargo, amargo (Literaturas), de Joanna Bator, ofrece otra referencia de narrativa contemporánea con una autoría diferente.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788411077477",
-        "isbn-9791387964788"
+        "isbn-9791387846558"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6f0e4c02d1a49475",
+  "fuente_hash": "2b3d7e97a1929837",
   "origen": "chatgpt-web"
 }

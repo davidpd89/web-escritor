@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409920020",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Abre tus alas!, de Carlos Serrano Ramos, se sitúa en el ámbito del ensayo relacionado con la economía, la empresa y el poder político. Puede interesar a lectores que buscan obras de estas materias, mientras que quienes prefieren ficción o manuales exclusivamente técnicos encontrarán un planteamiento editorial diferente. Su extensión es de 447 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Abre tus alas! cuenta con una edición en tapa blanda de 447 páginas, publicada en castellano. El volumen físico permite organizar su lectura en varias sesiones y conservarlo junto a otros ensayos sobre economía, empresa o política. Es una edición destinada a la lectura en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Abre tus alas!, de Carlos Serrano Ramos, comparte su clasificación temática con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta. También se relaciona por ese ámbito con La España de dos pisos: Cómo las élites han creado un nuevo clasismo Y por qué ellos son cada vez más ricos y los demás, cada vez más pobres, de Esteban Hernández. Estos dos títulos delimitan sus asuntos en torno al anarcocapitalismo y la desigualdad, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457",
+        "isbn-9788410944367"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cbbb492cc42ce250",
+  "origen": "chatgpt-web"
+}

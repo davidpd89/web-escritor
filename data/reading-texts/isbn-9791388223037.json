@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791388223037",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Concierto de lluvia: 35 (Akialbum), de Luciano Lozano, se dirige al público infantil y juvenil. Sus 40 páginas en castellano encajan con quien busca una lectura breve, frente a quien prefiere obras de mayor extensión.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Concierto de lluvia: 35 (Akialbum) está disponible en tapa dura, con 40 páginas. Esta encuadernación permite conservar el ejemplar físico para sucesivas lecturas y entregarlo como regalo, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e96ff9c0b2b57293",
+  "origen": "chatgpt-web"
+}

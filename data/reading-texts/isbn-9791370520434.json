@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791370520434",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ikkyu Núm. 02: 2 se dirige a lectores de narrativa juvenil que prefieren el cómic y la novela gráfica a la prosa convencional. El título lo identifica como el n.º 2, por lo que quien busque una entrega señalada como inicial puede optar por otra lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ikkyu Núm. 02: 2 se publica en tapa blanda, con 664 páginas en castellano. Esta edición física de Devir permite consultar y releer sus páginas sin depender de una pantalla, aunque su extensión supone un volumen considerable para transportarlo a diario.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Ikkyu Núm. 02: 2 comparte autoría y orientación juvenil con Ikkyu Núm. 01: 1, ambos de Hisashi Sakaguchi. Los títulos identifican entregas diferentes de la misma serie, mientras que Ikkyu Cofre: 1 mantiene la autoría, pero se presenta como cofre en lugar de volumen individual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370520441",
+        "isbn-9791370520427"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5ad44844d8d5132c",
+  "origen": "chatgpt-web"
+}

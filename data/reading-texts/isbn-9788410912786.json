@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788410912786",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No pasaran nacimiento de las brigadas internacionales se dirige a lectores interesados en la historia política y en el origen de las brigadas internacionales. Su enfoque histórico lo distingue de las novelas de ficción y de las lecturas centradas en conflictos políticos contemporáneos. La edición de Universidad Salamanca se publica en castellano.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No pasaran nacimiento de las brigadas internacionales comparte el interés por la historia política con Comunistas bajo el franquismo: Culturas militantes, símbolos e identidades: 29 (Base Hispánica), de David Ginard Féron. El libro de Pierre Rebiere se centra, por su título, en el nacimiento de las brigadas internacionales; el de David Ginard Féron aborda las culturas militantes, los símbolos y las identidades comunistas bajo el franquismo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388439124"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7959babc1424c191",
+  "origen": "chatgpt-web"
+}

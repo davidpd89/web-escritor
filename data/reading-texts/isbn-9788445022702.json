@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788445022702",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Los compañeros (D&D Reinos Olvidados) encaja con lectores de fantasía que buscan aventuras ambientadas en el universo identificado en su título. Con 496 páginas, ofrece una lectura extensa y se aleja de quienes prefieren obras prácticas o narraciones breves de temática realista.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Los compañeros (D&D Reinos Olvidados) está editado en tapa blanda y tiene 496 páginas, por lo que constituye un volumen de extensión considerable. Esta presentación permite leerlo en papel sin la rigidez de una cubierta dura y conservarlo junto a otros libros de fantasía.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los compañeros (D&D Reinos Olvidados) y Esperanza comparten su presencia entre las lecturas de ficción del catálogo. La obra de R. A. Salvatore pertenece a la fantasía y las aventuras, mientras que Esperanza, de Txema Sanz, presenta un título sin referencias explícitas a un universo fantástico compartido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399258639"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f830d48e19ea5a25",
+  "origen": "chatgpt-web"
+}

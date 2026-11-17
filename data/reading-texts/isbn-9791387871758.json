@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche Guardianes de la Ciudadela (contiene: El bestiario de Axlin | El secreto de Xein | La misión de Rox) (Best Seller | Ficción), de Laura Gallego, se dirige a lectores de fantasía y aventuras con elementos de misterio y terror. Reúne tres títulos en un mismo estuche, por lo que no responde a quien busca una novela realista independiente de elementos fantásticos.",
+      "texto": "Estuche Guardianes de la Ciudadela (contiene: El bestiario de Axlin | El secreto de Xein | La misión de Rox) (Best Seller | Ficción) encaja con lectores de fantasía y aventuras que buscan varias obras reunidas. Laura Gallego firma los tres títulos incluidos, una propuesta distinta de la narrativa centrada en conflictos románticos contemporáneos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,19 +13,21 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Todos los hombres del rey (Best Seller | Ficción), de Laura Gallego, comparte autoría con Estuche Guardianes de la Ciudadela. La diferencia comprobable está en la presentación: el estuche reúne El bestiario de Axlin, El secreto de Xein y La misión de Rox, mientras que Todos los hombres del rey aparece como un título individual en el catálogo.",
+      "texto": "Todos los hombres del rey (Best Seller | Ficción) permite seguir leyendo a Laura Gallego, aunque el estuche Guardianes de la Ciudadela reúne tres títulos en lugar de presentar una sola obra. Estuche Las crónicas de Emily Wilde (Umbriel narrativa), de Heather Fawcett, comparte la presentación en estuche y la afinidad con la fantasía, pero cambia de autora y de obras reunidas.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388147852"
+        "isbn-9791388147852",
+        "isbn-9791387749347"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "55073fdf06b02793",
+  "fuente_hash": "7a2c11b8d8761588",
   "origen": "chatgpt-web"
 }

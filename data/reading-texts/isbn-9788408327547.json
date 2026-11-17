@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9788408327547",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para lectores de novela histórica que buscan reunir una trilogía de Santiago Posteguillo en un solo estuche. Estuche Trilogía de Trajano. Edición especial con cantos decorados: Incluye Los asesinos del emperador + Circo máximo + La legión perdida (Novela histórica) suma 3664 páginas y se aleja de las lecturas breves o de un único volumen independiente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "El estuche reúne Los asesinos del emperador, Circo máximo y La legión perdida, con cantos decorados como acabado especial. Booket presenta esta edición de la Trilogía de Trajano en tapa dura y castellano, con una extensión total de 3664 páginas y publicación el 14 de octubre de 2026.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "numero_paginas",
+        "idioma",
+        "fecha_publicacion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El formato disponible es un estuche de libros en tapa dura, con 3664 páginas en conjunto. Esta presentación permite conservar reunidas las tres novelas de la Trilogía de Trajano y mantiene los cantos decorados como elemento visible de la colección, especialmente para una biblioteca personal o un regalo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Los asesinos del emperador. Edición especial con cantos decorados, de Santiago Posteguillo, permite centrarse en la primera entrega de la Trilogía de Trajano. El estuche amplía esa opción al reunir también Circo máximo y La legión perdida; frente a Las legiones malditas (Trilogía Africanus 2) (edición conmemorativa 20.º aniversario) (Histórica), pertenece a otra trilogía del mismo autor.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9788466684996",
+        "isbn-9788408326779"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4fbf8e399ebf708",
+  "origen": "chatgpt-web"
+}

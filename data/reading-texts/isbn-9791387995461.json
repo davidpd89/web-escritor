@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9791387995461",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un, dos, tres, responda otra vez, de Miguel Herrero, pertenece al ámbito del cómic y la novela gráfica. Su clasificación lo sitúa entre las publicaciones de ese género, por lo que no responde a una búsqueda centrada exclusivamente en novelas de narrativa contemporánea.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Un, dos, tres, responda otra vez es de tapa dura y reúne 320 páginas en castellano. El volumen publicado por Diabolo Ediciones ofrece una encuadernación rígida para la lectura física, el almacenamiento en estantería o el regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "45767223bd006135",
+  "origen": "chatgpt-web"
+}

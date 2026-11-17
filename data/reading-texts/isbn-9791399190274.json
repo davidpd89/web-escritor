@@ -4,40 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA) encaja con lectores de fantasía que buscan una novela extensa vinculada a una serie. El título la identifica como libro 2 y sus 520 páginas requieren una dedicación mayor que una lectura breve; no es la elección más directa para quien desea empezar por un primer volumen.",
+      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA), de Juliet Marillier, se dirige a lectores de fantasía que buscan una obra extensa. El título lo identifica como el libro n.º 2 de Fiero y Espina, por lo que conviene tener en cuenta esa numeración al elegirlo. Sus 520 páginas lo alejan de las lecturas breves y de quienes prefieren narrativa contemporánea sin elementos fantásticos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA) se ofrece en tapa blanda, con 520 páginas publicadas por Duermevela Ediciones. Es un volumen físico extenso para leer por sesiones y conservar junto a otros libros de fantasía; la edición en papel permite avanzar sin utilizar dispositivos electrónicos.",
+      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA) se ofrece en tapa blanda, con 520 páginas en castellano. Esta edición de Duermevela Ediciones permite conservar el volumen físico dentro de una colección de fantasía. Por su extensión, ocupa más espacio que una novela corta y requiere tenerlo en cuenta al transportarlo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial",
         "categorias"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "TORRE DE ESPINAS: Fiero y Espina, libro 2 (LA OTRA FANTASIA) comparte el ámbito fantástico con Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff. El título de Juliet Marillier lo identifica como libro 2 de Fiero y Espina, mientras que Aftermyth 1. Penelope y la prueba de los dioses se presenta como una primera entrega; esta diferencia importa al elegir por dónde comenzar una serie.",
-      "evidencias": [
-        "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
-      ],
-      "enlaces": [
-        "isbn-9788408324102"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2650949334c7e3ed",
+  "fuente_hash": "d35a78de09151ed6",
   "origen": "chatgpt-web"
 }

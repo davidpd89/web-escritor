@@ -4,28 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Entre Líneas y la Ciudad Oculta (Saga Entre Líneas), de Teo Viedma, se dirige a lectores de misterio y thriller que buscan una novela extensa. Tiene 508 páginas y su título la vincula con la Saga Entre Líneas. Quien prefiera relatos breves o historias centradas en las relaciones románticas encontrará una propuesta de lectura diferente.",
+      "texto": "Entre Líneas y la Ciudad Oculta (Saga Entre Líneas) se orienta a lectores de misterio que buscan una novela extensa vinculada a una saga. Con 508 páginas, exige más tiempo de lectura que un relato breve y queda fuera de las preferencias de quienes buscan principalmente romance o ensayo.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Entre Líneas y la Ciudad Oculta (Saga Entre Líneas) está publicada en tapa blanda y contiene 508 páginas. Permite leer la novela en papel, con una extensión que conviene tener presente si se transporta habitualmente. TVF Ediciones ofrece esta edición en castellano.",
+      "texto": "Entre Líneas y la Ciudad Oculta (Saga Entre Líneas) se publica en tapa blanda y Kindle, dos opciones para abordar sus 508 páginas. La primera permite conservar y prestar el ejemplar físico de TVF Ediciones; Kindle facilita leer esta novela de misterio en dispositivos electrónicos durante los desplazamientos.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "editorial",
-        "idioma"
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Entre Líneas y la Ciudad Oculta (Saga Entre Líneas) se relaciona con Aguas turbulentas, de Rankin Ian, por su orientación hacia el misterio y el thriller. Aguas turbulentas sitúa su conflicto entre el pasado y el presente de Edimburgo, mientras que el título de Teo Viedma introduce una ciudad oculta. Ambos planteamientos utilizan el espacio urbano como referencia, aunque con enfoques anunciados distintos.",
+      "texto": "Aberración, de Santiago López de Hoyos, y Entre Líneas y la Ciudad Oculta (Saga Entre Líneas), de Teo Viedma, aparecen vinculados al ámbito del misterio. La diferencia verificable es que el título de Teo Viedma identifica expresamente una saga y una ciudad oculta, mientras que Aberración se presenta con un título independiente y otra autoría.",
       "evidencias": [
         "titulo",
         "autores",
@@ -33,12 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370310318"
+        "isbn-9791399297508"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "383bb3abb6c51097",
+  "fuente_hash": "aa204dc470badd32",
   "origen": "chatgpt-web"
 }

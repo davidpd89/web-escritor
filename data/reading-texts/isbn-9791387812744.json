@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791387812744",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La California española (Biblioteca de Historia), de Ignacio del Pozo, se dirige a lectores interesados en la historia de California y su pasado español. Sus 288 páginas corresponden a una obra de no ficción centrada en un territorio concreto, por lo que se aleja de quienes buscan narrativa de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La California española (Biblioteca de Historia) está disponible en tapa blanda y tiene 288 páginas en castellano. Esta edición permite leer y consultar en papel el contenido histórico sobre California y conservarlo junto a otros volúmenes de historia, sin necesidad de utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La California española (Biblioteca de Historia) puede compararse con 76, de Felipe Pigna, por su vinculación con la historia. Ignacio del Pozo centra su obra en el pasado español de California, mientras que el título de Felipe Pigna identifica su asunto mediante una cifra. La primera tiene 288 páginas y un enfoque territorial expresado en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408329695"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "445a0bd8eb0eefdc",
+  "origen": "chatgpt-web"
+}

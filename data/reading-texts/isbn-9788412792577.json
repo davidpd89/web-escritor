@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788412792577",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a quienes leen poesía y buscan una obra relacionada también con la historia. Sus 96 páginas permiten abordar un volumen breve; no responde a quien busca una novela extensa o un manual de historia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La voz se nos expande: 25 (MÍNIMA) está disponible en tapa blanda, con 96 páginas en castellano. Es una edición física de extensión breve que permite consultar y releer sus páginas sin recurrir a un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La voz se nos expande: 25 (MÍNIMA) comparte el ámbito de la poesía con Canciones de inocencia y de experiencia (Letras Universales), de William Blake. La diferencia está en la autoría: María Gómez Lara firma el primero y William Blake el segundo. También puede compararse con Oficios de otros tiempos: 13 (Akipoeta), de María Márquez, por su relación con la poesía, aunque sus títulos apuntan a asuntos distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788437650487",
+        "isbn-9791388223099"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a6194bce14dc6c8b",
+  "origen": "chatgpt-web"
+}

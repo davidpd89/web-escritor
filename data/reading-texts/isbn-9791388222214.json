@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Reach out (Montena), de Alexandra Monet, se dirige a quienes buscan lecturas relacionadas con el romance, las relaciones de pareja y la familia. Por su clasificación temática, queda fuera de las búsquedas centradas exclusivamente en aventuras o ficción histórica.",
+      "texto": "Reach out (Montena), de Alexandra Monet, se dirige a lectores interesados en el romance y en obras vinculadas al ocio. Su clasificación temática lo aleja de quienes buscan principalmente novela histórica, poesía o manuales técnicos.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,32 +13,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Reach out (Montena) se presenta en tapa blanda, con 400 páginas en castellano. Es una opción física que permite llevar la lectura consigo y consultar pasajes sin depender de una pantalla, aunque su extensión supone cierto volumen al transportarla.",
+      "texto": "Reach out (Montena) se presenta en tapa blanda, con 400 páginas en castellano. Esta edición de Montena reúne el contenido en un volumen físico que puede guardarse en una biblioteca personal o entregarse como regalo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Reach out (Montena), de Alexandra Monet, puede compararse con Estuche Universidad Sorrowsong: Nightshade + Daybreak (Ficción), de Autumn Woods, por su vinculación con la ficción. La diferencia está en la presentación: el primero es un libro de 400 páginas en tapa blanda, mientras que el segundo reúne dos títulos en un estuche. También se distingue por su enfoque romántico frente a las propuestas de alimentación y bienestar presentes entre sus lecturas afines.",
+      "texto": "Reach out (Montena) comparte su vinculación con el ocio con 80 crímenes imposibles de resolver (FUERA DE ESCENA), de Gareth Moore y Laura Jayne Ayres. La obra de Alexandra Monet se sitúa en el romance, mientras que la otra propone resolver crímenes imposibles. La elección distingue entre una lectura narrativa de temática amorosa y una actividad centrada en enigmas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "formatos_disponibles",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408328018"
+        "isbn-9791388015816"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0c6a729322ec7264",
+  "fuente_hash": "85b5188c8021fd61",
   "origen": "chatgpt-web"
 }

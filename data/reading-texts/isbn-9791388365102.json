@@ -4,38 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Una hermosa tragedia (Romántica) encaja con lectores de narrativa juvenil que buscan romance combinado con fantasía y aventuras. Quienes prefieran historias realistas sin elementos fantásticos encontrarán aquí una orientación distinta a sus gustos habituales.",
+      "texto": "Una hermosa tragedia (Romántica) encaja con lectores de narrativa juvenil que buscan fantasía y aventuras en una obra extensa. Sus 384 páginas y su clasificación juvenil la alejan de quien prefiere una historia breve o una novela centrada exclusivamente en el realismo cotidiano.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Fandom Books permite leer sus 384 páginas en un volumen físico que puede prestarse o colocarse en la estantería. La edición Kindle ofrece el mismo título en formato digital, con la posibilidad de llevar la lectura en un móvil o lector electrónico sin transportar el libro impreso.",
+      "texto": "Una hermosa tragedia (Romántica) puede leerse en tapa blanda o en Kindle. La edición física reúne 384 páginas y permite conservar el libro en papel; Kindle facilita llevar la lectura en un móvil o dispositivo electrónico sin transportar el volumen.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "editorial"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Una hermosa tragedia (Romántica) y Una tempestad para matar un beso: La balada del fuego solar 2 (Inlov Romantasy) comparten el terreno de la fantasía romántica. La diferencia identificable está en la presentación: el título de Julia Dippel señala una segunda entrega, mientras que el de De Elizabeth se presenta como una obra de romance, fantasía y aventuras juveniles.",
+      "texto": "La ira del invierno: Reinos de las Estaciones I, de Nuria Mínguez García, ofrece una referencia para comparar Una hermosa tragedia (Romántica) desde su vertiente fantástica. Edición LEGACY Muerte a la oscuridad- Black Bird Academy: Black Bird Academy: 1 (Inlov Romantasy), de Stella Tack, añade una identificación explícita con la romantasy, mientras que Una hermosa tragedia (Romántica) figura también como narrativa juvenil y aventuras.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410399327"
+        "isbn-9788410399518",
+        "isbn-9788409941179"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4a0727da178242f4",
+  "fuente_hash": "24ec977bc27fa8e0",
   "origen": "chatgpt-web"
 }

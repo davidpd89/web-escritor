@@ -4,35 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tu mejor versión / The Accomplished Woman, de Christina Tracy Stein, se orienta a quienes leen sobre desarrollo personal y cuestiones vinculadas al ámbito económico y empresarial. Por su clasificación temática, queda fuera de las búsquedas centradas exclusivamente en ficción o narrativa de entretenimiento.",
+      "texto": "Tu mejor versión / The Accomplished Woman, de Christina Tracy Stein, se orienta a lectores interesados en el desarrollo personal y su relación con el ámbito económico. Con 256 páginas, se aparta de los manuales especializados exclusivamente en derecho laboral y de quienes buscan ficción narrativa.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tu mejor versión / The Accomplished Woman cuenta con una edición en tapa blanda de 256 páginas. El volumen físico permite hacer anotaciones y consultar páginas concretas durante la lectura; está publicado en castellano por Penguin Random House Grupo Editorial.",
+      "texto": "La edición en tapa blanda de Tu mejor versión / The Accomplished Woman contiene 256 páginas en castellano. Es una opción física para leer, marcar pasajes y conservar anotaciones sobre desarrollo personal, sin necesidad de utilizar un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio. aborda el cambio personal mediante el trabajo interior y el autoliderazgo. Tu mejor versión / The Accomplished Woman se sitúa entre el desarrollo personal y la economía, mientras que Construye un negocio atómico / Build an Atomic Business desplaza el interés hacia la construcción de un negocio.",
+      "texto": "Belleza con cabeza: Las claves para verte bien sin dejar de ser tú (Alienta), de María Cudeiro, comparte con Tu mejor versión / The Accomplished Woman el interés por la mejora personal, aunque su título concreta el enfoque en la belleza. Coaching desde el Self: Método estructurado de trabajo con partes internas, desarrollo de autoliderazgo y acompañamiento en procesos de cambio., de Beatriz García Saez, se centra en un método de autoliderazgo, frente al enfoque general de desarrollo personal y economía de Christina Tracy Stein.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409924059",
-        "isbn-9786073880336"
+        "isbn-9788413445687",
+        "isbn-9788409924059"
       ]
     }
   ],

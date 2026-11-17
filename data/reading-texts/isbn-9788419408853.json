@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788419408853",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Quiero ser feliz: Dinámicas humanas de la vida consagrada: 40 (Búsqueda) se dirige a lectores interesados en la vida consagrada y su dimensión humana. Por su enfoque religioso y espiritual, encaja menos con quienes buscan una novela de ficción o un manual de bienestar ajeno al ámbito religioso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Quiero ser feliz: Dinámicas humanas de la vida consagrada: 40 (Búsqueda) está disponible en tapa blanda. Sus 136 páginas permiten manejar el volumen en papel y volver a pasajes concretos durante la lectura; Editorial Paulinas lo publica en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Quiero ser feliz: Dinámicas humanas de la vida consagrada: 40 (Búsqueda) y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación comparten el ámbito espiritual, pero el primero se centra en las dinámicas humanas de la vida consagrada y el segundo presenta fundamentos y práctica de un camino de liberación. Gaetano Piccolo firma el primero y Tsondru Yeshe el segundo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1652f8f7d92912f6",
+  "origen": "chatgpt-web"
+}

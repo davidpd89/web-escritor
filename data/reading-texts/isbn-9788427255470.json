@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¡Atrapa a ese - Slime! ¡Un monstruo muy viscoso! (Ficción Kids) se orienta a lectores de ficción infantil interesados en monstruos, aventuras, humor y situaciones de terror. Por su combinación de estos elementos, encaja menos con quienes buscan relatos cotidianos sin criaturas monstruosas ni componentes inquietantes.",
+      "texto": "¡Atrapa a ese - Slime! ¡Un monstruo muy viscoso! (Ficción Kids) se dirige a lectores de aventuras con elementos de terror. Sus 80 páginas permiten abordar una historia breve; no responde a la búsqueda de una novela extensa ni de una lectura ajena al género de terror.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¡Atrapa a ese - Slime! ¡Un monstruo muy viscoso! (Ficción Kids) se publica en tapa blanda, con 80 páginas en castellano. La extensión permite abordar la lectura en sesiones breves y el formato de Molino ofrece una edición física manejable para transportar o guardar.",
+      "texto": "La tapa blanda reúne las 80 páginas del libro de Charlotte Habersack en una edición física de Molino. La versión Kindle permite leerlo en un dispositivo compatible sin transportar el ejemplar impreso. La elección depende de si se prefiere una lectura en papel o en pantalla.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti comparte autora, Charlotte Habersack, y presenta otra criatura como protagonista del título. Mientras esa obra gira en torno a un yeti, el libro sobre Slime se centra en un monstruo viscoso y combina aventura, terror y humor.",
+      "texto": "¡Atrapa a ese Yeti! / Catch That Yeti comparte autoría con el libro de Charlotte Habersack y plantea otra criatura como figura central. Mientras el título sobre el Yeti señala a ese personaje, la obra dedicada al Slime presenta un monstruo viscoso y combina aventuras con terror. La comparación permite distinguir dos propuestas de la misma autora por el tipo de criatura que protagoniza cada una.",
       "evidencias": [
         "titulo",
         "autores",
@@ -37,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "276c79ae36957f18",
+  "fuente_hash": "720c128df18accf6",
   "origen": "chatgpt-web"
 }

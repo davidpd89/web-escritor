@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788410908451",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La casa de acogida de Choco, de Lorena Delgado, se sitúa en el ámbito de la lectura infantil vinculada a la familia y la crianza. Por su temática, encaja con quienes buscan abordar cuestiones familiares con lectores infantiles, más que con quienes prefieren relatos de aventuras o fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La casa de acogida de Choco se presenta en tapa blanda, con una extensión de 60 páginas. Es una edición física breve que puede manejarse en sesiones de lectura compartida y guardarse junto a otros libros infantiles de temática familiar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La casa de acogida de Choco puede compararse con Mi Casi Casi Mamá / My Almost-Almost Mom por su relación con los vínculos familiares. Lorena Delgado sitúa su libro en torno a una casa de acogida, mientras que el título de José Ignacio Valenzuela remite a una figura materna y presenta una denominación bilingüe. Ambos ofrecen puntos de partida distintos para conversar sobre la familia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073874601"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "20600b5922226c5e",
+  "origen": "chatgpt-web"
+}

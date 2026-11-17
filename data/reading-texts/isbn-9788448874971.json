@@ -4,41 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Malvhadas 2. Muerte por sapo (Mi primer cómic), de Huw Aaron, está dirigido a lectores interesados en cómics de fantasía, aventuras y humor. Su clasificación lo sitúa en la narrativa gráfica de carácter fantástico, por lo que no corresponde al lector que busca novela realista o narrativa contemporánea sin elementos de fantasía.",
+      "texto": "Se dirige a lectores que buscan aventuras fantásticas contadas mediante el lenguaje del cómic. Sus 272 páginas y su identificación como Mi primer cómic lo sitúan entre las lecturas gráficas, no entre las novelas convencionales compuestas únicamente por texto.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 272 páginas de Malvhadas 2. Muerte por sapo (Mi primer cómic), de Huw Aaron, en una edición física de Beascoa. Kindle ofrece la alternativa digital para leer el cómic en dispositivos compatibles sin manejar el ejemplar impreso.",
+      "texto": "La tapa blanda ofrece las 272 páginas de Malvhadas 2. Muerte por sapo (Mi primer cómic) en un volumen físico, apropiado para pasar las páginas y consultar las viñetas en papel. Kindle permite leerlo digitalmente en un dispositivo compatible, aunque la visualización dependerá del tamaño de la pantalla.",
       "evidencias": [
         "titulo",
-        "autores",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "categorias"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Malvhadas 2. Muerte por sapo (Mi primer cómic), de Huw Aaron, comparte el formato de cómic con Mi primer Mortadelo y Filemón - ¡Detectives del montón! (Bruguera Clásica), de Francisco Ibáñez. También puede compararse con 7 Rebolling street (Súper Humor Mortadelo 48) (Bruguera Clásica), del mismo autor, aunque Malvhadas incorpora fantasía y aventuras en su clasificación.",
+      "texto": "A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria) comparte con Malvhadas 2. Muerte por sapo (Mi primer cómic) su relación con la fantasía y la magia, aunque sus títulos pertenecen a series distintas. También puede compararse con Dinosaurios Al Atardecer (Novela Gráfica) / Dinosaurs Before Dark (Graphic Novel) (Magic Tree House Novela Gráfica), que coincide en el formato narrativo gráfico, pero orienta su aventura hacia los dinosaurios en lugar de la fantasía mágica.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788402431790",
-        "isbn-9788402432148"
+        "isbn-9791399305517",
+        "isbn-9798890989642"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "788522b1ddb7a116",
+  "fuente_hash": "fa69b3ef1effb0c9",
   "origen": "chatgpt-web"
 }

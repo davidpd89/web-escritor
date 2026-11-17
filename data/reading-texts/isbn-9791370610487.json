@@ -4,26 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El abordaje y registro de buques en el proceso penal (Monografía) se dirige a quienes estudian cuestiones jurídicas relacionadas con las actuaciones sobre embarcaciones dentro del proceso penal. El tema tratado por Javier Blanco Vargas es específico y se aparta de las obras de derecho general o de la narrativa marítima.",
+      "texto": "Dirigido a quienes estudian el proceso penal y tienen interés en las actuaciones de abordaje y registro de buques. Su tratamiento jurídico especializado se aleja de las obras generales sobre navegación marítima y de las narraciones de aventuras ambientadas en el mar.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "autores"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El abordaje y registro de buques en el proceso penal (Monografía) cuenta con una edición en tapa blanda de 184 páginas. Su extensión y encuadernación flexible facilitan el transporte para estudiar o consultar en papel una cuestión concreta del derecho procesal penal.",
+      "texto": "La edición en tapa blanda tiene 184 páginas y se ocupa del abordaje y registro de buques dentro del proceso penal. Es un volumen de extensión relativamente contenida para consultar en papel, realizar anotaciones y transportar durante el estudio de esta materia jurídica.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "categorias"
+        "titulo",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Casos prácticos sobre el despido (Supuestos prácticos) y El abordaje y registro de buques en el proceso penal (Monografía) comparten el ámbito jurídico, pero tratan cuestiones diferentes. El libro del Departamento de Documentación Iberley aborda supuestos de despido, mientras que Javier Blanco Vargas se ocupa del abordaje y registro de buques dentro del proceso penal.",
+      "texto": "Basura espacial: desafíos técnico-jurídicos (monografico) comparte el tratamiento jurídico de cuestiones especializadas relacionadas con actividades fuera del entorno terrestre habitual. La obra de Javier Blanco Vargas aborda actuaciones sobre buques dentro del proceso penal, mientras que el otro título se ocupa de los desafíos técnicos y jurídicos de la basura espacial.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370651749"
+        "isbn-9791370650346"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "97d2edde4d28f992",
+  "fuente_hash": "aed826c95213d88d",
   "origen": "chatgpt-web"
 }

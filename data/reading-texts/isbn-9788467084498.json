@@ -4,29 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tao Te Ching, de Lao-Tse, se orienta a quienes buscan reflexionar sobre la sencillez, el equilibrio personal y la relación entre la conducta humana y la naturaleza. Su carácter filosófico y su vinculación con el taoísmo lo alejan de las lecturas de desarrollo personal basadas en instrucciones prácticas o soluciones inmediatas.",
+      "texto": "Tao Te Ching, de Lao-Tse, encaja con lectores interesados en el taoísmo y en reflexionar sobre el poder, el liderazgo y la relación con la naturaleza. Sus planteamientos sobre sencillez y moderación requieren una lectura reflexiva; encaja menos con quien busca una narración de acción o una guía de instrucciones prácticas.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tao Te Ching se ofrece en tapa dura y Kindle, dos opciones para una obra de 152 páginas que admite consultas y lecturas pausadas. La edición en cartoné de Editorial Espasa permite conservar el texto en papel y volver a sus pasajes; Kindle facilita acceder a sus reflexiones filosóficas desde un dispositivo compatible sin llevar el libro físico.",
+      "texto": "Tao Te Ching puede elegirse en tapa dura, tapa blanda o Kindle. La edición de Editorial Espasa tiene 152 páginas en cartoné, apropiadas para conservar el volumen y volver a consultar pasajes; la tapa blanda facilita llevarlo en papel, mientras que Kindle permite leerlo desde un dispositivo compatible sin transportar el libro físico.",
       "evidencias": [
         "titulo",
-        "editorial",
-        "edicion",
-        "numero_paginas",
         "formatos_disponibles",
-        "sinopsis_editorial"
+        "edicion",
+        "editorial",
+        "numero_paginas"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "456b3406978a4bf5",
+  "fuente_hash": "c762198ffe1f2252",
   "origen": "chatgpt-web"
 }

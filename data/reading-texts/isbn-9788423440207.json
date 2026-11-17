@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Qué pasó con la democracia liberal? se dirige a lectores interesados en política, instituciones y transformaciones de las sociedades democráticas. Examina el populismo, la polarización y la pérdida de confianza ciudadana, por lo que encaja menos con quienes buscan ficción o una lectura ajena al debate político.",
+      "texto": "¿Qué pasó con la democracia liberal? se dirige a lectores interesados en política contemporánea, instituciones y transformaciones sociales. El análisis del populismo, la polarización y la pérdida de confianza ciudadana lo sitúa lejos de una narración de ficción o de un manual centrado en procedimientos electorales.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,7 +13,7 @@
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Es un ensayo de Daron Acemoglu sobre las dificultades actuales de la democracia liberal y su relación con la ciudadanía. Parte del contraste entre las expectativas de expansión democrática y el posterior crecimiento del populismo y la desconfianza institucional. Su enfoque pertenece al ámbito de las ciencias humanas y sociales.",
+      "texto": "Daron Acemoglu examina las dificultades actuales de la democracia liberal desde una perspectiva política y social. El punto de partida contrapone las expectativas de consolidación democrática del pasado con el crecimiento del populismo y la desconfianza institucional, y plantea la recuperación del vínculo entre ciudadanía y democracia.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,21 +23,22 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda con solapas reúne 544 páginas y permite consultar el ensayo en papel, conservarlo y volver a sus argumentos. Kindle ofrece una alternativa digital para leerlo en distintos momentos sin transportar un volumen de esa extensión, especialmente cuando se utiliza un dispositivo compatible.",
+      "texto": "La edición en rústica con solapas de ¿Qué pasó con la democracia liberal? contiene 544 páginas, una extensión que favorece disponer del volumen para consultas prolongadas. Kindle ofrece la alternativa digital para leerlo en distintos lugares sin transportar el ejemplar impreso.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
+        "edicion",
         "numero_paginas",
-        "edicion"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "En la mente de... comparte con ¿Qué pasó con la democracia liberal? el interés por el deterioro de las democracias, pero pone el foco en su debilitamiento interno. El ensayo de Daron Acemoglu aborda además el populismo, la polarización y la desconfianza institucional, con atención a la relación entre los ciudadanos y el sistema democrático.",
+      "texto": "En la mente de... comparte con ¿Qué pasó con la democracia liberal? la preocupación por el deterioro de las democracias y sus instituciones. El libro de El Orden Mundial y Franco Delle Donne pone el foco en el vaciamiento interno de los sistemas democráticos, mientras Daron Acemoglu examina también el populismo, la polarización y la relación entre ciudadanía e instituciones.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788434440937"
@@ -46,6 +47,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "44bc56f5828f55cf",
+  "fuente_hash": "6d9f00ba6b4ba353",
   "origen": "chatgpt-web"
 }

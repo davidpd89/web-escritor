@@ -1,0 +1,38 @@
+{
+  "id": "isbn-9788415309550",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Peinados y recogidos (CFGM PELUQUERÍA Y COSMETICA CAPILAR) se orienta a lectores interesados en la formación de peluquería y cosmética capilar. Por su temática profesional, encaja menos con quienes buscan una historia de ficción juvenil, aunque figure dentro de ese ámbito editorial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite consultar físicamente las 184 páginas de Peinados y recogidos (CFGM PELUQUERÍA Y COSMETICA CAPILAR). Es una presentación manejable para estudiar y volver a consultar contenidos relacionados con peinados y recogidos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Peinados y recogidos (CFGM PELUQUERÍA Y COSMETICA CAPILAR) y Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción) comparten una orientación hacia conocimientos aplicables. El primero aborda peluquería y cosmética capilar, mientras que el segundo se centra en prevenir el acoso y el abuso durante la adolescencia.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410274600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f2a7990bea615147",
+  "origen": "chatgpt-web"
+}

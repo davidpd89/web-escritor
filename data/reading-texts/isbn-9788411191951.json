@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pack El acto de crear (Autoconocimiento) está dirigido a quienes buscan lecturas sobre creatividad, arte y desarrollo personal. Por su orientación hacia el autoconocimiento y el ensayo, se distancia de las novelas de ficción y de los libros centrados únicamente en técnicas artísticas.",
+      "texto": "Pack El acto de crear (Autoconocimiento), de Rick Rubin, se orienta a lectores interesados en la creatividad, el autoconocimiento y el desarrollo personal. Su clasificación también abarca el arte y el ensayo, por lo que se distancia de quien busca una novela de ficción o un relato de aventuras.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Pack El acto de crear (Autoconocimiento) se publica en tapa dura y suma 432 páginas. La edición en castellano de Diana ofrece una encuadernación rígida para consultar el contenido en papel, conservarlo entre otras obras de arte y ensayo o regalarlo.",
+      "texto": "Pack El acto de crear (Autoconocimiento) está disponible en tapa dura, con 432 páginas en la edición de Diana. Este formato permite conservar el volumen en una biblioteca, consultarlo sobre una mesa o entregarlo como regalo físico, sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "editorial",
-        "idioma"
+        "edicion",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pack El acto de crear (Autoconocimiento) se relaciona con Gabinete de maravillas para colorear (Somos B) por su vinculación con la creatividad y el arte. Rick Rubin aborda el autoconocimiento desde el ensayo y el desarrollo personal, mientras que el título de Carlota Santos propone una actividad centrada en colorear.",
+      "texto": "Pack El acto de crear (Autoconocimiento), de Rick Rubin, puede compararse con Dentro de casa. Rituales de bienestar / Inside the Home: Rituals of Well-Being, de Laura Casas, por su relación con el bienestar personal. El primero sitúa la creación y el autoconocimiento en su título, mientras que el segundo se centra expresamente en los rituales de bienestar doméstico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +33,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466685542"
+        "isbn-9786287832657"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "99a8dcf734914a57",
+  "fuente_hash": "55cb1daa54c10edd",
   "origen": "chatgpt-web"
 }

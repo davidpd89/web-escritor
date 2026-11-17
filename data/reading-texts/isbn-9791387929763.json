@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791387929763",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Pensar España. Presente, pasado y futuro encaja con lectores interesados en la historia de España y en relacionar distintas etapas temporales. Su planteamiento histórico se aleja de las lecturas centradas exclusivamente en acontecimientos de un periodo concreto o en relatos de ficción.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Pensar España. Presente, pasado y futuro puede compararse con 53 días: Cómo Hitler derribó una democracia (HISTORIA) por su vinculación con la historia. Eduardo Fernandez plantea una perspectiva sobre España que abarca pasado, presente y futuro; Timothy W. Ryback delimita su obra al proceso de caída de una democracia bajo Hitler.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cca5d0893e94b295",
+  "origen": "chatgpt-web"
+}

@@ -4,53 +4,51 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Viajar por el mundo 3 está orientado a quienes disfrutan con las curiosidades geográficas, las costumbres de otros países y los datos culturales inesperados. Su recorrido por lugares muy diversos responde menos a quien busca instrucciones para organizar un itinerario concreto que a quien quiere conocer particularidades del planeta.",
+      "texto": "Viajar por el mundo 3 se dirige a lectores interesados en conocer países mediante curiosidades geográficas, costumbres, animales y lugares singulares. Su planteamiento divulgativo encaja menos con quien necesita una guía práctica para organizar desplazamientos, alojamientos o recorridos por un destino concreto.",
       "evidencias": [
         "titulo",
         "categorias",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "afines_catalogo"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "Viajar por el mundo 3 propone una lectura divulgativa sobre países, paisajes, fauna y tradiciones. Malcolm Croft utiliza curiosidades geográficas y culturales, como las particularidades de las banderas o ciertos edificios singulares, para presentar lugares distintos sin desarrollar una historia de ficción.",
+      "texto": "Viajar por el mundo 3 propone un recorrido divulgativo por países de todo el mundo mediante datos sobre geografía, naturaleza y tradiciones. Malcolm Croft utiliza ejemplos como la bandera de Nepal, la línea ecuatorial en Ecuador y un museo singular de Corea del Sur para mostrar particularidades de distintos lugares.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Viajar por el mundo 3 se ofrece en tapa dura sin sobrecubierta, con encuadernación cartoné. Esta edición de Geoplaneta tiene 212 páginas y permite conservar el volumen para consultas y relecturas, además de utilizarlo como regalo físico para personas interesadas en la geografía y los viajes.",
+      "texto": "Viajar por el mundo 3 está disponible en tapa dura, con una extensión de 212 páginas. Su encuadernación en cartoné permite conservar el volumen para consultas repetidas y utilizarlo como regalo físico; es la única presentación incluida entre los formatos disponibles.",
       "evidencias": [
         "titulo",
-        "edicion",
-        "editorial",
         "numero_paginas",
-        "formatos_disponibles",
-        "categorias"
+        "edicion",
+        "formato_edicion",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Allí donde fueres... comparte con Viajar por el mundo 3 el interés por las costumbres de otros países, aunque se centra en situaciones culturales concretas, como las formas de saludar. Al andar: Vivencias del Camino de Santiago aborda experiencias vinculadas a un recorrido específico, mientras Malcolm Croft reúne curiosidades geográficas, animales y tradiciones de distintos lugares del planeta.",
+      "texto": "Viajar por el mundo 3 comparte con Allí donde fueres... el interés por las particularidades culturales de distintos países, aunque Malcolm Croft incorpora también geografía, animales y paisajes, mientras Patrick Kinsella aborda costumbres como los saludos. Austria 7 se diferencia por concentrarse en un país concreto, frente al recorrido internacional de Viajar por el mundo 3.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496",
-        "isbn-9788408324331"
+        "isbn-9788408324331",
+        "isbn-9788408322221"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cec12d11ad013c4d",
+  "fuente_hash": "0086c26fe6ba8534",
   "origen": "chatgpt-web"
 }

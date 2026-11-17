@@ -4,42 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El trono de las pesadillas (Umbriel narrativa), de Kerri Maniscalco, se dirige a lectores de fantasía y ciencia ficción que buscan una novela extensa. Sus 608 páginas exigen más tiempo de lectura que una obra breve, por lo que encaja menos con quienes prefieren relatos cortos.",
+      "texto": "El trono de las pesadillas (Umbriel narrativa) encaja con lectores de fantasía que buscan una novela extensa. Sus 608 páginas y su clasificación como narrativa contemporánea la sitúan lejos de los manuales prácticos y de la ficción breve; requiere disposición para una lectura de largo recorrido.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El trono de las pesadillas (Umbriel narrativa) está disponible en tapa blanda, con 608 páginas en castellano. Esta edición de Umbriel permite conservar el volumen en papel, marcar el avance con un separador y consultar pasajes anteriores sin depender de un dispositivo electrónico.",
+      "texto": "El trono de las pesadillas (Umbriel narrativa) puede leerse en tapa blanda o Kindle. La edición física reúne sus 608 páginas en un solo volumen de Umbriel, mientras que Kindle permite llevar la novela en un lector electrónico o en el móvil sin cargar con el libro impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El mágico refugio de gatos de Agnes Aubert (Umbriel narrativa), de Heather Fawcett, comparte con El trono de las pesadillas (Umbriel narrativa) el sello editorial, aunque son obras de distintas autoras. El Vivo (Impedimenta), de Anna Starobinets, ofrece otra referencia de ficción del catálogo, publicada bajo un sello diferente; la elección puede hacerse por autoría y editorial.",
+      "texto": "El reino de los malditos Vol. 2: Los siete círculos del infierno (Books4pocket narrativa) comparte autora, Kerri Maniscalco, con El trono de las pesadillas (Umbriel narrativa), aunque el primero lleva una numeración de volumen en el título. Adversaria del villano (Faeris Editorial), de Hannah Nicole Maehrer, ofrece otra referencia de narrativa fantástica con distinta autoría.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387749316",
-        "isbn-9791388412042"
+        "isbn-9791388001420",
+        "isbn-9791388108327"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "92e8ea3f9dbbe7b7",
+  "fuente_hash": "e687a3996f4f5431",
   "origen": "chatgpt-web"
 }

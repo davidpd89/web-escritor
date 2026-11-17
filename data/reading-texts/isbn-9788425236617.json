@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788425236617",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está orientado a lectores interesados en la historia de la fotografía y en las aportaciones de las mujeres a esta disciplina artística. Su perspectiva histórica y temática encaja menos con quienes buscan exclusivamente un manual de técnicas fotográficas o un cuaderno para realizar ejercicios creativos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Las mujeres que cambiaron la fotografía, de Gemma Padley, se presenta en tapa blanda y tiene 216 páginas. La edición impresa permite consultar el contenido dedicado a la fotografía y conservar el libro junto a otras publicaciones de arte y diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats y Las mujeres que cambiaron la fotografía comparten su vinculación con la imagen y la creación visual. El título de Xavier Mollà i Revert se identifica por sus retratos, mientras que Gemma Padley centra su libro en las mujeres que han contribuido a transformar la fotografía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2292352d2d5ea633",
+  "origen": "chatgpt-web"
+}

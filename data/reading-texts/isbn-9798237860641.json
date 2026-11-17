@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9798237860641",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Codigo Minerva se sitúa entre las materias de espiritualidad, bienestar y divulgación científica. Se dirige a lectores que buscan estas áreas temáticas, mientras que quienes prefieren una obra centrada exclusivamente en ficción o en cuestiones jurídicas encontrarán un enfoque diferente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Codigo Minerva está editado en tapa blanda, con una extensión de 268 páginas en castellano. El formato físico permite distribuir la lectura en varias sesiones y consultar de nuevo los contenidos del volumen.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Breve historia de la alquimia: El arte que unió química, magia y espíritu relaciona cuestiones científicas y espirituales desde la historia de la alquimia, mientras que Codigo Minerva se clasifica también dentro del bienestar. Alquimia de las nueve dimensiones: Cómo despertar el espectro completo de tu consciencia comparte el ámbito espiritual, pero su título delimita el asunto a la consciencia y sus dimensiones.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388395031",
+        "isbn-9798888505335"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0e8bd9b018cabe67",
+  "origen": "chatgpt-web"
+}

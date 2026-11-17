@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370650728",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan estudiar los beneficios fiscales aplicables a mayores de 65 años y a su entorno próximo. Su enfoque jurídico y tributario, centrado en el IRPF, el IVA y otros impuestos, queda fuera de los intereses de quien busca narrativa o divulgación general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 204 páginas en castellano. Este formato permite consultar por escrito los distintos impuestos y volver a los apartados de interés durante el estudio de las ventajas fiscales para mayores de 65 años.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cómo aplicar la exención por reinversión en vivienda habitual. Paso a paso: Todas las claves para aplicar con éxito este beneficio fiscal (requisitos, ... que pueden generar dudas) (monografico) comparte con esta obra el interés por las ventajas tributarias, pero se concentra en una exención concreta. Casos prácticos sobre la fiscalidad de las «holding» y sus grupos (monografico) también trata cuestiones fiscales, aunque orientadas a sociedades y grupos empresariales, frente al colectivo de mayores de 65 años.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores"
+      ],
+      "enlaces": [
+        "isbn-9791370650186",
+        "isbn-9791370650421"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c99fbfb3761f48cb",
+  "origen": "chatgpt-web"
+}

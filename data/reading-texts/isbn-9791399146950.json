@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791399146950",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Lynchianas se dirige a lectores que buscan textos vinculados al ensayo, los relatos y el ámbito artístico. Su autoría colectiva y su clasificación editorial lo diferencian de una novela de autor único o de un manual técnico de arte y diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Lynchianas combina la escritura ensayística con los relatos y el ámbito del arte y el diseño. En sus 320 páginas participan distintas voces, entre ellas Sara Barquinero, Simon Critchley, Jamieson Webster y Elizabeth Duval, lo que configura una obra colectiva en lugar de un texto firmado por una sola persona.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Lynchianas se publica en tapa blanda, con 320 páginas en castellano editadas por Mutatis Mutandis Editorial. Es un volumen físico que permite consultar los textos y alternar entre las distintas aportaciones de su autoría colectiva.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lynchianas puede compararse con Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada) por su relación editorial con las artes y la escritura. Lynchianas combina ensayo y relatos de varios autores, mientras que Poeta en Nueva York (edición especial con cantos tintados) (Literatura ilustrada), de Federico García Lorca y Ricardo Cavolo, se presenta como literatura ilustrada en una edición especial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388220272"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "77c91297600d09f3",
+  "origen": "chatgpt-web"
+}

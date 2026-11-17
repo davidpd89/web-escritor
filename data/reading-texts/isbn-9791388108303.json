@@ -4,41 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Endemoniada (Faeris Editorial) se orienta a lectores de fantasía con componentes románticos y elementos de terror. Su combinación de géneros se aleja de la narrativa realista centrada exclusivamente en relaciones cotidianas.",
+      "texto": "Endemoniada (Faeris Editorial) encaja con lectores que buscan fantasía combinada con romance, dentro del ámbito de la romantasy. Sus 568 páginas corresponden a una novela extensa y se alejan de las preferencias por relatos breves o historias exclusivamente realistas.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Faeris se publica en tapa blanda y contiene 568 páginas en castellano. Es una novela extensa en formato físico, adecuada para quien prefiere mantener una lectura larga en papel y conservar el ejemplar en su biblioteca.",
+      "texto": "Endemoniada (Faeris Editorial) puede leerse en tapa blanda o Kindle, con una edición impresa de 568 páginas. El papel permite conservarla físicamente en la biblioteca, mientras que Kindle facilita transportar una novela de esta extensión en un lector electrónico o dispositivo compatible.",
       "evidencias": [
-        "editorial",
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ciudad de dioses y monstruos (DARK ROMANCE), de Kayla Edwards, comparte con Endemoniada (Faeris Editorial) la combinación de romance y elementos oscuros. El hechizo más oscuro (Faeris Editorial), de Wanda Hellmund, ofrece otra referencia vinculada a la fantasía y a la misma línea editorial, aunque se trata de una obra de distinta autoría.",
+      "texto": "Endemoniada (Faeris Editorial) se relaciona con Adversaria del villano (Faeris Editorial) por su pertenencia al entorno editorial de la fantasía romántica, aunque son obras de Laura Thalassa y Hannah Nicole Maehrer, respectivamente. También puede compararse con El exorcismo de las hadas: Perversas realidades: libro 1 (Faeris Editorial), de J.L. Vampa, cuyo título señala expresamente un primer libro y una temática vinculada a las hadas.",
       "evidencias": [
         "titulo",
         "autores",
-        "editorial",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788415955559",
-        "isbn-9791388108419"
+        "isbn-9791388108327",
+        "isbn-9791388108280"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "847c69475ab10e4b",
+  "fuente_hash": "200529d131aabb2f",
   "origen": "chatgpt-web"
 }

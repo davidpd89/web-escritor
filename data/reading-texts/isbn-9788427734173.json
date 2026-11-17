@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La educación polarizada, de Pablo Ramos Ramos, se dirige a lectores interesados en los conflictos del debate educativo y en los factores que condicionan la percepción pública de la escuela. Examina intereses comerciales, discursos políticos y enfrentamientos entre posiciones educativas. Encaja menos con quien busca un manual de actividades para aplicar directamente en el aula.",
+      "texto": "La educación polarizada se dirige a quienes buscan analizar los conflictos del debate educativo y los intereses que influyen en él. Su enfoque sobre la escuela, el profesorado y la confrontación de discursos se aleja de los libros centrados en técnicas de estudio o consejos individuales de aprendizaje.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "encaje_documentado",
-      "texto": "La educación polarizada es un ensayo de análisis crítico sobre las disputas ideológicas y comerciales relacionadas con la enseñanza. Pablo Ramos Ramos examina cómo determinados discursos presentan la escuela como una institución deteriorada y convierten propuestas educativas en productos comerciales. También aborda las consecuencias de esa confrontación para la imagen de los docentes.",
+      "texto": "La educación polarizada examina cómo se construyen y enfrentan los discursos sobre la enseñanza. Pablo Ramos Ramos aborda el papel de las editoriales, las organizaciones educativas y los intereses comerciales en la percepción pública de la escuela, con atención a las consecuencias para los docentes.",
       "evidencias": [
         "titulo",
         "autores",
@@ -23,28 +22,27 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La educación polarizada está editado en tapa blanda y tiene 176 páginas. La edición de Narcea Ediciones permite leer en papel su análisis de las controversias educativas y volver a los argumentos sobre intereses económicos y discursos públicos. Su extensión facilita abordar el ensayo como una lectura independiente.",
+      "texto": "La educación polarizada está disponible en tapa blanda, con 176 páginas en castellano. Esta edición de Narcea Ediciones permite consultar y releer los argumentos en papel, además de señalar pasajes durante el estudio del debate educativo.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "idioma",
         "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La educación polarizada puede compararse con Aparece un mundo, de Michael Pollan, porque ambos examinan cuestiones relacionadas con la comprensión del comportamiento humano. El primero analiza los intereses económicos y las disputas ideológicas en la enseñanza; el segundo aborda la conciencia. También se diferencia de Amar no duele (No ficción), de Júlia Martí, cuyo enfoque se vincula a las relaciones afectivas, mientras que Pablo Ramos Ramos estudia conflictos institucionales y discursos educativos.",
+      "texto": "La educación polarizada puede compararse con ACE: Lo que la asexualidad desvela sobre el deseo, la sociedad y el significado del sexo (Tendencias), de Angela Chen, por su atención a cuestiones sociales. La diferencia está en el objeto de análisis: Pablo Ramos Ramos examina los discursos sobre la educación, mientras que el título de Angela Chen plantea preguntas sobre el deseo y la sexualidad.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "sinopsis_editorial",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388139017",
-        "isbn-9791387904456"
+        "isbn-9788492917525"
       ]
     }
   ],

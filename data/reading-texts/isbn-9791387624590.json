@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791387624590",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El último verano de Pompeya: Cuando los dioses abandonaron el mundo: 67 (Historia y pensamiento) está dirigido a lectores de historia interesados en Pompeya y en las interpretaciones del mundo antiguo. Su temática histórica lo diferencia de las novelas de aventuras y de los estudios centrados en acontecimientos políticos contemporáneos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El último verano de Pompeya: Cuando los dioses abandonaron el mundo: 67 (Historia y pensamiento) tiene una edición en tapa blanda de 256 páginas, publicada por Punto de Vista Editores. El volumen físico permite consultar sus contenidos históricos y conservarlo junto a otras obras de historia y pensamiento.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Adiós, Europa del Este: Una historia íntima de una tierra dividida (La espuma de los días), de Jacob Mikanowski, comparte con El último verano de Pompeya: Cuando los dioses abandonaron el mundo: 67 (Historia y pensamiento) el interés por el pasado de territorios concretos. Gabriel Zuchtriegel sitúa su obra en Pompeya, mientras que Jacob Mikanowski aborda Europa del Este desde una perspectiva histórica anunciada como íntima.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399165142"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f5870959d6d8a87e",
+  "origen": "chatgpt-web"
+}

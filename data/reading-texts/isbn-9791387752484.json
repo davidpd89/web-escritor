@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791387752484",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sopas de letras con sabor a reto (Cuadrados de diversión) está pensado para quienes prefieren resolver pasatiempos de palabras durante sus ratos libres. Su propuesta se aleja de la lectura narrativa y encaja menos con lectores que buscan una historia con personajes y argumento.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Sopas de letras con sabor a reto (Cuadrados de diversión) se ofrece en tapa blanda, con 320 páginas destinadas a una actividad de ocio basada en letras. El soporte en papel permite resolver los ejercicios directamente sobre el libro y avanzar por ellos en distintas sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Sopas de letras con sabor a reto (Cuadrados de diversión) comparte autor y orientación hacia los pasatiempos con Crucigramas para pensar y disfrutar (XL) (Cuadrados XL). Ambos son de Miquel Sesé, pero el primero se centra en buscar palabras entre letras y el segundo propone resolver crucigramas, una actividad basada en completar respuestas a partir de pistas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387752521"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9aa192c854bdc45f",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,30 @@
+{
+  "id": "isbn-9788498718027",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Tira que Tira! (colección O) se sitúa en la literatura infantil y juvenil, por lo que se orienta a lectores de ese ámbito y a quienes buscan libros para compartir con ellos. Sus 48 páginas permiten distinguirlo de las novelas juveniles extensas; no responde a la búsqueda de un ensayo o de narrativa dirigida específicamente a adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Tira que Tira! (colección O) cuenta con una edición en tapa dura de OQO Editora. Sus 48 páginas forman un volumen físico relativamente breve, manejable para consultar y compartir en papel; la encuadernación rígida también resulta pertinente cuando se busca un libro infantil para regalar o conservar.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f30eb424f6273a9a",
+  "origen": "chatgpt-web"
+}

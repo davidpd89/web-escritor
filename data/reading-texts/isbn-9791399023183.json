@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399023183",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en el ensayo y en los artículos periodísticos de Francisco Umbral. Sus 830 páginas corresponden a una recopilación de textos fechados entre 1955 y 2007, por lo que se aleja de una novela de argumento continuo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de tapa dura es un libro de tela de 830 páginas publicado por Fundación José Antonio de Castro. Su encuadernación permite conservar reunidos los artículos periodísticos de Francisco Umbral y consultar el volumen en papel, aunque su extensión exige espacio para guardarlo y transportarlo.",
+      "evidencias": [
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas",
+        "editorial",
+        "titulo",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mis paraísos artificiales (Contemporánea) comparte con este volumen la autoría de Francisco Umbral. La diferencia identificable está en el alcance editorial: Francisco Umbral. Escribir lo vivido. Artículos periodísticos (1955-2007): 284 (Biblioteca Castro) reúne artículos periodísticos de un periodo delimitado y alcanza las 830 páginas.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "numero_paginas"
+      ],
+      "enlaces": [
+        "isbn-9788408328766"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "127f5cf02bb0172f",
+  "origen": "chatgpt-web"
+}

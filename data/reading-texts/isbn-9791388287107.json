@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este libro me hizo pensar en ti (VR), de Libby Page, encaja con lectores de romance y narrativa contemporánea. Sus 440 páginas plantean una lectura de cierta extensión dentro de estos géneros, por lo que se aleja de quienes buscan una novela breve o una historia centrada en la fantasía.",
+      "texto": "Este libro me hizo pensar en ti (VR), de Libby Page, encaja con lectores de romance y narrativa contemporánea que buscan una novela de extensión considerable. Sus 440 páginas la alejan de las lecturas breves y su clasificación temática no responde a quien busque principalmente fantasía o divulgación histórica.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,24 +14,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Este libro me hizo pensar en ti (VR) puede leerse en tapa blanda o en Kindle. La edición impresa reúne sus 440 páginas en un volumen físico que puede prestarse o regalarse; Kindle permite llevar la novela en un lector electrónico o en un móvil compatible sin transportar el libro.",
+      "texto": "Este libro me hizo pensar en ti (VR) puede leerse en tapa blanda o Kindle. La edición física de Vera contiene 440 páginas y permite conservar o regalar el volumen; Kindle ofrece la misma obra en formato digital para leerla en dispositivos compatibles sin cargar con el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A mil por hora, de Hannah Grace, y Este libro me hizo pensar en ti (VR), de Libby Page, comparten el romance como eje de lectura. La obra de Hannah Grace sitúa la relación en el entorno de la Fórmula 1, mientras que la de Libby Page pertenece al romance contemporáneo sin esa ambientación deportiva como rasgo identificador.",
+      "texto": "Este libro me hizo pensar en ti (VR), de Libby Page, puede compararse con 9 de noviembre, de Colleen Hoover, por su relación con la narrativa romántica. La obra de Libby Page combina romance y narrativa contemporánea en 440 páginas, mientras que la de Colleen Hoover ofrece otra autoría dentro de las lecturas afines. La elección permite distinguir entre una novela de extensión conocida y otra propuesta romántica.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466683449"
+        "isbn-9788408328100"
       ]
     }
   ],

@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788468383408",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta publicación de Varios autores se dirige a quienes buscan actividades de dibujo, decoración de máscaras y manualidades. Pertenece al ámbito del ocio y las aficiones, por lo que responde a un interés distinto del de quienes buscan novelas de ficción o ensayos para leer de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esta obra sobre decoración de máscaras comparte con Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas la autoría de Varios autores y el interés por las actividades manuales. La primera aborda la decoración de máscaras, mientras que la segunda se centra en el bordado de letras y números mediante diagramas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498748208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "50a551f937e8a358",
+  "origen": "chatgpt-web"
+}

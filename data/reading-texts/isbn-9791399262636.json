@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399262636",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rostros del Vino de Chiclana: Fotografías de Juan Antonio Guerrero se dirige a lectores interesados en la fotografía, el arte y su relación con el vino de Chiclana. La obra de Juan Antonio Guerrero Escobar se sitúa en el ámbito visual, por lo que encaja menos con quien busca una novela de ficción o una narración centrada en una trama.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rostros del Vino de Chiclana: Fotografías de Juan Antonio Guerrero está disponible en tapa blanda, con 72 páginas en castellano. Esta edición de Editorial Palitroque0 permite consultar el volumen físico y volver a sus contenidos fotográficos sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "720 retrats comparte con Rostros del Vino de Chiclana: Fotografías de Juan Antonio Guerrero el interés por el retrato que expresan ambos títulos. La obra de Juan Antonio Guerrero Escobar delimita su asunto al vino de Chiclana, mientras que el título de Xavier Mollà i Revert presenta el retrato como tema general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c29d4c6ae3fa58e3",
+  "origen": "chatgpt-web"
+}

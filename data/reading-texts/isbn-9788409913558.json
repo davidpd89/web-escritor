@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409913558",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Seba calfuqueo: Cautin se sitúa en el ámbito del arte y el diseño, con una vinculación temática al poder y la política. Por esa orientación, se distingue de las novelas cuyo interés principal es una trama de ficción o el desarrollo de personajes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Seba calfuqueo: Cautin se presenta en tapa blanda, con 145 páginas en castellano publicadas por Fundacion Thyssen. El formato impreso permite conservar el volumen como parte de una colección de publicaciones sobre arte y consultarlo sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Seba calfuqueo: Cautin puede compararse con Banksy: I want to be what you saw in me (MISCELANEAS) por su vinculación con el ámbito artístico y la participación de Varios autores. El primero figura también bajo la autoría de Marina Avia Estrada y se relaciona con el poder y la política; el segundo identifica a Banksy como asunto central desde su propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789509509504"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "156e914c77bb6261",
+  "origen": "chatgpt-web"
+}

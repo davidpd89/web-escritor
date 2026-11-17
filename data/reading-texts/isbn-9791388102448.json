@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388102448",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Rumiko Takahashi Colors (Manga Shonen) se orienta a lectores juveniles interesados en el manga y la narrativa contemporánea. Sus 400 páginas en formato de cómic lo separan de las lecturas breves y de quienes prefieren novelas sin narración gráfica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Rumiko Takahashi Colors (Manga Shonen) está disponible en tapa dura, con 400 páginas en castellano. La encuadernación rígida aporta protección al volumen para conservarlo y releerlo, aunque resulta menos flexible que una edición de bolsillo en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Rumiko Takahashi Colors (Manga Shonen) comparte autora y formato de manga con Inuyasha nº 25/30 (Manga Shonen) y Lamu nº 08/17. Los tres títulos están firmados por Rumiko Takahashi, pero Inuyasha nº 25/30 (Manga Shonen) y Lamu nº 08/17 se identifican como entregas de series numeradas. Rumiko Takahashi Colors (Manga Shonen) se presenta con un título propio y una edición de 400 páginas en tapa dura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ],
+      "enlaces": [
+        "isbn-9791388102226",
+        "isbn-9791388101700"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b3935895a4e37dc0",
+  "origen": "chatgpt-web"
+}

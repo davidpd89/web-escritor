@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche Lo esencial de grafología y Sueños (PRÁCTICA) se dirige a lectores interesados en la grafología, los sueños y las cuestiones de desarrollo personal. Por su enfoque temático, se distancia de quienes buscan una novela de ficción o una obra dedicada exclusivamente a la divulgación científica.",
+      "texto": "Está dirigido a lectores interesados en la grafología y los sueños, con un planteamiento relacionado con la práctica y el bienestar. Su temática se diferencia de los manuales centrados en alimentación, longevidad o hábitos de salud.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,29 +12,29 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Estuche Lo esencial de grafología y Sueños (PRÁCTICA) se comercializa en tapa blanda y suma 824 páginas en castellano. El estuche reúne los temas de grafología y sueños en una presentación física que permite conservar el conjunto y consultar sus contenidos en papel.",
+      "texto": "La tapa blanda reúne las 824 páginas del estuche en un volumen físico de extensión considerable. Este formato permite consultar sus contenidos en papel, volver a apartados concretos y mantener juntos los dos temas identificados en el título.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles",
+        "formato_edicion",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Estuche Lo esencial de grafología y Sueños (PRÁCTICA) comparte autoría con El jardín de las brujas, ambos de Clara Tahoces. La diferencia está en el planteamiento: el estuche reúne contenidos sobre grafología y sueños, mientras que El jardín de las brujas se presenta como una obra de ficción.",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia) comparte con este estuche su relación con el bienestar personal. La diferencia está en los asuntos que aborda cada título: uno trata la longevidad y el otro reúne grafología y sueños.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788466396905"
+        "isbn-9791387852290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f978b780806c5f13",
+  "fuente_hash": "e6824b04aa0f18c2",
   "origen": "chatgpt-web"
 }

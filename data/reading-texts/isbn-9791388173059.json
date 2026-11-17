@@ -4,25 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Pack Astur Noir: Leyendas locales, intriga, asesinatos y supersticiones ambientados en Asturias. (EMBOLSILLO) se dirige a lectores de misterio criminal con interés por las leyendas y supersticiones locales. Sus asesinatos e intrigas lo alejan de las lecturas centradas en conflictos cotidianos sin componente criminal.",
+      "texto": "Pack Astur Noir: Leyendas locales, intriga, asesinatos y supersticiones ambientados en Asturias. (EMBOLSILLO) se dirige a lectores de misterio criminal con interés por las leyendas y supersticiones de Asturias. Sus 1192 páginas y la presencia de asesinatos lo alejan de quienes buscan una lectura corta o un misterio sin delitos violentos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de Pack Astur Noir: Leyendas locales, intriga, asesinatos y supersticiones ambientados en Asturias. (EMBOLSILLO) reúne 1192 páginas en castellano. Su extensión invita a reservarle varias sesiones de lectura y hace que el peso del conjunto sea un factor práctico al transportarlo.",
+      "texto": "Pack Astur Noir: Leyendas locales, intriga, asesinatos y supersticiones ambientados en Asturias. (EMBOLSILLO) se ofrece en tapa blanda. Sus 1192 páginas forman un volumen extenso para leer y conservar en papel, aunque su tamaño puede resultar menos cómodo para llevarlo diariamente que el de una novela breve.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Pack Astur Noir: Leyendas locales, intriga, asesinatos y supersticiones ambientados en Asturias. (EMBOLSILLO) puede compararse con Aguas turbulentas por su vinculación con el misterio y los escenarios geográficos definidos. Marta Huelves sitúa el componente criminal entre leyendas y supersticiones de Asturias, mientras Rankin Ian relaciona Edimburgo con un pasado siniestro que afecta al presente.",
+      "texto": "Pack Astur Noir: Leyendas locales, intriga, asesinatos y supersticiones ambientados en Asturias. (EMBOLSILLO) puede compararse con Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir), por su vinculación con el misterio y un entorno geográfico reconocible. La obra de Marta Huelves sitúa asesinatos y supersticiones en Asturias, mientras que la de Ann Cleeves remite a Shetland. Ambas se apartan del misterio infantil planteado en Abre el misterio 1 - El robo de las croquetas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,7 +30,8 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370310318"
+        "isbn-9788427256644",
+        "isbn-9788410424524"
       ]
     }
   ],

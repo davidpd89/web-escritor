@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788491446309",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mindfulness en la actividad física y el deporte. se dirige a lectores interesados en relacionar la atención consciente con el ejercicio y la práctica deportiva. Por su temática de desarrollo personal, se aparta de los manuales dedicados exclusivamente a reglas deportivas, equipamiento o resultados de competición.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mindfulness en la actividad física y el deporte. está editado en tapa blanda, con 189 páginas en castellano. El ejemplar físico permite leerlo fuera de pantalla y conservarlo para consultas posteriores sobre la relación entre mindfulness y actividad física.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Empoderar a las personas en las organizaciones y Mindfulness en la actividad física y el deporte. comparten la autoría colectiva de Varios autores y una orientación hacia cuestiones relacionadas con las personas. El primero sitúa su tema en las organizaciones, mientras que el segundo relaciona mindfulness, ejercicio y deporte.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788497991872"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ae9c92f89a0f4704",
+  "origen": "chatgpt-web"
+}

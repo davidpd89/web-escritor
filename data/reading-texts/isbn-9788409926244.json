@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9788409926244",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La anatomía de las olas, de Pedro Macarro, encaja con lectores que buscan relatos en castellano y prefieren libros breves. Sus 50 páginas responden a una lectura de extensión reducida, distinta de la que busca quien prefiere novelas largas o ensayos especializados.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La anatomía de las olas se presenta en tapa blanda y reúne 50 páginas, una extensión manejable para llevar en el bolso o consultar en papel. La edición en castellano corresponde a La Gran Belleza Editorial y concentra la lectura en un volumen físico breve.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La anatomía de las olas puede compararse con A sangre y fuego por su vinculación con la escritura literaria. Pedro Macarro firma una obra clasificada como relatos, mientras que el libro de Manuel Chaves Nogales se presenta como testimonio literario de un enfrentamiento; la diferencia principal está en el enfoque declarado de cada obra.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788408331810"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8c04bf76dce1f692",
+  "origen": "chatgpt-web"
+}

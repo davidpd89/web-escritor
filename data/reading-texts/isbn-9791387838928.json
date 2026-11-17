@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387838928",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores de poesía, incluidos quienes buscan obras dentro del ámbito juvenil. La muerte de Penélope (Poesía), de Carolina Corvillo, tiene 80 páginas y se presenta como poesía, por lo que no responde a la búsqueda de una novela juvenil extensa con desarrollo narrativo convencional.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La muerte de Penélope (Poesía) se publica en tapa blanda, con 80 páginas en castellano. Es un volumen breve que puede transportarse y retomarse para releer sus textos, sin exigir el espacio de una edición extensa. La presentación física también permite conservarlo como parte de una colección de poesía.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "s-t técnica mixta: (colección de poemas), de Aldo Sanz, comparte con La muerte de Penélope (Poesía) su vinculación explícita con la poesía. El primero se identifica como colección de poemas, mientras que el título de Carolina Corvillo se presenta dentro de la poesía y la literatura juvenil. Heridas: 45 (Libros inútiles), de Regina Fiz Santos, constituye otra lectura del catálogo para contrastar títulos y autorías.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418782954",
+        "isbn-9788498277500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f18a2790c9f07190",
+  "origen": "chatgpt-web"
+}

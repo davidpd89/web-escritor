@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387911652",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores que buscan una aproximación biográfica y filosófica alrededor de Pedro Cantero. La combinación de ensayo, memorias y filosofía lo aleja de los manuales de introducción a una disciplina y de las narraciones centradas únicamente en acontecimientos históricos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "discurrir: a propósito de pedro cantero: 36 (Arrayanes) se publica en tapa blanda, con 272 páginas en castellano. La edición de Editorial Nazarí S.l. permite una lectura en papel con espacio para anotaciones y consultas posteriores sobre sus asuntos biográficos y filosóficos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "discurrir: a propósito de pedro cantero: 36 (Arrayanes) y FILOSOFÍA&CO ESPECIAL FOUCAULT: Pensamiento, vida y obra del filósofo más citado hoy (REVISTA FILOSOFIA&CO) relacionan pensamiento y trayectoria personal. El primero gira alrededor de Pedro Cantero; el segundo identifica expresamente a un filósofo y su obra. Cartas a Lucilio: Edición íntegra (Clásicos) permite otra comparación filosófica, aunque se presenta como una colección de cartas de Séneca.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182495",
+        "isbn-9788410086555"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f8d98c5cb0fe89cc",
+  "origen": "chatgpt-web"
+}

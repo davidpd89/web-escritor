@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410906310",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Memorias de la chusma, de Rafael Ramos, se dirige a lectores interesados en las memorias, el ensayo y la narrativa contemporánea, con el misterio entre sus ámbitos temáticos. Por su clasificación editorial, se aleja de quienes buscan exclusivamente fantasía o romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Memorias de la chusma se presenta en tapa blanda, con 322 páginas en castellano. Esta edición de Editorial Letra Minúscula permite leer el volumen en papel y transportarlo sin la rigidez de una cubierta dura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Memorias de la chusma puede compararse con El largo regreso de Josefina Carabias (Ensayo), de César Suárez, por su relación con el ensayo y las trayectorias personales. También comparte el terreno de la memoria con Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas), de Miguel Fernández. La obra de Rafael Ramos incorpora además el misterio y la narrativa contemporánea entre sus clasificaciones.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426433282",
+        "isbn-9788401039898"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "812d6e7829f28790",
+  "origen": "chatgpt-web"
+}

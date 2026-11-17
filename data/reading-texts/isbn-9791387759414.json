@@ -4,36 +4,36 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mises y medusas se dirige a lectores interesados en el periodismo ambiental, la degradación de los ecosistemas y sus causas sociales y políticas. Sus 214 páginas se concentran en el Mar Menor, de modo que se aleja de los ensayos generales sobre naturaleza y de las narraciones de ficción desvinculadas de acontecimientos reales.",
+      "texto": "Mises y medusas, de Miguel Angel Ruiz, encaja con lectores de crónica periodística interesados en los conflictos ambientales y sus responsabilidades sociales. Su tratamiento de la contaminación del Mar Menor y de los antecedentes del desastre lo aleja de una narración de ficción centrada en personajes inventados.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
         "sinopsis_editorial",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Mises y medusas investiga el deterioro ecológico del Mar Menor mediante una crónica que combina periodismo y recursos literarios. Miguel Angel Ruiz relaciona la contaminación agrícola con la presión urbanística, los residuos mineros y las responsabilidades institucionales. El análisis conecta la crisis visible desde 2016 con procesos acumulados durante décadas.",
+      "texto": "Investiga el deterioro ecológico del Mar Menor mediante una crónica que combina periodismo y recursos literarios. Examina el impacto de los nitratos agrarios, la actividad ganadera, la minería, la presión urbanística y el turismo, además de las decisiones políticas y las actitudes sociales que contribuyeron al problema.",
       "evidencias": [
-        "titulo",
-        "autores",
-        "sinopsis_editorial"
+        "sinopsis_editorial",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mises y medusas se publica en tapa blanda, con 214 páginas dedicadas a reconstruir un conflicto ambiental concreto. Su extensión permite seguir la investigación en un volumen manejable y consultar los distintos factores del deterioro del Mar Menor en papel, desde las actividades económicas hasta las decisiones políticas.",
+      "texto": "Mises y medusas está disponible en tapa blanda, con 214 páginas publicadas por Tundra Producciones. La edición impresa permite consultar los distintos antecedentes del conflicto ambiental y volver a los pasajes dedicados a sus causas y protagonistas.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
+        "editorial",
         "sinopsis_editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mises y medusas y El largo regreso de Josefina Carabias (Ensayo) pueden compararse desde el interés por la escritura vinculada al periodismo y la reconstrucción de acontecimientos. Miguel Angel Ruiz investiga específicamente la crisis ambiental del Mar Menor, mientras la obra de César Suárez se presenta alrededor de la figura de Josefina Carabias.",
+      "texto": "El adversario (Panorama de narrativas) y Mises y medusas pueden compararse desde la relación entre escritura narrativa y hechos reales, aunque el primero presenta un caso individual y el segundo investiga un conflicto ambiental colectivo. En Mises y medusas, Miguel Angel Ruiz reconstruye las causas del deterioro del Mar Menor y examina responsabilidades políticas y sociales.",
       "evidencias": [
         "titulo",
         "autores",
@@ -41,7 +41,7 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788426433282"
+        "isbn-9788433950482"
       ]
     }
   ],

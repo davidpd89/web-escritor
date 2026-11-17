@@ -4,27 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Constelar la vida: Del amor ciego al amor lúcido (Vivir Mejor) se orienta a lectores interesados en psicología, desarrollo personal y relaciones de pareja. Sus 256 páginas y su enfoque en el amor lo distinguen de una novela romántica: aquí el interés está en reflexionar sobre los vínculos, no en seguir una historia de ficción.",
+      "texto": "Constelar la vida: Del amor ciego al amor lúcido (Vivir Mejor) se dirige a lectores interesados en la psicología, el desarrollo personal y la manera de entender las relaciones afectivas. Su enfoque se aparta de la narrativa de ficción y de los manuales centrados exclusivamente en cuestiones profesionales o económicas.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne las 256 páginas de Constelar la vida: Del amor ciego al amor lúcido (Vivir Mejor) en una edición de bolsillo de Booket, que permite volver a los pasajes durante la lectura. El audiolibro ofrece la alternativa de escuchar el contenido durante desplazamientos o actividades cotidianas, sin depender del ejemplar impreso.",
+      "texto": "La edición de bolsillo en tapa blanda reúne 256 páginas y permite llevar Constelar la vida: Del amor ciego al amor lúcido (Vivir Mejor) para leerlo y consultar pasajes. El audiolibro cambia la lectura por la escucha, una opción para seguir el contenido durante desplazamientos o actividades cotidianas.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "edicion",
-        "editorial",
+        "numero_paginas",
         "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Conectados para el amor / Wired for Love, de Stan Tatkin, comparte con Constelar la vida: Del amor ciego al amor lúcido (Vivir Mejor) el interés por las relaciones afectivas, aunque el título de Joan Garriga pone el acento en pasar del amor ciego al lúcido. Cuando zarpa el amor (vamos y hundimos el barco): Cómo nos enamoramos y por qué nos desenamoramos (Kailas Psicología), de Ramón Nogueras Pérez, plantea otra cuestión: los procesos de enamoramiento y desenamoramiento.",
+      "texto": "Abraza a tu niño interior: Nunca es tarde para sanar tu infancia y Constelar la vida: Del amor ciego al amor lúcido (Vivir Mejor) comparten el interés por el bienestar psicológico y las relaciones personales. Victoria Cadarso orienta su libro hacia la infancia y sus heridas, mientras que Joan Garriga sitúa el contraste entre el amor ciego y el amor lúcido en el centro de su propuesta.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9786073876056",
-        "isbn-9791387534370"
+        "isbn-9788410944206"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bed87a4d89768304",
+  "fuente_hash": "c67b3bb8bcc1578e",
   "origen": "chatgpt-web"
 }

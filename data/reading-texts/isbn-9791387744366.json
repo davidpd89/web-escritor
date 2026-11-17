@@ -4,33 +4,30 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Anatol Lapifia Vol 10 ¡Sálvese quien pueda!: 9 se dirige al público infantil que lee cómics de aventuras y humor. Sus 96 páginas ofrecen una extensión breve frente a novelas juveniles más largas; por su género, encaja menos con quienes buscan narrativa realista sin elementos gráficos.",
+      "texto": "Anatol Lapifia Vol 10 ¡Sálvese quien pueda!: 9 está dirigido a lectores infantiles que disfrutan de las aventuras contadas en formato cómic. Sus 96 páginas y su presentación dentro de la narrativa gráfica lo sitúan en la lectura ilustrada, no en la novela convencional ni en el ensayo.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición de Kómikids se presenta en tapa blanda, con 96 páginas en castellano. Este formato permite manejar el cómic como un volumen físico relativamente breve, transportarlo en una mochila y consultar sus páginas sin depender de una pantalla.",
-      "evidencias": [
-        "edicion",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
-        "idioma",
         "categorias"
       ]
     },
     {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda reúne las 96 páginas en un ejemplar físico que permite pasar las páginas y consultar las ilustraciones directamente sobre el papel. Es el único formato disponible para esta edición, por lo que la elección corresponde a quien busca incorporar el cómic a su colección física.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "formato_edicion"
+      ]
+    },
+    {
       "modulo": "lecturas_afines",
-      "texto": "Emilio y Margot 8 Monstruos a la vista comparte con Anatol Lapifia Vol 10 ¡Sálvese quien pueda!: 9 la autoría de Anne Didier y Olivier Muller, además del enfoque infantil y humorístico. En el primero intervienen monstruos para resolver problemas cotidianos; el segundo se presenta como un cómic de aventuras de 96 páginas.",
+      "texto": "Emilio y Margot 8 Monstruos a la vista, de Anne Didier, Olivier Muller, comparte autores con Anatol Lapifia Vol 10 ¡Sálvese quien pueda!: 9 y también incorpora monstruos en su planteamiento. La diferencia está en sus protagonistas y en el enfoque: Emilio y Margot se centra en los problemas de dos personajes y la intervención de criaturas monstruosas.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias",
-        "numero_paginas"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791387744359"
@@ -39,6 +36,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "964f5e32fe2f3295",
+  "fuente_hash": "df8b1c9d44e2850a",
   "origen": "chatgpt-web"
 }

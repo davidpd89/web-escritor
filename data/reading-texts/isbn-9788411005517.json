@@ -4,27 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, se dirige a lectores interesados en historia política y en los procesos de destrucción de sistemas democráticos. Su asunto central es el ascenso de Hitler y el derrumbe de una democracia, por lo que se aleja de la ficción histórica y de los estudios políticos sin perspectiva histórica.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, está dirigido a lectores interesados en historia política y en el deterioro de los sistemas democráticos. Sus 272 páginas abordan una cuestión histórica concreta, por lo que no responde a quienes buscan una novela de ficción o un manual práctico de participación política.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) se presenta en tapa blanda, con 272 páginas en castellano. La edición de Ediciones Península permite consultar el texto histórico en papel y regresar a determinados pasajes durante su lectura o estudio.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) está disponible en tapa blanda y Kindle. La edición de Ediciones Península contiene 272 páginas, apropiadas para consultar y señalar fragmentos en papel; Kindle permite transportar el texto en un lector electrónico o consultarlo desde el móvil.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma",
-        "editorial"
+        "editorial",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) puede compararse con El papel de la violencia en la historia: Texto esencial de Engels sobre violencia, Bismarck y lucha de clases en la Alemania del siglo XIX (No ficción), de Friedrich Engels, por su atención al poder político y la historia. Timothy W. Ryback aborda la caída de una democracia bajo Hitler; Friedrich Engels trata la violencia, Bismarck y la lucha de clases en otro periodo histórico.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA) se relaciona por su interés político con Comunistas bajo el franquismo: Culturas militantes, símbolos e identidades: 29 (Base Hispánica) y Cómo ser un disidente (Letras de Crítica). Timothy W. Ryback se centra en el derrumbe de una democracia bajo Hitler; David Ginard Féron aborda el comunismo durante el franquismo y Gal Beckerman plantea la disidencia. Los tres títulos permiten distinguir entre caída institucional, militancia política y oposición.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +32,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388115479"
+        "isbn-9791388439124",
+        "isbn-9788491999232"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "58791038b6a5aded",
+  "fuente_hash": "df262cd46fc9598b",
   "origen": "chatgpt-web"
 }

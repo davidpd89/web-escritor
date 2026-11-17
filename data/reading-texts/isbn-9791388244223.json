@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388244223",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La constelación reaccionaria: Broligarcas, fachotubers, incels y otras tribus de la fachosfera (GENERAL), de Miguel Urbán, se dirige a quienes buscan un ensayo sobre poder, política y grupos asociados a la fachosfera. Su enfoque temático y sus 348 páginas lo alejan de la narrativa de ficción y de los libros de introducción general a la historia.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La constelación reaccionaria: Broligarcas, fachotubers, incels y otras tribus de la fachosfera (GENERAL) cuenta con una edición en tapa blanda de 348 páginas. El volumen físico, publicado por Radical Books, permite leer y consultar en papel un ensayo dedicado al ámbito político.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La constelación reaccionaria: Broligarcas, fachotubers, incels y otras tribus de la fachosfera (GENERAL) comparte el interés por las ideas políticas con Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo), de Miguel Anxo Bastos Boubeta. Mientras Miguel Urbán identifica distintas tribus de la fachosfera, el otro título delimita su estudio a los fundamentos del pensamiento anarcocapitalista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7c444abd499c73ee",
+  "origen": "chatgpt-web"
+}

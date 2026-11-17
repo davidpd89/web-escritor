@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Estuche El Alquimista (Edición especial con cantos tintados) (Biblioteca Paulo Coelho) se orienta a lectores que buscan narrativa contemporánea relacionada con la espiritualidad y el desarrollo personal. No tiene el planteamiento de un manual de ejercicios ni el de un estudio histórico de las religiones.",
+      "texto": "Estuche El Alquimista (Edición especial con cantos tintados) (Biblioteca Paulo Coelho) encaja con lectores interesados en la narrativa contemporánea vinculada al desarrollo personal y la espiritualidad. Su orientación temática lo distancia de quienes buscan manuales técnicos o novelas centradas en la investigación criminal.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Editorial Planeta publica este estuche de El Alquimista en tapa dura, con cantos tintados y dentro de Biblioteca Paulo Coelho. La edición en castellano consta de 200 páginas y lleva fecha de publicación del 11 de noviembre de 2026; su presentación especial es el rasgo que la distingue.",
+      "texto": "Esta presentación de Editorial Planeta se distingue por el estuche y los cantos tintados anunciados en su título. Pertenece a la Biblioteca Paulo Coelho y contiene una edición en tapa dura de 200 páginas en castellano, publicada el 11 de noviembre de 2026.",
       "evidencias": [
         "titulo",
         "editorial",
@@ -25,30 +24,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura reúne las 200 páginas de esta edición especial en un volumen pensado también para su conservación y exposición. El estuche y los cantos tintados aportan elementos físicos que cobran especial relevancia al elegirlo para regalo o colección.",
+      "texto": "La tapa dura es la opción disponible para este estuche de 200 páginas. Los cantos tintados y la presentación en estuche cobran especial importancia para quien desea conservarlo o regalarlo, mientras que la extensión permite manejar un volumen relativamente breve.",
       "evidencias": [
-        "titulo",
         "formatos_disponibles",
+        "titulo",
         "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El Peregrino (Edición de Lujo, Cantos Pintados) / The Pilgrimage (Deluxe Edition, Sprayed Edges), también de Paulo Coelho, comparte autor y atención a la presentación física, aunque pertenece a una obra distinta. Astrología, filosofía y magia: Un camino de práctica espiritual, de Soledad Davies, coincide en el interés espiritual, pero se presenta como un camino de práctica frente al carácter narrativo de El Alquimista.",
+      "texto": "El Peregrino (Edición de Lujo, Cantos Pintados) / The Pilgrimage (Deluxe Edition, Sprayed Edges), de Paulo Coelho, comparte autor y una presentación especial con los cantos decorados. Estuche El Alquimista (Edición especial con cantos tintados) (Biblioteca Paulo Coelho) se diferencia por incorporar un estuche y pertenecer expresamente a la Biblioteca Paulo Coelho.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
+        "autores"
       ],
       "enlaces": [
-        "isbn-9798890989963",
-        "isbn-9788411214315"
+        "isbn-9798890989963"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "81af081d878d00ff",
+  "fuente_hash": "5a848176037c9708",
   "origen": "chatgpt-web"
 }

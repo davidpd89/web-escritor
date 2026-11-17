@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399263701",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Destripando la historia: Dioses del valhalla se dirige a quienes buscan cómic y novela gráfica relacionados con las divinidades del Valhalla. La obra de Rodrigo Septién Rodríguez y Álvaro Pascual Santamera tiene 64 páginas y se aleja, por su clasificación editorial, de los estudios históricos académicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Destripando la historia: Dioses del valhalla está disponible en tapa dura, con 64 páginas en castellano. Esta edición de La Foca Leoparda permite conservar el volumen en una encuadernación rígida y resulta manejable por su extensión para consultas y relecturas.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5845410baa4bea13",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9781971710693",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Desconectar para Conectar: Guía para establecer límites saludables al uso de pantallas se dirige a lectores interesados en gestionar los hábitos digitales desde una perspectiva de bienestar y familia. Sus 186 páginas tratan una cuestión práctica, por lo que se aparta de las obras de entretenimiento narrativo.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Desconectar para Conectar: Guía para establecer límites saludables al uso de pantallas se publica en tapa blanda, con 186 páginas en castellano. Esta presentación permite consultar físicamente los contenidos relacionados con los límites de uso de pantallas y regresar a determinados apartados durante la revisión de hábitos cotidianos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Desconectar para Conectar: Guía para establecer límites saludables al uso de pantallas comparte con Adolescencia sin violencia: Cómo enseñar a tus hijos a prevenir el bullying y el abuso para construir relaciones sanas (No ficción) su orientación hacia cuestiones familiares. El libro de Iraí Albarrán aborda los límites digitales, mientras que el de Carmen López Suárez se centra en la prevención del acoso y el abuso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410274600"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "be1ab47106bb88c4",
+  "origen": "chatgpt-web"
+}

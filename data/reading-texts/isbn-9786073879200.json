@@ -4,41 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary se dirige a lectores interesados en publicaciones vinculadas al arte y el diseño. Su planteamiento de diccionario lo distingue de una novela convencional, por lo que encaja menos con quienes buscan una narración de ficción continuada.",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary se orienta a lectores interesados en el arte y el diseño, especialmente en una obra presentada como diccionario. Su planteamiento editorial se aleja de la narrativa de ficción convencional y de los libros centrados en desarrollar una historia con personajes.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary se presenta en tapa blanda, con 320 páginas en castellano. Su extensión permite reservarle un espacio en la biblioteca y consultarlo físicamente. Es una edición de Penguin Random House Grupo Editorial.",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary se publica en tapa blanda, con 320 páginas en castellano. Es una edición física que permite consultar el contenido y volver a distintas páginas sin depender de una pantalla, además de incorporarse a una biblioteca personal.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "edicion"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary comparte el ámbito artístico con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra. El segundo título delimita su asunto a la música industrial, mientras que el de El Aletz y Alejandro Carrillo se presenta como diccionario vinculado al perreo. Son aproximaciones diferentes a expresiones culturales.",
+      "texto": "Diccionario de la Real Academia del Perreo / The Royal Academy of Perreo Dictionary comparte el ámbito del arte y el diseño con 720 retrats, aunque sus títulos apuntan a enfoques distintos: diccionario frente a retratos. También puede contrastarse con 21 Westerns del siglo XXI (Sílex Cine/Claqueta), cuyo título delimita un asunto cinematográfico en lugar del perreo.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410045538"
+        "isbn-9791388205842",
+        "isbn-9788412678802"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "054cc7b3a9fa17ce",
+  "fuente_hash": "b71085a0ea109772",
   "origen": "chatgpt-web"
 }

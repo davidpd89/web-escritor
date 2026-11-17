@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788418739989",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Ooku: Los Aposentos Privados, vol. 9, de Fumi Yoshinaga, está dirigido a lectores de cómic y novela gráfica en castellano. El título lo identifica como el volumen 9, un dato relevante para quienes siguen una colección; no responde a la búsqueda de una novela convencional escrita únicamente en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Ooku: Los Aposentos Privados, vol. 9 se presenta en tapa blanda, con una edición de 416 páginas publicada por Tomodomo. Es un volumen físico que puede guardarse junto a otros tomos de la colección y consultarse directamente en papel, sin necesidad de un dispositivo de lectura digital.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9dd79694cb764cd0",
+  "origen": "chatgpt-web"
+}

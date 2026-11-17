@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409936281",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Se dirige a lectores interesados en sustituir las conexiones wifi por cable y explorar cuestiones de privacidad y bienestar digital. Apaga el wifi. Conéctate a un Internet saludable.: Cómo eliminar el wifi y navegar por cable sin radiaciones: más salud, más privacidad, la misma Internet, de Joan Carles López Sancho, aborda ese cambio tecnológico; no está planteado como una guía general de alimentación o ejercicio.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda contiene las 292 páginas de esta guía sobre conexiones a Internet por cable y permite consultar sus explicaciones en papel. La edición Kindle ofrece la misma obra en formato digital, una alternativa para leerla desde el móvil o un lector electrónico compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apaga el wifi. Conéctate a un Internet saludable.: Cómo eliminar el wifi y navegar por cable sin radiaciones: más salud, más privacidad, la misma Internet y 100 formas de cambiar tu vida: La ciencia detrás de potenciar la salud, la felicidad, las relaciones y el éxito / 100 Ways to Change Your Life: La ... la felic idad, las relaciones y el éxito comparten el interés por modificar hábitos relacionados con el bienestar. La obra de Joan Carles López Sancho se concentra en las conexiones de red y la privacidad, mientras que la de Liz Moody abarca salud, relaciones y otros aspectos de la vida.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798890981776"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "eed0bdb3f7d971d1",
+  "origen": "chatgpt-web"
+}

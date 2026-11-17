@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409932825",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La estirpe de Mitra: Una aventura de misterio en la Europa de los años 40 se dirige a lectores que buscan misterio y aventuras ambientados en un contexto histórico europeo. Sus 540 páginas plantean una lectura extensa, alejada de los relatos breves y de las obras de historia centradas exclusivamente en hechos documentados.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La estirpe de Mitra: Una aventura de misterio en la Europa de los años 40 se presenta en tapa blanda, con una extensión de 540 páginas. Es una edición física para leer y conservar en papel, con la flexibilidad propia de una cubierta blanda; su longitud conviene tenerla en cuenta si se va a transportar durante desplazamientos habituales.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La estirpe de Mitra: Una aventura de misterio en la Europa de los años 40 comparte el componente de misterio con Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui. La diferencia está en el planteamiento: Ferran Mundó sitúa su aventura en la Europa de los años 40, mientras que el otro título parte de la desaparición de unas croquetas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6c843cffac327b6c",
+  "origen": "chatgpt-web"
+}

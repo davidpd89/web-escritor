@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399134421",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cartas de Ciudad Reloj - Edición Numerada Carnaval del Tiempo se dirige a lectores interesados en el arte, el diseño y las publicaciones vinculadas al ocio. Su condición de edición numerada puede interesar a quienes buscan una presentación editorial concreta; encaja menos con quien prioriza una edición corriente.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Cartas de Ciudad Reloj - Edición Numerada Carnaval del Tiempo se ofrece en tapa dura, con 272 páginas. La encuadernación rígida resulta apropiada para conservar el volumen en una estantería o entregarlo como regalo, especialmente por su identificación como edición numerada.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas de Ciudad Reloj comparte autor, Roberto Barragán Pineda, y título principal con Cartas de Ciudad Reloj - Edición Numerada Carnaval del Tiempo. La diferencia explícita es que esta última se identifica como edición numerada Carnaval del Tiempo; el título de la otra no incorpora esa denominación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399134414"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "779a8df66f7a8bc7",
+  "origen": "chatgpt-web"
+}

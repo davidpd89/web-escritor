@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9791387789930",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dirigido a lectores interesados en la filosofía política y el ensayo de análisis crítico. Breve introducción a la filosofía política (Análisis y crítica), de Antonio Valdecantos Alcaide, se aleja de la narrativa de ficción y se centra en una disciplina filosófica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de Breve introducción a la filosofía política (Análisis y crítica) está publicada por Guillermo Escolar Editor en castellano y tapa blanda. Consta de 212 páginas y su fecha de publicación es 2026-10-08. El ISBN 9791387789930 permite identificar esta edición concreta frente a otras versiones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "idioma",
+        "formato_edicion",
+        "numero_paginas",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La opción recogida para Breve introducción a la filosofía política (Análisis y crítica) es la tapa blanda. Sus 212 páginas forman un volumen físico que permite consultar y releer apartados durante el estudio de filosofía política, sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparte con Breve introducción a la filosofía política (Análisis y crítica) el interés por las ideas políticas, pero delimita su asunto al anarcocapitalismo. Aforismos para reflexionar y meditar: 109 (Fragmentos) se orienta hacia la reflexión mediante aforismos, frente al planteamiento introductorio de filosofía política del libro de Antonio Valdecantos Alcaide.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278",
+        "isbn-9791388182457"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28998f49b5b3aeb1",
+  "origen": "chatgpt-web"
+}

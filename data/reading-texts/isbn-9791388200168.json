@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791388200168",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo VII se dirige a lectores interesados en el pop-rock de los años sesenta y en publicaciones vinculadas al arte. Sus 108 páginas en castellano ofrecen una extensión contenida; por su temática, encaja menos con quien busca una novela de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo VII está disponible en tapa blanda, con 108 páginas. Esta edición de El Séptimo Cielo permite manejar el volumen en papel y guardarlo junto a otros capítulos de Daniel Muneta, sin el peso habitual de una obra extensa.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "autores",
+        "afines_catalogo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "EL POP-ROCK DE LOS 60' - Capítulo I y EL POP-ROCK DE LOS 60' - Capítulo IX comparten con EL POP-ROCK DE LOS 60' - Capítulo VII la autoría de Daniel Muneta y el tema musical anunciado en sus títulos. La diferencia es el capítulo identificado: el título de este volumen lo sitúa como el n.º VII, frente al I y al IX de los otros dos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388200106",
+        "isbn-9791388200113",
+        "isbn-9791388200120",
+        "isbn-9791388200137",
+        "isbn-9791388200182"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12c8aecf41b33861",
+  "origen": "chatgpt-web"
+}

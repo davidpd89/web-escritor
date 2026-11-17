@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788418536915",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Oleaje de luz: Música de Josué Bonnín de Góngora: 4 (ARS NOVA) se dirige a lectores de poesía interesados en una obra cuyo título establece una relación con la música. Sus 124 páginas y su clasificación poética la diferencian de una novela o un estudio técnico musical.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Ars Poetica contiene 124 páginas y permite conservar el volumen en una biblioteca de poesía. Es el formato indicado para quien prefiera leer en papel y volver a consultar sus páginas sin depender de un dispositivo electrónico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza, ofrecen otras referencias poéticas del catálogo. Oleaje de luz: Música de Josué Bonnín de Góngora: 4 (ARS NOVA) se distingue por su referencia explícita a la música y por la autoría de Antonio J. García Pereyra.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8678ed0b4e187e8d",
+  "origen": "chatgpt-web"
+}

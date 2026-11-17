@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388422164",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Te cuento las pecas se dirige a lectores que buscan obras de misterio en castellano. Por su clasificación temática, encaja menos con quienes prefieren narrativa juvenil o divulgación científica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 256 páginas de Te cuento las pecas en un ejemplar físico, publicado por Universo de Letras. La edición Kindle ofrece una alternativa digital para llevar la lectura en un dispositivo compatible.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Te cuento las pecas comparte el ámbito del misterio con Aberración, de Santiago López de Hoyos, aunque son obras de distinta autoría. Frente a Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui, cuyo título y descripción plantean la desaparición de unas croquetas, Te cuento las pecas se presenta dentro del misterio sin concretar ese tipo de caso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399297508",
+        "isbn-9788427256644"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4674b6b6bc920643",
+  "origen": "chatgpt-web"
+}

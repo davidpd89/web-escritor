@@ -4,37 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El Compliance en la era de la IA: La gestión de los riesgos jurídicos tras la irrupción de la IA en las empresas (Gran tratado) se dirige a quienes estudian el cumplimiento normativo y los riesgos jurídicos empresariales asociados a la inteligencia artificial. Su planteamiento jurídico y empresarial no responde a una búsqueda de divulgación tecnológica general.",
+      "texto": "El Compliance en la era de la IA: La gestión de los riesgos jurídicos tras la irrupción de la IA en las empresas (Gran tratado) se dirige a quienes estudian el cumplimiento normativo y los riesgos jurídicos de la inteligencia artificial en las empresas. Su enfoque de derecho empresarial y sus 800 páginas lo alejan de una introducción breve a la tecnología o de una lectura narrativa.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda contiene las 800 páginas de El Compliance en la era de la IA: La gestión de los riesgos jurídicos tras la irrupción de la IA en las empresas (Gran tratado). Por su extensión, resulta más apropiada para mantenerla como volumen de consulta que para transportarla continuamente.",
+      "texto": "La tapa blanda es el formato de El Compliance en la era de la IA: La gestión de los riesgos jurídicos tras la irrupción de la IA en las empresas (Gran tratado), de Xabier Ribas. Sus 800 páginas forman un volumen extenso, pensado para quien prefiera trabajar sobre papel, señalar apartados y consultar cuestiones de cumplimiento normativo empresarial durante el estudio.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) coincide en examinar cuestiones jurídicas relacionadas con tecnologías, pero trata blockchain en vez de los riesgos empresariales de la inteligencia artificial. Casos prácticos sobre el despido (Supuestos prácticos) también aborda el Derecho en el entorno profesional, aunque se concentra en situaciones de despido y no en el cumplimiento normativo tecnológico.",
+      "texto": "Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) comparte con la obra de Xabier Ribas el ámbito jurídico, aunque se centra en el derecho administrativo sancionador y no en los riesgos empresariales de la inteligencia artificial. Argumentacion Juridica trata una materia jurídica distinta: la argumentación, frente al cumplimiento normativo y la gestión de riesgos que identifica el título de este tratado.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610265",
-        "isbn-9791370651749"
+        "isbn-9791370610562",
+        "isbn-9789564078014"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "5a6e0ec0f8512806",
+  "fuente_hash": "7b25cc95611e16da",
   "origen": "chatgpt-web"
 }

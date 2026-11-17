@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Inversiones conscientes (EMPRESA ACTIVA), de Elizabeth Wakefield, está dirigido a lectores interesados en economía y empresa. Quien busque una obra de ficción o una lectura centrada en el entretenimiento narrativo encontrará un planteamiento diferente.",
+      "texto": "Inversiones conscientes (EMPRESA ACTIVA), de Elizabeth Wakefield, se dirige a lectores interesados en las inversiones desde una perspectiva económica. Su temática se aleja de la narrativa de ficción y de los manuales centrados en aficiones ajenas a las finanzas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -13,22 +13,20 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda reúne sus 288 páginas en una edición física de Empresa Activa; Kindle permite acceder al contenido desde un dispositivo electrónico. El papel facilita consultar el volumen fuera de una pantalla, mientras que el formato digital permite llevarlo en el móvil o en un lector electrónico.",
+      "texto": "Inversiones conscientes (EMPRESA ACTIVA) puede leerse en tapa blanda o Kindle. La edición impresa reúne sus 288 páginas en un volumen físico de consulta, mientras que Kindle permite llevar el contenido en un lector electrónico o en el móvil sin transportar el libro.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "edicion",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Finanzas conscientes (EMPRESA ACTIVA), de Elizabeth Wakefield, es la comparación más directa por compartir autora y la referencia a las finanzas conscientes. Inversiones conscientes (EMPRESA ACTIVA) concreta su temática en las inversiones, mientras que el otro título amplía el foco a las finanzas.",
+      "texto": "Inversiones conscientes (EMPRESA ACTIVA) y Finanzas conscientes (EMPRESA ACTIVA) comparten autora, Elizabeth Wakefield, y un enfoque vinculado al dinero. La diferencia está en el alcance anunciado por sus títulos: el primero se centra en las inversiones y el segundo aborda las finanzas de forma más general.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9788418308369"
@@ -37,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a5ce6db8cfdff02c",
+  "fuente_hash": "5ecce0c3e87514c3",
   "origen": "chatgpt-web"
 }

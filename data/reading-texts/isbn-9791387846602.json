@@ -4,39 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El fuego de Bandung (Hispánica) encaja con lectores interesados en la narrativa contemporánea que incorpora historia y cuestiones de poder y política. Su clasificación también incluye humor y siglo XX, por lo que se aleja de las lecturas centradas exclusivamente en asuntos íntimos o cotidianos.",
+      "texto": "El fuego de Bandung (Hispánica), de Jordi Soler, se orienta a lectores interesados en la historia, la política y la narrativa contemporánea. Su combinación temática encaja menos con quienes buscan exclusivamente manuales prácticos o ficción centrada en mundos fantásticos.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Alfaguara tiene 402 páginas en castellano. Es un volumen de extensión considerable que permite avanzar por sesiones y retomar pasajes relacionados con sus componentes históricos y políticos.",
+      "texto": "El fuego de Bandung (Hispánica) se publica en tapa blanda, en una edición de Alfaguara de 402 páginas. El formato permite leerlo en papel y transportarlo con una cubierta flexible, aunque su extensión supone un volumen mayor que el de una obra breve.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
         "editorial",
-        "numero_paginas",
-        "idioma",
-        "categorias"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El viaje del profesor Caritat o Las desventuras de la Razón: Una comedia filosófica (Andanzas), de Steven Lukes, comparte con El fuego de Bandung (Hispánica) la combinación de narrativa e ideas, con presencia del humor. La diferencia está en el enfoque anunciado: el primero se define como comedia filosófica, mientras el libro de Jordi Soler se sitúa entre la narrativa contemporánea, la historia y la política.",
+      "texto": "53 días: Cómo Hitler derribó una democracia (HISTORIA), de Timothy W. Ryback, comparte con El fuego de Bandung (Hispánica) el interés por la historia y el poder político. El primero delimita su asunto a la caída de una democracia bajo Hitler, mientras que la obra de Jordi Soler se sitúa también en el ámbito de la narrativa contemporánea.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788411078696"
+        "isbn-9788411005517"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "301a3954cc2aa08d",
+  "fuente_hash": "715e7ebc52b80b55",
   "origen": "chatgpt-web"
 }

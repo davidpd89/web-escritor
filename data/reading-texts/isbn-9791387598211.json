@@ -4,40 +4,41 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tardes de otoño (Montena), de Joana Marcús, encaja con lectores que buscan una novela romántica extensa y prefieren dedicar tiempo a una misma lectura. Sus 750 páginas y su temática amorosa lo distancian de los libros breves y de las historias centradas en otros géneros.",
+      "texto": "Tardes de otoño (Montena) está orientado a lectores de romance que prefieren novelas de considerable extensión. Sus 750 páginas lo alejan de los relatos románticos breves, por lo que encaja menos con quienes buscan una lectura corta o una obra centrada en otro género.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Tardes de otoño (Montena) está disponible en tapa blanda y Kindle, dos opciones para abordar sus 750 páginas. La tapa blanda permite conservar el ejemplar físico en la biblioteca, mientras que Kindle facilita llevar una novela de esta extensión en un dispositivo compatible sin cargar con el volumen impreso.",
+      "texto": "Tardes de otoño (Montena) puede leerse en tapa blanda o Kindle, dos opciones para sus 750 páginas. La tapa blanda permite conservar la edición física de Montena, mientras que Kindle facilita llevar una novela tan extensa en un lector electrónico o en el móvil.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Tardes de otoño (Montena) comparte el género romántico con Amor en pole position (Dirty Air 3), de Lauren Asher. La novela de Joana Marcús se presenta como una historia de romance de 750 páginas, mientras que la de Lauren Asher sitúa la relación amorosa en el entorno de la Fórmula 1.",
+      "texto": "24 historias para enamorarte en navidad: Relatos navideños, de Patricia Bonet, comparte el género romántico con Tardes de otoño (Montena), pero reúne relatos navideños frente a una novela de 750 páginas. A cinco segundos de ti, de Sandra Miró, ofrece otra lectura del mismo género con distinta autoría, mientras que Tardes de otoño (Montena) está firmado por Joana Marcús.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "numero_paginas",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788427055674"
+        "isbn-9788409929177",
+        "isbn-9788427055735"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9d097270b5b89e7a",
+  "fuente_hash": "e2420cb757aa2c8f",
   "origen": "chatgpt-web"
 }

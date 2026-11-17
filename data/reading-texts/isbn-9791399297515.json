@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399297515",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Remando al tiempo encaja con lectores interesados en el ensayo y la filosofía que prefieren volúmenes de extensión contenida. Sus 124 páginas lo distinguen de los tratados extensos y de las novelas de ficción, aunque su clasificación no determina una corriente filosófica específica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda permite leer las 124 páginas de Remando al tiempo en un volumen físico relativamente breve. Esta extensión facilita llevarlo en el bolso o consultarlo por partes, sin necesitar un dispositivo de lectura electrónica.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Remando al tiempo comparte el ámbito del pensamiento con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar. El segundo título anuncia expresamente aforismos y fragmentos, mientras que Remando al tiempo se presenta como ensayo filosófico de Ángel J. Olaz Capitán, con 124 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4a3f568819e383d0",
+  "origen": "chatgpt-web"
+}

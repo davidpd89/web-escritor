@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388204159",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El último contrato de Isako (FICCIÓN), de Fonda Lee, se dirige a lectores de fantasía y aventuras. Sus 528 páginas plantean una lectura extensa, menos ajustada a quienes prefieren libros breves o buscan narrativa realista.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El último contrato de Isako (FICCIÓN) está disponible en tapa dura, con 528 páginas en castellano. Esta edición de Editorial Hidra permite conservar el volumen en una biblioteca física y utilizarlo como regalo, aunque requiere transportar un libro de esa extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El último contrato de Isako (FICCIÓN) puede compararse con Adversis por su pertenencia al ámbito de la fantasía. La diferencia identificable está en la autoría: Fonda Lee firma el primero y Jorge López Algarra el segundo. Frente a A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria), comparte el marco fantástico, pero este último señala expresamente la enseñanza mágica en su título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399305517",
+        "isbn-9788409941735"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8951259ddc16400b",
+  "origen": "chatgpt-web"
+}

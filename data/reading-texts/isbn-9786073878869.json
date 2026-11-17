@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9786073878869",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "No estamos solos: OVNIS / Not For Disclosure: UFOs está dirigido a lectores interesados en los objetos voladores no identificados y en publicaciones vinculadas con la divulgación científica. Su temática se aleja de las guías centradas exclusivamente en nutrición, ejercicio o hábitos cotidianos de salud.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "No estamos solos: OVNIS / Not For Disclosure: UFOs se ofrece en tapa blanda y consta de 344 páginas. El formato físico permite leerlo sin dispositivos electrónicos y conservar una edición en castellano dedicada a esta temática, tanto para lectura continuada como para consultas posteriores.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "No estamos solos: OVNIS / Not For Disclosure: UFOs y KUNDALINI ES RESONANCIA: El sorprendente encaje entre la Física y el Yoga comparten una vinculación temática con la ciencia, pero el primero se centra en los OVNIS y el segundo relaciona física y yoga. Frente a PÁRKINSON: Vivir mejor es posible, el libro de Jonathan Caplan aborda un asunto distinto de la salud asociada a una enfermedad concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409913183",
+        "isbn-9791388540080"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9c0aa5457d8ef89e",
+  "origen": "chatgpt-web"
+}

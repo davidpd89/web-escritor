@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399183030",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "124 zarzuelas montañesas en la cueva del olvido: Escritas entre 1853 y 1958, de Juan Antonio Prieto, se orienta a lectores interesados en el ensayo y las manifestaciones artísticas históricas. Su enfoque sobre zarzuelas de ese periodo y sus 632 páginas lo alejan de quienes buscan ficción narrativa breve.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de 124 zarzuelas montañesas en la cueva del olvido: Escritas entre 1853 y 1958 se presenta en tapa blanda y reúne 632 páginas. El volumen físico de Mya Libros permite consultar el contenido en papel y regresar a distintas partes durante el estudio del periodo recogido en el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "124 zarzuelas montañesas en la cueva del olvido: Escritas entre 1853 y 1958 comparte con Bella ciao: Historia de un himno popular: 32 (Tascabili) el interés por expresiones musicales vinculadas a la historia. Juan Antonio Prieto aborda zarzuelas montañesas de un periodo delimitado, mientras que Marcello Flores centra su obra en la historia de un himno popular.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410435292"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e767bd0c53dfeb67",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788468379067",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a quienes buscan actividades de dibujo y manualidades relacionadas con la Navidad. La navidad. Actividades divertidas (Dibujo y manualidades), de Lucie Austin, pertenece al ámbito del ocio práctico, por lo que no responde a la búsqueda de una novela navideña ni de un estudio histórico sobre estas fiestas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La navidad. Actividades divertidas (Dibujo y manualidades) se publica en tapa blanda, con 64 páginas en castellano. La edición en papel permite tener las propuestas de dibujo y manualidades a mano durante las actividades navideñas, sin necesidad de consultar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas comparte con La navidad. Actividades divertidas (Dibujo y manualidades) su orientación hacia las actividades manuales. El libro de Lucie Austin trata el dibujo y las manualidades navideñas, mientras que Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas se ocupa del bordado de letras y números mediante diagramas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788498748208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8a2189b0c618b991",
+  "origen": "chatgpt-web"
+}

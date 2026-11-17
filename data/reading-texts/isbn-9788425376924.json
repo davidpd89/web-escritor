@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "¿Dónde está el asesino?: Rastrea pistas, descarta ciudades y caza al culpable (Ocio, entretenimiento y viajes), de Joseángel Murcia, está orientado a lectores que disfrutan resolviendo misterios mediante pistas. Su planteamiento de investigación y descarte de ciudades encaja menos con quienes prefieren una lectura sin participación en la resolución del caso.",
+      "texto": "¿Dónde está el asesino?: Rastrea pistas, descarta ciudades y caza al culpable (Ocio, entretenimiento y viajes) se dirige a quienes prefieren resolver misterios mediante pistas y eliminación de posibilidades. Su planteamiento de búsqueda del culpable se aparta de una lectura centrada únicamente en seguir una historia sin participar en la investigación.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "¿Dónde está el asesino?: Rastrea pistas, descarta ciudades y caza al culpable (Ocio, entretenimiento y viajes) se presenta en tapa blanda, con 240 páginas editadas por Grijalbo. El soporte físico permite consultar pistas y retroceder entre páginas mientras se descartan ciudades y se intenta identificar al culpable.",
+      "texto": "¿Dónde está el asesino?: Rastrea pistas, descarta ciudades y caza al culpable (Ocio, entretenimiento y viajes) está disponible en tapa blanda. La edición de Grijalbo reúne 240 páginas en papel, un soporte que permite consultar pistas anteriores y contrastarlas durante la resolución del misterio.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -23,11 +22,10 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes) es una lectura afín a ¿Dónde está el asesino?: Rastrea pistas, descarta ciudades y caza al culpable (Ocio, entretenimiento y viajes), ya que ambos son de Joseángel Murcia y giran alrededor de un asesinato. El segundo incorpora expresamente el rastreo de pistas y el descarte de ciudades, mientras que el primero identifica su caso mediante un muñeco de nieve.",
+      "texto": "¿Dónde está el asesino?: Rastrea pistas, descarta ciudades y caza al culpable (Ocio, entretenimiento y viajes) comparte autor y temática criminal con El asesinato del muñeco de nieve (Ocio, entretenimiento y viajes). Ambos son de Joseángel Murcia, pero el primero plantea expresamente rastrear pistas y descartar ciudades, mientras que el segundo identifica un asesinato concreto en su título.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -37,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "6603c72875fde590",
+  "fuente_hash": "1e6c895c2ec50e82",
   "origen": "chatgpt-web"
 }

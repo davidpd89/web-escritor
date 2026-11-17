@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9786289781410",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Corazón sincero (Plata), de Cho Haejin, se sitúa entre la narrativa contemporánea y el ensayo, por lo que encaja con lectores interesados en esos ámbitos. Sus 224 páginas ofrecen una extensión intermedia; quienes busquen fantasía, aventuras infantiles o un manual práctico encontrarán una orientación temática diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Corazón sincero (Plata) está disponible en tapa blanda, en una edición de 224 páginas publicada por Plata. Es una opción física para leer por sesiones, marcar el punto de lectura y conservar el ejemplar en una biblioteca personal. Su encuadernación flexible permite transportarlo sin el volumen propio de una cubierta rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Corazón sincero (Plata) puede compararse con Alfred y Emily (Narrativa), de Doris Lessing, por su relación con la narrativa. La obra de Cho Haejin también se sitúa en el ámbito del ensayo, mientras que la de Doris Lessing se identifica expresamente como narrativa. Otra referencia es Bajo la sombra del Vesubio: Vida de Plinio: 120 (Biblioteca de Ensayo / Serie mayor), de Daisy Dunn, cuyo título señala un enfoque biográfico e histórico más definido.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515",
+        "isbn-9788418708459"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "4023482a3ca90f0b",
+  "origen": "chatgpt-web"
+}

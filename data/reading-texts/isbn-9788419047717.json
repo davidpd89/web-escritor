@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788419047717",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La enmilagrada, de Agustín Gómez Arcos, está dirigida a lectores de narrativa contemporánea en castellano. Su extensión de 336 páginas corresponde a una lectura de varios cientos de páginas, distinta de los textos breves; por su clasificación editorial, no pertenece al ensayo ni a la literatura infantil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La enmilagrada cuenta con una edición en tapa blanda de 336 páginas, publicada por Cabaret Voltaire. Este formato permite leer y transportar el libro sin el peso adicional habitual de una cubierta rígida. El volumen está editado en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "65c534ef35e159fd",
+  "origen": "chatgpt-web"
+}

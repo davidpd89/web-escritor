@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788410859715",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Eduardo Garcia de enterria. Obra juridica completa se dirige a lectores interesados en la producción jurídica de Eduardo Garcia de Enterria. Por su materia y planteamiento de recopilación de obra, responde a una consulta especializada sobre derecho, no a la búsqueda de una novela o de una introducción general para lectores sin intereses jurídicos concretos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Eduardo Garcia de enterria. Obra juridica completa puede compararse con Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) y Argumentacion Juridica por su orientación hacia el derecho. La primera obra reúne la producción jurídica de Eduardo Garcia de Enterria; las otras delimitan su interés al derecho administrativo sancionador y a la argumentación jurídica, respectivamente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370610562",
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "cfc21eadce923d63",
+  "origen": "chatgpt-web"
+}

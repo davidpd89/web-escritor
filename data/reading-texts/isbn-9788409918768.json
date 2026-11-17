@@ -4,42 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Beyond the Channels: Los cimientos se dirige a lectores interesados en economía y empresa. Es una obra de José Javier Nicolás Tejedor de 275 páginas, por lo que su orientación temática se aleja de la ficción y de las lecturas centradas en personajes.",
+      "texto": "Beyond the Channels: Los cimientos, de José Javier Nicolás Tejedor, se dirige a lectores interesados en economía y empresa. Sus 275 páginas en castellano corresponden a una publicación de este ámbito, por lo que encaja menos con quienes buscan ficción o una lectura de entretenimiento narrativo.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Beyond the Channels: Los cimientos está disponible en tapa blanda, con 275 páginas en castellano. Esta edición física permite consultar y señalar pasajes sobre papel, además de conservar el volumen en una biblioteca de economía y empresa.",
+      "texto": "Beyond the Channels: Los cimientos se ofrece en tapa blanda y Kindle, dos opciones para consultar sus 275 páginas. La primera permite conservar una edición física y localizar apartados pasando las hojas; Kindle facilita la lectura digital y el transporte del contenido sin cargar con el ejemplar impreso.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Beyond the Channels: Los canales es la comparación más directa con Beyond the Channels: Los cimientos: ambos títulos pertenecen a la obra de José Javier Nicolás Tejedor, aunque distinguen los canales de los cimientos. ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, ofrece otra referencia vinculada al pensamiento empresarial, pero centrada en las ideas y su aparente falta de lógica.",
+      "texto": "Beyond the Channels: Los cimientos puede compararse con Beyond the Channels: Los canales, ambos de José Javier Nicolás Tejedor y vinculados por su título común. La diferencia explícita está en el asunto que identifica cada subtítulo: los cimientos frente a los canales, dos enfoques nominales dentro de una misma autoría.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409933570",
-        "isbn-9791399087222"
+        "isbn-9788409933570"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "42f0e02fccdf1620",
+  "fuente_hash": "7e7836cc16f6ee42",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9781807661793",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Fe Cada Vez Mayor - el Poder de una Fe que se Atreve a Creer (en español moderno): Sanidades Milagrosas, Resurrecciones de los Muertos y Señales Sobrenaturales se dirige a lectores interesados en la fe y los fenómenos sobrenaturales desde una perspectiva religiosa. Sus 129 páginas no están planteadas como una novela de fantasía, sino como una obra de religión y espiritualidad.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda ofrece una edición física manejable de 129 páginas; la tapa dura proporciona una encuadernación más rígida para conservarla o regalarla. Kindle permite leer el texto en el móvil o en un lector electrónico, sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, comparte con la obra de Smith Wigglesworth el interés por cuestiones religiosas y manifestaciones de fe. La primera se identifica por un mensaje de María, mientras que Fe Cada Vez Mayor - el Poder de una Fe que se Atreve a Creer (en español moderno): Sanidades Milagrosas, Resurrecciones de los Muertos y Señales Sobrenaturales destaca las curaciones, resurrecciones y señales sobrenaturales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2964b01215a49817",
+  "origen": "chatgpt-web"
+}

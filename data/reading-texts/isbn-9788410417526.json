@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788410417526",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mogollón (Nuevo): Retos para hacer explotar tu cabeza está dirigido al público infantil interesado en libros de retos. Sus 44 páginas plantean una lectura de extensión reducida; no responde a quien busca una novela juvenil larga o una narración para adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mogollón (Nuevo): Retos para hacer explotar tu cabeza se presenta en tapa dura, con 44 páginas en castellano. Esta edición física de Mosquito Books Barcelona permite tener el libro a mano para consultar sus retos y conservarlo en una estantería infantil.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bee54d2dc0ce0063",
+  "origen": "chatgpt-web"
+}

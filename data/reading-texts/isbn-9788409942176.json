@@ -4,26 +4,27 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Ante la libertad se dirige a lectores interesados en filosofía y en cuestiones relacionadas con el poder y la política. Sus 117 páginas también lo sitúan entre las obras breves de divulgación, frente a quienes buscan una novela de ficción.",
+      "texto": "Ante la libertad se dirige a lectores interesados en la filosofía y las cuestiones de poder y política. Es una obra de Kenyi Martin Alcántara de 117 páginas, por lo que encaja con quien busca un texto de extensión contenida, pero no con quien espera una novela de ficción.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Ante la libertad está disponible en tapa dura, con 117 páginas en castellano. Es una edición física de extensión breve que permite conservar el volumen en una biblioteca o entregarlo como regalo.",
+      "texto": "Ante la libertad está disponible en tapa dura y Kindle. La edición física tiene 117 páginas y ofrece una encuadernación rígida para conservar el ejemplar o regalarlo; Kindle permite leer el texto en formato digital y prescindir del libro físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
+        "edicion",
         "numero_paginas",
-        "idioma"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Ante la libertad comparte el interés por las cuestiones políticas con Colonialismo digital: Por una crítica hacker-fanoniana, aunque este último centra su planteamiento en el ámbito digital. Frente a Ecología o economía: Hay que elegir: 136 (Ensayo), que plantea una disyuntiva económica y ecológica, el libro de Kenyi Martin Alcántara se sitúa en el terreno de la libertad, la filosofía y el poder.",
+      "texto": "Ante la libertad y Anarquía capitalista: Una introducción a las raíces económicas y políticas del pensamiento anarcocapitalista (Ensayo) comparten el interés por cuestiones políticas. La obra de Kenyi Martin Alcántara aborda la libertad desde un marco filosófico, mientras que la de Miguel Anxo Bastos Boubeta delimita su asunto a las raíces económicas y políticas del anarcocapitalismo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,13 +32,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410476585",
-        "isbn-9791399306408"
+        "isbn-9791388182457"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bd78b20e88595041",
+  "fuente_hash": "7b1eb11052e1133f",
   "origen": "chatgpt-web"
 }

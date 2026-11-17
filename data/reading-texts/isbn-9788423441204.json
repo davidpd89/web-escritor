@@ -4,27 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Incorruptibles: Por qué las buenas empresas desaparecen y las excelentes siguen creciendo (Deusto), de Eric Ries, se dirige a lectores interesados en la continuidad y el crecimiento empresarial. Su enfoque económico lo distancia de quienes buscan ficción narrativa o una introducción general a la filosofía política.",
+      "texto": "Incorruptibles: Por qué las buenas empresas desaparecen y las excelentes siguen creciendo (Deusto) se dirige a quienes buscan lecturas sobre la continuidad, el crecimiento y la gestión empresarial. Su planteamiento económico se distancia de las novelas y de los libros de desarrollo personal que no abordan el funcionamiento de las empresas.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Incorruptibles: Por qué las buenas empresas desaparecen y las excelentes siguen creciendo (Deusto) puede leerse en tapa blanda o en Kindle. La edición impresa de Deusto tiene 464 páginas y permite consultar el texto en papel; Kindle facilita llevar la lectura en un dispositivo compatible sin transportar el volumen físico.",
+      "texto": "La tapa blanda ofrece las 464 páginas de Incorruptibles: Por qué las buenas empresas desaparecen y las excelentes siguen creciendo (Deusto) en papel, con posibilidad de volver a los apartados durante su consulta. Kindle permite leerlo en dispositivos digitales y llevar el contenido sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Incorruptibles: Por qué las buenas empresas desaparecen y las excelentes siguen creciendo (Deusto) puede compararse con Antes de liderar: Una mirada interior a un oficio, de Miguel Reinoso. Ambos títulos se relacionan con cuestiones empresariales, pero Eric Ries plantea la permanencia y el crecimiento de las compañías, mientras que Miguel Reinoso centra su obra en el ejercicio del liderazgo. La elección depende de si interesa más la organización o el oficio de dirigir.",
+      "texto": "Antes de liderar: Una mirada interior a un oficio e Incorruptibles: Por qué las buenas empresas desaparecen y las excelentes siguen creciendo (Deusto) comparten el interés por la actividad empresarial y su dirección. Miguel Reinoso aborda el liderazgo desde una mirada interior, mientras que Eric Ries plantea la diferencia entre las empresas que desaparecen y las que mantienen su crecimiento.",
       "evidencias": [
         "titulo",
         "autores",
@@ -38,6 +35,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "2155b08759fd7cb0",
+  "fuente_hash": "31d199741ecd851a",
   "origen": "chatgpt-web"
 }

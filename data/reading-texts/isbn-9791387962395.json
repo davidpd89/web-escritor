@@ -4,27 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Hiraeth, el final de la travesía (edición integral) (Seinen) se dirige a lectores de manga seinen interesados en la fantasía y el terror. Su combinación de géneros y su extensión de 576 páginas lo alejan de quienes buscan realismo sin componentes fantásticos o cómics de pocas páginas.",
+      "texto": "Hiraeth, el final de la travesía (edición integral) (Seinen) se dirige a lectores de fantasía que prefieren las historias desarrolladas mediante cómic. La edición integral de Yuhki Kamatani tiene 576 páginas, de modo que no responde a quien busque una lectura gráfica breve o una novela de prosa.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Hiraeth, el final de la travesía (edición integral) (Seinen) se presenta en tapa dura, con 576 páginas en castellano. La encuadernación rígida resulta práctica para conservar y regalar esta edición integral de Distrito Manga, aunque su extensión supone un volumen considerable para transportar.",
+      "texto": "Hiraeth, el final de la travesía (edición integral) (Seinen) se ofrece en tapa dura, con 576 páginas en castellano. La encuadernación rígida permite conservar esta edición integral como volumen de estantería y utilizarla para relecturas, aunque ocupa más espacio que una edición breve en tapa blanda.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
         "idioma",
-        "editorial"
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Hiraeth, el final de la travesía (edición integral) (Seinen) y Caminando con la muerte 4 (Seinen), de ryoko, comparten la identificación seinen, aunque pertenecen a autores diferentes. Creepy nº 11/29, de Varios autores, ofrece otra referencia vinculada al terror, pero se presenta como una recopilación de distintas autorías frente a la edición integral firmada por Yuhki Kamatani.",
+      "texto": "Hiraeth, el final de la travesía (edición integral) (Seinen) comparte con A Buentiempo Mala Cara: 9 (Enseñanza Mágica Obligatoria) la presencia de fantasía en una obra gráfica, pero sus autores son Yuhki Kamatani y Sergio Sánchez Morán. Agencia de animales mágicos: Medianoche y la leyenda de Santuario (Mi primer cómic), de Steve Smallman, también incorpora elementos mágicos, aunque se presenta como primer cómic y no como edición integral seinen.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +33,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410305830",
-        "isbn-9788411406130"
+        "isbn-9791399305517",
+        "isbn-9788448875381"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "4707fb5dd958f4cb",
+  "fuente_hash": "ffa661770181292b",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,53 @@
+{
+  "id": "isbn-9788419874771",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores interesados en la correspondencia personal, las biografías y la filosofía. No dejo de pensar en ti con amor: Correspondencia (1946-1951) (Filosofía) se orienta hacia documentos epistolares, por lo que se aparta de una introducción sistemática a conceptos filosóficos o de una biografía narrada de principio a fin.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje del volumen es una correspondencia situada entre 1946 y 1951, presentada bajo un título que destaca el vínculo afectivo. Su enfoque epistolar permite acercarse a la dimensión personal de Ludwig Wittgenstein y Ben Richards, en un marco que combina memoria biográfica y filosofía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Athenaica Ediciones publica esta correspondencia en tapa blanda, con 528 páginas en castellano. La extensión permite una lectura prolongada o por grupos de cartas, mientras que la encuadernación flexible resulta práctica para consultar distintos pasajes del volumen.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "titulo",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cartas a Lucilio: Edición íntegra (Clásicos), de Séneca, comparte la forma epistolar y el interés filosófico, aunque corresponde a otra autoría. FILOSOFÍA&CO ESPECIAL FOUCAULT: Pensamiento, vida y obra del filósofo más citado hoy (REVISTA FILOSOFIA&CO) también relaciona pensamiento y trayectoria personal, pero desde un formato de revista dedicado a un filósofo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388182495",
+        "isbn-9788410086555"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f1bdca5a05fdb487",
+  "origen": "chatgpt-web"
+}

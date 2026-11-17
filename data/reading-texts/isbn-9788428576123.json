@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788428576123",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El Dios que se entrega: El Reino de la gratuidad (Caminos XL) se dirige a lectores interesados en la reflexión religiosa sobre Dios y la gratuidad. Por su temática espiritual y sus 316 páginas, se distancia de la narrativa de ficción y de los libros dedicados a cuestiones ajenas a la religión.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El Dios que se entrega: El Reino de la gratuidad (Caminos XL) se publica en tapa blanda, con 316 páginas. Esta edición en papel permite seguir la reflexión religiosa y regresar a apartados anteriores durante una lectura distribuida en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El Dios que se entrega: El Reino de la gratuidad (Caminos XL) y AKITA: Las lágrimas y el mensaje de María comparten el ámbito de la religión cristiana. Vicente Borragán Mata centra su título en Dios y la gratuidad, mientras que Teiji Yasuda aborda las lágrimas y el mensaje de María. Frente a ambos, Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación, de Tsondru Yeshe, plantea una temática espiritual vinculada al Dharma.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388176357",
+        "isbn-9791399210088"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "28a9fd454d3a5ec2",
+  "origen": "chatgpt-web"
+}

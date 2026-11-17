@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La obra de Robert Kirkman y Charlie Adlard se dirige a lectores de cómic y novela gráfica que buscan una entrega numerada dentro de una colección. El título la identifica como el volumen 08/08, por lo que se diferencia de una novela independiente en prosa o de una publicación sin numeración.",
+      "texto": "Esta obra de Robert Kirkman y Charlie Adlard se dirige a lectores de cómic y novela gráfica que buscan una edición extensa en castellano. Sus 672 páginas la alejan de quienes prefieren lecturas breves, y su título la identifica como la entrega 08/08.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "numero_paginas",
+        "idioma",
+        "titulo"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Planeta Cómic se presenta en tapa dura y reúne 672 páginas en castellano. La encuadernación rígida permite conservar y consultar este volumen extenso de cómic, aunque su número de páginas hace menos cómodo transportarlo que un libro breve de bolsillo.",
+      "texto": "La edición en tapa dura de Robert Kirkman y Charlie Adlard reúne 672 páginas publicadas por Planeta Cómic. Permite conservar el volumen físico en una estantería o regalarlo, mientras que Kindle ofrece una alternativa digital para leer sin transportar el ejemplar impreso.",
       "evidencias": [
-        "editorial",
-        "formatos_disponibles",
+        "autores",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "editorial",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La obra de Robert Kirkman y Charlie Adlard puede compararse con El poder del fuego nº 06/06: 6 (Fantasía), que también cuenta con Robert Kirkman entre sus autores. La primera pertenece al ámbito del cómic y la novela gráfica y lleva la numeración 08/08, mientras que la segunda está firmada junto a Chris Samnee y presenta una referencia explícita a la fantasía en su título.",
+      "texto": "Void Rivals Vol 5 - Universo Transformers comparte con esta obra la autoría de Robert Kirkman, aunque incorpora a Andrei Bressan en lugar de Charlie Adlard. El poder del fuego nº 06/06: 6 (Fantasía) también está firmado por Robert Kirkman, acompañado de Chris Samnee, y se distingue por su identificación explícita con la fantasía.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
+        "isbn-9791388484056",
         "isbn-9791388103469"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ee31b9191392b4fd",
+  "fuente_hash": "8017118b584e52b8",
   "origen": "chatgpt-web"
 }

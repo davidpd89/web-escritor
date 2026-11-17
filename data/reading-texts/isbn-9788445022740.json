@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "HDS nº 02/03 El hambre de los dioses (Cantos tintados): 2 (Fantasía) se orienta a lectores de fantasía y aventuras que buscan una novela extensa. Sus 648 páginas y su identificación como segunda entrega la alejan de las lecturas breves y de quienes prefieren comenzar por un volumen inicial.",
+      "texto": "HDS nº 02/03 El hambre de los dioses (Cantos tintados): 2 (Fantasía) se dirige a lectores de fantasía y aventuras que buscan una narración extensa. Sus 648 páginas requieren más tiempo de lectura que una obra breve, por lo que encaja menos con quienes prefieren historias cortas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,29 +13,30 @@
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Minotauro publica esta edición en castellano, con encuadernación en tapa dura y una extensión de 648 páginas. El título incluye la referencia Cantos tintados y la identifica como la entrega n.º 02/03; su fecha editorial es el 25 de noviembre de 2026.",
+      "texto": "Esta edición de Minotauro se publica en castellano y tapa dura, con 648 páginas. Su ISBN es 9788445022740 y su fecha de publicación editorial es el 25 de noviembre de 2026. El título identifica el libro como el n.º 2 dentro de Cantos tintados.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
         "idioma",
         "numero_paginas",
+        "isbn13",
         "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es la opción disponible para esta novela de John Gwynne, con 648 páginas reunidas en un volumen físico. Su encuadernación rígida resulta adecuada para conservar una obra extensa en la estantería, aunque implica manejar un libro de considerable tamaño durante la lectura.",
+      "texto": "La tapa dura es el formato disponible para este libro de John Gwynne, publicado por Minotauro. Sus 648 páginas forman un volumen físico extenso, apropiado para conservar en una estantería o entregar como regalo. La cubierta rígida también ofrece protección durante el almacenamiento y las relecturas.",
       "evidencias": [
         "autores",
+        "editorial",
         "formatos_disponibles",
-        "numero_paginas",
-        "formato_edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Alas de escarcha y oro: El canto del cisne comparte con la obra de John Gwynne el terreno de la fantasía, pero presenta a Eira, un personaje que oculta sus dones. Anatema (edición limitada) (El Bosque Voraz 1) permite comparar entregas numeradas: su título señala el inicio de una serie, mientras que HDS nº 02/03 El hambre de los dioses (Cantos tintados): 2 (Fantasía) se identifica como segunda entrega.",
+      "texto": "Alas de escarcha y oro: El canto del cisne comparte con la obra de John Gwynne su vinculación con la fantasía, aunque presenta a Eira como un personaje que oculta sus dones y debilidades. Alas de Hierro pertenece también al ámbito de la fantasía y las aventuras, pero está escrito por Rebecca Yarros. La diferencia entre estas lecturas se encuentra en la autoría y en los elementos argumentales que destaca cada título.",
       "evidencias": [
         "titulo",
         "autores",

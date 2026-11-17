@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791399321807",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Hombres de frontera: Especial Gran Oeste: 0 (Colección Gran Oeste), de Joao Mottini, se dirige a lectores de cómic y novela gráfica. Sus 258 páginas ofrecen una extensión superior a la de muchos volúmenes breves, mientras que su clasificación lo aleja de las novelas convencionales escritas únicamente en prosa. El título lo identifica como el n.º 0.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Hombres de frontera: Especial Gran Oeste: 0 (Colección Gran Oeste) se publica en tapa blanda por Laramie Ediciones. La edición contiene 258 páginas y utiliza una cubierta flexible, por lo que permite leer y conservar el volumen en papel sin recurrir a una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "editorial",
+        "numero_paginas",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8abbb4ba85395046",
+  "origen": "chatgpt-web"
+}

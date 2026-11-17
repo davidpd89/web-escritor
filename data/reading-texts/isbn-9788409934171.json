@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788409934171",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "ERGOCRACIA: La evolución natural de la democracia, de JC Pascual, se dirige a lectores interesados en los sistemas políticos y su evolución. Su enfoque sobre la democracia y su relación con el poder encaja menos con quienes buscan una lectura centrada en conflictos personales o relaciones sentimentales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "ERGOCRACIA: La evolución natural de la democracia está disponible en tapa blanda y Kindle. La edición impresa reúne 246 páginas para leer y consultar en papel, mientras que Kindle permite acceder al texto desde un dispositivo compatible sin llevar el ejemplar físico.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Gestión pública para todos: Conceptos para el día a día comparte con ERGOCRACIA: La evolución natural de la democracia el interés por la organización de lo público. El libro de Hugo Gabriel Amarillo Cordero se presenta como una explicación de conceptos de gestión cotidiana; el de JC Pascual plantea la evolución de la democracia desde su propio título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399315905"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "df2ee3e687c7f19a",
+  "origen": "chatgpt-web"
+}

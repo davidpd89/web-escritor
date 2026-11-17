@@ -4,40 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está dirigido a lectores de fantasía y aventuras que buscan una edición especial de Rebecca Yarros dentro de Empíreo. Sus 896 páginas y su presentación limitada con cantos decorados encajan con quienes quieren dedicar tiempo a una lectura extensa o conservar una edición física diferenciada. Tiene menos afinidad con quienes prefieren relatos breves y libros ligeros de transportar.",
+      "texto": "Alas de Hierro. Edición Especial Limitada Con Cantos Decorados / Iron Flame. Limited Special Edition with Sprayed Edges: 2 (Empíreo / Empyrean) se dirige a lectores de fantasía y aventuras interesados en ediciones especiales de colección. Sus 896 páginas la hacen menos adecuada para quienes prefieren novelas breves o volúmenes ligeros.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "Esta versión de Alas de Hierro se distingue por sus cantos decorados y su tirada presentada como limitada. Rebecca Yarros firma este volumen de 896 páginas, encuadernado en tapa dura y publicado por Editorial Planeta Mexicana. Su fecha editorial es el 24 de noviembre de 2026 y el título lo identifica como el segundo de Empíreo.",
+      "texto": "Esta versión limitada de Alas de Hierro se distingue por sus cantos decorados y su presentación en tapa dura. El volumen de Rebecca Yarros contiene 896 páginas en castellano, destinadas a una edición física de colección. Su lanzamiento está previsto para noviembre de 2026 bajo el sello Editorial Planeta Mexicana, con ISBN 9786073950664.",
       "evidencias": [
         "titulo",
         "autores",
-        "numero_paginas",
-        "formatos_disponibles",
         "editorial",
+        "edicion",
+        "idioma",
+        "numero_paginas",
+        "isbn13",
         "fecha_publicacion"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa dura es la opción disponible para esta edición especial de 896 páginas. Los cantos decorados aportan un rasgo visual al ejemplar físico, especialmente relevante para quien busca conservarlo o regalarlo. Por su extensión y encuadernación, resulta más adecuado para leer en un lugar fijo que para llevarlo habitualmente en desplazamientos.",
+      "texto": "La tapa dura es el formato disponible de esta edición especial limitada de Rebecca Yarros, con 896 páginas y cantos decorados. El formato físico permite apreciar el acabado de los bordes y conservar el volumen como parte de una colección. Para regalar, su principal rasgo diferenciador es precisamente esa presentación especial.",
       "evidencias": [
         "titulo",
+        "autores",
         "formatos_disponibles",
-        "numero_paginas",
-        "edicion"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El día de la Trilla (Empíreo) comparte con Alas de Hierro la autoría de Rebecca Yarros y su vinculación con Empíreo. El día de la Trilla (Empíreo) Edición limitada con cantos tintados añade una coincidencia en la presentación física, aunque se trata de otro título. Alas de Hierro se distingue por sus 896 páginas, sus cantos decorados y su identificación como n.º 2 dentro de Empíreo.",
+      "texto": "El día de la Trilla (Empíreo) comparte con Alas de Hierro la autoría de Rebecca Yarros y su vinculación con Empíreo. El día de la Trilla (Empíreo) Edición limitada con cantos tintados añade una coincidencia en la presentación especial de los bordes. Alas de Hierro se diferencia por sus 896 páginas y porque el título identifica el volumen como el n.º 2.",
       "evidencias": [
         "titulo",
         "autores",
@@ -52,6 +52,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "d30557dc7e63f558",
+  "fuente_hash": "3605794ef33c139c",
   "origen": "chatgpt-web"
 }

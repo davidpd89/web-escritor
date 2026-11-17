@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788417872106",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Cosmética para peluquería (CFGM PELUQUERÍA Y COSMETICA CAPILAR) se dirige a lectores interesados en la cosmética aplicada a la peluquería y en la formación profesional de este ámbito. Por su enfoque técnico, se aleja de las novelas y de las lecturas centradas en el entretenimiento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Cosmética para peluquería (CFGM PELUQUERÍA Y COSMETICA CAPILAR) se presenta en tapa blanda, con 240 páginas en castellano. El volumen físico permite consultar sus contenidos durante el estudio y conservarlo junto a otros materiales de peluquería.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Cosmética para peluquería (CFGM PELUQUERÍA Y COSMETICA CAPILAR) y Análisis capilar (CFGM PELUQUERÍA Y COSMETICA CAPILAR) comparten el ámbito de la peluquería y los mismos autores. El primero se centra en la cosmética para peluquería, mientras que el segundo aborda el análisis capilar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788415309130"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e1e8f26443af37f9",
+  "origen": "chatgpt-web"
+}

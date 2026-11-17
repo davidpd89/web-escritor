@@ -4,26 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias) se dirige a lectores interesados en desarrollo personal, psicología y reflexión sobre las decisiones vitales. Su planteamiento de 150 enseñanzas encaja menos con quienes buscan una novela o un manual centrado exclusivamente en investigación académica.",
+      "texto": "Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias), de Seung-hwan Jeon, se dirige a lectores interesados en el desarrollo personal, la psicología y el ensayo. Su planteamiento se encuadra en la reflexión personal, no en la narrativa de ficción ni en la lectura infantil y juvenil.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "numero_paginas"
+        "autores",
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias) es de tapa blanda y contiene 288 páginas. Este volumen de Bruguera permite leer las enseñanzas en papel y volver a apartados concretos durante distintas sesiones de lectura.",
+      "texto": "Con 288 páginas, la tapa blanda ofrece una edición física para leer y consultar sus enseñanzas. Kindle permite acceder al mismo libro en formato digital, una alternativa para quienes prefieren llevar sus lecturas en un dispositivo electrónico.",
       "evidencias": [
-        "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "editorial"
+        "formatos_disponibles",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias) comparte el ámbito del desarrollo personal con El cerebro optimista, de Mikel Alonso. Seung-hwan Jeon estructura su libro alrededor de 150 enseñanzas para orientar decisiones personales, mientras que Mikel Alonso aborda el crecimiento personal desde la neurociencia. Ambos tratan cuestiones psicológicas desde perspectivas diferentes.",
+      "texto": "Cuando no sé lo que quiero: 150 enseñanzas para encontrar tu camino (Bruguera Tendencias), de Seung-hwan Jeon, comparte el interés por el desarrollo personal con Abraza a tu niño interior: Nunca es tarde para sanar tu infancia, de Victoria Cadarso. Ambos se sitúan en el terreno de la reflexión personal, aunque el segundo título centra su temática en la infancia y el primero en encontrar un camino propio.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387662639"
+        "isbn-9788410944206"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "560dc5251747e235",
+  "fuente_hash": "2286b7136800d8a4",
   "origen": "chatgpt-web"
 }

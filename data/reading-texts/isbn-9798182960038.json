@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9798182960038",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "John y su elefante azul, de Brian Edlin, pertenece a la literatura infantil y presenta desde el título a un niño y un elefante. Con 26 páginas, responde a la búsqueda de una lectura corta; su extensión queda lejos de la de las novelas juveniles de varios cientos de páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de John y su elefante azul es de tapa blanda y contiene 26 páginas. Publicada por Self Publisher en castellano, ofrece una lectura física de poca extensión, manejable para llevar en una bolsa o compartir durante una sesión de lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "John y su nuevo amigo Ash y John y su elefante azul tienen en común a John y están escritos por Brian Edlin, pero el primero menciona a Ash como nuevo amigo y el segundo a un elefante azul. La imaginación de Michael, del mismo autor, cambia el personaje mencionado en el título y sitúa la imaginación en primer plano.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9798182960151",
+        "isbn-9798182960182"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9bff483a159d5e44",
+  "origen": "chatgpt-web"
+}

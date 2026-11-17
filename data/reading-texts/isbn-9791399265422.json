@@ -1,0 +1,39 @@
+{
+  "id": "isbn-9791399265422",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Flora de Cabrera hierbas, cultivos y saberes Tomo I: Plantas medicinales se dirige a quienes buscan información sobre plantas medicinales y su relación con el bienestar. Por su temática, se aleja de los libros centrados en hábitos generales de salud o consejos de longevidad.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne las 262 páginas de Flora de Cabrera hierbas, cultivos y saberes Tomo I: Plantas medicinales en un volumen físico. Este formato permite consultar el contenido sobre plantas medicinales y volver a sus páginas sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Flora de Cabrera hierbas, cultivos y saberes Tomo I: Plantas medicinales comparte el ámbito del bienestar con 100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia). El primero se centra en las plantas medicinales, mientras que el libro de Dick Van Dyke aborda la longevidad, el optimismo y el humor mediante consejos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387852290"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ebb2d8c0d9065f7f",
+  "origen": "chatgpt-web"
+}

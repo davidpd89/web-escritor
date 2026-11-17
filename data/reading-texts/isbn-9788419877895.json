@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788419877895",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "LIBRES!!!: Cabaret anarcosicalíptico: 20 (El teatro moderno) se dirige a lectores interesados en el teatro, el arte y las cuestiones políticas. Su pertenencia a una colección teatral y su clasificación como ensayo lo alejan de quienes buscan una novela de aventuras o un manual de creación artística.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "LIBRES!!!: Cabaret anarcosicalíptico: 20 (El teatro moderno) se edita en tapa blanda y reúne 160 páginas. Esta presentación permite llevar el volumen a lecturas compartidas o consultar fragmentos de una obra vinculada al ámbito teatral y político.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "LIBRES!!!: Cabaret anarcosicalíptico: 20 (El teatro moderno) comparte el interés por la política con Caminos opuestos: Contra el sionismo (Biblioteca Judith Butler), de Judith Butler. El libro de Esther F Carrodeguas incorpora el cabaret y una referencia teatral desde su título, mientras que el de Judith Butler delimita su asunto mediante una posición política concreta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346071"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "8b1add1922152375",
+  "origen": "chatgpt-web"
+}

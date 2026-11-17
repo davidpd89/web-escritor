@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791388424632",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Olas de sangre se orienta a lectores interesados en el misterio y el thriller, con preferencia por libros de extensión contenida. Sus 204 páginas permiten abordar el género sin comprometerse con una novela especialmente larga, pero no responde a quien busca una lectura de divulgación o desarrollo personal.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Olas de sangre está disponible en tapa blanda, una presentación física para sus 204 páginas. La edición de Universo de Letras, publicada en castellano, resulta manejable para llevarla durante los desplazamientos o conservarla junto a otras novelas de misterio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "25 días hasta Navidad comparte con Olas de sangre el ámbito del thriller, pero introduce una referencia navideña que diferencia su planteamiento. Aguas muertas: Las novelas que han inspirado la famosa serie Shetland, emitida en Filmin (Principal Noir) ofrece otra referencia de misterio, vinculada a una serie, mientras que Olas de sangre es una obra de Nerea Castro de 204 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788427055063",
+        "isbn-9788410424524"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7fe9bbe1d001bb62",
+  "origen": "chatgpt-web"
+}

@@ -4,55 +4,38 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Este libro encaja con lectores de fantasía interesados en la obra de Tolkien y en ediciones con cantos decorados. Sus 448 páginas y su presentación en tapa blanda lo alejan de quienes buscan una lectura breve o una edición sin acabados ornamentales.",
+      "texto": "Hobbit, el. Edición especial con cantos decorados se dirige a lectores de fantasía interesados en una obra de Tolkien. Con 448 páginas, responde a quienes buscan una lectura extensa y se aleja de los cuentos breves y de la narrativa realista.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "numero_paginas",
-        "edicion",
-        "formatos_disponibles"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "esta_edicion",
-      "texto": "La característica distintiva de Hobbit, el. Edición especial con cantos decorados es el acabado decorativo de los cantos, combinado con una encuadernación en tapa blanda. Booket publica esta edición de 448 páginas en castellano, identificada mediante el ISBN 9788445022719.",
+      "texto": "Esta edición de Hobbit, el. Edición especial con cantos decorados se distingue por los cantos decorados anunciados en su título. Booket la publica en castellano, en tapa blanda y con 448 páginas, características que permiten identificarla frente a otras presentaciones de la obra.",
       "evidencias": [
         "titulo",
         "editorial",
         "edicion",
-        "numero_paginas",
         "idioma",
-        "isbn13"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda es el formato disponible para esta edición de 448 páginas, con cantos decorados como rasgo de presentación. Permite leer el libro en papel y conservar una edición con un acabado visual particular, sin recurrir a una encuadernación rígida.",
+      "texto": "Hobbit, el. Edición especial con cantos decorados está disponible en tapa blanda, con 448 páginas. Esta presentación de Booket combina un volumen físico de cubierta flexible con el acabado de cantos decorados que identifica la edición, tanto para conservarlo en una biblioteca como para regalarlo.",
       "evidencias": [
-        "formatos_disponibles",
+        "titulo",
+        "edicion",
         "numero_paginas",
-        "titulo",
-        "formato_edicion"
-      ]
-    },
-    {
-      "modulo": "lecturas_afines",
-      "texto": "Al despertar, rompe el cascarón (Runas), de Becky Chambers, ofrece otra referencia de ficción especulativa, mientras que el libro de Tolkien se identifica expresamente con la fantasía. Aftermyth 1. Penelope y la prueba de los dioses, de Tracy Wolff, plantea desde su título una prueba relacionada con los dioses, frente al rasgo editorial que distingue esta edición de Hobbit: sus cantos decorados.",
-      "evidencias": [
-        "afines_catalogo",
-        "titulo",
-        "autores",
-        "categorias"
-      ],
-      "enlaces": [
-        "isbn-9788408324102",
-        "isbn-9791370093488"
+        "formatos_disponibles"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "a45e02ae851359dd",
+  "fuente_hash": "fa306cfca524a153",
   "origen": "chatgpt-web"
 }

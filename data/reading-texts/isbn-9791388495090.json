@@ -1,0 +1,29 @@
+{
+  "id": "isbn-9791388495090",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dogsred, vol. 2 está dirigido a lectores de cómic y novela gráfica que buscan continuar una colección identificada por volúmenes. El título lo identifica como el n.º 2 y, por ello, resulta menos adecuado para quienes prefieran comenzar directamente por una primera entrega o leer una obra en formato de novela en prosa.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dogsred, vol. 2 se publica en tapa blanda y reúne 186 páginas en castellano. La edición de Milky Way Ediciones puede guardarse junto a otros volúmenes y transportarse con una cubierta flexible; su formato físico permite consultar las páginas directamente, sin pantalla ni reproducción de audio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1534755373193f4e",
+  "origen": "chatgpt-web"
+}

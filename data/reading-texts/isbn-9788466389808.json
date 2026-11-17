@@ -1,0 +1,56 @@
+{
+  "id": "isbn-9788466389808",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La viuda (edición limitada · Black Friday) (Campaña | Black Friday) se dirige a lectores de misterio y thriller que buscan una novela de John Grisham. Por su género, encaja menos con quienes prefieren historias centradas en el romance o la fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de La viuda (edición limitada · Black Friday) (Campaña | Black Friday) pertenece a Penguin Bolsillo y se presenta como una edición limitada vinculada a Black Friday. Publicada el 2026-10-01, reúne 496 páginas en castellano, con encuadernación de tapa blanda y formato de bolsillo.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "formato_edicion",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La viuda (edición limitada · Black Friday) (Campaña | Black Friday) está disponible en tapa blanda, dentro de la colección Penguin Bolsillo. Sus 496 páginas se presentan en un volumen de bolsillo, una opción física para transportar la novela y leerla por sesiones sin recurrir a dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El jurado / The Runaway Jury y La tapadera (La tapadera 1) comparten autoría con La viuda (edición limitada · Black Friday) (Campaña | Black Friday): las tres obras son de John Grisham. La tapadera (La tapadera 1) plantea una situación relacionada con ofertas de bufetes jurídicos, mientras que La viuda se presenta dentro del misterio y el thriller.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786287897373",
+        "isbn-9788401042706"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "aafe2566c1c07919",
+  "origen": "chatgpt-web"
+}

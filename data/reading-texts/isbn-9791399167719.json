@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791399167719",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Archivo de nubes (Atlas inesperados) se sitúa entre la divulgación científica y el arte, por lo que se dirige a lectores interesados en ambos ámbitos y en el tema de las nubes. No responde al planteamiento de una novela de ficción ni al de un manual técnico de una disciplina profesional.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura de Ediciones Menguantes reúne 144 páginas en castellano. Su encuadernación rígida resulta adecuada para conservar el volumen y regalarlo, mientras que la extensión permite consultarlo sin manejar un libro especialmente voluminoso.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Del cosmos a la vida: Un diálogo entre ciencia y arte (Obras diversas), de Carlos Briones, comparte la relación entre ciencia y expresión artística, aunque su título plantea una perspectiva más amplia que el tema de las nubes. Atrapados por la prehistoria: Investigación sobre el arte y los tiempos modernos (PIGMALION), de Maria Stavrinaki, también conecta con el arte, pero lo aborda desde la prehistoria y los tiempos modernos en lugar de centrarse en un fenómeno natural.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399236422",
+        "isbn-9788401039287"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6509ef419f50b08b",
+  "origen": "chatgpt-web"
+}

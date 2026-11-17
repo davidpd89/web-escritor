@@ -4,30 +4,29 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Beyond the Channels: Los canales, de José Javier Nicolás Tejedor, se orienta a lectores interesados en economía y empresa. Sus 287 páginas permiten abordar esa materia en un volumen de extensión media; por su clasificación temática, queda fuera de las lecturas centradas en el romance o la fantasía.",
+      "texto": "Beyond the Channels: Los canales encaja con lectores interesados en economía y empresa. Sus 287 páginas y su clasificación temática lo sitúan fuera de las búsquedas centradas en ficción, poesía o narrativa de aventuras.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Beyond the Channels: Los canales se presenta en tapa blanda, con 287 páginas en castellano. Es una edición física que puede transportarse y consultarse por apartados, con una extensión manejable para repartir la lectura entre distintas sesiones.",
+      "texto": "Beyond the Channels: Los canales está disponible en tapa blanda y Kindle. La edición impresa reúne 287 páginas para consultar y señalar pasajes en papel; Kindle permite llevar la lectura en un dispositivo compatible sin transportar el volumen físico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Beyond the Channels: Los canales y Beyond the Channels: Los cimientos comparten autor, José Javier Nicolás Tejedor, y la denominación Beyond the Channels. Sus títulos distinguen dos enfoques nominales, los canales y los cimientos, sin establecer por sí mismos un orden de lectura. Frente a ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, también cambia la autoría.",
+      "texto": "Beyond the Channels: Los cimientos es la comparación más directa con Beyond the Channels: Los canales: ambos títulos pertenecen a José Javier Nicolás Tejedor y comparten la denominación Beyond the Channels. ALQUIMIA: El sorprendente poder de las ideas que no tienen ningún sentido, de Rory Sutherland, ofrece otra referencia vinculada al ámbito de las ideas, aunque con distinta autoría y enfoque anunciado en el título.",
       "evidencias": [
         "titulo",
         "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -38,6 +37,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "663958c1db2a06ed",
+  "fuente_hash": "35ea156cf60f1ca7",
   "origen": "chatgpt-web"
 }

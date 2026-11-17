@@ -4,16 +4,15 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a quienes quieren regalar a su madrina un espacio dedicado a sus recuerdos y experiencias personales. Madrina, cuéntame tu historia: Un libro de recuerdos para compartir - Un regalo original para la mejor madrina del mundo, de Rose Hannah Morel, responde a un propósito familiar y autobiográfico, no a la búsqueda de una biografía sobre un personaje histórico.",
+      "texto": "Madrina, cuéntame tu historia está pensado para quienes desean compartir y conservar recuerdos personales de una madrina. Su orientación hacia la memoria familiar y el regalo lo distingue de una biografía convencional sobre una figura pública.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "La memoria personal y la relación con la madrina constituyen el centro de este libro de recuerdos. Rose Hannah Morel plantea una obra orientada a compartir la historia de una persona cercana, con un enfoque vinculado a las memorias y al regalo familiar. El interés recae en la experiencia individual, no en una reconstrucción histórica general.",
+      "texto": "El libro de Rose Hannah Morel gira en torno a la historia personal de una madrina y a la transmisión de sus recuerdos. Su planteamiento se sitúa en el ámbito de las memorias y propone compartir experiencias familiares mediante un libro concebido como regalo.",
       "evidencias": [
         "titulo",
         "autores",
@@ -22,30 +21,32 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda ofrece 100 páginas en un volumen físico concebido como libro de recuerdos para regalar a una madrina. Publicada por Bod - Books On Demand, permite entregar el ejemplar en persona y conservarlo junto a otros recuerdos familiares. Su extensión facilita manejarlo y guardarlo sin ocupar demasiado espacio.",
+      "texto": "La edición en tapa blanda contiene 100 páginas y está publicada en castellano por Bod - Books On Demand. Su presentación física permite entregarla como regalo y conservarla junto a otros recuerdos familiares.",
       "evidencias": [
-        "titulo",
-        "numero_paginas",
         "formatos_disponibles",
-        "editorial"
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El tiempo que pasa, de Manuel Medina, comparte con Madrina, cuéntame tu historia: Un libro de recuerdos para compartir - Un regalo original para la mejor madrina del mundo el interés por preservar experiencias personales. Manuel Medina evoca la infancia y la España de la posguerra, mientras Rose Hannah Morel propone un libro de recuerdos centrado en la historia de una madrina.",
+      "texto": "Alfred y Emily (Narrativa), de Doris Lessing, comparte con Madrina, cuéntame tu historia su proximidad a los relatos de vidas personales, aunque Rose Hannah Morel plantea un libro de recuerdos para compartir. Asuntos pendientes: Hay historias que terminan, pero no se acaban (Autoconocimiento), de Frish Brandt, introduce otra perspectiva sobre la experiencia personal, mientras el libro de Rose Hannah Morel se centra en la figura de la madrina.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias",
-        "afines_catalogo"
+        "categorias"
       ],
       "enlaces": [
-        "isbn-9788401040580"
+        "isbn-9788426438515",
+        "isbn-9788411193795"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "02d0e065b24f9810",
+  "fuente_hash": "95a346e11c01195e",
   "origen": "chatgpt-web"
 }

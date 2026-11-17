@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Está orientado a lectores de ensayo interesados en la economía digital y en el poder adquirido por las plataformas tecnológicas. Su planteamiento económico y crítico encaja menos con quien busca un manual de programación o una explicación puramente técnica de las herramientas digitales.",
+      "texto": "Se dirige a lectores interesados en la economía digital, las plataformas tecnológicas y sus consecuencias sociales y económicas. Su planteamiento ensayístico encaja con una búsqueda de análisis sobre tecnología y poder económico, no con la de una guía práctica para utilizar aplicaciones.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,7 +12,7 @@
     },
     {
       "modulo": "temas_y_enfoque",
-      "texto": "Tim Wu examina la expansión económica de las plataformas tecnológicas mediante el concepto de extracción y sus consecuencias para el futuro. El enfoque combina el análisis de la economía y la empresa con una perspectiva ensayística sobre la concentración de poder tecnológico.",
+      "texto": "El libro examina la expansión económica de las plataformas tecnológicas y los riesgos que plantea su capacidad de extracción. Tim Wu aborda estas cuestiones desde un marco que reúne economía, ensayo y divulgación científica, con atención a las consecuencias futuras del modelo de negocio tecnológico.",
       "evidencias": [
         "titulo",
         "autores",
@@ -21,25 +21,26 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda contiene 240 páginas en castellano y permite subrayar o consultar físicamente los argumentos del ensayo. Es una opción para quien prefiere trabajar sobre papel al leer cuestiones económicas, aunque requiere transportar el volumen en lugar de llevarlo en el móvil.",
+      "texto": "La edición en tapa blanda de Shackleton Books tiene 240 páginas en castellano. Su extensión permite abordar el análisis de las plataformas tecnológicas en un volumen físico que puede consultarse y anotarse durante la lectura.",
       "evidencias": [
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
         "idioma",
-        "categorias"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El enemigo conoce el sistema: Manipulación de ideas, personas e influencias después de la economía de la atenc (Sociedad), de Marta Peirano, comparte el interés por el poder de los sistemas digitales, pero se centra en la manipulación y la economía de la atención. La era de la extracción: Cómo las plataformas tecnológicas conquistaron la economía y amenazan nuestro futuro (Shackleton Books), de Tim Wu, pone el foco en el dominio económico de las plataformas.",
+      "texto": "Comparte el interés por cuestiones económicas con Prepara tu segunda carrera: Las claves para construirla desde hoy (Economía y Empresa), de Alfonso Jiménez. La diferencia está en el objeto de estudio: Tim Wu analiza el poder económico de las plataformas tecnológicas, mientras que el otro título se ocupa de la construcción de una segunda trayectoria profesional.",
       "evidencias": [
         "titulo",
         "autores",
-        "afines_catalogo",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388387951"
+        "isbn-9791370205713"
       ]
     }
   ],

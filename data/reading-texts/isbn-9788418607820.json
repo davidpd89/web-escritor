@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Magnificat enero 2027: N°278 se dirige a lectores interesados en publicaciones periódicas de religión y espiritualidad. Su identificación con un mes y un número concreto lo diferencia de los tratados generales sobre espiritualidad y de las novelas con una trama independiente.",
+      "texto": "Magnificat enero 2027: N°278 se dirige a lectores interesados en publicaciones de religión y espiritualidad vinculadas a un mes concreto. Su identificación como número de enero de 2027 lo distingue de los libros religiosos de temática general y de las lecturas ajenas a la práctica espiritual.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,17 +12,17 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de Magnificat enero 2027: N°278 contiene 432 páginas en castellano. El soporte impreso permite consultar sus contenidos durante el periodo indicado en el título y conservar el número como parte de una colección física.",
+      "texto": "La edición de Magnificat enero 2027: N°278 es en tapa blanda y reúne 432 páginas en castellano. El volumen físico permite consultar sus contenidos y conservar el número correspondiente a enero de 2027, aunque su extensión requiere más espacio que una publicación breve.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "formatos_disponibles",
+        "numero_paginas",
         "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Magnificat enero 2027: N°278 y Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación se relacionan con la lectura espiritual. La publicación de MAGNIFICAT, Pablo Cervera Barranco y Pierre Marie Dumont está identificada por un mes y un número, mientras que el libro de Tsondru Yeshe se presenta como una exposición de fundamentos y práctica del Dharma. Al andar: Vivencias del Camino de Santiago, de Carlos Díaz Ballesta, incorpora además el componente de experiencia personal ligada a un recorrido.",
+      "texto": "AKITA: Las lágrimas y el mensaje de María, de Teiji Yasuda, comparte con Magnificat enero 2027: N°278 el ámbito religioso, pero el primero identifica un asunto mariano concreto. La publicación de MAGNIFICAT, Pablo Cervera Barranco y Pierre Marie Dumont se distingue por su referencia a un mes y a un número editorial, frente al enfoque temático del título de Teiji Yasuda.",
       "evidencias": [
         "titulo",
         "autores",
@@ -30,13 +30,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496",
-        "isbn-9791399210088"
+        "isbn-9791388176357"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "1807ebfdb628bdb2",
+  "fuente_hash": "50de4183a3635738",
   "origen": "chatgpt-web"
 }

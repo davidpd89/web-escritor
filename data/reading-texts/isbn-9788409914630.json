@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788409914630",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Bellavista se dirige a lectores interesados en la poesía dentro del ámbito infantil y juvenil. Sus 22 páginas plantean una lectura breve, distinta de la que busca quien prefiere novelas extensas o relatos de aventuras desarrollados en varios capítulos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Bellavista está publicado en tapa dura y tiene 22 páginas en castellano. Su extensión permite leerlo en sesiones cortas, mientras que la encuadernación rígida resulta práctica para conservarlo en una biblioteca infantil o entregarlo como regalo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Bellavista puede compararse con El baile diminuto (Poesía Ilustrada), de María José Ferrada, por su relación con la poesía. También comparte con Esperando la Navidad. Cuentos, poemas y otras sorpresas para el Adviento la presencia de textos poéticos para lectores jóvenes, aunque este último reúne cuentos, poemas y canciones vinculados al Adviento.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788413432984",
+        "isbn-9788408326564"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b3bf5909595213c7",
+  "origen": "chatgpt-web"
+}

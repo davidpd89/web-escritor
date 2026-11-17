@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791387972998",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Encaja con lectores de fantasía y aventuras que buscan historias de unicornios, gnomos y mundos mágicos. Rescatadoras de Unicornios 11 - Viaje al País de los Gnomos, de Ana Punset, tiene 144 páginas; por su temática, se aleja de las lecturas centradas en conflictos realistas y cotidianos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa dura, con 144 páginas y purpurina en la cubierta. Este formato permite conservar la cubierta decorada en una colección física y resulta práctico para regalar un ejemplar impreso. Montena publica esta edición en castellano.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Unicornia 18 - Una noche luminosa: ¡Un libro mágico con purpurina en la cubierta! (Universo Unicornia) comparte autora, universo y cubierta con purpurina, aunque pertenece a otra serie numerada. Unicornia - El libro de recetas mágicas: ¡Más de 25 recetas para cocinar en familia con mucho brilli-brilli! (Universo Unicornia) también es de Ana Punset, pero propone cocinar en familia en lugar de seguir una aventura fantástica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387973025",
+        "isbn-9791387973001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ece8dc93e7766875",
+  "origen": "chatgpt-web"
+}

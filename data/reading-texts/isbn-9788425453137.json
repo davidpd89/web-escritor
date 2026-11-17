@@ -1,29 +1,29 @@
 {
   "id": "isbn-9788425453137",
-  "familia": "practico",
+  "familia": "no_ficcion",
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El médico en la era tecnológica (fuera de colección), de Karl Jaspers, se orienta a lectores de ensayo interesados en la filosofía y la relación entre medicina y tecnología. También conecta con la historia y el bienestar, pero no responde al planteamiento de un manual de ejercicios físicos o de nutrición.",
+      "texto": "El médico en la era tecnológica (fuera de colección) se dirige a lectores interesados en la filosofía y en las cuestiones relacionadas con la medicina y la tecnología. Su clasificación como ensayo lo aleja de quienes buscan un manual de procedimientos médicos o una narración de ficción.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Sus 176 páginas pueden leerse en tapa blanda o en Kindle, según se prefiera el papel o la pantalla. La edición física de Herder Editorial permite conservar y consultar el ensayo en una biblioteca, mientras que Kindle facilita transportarlo y acceder al texto desde distintos dispositivos compatibles.",
+      "texto": "El médico en la era tecnológica (fuera de colección) está disponible en tapa blanda y Kindle, con una extensión de 176 páginas. La edición impresa permite consultar y señalar pasajes sobre papel; Kindle facilita llevar la lectura en un dispositivo electrónico sin transportar el volumen.",
       "evidencias": [
-        "numero_paginas",
+        "titulo",
         "formatos_disponibles",
-        "editorial",
+        "numero_paginas",
         "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "El médico en la era tecnológica (fuera de colección) puede compararse con La naturaleza del poder: 34 (Tascabili), de Luciano Canfora, por su orientación hacia el ensayo y la reflexión sobre asuntos sociales. Karl Jaspers sitúa el foco en la medicina dentro de una época tecnológica, mientras que el título de Luciano Canfora dirige la atención al poder.",
+      "texto": "El médico en la era tecnológica (fuera de colección) y El código bushido: La filosofía de los samuráis / Edición comentada por Marcos Cartagena comparten una orientación filosófica. Karl Jaspers vincula su obra con la medicina y la tecnología, mientras que el título de Inazo Nitobe se ocupa de la filosofía de los samuráis y anuncia una edición comentada.",
       "evidencias": [
         "titulo",
         "autores",
@@ -31,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387938208"
+        "isbn-9791388080968"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "9e755bda077b6271",
+  "fuente_hash": "4720794e2af52ae6",
   "origen": "chatgpt-web"
 }

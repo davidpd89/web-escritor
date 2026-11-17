@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410944152",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La música oculta de los Illuminati: De Mozart a Rosalía se dirige a lectores interesados en la música desde la perspectiva del ensayo y el arte. Por su enfoque temático, encaja menos con quien busca una novela o un manual de aprendizaje musical.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La música oculta de los Illuminati: De Mozart a Rosalía está disponible en tapa blanda, con 472 páginas en castellano. Esta edición de La Esfera de los Libros permite consultar el ensayo en papel y volver a sus distintos apartados durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La música oculta de los Illuminati: De Mozart a Rosalía y Bella ciao: Historia de un himno popular: 32 (Tascabili) comparten el interés por la música. El primero plantea un recorrido de Mozart a Rosalía, mientras que el segundo se centra en la historia de un himno popular. También puede compararse con 124 zarzuelas montañesas en la cueva del olvido: Escritas entre 1853 y 1958, cuyo título delimita un repertorio y un periodo histórico concretos.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399183030",
+        "isbn-9788410435292"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d122fad3324393b1",
+  "origen": "chatgpt-web"
+}

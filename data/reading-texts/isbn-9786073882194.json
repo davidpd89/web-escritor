@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El fantasma de Kennedy / Kennedy's Ghost está dirigido a quienes leen historia, biografías y memorias, especialmente sobre el siglo XX. La obra de Silvia Tirado Bazán tiene 112 páginas y se aparta de las lecturas centradas en ficción o en cuestiones de actualidad sin perspectiva histórica.",
+      "texto": "El fantasma de Kennedy / Kennedy's Ghost se dirige a lectores interesados en la historia y en las obras de carácter biográfico. Con 112 páginas, propone una extensión reducida frente a los estudios históricos de mayor volumen; no pertenece al ámbito de la ficción fantástica ni al de los manuales prácticos.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
         "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El fantasma de Kennedy / Kennedy's Ghost se publica en tapa blanda, con 112 páginas en castellano. Su extensión permite abordar el volumen en sesiones de lectura relativamente breves, y la encuadernación facilita llevarlo en una bolsa o mochila para leer fuera de casa.",
+      "texto": "El fantasma de Kennedy / Kennedy's Ghost cuenta con una edición en tapa blanda de 112 páginas, publicada en castellano. Su extensión permite transportar el ejemplar con facilidad y consultarlo en papel, mientras que la encuadernación flexible ocupa menos espacio que un volumen rígido de dimensiones equivalentes.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,20 +23,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Corona Nostra: De Felipe VI a Felipe V, de Nieves Concostrina, comparte con El fantasma de Kennedy / Kennedy's Ghost el interés por las figuras históricas y su contexto político. El primero se centra, según su título, en la monarquía, mientras que la obra de Silvia Tirado Bazán remite a Kennedy y se sitúa en el ámbito de las biografías y la historia del siglo XX.",
+      "texto": "El fantasma de Kennedy / Kennedy's Ghost se relaciona con Ayer enterramos a un niño en Palma: Vida y muerte de Chocolate (1965-1978), de Tomeu Canyelles Canyelles, por su proximidad a la historia y las biografías. El segundo identifica una trayectoria vital y un periodo concreto, mientras que el primero sitúa a Kennedy en su título. También comparte el interés histórico con Cesar La conquista de la eternidad, de Alberto Angela, aunque este último se ocupa de un general romano.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410944176"
+        "isbn-9788417645311",
+        "isbn-9788410944329"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "bcaa95031be2f39d",
+  "fuente_hash": "285ee93a393e3ca3",
   "origen": "chatgpt-web"
 }

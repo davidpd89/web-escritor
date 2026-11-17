@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9781506556673",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Huellas Eternas, de Giovanna B. Mireles, figura entre las publicaciones relacionadas con el ocio y las aficiones. Se orienta, por tanto, a quienes exploran lecturas de tiempo libre, en lugar de buscar específicamente una obra de divulgación científica o una novela de fantasía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Huellas Eternas tiene una edición en tapa blanda de 114 páginas. El volumen físico ofrece una extensión relativamente breve para dedicarle tiempo de lectura y permite conservarlo o prestarlo sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Huellas Eternas comparte el ámbito del ocio con 99 Sudoku (LIBROS SINGULARES) y Abecedarios bordados a mano: Más de 1.000 letras y números con sus diagramas. El libro de Giovanna B. Mireles se presenta bajo un título general, mientras que los otros identifican actividades concretas: resolver sudokus y trabajar con diagramas de bordado. Esta diferencia permite distinguir una temática abierta de dos aficiones expresamente nombradas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411724425",
+        "isbn-9788498748208"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a2f845b298eec7df",
+  "origen": "chatgpt-web"
+}

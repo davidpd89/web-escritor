@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410476714",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Otoño alemán: 61 (NoFicción), de Stig Dagerman, se orienta a lectores interesados en historia, biografías y memorias. Con 128 páginas, ofrece una extensión relativamente breve; no responde a la búsqueda de una novela de fantasía o romance.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Otoño alemán: 61 (NoFicción) tiene una edición en tapa blanda de 128 páginas, publicada por Pepitas de calabaza. Su extensión permite transportarlo con facilidad y leerlo en papel sin cargar con un volumen especialmente largo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Otoño alemán: 61 (NoFicción) y La serpiente comparten autor: Stig Dagerman. La diferencia es el enfoque editorial: Otoño alemán: 61 (NoFicción) se clasifica dentro de historia, biografías y memorias, mientras que La serpiente es una novela antibelicista escrita durante la Segunda Guerra Mundial.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387922474"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "38e8e3ad1fb8e84e",
+  "origen": "chatgpt-web"
+}

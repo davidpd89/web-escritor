@@ -4,50 +4,54 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Osito Tito: Diversión En La Granja se dirige al público infantil interesado en los animales, la naturaleza y las aventuras. Sus 8 páginas en cartón plantean una lectura breve, menos adecuada para quien busca una historia extensa o una novela juvenil.",
+      "texto": "Osito Tito: Diversión En La Granja se dirige al público infantil que comienza a familiarizarse con los libros y las escenas de animales y entornos rurales. Benji Davies presenta un volumen de cartón de 8 páginas, pensado para una experiencia breve de lectura compartida y observación. Encaja menos con quienes buscan historias extensas o libros con abundante texto.",
       "evidencias": [
         "titulo",
-        "categorias",
+        "autores",
+        "edicion",
         "numero_paginas",
-        "edicion"
+        "categorias"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "El libro se utiliza pasando sus 8 páginas de cartón para explorar una propuesta infantil ambientada en la granja. Su extensión permite recorrerlo de principio a fin en una sesión breve y volver a sus páginas durante la lectura compartida.",
+      "texto": "Osito Tito: Diversión En La Granja puede utilizarse como libro de observación y lectura compartida sobre el entorno de una granja. Sus 8 páginas de cartón permiten avanzar por el volumen en sesiones breves y volver a las páginas anteriores. El formato físico facilita que un adulto acompañe al niño mientras señala elementos y conversa sobre el tema del libro.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
         "edicion",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Osito Tito: Diversión En La Granja está disponible en tapa dura, con una edición de cartón de 8 páginas. Este formato permite manipular las páginas durante la lectura infantil y conservar el volumen para volver a utilizarlo.",
+      "texto": "Osito Tito: Diversión En La Granja está disponible en tapa dura, concretamente como libro de cartón. Sus 8 páginas forman un volumen físico breve que puede manipularse durante la lectura compartida y guardarse con otros libros infantiles. Esta edición de Candlewick Press (ma) permite consultar las páginas directamente, sin necesidad de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Osito Tito: Diversión En La Granja y Osito Tito. Calendario de Adviento comparten el personaje de Benji Davies, pero el primero se centra en la granja y el segundo en el calendario de Adviento. Ambos pertenecen al ámbito infantil y presentan temas diferentes dentro de las obras protagonizadas por Osito Tito.",
+      "texto": "Osito Tito: Diversión En La Granja comparte autor y personaje con El gran libro de los colores de Osito Tito, de Benji Davies. La diferencia está en el tema: uno se centra en la granja y el otro en los colores. Ambos pertenecen al ámbito infantil, mientras que Osito Tito: Diversión En La Granja se presenta específicamente como libro de cartón de 8 páginas.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
+        "edicion",
+        "numero_paginas",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788408318125"
+        "isbn-9788408318163"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ff1f3988f974519f",
+  "fuente_hash": "c720385802a3aa5a",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,33 @@
+{
+  "id": "isbn-9788410558311",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El belén se dirige al público infantil interesado en el tema del belén. Sus 32 páginas y su clasificación infantil lo sitúan entre los libros de extensión breve, frente a las lecturas juveniles de mayor recorrido. María Martín Schcolnik firma esta edición en castellano.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "autores",
+        "idioma",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El belén se publica en tapa dura, con 32 páginas, bajo el sello de Ediciones SM. La encuadernación rígida resulta práctica para conservar el libro y utilizarlo en lecturas compartidas, además de presentarlo como regalo físico. Su extensión permite recorrerlo en sesiones de lectura breves.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "edicion"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c80a38ac6f9cfb5a",
+  "origen": "chatgpt-web"
+}

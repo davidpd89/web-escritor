@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388613753",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¿Por qué me gusta el sexo? se dirige a lectores interesados en examinar la sexualidad desde una perspectiva vinculada al ensayo y la filosofía. Su temática adulta y su relación con cuestiones personales y familiares lo alejan de las lecturas infantiles y de la ficción romántica convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "autores"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¿Por qué me gusta el sexo? se presenta en tapa blanda y tiene 113 páginas en castellano. Es un volumen físico de extensión breve que puede transportarse sin el peso habitual de una obra extensa y colocarse en una estantería sin ocupar demasiado espacio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Zarafa y la Filosofía, obra de María del Carmen Bengoechea Bernal centrada en el sistema filosófico personal, comparte con ¿Por qué me gusta el sexo? el interés por la reflexión filosófica, aunque este último aborda la sexualidad. El vino filosófico: Cuida tu identidad, bebe en libertad trata la identidad y el vino desde la misma autoría, frente al enfoque sobre el sexo de este libro.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388613050",
+        "isbn-9791388613388"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "5bb1e577fe2e7989",
+  "origen": "chatgpt-web"
+}

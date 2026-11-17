@@ -4,41 +4,37 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "CONVERSACIONES CON EL MONJE SABIO: El secreto de la salud, de Farah Riovach Hammu, se orienta a lectores interesados en desarrollo personal, salud y bienestar. Por sus temas y sus 92 páginas, se aparta de las obras centradas en conflictos narrativos de ficción o en contenidos jurídicos especializados.",
+      "texto": "CONVERSACIONES CON EL MONJE SABIO: El secreto de la salud se dirige a lectores interesados en relacionar el bienestar con el desarrollo personal. Su planteamiento centrado en la salud y la figura de un monje sabio encaja menos con quien busca exclusivamente un tratado clínico o una guía de nutrición técnica.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda de CONVERSACIONES CON EL MONJE SABIO: El secreto de la salud contiene 92 páginas en castellano. Su extensión permite manejar un volumen físico breve para consultar contenidos relacionados con la salud y el desarrollo personal, sin depender de un dispositivo de lectura.",
+      "texto": "La tapa blanda ofrece las 92 páginas de CONVERSACIONES CON EL MONJE SABIO: El secreto de la salud en un volumen físico manejable para leer o conservar. Kindle permite llevar el mismo título en un dispositivo compatible y consultarlo sin transportar el ejemplar de papel, una diferencia práctica para lecturas fuera de casa.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "categorias"
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Secretos del ayurveda: Que cambiarán tu vida (Biblioteca de la salud), de Isabel Bautista, comparte con CONVERSACIONES CON EL MONJE SABIO: El secreto de la salud el interés por la salud. El primero identifica expresamente el ayurveda como materia, mientras que la obra de Farah Riovach Hammu relaciona salud y desarrollo personal desde un título construido alrededor de conversaciones.",
+      "texto": "100 consejos para vivir 100 años: Longevidad, optimismo y buen humor (Hestia), de Dick Van Dyke, coincide en el interés por la salud, pero anuncia consejos sobre longevidad. CONVERSACIONES CON EL MONJE SABIO: El secreto de la salud, de Farah Riovach Hammu, presenta ese interés mediante la idea de conversaciones con un monje, dentro del desarrollo personal.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
         "autores",
-        "categorias"
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788411214834"
+        "isbn-9791387852290"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b6852f470f14a728",
+  "fuente_hash": "ad7437fe9a0adab6",
   "origen": "chatgpt-web"
 }

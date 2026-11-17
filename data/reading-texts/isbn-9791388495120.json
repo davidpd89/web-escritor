@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9791388495120",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Skip and loafer, vol. 13 se orienta a quienes leen cómic y novela gráfica y siguen publicaciones de Misaki Takamatsu en castellano. El título lo identifica como el volumen 13, una consideración relevante para quien busque empezar una colección desde el principio. No corresponde a una novela de texto continuo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Skip and loafer, vol. 13 es de tapa blanda y contiene 176 páginas, una extensión concreta para calcular el espacio que ocupará en una colección. Milky Way Ediciones lo publica en castellano y el formato físico permite mantener juntos los volúmenes. La opción disponible es la edición impresa en tapa blanda.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d4ff1e50482599b4",
+  "origen": "chatgpt-web"
+}

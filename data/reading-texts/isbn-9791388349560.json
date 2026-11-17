@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9791388349560",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Innovación tecnológica para el desarrollo regional se dirige a quienes buscan ensayos sobre tecnología y desarrollo territorial. Por su orientación hacia la ciencia y el análisis, se aleja de las lecturas de ficción y de los manuales centrados en el uso cotidiano de dispositivos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje de Innovación tecnológica para el desarrollo regional es la relación entre innovación tecnológica y desarrollo de las regiones. Su clasificación como ensayo y divulgación científica sitúa el tratamiento en el análisis de estas cuestiones, con una extensión de 108 páginas.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Innovación tecnológica para el desarrollo regional está disponible en tapa blanda, con 108 páginas en castellano. Es una opción física de extensión reducida para transportar, consultar o incorporar a una biblioteca de estudios sobre tecnología.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Innovación tecnológica para el desarrollo regional puede compararse con Arquitectura cognitivo-neuro sistémica de los falsos recuerdos (Plural -México-) por su orientación hacia cuestiones científicas y técnicas. El primero aborda la innovación vinculada al territorio; el segundo centra su asunto en los falsos recuerdos desde una perspectiva cognitiva y neuro sistémica.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370384968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "91e79ed9105d3eee",
+  "origen": "chatgpt-web"
+}

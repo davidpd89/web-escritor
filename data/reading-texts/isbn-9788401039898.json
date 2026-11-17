@@ -4,27 +4,24 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas), de Miguel Fernández, se dirige a lectores interesados en las memorias, las biografías y el ensayo. Sus 328 páginas ofrecen una extensión intermedia y su orientación de no ficción lo aleja de quienes buscan una novela de aventuras o fantasía.",
+      "texto": "Dirigido a lectores interesados en las memorias, las biografías y el ensayo, Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) combina esas áreas con la narrativa contemporánea. Por su clasificación temática, se aleja de quienes buscan una novela de fantasía o un manual de instrucciones prácticas.",
       "evidencias": [
         "titulo",
-        "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) se ofrece en tapa blanda y Kindle. La edición impresa de Plaza & Janés consta de 328 páginas y permite consultar el volumen en papel; Kindle facilita la lectura en dispositivos electrónicos y evita transportar el ejemplar físico.",
+      "texto": "La tapa blanda permite consultar y releer sus 328 páginas en un volumen físico, mientras que Kindle facilita llevar el texto en un dispositivo electrónico. La edición impresa de Plaza & Janés resulta adecuada para conservarla en una biblioteca; la digital evita transportar el ejemplar en papel.",
       "evidencias": [
-        "titulo",
-        "edicion",
         "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) y Vida y obra de Manuel Machado: Tengo el alma de nardo del árabe español: 24 (Biblioteca de la Memoria), de Víctor Olmos, comparten el interés por figuras personales y su trayectoria. El libro de Miguel Fernández se presenta como una memoria, mientras que el de Víctor Olmos anuncia expresamente una aproximación a la vida y la obra de Manuel Machado.",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo), de César Suárez, comparte con Martín Vigil, el amigo amable: Una memoria inconfesable (Obras diversas) el interés por las figuras personales desde la escritura ensayística. Memorias de la chusma, de Rafael Ramos, ofrece otra referencia vinculada a la memoria; la obra de Miguel Fernández identifica expresamente a Martín Vigil como su figura central.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,12 +29,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388381447"
+        "isbn-9788426433282",
+        "isbn-9788410906310"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "f32549274aa64e55",
+  "fuente_hash": "3fadc2bebe604851",
   "origen": "chatgpt-web"
 }

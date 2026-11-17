@@ -4,38 +4,40 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La obra de Jordi Barrachina se dirige a lectores interesados en la rumba catalana, su relación con Barcelona y las manifestaciones culturales vinculadas a la música. Por su temática, se aleja de las novelas de fantasía, los relatos de aventuras y los manuales de aprendizaje musical.",
+      "texto": "La obra de Jordi Barrachina se dirige a lectores interesados en la rumba catalana y su vinculación con Barcelona. Su clasificación en arte y diseño y sus 306 páginas la sitúan fuera de la narrativa de ficción y de los manuales de aprendizaje instrumental.",
       "evidencias": [
-        "titulo",
         "autores",
-        "categorias"
+        "titulo",
+        "categorias",
+        "numero_paginas"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Editorial Comanegra está disponible en tapa blanda y contiene 306 páginas en castellano. La encuadernación flexible permite transportar el volumen y consultar sus contenidos sobre papel, sin necesidad de utilizar un dispositivo electrónico.",
+      "texto": "La edición de Jordi Barrachina está disponible en tapa blanda y contiene 306 páginas en castellano. Este formato permite consultar el contenido musical y cultural en papel, conservar el ejemplar en una biblioteca personal o entregarlo como regalo físico.",
       "evidencias": [
-        "editorial",
+        "autores",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma"
+        "idioma",
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La obra de Jordi Barrachina comparte su temática musical con All You Need Is Hate: Ruido, subversión y terrorismo cultural en la música industrial, de Daniel Sedcontra. La primera se centra en la rumba catalana y su vinculación con Barcelona, mientras que la segunda aborda la música industrial, la subversión y el terrorismo cultural.",
+      "texto": "La obra de Jordi Barrachina comparte con 21 Westerns del siglo XXI (Sílex Cine/Claqueta) el interés por manifestaciones culturales concretas. La primera aborda la rumba catalana vinculada a Barcelona, mientras que el libro de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga se centra en el cine del oeste.",
       "evidencias": [
         "titulo",
         "autores",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788410045538"
+        "isbn-9791388205842"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "c4593c1a41e143c0",
+  "fuente_hash": "f9adec1dfdd7ec43",
   "origen": "chatgpt-web"
 }

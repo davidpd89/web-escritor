@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Tomando el pulso a la relación entre Inteligencia Artificial, Derecho y Ética (Estudios) se dirige a lectores interesados en las conexiones entre tecnología, normas jurídicas y cuestiones éticas. Su orientación hacia el Derecho y sus 845 páginas lo alejan de una introducción breve a las herramientas digitales o de una novela sobre tecnología.",
+      "texto": "Orientado a quienes estudian las relaciones entre Inteligencia Artificial, Derecho y Ética desde una perspectiva jurídica. Sus 845 páginas y la combinación de estas materias lo distancian de quienes buscan una lectura breve dedicada exclusivamente a cuestiones tecnológicas.",
       "evidencias": [
         "titulo",
         "categorias",
@@ -13,29 +13,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Aranzadi se presenta en tapa blanda y reúne 845 páginas en castellano. Es una opción de lectura física extensa, que permite señalar fragmentos y consultar distintas partes del estudio sin depender de un dispositivo electrónico.",
+      "texto": "La edición en tapa blanda de Aranzadi reúne 845 páginas sobre Inteligencia Artificial, Derecho y Ética. Es una opción en papel para estudiar, subrayar y consultar distintos apartados, aunque su extensión hace menos cómodo transportarla a diario.",
       "evidencias": [
-        "editorial",
         "formatos_disponibles",
+        "editorial",
         "numero_paginas",
-        "idioma"
+        "titulo"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Blockchain: un desafío legal (Monografía) también relaciona tecnología y Derecho, pero concentra su asunto en blockchain. Tomando el pulso a la relación entre Inteligencia Artificial, Derecho y Ética (Estudios), de Pablo M Melgarejo Cordon y Francisco Herr, incorpora expresamente la dimensión ética y sitúa la Inteligencia Artificial en el centro del análisis.",
+      "texto": "Argumentacion Juridica coincide en su interés por el ámbito jurídico, pero se concentra en la argumentación, mientras que esta obra incorpora Inteligencia Artificial y Ética. Basura espacial: desafíos técnico-jurídicos (monografico) también relaciona cuestiones técnicas y jurídicas, aunque aplica esa perspectiva a la basura espacial en lugar de a la Inteligencia Artificial.",
       "evidencias": [
         "titulo",
-        "autores",
+        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791370610265"
+        "isbn-9789564078014",
+        "isbn-9791370650346"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "95a4c2c26a39b7cd",
+  "fuente_hash": "161feb48f57d76f5",
   "origen": "chatgpt-web"
 }

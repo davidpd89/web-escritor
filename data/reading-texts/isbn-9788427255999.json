@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788427255999",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "¡Resuelve el misterio! 11 - La escritora fantasma (Colección Resuelve el misterio) se dirige a lectores de aventuras que buscan misterios con elementos de terror. Por su combinación de géneros, encaja menos con quienes prefieren historias sin suspense ni situaciones inquietantes.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "¡Resuelve el misterio! 11 - La escritora fantasma (Colección Resuelve el misterio) está disponible en tapa dura, con 312 páginas. Esta edición de Molino permite conservar el volumen en una colección física y consultarlo de nuevo sin depender de dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "¡Resuelve el misterio! 11 - La escritora fantasma (Colección Resuelve el misterio) comparte con Coraline el interés por el misterio y los elementos inquietantes. Coraline, de Neil Gaiman, parte de una puerta que conduce a otra versión del hogar, mientras que el libro de Lauren Magaziner se presenta dentro de una colección centrada en resolver misterios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "lib-0001"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "07067eec206c9da7",
+  "origen": "chatgpt-web"
+}

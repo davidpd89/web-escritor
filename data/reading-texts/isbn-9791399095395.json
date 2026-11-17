@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791399095395",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El nido de las termitas rojas: The red termites den (sobra la naturaleza del desorden): 12 (Fuera de colección) se dirige a lectores de poesía en castellano. Sus 88 páginas ofrecen una extensión breve frente a obras poéticas más voluminosas; no responde a la búsqueda de una novela narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de El nido de las termitas rojas: The red termites den (sobra la naturaleza del desorden): 12 (Fuera de colección) es en tapa blanda. Sus 88 páginas permiten transportarlo sin el volumen de un libro extenso y consultar sus textos en papel.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El nido de las termitas rojas: The red termites den (sobra la naturaleza del desorden): 12 (Fuera de colección) comparte el ámbito poético con A solas, de María Jesús Martínez Ramos, y Advenir, de Jose Eceolaza. La diferencia identificable está en la autoría: Isel Rivero firma el primero, mientras que los otros títulos corresponden a autores distintos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a3068eae2cd1ef4f",
+  "origen": "chatgpt-web"
+}

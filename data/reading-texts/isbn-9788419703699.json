@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788419703699",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El espíritu vikingo: Magia y cultura en la Escandinavia de finales de la Edad del Hierro: 127 (Ático Historia) se dirige a lectores interesados en la historia cultural, las creencias y las prácticas mágicas de ese periodo. Sus 1128 páginas lo alejan de quienes buscan una introducción breve o una novela de aventuras.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El espíritu vikingo: Magia y cultura en la Escandinavia de finales de la Edad del Hierro: 127 (Ático Historia) se ofrece en tapa dura, con 1128 páginas. Por su extensión y encuadernación, es un volumen pensado para leer y consultar sobre una superficie estable, además de conservarlo como libro de historia.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El espíritu vikingo: Magia y cultura en la Escandinavia de finales de la Edad del Hierro: 127 (Ático Historia) y 53 días: Cómo Hitler derribó una democracia (HISTORIA) comparten el interés por el pasado. Neil Price aborda la cultura y la magia de la Escandinavia de finales de la Edad del Hierro, mientras Timothy W. Ryback se centra en el derrumbe de una democracia bajo Hitler.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411005517"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6b71c28529f0ca74",
+  "origen": "chatgpt-web"
+}

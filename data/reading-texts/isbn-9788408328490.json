@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788408328490",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El poder del optimismo real: Una guía científica y práctica para salir adelante cuando la vida te pone a prueba (Planeta Internacional) se dirige a lectores interesados en psicología, desarrollo personal y explicaciones científicas aplicadas a dificultades cotidianas. No responde a la búsqueda de una novela de ficción ni de un manual centrado exclusivamente en una disciplina científica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Editorial Planeta reúne 336 páginas en castellano y permite consultar el contenido en papel. Es una opción física para quienes prefieren subrayar, marcar páginas o volver a determinados apartados durante la lectura.",
+      "evidencias": [
+        "edicion",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El efecto ritual: El poder transformador de nuestros hábitos cotidianos (Divulgación), de Michael Norton, también aborda aspectos de la experiencia cotidiana desde la divulgación. Mientras Deepika Chopra centra su libro en el optimismo ante las dificultades, el título de Michael Norton pone el foco en los rituales y hábitos diarios.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788449346163"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "0e65dfa4db7a77ac",
+  "origen": "chatgpt-web"
+}

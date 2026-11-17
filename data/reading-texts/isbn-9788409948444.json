@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9788409948444",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido al público infantil interesado en la gimnasia y en comprender este deporte mediante preguntas, curiosidades y retos. Su planteamiento divulgativo se aleja de la narrativa de ficción y de los manuales técnicos destinados a deportistas adultos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne 100 páginas dedicadas a la gimnasia, con preguntas, curiosidades y retos para el público infantil. Es una opción física manejable para consultar distintos apartados y volver a ellos durante la práctica o el aprendizaje del deporte.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "La ciencia del fútbol para niños: El libro de los porqués del fútbol: 145 curiosidades, preguntas y retos para niños y niñas futboleros de 8 a 12 años (La ciencia del deporte para niños) comparte autoría con este libro y utiliza también preguntas y retos para abordar un deporte. La diferencia principal es la disciplina: Angel Manuel Montero Anaya dedica uno al fútbol y otro a la gimnasia, manteniendo un enfoque infantil de divulgación deportiva.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788409925155"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "017aeac2a56cae57",
+  "origen": "chatgpt-web"
+}

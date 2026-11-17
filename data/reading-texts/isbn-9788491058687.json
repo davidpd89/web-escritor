@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Se dirige a lectores interesados en la religión, la espiritualidad y los textos de San Agustin. Por su temática y sus 128 páginas, responde a una búsqueda distinta de la narrativa de aventuras o de los manuales de desarrollo personal.",
+      "texto": "Confesiones de un pecador: Ediciones icónicas (Penguin Clásicos | Vintage), de San Agustin, se orienta a lectores interesados en la religión y la espiritualidad. Con 128 páginas, ofrece una extensión breve dentro de esa temática; encaja menos con quien busca ficción romántica o una novela de aventuras.",
       "evidencias": [
         "titulo",
         "autores",
@@ -14,30 +14,31 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de tapa blanda reúne las 128 páginas en un libro de bolsillo de Penguin Clásicos. Su tamaño editorial facilita llevarlo en el bolso o la mochila y permite consultar pasajes sin depender de un dispositivo electrónico.",
+      "texto": "Confesiones de un pecador: Ediciones icónicas (Penguin Clásicos | Vintage) está disponible en tapa blanda, dentro de la colección de bolsillo de Penguin Clásicos. Sus 128 páginas permiten llevarlo en un volumen compacto y consultar pasajes directamente sobre papel, tanto en casa como durante los desplazamientos.",
       "evidencias": [
+        "titulo",
         "formatos_disponibles",
-        "numero_paginas",
         "edicion",
-        "editorial"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Al andar: Vivencias del Camino de Santiago comparte el ámbito espiritual, pero plantea las vivencias de un camino concreto frente al enfoque religioso de Confesiones de un pecador: Ediciones icónicas (Penguin Clásicos | Vintage). Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación aborda también la espiritualidad, aunque desde los fundamentos y la práctica del Dharma.",
+      "texto": "AKITA: Las lágrimas y el mensaje de María comparte con Confesiones de un pecador: Ediciones icónicas (Penguin Clásicos | Vintage) el ámbito religioso, pero identifica expresamente un mensaje de María, mientras que el libro de San Agustin se presenta como confesiones. Apuntes Sobre el Dharma: Fundamentos y práctica de un camino de liberación aborda otra tradición espiritual y anuncia fundamentos y práctica en su título.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496",
+        "isbn-9791388176357",
         "isbn-9791399210088"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0eb30aa59dfa4a27",
+  "fuente_hash": "a39649bb3fce9167",
   "origen": "chatgpt-web"
 }

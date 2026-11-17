@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9791388103247",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Detective Conan: The Complete Color Works (30.º Aniversario) (Manga Shonen) se orienta a lectores interesados en Detective Conan y en publicaciones conmemorativas vinculadas al manga. Su clasificación incluye misterio y narrativa gráfica, por lo que encaja menos con quienes buscan una novela convencional de suspense en prosa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Detective Conan: The Complete Color Works (30.º Aniversario) (Manga Shonen) tiene una edición en tapa dura de 368 páginas. El formato físico resulta apropiado para conservar este volumen conmemorativo de Gosho Aoyama o entregarlo como regalo, con una encuadernación rígida pensada para su consulta y conservación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Detective Conan: The Complete Color Works (30.º Aniversario) (Manga Shonen) comparte el ámbito del misterio y la narrativa gráfica con Anna en la cueva: Anna Dédalus detective: 4. La diferencia está en la identificación del primero como publicación conmemorativa de manga shonen de Gosho Aoyama, mientras que el segundo pertenece a una serie detectivesca de Miguel Ángel Giner Bou.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788419605528"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "004d6cf8a7fcd148",
+  "origen": "chatgpt-web"
+}

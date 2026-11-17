@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388244148",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Dentro del genocidio: Informes sobre la actuación del Estado de Israel en Palestina (GENERAL) se dirige a lectores interesados en política, historia y derecho, especialmente en el análisis de la actuación estatal en Palestina. Su planteamiento mediante informes lo diferencia de una novela histórica o de una obra de ficción sobre conflictos internacionales.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Dentro del genocidio: Informes sobre la actuación del Estado de Israel en Palestina (GENERAL) está disponible en tapa blanda, con 262 páginas en castellano. La edición de Radical Books permite consultar físicamente los informes y conservar el volumen como material de lectura sobre política, historia y derecho.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Dentro del genocidio: Informes sobre la actuación del Estado de Israel en Palestina (GENERAL) puede compararse con La luz del despertar, también de Francesca Albanese. Ambos títulos se relacionan con Palestina y la autora, presentada en La luz del despertar como relatora especial de la ONU sobre los derechos humanos en los territorios palestinos ocupados. El primero se identifica expresamente como una recopilación de informes sobre la actuación estatal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388236280"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "7b40d474f3322af0",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9781971159270",
+  "familia": "practico",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Mujeres AuDHD: Cómo vivir después de un diagnóstico tardío: Una guía compasiva sobre el autismo y el TDAH se dirige a mujeres interesadas en comprender la convivencia del autismo y el TDAH tras un diagnóstico tardío. Su enfoque de psicología y desarrollo personal lo diferencia de las obras de ficción y de los manuales sobre bienestar general.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Mujeres AuDHD: Cómo vivir después de un diagnóstico tardío: Una guía compasiva sobre el autismo y el TDAH se publica en tapa blanda, con 117 páginas en castellano. El ejemplar físico permite señalar apartados y regresar a cuestiones relacionadas con el diagnóstico tardío sin utilizar dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Mujeres AuDHD: Cómo vivir después de un diagnóstico tardío: Una guía compasiva sobre el autismo y el TDAH y Bienestar: Habitar el equilibrio (Conversaciones con mis hijos) comparten su orientación hacia el bienestar personal. Sarah Jones centra su obra en el autismo, el TDAH y el diagnóstico tardío en mujeres, mientras que Silvia Caselles Martínez aborda el equilibrio desde un planteamiento más general anunciado en el título.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409915750"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "2fc3bdd7005fc15b",
+  "origen": "chatgpt-web"
+}

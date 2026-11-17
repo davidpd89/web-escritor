@@ -4,17 +4,16 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El largo regreso de Josefina Carabias (Ensayo), de César Suárez, se dirige a quienes leen ensayos, biografías y obras relacionadas con figuras concretas. Su enfoque se distingue de una novela de fantasía o de un manual práctico, y sus 240 páginas permiten situar la extensión antes de elegirlo.",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo) se dirige a lectores de biografías, memorias y ensayos interesados en una figura concreta. César Suárez firma una obra vinculada también a la narrativa contemporánea, pero su orientación biográfica la diferencia de las novelas de ficción y de los ensayos sobre asuntos impersonales.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
-        "numero_paginas"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "El largo regreso de Josefina Carabias (Ensayo) tiene una edición en tapa blanda de 240 páginas, publicada por Lumen. El formato permite llevar el libro en una bolsa y consultar fragmentos durante la lectura, sin el volumen rígido de una encuadernación en tapa dura.",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo) cuenta con una edición en tapa blanda de 240 páginas, publicada por Lumen. Es un volumen físico que puede transportarse para leer fuera de casa y cuya extensión permite organizar la lectura en varias sesiones sin depender de un dispositivo electrónico.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
@@ -24,15 +23,15 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Mujeres de París, mujeres de letras (Salamandra Narrativa) comparte con El largo regreso de Josefina Carabias (Ensayo) el interés por figuras femeninas vinculadas al ámbito de las letras, aunque sus títulos sitúan el foco en referentes distintos. Andrés Manuel. Una biografía en 50 episodios / Andrés Manuel: A Biography in 50 Episodes permite otra comparación biográfica, centrada en una figura política y estructurada en episodios.",
+      "texto": "El largo regreso de Josefina Carabias (Ensayo) puede compararse con John Berger: Modos de aprender, de Iona Heath. Ambos títulos toman como referencia a una persona concreta, aunque César Suárez se ocupa de Josefina Carabias e Iona Heath de John Berger. La elección depende de la figura sobre la que se desea leer y del autor que aborda cada trayectoria.",
       "evidencias": [
-        "afines_catalogo",
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387928636",
-        "isbn-9786073873154"
+        "isbn-9788432322167"
       ]
     }
   ],

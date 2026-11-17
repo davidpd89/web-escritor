@@ -1,0 +1,57 @@
+{
+  "id": "isbn-9788410908239",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Carta al padre: Edición con prólogo y notas encaja con lectores de Franz Kafka interesados en textos de narrativa contemporánea y ensayo. Su extensión de 88 páginas permite una lectura breve; quienes busquen una novela extensa encontrarán aquí otro tipo de propuesta.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Carta al padre: Edición con prólogo y notas se distingue por incorporar ambos elementos de acompañamiento al texto de Franz Kafka. Editorial Letra Minúscula publica esta versión en castellano, con 88 páginas y encuadernación en tapa blanda. Su fecha de publicación es 2026-10-08 y se identifica mediante el ISBN 9788410908239.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "idioma",
+        "numero_paginas",
+        "formato_edicion",
+        "fecha_publicacion",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Carta al padre: Edición con prólogo y notas está disponible en tapa blanda, con 88 páginas. Su extensión facilita llevar el ejemplar físico y consultar el prólogo y las notas durante la lectura, especialmente si se quiere trabajar directamente sobre el texto impreso.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alfred y Emily (Narrativa), de Doris Lessing, comparte con Carta al padre: Edición con prólogo y notas su vinculación con la narrativa, aunque se trata de obras de distinta autoría. El adversario (Panorama de narrativas), de Emmanuel Carrère, ofrece otra referencia narrativa del catálogo; la diferencia identificable está en sus autores y en que la edición de Franz Kafka anuncia prólogo y notas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788426438515",
+        "isbn-9788433950482"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e8449a4c1be258c5",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "isbn-9798182943390",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Libro del Evangelio #4 - JUAN: Jesús como el Cumplimiento de las Profecías Judías: 30705444 (The Accel Educational Theology) se dirige a lectores interesados en los estudios bíblicos y en la relación entre Jesús y las profecías judías. Su orientación religiosa y filosófica lo distingue de las novelas de temática espiritual y de los manuales generales de historia.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El libro aborda el Evangelio de Juan desde la cuestión del cumplimiento de las profecías judías en Jesús. Su clasificación en religión, espiritualidad, filosofía y ensayo, junto con su publicación por University-level Theological Education And Biblical Studies, lo sitúa en un contexto de estudio teológico.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La obra de M C Pinto se publica en tapa blanda y tiene 198 páginas. Esta edición permite conservar el texto en papel para la lectura y la consulta de cuestiones relacionadas con el Evangelio de Juan y las profecías judías.",
+      "evidencias": [
+        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, comparte el ámbito de la reflexión espiritual, aunque se presenta como una colección de aforismos. Libro del Evangelio #4 - JUAN: Jesús como el Cumplimiento de las Profecías Judías: 30705444 (The Accel Educational Theology), de M C Pinto, delimita su asunto al Evangelio de Juan y su relación con las profecías judías.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ea2d522cd52fd8a5",
+  "origen": "chatgpt-web"
+}

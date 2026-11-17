@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "El camino despierto: Cómo vivir siguiendo la guía divina. se dirige a lectores interesados en el desarrollo personal desde una perspectiva de orientación espiritual. Por su enfoque, queda fuera de las búsquedas centradas exclusivamente en nutrición, ejercicio físico o cuidados corporales.",
+      "texto": "El camino despierto: Cómo vivir siguiendo la guía divina. se orienta a lectores que buscan relacionar sus decisiones cotidianas con una orientación espiritual. Su planteamiento, expresado en el subtítulo, se aparta de los manuales de bienestar centrados exclusivamente en hábitos físicos o procedimientos sanitarios.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,16 +12,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La tapa blanda permite consultar y releer en papel las 288 páginas de El camino despierto: Cómo vivir siguiendo la guía divina. Kindle ofrece el mismo título como opción de lectura digital, sin necesidad de transportar el volumen físico. La elección depende de si se prefiere conservar un ejemplar impreso o leer desde un dispositivo.",
+      "texto": "El camino despierto: Cómo vivir siguiendo la guía divina. está disponible en tapa blanda y Kindle. La edición impresa reúne 288 páginas y permite consultar el texto físicamente; Kindle facilita llevar la lectura en un dispositivo compatible y acceder a sus contenidos sin transportar el volumen de papel.",
       "evidencias": [
         "titulo",
-        "numero_paginas",
-        "formatos_disponibles"
+        "formatos_disponibles",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "El camino despierto: Cómo vivir siguiendo la guía divina. puede compararse con 44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life, de Tania Karam. Ambos títulos vinculan la espiritualidad con la vida cotidiana, pero Suzanne Giesemann plantea seguir una guía divina, mientras que Tania Karam presenta su propuesta mediante 44 mensajes del mundo espiritual.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9786073881388"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "16962b3fa9b00604",
+  "fuente_hash": "c9d1dd3c3b8bc5da",
   "origen": "chatgpt-web"
 }

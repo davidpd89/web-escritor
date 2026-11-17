@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788494942143",
+  "familia": "residual",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Apokalupsis se dirige a lectores que buscan una publicación de arte y diseño en castellano. Es una obra de Mariano Carabias de 300 páginas, por lo que se aparta de las búsquedas centradas específicamente en manuales jurídicos o ensayos filosóficos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "idioma",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Apokalupsis se presenta en tapa dura, con 300 páginas encuadernadas en un volumen físico. Esta presentación resulta adecuada para conservarlo en una biblioteca dedicada al arte y el diseño y consultarlo sobre una mesa, especialmente cuando se prefiere una cubierta rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Apokalupsis puede compararse con 720 retrats, de Xavier Mollà i Revert, dentro de una selección de publicaciones vinculadas al arte y la imagen. La diferencia identificable está en la autoría y en el planteamiento anunciado por los títulos: Mariano Carabias firma Apokalupsis, mientras que Xavier Mollà i Revert firma una obra cuyo título alude a retratos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788412678802"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "01b9df2e441e87b1",
+  "origen": "chatgpt-web"
+}

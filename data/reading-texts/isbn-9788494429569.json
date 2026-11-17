@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788494429569",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Nuestra casa: Una historia en dibujos (Pequeñológuez), de Doro Göbel y Peter Knorr, se dirige al público infantil interesado en historias contadas mediante dibujos. Sus 16 páginas y su edición en cartón lo alejan de las novelas juveniles extensas y de las lecturas centradas en textos largos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "Nuestra casa: Una historia en dibujos (Pequeñológuez) se presta a recorrer sus páginas observando los dibujos y siguiendo visualmente la historia. El libro reúne 16 páginas en formato de cartón, de modo que puede explorarse página a página y volver sobre las ilustraciones durante la lectura compartida.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Nuestra casa: Una historia en dibujos (Pequeñológuez) se ofrece en tapa dura, concretamente en una edición de cartón de 16 páginas. El soporte físico permite pasar las hojas y observar los dibujos directamente, tanto durante una lectura individual como al compartir el libro.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d6adde9f80f87a59",
+  "origen": "chatgpt-web"
+}

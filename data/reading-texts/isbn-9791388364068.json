@@ -4,16 +4,17 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Textos recobrados 1956-1986 (Hispánica) responde al interés por los escritos de Jorge Luis Borges correspondientes al periodo indicado en el título. Sus ámbitos son los relatos, la historia y las biografías y memorias, por lo que se aleja de la estructura habitual de una novela con una trama única.",
+      "texto": "Textos recobrados 1956-1986 (Hispánica) encaja con lectores interesados en los escritos de Jorge Luis Borges correspondientes al periodo que señala el título. Sus 368 páginas se sitúan entre los ámbitos de la historia, las biografías y memorias y los relatos; no responde a la búsqueda de una novela con una sola trama continuada.",
       "evidencias": [
         "titulo",
         "autores",
+        "numero_paginas",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Las 368 páginas de Textos recobrados 1956-1986 (Hispánica) pueden leerse en tapa blanda, con acceso físico a los textos para consultas posteriores. En Kindle, el contenido se transporta digitalmente y puede consultarse desde un móvil o lector electrónico compatible.",
+      "texto": "La tapa blanda presenta Textos recobrados 1956-1986 (Hispánica) en un volumen de 368 páginas, apropiado para la consulta directa sobre papel. Kindle permite llevar la lectura en formato digital sin cargar con el libro impreso, una diferencia práctica cuando se alterna entre distintos lugares de lectura.",
       "evidencias": [
         "titulo",
         "numero_paginas",
@@ -22,22 +23,20 @@
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Textos recobrados. 1931-1955 (Hispánica) comparte autor y orientación histórica con Textos recobrados 1956-1986 (Hispánica), aunque los periodos señalados en sus títulos son consecutivos y distintos. Cuentos completos (edición especial en tapa dura) reúne los cuentos de Jorge Luis Borges, mientras que Textos recobrados 1956-1986 (Hispánica) se identifica por un intervalo cronológico y abarca distintas clasificaciones literarias.",
+      "texto": "Textos recobrados. 1931-1955 (Hispánica) y Textos recobrados: 1919-1929 (Hispánica) comparten con este libro la autoría de Jorge Luis Borges y la organización por periodos indicada en sus títulos. La diferencia es cronológica: Textos recobrados 1956-1986 (Hispánica) identifica una etapa posterior a las de ambos volúmenes.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
         "isbn-9791388364044",
-        "isbn-9791388364020",
-        "isbn-9788466392297"
+        "isbn-9791388364020"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "87beb9c7043914db",
+  "fuente_hash": "05a88bf2cf700c31",
   "origen": "chatgpt-web"
 }

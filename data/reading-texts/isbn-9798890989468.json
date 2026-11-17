@@ -4,7 +4,7 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 se dirige a quienes buscan una lectura sobre el horóscopo chino vinculada al desarrollo personal y el bienestar. Por su temática, se aleja de las novelas de ficción y de los manuales centrados en la alimentación.",
+      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 se dirige a lectores interesados en el horóscopo chino y su aplicación a un año concreto. Por su temática, se diferencia de los manuales de nutrición, las guías de ejercicio y los libros de bienestar basados en hábitos físicos.",
       "evidencias": [
         "titulo",
         "categorias"
@@ -12,30 +12,28 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 está disponible en tapa blanda, con 448 páginas en castellano. Esta edición física permite consultar distintos pasajes y volver a ellos sin depender de una pantalla.",
+      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 se publica en tapa blanda y reúne 448 páginas. El formato impreso permite mantener el libro a mano para realizar consultas durante el año indicado en el título, sin recurrir a una pantalla.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
-        "numero_paginas",
-        "idioma"
+        "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 comparte el ámbito del desarrollo personal con Adulto en prácticas: Lo que nadie te enseñó sobre la vida adulta. La diferencia está en el enfoque: Squirru Ludovica aborda el horóscopo chino, mientras que Anca Martínez se centra en cuestiones de la vida adulta.",
+      "texto": "Horóscopo Chino 2027 / Chinese Horoscope 2027 puede compararse con 44 mensajes del mundo espiritual para tu día a día / 44 Messages from the Spirit World for Your Everyday Life por su orientación hacia cuestiones espirituales. Squirru Ludovica centra su libro en el horóscopo chino de 2027, mientras que Tania Karam plantea mensajes espirituales para la vida cotidiana. La diferencia principal está entre una referencia anual y una propuesta organizada alrededor de mensajes.",
       "evidencias": [
         "titulo",
         "autores",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788409938490"
+        "isbn-9786073881388"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "ec7f0a1fba79b3fa",
+  "fuente_hash": "1acae936f1e85795",
   "origen": "chatgpt-web"
 }

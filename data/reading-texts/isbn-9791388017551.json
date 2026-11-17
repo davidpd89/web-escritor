@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9791388017551",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La banda sonora de nuestras vidas: Cómo y por qué la música clásica se coló en lo que somos (El árbol del silencio) se dirige a lectores interesados en la presencia cultural de la música clásica. Luis Ángel de Benito aborda esta materia desde el ensayo, por lo que su planteamiento difiere del de una novela musical o un libro de ejercicios instrumentales.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda contiene 152 páginas y está publicada por Cántico. Su extensión permite abordar el ensayo en varias sesiones y regresar a los apartados dedicados a la relación entre la música clásica y la cultura cotidiana.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [
+    "que_formato_elegir: repite otro bloque",
+    "faltan módulos: que_formato_elegir"
+  ],
+  "version": 3,
+  "fuente_hash": "e91c39488f50a61d",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9789564078045",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Principios, Propiedad Y Contratacion En El Derecho Civil, de Juan J. Pablo Abanto, se dirige a lectores interesados en los principios jurídicos, la propiedad y las relaciones contractuales dentro del derecho civil. Su ámbito es distinto del derecho penal y del administrativo sancionador. Por tanto, responde a una búsqueda de contenido jurídico civil, no a una lectura narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Principios, Propiedad Y Contratacion En El Derecho Civil está disponible en tapa blanda y consta de 356 páginas. La edición Bunko de Ediciones Olejnik ofrece un volumen físico en castellano para leer y consultar cuestiones de derecho civil. Su extensión permite abordar por separado los asuntos de principios, propiedad y contratación que identifica el título.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion",
+        "editorial",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Principios, Propiedad Y Contratacion En El Derecho Civil y Argumentacion Juridica, de Carlos Parma, pertenecen al ámbito del derecho, pero plantean objetos de lectura diferentes. Juan J. Pablo Abanto se ocupa de principios, propiedad y contratación civil; Carlos Parma centra su obra en la argumentación jurídica. La elección depende de si el interés está en instituciones civiles o en la construcción de argumentos jurídicos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9789564078014"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "d18413d8f9860d5f",
+  "origen": "chatgpt-web"
+}

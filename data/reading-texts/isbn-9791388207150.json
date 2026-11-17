@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9791388207150",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "‘Ich am eldre than ich wes' Estudios en homenaje al profesor Santiago González Fernández-Corugedo se dirige a lectores interesados en ensayos académicos y publicaciones de homenaje universitario. Por su planteamiento, encaja menos con quienes buscan una novela o una introducción divulgativa de carácter general.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "El eje de la obra es el reconocimiento académico a Santiago González Fernández-Corugedo a través de distintos estudios. Daniel García Velasco y Paula Rodríguez Puente firman este ensayo de 404 páginas, publicado por una institución universitaria de Oviedo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura reúne las 404 páginas de ‘Ich am eldre than ich wes' Estudios en homenaje al profesor Santiago González Fernández-Corugedo en un volumen físico. Esta encuadernación permite conservar los estudios juntos para consultas posteriores y resulta apropiada para incorporarlos a una biblioteca académica.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "categorias"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "12b46ec54bfe8acd",
+  "origen": "chatgpt-web"
+}

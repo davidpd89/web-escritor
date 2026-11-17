@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788412966589",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Jodidas hormiguitas, de David Rosa Gonzalez, pertenece a la narrativa contemporánea y se orienta a lectores interesados en ese género. Sus 160 páginas permiten abordar una obra de extensión relativamente breve; quienes busquen un ensayo o una lectura infantil encontrarán aquí una propuesta de otra naturaleza.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Jodidas hormiguitas tiene una edición en tapa blanda de 160 páginas, publicada por Comitia Editorial Sl. Su encuadernación flexible permite transportarlo sin la rigidez de una cubierta dura, y la extensión facilita repartir la lectura en sesiones cortas. El texto está editado en castellano.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial",
+        "idioma"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "07d097d24b8ec9fb",
+  "origen": "chatgpt-web"
+}

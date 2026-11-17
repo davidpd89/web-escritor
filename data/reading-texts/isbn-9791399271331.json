@@ -4,27 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Neonomía: Un nuevo marco moral, social y político se dirige a quienes buscan lecturas sobre organización social, moral y política. Su temática se aparta de las novelas centradas en personajes y conflictos de ficción, y se aproxima a los textos de reflexión sobre el poder.",
+      "texto": "Neonomía: Un nuevo marco moral, social y político se orienta a lectores interesados en las ideas políticas, el poder y la organización social. Su planteamiento temático encaja menos con quien busca una historia de aventuras o una novela centrada en personajes y conflictos de ficción.",
       "evidencias": [
         "titulo",
-        "categorias",
-        "autores"
+        "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Neonomía: Un nuevo marco moral, social y político está publicado en tapa blanda y tiene 385 páginas en castellano. La edición de Última Línea ofrece un volumen físico que permite marcar páginas y consultar distintos pasajes durante la lectura.",
+      "texto": "Neonomía: Un nuevo marco moral, social y político se presenta en tapa blanda, con 385 páginas publicadas por Última Línea. Es una edición física para leer y consultar sus planteamientos sobre moral, sociedad y política, con una extensión que permite distribuir la lectura en varias sesiones.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
         "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "A la sombra del Estado y Neonomía: Un nuevo marco moral, social y político coinciden en su interés por el poder, aunque el primero aborda el espionaje y las operaciones encubiertas y el segundo plantea un marco moral, social y político. Crónica de un desafío al Estado se centra en acontecimientos políticos concretos, frente al planteamiento general anunciado por Pablo Rivera Rodríguez.",
+      "texto": "Neonomía: Un nuevo marco moral, social y político comparte con Capitalismo del contrato social, de José Antonio Torrealday Llona, el interés por los marcos de organización social, aunque el segundo sitúa el capitalismo y el contrato social en el título. Brainwashing: Populismo en la era del like, de Andrés Roemer, dirige la atención hacia el populismo y su relación con la cultura digital. Frente a esos enfoques, Pablo Rivera Rodríguez plantea un marco que abarca cuestiones morales, sociales y políticas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -32,13 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9788434441057",
-        "isbn-9788423441303"
+        "isbn-9791399271379",
+        "isbn-9788413739397"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "cc332bb913b97f86",
+  "fuente_hash": "f627b023c5c9ef05",
   "origen": "chatgpt-web"
 }

@@ -4,29 +4,26 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Japón a mano alzada (VAGAMUNDOS) se dirige a quienes buscan lecturas de viajes centradas en Japón. Antonio Fernández Montoya firma un volumen de 182 páginas que responde a un interés geográfico y cultural concreto, en lugar de centrarse en otros destinos o en una narración de ficción fantástica.",
+      "texto": "Japón a mano alzada (VAGAMUNDOS) se dirige a lectores interesados en Japón y en los libros de viajes. Su orientación geográfica encaja menos con quien busca una novela fantástica o una obra centrada en el desarrollo personal.",
       "evidencias": [
         "titulo",
-        "autores",
         "categorias",
-        "numero_paginas"
+        "sinopsis_editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Japón a mano alzada (VAGAMUNDOS) se ofrece en tapa blanda, con 182 páginas en castellano. Es una edición física de Traspies,c.b que puede transportarse y consultarse durante una lectura sobre Japón; su fecha de publicación editorial es el 16 de noviembre de 2026.",
+      "texto": "Japón a mano alzada (VAGAMUNDOS) se presenta en tapa blanda y contiene 182 páginas en castellano. La edición permite llevar el libro durante un desplazamiento y conservarlo después como volumen físico dedicado a Japón.",
       "evidencias": [
         "titulo",
         "formatos_disponibles",
         "numero_paginas",
-        "idioma",
-        "editorial",
-        "fecha_publicacion"
+        "idioma"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Japón a mano alzada (VAGAMUNDOS) y Al andar: Vivencias del Camino de Santiago comparten el interés por los viajes y los lugares recorridos. Antonio Fernández Montoya sitúa su libro en Japón, mientras que Carlos Díaz Ballesta se ocupa de las vivencias del Camino de Santiago; la diferencia principal para el lector está en el destino y el enfoque anunciado por cada título.",
+      "texto": "Japón a mano alzada (VAGAMUNDOS) puede compararse con Allí donde fueres... por su relación con los viajes y Japón. El título de Patrick Kinsella plantea cuestiones de comportamiento, como las formas de saludo en ese país, mientras que la obra de Antonio Fernández Montoya se presenta como un libro de viajes centrado geográficamente en Japón.",
       "evidencias": [
         "titulo",
         "autores",
@@ -34,12 +31,12 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388099496"
+        "isbn-9788408324331"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "7050396c497bdbe9",
+  "fuente_hash": "814272bfee2ef0e8",
   "origen": "chatgpt-web"
 }

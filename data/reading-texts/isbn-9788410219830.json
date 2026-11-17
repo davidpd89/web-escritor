@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9788410219830",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Señoras en bicicleta: 73 (Avanzado) se orienta a lectores interesados en el ensayo y los asuntos relacionados con el ocio y el tiempo libre. Es una obra de Ana Bulnes Fraga, Raquel C. Pico y María Ramos Domínguez, de 166 páginas; no corresponde a una novela de ficción narrativa.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Señoras en bicicleta: 73 (Avanzado) se presenta en tapa blanda, con 166 páginas en castellano. La edición de Sushi Books ofrece un volumen físico relativamente breve, manejable para leer por sesiones o llevar en el equipaje sin el peso de un libro de gran extensión.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Señoras en bicicleta: 73 (Avanzado) puede compararse con Cervezasofía: Filosofía del pan líquido por su aproximación a asuntos vinculados al ocio desde títulos de carácter temático. La primera se centra en la bicicleta y está firmada por Ana Bulnes Fraga, Raquel C. Pico y María Ramos Domínguez; la segunda relaciona cerveza y filosofía y es obra de María del Carmen Bengoechea Bernal.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388613111"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bb83ba777b88db39",
+  "origen": "chatgpt-web"
+}

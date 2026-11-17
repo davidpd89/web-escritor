@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791388377211",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Método para el uso innovador y crítico de las inteligencias artificiales se dirige a lectores interesados en examinar el uso de la inteligencia artificial desde una perspectiva crítica. Su clasificación como ensayo y divulgación científica lo aleja de quienes buscan una novela o una obra centrada en ficción tecnológica.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Método para el uso innovador y crítico de las inteligencias artificiales está editado en tapa blanda y tiene 106 páginas. Su extensión permite mantener reunido el contenido en un volumen impreso breve, adecuado para consultar y releer apartados sin depender de una pantalla.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Método para el uso innovador y crítico de las inteligencias artificiales y Arquitectura cognitivo-neuro sistémica de los falsos recuerdos (Plural -México-) comparten una orientación hacia cuestiones relacionadas con el conocimiento y sus procesos. Fernando Moliní y Alejandro Vallina centran su título en el uso crítico de las inteligencias artificiales, mientras que la otra obra aborda los falsos recuerdos desde una perspectiva cognitiva y neuro sistémica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791370384968"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "9dce5c8e338e04c4",
+  "origen": "chatgpt-web"
+}

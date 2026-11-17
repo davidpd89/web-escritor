@@ -4,24 +4,25 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 se dirige a quienes leen relatos y narrativa contemporánea sobre la vida adulta. Por su planteamiento, se aleja de las lecturas centradas en la fantasía o la aventura y se sitúa en un terreno más cotidiano.",
+      "texto": "Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376, de Ignacio Peyró, se dirige a quienes buscan narrativa contemporánea y relatos relacionados con la vida adulta. Por su clasificación, queda fuera de las preferencias centradas en la fantasía, el terror o la aventura.",
       "evidencias": [
         "titulo",
+        "autores",
         "categorias"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 está disponible en tapa blanda. Sus 208 páginas permiten llevar el volumen en el bolso o la mochila, y la encuadernación flexible facilita transportarlo durante los desplazamientos.",
+      "texto": "La tapa blanda permite leer las 208 páginas de Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 en un volumen físico manejable. La edición Kindle ofrece el mismo título en soporte digital, para llevarlo en un lector electrónico o consultarlo desde el móvil sin transportar el libro impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "numero_paginas"
+        "numero_paginas",
+        "formatos_disponibles"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 comparte con Ficciones (Hispánica) su relación con la narrativa breve. La diferencia está en la orientación contemporánea y adulta del libro de Ignacio Peyró frente a la propuesta literaria de Jorge Luis Borges.",
+      "texto": "En lengua privada / In Private Language comparte con Qué hacemos con los domingos por la tarde: Apuntes sobre la vida adulta (LIBROS DEL ASTEROIDE): 376 su presencia entre las lecturas narrativas del catálogo, pero corresponde a Emiliano Monge en lugar de Ignacio Peyró. El año en que perdí mi nombre, de J.A. Iáñez Fernández, ofrece otra autoría y sitúa la identidad en el propio título, frente al interés explícito por la vida adulta del libro de Peyró.",
       "evidencias": [
         "titulo",
         "autores",
@@ -29,12 +30,13 @@
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791387846107"
+        "isbn-9788409923441",
+        "isbn-9786073878289"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "0851e8ce5a415436",
+  "fuente_hash": "5342b3a1f175ccb6",
   "origen": "chatgpt-web"
 }

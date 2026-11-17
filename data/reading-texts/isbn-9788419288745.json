@@ -1,0 +1,32 @@
+{
+  "id": "isbn-9788419288745",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Festín de serpientes, de Harry Crews, está dirigido a quienes buscan narrativa contemporánea en castellano. Con 200 páginas, se sitúa entre las obras de extensión contenida; por su clasificación como narrativa, queda fuera de las preferencias de quienes buscan exclusivamente ensayo o divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Festín de serpientes se publica en tapa blanda, con 200 páginas y texto en castellano. La edición de Dirty Works ofrece una lectura en papel de extensión contenida, que puede transportarse y retomarse sin dispositivos. La cubierta flexible facilita guardarlo en una bolsa o mochila.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a2dab91310449719",
+  "origen": "chatgpt-web"
+}

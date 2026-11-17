@@ -1,0 +1,54 @@
+{
+  "id": "isbn-9791388147241",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Espía de Dios (edición limitada · Black Friday) (Campaña | Black Friday) encaja con lectores que buscan una novela de misterio con elementos de aventura. La combinación de ambos géneros la aleja de quienes prefieren relatos centrados exclusivamente en las relaciones románticas o la vida cotidiana.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Penguin Bolsillo publica esta edición limitada de Black Friday en tapa blanda, con 400 páginas en castellano. Su fecha de publicación es el 2026-10-01 y se identifica mediante el ISBN 9791388147241, datos útiles para distinguirla de otras presentaciones de la obra.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "edicion",
+        "fecha_publicacion",
+        "numero_paginas",
+        "idioma",
+        "isbn13"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Espía de Dios (edición limitada · Black Friday) (Campaña | Black Friday) está disponible en tapa blanda de bolsillo. Sus 400 páginas permiten una lectura prolongada en papel, con un volumen flexible que se puede transportar y guardar sin el espacio que suele exigir una encuadernación rígida.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Amanda Black 15 - El laberinto del minotauro (Juan Gómez-Jurado y Bárbara Montes) comparte con Espía de Dios la firma de Juan Gómez-Jurado, aunque incorpora también a Bárbara Montes. La primera pertenece a una serie identificada en su título, mientras que Espía de Dios combina misterio y aventuras sin una numeración de serie en su denominación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387994426"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "60f26ccf01cda745",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "isbn-9788483813263",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "El manantial de la alegría (Episodios nacionales), de Millanes Rivas, encaja con lectores interesados en narrativa contemporánea de extensión reducida. Con 144 páginas, se ajusta menos a quienes buscan novelas largas o prefieren obras de ensayo.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "El manantial de la alegría (Episodios nacionales) se presenta en tapa blanda, publicada por Lengua de Trapo. Sus 144 páginas permiten manejar un volumen relativamente breve, tanto para leer fuera de casa como para guardarlo en una estantería sin ocupar demasiado espacio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "edicion",
+        "editorial",
+        "numero_paginas"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c486af73a368f9be",
+  "origen": "chatgpt-web"
+}

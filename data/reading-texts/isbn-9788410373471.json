@@ -1,0 +1,43 @@
+{
+  "id": "isbn-9788410373471",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Patria de sangre se dirige a lectores de novela histórica que también buscan aventuras y narrativa contemporánea. Sus 458 páginas plantean una lectura extensa, menos ajustada a quien prefiere novelas breves o centradas exclusivamente en el presente.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Patria de sangre está disponible en tapa blanda, con 458 páginas en castellano. Es una edición física de Samarcanda que permite conservar el volumen en papel y consultarlo sin dispositivos electrónicos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Patria de sangre puede compararse con ¡Cartago debe ser destruida! (Istoría), de Gabriel Castelló, por su vinculación con la narrativa histórica. La diferencia está en que Patria de sangre también se clasifica como aventuras y narrativa contemporánea, mientras que el título de Gabriel Castelló remite expresamente a Cartago.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387714505"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "464b5d2939a29579",
+  "origen": "chatgpt-web"
+}

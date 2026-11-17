@@ -4,24 +4,28 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "La sombra del ciprés es alargada (Áncora & Delfín) se dirige a lectores de clásicos y narrativa del siglo XX con interés por la historia. Por su clasificación literaria, se aleja de las lecturas centradas en la fantasía o los manuales prácticos.",
+      "texto": "La sombra del ciprés es alargada (Áncora & Delfín), de Miguel Delibes, encaja con lectores interesados en los clásicos y la narrativa contemporánea española. Su clasificación literaria e histórica lo aleja de las lecturas centradas en la divulgación técnica o los manuales prácticos.",
       "evidencias": [
         "titulo",
-        "categorias"
+        "autores",
+        "categorias",
+        "idioma"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "La edición de Ediciones Destino presenta sus 400 páginas en tapa dura, una opción para conservar el volumen en una biblioteca. La tapa blanda facilita llevarlo en el bolso, Kindle permite leerlo en dispositivos electrónicos y el audiolibro ofrece la posibilidad de escucharlo.",
+      "texto": "La sombra del ciprés es alargada (Áncora & Delfín) está disponible en tapa dura, tapa blanda, Kindle y audiolibro. La edición en tapa dura de Ediciones Destino tiene 400 páginas y sirve para conservar el libro en papel; la tapa blanda facilita su transporte, Kindle permite leerlo en dispositivos electrónicos y el audiolibro ofrece la opción de escucharlo.",
       "evidencias": [
-        "editorial",
+        "titulo",
+        "formatos_disponibles",
         "numero_paginas",
-        "formatos_disponibles"
+        "editorial",
+        "edicion"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "La sombra del ciprés es alargada (Áncora & Delfín) comparte con Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas) su vinculación con la narrativa clásica, aunque sus autores son Miguel Delibes y Lev Tolstoi, respectivamente. David Copperfield (edición especial en tapa dura) (Ediciones Conmemorativas), de Charles Dickens, ofrece otra referencia de literatura clásica en una edición de tapa dura.",
+      "texto": "La sombra del ciprés es alargada (Áncora & Delfín) y David Copperfield (edición especial en tapa dura) (Ediciones Conmemorativas) comparten su condición de obras vinculadas a la tradición literaria. La primera pertenece a Miguel Delibes y se clasifica como clásico y narrativa contemporánea, mientras que la segunda es una obra de Charles Dickens presentada en una edición conmemorativa. Anna Karénina (edición especial en tapa dura) (Ediciones Conmemorativas), de Lev Tolstoi, constituye otra comparación dentro de las lecturas clásicas.",
       "evidencias": [
         "titulo",
         "autores",
@@ -36,6 +40,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "efe1c99ca3eefe3c",
+  "fuente_hash": "0299c9e4dbc64b78",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388075575",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Aprende a pensar: 24 preguntas filosóficas para entendernos y convivir mejor (Sociedad del siglo XXI) está dirigido a lectores interesados en la filosofía aplicada a la comprensión personal y la convivencia. Su planteamiento mediante preguntas lo diferencia de los ensayos centrados en una corriente política o en la biografía de una figura histórica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Aprende a pensar: 24 preguntas filosóficas para entendernos y convivir mejor (Sociedad del siglo XXI) se presenta en tapa blanda y suma 192 páginas. La edición en castellano de Pinolia permite llevar el ensayo en papel y volver a sus preguntas durante la lectura.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Aprende a pensar: 24 preguntas filosóficas para entendernos y convivir mejor (Sociedad del siglo XXI) se aproxima a Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar, por su orientación hacia la reflexión. Vico organiza su propuesta alrededor de preguntas sobre la comprensión y la convivencia; Raimon Panikkar presenta aforismos destinados a reflexionar y meditar.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "6167adc3c655c1df",
+  "origen": "chatgpt-web"
+}

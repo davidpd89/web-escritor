@@ -1,0 +1,44 @@
+{
+  "id": "isbn-9791388391521",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Acaba de decir si quiero cuando desperté, de Rox, se dirige a lectores interesados en la poesía y la narrativa juvenil. Sus 132 páginas permiten abordar una obra relativamente breve, mientras que quienes buscan específicamente una novela adulta de misterio encontrarán aquí una clasificación literaria diferente.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Acaba de decir si quiero cuando desperté cuenta con una edición en tapa blanda de 132 páginas. El volumen publicado por Editorial Cuadranta permite leerlo y conservarlo en papel, con una extensión manejable para transportarlo o repartir su lectura en varias sesiones.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Acaba de decir si quiero cuando desperté puede ponerse junto a La muerte de Penélope (Poesía), de Carolina Corvillo, por su vinculación con la poesía. También se relaciona con s-t técnica mixta: (colección de poemas), de Aldo Sanz, aunque este último se presenta expresamente como colección de poemas, mientras que la obra de Rox figura tanto en poesía como en narrativa juvenil.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387838928",
+        "isbn-9788498277500"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f0fdb18ab8dff1b0",
+  "origen": "chatgpt-web"
+}

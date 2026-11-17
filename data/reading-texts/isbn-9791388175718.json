@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388175718",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Esta guía de Delfín Carbonell se dirige a lectores interesados en la literatura en lengua inglesa y en el ensayo literario. Sus 138 páginas abordan un recorrido que el título sitúa entre Tolkien y Rowling; no responde al formato de una novela de ficción centrada en una trama y sus personajes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa blanda de esta guía de Delfín Carbonell reúne 138 páginas en una edición física de Editatum, adecuada para consultar y conservar en una biblioteca personal. Kindle permite llevar el texto en el móvil o en un lector electrónico compatible, una alternativa para consultar contenidos literarios sin transportar el ejemplar impreso.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Esta guía de Delfín Carbonell comparte su orientación ensayística con Bajo la sombra del Vesubio: Vida de Plinio: 120 (Biblioteca de Ensayo / Serie mayor), aunque la primera aborda la literatura en lengua inglesa y el segundo se centra en la vida de Plinio. Carta al padre: Edición con prólogo y notas ofrece una obra de Franz Kafka acompañada de materiales editoriales, frente al recorrido por distintos autores que plantea la guía.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418708459",
+        "isbn-9788410908239"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "87be441b92f1ff25",
+  "origen": "chatgpt-web"
+}

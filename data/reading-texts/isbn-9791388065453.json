@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9791388065453",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Sala de embarque: Las cuitas del secretario binario se orienta a lectores de relatos que buscan una obra breve de Arturo Amez. Sus 156 páginas y su clasificación entre los relatos lo alejan de la extensión habitual de una novela larga; tampoco se presenta como un manual práctico de arte o diseño.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda de Sala de embarque: Las cuitas del secretario binario tiene 156 páginas y permite leer el libro en papel sin recurrir a un dispositivo. Kindle ofrece una alternativa digital para llevar la obra en el móvil o en un lector electrónico, sin ocupar espacio físico en la estantería.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Lynchianas también figura entre las obras de relatos, pero reúne una autoría colectiva, frente a la firma individual de Arturo Amez en Sala de embarque: Las cuitas del secretario binario. La comparación permite distinguir entre una obra atribuida a un solo escritor y otra en la que participan distintas voces.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399146950"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "f1d59f7ad1707e31",
+  "origen": "chatgpt-web"
+}

@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791388508905",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Alguna perla para un rosario, de María Goñi, se dirige a lectores que buscan poesía en castellano. Sus 88 páginas corresponden a una obra de extensión breve, distinta de una novela extensa o de un libro de divulgación.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Alguna perla para un rosario cuenta con una edición en tapa blanda de 88 páginas. Su extensión facilita llevar el ejemplar en papel y volver a páginas concretas durante la lectura de poesía, sin necesidad de manejar un volumen largo.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Alguna perla para un rosario puede ponerse junto a A solas y Advenir como referencia para explorar obras de distintos autores. María Goñi firma un libro clasificado como poesía, mientras que A solas pertenece a María Jesús Martínez Ramos y Advenir a Jose Eceolaza. La comparación permite distinguir sus autorías sin atribuirles un tono o unos temas comunes.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788410907539",
+        "isbn-9788410212749"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "03bad970ae701238",
+  "origen": "chatgpt-web"
+}

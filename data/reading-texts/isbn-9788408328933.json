@@ -4,33 +4,31 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Anna Kadabra. El Gran Libro de Anna Kadabra. El despertar de las brujas: 1 se orienta a lectores de aventuras con elementos de brujería, humor y terror. Sus 336 páginas requieren una lectura más prolongada que la de un cuento breve; no es la elección más ajustada para quien busca narrativa realista sin componentes fantásticos.",
+      "texto": "Encaja con lectores de aventuras infantiles que buscan historias relacionadas con brujas y prefieren un libro de cierta extensión. Sus 336 páginas y su temática lo alejan de los cuentos muy breves y de las lecturas centradas en el realismo cotidiano.",
       "evidencias": [
         "titulo",
         "categorias",
-        "numero_paginas"
+        "numero_paginas",
+        "editorial"
       ]
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Anna Kadabra. El Gran Libro de Anna Kadabra. El despertar de las brujas: 1 se ofrece en tapa dura y Kindle. La edición física de Destino Infantil & Juvenil contiene 336 páginas y resulta adecuada para conservarla en una estantería o regalarla; Kindle permite leerla en pantalla sin cargar con el volumen.",
+      "texto": "La tapa dura permite conservar y regalar una edición física de 336 páginas, publicada por Destino Infantil & Juvenil. Kindle ofrece la misma obra en un formato digital que facilita llevar la lectura en un dispositivo sin transportar el volumen impreso.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
-        "editorial",
         "numero_paginas",
-        "edicion"
+        "formatos_disponibles",
+        "editorial"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Anna Kadabra. Estuche Aventuras legendarias 1 y 2 comparte con el libro de Pedro Mañas y David Sierra Listón la autoría y el universo de Anna Kadabra. El estuche reúne aventuras identificadas como 1 y 2, mientras que el volumen de tapa dura tiene 336 páginas y se centra en el despertar de las brujas. Ambos se relacionan con las aventuras, pero presentan formatos editoriales distintos.",
+      "texto": "Anna Kadabra. Estuche Aventuras legendarias 1 y 2 comparte autoría y universo con el libro de Pedro Mañas y David Sierra Listón. La diferencia está en la presentación: el estuche reúne dos aventuras, mientras que El despertar de las brujas ofrece un volumen de 336 páginas centrado en las brujas.",
       "evidencias": [
         "titulo",
         "autores",
         "numero_paginas",
-        "edicion",
-        "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
@@ -40,6 +38,6 @@
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "b727633356e21cc3",
+  "fuente_hash": "f49611f7f082dac8",
   "origen": "chatgpt-web"
 }

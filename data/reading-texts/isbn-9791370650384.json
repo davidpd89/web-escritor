@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370650384",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "La compraventa de cosechas: entre el Derecho civil y la Ley de la Cadena Alimentaria (monografico), de Federico Arnau Moya, se dirige a lectores interesados en el Derecho civil y la regulación jurídica de las operaciones agrícolas. Su enfoque jurídico lo sitúa en el ámbito del estudio profesional o académico, no en el de la narrativa ni la divulgación general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa blanda reúne sus 316 páginas en un volumen físico manejable para la consulta y el estudio. Es el formato disponible de La compraventa de cosechas: entre el Derecho civil y la Ley de la Cadena Alimentaria (monografico), de Federico Arnau Moya.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Anuario de Derecho Administrativo Sancionador 2026 (Estudios y Comentarios) comparte con La compraventa de cosechas: entre el Derecho civil y la Ley de la Cadena Alimentaria (monografico) el enfoque de estudio jurídico. La diferencia está en el ámbito que aborda cada título: el primero se centra en el Derecho administrativo sancionador y el segundo en la compraventa agrícola y su relación con el Derecho civil.",
+      "evidencias": [
+        "titulo",
+        "afines_catalogo",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9791370610562"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c4e92feb1139f7d0",
+  "origen": "chatgpt-web"
+}

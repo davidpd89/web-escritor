@@ -1,0 +1,41 @@
+{
+  "id": "isbn-9791370094027",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está pensado para quienes buscan conocer la historia de Twin Peaks desde una perspectiva vinculada al mundo audiovisual. Su asunto es una producción concreta, por lo que se aparta de los estudios generales sobre cine y de las novelas de ficción ambientadas en universos televisivos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Alianza Editorial se presenta en tapa blanda, con 256 páginas en castellano. Este volumen físico permite leer de forma continuada la historia de Twin Peaks y conservarlo como libro de consulta sobre esa producción audiovisual.",
+      "evidencias": [
+        "titulo",
+        "editorial",
+        "numero_paginas",
+        "idioma",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "21 Westerns del siglo XXI (Sílex Cine/Claqueta) y el libro de Scott Meslow comparten su relación con el ámbito audiovisual. La obra de Eduardo Izquierdo Cabrera, Manuel López Poy y Eloy Pérez Ladaga se ocupa del western del siglo XXI, mientras que la de Scott Meslow aborda la historia de Twin Peaks.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388205842"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "bbda1b28f7dede03",
+  "origen": "chatgpt-web"
+}

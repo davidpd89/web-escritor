@@ -1,0 +1,45 @@
+{
+  "id": "isbn-9791399286526",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Analectas. El arte de la estrategia se dirige a lectores de filosofía y ensayo interesados en el pensamiento de CONFUCIO. Sus 336 páginas corresponden a una obra de reflexión filosófica, por lo que se distancia de los libros centrados en procedimientos técnicos o ejercicios de aplicación inmediata.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Analectas. El arte de la estrategia está disponible en tapa dura, con 336 páginas en castellano. Esta edición de Ediciones Mi-lla SL ofrece una encuadernación rígida para conservar el volumen en una biblioteca y volver a consultar sus contenidos filosóficos.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Analectas. El arte de la estrategia comparte su orientación hacia la reflexión con Aforismos para reflexionar y meditar: 109 (Fragmentos), de Raimon Panikkar. La obra de CONFUCIO incorpora la estrategia a su planteamiento filosófico, mientras que el título de Raimon Panikkar identifica los aforismos y la meditación como ejes de lectura. Son dos aproximaciones diferenciadas por su autoría y por los conceptos destacados en sus títulos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387548278"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "e5c918e79cbf008e",
+  "origen": "chatgpt-web"
+}

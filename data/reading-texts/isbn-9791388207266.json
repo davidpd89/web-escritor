@@ -1,0 +1,48 @@
+{
+  "id": "isbn-9791388207266",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Paco, la química de la serenidad. Perspectivas, recuerdos y ciencia: Homenaje al profesor Francisco Javier García Alonso se orienta a lectores interesados en las trayectorias personales vinculadas al ámbito científico. Su carácter de homenaje biográfico lo distingue de los manuales de química y de las obras centradas exclusivamente en explicar conceptos científicos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "La obra reúne en su planteamiento recuerdos, perspectivas personales y ciencia alrededor de un homenaje al profesor Francisco Javier García Alonso. Su enfoque combina la dimensión biográfica con la científica, según indica el propio título y su clasificación editorial.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Paco, la química de la serenidad. Perspectivas, recuerdos y ciencia: Homenaje al profesor Francisco Javier García Alonso se publica en tapa dura y tiene 202 páginas. Esta presentación física permite conservar el homenaje en una biblioteca personal o académica y utilizarlo como volumen de consulta.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Paco, la química de la serenidad. Perspectivas, recuerdos y ciencia: Homenaje al profesor Francisco Javier García Alonso y El universo espiritual de Einstein: Cómo la ciencia moldeó su visión de Dios, la conciencia y el cosmos (Divulgación científica) relacionan ciencia y experiencia personal. El primero adopta la forma de homenaje a un profesor; el segundo examina la relación entre ciencia y pensamiento espiritual de Einstein.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388075469"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "21dfd08263bb0a9e",
+  "origen": "chatgpt-web"
+}

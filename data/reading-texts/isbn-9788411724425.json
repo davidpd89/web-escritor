@@ -1,0 +1,40 @@
+{
+  "id": "isbn-9788411724425",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "99 Sudoku (LIBROS SINGULARES) se dirige a quienes buscan pasatiempos para ocupar su tiempo libre. Por su planteamiento de ocio y aficiones, encaja menos con lectores interesados en novelas, relatos o ensayos.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "99 Sudoku (LIBROS SINGULARES) está disponible en tapa blanda, con 120 páginas en castellano. Es una edición física que permite resolver los pasatiempos directamente sobre el papel y consultar las páginas sin utilizar una pantalla.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "99 Sudoku (LIBROS SINGULARES) puede compararse con 80 crímenes imposibles de resolver (FUERA DE ESCENA) por su orientación hacia los retos de entretenimiento. El primero se centra en el sudoku, mientras que el segundo plantea crímenes como materia de resolución; ambos se alejan de la lectura narrativa convencional.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791388015816"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "017996f630a1cf8f",
+  "origen": "chatgpt-web"
+}

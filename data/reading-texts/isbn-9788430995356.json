@@ -1,0 +1,42 @@
+{
+  "id": "isbn-9788430995356",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Manual de derecho de la biotecnología, de Luis Sarrato Martínez, está orientado a lectores interesados en la relación entre el derecho y la biotecnología. Su clasificación combina derecho y divulgación científica, por lo que se aleja de las lecturas de ciencia exclusivamente experimental o de los textos narrativos.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición de Tecnos se presenta en tapa dura y reúne 384 páginas en castellano. La encuadernación rígida resulta apropiada para mantener el volumen en una biblioteca de consulta y soportar su manipulación frecuente, aunque ocupa más espacio y pesa más que una edición equivalente en tapa blanda.",
+      "evidencias": [
+        "editorial",
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Manual de derecho de la biotecnología, de Luis Sarrato Martínez, comparte el enfoque jurídico aplicado con La actividad pericial del ingeniero: Manual práctico para España, de Antonio Armero Martínez. La diferencia reside en el ámbito de estudio: el primero relaciona derecho y biotecnología, mientras que el segundo se ocupa de la actividad pericial en ingeniería y plantea una orientación práctica para España.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791399307603"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "c01ff3ed4c2a3576",
+  "origen": "chatgpt-web"
+}

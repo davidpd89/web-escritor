@@ -4,18 +4,18 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "Mickey. Feliz Navidad: Libro con mecanismos (Disney. Mickey), de Disney, está dirigido al público infantil interesado en Mickey y la Navidad. Sus 8 páginas de cartón y sus mecanismos lo distinguen de las narraciones extensas; no responde a quien busca una novela juvenil con una trama desarrollada.",
+      "texto": "Mickey. Feliz Navidad: Libro con mecanismos (Disney. Mickey) está dirigido al público infantil que disfruta de los personajes de Disney y los libros manipulativos. Sus 8 páginas y su construcción en cartón lo diferencian de las narraciones extensas destinadas a lectores que buscan una historia desarrollada.",
       "evidencias": [
         "titulo",
         "autores",
         "categorias",
-        "edicion",
-        "numero_paginas"
+        "numero_paginas",
+        "edicion"
       ]
     },
     {
       "modulo": "como_se_utiliza",
-      "texto": "Este libro se utiliza mediante la manipulación de sus mecanismos mientras se recorren las 8 páginas de cartón. Su formato permite combinar la observación de las páginas con la interacción física, en lugar de limitar la actividad a la lectura de texto.",
+      "texto": "Mickey. Feliz Navidad: Libro con mecanismos (Disney. Mickey) propone una lectura física en la que se pueden accionar los mecanismos anunciados en el título. Sus 8 páginas de cartón permiten recorrer el libro por partes y combinar la observación de las páginas con la manipulación.",
       "evidencias": [
         "titulo",
         "edicion",
@@ -24,32 +24,30 @@
     },
     {
       "modulo": "que_formato_elegir",
-      "texto": "Mickey. Feliz Navidad: Libro con mecanismos (Disney. Mickey) está disponible en tapa dura, con una edición de cartón de 8 páginas. Es una presentación física para manejar los mecanismos durante la lectura y conservar el libro como objeto navideño.",
+      "texto": "La edición de Mickey. Feliz Navidad: Libro con mecanismos (Disney. Mickey) se presenta como libro de cartón, dentro del formato de tapa dura. Sus 8 páginas y sus mecanismos hacen que el uso se centre en el objeto físico, tanto para compartir la lectura como para regalarlo.",
       "evidencias": [
         "titulo",
-        "formatos_disponibles",
         "edicion",
+        "formatos_disponibles",
         "numero_paginas"
       ]
     },
     {
       "modulo": "lecturas_afines",
-      "texto": "Princesas. Obras maestras (Disney. Princesas) comparte con el libro de Mickey la autoría de Disney y su orientación infantil. La diferencia está en los personajes y el uso: el primero se centra en las princesas, mientras que el segundo presenta a Mickey en un libro navideño de cartón con 8 páginas y mecanismos para manipular.",
+      "texto": "Disney. Libro con sonidos. Animales comparte con el libro de Mickey la propuesta de interacción física, aunque utiliza sonidos de animales en lugar de mecanismos. El título navideño de Mickey se distingue por sus 8 páginas de cartón y por centrar la actividad en la manipulación de sus elementos móviles.",
       "evidencias": [
+        "afines_catalogo",
         "titulo",
-        "autores",
-        "categorias",
-        "edicion",
         "numero_paginas",
-        "afines_catalogo"
+        "edicion"
       ],
       "enlaces": [
-        "isbn-9791387526382"
+        "isbn-9791387526870"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "705c5acc60a5da22",
+  "fuente_hash": "3beee1538ed0ade9",
   "origen": "chatgpt-web"
 }

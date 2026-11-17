@@ -1,0 +1,55 @@
+{
+  "id": "isbn-9791388154737",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigido a quienes buscan memorias personales escritas por su protagonista, con un enfoque próximo a la narrativa contemporánea. No responde a la búsqueda de una biografía sobre otra persona ni de un ensayo histórico general.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "esta_edicion",
+      "texto": "Esta edición de MARRÓN. Nueva edición con epílogo de la autora.: Memorias incorpora un epílogo de Rocío Quillahuaman, tal como anuncia el título. Blackie Books la publicó en 2026 en castellano, con encuadernación de tapa dura y 200 páginas.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "editorial",
+        "fecha_publicacion",
+        "idioma",
+        "formato_edicion",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura es el formato disponible para esta edición de 200 páginas. Su encuadernación rígida resulta práctica para conservar el ejemplar en una biblioteca personal o entregarlo como regalo físico.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "formato_edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "MARRÓN. Nueva edición con epílogo de la autora.: Memorias puede compararse con Colores de mis memorias (Las estaciones de los McKee), de Joaquín Renero, por su vinculación con la memoria personal. También se aproxima a Dostoievski, mi marido, de Ana G. Dostoievskaia, aunque este último título sitúa una relación matrimonial en el centro de su planteamiento, mientras que el de Rocío Quillahuaman se presenta como unas memorias de autora.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788409940707",
+        "isbn-9791399078251"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "ce31afa5355231e8",
+  "origen": "chatgpt-web"
+}

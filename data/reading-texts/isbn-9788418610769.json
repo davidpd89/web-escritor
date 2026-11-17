@@ -1,0 +1,52 @@
+{
+  "id": "isbn-9788418610769",
+  "familia": "infantil",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Spidey y su superequipo. Libro con 10 sonidos está dirigido al público infantil interesado en los personajes de Marvel. Su formato breve, de 10 páginas, y la incorporación de diez sonidos lo sitúan en una lectura interactiva, diferente de los cuentos infantiles convencionales sin elementos sonoros.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "como_se_utiliza",
+      "texto": "El libro combina sus 10 páginas con diez sonidos vinculados a Spidey y su superequipo. La lectura puede acompañarse de la experiencia sonora, de modo que el componente auditivo forma parte del contenido y no queda limitado al texto impreso.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas",
+        "sinopsis_editorial"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La tapa dura reúne las 10 páginas del libro en un ejemplar físico que incorpora diez sonidos. Este formato permite compartir la lectura y la experiencia sonora en papel; es la edición disponible de Libros Disney.",
+      "evidencias": [
+        "numero_paginas",
+        "formatos_disponibles",
+        "edicion",
+        "titulo"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Spidey y su superequipo. Cine en casa: Cuento y proyector comparte los personajes de Spidey y su superequipo. Libro con 10 sonidos, pero se diferencia en el recurso de interacción: el primero incorpora un proyector y el segundo diez sonidos para acompañar la lectura.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788418610660"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "1815026016a9a630",
+  "origen": "chatgpt-web"
+}

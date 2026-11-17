@@ -1,0 +1,46 @@
+{
+  "id": "isbn-9791387915070",
+  "familia": "narrativa",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Está dirigida a quienes buscan una guía de viaje centrada en la isla de Tenerife y prefieren consultar un volumen breve en papel. Sus 128 páginas se orientan al turismo y al tiempo libre, no a una lectura de ficción ni a un estudio histórico extenso.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas",
+        "formatos_disponibles"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición disponible es en tapa blanda, con 128 páginas en castellano publicadas por Anaya Touring. Su extensión permite llevarla en el equipaje y consultar el contenido durante la planificación o el propio viaje.",
+      "evidencias": [
+        "formatos_disponibles",
+        "numero_paginas",
+        "idioma",
+        "editorial",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Isla de Tenerife (GUIARAMA COMPACT) y Costa amalfitana (VIAJES) comparten el enfoque geográfico de las guías de viaje, aunque se ocupan de destinos distintos. Córcega de cerca 1 (Guías De cerca Lonely Planet) también se centra en un territorio insular, mientras que la obra de Mario Hernández Bueno dedica sus 128 páginas a Tenerife.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "numero_paginas",
+        "categorias",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9791387934156",
+        "isbn-9788408328056"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b5b315819d62a37d",
+  "origen": "chatgpt-web"
+}

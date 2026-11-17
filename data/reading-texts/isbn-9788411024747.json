@@ -1,0 +1,49 @@
+{
+  "id": "isbn-9788411024747",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Orientado a lectores interesados en localizar y gestionar información científica mediante herramientas TIC. Su planteamiento temático encaja con la consulta y el estudio de estos procedimientos, no con quien busca una novela o una introducción general a la literatura.",
+      "evidencias": [
+        "titulo",
+        "categorias",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Aborda dos tareas relacionadas: la búsqueda de información científica y su gestión mediante tecnologías de la información y la comunicación. El título delimita un enfoque instrumental sobre el tratamiento de información científica, desarrollado en una obra de 250 páginas.",
+      "evidencias": [
+        "titulo",
+        "numero_paginas"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "La edición en tapa dura contiene las 250 páginas de Búsqueda y Gestión de la información científica con herramientas TIC. La encuadernación rígida resulta práctica para conservar el volumen y consultarlo repetidamente en una mesa de trabajo o estudio.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Realidad extendida e inteligencia artificial comparte las autoras Leticia Victoria Fraga Colman y Silvia Pueyo Villa con Búsqueda y Gestión de la información científica con herramientas TIC. Ambos títulos tratan cuestiones tecnológicas, pero uno se centra en realidad extendida e inteligencia artificial y el otro en buscar y organizar información científica.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "afines_catalogo"
+      ],
+      "enlaces": [
+        "isbn-9788411024754"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "a8f0a486b38f715b",
+  "origen": "chatgpt-web"
+}

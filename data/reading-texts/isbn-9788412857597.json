@@ -4,38 +4,39 @@
   "bloques": [
     {
       "modulo": "para_quien",
-      "texto": "A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini) se orienta a lectores infantiles y juveniles interesados en aventuras con humor y referencias a la naturaleza y la familia. Se aleja de los libros de aprendizaje puramente didáctico y de las narraciones destinadas específicamente al público adulto.",
+      "texto": "A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini) se dirige a lectores infantiles interesados en las aventuras. Sus 160 páginas en castellano encajan con quienes buscan una historia de extensión moderada, más que con lectores interesados en ensayos o narrativa para adultos.",
       "evidencias": [
         "titulo",
-        "categorias"
-      ]
-    },
-    {
-      "modulo": "que_formato_elegir",
-      "texto": "La edición en tapa blanda de A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini) cuenta con 160 páginas en castellano. El formato permite llevar el libro en una mochila y leerlo en papel, tanto en casa como durante los desplazamientos.",
-      "evidencias": [
-        "titulo",
-        "formatos_disponibles",
+        "categorias",
         "numero_paginas",
         "idioma"
       ]
     },
     {
-      "modulo": "lecturas_afines",
-      "texto": "A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini) comparte el terreno de la aventura infantil con Pipoka y la Fábrica del Desastre. Mientras el libro de Núria Parera Ciuró anuncia un escenario vikingo y combina aventura y humor, el de Jose Such presenta un cuentacuentos y una marioneta mágica que recorren la Península.",
+      "modulo": "que_formato_elegir",
+      "texto": "A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini) está disponible en tapa blanda, con 160 páginas. Esta edición de Babulinka Libros permite llevar el libro en una mochila y consultarlo en papel, sin depender de una pantalla.",
       "evidencias": [
         "titulo",
-        "autores",
+        "formatos_disponibles",
+        "numero_paginas",
+        "editorial"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "A, B, C Y La Sra.smith En Tierra De Vikingos: 11 (MiniMini) comparte el público infantil con Abre el misterio 1 - El robo de las croquetas, de Carlos G. Gurpegui. El segundo plantea la desaparición de unas croquetas, mientras que el primero se presenta como una aventura en tierra de vikingos. Ambos pertenecen a la narrativa infantil, aunque sus títulos apuntan a escenarios distintos.",
+      "evidencias": [
+        "titulo",
         "categorias",
         "afines_catalogo"
       ],
       "enlaces": [
-        "isbn-9791388277085"
+        "isbn-9788427256644"
       ]
     }
   ],
   "descartados": [],
   "version": 3,
-  "fuente_hash": "920bb5b81ac61f7a",
+  "fuente_hash": "681e6410a01f3eb8",
   "origen": "chatgpt-web"
 }

@@ -1,0 +1,50 @@
+{
+  "id": "isbn-9791388289088",
+  "familia": "no_ficcion",
+  "bloques": [
+    {
+      "modulo": "para_quien",
+      "texto": "Un regalo de los dioses se dirige a lectores interesados en comprender la lectura desde la neurociencia y la psicología. Su enfoque de ensayo divulgativo se aparta de las novelas sobre lectores y escritores, así como de los manuales dedicados exclusivamente a enseñar técnicas de lectura.",
+      "evidencias": [
+        "titulo",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "temas_y_enfoque",
+      "texto": "Un regalo de los dioses estudia la lectura desde una perspectiva neurocientífica. Antonio Basanta y Nazareth Castellanos sitúan esta actividad en el cruce entre psicología, ciencia y ensayo, con un planteamiento centrado en comprenderla más que en desarrollar una historia de ficción.",
+      "evidencias": [
+        "titulo",
+        "autores",
+        "categorias"
+      ]
+    },
+    {
+      "modulo": "que_formato_elegir",
+      "texto": "Un regalo de los dioses está disponible en tapa dura, Kindle y audiolibro. La edición impresa reúne 168 páginas y permite consultar el ensayo en papel; Kindle facilita llevarlo en un dispositivo de lectura o móvil compatible, mientras que el audiolibro permite escucharlo sin mantener la vista en el texto.",
+      "evidencias": [
+        "titulo",
+        "formatos_disponibles",
+        "numero_paginas",
+        "edicion"
+      ]
+    },
+    {
+      "modulo": "lecturas_afines",
+      "texto": "Neurociencia del cuerpo, de Nazareth Castellanos, y Un regalo de los dioses comparten el interés por la neurociencia y la participación de una misma autora. El primero centra su asunto en el cuerpo, mientras que Un regalo de los dioses aborda la lectura y está firmado conjuntamente por Antonio Basanta y Nazareth Castellanos.",
+      "evidencias": [
+        "afines_catalogo",
+        "titulo",
+        "autores",
+        "categorias"
+      ],
+      "enlaces": [
+        "isbn-9788466394703"
+      ]
+    }
+  ],
+  "descartados": [],
+  "version": 3,
+  "fuente_hash": "b1a59db48f81a922",
+  "origen": "chatgpt-web"
+}
