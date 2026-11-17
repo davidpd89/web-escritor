@@ -40,9 +40,16 @@ BUILDERS = CREAN_RUTAS + INDEXAN
 CHECKS = ('build-reading-catalogue.py', 'build-page-order.py', 'build-site-shell.py', 'build-sitemap.py',
           'build-pagefind-index.py')
 RUTAS_NUEVAS = ('recomendaciones', 'editoriales', 'mapa-del-sitio')
-# Entradas de los builders: la misma lista que la clave de caché de .github/actions/materializar (lo comprueba un test).
-FUENTES = ('data/**', 'scripts/build-*.py', 'scripts/site_shell.py', 'scripts/reading*.py', 'scripts/templates/**',
-           'scripts/materializar_generados.py', '**/*.html.tmpl', '**/*.html')
+# Entradas de los builders: datos que leen en runtime (data/**, plantillas, HTML) y el cierre de imports de la cadena.
+# Es la misma lista que la clave de caché de .github/actions/materializar (lo comprueba un test). Los módulos aquí son
+# exactamente los que importan los builders (scripts/build-*.py cubre el resto de la cadena por glob); un guardián AST
+# lo verifica. Antes había un `scripts/reading*.py` que metía scripts reading* que SOLO escriben data/ (reading-texts,
+# reading-amazon-audit, reading_telegram…): un cambio de main en ellos durante la CI disparaba un StaleMerge falso
+# aunque no alimentan a ningún builder; a la vez dejaba fuera arbol_publicado/genre_families/site_clock, que sí lo hacen.
+FUENTES = ('data/**', 'scripts/build-*.py', 'scripts/materializar_generados.py', 'scripts/arbol_publicado.py',
+           'scripts/genre_families.py', 'scripts/site_clock.py', 'scripts/site_shell.py',
+           'scripts/reading_intake_core.py', 'scripts/reading_publisher_links.py', 'scripts/reading_taxonomy.py',
+           'scripts/templates/**', '**/*.html.tmpl', '**/*.html')
 TESTIGO = 'assets/page-order.generated.js'   # si está versionado, lo generado sigue en git (antes del corte)
 HUELLA = Path('.local') / 'materializado.huella'
 

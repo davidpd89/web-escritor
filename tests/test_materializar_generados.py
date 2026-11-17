@@ -39,6 +39,46 @@ class UnaSolaCadena(unittest.TestCase):
         for indexa in ('build-site-shell.py', 'build-pagefind-index.py'):
             self.assertGreater(nombres.index(indexa), nombres.index('build-page-order.py'))
 
+    def _cierre_de_builders(self):
+        """Módulos de primera parte (scripts/*.py) que importa, transitivamente, la cadena de materialización."""
+        import ast
+        scripts = ROOT / 'scripts'
+        locales = {p.stem: p for p in scripts.glob('*.py')}
+
+        def imports(path):
+            arbol = ast.parse(path.read_text(encoding='utf-8'))
+            nombres = set()
+            for n in ast.walk(arbol):
+                if isinstance(n, ast.Import):
+                    nombres |= {a.name.split('.')[0] for a in n.names}
+                elif isinstance(n, ast.ImportFrom) and n.module and not n.level:
+                    nombres.add(n.module.split('.')[0])
+            return {m for m in nombres if m in locales}
+
+        vistos, pend = set(), [b[0][:-3] for b in mat.BUILDERS]  # sin la extensión .py
+        while pend:
+            m = pend.pop()
+            if m in vistos:
+                continue
+            vistos.add(m)
+            pend += [d for d in imports(locales[m]) if d not in vistos]
+        return {locales[m].name for m in vistos}
+
+    def test_fuentes_son_el_cierre_de_imports_de_los_builders(self):
+        """Guardián AST: FUENTES = las entradas reales de los builders, ni una de más (StaleMerge falso) ni de menos
+        (caché rancia). reading-texts.py y demás scripts que solo escriben data/ no son entrada; arbol_publicado,
+        genre_families y site_clock, que sí importan los builders, no pueden quedarse fuera."""
+        import fnmatch
+        cubierto = lambda f: any(fnmatch.fnmatch('scripts/' + f, pat) for pat in mat.FUENTES)
+        cierre = self._cierre_de_builders()
+        # Nada que importe la cadena puede quedar sin cubrir (los build-*.py por glob; el resto, explícito).
+        fuera = sorted(f for f in cierre if not cubierto(f))
+        self.assertEqual(fuera, [], f'los builders importan módulos ausentes de FUENTES: {fuera}')
+        # Y ninguna ruta reading*.py ajena a la cadena puede disparar regeneración/StaleMerge.
+        reading = {p.name for p in (ROOT / 'scripts').glob('reading*.py')}
+        sueltas = sorted(r for r in reading if r not in cierre and cubierto(r))
+        self.assertEqual(sueltas, [], f'reading*.py que no alimentan builders pero disparan StaleMerge: {sueltas}')
+
 
 ACCION = './.github/actions/materializar'
 
