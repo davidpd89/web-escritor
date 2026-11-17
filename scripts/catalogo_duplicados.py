@@ -17,6 +17,7 @@ Uso: python scripts/catalogo_duplicados.py [--catalogo RUTA] [--umbral 92] [--sa
 """
 import argparse
 import json
+import os
 import re
 import sys
 import unicodedata
@@ -24,10 +25,14 @@ from collections import defaultdict
 from itertools import combinations
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import issue_vivo  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 CATALOGO = ROOT / 'data' / 'reading-catalogue.json'
 UMBRAL = 92
 TOPE_LISTA = 200
+ETIQUETA = 'duplicados'
 
 try:
     from rapidfuzz.fuzz import ratio as _ratio
@@ -171,6 +176,8 @@ def main(argv=None):
     parser.add_argument('--salida')
     parser.add_argument('--json')
     parser.add_argument('--estricto', action='store_true', help='devuelve 1 si hay ISBN o slug repetidos')
+    parser.add_argument('--issue', action='store_true', help='abre, actualiza o cierra el issue «duplicados» (solo main)')
+    parser.add_argument('--repo', default=os.environ.get('GITHUB_REPOSITORY'))
     args = parser.parse_args(argv)
     libros = json.loads(Path(args.catalogo).read_text(encoding='utf-8')).get('libros', [])
     hallazgos, ediciones = buscar(libros, args.umbral)
@@ -182,6 +189,14 @@ def main(argv=None):
     if args.json:
         Path(args.json).write_text(json.dumps({'motor': MOTOR, 'libros': len(libros), 'ediciones': ediciones,
                                                'hallazgos': hallazgos}, ensure_ascii=False, indent=1), encoding='utf-8')
+    if args.issue:
+        if not args.repo:
+            args.repo = issue_vivo.gh('repo', 'view', '--json', 'nameWithOwner', '-q', '.nameWithOwner').stdout.strip()
+        resultado = issue_vivo.publicar(ETIQUETA, f'Duplicados: {len(hallazgos)} parejas por revisar en el catálogo',
+                                        texto, bool(hallazgos), args.repo, 'El catálogo vuelve a estar sin duplicados.',
+                                        'Libros repetidos o casi repetidos en el catálogo', color='FBCA04')
+        if resultado is not None and resultado.returncode:
+            print(f'duplicados: no se pudo publicar el issue: {resultado.stderr.strip()[:300]}', file=sys.stderr)
     rotos = [h for h in hallazgos if h['clase'] in ('isbn_repetido', 'slug_repetido')]
     return 1 if args.estricto and rotos else 0
 
