@@ -217,9 +217,13 @@ def flagged_books(failures, data):
         named = list(dict.fromkeys(found))
         if not named:
             return None
-        last = [line for line in failure['texto'].strip().splitlines() if line.strip()][-1:] or ['']
+        lines = [line.strip() for line in failure['texto'].strip().splitlines() if line.strip()] or ['']
+        isbn_of = {v: k for k, v in by_isbn.items()}
         for book_id in named:
-            out.setdefault(book_id, f"contrato de datos {failure['test'].split('.')[-1]}: {last[0].strip()[:240]}")
+            # Un contrato que nombra varios libros da a cada uno su propia línea; si ninguna lo nombra, la última.
+            own = [line for line in lines if book_id in line or (isbn_of.get(book_id) or book_id) in line]
+            motivo = (own or lines)[-1 if not own else 0]
+            out.setdefault(book_id, f"contrato de datos {failure['test'].split('.')[-1]}: {motivo[:240]}")
     return out
 
 

@@ -131,6 +131,14 @@ class QuarantineTest(unittest.TestCase):
         failures = [{'test': 't.test_titles', 'texto': f"AssertionError: 3 not less than or equal to 2 : ['Algo · {book['isbn13']}']"}]
         self.assertEqual(list(q.flagged_books(failures, DATA)), [book['id']])
 
+    def test_each_named_book_gets_its_own_line_as_reason(self):
+        """Un contrato que nombra varios libros (uno por línea) no da a todos el motivo del último (16/11, O4.1)."""
+        a, b = DATA['libros'][0]['id'], DATA['libros'][1]['id']
+        failures = [{'test': 't.test_schema', 'texto': f"AssertionError: ...\n{a}: slug: no cumple\n{b}: autores: lista vacía"}]
+        named = q.flagged_books(failures, DATA)
+        self.assertIn('slug', named[a])
+        self.assertIn('autores', named[b])
+
     def test_count_contract_blames_the_changed_books_not_the_published_ones(self):
         """Un contrato de recuento nombra publicados intactos y un alta: sale el alta, los publicados siguen."""
         data = copy.deepcopy(DATA)
