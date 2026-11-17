@@ -33,8 +33,17 @@ function discoverPages() {
   }).sort();
 }
 
-const PAGES = discoverPages();
-assert.ok(PAGES.length > 0, 'no pre-rendered .section-context pages found to check');
+// Fragmentacion en CI (misma convencion que sitewide-reflow): la pagina i pertenece al fragmento i % SHARD_TOTAL.
+// Las fichas del catalogo crecen cada noche; un solo job llego a 6161 paginas y agotaba sus 15 min.
+const SHARD_TOTAL = Math.max(1, Number(process.env.SHARD_TOTAL || 1));
+const SHARD_INDEX = Number(process.env.SHARD_INDEX || 0);
+if (!Number.isInteger(SHARD_INDEX) || SHARD_INDEX < 0 || SHARD_INDEX >= SHARD_TOTAL) {
+  throw new Error(`SHARD_INDEX ${process.env.SHARD_INDEX} fuera de 0..${SHARD_TOTAL - 1}`);
+}
+const ALL_PAGES = discoverPages();
+assert.ok(ALL_PAGES.length > 0, 'no pre-rendered .section-context pages found to check');
+const PAGES = ALL_PAGES.filter((_, i) => i % SHARD_TOTAL === SHARD_INDEX);
+console.log(`[shard] ${SHARD_INDEX + 1}/${SHARD_TOTAL}: ${PAGES.length} de ${ALL_PAGES.length} paginas`);
 
 const MIME = new Map([
   ['.html', 'text/html; charset=utf-8'], ['.css', 'text/css; charset=utf-8'],
@@ -100,7 +109,7 @@ const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROM
 // context, and strippedByPath is keyed by url so workers never collide.
 const CONCURRENCY = Math.max(1, Number(process.env.QA_PARITY_CONCURRENCY) || 6);
 
-async function checkPage(rel) {
+async function checkPage(page, rel) {
   const original = fs.readFileSync(path.join(ROOT, rel), 'utf8');
   const committedNavMatch = original.match(NAV_RE);
   assert.ok(committedNavMatch, `${rel}: no pre-rendered <nav class="section-context"> found`);
@@ -112,10 +121,12 @@ async function checkPage(rel) {
   const urlPath = urlPathFor(rel);
   strippedByPath.set(urlPath, stripped);
 
-  const page = await browser.newPage();
   try {
-    await page.goto(`${ORIGIN}${urlPath}?parityStripped=1`, { waitUntil: 'networkidle' });
-    const generatedOuter = await page.locator('.section-context').first().evaluate(el => el.outerHTML).catch(() => null);
+    // buildContextNav() runs on DOMContentLoaded, so there is nothing to wait for after it: `networkidle`
+    // added a fixed >=500 ms of idle per page and, at ~6000 pages, pushed the job past its timeout.
+    await page.goto(`${ORIGIN}${urlPath}?parityStripped=1`, { waitUntil: 'domcontentloaded' });
+    const generatedOuter = await page.waitForSelector('.section-context', { state: 'attached', timeout: 5000 })
+      .then(el => el.evaluate(node => node.outerHTML)).catch(() => null);
     assert.ok(generatedOuter, `${rel}: v1-editorial-interior-v4.js did not generate a .section-context when none was pre-rendered`);
     const generatedLinks = extractLinks(generatedOuter);
 
@@ -125,7 +136,6 @@ async function checkPage(rel) {
       `committed: ${JSON.stringify(committedLinks)}\ngenerated: ${JSON.stringify(generatedLinks)}`
     );
   } finally {
-    await page.close().catch(() => {});
     strippedByPath.delete(urlPath);
   }
 }
@@ -134,12 +144,17 @@ const failures = [];
 let next = 0;
 let done = 0;
 const started = Date.now();
+// The nav only depends on the DOM and the URL: images, fonts, media and styles are never needed.
+const SKIP = new Set(['image', 'font', 'media', 'stylesheet']);
 await Promise.all(Array.from({ length: Math.min(CONCURRENCY, PAGES.length) }, async () => {
+  const page = await browser.newPage();
+  await page.route('**/*', route => (SKIP.has(route.request().resourceType()) ? route.abort() : route.continue()));
   while (next < PAGES.length) {
     const rel = PAGES[next++];
-    try { await checkPage(rel); } catch (error) { failures.push(error.message); }
+    try { await checkPage(page, rel); } catch (error) { failures.push(error.message); }
     if (++done % 200 === 0) console.log(`  ${done}/${PAGES.length} pages (${Math.round((Date.now() - started) / 1000)} s)`);
   }
+  await page.close().catch(() => {});
 }));
 
 await browser.close();
