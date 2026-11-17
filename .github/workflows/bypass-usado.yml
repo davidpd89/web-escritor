@@ -1,0 +1,33 @@
+name: Bypass usado
+
+# R5-7c: cada push a main debe venir de una PR fusionada con los checks requeridos en verde.
+# Si no, abre o comenta la issue `bypass-usado`. Detección: el bypass del ruleset no se puede impedir.
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+  checks: read
+  statuses: read
+
+concurrency:
+  group: bypass-usado-${{ github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  comprobar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: scripts/bypass_usado.py
+          sparse-checkout-cone-mode: false
+      - name: Push from a green PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/bypass_usado.py --repo "${{ github.repository }}" --sha "${{ github.sha }}" --before "${{ github.event.before }}"
