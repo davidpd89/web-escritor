@@ -23,6 +23,8 @@ on:
       - 'qa/catalogue-filter-matrix.mjs'
       - 'qa/catalogue-filter-interaction-matrix.mjs'
       - 'qa/catalogue-random-walk.mjs'
+      - 'qa/catalogue-filter-parity.mjs'
+      - 'qa/catalogue-filter-reference.mjs'
       - 'qa/reading-upcoming-browser.mjs'
       - 'qa/build-reading-scale-fixture.py'
       - 'assets/reading-market.json'
@@ -42,7 +44,7 @@ concurrency:
 jobs:
   recommendations:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 35
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -119,6 +121,7 @@ jobs:
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-matrix.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-interaction-matrix.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-random-walk.mjs
+          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-parity.mjs
           node qa/reading-upcoming-browser.mjs
       - name: Use lockfile-pinned Lighthouse CI
         if: always()

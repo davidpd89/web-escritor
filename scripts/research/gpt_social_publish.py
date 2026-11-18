@@ -2,10 +2,13 @@
 """Data-only publisher for redes-sociales/social-metrics.json (no LLM, never force-pushes).
 
 Works ONLY in a dedicated automation clone (default: <state dir>/publish-clone), never in the
-caller's worktree. Steps: validate source -> fetch -> hard-reset the clone to origin/main ->
+caller's worktree. Steps: validate source -> fetch -> hard-reset the clone to origin/social-estado ->
 decide (cadence) -> copy the single file -> prove the diff is exactly that file -> commit ->
 plain `git push`; on a non-fast-forward it refetches and retries once, then fails safely.
 Credentials come from the user's git credential manager, never from the repo.
+
+R5-6: it writes to the unprotected state branch `social-estado`, never to main (main only takes PRs). The Pages
+deploy overlays the snapshot from that branch (scripts/social_estado.py).
 """
 from __future__ import annotations
 
@@ -22,7 +25,7 @@ import gpt_metricool_mcp as mcp  # noqa: E402
 import gpt_social_compose as compose  # noqa: E402
 
 REL = "redes-sociales/social-metrics.json"
-BRANCH = "main"
+BRANCH = "social-estado"
 MIN_INTERVAL = timedelta(hours=5, minutes=30)  # each 6-hourly run may publish changed counts
 EXPIRY_MARGIN = timedelta(hours=18)  # republish earlier if the remote data nears expiry
 FORBIDDEN = ("brandId", "access_token", "refresh_token", "client_id", "Bearer")
@@ -114,7 +117,8 @@ def ensure_clone(clone: Path, remote: str) -> None:
 
 
 def sync(clone: Path) -> None:
-    git(clone, "fetch", "--quiet", "origin", BRANCH)
+    # Explicit refspec: a clone made when this published to main is single-branch and would not track BRANCH.
+    git(clone, "fetch", "--quiet", "origin", f"+refs/heads/{BRANCH}:refs/remotes/origin/{BRANCH}")
     git(clone, "checkout", "--quiet", "-B", BRANCH, f"origin/{BRANCH}")
     git(clone, "reset", "--quiet", "--hard", f"origin/{BRANCH}")
     git(clone, "clean", "--quiet", "-fd")

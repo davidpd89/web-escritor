@@ -49,9 +49,8 @@ class BookFieldsTest(unittest.TestCase):
                 'libros': [{'id': 'libro-raro', 'campo_nuevo': 1}]}
         with self.assertRaises(build.ValidationError) as caught:
             build.validate(data, ROOT)
-        message = str(caught.exception)
-        self.assertIn('campo_nuevo', message)
-        self.assertEqual(reading_quarantine.culprit(message, data), 'libro-raro')
+        self.assertIn('campo_nuevo', str(caught.exception))
+        self.assertEqual(reading_quarantine.owner(caught.exception, data), 'libro-raro')
 
 
 if __name__ == '__main__':
