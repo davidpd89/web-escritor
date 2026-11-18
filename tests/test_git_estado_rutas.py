@@ -142,7 +142,10 @@ class RutasTest(unittest.TestCase):
 
     def test_ningun_publicador_prepara_listas_de_rutas_a_mano(self):
         """`git add -- *rutas` falla con borrados ya preparados: las listas van por git_estado.preparar."""
-        star = re.compile(r"""['"]add['"],\s*(?:['"]-A['"],\s*)?['"]--['"],\s*\*""")
+        # 15/11 (#1318): también por stdin (`--pathspec-from-file`) o con un ayudante propio: la clase de fallo es
+        # la misma, cualquier `git add` de una lista que no pase por `preparar`.
+        star = re.compile(r"""['"]add['"],\s*(?:['"]-A['"],\s*)?(?:['"]--['"],\s*\*|['"]--pathspec-from-file"""
+                          r"""|['"]--pathspec-file-nul)|git_paths\(\[['"]add['"]""")
         offenders = [str(p.relative_to(ROOT)) for p in (ROOT / 'scripts').rglob('*.py')
                      if p.name != 'git_estado.py' and star.search(p.read_text(encoding='utf-8', errors='ignore'))]
         self.assertEqual(offenders, [])

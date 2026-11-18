@@ -614,3 +614,49 @@ class ReadingTelegramTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DigestPartsTests(unittest.TestCase):
+    def books(self, n):
+        return [
+            {
+                "asin": f"B{i:09d}", "title": f"Libro número {i} con un título algo largo para ocupar", "author": "Autora Ejemplo",
+                "release_date": "2026-11-18", "isbn13": f"97884{i:08d}",
+                "amazon_url": f"https://www.amazon.es/dp/B{i:09d}?tag=davidporto-21",
+            }
+            for i in range(n)
+        ]
+
+    def test_long_digest_is_split_into_numbered_messages_with_every_title_linked(self):
+        from reading_telegram import digest, visible_length
+
+        parts = digest(self.books(170), "2026-11-18")
+        self.assertGreater(len(parts), 1)
+        self.assertEqual(len({p["asin"] for p in parts}), len(parts))  # one delivery key each
+        self.assertEqual(parts[0]["asin"], "digest-2026-11-18")
+        text = "\n".join(p["text"] for p in parts)
+        for i in range(170):
+            self.assertIn(f"/dp/B{i:09d}", text)
+        self.assertNotIn(" más", text)
+        self.assertNotIn("p_66", text)  # the ISBN search link does not open in the Amazon app
+        self.assertTrue(all(len(p["text"]) <= 4096 and visible_length(p["text"]) <= 4096 for p in parts))
+        self.assertIn(f"(1/{len(parts)})", parts[0]["text"])
+        self.assertIn("Aquí tienes las publicaciones del día", parts[-1]["text"])
+
+    def test_short_digest_is_a_single_message_without_counter(self):
+        from reading_telegram import digest
+
+        parts = digest(self.books(3), "2026-11-18")
+        self.assertEqual(len(parts), 1)
+        self.assertNotIn("(1/", parts[0]["text"])
+
+    def test_cover_is_padded_to_a_square(self):
+        from io import BytesIO
+        from PIL import Image
+        from reading_telegram import padded_cover
+
+        source = BytesIO()
+        Image.new("RGB", (329, 500), (200, 30, 30)).save(source, "PNG")
+        response = Mock(status_code=200, content=source.getvalue())
+        out = Image.open(BytesIO(padded_cover("https://x/c.png", get=lambda *a, **k: response)))
+        self.assertEqual(out.size[0], out.size[1])
