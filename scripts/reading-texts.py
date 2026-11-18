@@ -12,6 +12,7 @@ pueda cambiar de commit sin perder nada; publish los copia a data/reading-texts 
 """
 import argparse
 import hashlib
+import heapq
 import importlib.util
 import json
 import math
@@ -195,12 +196,20 @@ def affine_index(data):
     rows = []
     for x in published(data):
         cats = {c['id'] for c in catalogue.categories(data, x)}
-        rows.append((x, cats, min_age(x), audience(cats)))
+        # Autores y título plegado se precalculan: affine_books los miraba por candidato (27 M de casefold en el test).
+        rows.append((x, cats, min_age(x), audience(cats), frozenset(x['autores']), x['titulo'].casefold()))
     counts = {}
-    for _, cats, _, _ in rows:
+    # Listas invertidas: un afín comparte categoría o autor, así que affine_books solo mira esos candidatos (recorrer
+    # todo el catálogo por cada libro hacía cuadrático el lote: 150 s el contrato con ~5.000 libros).
+    by_cat, by_author, position = {}, {}, {}
+    for i, (x, cats, *_) in enumerate(rows):
+        position.setdefault(x['id'], i)
         for c in cats:
             counts[c] = counts.get(c, 0) + 1
-    result = (rows, counts)
+            by_cat.setdefault(c, []).append(i)
+        for a in set(x['autores']):
+            by_author.setdefault(a, []).append(i)
+    result = (rows, counts, by_cat, by_author, position)
     if key is not None and key[0] is data:
         AFFINE_INDEX = (key, result)
     return result
@@ -217,29 +226,35 @@ def affine_books(data, b, cat_ids):
     """
     names = {c['id']: c['nombre'] for c in data['categorias'] if c['tipo'] in ('genero', 'tematica')}
     wanted = cat_ids & set(names)
-    index, counts = affine_index(data)
-    own = next((c for x, c, _, _ in index if x['id'] == b['id']), set())
+    index, counts, by_cat, by_author, position = affine_index(data)
+    own = index[position[b['id']]][1] if b['id'] in position else set()
     df = {c: counts.get(c, 0) - (c in own) + 1 for c in wanted}
-    total = len(index) - any(x['id'] == b['id'] for x, _, _, _ in index) + 1
+    total = len(index) - (b['id'] in position) + 1
     age, public = min_age(b), audience(cat_ids)
+    weight = {c: math.log(total / df[c]) for c in wanted}
+    own_authors = set(b['autores'])
+    # Solo puede entrar quien comparte una categoría buscada o un autor (también en `weak`): esos son los candidatos.
+    candidates = sorted({i for c in wanted for i in by_cat.get(c, ())} | {i for a in own_authors for i in by_author.get(a, ())})
     rows, weak = [], []
-    for x, x_cats, other, other_public in index:
+    for i in candidates:
+        x, x_cats, other, other_public, x_authors, folded = index[i]
         if x['id'] == b['id']:
             continue
         shared = wanted & x_cats
-        author = bool(set(x['autores']) & set(b['autores']))
+        author = not own_authors.isdisjoint(x_authors)
         if not author and ((age is not None and other is not None and abs(age - other) > 4)
                            or (public and other_public and public != other_public)):
             continue
-        score = sum(math.log(total / df[c]) for c in shared)
-        row = (author, score, x['titulo'].casefold(), x, sorted(names[c] for c in shared) or ['autor'])
+        # Mismo orden de suma que antes (el de `shared`): el resultado es idéntico bit a bit.
+        score = sum(weight[c] for c in shared)
+        row = (not author, -score, folded, i, shared)
         if author or (shared and score >= MIN_AFFINITY):
             rows.append(row)
         elif shared:
             weak.append(row)
-    rows = rows or weak
-    rows.sort(key=lambda r: (-r[0], -r[1], r[2]))
-    return [(r[3], r[4]) for r in rows[:AFFINES]]
+    # nsmallest equivale a sorted(...)[:n] y no ordena todo el catálogo por libro; los nombres, solo de los elegidos.
+    best = heapq.nsmallest(AFFINES, rows or weak, key=lambda r: r[:3])
+    return [(index[i][0], sorted(names[c] for c in shared) or ['autor']) for _, _, _, i, shared in best]
 
 
 def source_hash(p):
@@ -663,9 +678,9 @@ def git(*args, cwd=ROOT, capture=False):
 
 
 def git_add(paths, cwd=ROOT):
-    """Añade las rutas por stdin: cientos de fichas regeneradas superan el límite de línea de comandos de Windows."""
-    subprocess.run(['git', 'add', '--pathspec-from-file=-', '--pathspec-file-nul'], cwd=cwd, check=True,
-                   input='\0'.join(paths).encode('utf-8'))
+    """Prepara las rutas con `git_estado.preparar`: por stdin (límite de línea de Windows) y sin fallar por un borrado
+    que ya está en el índice (#1318)."""
+    git_estado.preparar(cwd, paths)
 
 
 CATALOGUE_YIELD = timedelta(hours=2)

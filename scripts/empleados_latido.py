@@ -11,7 +11,8 @@ ejecutarse no vigila nada, y hasta ahora no había dónde verlo.
     python scripts/empleados_latido.py latido --issue      # además abre, actualiza o cierra el issue «latido»
 
 Estados: ok · inestable (última ejecución roja) · rojo (RACHA o más rojas seguidas) · ausente (tiene horario y
-no ha fichado en su plazo) · por PR (solo corre en PR: su estado se ve en cada PR, aquí no se juzga).
+no ha fichado en su plazo) · por estrenar (tiene horario, nunca ha corrido en main y se dio de alta hace menos
+que su plazo: aún no le tocaba) · por PR (solo corre en PR: su estado se ve en cada PR, aquí no se juzga).
 """
 import argparse
 import json
@@ -21,6 +22,9 @@ import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import issue_vivo  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRO = ROOT / 'data' / 'expertos.json'
@@ -78,9 +82,9 @@ def fallos_registro(registro, workflows):
             asignados.add(nombre)
             if nombre not in workflows:
                 fallos.append(f'{ident}: el workflow «{nombre}» no existe en .github/workflows')
-        for item in dep.get('descartados', []) + dep.get('pendientes', []):
+        for item in dep.get('descartados', []) + dep.get('pendientes', []) + dep.get('cubiertos', []):
             if not item.get('herramienta') or not item.get('motivo'):
-                fallos.append(f'{ident}: descartado o pendiente sin herramienta o sin motivo')
+                fallos.append(f'{ident}: descartado, pendiente o cubierto sin herramienta o sin motivo')
     for nombre in sorted(set(workflows) - asignados):
         fallos.append(f'el workflow «{nombre}» no tiene departamento: añádelo a data/expertos.json')
     for nombre, dias in registro.get('plazos', {}).items():
@@ -91,8 +95,11 @@ def fallos_registro(registro, workflows):
     return fallos
 
 
-def juzgar(ejecuciones, plazo, ahora):
-    """Estado de un empleado con sus ejecuciones completadas fuera de PR, de la más nueva a la más vieja."""
+def juzgar(ejecuciones, plazo, ahora, alta=None):
+    """Estado de un empleado con sus ejecuciones completadas fuera de PR, de la más nueva a la más vieja.
+
+    alta es la fecha en que GitHub registró el workflow; solo importa si nunca ha fichado: un semanal
+    recién fusionado no puede haber corrido todavía (18/11: cinco semanales nuevos salieron «ausentes»)."""
     validas = [e for e in ejecuciones if e.get('conclusion') not in SIN_VEREDICTO]
     ultima = validas[0] if validas else None
     racha = 0
@@ -103,6 +110,8 @@ def juzgar(ejecuciones, plazo, ahora):
     exito = next((e for e in validas if e['conclusion'] == 'success'), None)
     datos = {'ultima': ultima and ultima['fecha'], 'exito': exito and exito['fecha'], 'racha': racha,
              'url': ultima and ultima.get('url')}
+    if plazo and not ultima and alta and ahora - alta <= timedelta(days=plazo):
+        return 'por estrenar', datos
     if plazo and (not ultima or ahora - ultima['fecha'] > timedelta(days=plazo)):
         return 'ausente', datos
     if not ultima:
@@ -133,7 +142,17 @@ def ejecuciones_de(fichero, repo):
     return filas
 
 
-def medir(registro, workflows, repo, ahora=None, leer=ejecuciones_de):
+def alta_de(fichero, repo):
+    """Fecha en que GitHub registró el workflow; None si no se puede leer (se juzgará sin ella)."""
+    salida = subprocess.run(['gh', 'api', f'repos/{repo}/actions/workflows/{fichero}', '-q', '.created_at'],
+                            capture_output=True, text=True, encoding='utf-8', check=False)
+    texto = salida.stdout.strip()
+    if salida.returncode or not texto:
+        return None
+    return datetime.fromisoformat(texto.replace('Z', '+00:00'))
+
+
+def medir(registro, workflows, repo, ahora=None, leer=ejecuciones_de, alta=alta_de):
     ahora = ahora or datetime.now(timezone.utc)
     filas = []
     for dep in registro['departamentos']:
@@ -146,7 +165,9 @@ def medir(registro, workflows, repo, ahora=None, leer=ejecuciones_de):
                               'ultima': ahora, 'exito': ahora, 'racha': 0, 'url': None})
                 continue
             try:
-                estado, datos = juzgar(leer(info['fichero'], repo), plazo, ahora)
+                ejecuciones = leer(info['fichero'], repo)
+                fecha_alta = alta(info['fichero'], repo) if plazo and not ejecuciones else None
+                estado, datos = juzgar(ejecuciones, plazo, ahora, fecha_alta)
             except RuntimeError as error:  # un workflow ilegible no deja a los demás sin informe
                 estado, datos = 'sin datos', {'ultima': None, 'exito': None, 'racha': 0, 'url': None,
                                               'error': str(error)}
@@ -192,23 +213,14 @@ def informe(filas, registro, ahora=None):
 
 
 def gh(*args):
-    return subprocess.run(['gh', *args], capture_output=True, text=True, encoding='utf-8', check=False)
+    return issue_vivo.gh(*args)
 
 
 def publicar_issue(texto, malos, repo):
     """Un solo issue vivo con la etiqueta: se actualiza mientras haya caídos y se cierra cuando no queda ninguno."""
-    gh('label', 'create', ETIQUETA, '--repo', repo, '--color', 'B60205', '--force',
-       '--description', 'Empleados automáticos caídos o sin fichar')
-    abierto = gh('issue', 'list', '--repo', repo, '--label', ETIQUETA, '--state', 'open', '--json', 'number',
-                 '-q', '.[0].number').stdout.strip()
-    titulo = f'Latido: {len(malos)} empleados caídos o sin fichar'
-    if malos and abierto:
-        return gh('issue', 'edit', abierto, '--repo', repo, '--title', titulo, '--body', texto)
-    if malos:
-        return gh('issue', 'create', '--repo', repo, '--title', titulo, '--body', texto, '--label', ETIQUETA)
-    if abierto:
-        return gh('issue', 'close', abierto, '--repo', repo, '--comment', 'Todos los empleados vuelven a fichar en verde.')
-    return None
+    return issue_vivo.publicar(ETIQUETA, f'Latido: {len(malos)} empleados caídos o sin fichar', texto, bool(malos),
+                               repo, 'Todos los empleados vuelven a fichar en verde.',
+                               'Empleados automáticos caídos o sin fichar')
 
 
 def main(argv=None):

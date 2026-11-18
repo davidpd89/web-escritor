@@ -365,8 +365,24 @@ def index_categories(data):
     CATEGORY_INDEX = (data, index)
 
 
-def categories(data, b):
+def category_index(data):
+    """Índice libro → categorías: el de main() si está activo para `data`; si no, uno nuevo para esta llamada.
+
+    Quien recorre muchos libros lo pide una vez y lo pasa a categories(): sin índice, cada libro recorre todas las
+    relaciones y el coste crece con el cuadrado del catálogo (los contratos que pintan fichas tardaban minutos).
+    """
     if CATEGORY_INDEX is not None and CATEGORY_INDEX[0] is data:
+        return CATEGORY_INDEX[1]
+    index = {}
+    for r in data.get('libro_categorias', ()):
+        index.setdefault(r['libro_id'], set()).add(r['categoria_id'])
+    return index
+
+
+def categories(data, b, index=None):
+    if index is not None:
+        ids = index.get(b["id"], set())
+    elif CATEGORY_INDEX is not None and CATEGORY_INDEX[0] is data:
         ids = CATEGORY_INDEX[1].get(b["id"], set())
     else:
         ids = {r["categoria_id"] for r in data["libro_categorias"] if r["libro_id"] == b["id"]}
@@ -506,14 +522,37 @@ def load_own_texts(root):
 
 
 def own_block_html(x, live):
-    """Un módulo; las comparaciones enlazan cada título a su ficha y desaparecen si un afín ya no está publicado."""
+    """Un módulo; las comparaciones enlazan cada título a su ficha y desaparecen si un afín ya no está publicado.
+
+    Las posiciones se resuelven sobre el texto ORIGINAL, no sobre el texto ya etiquetado: un reemplazo en cadena
+    (text.replace tras otro text.replace) anidaba un <a> dentro de otro cuando un título era substring de otro
+    (p. ej. «Japón 2027-2028» dentro de «Explora Japón 2027-2028 (Guías Explora Lonely Planet)»), lo que test-dom-integrity.py
+    rechaza como anidamiento interactivo inválido.
+    """
     text = esc(x['texto'])
+    spans = []  # (inicio, fin, i) resueltos sobre el texto original, sin solaparse entre sí
     for i in x.get('enlaces', []):
         if i not in live:
             return ''
         title = esc(live[i]['titulo'])
-        text = text.replace(title, '<a href="' + url(live[i]) + '">' + title + '</a>', 1)
-    return '<h3>' + MODULE_TITLES[x['modulo']] + '</h3><p>' + text + '</p>'
+        start = 0
+        while True:
+            pos = text.find(title, start)
+            if pos == -1:
+                break
+            end = pos + len(title)
+            if any(pos < e and s < end for s, e, _ in spans):
+                start = pos + 1
+                continue
+            spans.append((pos, end, i))
+            break
+    out, cursor = [], 0
+    for start, end, i in sorted(spans):
+        out.append(text[cursor:start])
+        out.append('<a href="' + url(live[i]) + '">' + text[start:end] + '</a>')
+        cursor = end
+    out.append(text[cursor:])
+    return '<h3>' + MODULE_TITLES[x['modulo']] + '</h3><p>' + ''.join(out) + '</p>'
 
 
 def own_text_section(b, data=None):
@@ -1055,8 +1094,9 @@ def render_llms_index(data, books, authors, publishers):
              f'- Editoriales del catálogo ({len(publishers)}): {SITE}/recomendaciones/editoriales/',
              f'- Política de recomendaciones: {SITE}/recomendaciones/politica-de-recomendaciones/', '',
              f'## Libros ({len(books)})', '']
+    index = category_index(data)
     for b in sorted(books, key=lambda b: (b['titulo'].casefold(), b['id'])):
-        cats = categories(data, b)
+        cats = categories(data, b, index)
         # Corchetes del título escapados: «Harry Potter [edición…]» rompía el enlace Markdown (2026-11-06).
         link_text = clip(b['titulo'], 160).replace('[', '\\[').replace(']', '\\]')
         head = f"- [{link_text}]({SITE}{url(b)}): "
@@ -1124,6 +1164,7 @@ def facet_counts(data, books, anchor):
     fichas (grupo, categorías públicas y formatos). El catálogo completo solo se descarga al primer toque (rendimiento),
     y hasta entonces las casillas salían sin número: «Novela» sin «(411)» (David, 13/11). El JS los recalcula después."""
     counts = {}
+    index = category_index(data)
     for b in books:
         lower = b.get('fecha_publicacion') or ''
         if not lower and (month := b.get('fecha_publicacion_parcial')):
@@ -1132,7 +1173,7 @@ def facet_counts(data, books, anchor):
             lower = f"{b['anio_publicacion']}-01-01"
         if lower and anchor and lower > anchor:
             continue
-        cats = categories(data, b)
+        cats = categories(data, b, index)
         keys = [('grupo', book_group(cats))] + [(c['tipo'], c['id']) for c in public(cats)]
         keys += [('formato', f) for f in {o['formato'] for o in purchase_formats(b)} | ({b['formato_edicion']} if b.get('formato_edicion') else set())]
         for key in keys:
@@ -1248,11 +1289,12 @@ def render_hub(data, books, template, page_number=1):
     visible_books = books[offset:offset + CATALOGUE_PAGE_SIZE]
     canonical = SITE + catalogue_page_url(page_number)
     version = hashlib.sha256(json.dumps(books, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
+    index = category_index(data)
     for book in books:
-        group = book_group(categories(data, book))
+        group = book_group(categories(data, book, index))
         groups[group] = groups.get(group, 0) + 1
     for i,b in enumerate(visible_books):
-        cats = categories(data,b)
+        cats = categories(data,b,index)
         group = book_group(cats)
         formats = ' '.join(sorted(set([o['formato'] for o in purchase_formats(b)] + ([b['formato_edicion']] if b.get('formato_edicion') else []))))
         published = b.get('fecha_publicacion', '')
@@ -1383,7 +1425,8 @@ def related_pool(data):
     if indexed and _RELATED_POOL.get('index') is CATEGORY_INDEX:
         return _RELATED_POOL
     books = [x for x in data['libros'] if x['estado'] == 'publicado']
-    cats = {x['id']: {c['id'] for c in categories(data, x)} for x in books}
+    index = category_index(data)
+    cats = {x['id']: {c['id'] for c in categories(data, x, index)} for x in books}
     counts = {}
     for ids in cats.values():
         for c in ids:
