@@ -46,7 +46,7 @@ jobs:
     timeout-minutes: 35
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -54,7 +54,7 @@ jobs:
             /*
             !/assets/no usadas/
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Install CI/QA dependencies (Node)
@@ -62,7 +62,7 @@ jobs:
 
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -93,7 +93,7 @@ jobs:
           RECOMMENDATIONS_ARTIFACT_DIR: artifacts/recommendations
         run: node qa/recommendations-browser.mjs
       - name: Set up Python for catalogue validation
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Install shared Python dependencies
@@ -168,7 +168,7 @@ jobs:
           cp /tmp/recommendations-server.log artifacts/recommendations/server.log || true
       - name: Upload QA artifacts
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: recommendations-qa
           path: |
