@@ -27,6 +27,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { PNG } from 'pngjs';
 import pixelmatch from 'pixelmatch';
+import { trimWhiteTail } from './png-cola-blanca.mjs';
 
 const ROOT = process.cwd();
 const BASELINE_DIR = path.join(ROOT, 'qa', 'visual-baselines');
@@ -186,8 +187,8 @@ async function capture(browser, routePath, viewport) {
 }
 
 function diffPngs(baselineBuffer, currentBuffer) {
-  const baseline = PNG.sync.read(baselineBuffer);
-  const current = PNG.sync.read(currentBuffer);
+  const baseline = trimWhiteTail(PNG.sync.read(baselineBuffer));
+  const current = trimWhiteTail(PNG.sync.read(currentBuffer));
   const width = Math.max(baseline.width, current.width);
   const height = Math.max(baseline.height, current.height);
   if (baseline.width !== current.width || baseline.height !== current.height) {
