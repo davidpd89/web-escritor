@@ -471,6 +471,15 @@ class Priorizar(unittest.TestCase):
         self.assertEqual([rank(True), rank('12'), rank(0), rank(-3), rank(None), rank(7)],
                          [float('inf'), 12, float('inf'), float('inf'), float('inf'), 7])
 
+    def test_juvenile_audience_is_not_a_juvenile_novel_for_non_fiction(self):
+        """El nodo raíz «Libros juveniles» es público: con no ficción y sin ficción queda «Juvenil» (sección),
+        no «Novela juvenil» (B0HPDWJ7SJ, «Manifiesto comunista», 2026-11-16)."""
+        self.assertEqual(ca.public_subjects(['Cómic y novela gráfica', 'Filosofía', 'Novela juvenil', 'Ensayo']),
+                         ['Cómic y novela gráfica', 'Filosofía', 'Juvenil', 'Ensayo'])
+        self.assertEqual(ca.public_subjects(['Novela juvenil', 'Historia', 'Aventuras']),
+                         ['Novela juvenil', 'Historia', 'Aventuras'])
+        self.assertEqual(ca.public_subjects(['Novela juvenil']), ['Novela juvenil'])
+
     def test_branch_order_does_not_change_subjects(self):
         juvenil = {'displayName': 'Juvenil', 'contextFreeName': 'Libros juveniles'}
         branches = [{'displayName': 'Thriller', 'ancestor': {'displayName': 'Novela negra'}},
