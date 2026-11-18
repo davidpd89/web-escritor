@@ -30,7 +30,9 @@ assert re.search(r"cron:\s*'0 0 \* \* 1'", atlas), "el sync del Atlas va a la 01
 # medianoche, los libros publican también de día, Telegram lanza la tanda a las 11:30 de Madrid
 # y el monitor vigila producción cada 6 h.
 DAYTIME_OK = {"radar-clock-refresh.yml", "reading-catalogue-sync.yml", "reading-telegram-publish.yml", "production-smoke-monitor.yml",
-             "npm-supply-chain-watch.yml"}
+             "npm-supply-chain-watch.yml",
+             # deploy-pages: el despliegue diario cambia de fecha a medianoche de Madrid (22-23 UTC).
+             "deploy-pages.yml"}
 daytime = []
 for path in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
     if path.name in DAYTIME_OK:

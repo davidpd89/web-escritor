@@ -14,6 +14,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ACCION = './.github/actions/materializar'
 LEE_GENERADOS = re.compile(r'http\.server|build-public-dist\.py(?! --check-assetsignore)')
+# Acciones que ya materializan por dentro (construir-como-despliegue llama a materializar).
+YA_MATERIALIZAN = (ACCION, './.github/actions/construir-como-despliegue')
 PASO = '{i}- name: Materializar generados\n{cond}{i}  uses: {accion}\n\n'
 
 
@@ -32,7 +34,7 @@ def adoptar(texto: str) -> str:
     lineas = texto.splitlines(keepends=True)
     for inicio, fin in reversed(_jobs(lineas)):
         cuerpo = ''.join(lineas[inicio:fin])
-        if not LEE_GENERADOS.search(cuerpo) or ACCION in cuerpo:
+        if not LEE_GENERADOS.search(cuerpo) or any(a in cuerpo for a in YA_MATERIALIZAN):
             continue
         primera = next(i for i in range(inicio, fin) if LEE_GENERADOS.search(lineas[i]))
         paso = primera

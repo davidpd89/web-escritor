@@ -191,6 +191,11 @@ def apply_derived(catalogue: dict) -> dict[str, list[str]]:
 
 REFERENCE_ID = 'guias-y-referencia'
 FICTION_GENRES = {'narrativa','narrativa-juvenil','novela-historica','romance','romantasy','fantasia','fantasia-juvenil','fantasia-oscura','ciencia-ficcion','misterio-y-thriller','terror','aventuras','relatos'}
+NON_FICTION_GENRES = {'arte-y-diseno', 'biografias-y-memorias', 'cocina', 'derecho', 'desarrollo-personal',
+                      'divulgacion-cientifica', 'economia-y-empresa', 'ensayo', 'familia-y-crianza', 'filosofia',
+                      'guias-y-referencia', 'historia', 'nutricion-y-bienestar', 'ocio-y-aficiones',
+                      'politica-y-actualidad', 'psicologia', 'religion-y-espiritualidad', 'viajes'}
+JUVENILE_NOVEL, JUVENILE_AUDIENCE = 'narrativa-juvenil', 'juvenil'
 
 
 def reference_work(title, assigned):
@@ -396,6 +401,174 @@ def repair_amazon_rules(catalogue: dict, by_book: dict, fallback: GenreFallback)
     return repaired
 
 
+def juvenile_audience_only(assigned: set) -> bool:
+    """No ficción sin otro género de ficción: «novela juvenil» venía del nodo raíz del público, no del libro."""
+    return (JUVENILE_NOVEL in assigned and bool(assigned & NON_FICTION_GENRES)
+            and not assigned & (FICTION_GENRES - {JUVENILE_NOVEL}))
+
+
+def repair_juvenile_audience(catalogue: dict, by_book: dict) -> list:
+    """Altas de Amazon: el nodo «Libros juveniles» (público) se leía como la materia «Novela juvenil» y el
+    «Manifiesto comunista» salía como narrativa juvenil (2026-11-16). Se quita el género y queda el público."""
+    repaired = []
+    for book in catalogue['libros']:
+        assigned = by_book.get(book['id'], set())
+        if AMAZON_SOURCE not in (book.get('fuente_bibliografica_url') or '') or not juvenile_audience_only(assigned):
+            continue
+        catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
+                                         if not (r['libro_id'] == book['id'] and r['categoria_id'] == JUVENILE_NOVEL)]
+        if JUVENILE_AUDIENCE not in assigned:
+            catalogue['libro_categorias'].append({'libro_id': book['id'], 'categoria_id': JUVENILE_AUDIENCE})
+        by_book[book['id']] = (assigned - {JUVENILE_NOVEL}) | {JUVENILE_AUDIENCE}
+        repaired.append(book['id'])
+    return repaired
+
+
+# Un libro es ficción o no ficción, nunca las dos (253 publicados lo eran el 2026-11-16: «Los hermanos Karamázov»
+# en historia, «Vida de Tolstói» en narrativa). Las dos caras llegan de nodos de Amazon que nombran el tema de una
+# novela («Familia y relaciones», «Histórico») o la raíz de una estantería, y de reglas que leen una palabra del
+# título («La aventura de educar»). El eje se decide por peso: un género concreto pesa más que una raíz o un tema, y
+# el título y el sello («(Novela)», «Biblioteca de Ensayo», «Una biografía») cuentan cuando lo dicen.
+AXIS_FICTION = {'narrativa': 2, 'relatos': 2, JUVENILE_NOVEL: 1}  # el resto de géneros de ficción pesa 3
+AXIS_NON_FICTION = {'historia': 1, 'familia-y-crianza': 1, 'psicologia': 1, 'nutricion-y-bienestar': 1,
+                    'desarrollo-personal': 1, 'cocina': 1, 'religion-y-espiritualidad': 1, 'ocio-y-aficiones': 1,
+                    'viajes': 1, 'ensayo': 1.5, 'filosofia': 2}  # el resto de géneros de no ficción pesa 3
+TITLE_RULE_GENRES = {'aventuras': r'aventura', 'misterio-y-thriller': r'misterio|thriller|suspense|novela negra',
+                     'terror': r'terror', 'ciencia-ficcion': r'ciencia ficcion', 'romance': r'roman',
+                     'fantasia': r'fantasia', 'biografias-y-memorias': r'biografia'}
+COMIC_ID = 'comic-y-novela-grafica'  # formato, no cara del eje; en la duda, un cómic o un manga es ficción
+FICTION_HINT = re.compile(r'\bnovelas?\b|\bnarrativas?\b|\bficcion\b|\bcuentos?\b|\brelatos\b|\bcrimen y misterio\b'
+                          r'|\bsalamandra black\b|\bandanzas\b|\bserie negra\b|\bbest seller\b|\bsaga\b|\btrilogia\b')
+NON_FICTION_HINT = re.compile(
+    r'\bvida de\b|\b(?:una|la|su) biografia\b|\bbiografia (?:de|ilustrada)\b|\bensayos?\b|\buna memoria\b|\bdiarios\b'
+    r'|\bcartas?\b|\bcorrespondencia\b|\bfacsimil|\bmanifiesto\b|: memorias\b|\barticulos\b|\bobra periodistica\b|\btextos recobrados\b|\bestudios?\b'
+    r'|\bguiaburros\b|\b(?:una|la|breve) historia (?:ilustrada\b|del? (?!amor\b))|(?:^|: )como \b|\batlas\b|\brecetas\b'
+    r'|\bespanoles eminentes\b|\bguia\b|\bmanual\b|\bdivulgacion\b|\bno ficcion\b|\bconversaciones\b|\bentrevistas\b')
+NON_FICTION_PUBLISHERS = {'visor libros', 'taurus', 'debate', 'ariel', 'trotta', 'siglo xxi', 'guillermo escolar editor',
+                          'taugenit', 'dk', 'obelisco', 'reverte', 'critica', 'paidos', 'catedra', 'akal', 'gredos',
+                          'herder', 'kairos', 'peninsula', 'pasado y presente', 'marcial pons'}
+NON_FICTION_PUBLISHER = re.compile(r'\b(?:%s)\b' % '|'.join(sorted(NON_FICTION_PUBLISHERS)))
+
+
+def title_only(ident: str, subjects: str) -> bool:
+    """Género que solo sale de una palabra del título: hay materia guardada y no lo nombra («La aventura de
+    educar» en aventuras, «memorias» en el título de una novela)."""
+    named = TITLE_RULE_GENRES.get(ident)
+    return bool(named and subjects and not re.search(named, subjects))
+
+
+def axis_scores(book: dict, assigned: set) -> tuple:
+    """Peso de cada cara (ficción, no ficción) con lo que el libro dice de sí mismo."""
+    subjects = subject_text(book)
+    own = normalize_text(book.get('titulo') or '')
+    fiction = sum(1 if title_only(i, subjects) else AXIS_FICTION.get(i, 3) for i in assigned & FICTION_GENRES)
+    non_fiction = sum(1 if title_only(i, subjects) else AXIS_NON_FICTION.get(i, 3)
+                      for i in assigned & NON_FICTION_GENRES)
+    if COMIC_ID in assigned:
+        fiction += 2
+    if re.search(r'\bclasicos\b', subjects):
+        fiction += 3
+    if FICTION_HINT.search(own):
+        fiction += 4
+    if NON_FICTION_HINT.search(own):
+        non_fiction += 4
+    if NON_FICTION_PUBLISHER.search(normalize_text(book.get('editorial') or '')):
+        non_fiction += 2
+    return fiction, non_fiction
+
+
+def axis_side(book: dict, assigned: set):
+    """'ficcion', 'no-ficcion' o None si el libro no está en las dos caras. El empate cae del lado del género
+    de la ficción: una novela con temas «historia» y «familia» es novela; no bastan la raíz juvenil ni un género
+    que solo sale de una palabra del título."""
+    if not (assigned & FICTION_GENRES and assigned & NON_FICTION_GENRES):
+        return None
+    fiction, non_fiction = axis_scores(book, assigned)
+    if fiction != non_fiction:
+        return 'ficcion' if fiction > non_fiction else 'no-ficcion'
+    subjects = subject_text(book)
+    solid = {i for i in assigned & (FICTION_GENRES - {JUVENILE_NOVEL}) if not title_only(i, subjects)}
+    return 'ficcion' if solid or COMIC_ID in assigned else 'no-ficcion'
+
+
+def repair_axis(catalogue: dict, by_book: dict) -> list:
+    """Deja cada libro en una sola cara del eje ficción/no ficción quitando los géneros de la otra."""
+    repaired = []
+    for book in catalogue['libros']:
+        assigned = by_book.get(book['id'], set())
+        side = axis_side(book, assigned)
+        if not side:
+            continue
+        drop = assigned & (NON_FICTION_GENRES if side == 'ficcion' else FICTION_GENRES)
+        # Lo derivado de un género que se va se va con él («halloween» por «terror»): si no, la pasada siguiente
+        # lo quitaría y la reparación no sería idempotente.
+        title = book.get('titulo') or ''
+        was = set(derived_categories(assigned - DERIVED_IDS, title))
+        drop |= (assigned & was) - set(derived_categories(assigned - drop - DERIVED_IDS, title))
+        catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
+                                         if not (r['libro_id'] == book['id'] and r['categoria_id'] in drop)]
+        by_book[book['id']] = assigned - drop
+        if JUVENILE_NOVEL in drop and JUVENILE_AUDIENCE not in assigned:
+            catalogue['libro_categorias'].append({'libro_id': book['id'], 'categoria_id': JUVENILE_AUDIENCE})
+            by_book[book['id']].add(JUVENILE_AUDIENCE)
+        repaired.append(book['id'])
+    return repaired
+
+
+# «Salud» heredada: el nodo raíz «Salud, familia y desarrollo personal» de Amazon daba la materia «salud» a toda su
+# estantería y un oráculo de tarot o una guía de herencias salían en nutrición y bienestar (147 de 298, 2026-11-16).
+# En las altas guardadas solo queda el texto de la materia: «salud» junto a otra materia vale si el título habla de
+# salud.
+HEALTH_ID = 'nutricion-y-bienestar'
+HEALTH_EVIDENCE = re.compile(
+    r'salud|nutrici|\bdietas?\b|aliment|\bfibra\b|intestin|microbiota|hormon|\bsibo\b|longev|\bdormir\b|insomnio'
+    r'|diabet|cancer|inflam|\bgrasa\b|muscul|ejercicio|fitness|medicin|farmac|enfermedad|\bdolor\b|\bayuno\b|metabol'
+    r'|celulas|menopausia|embaraz|bienestar|\byoga\b|digest|colesterol|obesidad|adelgaz|\bpeso\b|cerebro|terapia'
+    r'|\bcuerpo\b|\bsano\b|\bsana\b|fertilidad|envejec|\bedad biologica\b|inmun|ansiedad|estres|dislexia|trauma')
+HEALTH_NEUTRAL_SUBJECTS = re.compile(r'\b(?:salud|tiempo libre|cocina|ciencia)\b')
+# La misma raíz guarda el esoterismo («Horóscopo chino 2027», «Tarot»): cuando el título lo dice, su género es otro.
+ESOTERIC = re.compile(r'horoscopo|\btarot\b|astrolog|\boraculo\b|\brunas\b|\bovnis?\b|espirit|\baura\b|esoter'
+                      r'|ocultismo|\bbaraja\b|grafologia')
+ESOTERIC_ID = 'religion-y-espiritualidad'
+
+
+def inherited_health(book: dict, assigned: set) -> bool:
+    """«Nutrición y bienestar» que solo viene de la raíz de la estantería de Amazon."""
+    if HEALTH_ID not in assigned or AMAZON_SOURCE not in (book.get('fuente_bibliografica_url') or ''):
+        return False
+    subjects, own = subject_text(book), normalize_text(book.get('titulo') or '')
+    if not re.search(r'\bsalud\b', subjects) or HEALTH_EVIDENCE.search(own):
+        return False
+    return bool(HEALTH_NEUTRAL_SUBJECTS.sub('', subjects).strip() or ESOTERIC.search(own))
+
+
+def repair_inherited_health(catalogue: dict, by_book: dict) -> list:
+    """Quita «nutrición y bienestar» heredada y la retira de la materia guardada (si no, la regla de «salud» la
+    daría por respaldada en la siguiente pasada)."""
+    repaired = []
+    for book in catalogue['libros']:
+        assigned = by_book.get(book['id'], set())
+        if not inherited_health(book, assigned):
+            continue
+        catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
+                                         if not (r['libro_id'] == book['id'] and r['categoria_id'] == HEALTH_ID)]
+        by_book[book['id']] = assigned - {HEALTH_ID}
+        if ESOTERIC.search(normalize_text(book.get('titulo') or '')) and ESOTERIC_ID not in assigned:
+            if all(c['id'] != ESOTERIC_ID for c in catalogue['categorias']):
+                name, desc, _topics = FALLBACK_GENRES[ESOTERIC_ID]
+                catalogue['categorias'].append({'id': ESOTERIC_ID, 'slug': ESOTERIC_ID, 'nombre': name,
+                                                'tipo': 'genero', 'descripcion': desc,
+                                                'orden': 230 + len(catalogue['categorias']), 'activa': True})
+            catalogue['libro_categorias'].append({'libro_id': book['id'], 'categoria_id': ESOTERIC_ID})
+            by_book[book['id']].add(ESOTERIC_ID)
+        book['descripcion_breve'] = re.sub(
+            r'(La editorial la incluye en )([^.]*)\.',
+            lambda m: m[1] + ', '.join(x for x in m[2].split(', ') if normalize_text(x) != 'salud') + '.',
+            book.get('descripcion_breve') or '')
+        repaired.append(book['id'])
+    return repaired
+
+
 def ensure_genre(catalogue: dict, by_book: dict, fallback: GenreFallback) -> dict:
     """Da un género a cada libro no borrador que no lo tenga. Devuelve {libro: género}."""
     cats = {c['id']: c for c in catalogue['categorias']}
@@ -450,8 +623,10 @@ def repair_classification(catalogue, today=None):
     fallback = GenreFallback(catalogue, by_book)
     # Género antes y después de quitar etiquetas: el tema de un nodo («tema-viajes») deja su género de respaldo
     # antes de irse, y un libro que pierde su género por nodo recibe otro. Una sola pasada basta (idempotente).
-    touched = set(ensure_genre(catalogue, by_book, fallback))
-    touched |= set(repair_amazon_rules(catalogue, by_book, fallback)) | set(ensure_genre(catalogue, by_book, fallback))
+    touched = set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
+    touched |= set(repair_amazon_rules(catalogue, by_book, fallback))
+    touched |= set(repair_inherited_health(catalogue, by_book)) | set(repair_axis(catalogue, by_book))
+    touched |= set(ensure_genre(catalogue, by_book, fallback))
     if today:
         for book in catalogue['libros']:
             if book['id'] in touched:

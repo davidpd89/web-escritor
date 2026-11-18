@@ -55,7 +55,7 @@ class RelatedBooksTest(unittest.TestCase):
         data['libros'] = [book('a', 'Origen', ['romance', 'hockey']), book('b', 'Zeta sobre hielo', ['hockey']),
                           *[book(f'r{n}', f'A romance {n}', ['romance']) for n in range(6)]]
         original = builder.categories
-        builder.categories = lambda d, b: [c for c in d['categorias'] if c['id'] in b['categorias']]
+        builder.categories = lambda d, b, index=None: [c for c in d['categorias'] if c['id'] in b['categorias']]
         try:
             html = builder.related_books(data, data['libros'][0])
         finally:
