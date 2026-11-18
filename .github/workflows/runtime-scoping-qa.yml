@@ -30,6 +30,9 @@ on:
       - 'recomendaciones/ofertas.json'
       - 'editoriales/*/index.html'
       - 'editoriales-sitemap.xml'
+      - 'editoriales/index.html'
+      - 'editoriales/editoriales-data.json'
+      - 'metodologia-editorial/index.html'
       - 'mapa-del-sitio/index.html'
       - 'sitemap.xml'
       - 'pagefind/**'
@@ -42,6 +45,10 @@ concurrency:
   # En una PR, un push nuevo cancela la CI del commit anterior; main y los programados no se cancelan.
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+# R5-8: el token por defecto del repo es de escritura; en pull_request basta con leer.
+permissions:
+  contents: read
 
 jobs:
   runtime-scoping:

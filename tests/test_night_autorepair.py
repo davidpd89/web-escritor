@@ -1,6 +1,8 @@
 import datetime as dt
 import importlib.util
+import subprocess
 import tempfile
+import sys
 import unittest
 from pathlib import Path
 
@@ -75,16 +77,6 @@ class Decidir(unittest.TestCase):
         self.assertEqual(na.decidir(run(horas=2), {'relanzado': hace3h}, AHORA, na.MAX_INTENTOS_DIA, infra=True), 'relanzar')
 
 
-class CargaPerdida(unittest.TestCase):
-    def test_sin_carga_hoy_se_lanza_una_vez(self):
-        ayer = {'createdAt': '2026-11-08T00:20:00Z'}
-        self.assertTrue(na.carga_perdida(ayer, AHORA, False))
-        self.assertFalse(na.carga_perdida(ayer, AHORA, True))
-        self.assertTrue(na.carga_perdida(ayer, AHORA.replace(hour=1), False))
-        self.assertFalse(na.carga_perdida(ayer, AHORA.replace(hour=0, minute=50), False))
-        self.assertFalse(na.carga_perdida({'createdAt': '2026-11-09T00:21:00Z'}, AHORA, False))
-
-
 class Infraestructura(unittest.TestCase):
     def _jobs(self, jobs):
         from unittest import mock
@@ -101,6 +93,16 @@ class Infraestructura(unittest.TestCase):
     def test_paso_fallido_es_codigo(self):
         with self._jobs([{'conclusion': 'failure', 'steps': [{'conclusion': 'success'}, {'conclusion': 'failure'}]}]):
             self.assertFalse(na.fallo_de_infraestructura(1))
+
+    def test_solo_un_id_numerico_llega_a_gh(self):
+        """S6350: el id viene del estado local; una opción colada (`--repo otro`) no debe llegar a `gh`."""
+        self.assertEqual(na.id_ejecucion(43710574822), '43710574822')
+        for malo in ('--repo x/y', '1 --web', '', None, '12a'):
+            with self.assertRaises(ValueError):
+                na.id_ejecucion(malo)
+        with self._jobs([]) as gh:
+            self.assertFalse(na.fallo_de_infraestructura('--web'))
+            gh.assert_not_called()
 
 
 class Filtros(unittest.TestCase):
@@ -130,7 +132,6 @@ class Filtros(unittest.TestCase):
 
 class PuertaDejaElArbol(unittest.TestCase):
     def test_lo_que_escribe_la_puerta_no_entra_en_el_arreglo(self):
-        import subprocess
         with tempfile.TemporaryDirectory() as d:
             wt = Path(d)
             git = lambda *a: subprocess.run(['git', '-c', 'user.email=t@t', '-c', 'user.name=t', *a], cwd=wt, check=True,
@@ -331,6 +332,9 @@ class Pasada(unittest.TestCase):
                                                 'gh_json', 'sh', 'relanzar', 'avisar', 'log', 'ingesta_en_marcha',
                                                 'fallo_de_infraestructura')}
         self.addCleanup(lambda: [setattr(na, k, v) for k, v in guardar.items()])
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        na.ESTADO_DIR = Path(tmp.name)   # pasada(solo=INGESTA) llama a vigia_carga: nunca con el estado real (CodeRabbit #1339)
         na.cargar_estado = lambda: self.estado
         na.guardar_estado = lambda e: None
         na.actions_caido = lambda: ''
@@ -383,10 +387,6 @@ class Pasada(unittest.TestCase):
         self.assertEqual(self.estado['x.yml']['issue'], 99)
 
 
-if __name__ == '__main__':
-    unittest.main()
-
-
 class CerrojoDeProceso(unittest.TestCase):
     """El cerrojo es del proceso: otro no entra mientras vive, y entra en cuanto muere, sin esperar caducidad."""
 
@@ -397,7 +397,6 @@ class CerrojoDeProceso(unittest.TestCase):
                 'time.sleep(60)\n')
 
     def test_otro_proceso_no_entra_y_entra_al_morir_el_primero(self):
-        import subprocess, sys
         script = Path(__file__).resolve().parents[1] / 'scripts' / 'night-autorepair.py'
         with tempfile.TemporaryDirectory() as tmp:
             ruta = Path(tmp) / 'lock'
@@ -467,3 +466,442 @@ class AgenteSinEscritura(unittest.TestCase):
         self.assertEqual(env['GH_TOKEN'], '')
         self.assertTrue(Path(env['GH_CONFIG_DIR']).is_dir())
         self.assertEqual(list(Path(env['GH_CONFIG_DIR']).iterdir()), [])
+
+
+class CambiosDel15Nov(unittest.TestCase):
+    """15/11: la carga se relanzó idéntica, la puerta rechazó todo arreglo y nadie vigiló la carga perdida."""
+
+    def setUp(self):
+        self.estado, self.hechos = {}, []
+        nombres = ('cargar_estado', 'guardar_estado', 'actions_caido', 'ultima_ejecucion', 'gh_json', 'sh',
+                   'relanzar', 'avisar', 'log', 'ingesta_en_marcha', 'fallo_de_infraestructura', 'reparar',
+                   'registro_fallo', 'ESTADO_DIR', 'codigo_nuevo_en_main')
+        self.originales = guardar = {k: getattr(na, k) for k in nombres}
+        self.addCleanup(lambda: [setattr(na, k, v) for k, v in guardar.items()])
+        tmp = tempfile.TemporaryDirectory(); self.addCleanup(tmp.cleanup)
+        na.ESTADO_DIR = Path(tmp.name)   # vigia_carga toma lock-vigia: nunca en el estado real
+        na.cargar_estado = lambda: self.estado
+        na.guardar_estado = lambda e: None
+        na.actions_caido = lambda: ''
+        na.log = lambda m: None
+        na.ingesta_en_marcha = lambda: False
+        na.fallo_de_infraestructura = lambda i: False
+        na.relanzar = lambda f, r: self.hechos.append(('relanzar', f))
+        na.sh = lambda args, **kw: self.hechos.append(tuple(args[:3]))
+        na.reparar = lambda f, r, d, h=None, auto=True: self.hechos.append(('reparar', f, auto)) or {'pr': 7}
+
+    @staticmethod
+    def carga():
+        hoy = dt.datetime.now(dt.timezone.utc)
+        return {**run(), 'headSha': 'abc123456', 'createdAt': (hoy - dt.timedelta(minutes=30)).isoformat()}
+
+    def test_carga_sin_codigo_nuevo_en_main_se_repara_en_vez_de_relanzar(self):
+        na.ultima_ejecucion = lambda f: self.carga()
+        na.codigo_nuevo_en_main = lambda sha: []
+        na.pasada(solo=na.INGESTA)
+        self.assertNotIn(('relanzar', na.INGESTA), self.hechos)
+        self.assertIn(('reparar', na.INGESTA, True), self.hechos)
+
+    def test_carga_con_arreglo_en_main_se_relanza(self):
+        na.ultima_ejecucion = lambda f: self.carga()
+        na.codigo_nuevo_en_main = lambda sha: ['qa/reading-catalogue-browser.mjs']
+        na.pasada(solo=na.INGESTA)
+        self.assertIn(('relanzar', na.INGESTA), self.hechos)
+
+    def test_con_la_carga_en_marcha_se_repara_sin_auto_merge_y_se_activa_despues(self):
+        hoy = dt.datetime.now(dt.timezone.utc)
+        self.estado['x.yml'] = {'relanzado': (hoy - dt.timedelta(hours=3)).isoformat()}
+        na.ultima_ejecucion = lambda f: {**run(), 'createdAt': (hoy - dt.timedelta(hours=1)).isoformat()}
+        na.ingesta_en_marcha = lambda: True
+        na.reparar = lambda f, r, d, h=None, auto=True: self.hechos.append(('reparar', f, auto)) or \
+            {'pr': 7, 'auto_pendiente': not auto}
+        na.pasada(solo='x.yml')
+        self.assertIn(('reparar', 'x.yml', False), self.hechos)
+        self.assertTrue(self.estado['x.yml'].get('auto_pendiente'))
+        na.ingesta_en_marcha = lambda: False
+        na.gh_json = lambda *a: {'state': 'OPEN', 'createdAt': hoy.isoformat(), 'statusCheckRollup': []}
+        na.pasada(solo='x.yml')
+        self.assertIn(('gh', 'pr', 'merge'), self.hechos)
+        self.assertNotIn('auto_pendiente', self.estado['x.yml'])
+
+    def test_registro_de_la_carga_trae_el_fallo_de_la_qa_hija(self):
+        na.registro_fallo = lambda run_id, lineas=250, run=None: f'error real {run_id}'
+        texto = 'RuntimeError: recommendations-browser-qa.yml failed (555)\nrecommendations-browser-qa.yml failed (555)'
+        hijo = na.registro_qa_hijo(texto)
+        self.assertIn('error real 555', hijo)
+        self.assertEqual(hijo.count('error real'), 1)
+
+    def vigia_preparado(self, tmp):
+        na.ESTADO_DIR = Path(tmp)
+        self.ahora = dt.datetime(2026, 11, 15, 3, 0, tzinfo=dt.timezone.utc)
+        ayer = self.ahora - dt.timedelta(days=1)
+        na.ultima_ejecucion = lambda f: {**run(conclusion='success'), 'createdAt': ayer.isoformat()}
+
+    def test_vigia_pide_un_respaldo_por_hora_entre_la_1_y_las_5(self):
+        """Fable R3-5: una vez por hora de 01:00 a 04:59 UTC, siempre con respaldo=true (decide ci_intake_backup)."""
+        with tempfile.TemporaryDirectory() as tmp:
+            self.vigia_preparado(tmp)
+            self.assertFalse(na.vigia_carga(ahora=self.ahora.replace(hour=0, minute=50)))   # antes: nada
+            self.assertTrue(na.vigia_carga(ahora=self.ahora))
+            self.assertFalse(na.vigia_carga(ahora=self.ahora + dt.timedelta(minutes=15)))   # misma hora
+            self.assertTrue(na.vigia_carga(ahora=self.ahora + dt.timedelta(hours=1)))        # 04:00
+            self.assertFalse(na.vigia_carga(ahora=self.ahora + dt.timedelta(hours=2)))       # 05:00: fuera
+            self.assertEqual(self.hechos.count(('gh', 'workflow', 'run')), 2)
+
+    def test_c3_ejecucion_de_hoy_sin_intake_no_calla_al_vigia(self):
+        """C3: hoy hay una ejecución (un reloj que decidió «no cargar»): antes el vigía callaba; ahora pide el
+        respaldo con respaldo=true y es ci_intake_backup.py quien decide (con una carga en verde, no carga)."""
+        with tempfile.TemporaryDirectory() as tmp:
+            self.vigia_preparado(tmp)
+            na.ultima_ejecucion = lambda f: {**run(conclusion='success'), 'createdAt': self.ahora.isoformat()}
+            ordenes = []
+            sh = na.sh
+            na.sh = lambda args, **kw: ordenes.append(list(args)) or sh(args, **kw)
+            self.assertTrue(na.vigia_carga(ahora=self.ahora))
+            lanzadas = [o for o in ordenes if o[:3] == ['gh', 'workflow', 'run']]
+            self.assertEqual(len(lanzadas), 1, ordenes)
+            lanzada = lanzadas[0]
+            self.assertEqual(lanzada[-2:], ['-f', 'respaldo=true'])
+            self.assertIn('main', lanzada)
+
+    def test_pasada_y_vigia_comparten_la_marca(self):
+        """Codex/CodeRabbit en #1339: la pasada tenía su propia marca y podía lanzar otra carga el mismo día."""
+        with tempfile.TemporaryDirectory() as tmp:
+            self.vigia_preparado(tmp)
+            self.assertTrue(na.vigia_carga(ahora=self.ahora))
+            # La API aún no lista la recién lanzada (la de ayer sigue siendo la última): la pasada no debe lanzar otra.
+            na.pasada(solo=na.INGESTA, ahora=self.ahora + dt.timedelta(minutes=20))
+            self.assertEqual(self.hechos.count(('gh', 'workflow', 'run')), 1)
+
+    def test_servidor_listo_espera_el_puerto_y_detecta_la_caida(self):
+        class Muerto:
+            @staticmethod
+            def poll():
+                return 1
+        self.assertFalse(na.servidor_listo(Muerto(), plazo=0.5))
+
+    def test_workflow_ilegible_no_hay_pasos_pero_no_revienta(self):
+        self.assertEqual(na.pasos_del_workflow(Path('.'), 'no-existe.yml', ['x']), [])
+
+    def test_pyyaml_declarado_en_requirements(self):
+        # 15/11: la CI no tenía PyYAML y un except lo tragaba; en local pasaba 62/62.
+        req = (Path(__file__).resolve().parents[1] / 'scripts' / 'requirements.txt').read_text(encoding='utf-8')
+        self.assertRegex(req, r'(?m)^PyYAML==')
+
+    def test_orden_segura(self):
+        raiz = Path(__file__).resolve().parents[1]
+        na.sh = self.originales['sh']   # git ls-files real: el repo de verdad
+        py, node = sys.executable, na.exe('node')
+        self.assertTrue(na.orden_segura([py, 'tests/test_night_autorepair.py'], raiz))
+        self.assertTrue(na.orden_segura([py, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_x.py'], raiz))
+        self.assertFalse(na.orden_segura([py, '-m', 'pip', 'install', 'x'], raiz))
+        self.assertFalse(na.orden_segura([py, 'scripts/no-existe-nunca.py'], raiz))
+        self.assertFalse(na.orden_segura([py, 'tests/../evil.py'], raiz))
+        self.assertFalse(na.orden_segura([py, 'tests/test_night_autorepair.py', '$(rm)'], raiz))
+        self.assertFalse(na.orden_segura(['bash', 'tests/test_night_autorepair.py'], raiz))
+        self.assertFalse(na.orden_segura([node, '/etc/x.mjs'], raiz))
+
+    def test_vigia_con_error_no_revienta_ni_marca(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.vigia_preparado(tmp)
+
+            def falla(args, **kw):
+                raise RuntimeError('gh caído')
+            na.sh = falla
+            self.assertFalse(na.vigia_carga(ahora=self.ahora))
+            self.assertFalse((Path(tmp) / 'carga-lanzada.txt').exists())
+
+    def test_comparacion_imposible_relanza(self):
+        """CodeRabbit en #1339: sin poder comparar con main (API, SHA borrado) se relanza, no se bloquea."""
+        na.ultima_ejecucion = lambda f: self.carga()
+
+        na.codigo_nuevo_en_main = lambda sha: None   # git diff imposible (SHA borrado, sin red)
+        na.pasada(solo=na.INGESTA)
+        self.assertIn(('relanzar', na.INGESTA), self.hechos)
+
+    def test_auto_merge_que_falla_queda_pendiente(self):
+        """Codex en #1339: el merge diferido fallaba en silencio y se borraba `auto_pendiente`."""
+        hoy = dt.datetime.now(dt.timezone.utc)
+        self.estado['x.yml'] = {'relanzado': (hoy - dt.timedelta(hours=3)).isoformat(), 'auto_pendiente': True,
+                                'pr': 7}
+        na.ultima_ejecucion = lambda f: {**run(), 'createdAt': (hoy - dt.timedelta(hours=1)).isoformat()}
+        na.gh_json = lambda *a: {'state': 'OPEN', 'createdAt': hoy.isoformat(), 'statusCheckRollup': []}
+
+        def sh(args, **kw):
+            self.hechos.append(tuple(args[:3]))
+            if args[:3] == ['gh', 'pr', 'merge']:
+                raise RuntimeError('gh pr merge → 1')
+        na.sh = sh
+        na.pasada(solo='x.yml')
+        self.assertIn(('gh', 'pr', 'merge'), self.hechos)
+        self.assertTrue(self.estado['x.yml'].get('auto_pendiente'))
+
+
+class CodigoNuevoEnMainSinTope(unittest.TestCase):
+    """Fable C2: la API de compare corta en 300 ficheros; tras una fusión de datos el código quedaba fuera."""
+
+    def test_el_fichero_350_de_400_aparece(self):
+        guardar = na.sh
+        self.addCleanup(lambda: setattr(na, 'sh', guardar))
+        with tempfile.TemporaryDirectory() as tmp:
+            git = lambda *a: subprocess.run(['git', *a], cwd=tmp, check=True, capture_output=True)
+            git('init', '-q', '-b', 'main')
+            git('config', 'user.email', 't@t'); git('config', 'user.name', 't')
+            Path(tmp, 'a.txt').write_text('a')
+            git('add', '.'); git('commit', '-qm', 'base')
+            base = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=tmp, text=True).strip()
+            Path(tmp, 'libros').mkdir(); Path(tmp, 'qa').mkdir()
+            for i in range(400):
+                destino = Path(tmp, 'qa', 'arreglo.mjs') if i == 349 else Path(tmp, 'libros', f'{i}.html')
+                destino.write_text(str(i))
+            git('add', '.'); git('commit', '-qm', 'datos')
+            self.assertEqual(na.codigo_nuevo_en_main(base, base='main', repo=tmp), ['qa/arreglo.mjs'])
+            self.assertEqual(na.codigo_nuevo_en_main(subprocess.check_output(
+                ['git', 'rev-parse', 'HEAD'], cwd=tmp, text=True).strip(), base='main', repo=tmp), [])
+            self.assertIsNone(na.codigo_nuevo_en_main('0' * 40, base='main', repo=tmp))
+
+
+class GhApiSinRepo(unittest.TestCase):
+    def test_gh_api_no_lleva_repo_y_el_resto_si(self):
+        """Codex en #1339: `gh api … --repo` → «unknown flag: --repo» en cada pasada."""
+        llamadas = []
+        guardar = na.sh
+        self.addCleanup(lambda: setattr(na, 'sh', guardar))
+        na.sh = lambda args, **kw: llamadas.append(args) or type('R', (), {'stdout': '{}'})()
+        na.gh_json('api', 'repos/o/r/compare/a...main')
+        na.gh_json('run', 'view', '1', '--json', 'jobs')
+        self.assertNotIn('--repo', llamadas[0])
+        self.assertIn('--repo', llamadas[1])
+
+
+class PasosPorMetadatos(unittest.TestCase):
+    """Codex en #1339: los pasos de navegador (`node qa/…`) no salían del registro y la puerta no los repetía."""
+
+    WORKFLOW = '''
+env:
+  GLOBAL: si
+jobs:
+  qa:
+    env:
+      QA_ORIGIN: http://127.0.0.1:4173
+      TOKEN: ${{ secrets.X }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Navegador
+        run: |
+          python -m http.server 4173 &
+          node qa/reading-intake-browser.mjs
+      - name: Datos
+        env:
+          ESTRICTO: true
+        run: >-
+          python scripts/check-reading-data.py
+          --strict
+      - name: Tuberia
+        run: python tests/x.py | tee salida.log
+      - name: Bien
+        run: node qa/otra.mjs
+'''
+
+    def setUp(self):
+        guardar = {k: getattr(na, k) for k in ('gh_json', 'log')}
+        self.addCleanup(lambda: [setattr(na, k, v) for k, v in guardar.items()])
+        na.log = lambda m: None
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.wt = Path(self.tmp.name)
+        (self.wt / '.github/workflows').mkdir(parents=True)
+        (self.wt / '.github/workflows/qa.yml').write_text(self.WORKFLOW, encoding='utf-8')
+        pasos = [{'name': n, 'conclusion': c} for n, c in
+                 (('Navegador', 'failure'), ('Datos', 'failure'), ('Tuberia', 'failure'), ('Bien', 'success'))]
+        self.jobs = {'jobs': [{'name': 'qa', 'conclusion': 'failure', 'steps': pasos}]}
+
+    def test_saca_las_ordenes_de_los_pasos_fallidos(self):
+        vistos = []
+        na.gh_json = lambda *a: vistos.append(a[2]) or self.jobs
+        registro = 'Error: recommendations-x\nqa.yml failed (555)\n'
+        pasos = na.pasos_de_las_ejecuciones(na.INGESTA, {'databaseId': 1}, registro, self.wt)
+        self.assertEqual(vistos, ['1', '555'])
+        self.assertEqual(pasos, ['GLOBAL=si QA_ORIGIN=http://127.0.0.1:4173 node qa/reading-intake-browser.mjs',
+                                 'GLOBAL=si QA_ORIGIN=http://127.0.0.1:4173 ESTRICTO=true '
+                                 + 'python scripts/check-reading-data.py --strict'])
+        argv, env = na.preparar_orden(pasos[1])
+        self.assertEqual(argv[1:], ['scripts/check-reading-data.py', '--strict'])
+        self.assertEqual(env['ESTRICTO'], 'true')
+
+    def test_sin_metadatos_vuelve_al_registro(self):
+        def gh_json(*a):
+            raise RuntimeError('API caída')
+        na.gh_json = gh_json
+        registro = "FAIL: test_a (test_modulo.Clase.test_a)"
+        self.assertEqual(na.pasos_de_las_ejecuciones('qa.yml', {'databaseId': 1}, registro, self.wt),
+                         ['python -m unittest discover -s tests -p test_modulo.py'])
+
+
+class PuertaDirigida(unittest.TestCase):
+    def test_repite_lo_que_fallo_y_las_pruebas_tocadas(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            wt = Path(tmp)
+            subprocess.run(['git', 'init', '-q'], cwd=wt, check=True)
+            (wt / 'tests').mkdir()
+            (wt / 'tests' / 'test-nuevo.py').write_text('raise SystemExit(1)\n')
+            (wt / 'tests' / 'otro.py').write_text('')
+            subprocess.run(['git', 'add', '-A'], cwd=wt, check=True)
+            pasos = na.pasos_de_la_puerta(wt, '')
+            self.assertEqual(pasos, ['python tests/test-nuevo.py'])
+            guardar = na.guardar_puerta
+            na.guardar_puerta = lambda w, t: None
+            try:
+                ok, texto = na.puerta_local(wt, '')
+            finally:
+                na.guardar_puerta = guardar
+            self.assertFalse(ok)
+            self.assertIn('tests/test-nuevo.py', texto)
+
+    def test_prueba_unittest_tocada_se_descubre_entera(self):
+        """Codex en #1339: ejecutar el módulo directo saltaba las clases definidas tras `unittest.main()`."""
+        with tempfile.TemporaryDirectory() as tmp:
+            wt = Path(tmp)
+            subprocess.run(['git', 'init', '-q'], cwd=wt, check=True)
+            (wt / 'tests').mkdir()
+            (wt / 'tests' / 'test_cosa.py').write_text(
+                'import unittest\nif __name__ == "__main__":\n    unittest.main()\n'
+                'class Tarde(unittest.TestCase):\n    def test_x(self):\n        self.fail("vista")\n')
+            subprocess.run(['git', 'add', '-A'], cwd=wt, check=True)
+            self.assertEqual(na.pasos_de_la_puerta(wt, ''), ['python -m unittest discover -s tests -p test_cosa.py'])
+            guardar = na.guardar_puerta
+            na.guardar_puerta = lambda w, t: None
+            try:
+                ok, texto = na.puerta_local(wt, '', [])
+            finally:
+                na.guardar_puerta = guardar
+            self.assertFalse(ok, texto)
+
+
+class PlazoMataElArbol(unittest.TestCase):
+    """15/11: un agente agotó su plazo y sus nietos (Lighthouse) siguieron vivos 10 h con las tuberías abiertas."""
+
+    def test_el_nieto_muere_y_sh_vuelve(self):
+        import os
+        import time
+        with tempfile.TemporaryDirectory() as tmp:
+            pidf = Path(tmp) / 'nieto.pid'
+            hijo = ('import subprocess,sys,time\n'
+                    'p=subprocess.Popen([sys.executable,"-c","import time; time.sleep(600)"])\n'
+                    f'open(r"{pidf}","w").write(str(p.pid))\n'
+                    'time.sleep(600)\n')
+            inicio = time.monotonic()
+            with self.assertRaises(subprocess.TimeoutExpired):
+                na.sh([sys.executable, '-c', hijo], cwd=tmp, timeout=5)
+            self.assertLess(time.monotonic() - inicio, 60, 'sh se quedó esperando a las tuberías del nieto')
+            nieto = int(pidf.read_text())
+            time.sleep(1)
+            if os.name == 'nt':
+                vivo = str(nieto) in subprocess.run(['tasklist', '/FI', f'PID eq {nieto}', '/NH'], capture_output=True, check=False,
+                                                    text=True).stdout
+            else:
+                try:
+                    os.kill(nieto, 0)
+                    vivo = True
+                except OSError:
+                    vivo = False
+            self.assertFalse(vivo, 'el nieto sigue vivo tras el plazo')
+
+
+
+class AutoMergeTrasLaReparacion(unittest.TestCase):
+    """La reparación dura horas: si entretanto arrancó la carga, el auto-merge espera a una pasada sin ella."""
+    def test_carga_que_arranca_durante_la_reparacion(self):
+        originales = na.sh, na.ingesta_en_marcha
+        llamadas = []
+
+        def sh(args, **_):
+            llamadas.append(args[:3])
+            return subprocess.CompletedProcess(args, 0, 'https://github.com/o/r/pull/9', '')
+        try:
+            na.sh, na.ingesta_en_marcha = sh, lambda: True
+            r = na.publicar_arreglo('x.yml', {'url': 'u'}, Path('.'), 'rama', 'codex', 'Titulo', '', auto=True)
+            self.assertTrue(r.get('auto_pendiente'))
+            self.assertNotIn(['gh', 'pr', 'merge'], llamadas)
+            na.ingesta_en_marcha = lambda: False
+            r = na.publicar_arreglo('x.yml', {'url': 'u'}, Path('.'), 'rama', 'codex', 'Titulo', '', auto=True)
+            self.assertNotIn('auto_pendiente', r)
+            self.assertIn(['gh', 'pr', 'merge'], llamadas)
+        finally:
+            na.sh, na.ingesta_en_marcha = originales
+
+
+class PuertaSinPasosNoDiceVerde(unittest.TestCase):
+    """Fable C4: con cero pasos ejecutados el cuerpo de la PR decía «en verde»."""
+
+    def test_sin_pasos_no_dice_en_verde(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            guardar = na.guardar_puerta
+            na.guardar_puerta = lambda w, t: None
+            try:
+                ok, texto = na.puerta_local(Path(tmp), '', [])
+            finally:
+                na.guardar_puerta = guardar
+        self.assertTrue(ok)
+        linea = na.linea_comprobado(texto)
+        self.assertNotIn('en verde', linea)
+        self.assertIn('Sin verificación local', linea)
+
+    def test_todo_omitido_no_dice_en_verde(self):
+        self.assertNotIn('en verde', na.linea_comprobado('omitido: x\n0 ejecutados, 3 omitidos, 0 fallos'))
+        self.assertIn('3 pasos omitidos', na.linea_comprobado('0 ejecutados, 3 omitidos, 0 fallos'))
+        self.assertIn('2 pasos ejecutados en verde', na.linea_comprobado('ok a\nok b\n2 ejecutados, 1 omitidos, 0 fallos'))
+
+    def test_el_cuerpo_de_la_pr_usa_la_puerta(self):
+        cuerpos = []
+
+        def sh(args, **kw):
+            if args[:3] == ['gh', 'pr', 'create']:
+                cuerpos.append(kw.get('entrada', ''))
+            return subprocess.CompletedProcess(args, 0, 'https://github.com/o/r/pull/9', '')
+        originales = na.sh, na.ingesta_en_marcha
+        try:
+            na.sh, na.ingesta_en_marcha = sh, lambda: False
+            na.publicar_arreglo('x.yml', {'url': 'u'}, Path('.'), 'rama', 'codex', 'Titulo', '', auto=False,
+                                puerta='0 ejecutados, 0 omitidos, 0 fallos')
+        finally:
+            na.sh, na.ingesta_en_marcha = originales
+        self.assertNotIn('en verde', cuerpos[0])
+
+
+class PatronDeWorktree(unittest.TestCase):
+    """Fable C5: `…-123` no puede casar con `…-1234`."""
+
+    def test_rutas_prefijo(self):
+        import re
+        patron = re.compile(na.patron_worktree(Path('C:/x/.worktrees/auto-123')), re.IGNORECASE)
+        base = str(Path('C:/x/.worktrees/auto-123'))
+        self.assertTrue(patron.search(rf'node {base}\qa\a.mjs'))
+        self.assertTrue(patron.search(f'python -m http.server --directory "{base}"'))
+        self.assertTrue(patron.search(f'git -C {base} status'))
+        self.assertTrue(patron.search(f'cmd {base}'))
+        self.assertTrue(patron.search(f'node {base.upper()}/qa/a.mjs'))
+        self.assertFalse(patron.search(rf'node {base}4\qa\a.mjs'))
+        self.assertFalse(patron.search(f'node {base}-b/qa/a.mjs'))
+
+
+class EntornoVetado(unittest.TestCase):
+    """Fable C6: variables que cambian qué código carga el intérprete no pasan a la puerta local."""
+
+    def test_node_options_omite_la_orden(self):
+        args, env = na.preparar_orden('NODE_OPTIONS=--require=x node qa/a.mjs')
+        self.assertEqual((args, env), ([], {}))
+        self.assertFalse(na.orden_segura(args, Path('.')))
+
+    def test_vetadas(self):
+        for paso in ('PYTHONPATH=x python tests/t.py', 'PATH=/tmp python tests/t.py', 'LD_PRELOAD=x.so node qa/a.mjs',
+                     'path=x python tests/t.py', 'DYLD_INSERT_LIBRARIES=x node qa/a.mjs'):
+            self.assertEqual(na.preparar_orden(paso)[0], [], paso)
+
+    def test_las_demas_pasan(self):
+        args, env = na.preparar_orden('READING_QA_BASE=http://127.0.0.1:4173 node qa/a.mjs')
+        self.assertEqual(env, {'READING_QA_BASE': 'http://127.0.0.1:4173'})
+        self.assertEqual(args[1:], ['qa/a.mjs'])
+
+if __name__ == '__main__':
+    unittest.main()

@@ -98,7 +98,7 @@ function existsInBase(path) {
 const introduced = [];
 for (const path of paths) {
   if (!existsInBase(path)) { introduced.push(path); continue; }
-  const before = execFileSync('git', ['show', `${base}:${path}`], { encoding: 'utf8' });
+  const before = execFileSync('git', ['show', `${base}:${path}`], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
   const after = fs.readFileSync(path, 'utf8');
   assert.deepEqual(extract(after), extract(before), `regresión de metadata/H1 en ${path}`);
 }
