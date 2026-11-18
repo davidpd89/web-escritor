@@ -91,6 +91,13 @@ class JuzgarTests(unittest.TestCase):
         self.assertEqual(self.estado(viejo, plazo=2), 'ausente')
         self.assertEqual(self.estado(viejo, plazo=9), 'ok')
 
+    def test_recien_dado_de_alta_esta_por_estrenar(self):
+        self.assertEqual(e.juzgar([], 9, AHORA, AHORA - timedelta(days=3))[0], 'por estrenar')
+        self.assertEqual(e.juzgar([], 9, AHORA, AHORA - timedelta(days=10))[0], 'ausente')
+        self.assertEqual(e.juzgar([], 9, AHORA, None)[0], 'ausente')
+        viejo = [{'conclusion': 'success', 'url': 'u', 'fecha': AHORA - timedelta(days=12)}]
+        self.assertEqual(e.juzgar(viejo, 9, AHORA, AHORA - timedelta(days=1))[0], 'ausente')
+
     def test_sin_horario_y_sin_ejecuciones_propias_no_se_juzga(self):
         self.assertEqual(self.estado([], plazo=None), 'por PR')
 
@@ -119,6 +126,20 @@ class InformeTests(unittest.TestCase):
         self.assertEqual({f['workflow']: f['estado'] for f in filas}, {'uno': 'ok', 'dos': 'rojo', 'tres': 'sin datos'})
         self.assertIn('| A | `dos` | rojo | 3 |', texto)
         self.assertIn('Knip, vacante', texto)
+
+    def test_por_estrenar_no_es_caido_y_alta_solo_se_pide_sin_ejecuciones(self):
+        pedidas = []
+
+        def alta(fichero, _repo):
+            pedidas.append(fichero)
+            return AHORA - timedelta(hours=20)
+
+        filas = e.medir(self.REGISTRO, self.WORKFLOWS, 'o/r', AHORA,
+                        lambda f, _r: [] if f == 'dos.yml' else runs('success'), alta)
+        _texto, malos = e.informe(filas, self.REGISTRO, AHORA)
+        self.assertEqual(pedidas, ['dos.yml'])
+        self.assertEqual({f['workflow']: f['estado'] for f in filas}['dos'], 'por estrenar')
+        self.assertEqual(malos, [])
 
     def test_todo_verde_no_deja_caidos(self):
         filas = e.medir(self.REGISTRO, self.WORKFLOWS, 'o/r', AHORA, lambda _f, _r: runs('success'))
