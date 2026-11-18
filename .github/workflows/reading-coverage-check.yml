@@ -33,6 +33,21 @@ jobs:
         run: git fetch --no-tags --filter=blob:none origin catalogo-estado:refs/remotes/origin/catalogo-estado
       - name: Comprobar cobertura
         run: python3 scripts/cobertura_cercana.py --salida .ci/reading-intake/cobertura-cercana.json
+      - name: Resumen
+        if: always()
+        run: |
+          python3 - <<'EOF' >> "$GITHUB_STEP_SUMMARY"
+          import json, pathlib
+          f = pathlib.Path('.ci/reading-intake/cobertura-cercana.json')
+          if not f.exists():
+              print('Sin informe de cobertura.')
+          else:
+              r = json.loads(f.read_text(encoding='utf-8'))
+              print(f"Cobertura {r['cobertura']} de {r['libros']} libros ({r['ventana'][0]} a {r['ventana'][1]}), "
+                    f"{r['peticiones']} peticiones, {r['rondas']} rondas.")
+              if not r['completo']:
+                  print(f"\n**Informe parcial**: parado por {r['parado_por']}; {len(r['listados_a_medias'])} listados a medias.")
+          EOF
       - uses: actions/upload-artifact@v6
         if: always()
         with:
@@ -50,6 +65,9 @@ jobs:
           if sin:
               print(f"Día {r['dia']}, ventana {r['ventana'][0]} a {r['ventana'][1]}: {r['libros']} libros, cobertura {r['cobertura']}.\n")
               print(f"Situación: {r['situacion']}\n")
+              if not r.get('completo', True):
+                  print(f"Informe parcial: parado por {r['parado_por']} tras {r['rondas']} rondas; "
+                        f"{len(r['listados_a_medias'])} listados a medias.\n")
               print('Sin explicar (ni en la web, ni en la cola, ni pendientes, ni descartados):\n')
               for d in sin[:50]:
                   print(f"- {d['isbn13']} ({d['fecha'] or 'sin fecha'}, {d['categoria']})")

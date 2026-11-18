@@ -306,7 +306,7 @@ class CadenaPorFirmaTest(unittest.TestCase):
 
     def decide(self, *intentos):
         libro = {'dia': '2026-11-16', 'intentos': list(intentos)}
-        return noche.toca_cadena(json.loads(json.dumps(libro)), AHORA, 5, intentos[-1]['run'], 1)
+        return noche.toca_cadena(json.loads(json.dumps(libro)), AHORA, 5, run=intentos[-1]['run'], intento=1)
 
     def test_primera_degradada_encadena(self):
         self.assertTrue(self.decide(intento(1, 'degradado', None, ['aaa']))[0])

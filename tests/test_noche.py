@@ -123,6 +123,7 @@ class ReglasTest(unittest.TestCase):
         self.assertFalse(noche.toca_cadena(None, dia, 10)[0])
         self.assertFalse(noche.toca_reintento(None, dia)[0])
         self.assertFalse(noche.toca_cadena(None, self.T, 0)[0], 'sin altas no se encadena')
+        self.assertTrue(noche.toca_cadena(None, self.T, 0, 2)[0], 'F8: ramas guardadas encadenan sin altas')
 
     def test_juez_sin_libro_legible_carga(self):
         with unittest.mock.patch.object(noche, 'leer', side_effect=OSError('git')), \

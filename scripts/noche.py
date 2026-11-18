@@ -25,7 +25,7 @@ reintento que llegan sin su pendiente ya los cargó otro: no cargan.
   python scripts/noche.py juez           # reloj: imprime run=true|false
   python scripts/noche.py abrir --motivo cron|respaldo|manual   # intake: imprime cargar=true|false
   python scripts/noche.py cerrar --resultado success|failure|cancelled
-  python scripts/noche.py cadena --aceptados N   # código 0 si toca encadenar (y anota el pendiente)
+  python scripts/noche.py cadena --aceptados N [--guardadas M]   # código 0 si toca encadenar (y anota el pendiente)
   python scripts/noche.py reintento               # código 0 si toca reintentar (y anota el pendiente)
 """
 from __future__ import annotations
@@ -125,12 +125,14 @@ def _firmas(intento: dict) -> set:
     return set(f) if isinstance(f, list) else {f} if f else set()
 
 
-def toca_cadena(libro: dict | None, now: datetime, aceptados: int, run: int | None = None,
-                intento: int | None = None) -> tuple[bool, str]:
+def toca_cadena(libro: dict | None, now: datetime, aceptados: int, guardadas: int = 0,
+                run: int | None = None, intento: int | None = None) -> tuple[bool, str]:
+    """Encadena si el lote trajo altas o si quedan ramas de datos guardadas (Fable R4-11, F8): una carga recuperada
+    o reanudada sin altas propias también sigue, en vez de esperar una noche por cada punto de control."""
     if now.astimezone(MADRID).hour >= HORA_FIN:
         return False, 'ya no es de noche'
-    if aceptados <= 0:
-        return False, 'el lote no trajo libros nuevos'
+    if aceptados <= 0 and guardadas <= 0:
+        return False, 'el lote no trajo libros nuevos ni quedan ramas guardadas'
     if resumen(libro, now)['pendientes']:
         return False, 'ya hay otra carga despachada'
     # Tope por firma también para las degradadas (R5-12, hallazgo 6): si otra carga de esta noche ya se degradó con
@@ -143,7 +145,7 @@ def toca_cadena(libro: dict | None, now: datetime, aceptados: int, run: int | No
         if repetido:
             return False, (f"la ejecución {repetido.get('run')} ya se degradó esta noche con la firma "
                            f"{', '.join(sorted(_firmas(repetido) & _firmas(propio)))} sobre el mismo código")
-    return True, f'{aceptados} altas: se encadena el siguiente lote'
+    return True, f'{aceptados} altas y {guardadas} ramas guardadas: se encadena el siguiente lote'
 
 
 def abrir(libro, now, run, intento, sha, motivo):
@@ -302,7 +304,7 @@ def _despacho(now, run, intento, args) -> int:
     try:
         libro = leer()
         if args.accion == 'cadena':
-            toca, porque = toca_cadena(libro, now, args.aceptados, run, intento)
+            toca, porque = toca_cadena(libro, now, args.aceptados, args.guardadas, run, intento)
         else:
             toca, porque = toca_reintento(libro, now, run, intento)
         if toca:
@@ -323,6 +325,7 @@ def main(argv=None) -> int:
     p.add_argument('--motivo', default='manual')
     p.add_argument('--resultado', default='failure')
     p.add_argument('--aceptados', type=int, default=0)
+    p.add_argument('--guardadas', type=int, default=0)
     args = p.parse_args(argv)
     run = int(os.environ.get('GITHUB_RUN_ID') or 0)
     intento = int(os.environ.get('GITHUB_RUN_ATTEMPT') or 1)

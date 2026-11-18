@@ -38,6 +38,25 @@ def main() -> None:
         else:
             raise AssertionError("different SHA unexpectedly verified against existing marker")
 
+        # R5-13: /version.json dice qué commit y qué día de Madrid están publicados.
+        version = release_identity.stamp_version(out, sha, "2026-11-17")
+        assert version == out / "version.json"
+        assert json.loads(version.read_text(encoding="utf-8")) == {"schemaVersion": 1, "sha": sha, "hoy": "2026-11-17"}
+        assert release_identity.verify_version(out, sha, "2026-11-17") == version
+        for wrong_sha, wrong_day in ((other_sha, "2026-11-17"), (sha, "2026-11-18")):
+            try:
+                release_identity.verify_version(out, wrong_sha, wrong_day)
+            except ValueError:
+                pass
+            else:
+                raise AssertionError("version.json verified against another release or day")
+        try:
+            release_identity.stamp_version(out, sha, "17/11/2026")
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("malformed day accepted")
+
         for invalid in ("", "abc", "g" * 40, "a" * 39, "a" * 41, "../" + "a" * 40):
             try:
                 release_identity.validate_sha(invalid)
