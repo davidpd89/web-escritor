@@ -44,8 +44,12 @@ class CatalogueGEO(unittest.TestCase):
         # Todo libro con «Para quién es» validado lo lleva; los recién incorporados esperan a su texto.
         self.assertEqual(len(with_audience), sum(1 for b in self.books if any(x['modulo'] == 'para_quien' for x in (builder.OWN_TEXTS.get(b['id']) or {}).get('bloques', []))))
         self.assertGreater(len(with_audience), 100)
+        lines = {}
+        for l in text.splitlines():  # una pasada: buscar la línea de cada libro en todo el texto era cuadrático
+            for url in re.findall(r'\]\((\S+?)\)', l):
+                lines.setdefault(url.removeprefix(builder.SITE), l)
         for b in with_audience:
-            line = next(l for l in text.splitlines() if f"{builder.url(b)})" in l)
+            line = lines[builder.url(b)]
             who = builder.own_summary(b)
             # Entero, salvo cuando la línea llega al tope de 700: entonces cede espacio, pero empieza igual.
             self.assertIn('Para quién es: ' + (who if len(line) < 640 else who[:40]), line, b['id'])
