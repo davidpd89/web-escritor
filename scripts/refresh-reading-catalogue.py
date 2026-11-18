@@ -86,7 +86,7 @@ def follow_main(root=ROOT):
     return head
 
 
-def carry(branch, root=ROOT):
+def carry(branch, root=ROOT, skipped=None):
     """Datos fuente de una PR verde pero obsoleta, sobre el main actual y sin volver a consultar las fuentes.
 
     Devuelve las altas recuperadas frente a main, o None si ya están publicadas. Si los JSON chocan,
@@ -101,7 +101,7 @@ def carry(branch, root=ROOT):
         return None
     if not replay(patch, latest, root):
         from reading_source_recovery import recover
-        return recover(root, head, base, latest)
+        return recover(root, head, base, latest, skipped)
     added = sorted(catalogue_ids((root / 'data/reading-catalogue.json').read_bytes()) - before)
     # Un punto de guardado ya publicado no provoca otra publicación vacía ni rebobina la siguiente noche.
     if not added and not git('diff', 'HEAD', '--', *SOURCE_PATHS, root=root).strip():
@@ -188,43 +188,182 @@ def pending_batches(opened):
     return [p['headRefName'] for p in opened if OWN_BATCH.fullmatch(p['headRefName'])]
 
 
+def reconcile_pending(pending, root=ROOT):
+    """Varias cargas abiertas no paran la noche (Fable F8): se queda la más nueva y las demás pasan a puntos de guardado.
+
+    Antes, dos PR abiertas abortaban cada ejecución con «Hay varias cargas pendientes» hasta que alguien cerraba una.
+    Crear antes de destruir: la cabeza de cada PR vieja se copia a una rama `reading-datos-*` y solo después se cierra
+    la PR (su rama se conserva). Las ejecuciones siguientes la publican con `carry`, sin volver a consultar las fuentes.
+    """
+    if len(pending) == 1:
+        return pending[0]
+    gh = publisher.publication.gh
+    numbered = sorted((json.loads(gh('pr', 'view', branch, '--json', 'number'))['number'], branch) for branch in pending)
+    *older, (_, newest) = numbered
+    for number, branch in older:
+        git('fetch', '--quiet', 'origin', f'+refs/heads/{branch}:refs/remotes/origin/{branch}', root=root)
+        day = re.search(r'\d{4}-\d{2}-\d{2}', branch).group(0)
+        saved = publisher.publication.fresh_branch(CHECKPOINT_PREFIX + day + '-', cwd=root)
+        git('push', '--quiet', 'origin', f'refs/remotes/origin/{branch}:refs/heads/{saved}', root=root)
+        publisher.close_proposal(number, f'Había varias cargas abiertas: se queda la más nueva. Sus datos pasan a `{saved}` '
+                                 f'y se publican sin nueva consulta en las siguientes ejecuciones. Se conserva la rama `{branch}`.')
+    return newest
+
+
+STUCK_PREFIX = 'automation/reading-atascado-'
+
+
+def reconcile_deploy(root=ROOT):
+    """Una muerte entre fusionar y desplegar no deja main sin publicar (Fable R4-6, F3).
+
+    Una fusión con GITHUB_TOKEN no dispara el despliegue por push: lo lanza el publicador justo después. Si la
+    ejecución muere entre los dos pasos, nadie despliega. Al empezar, si la punta de main no tiene un despliegue
+    en curso ni terminado en verde, se lanza uno. Devuelve True si lo lanzó.
+    """
+    gh = publisher.publication.gh
+    git('fetch', '--quiet', 'origin', 'main', root=root)
+    sha = git('rev-parse', 'origin/main', root=root).decode().strip()
+    repo = gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner').strip()
+    runs = json.loads(gh('api', f'repos/{repo}/actions/workflows/deploy-pages.yml/runs?head_sha={sha}'))['workflow_runs']
+    if any(r.get('status') != 'completed' for r in runs):
+        return False
+
+    def deployed(run):
+        # Un run en verde puede no haber desplegado: el disparo horario descartado (`seguir=false`) salta `deploy`.
+        jobs = json.loads(gh('api', f'repos/{repo}/actions/runs/{run["id"]}/jobs'))['jobs']
+        return any(j.get('name') == 'deploy' and j.get('conclusion') == 'success' for j in jobs)
+    if any(r.get('conclusion') == 'success' and deployed(r) for r in runs):
+        return False
+    print(f'::warning::main {sha[:12]} sin despliegue en verde ni en curso; se despliega ahora', flush=True)
+    gh('workflow', 'run', 'deploy-pages.yml', '--ref', 'main')
+    return True
+
+
+def keep_copy(source, root=ROOT):
+    """Copia un punto de guardado a `reading-atascado-*`. Devuelve la copia, o None si no se pudo crear."""
+    keep = STUCK_PREFIX + source[len(CHECKPOINT_PREFIX):]
+    try:
+        # La referencia remota puede no existir en este checkout si `carry` falló antes de descargarla.
+        git('fetch', '--quiet', 'origin', f'+refs/heads/{source}:refs/remotes/origin/{source}', root=root)
+        git('push', '--quiet', 'origin', f'refs/remotes/origin/{source}:refs/heads/{keep}', root=root)
+    except Exception as exc:  # noqa: BLE001
+        print(f'::error::No se pudo copiar {source} a {keep} ({exc}); se conserva el original', flush=True)
+        return None
+    return keep
+
+
+def open_stuck_issue(keep, body):
+    try:
+        publisher.publication.gh('issue', 'create', '--title', f'Carga: datos sin trasladar en {keep}', '--body', body)
+    except Exception as issue_exc:  # noqa: BLE001
+        print(f'::error::No se pudo abrir la issue ({issue_exc}); los datos siguen en {keep}', flush=True)
+
+
+def report_skipped(source, skipped, root=ROOT):
+    """Altas apartadas por falta de procedencia: el resto se publica; ellas quedan en una copia con su issue."""
+    if not skipped:
+        return None
+    keep = keep_copy(source, root) if source.startswith(CHECKPOINT_PREFIX) else source
+    print(f'::warning::{len(skipped)} altas sin procedencia apartadas de {source}: {", ".join(skipped[:20])}', flush=True)
+    if keep:
+        open_stuck_issue(keep, f'Altas sin procedencia publicada, apartadas al trasladar `{source}`: '
+                         f'{", ".join(skipped[:100])}.\n\nEl resto del lote se publicó. Sus datos siguen en `{keep}`.')
+    return keep
+
+
+def report_stuck(source, exc, *, number=None, root=ROOT):
+    """Unos datos que no se pueden trasladar no paran la noche ni se pierden (Fable R4-6, F3).
+
+    Antes, un `carry` que lanzaba (procedencia ausente, blob que falta) tumbaba cada ejecución en el mismo punto
+    de guardado o en la misma PR. Crear antes de destruir: un punto de guardado pasa a `reading-atascado-*` antes
+    de borrarse; una PR se cierra conservando su rama. En los dos casos queda una issue con la causa.
+    """
+    git('reset', '--quiet', '--hard', root=root)
+    git('clean', '--quiet', '-fd', root=root)
+    keep = keep_copy(source, root) if source.startswith(CHECKPOINT_PREFIX) else source
+    cause = f'{type(exc).__name__}: {exc}'[:1500]
+    if keep is None:
+        # Sin copia no se destruye nada: el punto de guardado sigue y la noche continúa con una consulta nueva.
+        print(f'::error::{source} no se puede trasladar ({cause}); se conserva el original', flush=True)
+        return source
+    print(f'::error::{source} no se puede trasladar ({cause}); se conserva en {keep}', flush=True)
+    open_stuck_issue(keep, f'`carry` falló con `{cause}`.\n\nLos datos siguen en la rama `{keep}`. La noche siguió '
+                     'con una consulta nueva; nada se ha descartado. Hay que revisar la causa y trasladarlos a mano o '
+                     'arreglar la recuperación.')
+    if number is not None:
+        publisher.close_proposal(number, f'Sus datos no se pueden trasladar al main actual ({cause[:300]}). Se conserva la '
+                                 'rama y queda una issue; el escritor vuelve a consultar las fuentes.')
+    else:
+        drop_checkpoint(source, root=root)
+    return keep
+
+
+def chain_report(accepted, consumed=None, **extra):
+    """Lo que lee la cadena nocturna (reading-catalogue-sync.yml): sigue si hubo altas o quedan puntos de guardado.
+
+    Una carga recuperada o reanudada también encadena mientras queden datos guardados: con varios checkpoints, una
+    noche sin altas nuevas los vaciaba de uno en uno solo con el cron (F8)."""
+    write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json',
+                     {**extra, 'stats': {'accepted': accepted, 'checkpoints_restantes': len(set(checkpoints()) - {consumed})}})
+
+
 def refresh(*, publish=False):
     config = read_json(ROOT / 'data/reading-intake-config.json')
     if publish and subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=all'], cwd=ROOT, text=True).strip():
         raise ValueError('La publicación automática exige un checkout limpio')
     if publish and not config.get('autopublish'):
         raise ValueError('Autopublicación desactivada en la configuración')
+    if publish:
+        reconcile_deploy()
     # A failed previous batch stays inspectable; never pile up duplicate writers.
     opened = json.loads(publisher.publication.gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName'))
     pending = pending_batches(opened)
     if pending:
-        if len(pending) != 1:
-            raise ValueError('Hay varias cargas pendientes; revisar antes de continuar')
-        action = publisher.resume_pending(pending[0]) if publish else 'resumed'
+        current = reconcile_pending(pending) if publish else pending[-1]
+        action = publisher.resume_pending(current) if publish else 'resumed'
         if action == 'resumed':
-            print('Carga pendiente conservada: ' + pending[0])
+            print('Carga pendiente conservada: ' + current)
+            if publish:
+                chain_report(0, reanudada=current)
             return
         if action == 'carry':
-            replaced = json.loads(publisher.publication.gh('pr', 'view', pending[0], '--json', 'number'))['number']
-            carried = carry(pending[0])
+            replaced = json.loads(publisher.publication.gh('pr', 'view', current, '--json', 'number'))['number']
+            skipped = []
+            try:
+                carried = carry(current, skipped=skipped)
+            except Exception as exc:  # noqa: BLE001
+                report_stuck(current, exc, number=replaced)
+                carried = replaced = None
+            report_skipped(current, skipped)
             if carried is not None:
                 print(f'Datos de #{replaced} trasladados a main sin nueva consulta: {len(carried)} libros nuevos', flush=True)
+                chain_report(len(carried), trasladada_de=current, new_books=carried)
                 return assemble({'new_books': carried, 'updated_books': [], 'stats': {}}, changed=True,
-                                replaced=replaced, source=pending[0])
-            publisher.close_proposal(replaced, 'Sus datos fuente chocan con cambios nuevos de main. Se conserva esta propuesta y su rama '
-                                     'como referencia; el escritor vuelve a consultar las fuentes y regenera el lote desde main.')
+                                replaced=replaced, source=current)
+            if replaced is not None:
+                publisher.close_proposal(replaced, 'Sus datos fuente ya están en main (o main ganó en los mismos libros). Se conserva '
+                                         'esta propuesta y su rama como referencia; el escritor vuelve a consultar las fuentes.')
     if publish:
         # Una ejecución anterior consultó y no llegó a abrir PR: se publica eso, sin consultar de nuevo.
         for saved in checkpoints():
-            carried = carry(saved)
+            skipped = []
+            try:
+                carried = carry(saved, skipped=skipped)
+            except Exception as exc:  # noqa: BLE001
+                report_stuck(saved, exc)
+                continue
+            if skipped and report_skipped(saved, skipped) is None:
+                # Sin copia de las apartadas no se publica (eso borraría el punto de guardado): se reintenta mañana.
+                git('reset', '--quiet', '--hard')
+                git('clean', '--quiet', '-fd')
+                continue
             if carried is None:
-                print(f'{saved}: ya está en main o choca con él; se descarta', flush=True)
+                print(f'{saved}: ya está en main; se descarta', flush=True)
                 drop_checkpoint(saved)
                 continue
             print(f'Datos de {saved} recuperados sin nueva consulta: {len(carried)} libros nuevos', flush=True)
-            # La cadena nocturna lee stats.accepted: un lote recuperado también encadena el siguiente.
-            write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json',
-                             {'recuperado_de': saved, 'new_books': carried, 'stats': {'accepted': len(carried)}})
+            # La cadena nocturna lee el informe: un lote recuperado también encadena el siguiente.
+            chain_report(len(carried), consumed=saved, recuperado_de=saved, new_books=carried)
             return assemble({'new_books': carried, 'updated_books': [], 'stats': {}}, changed=True, checkpoint=saved)
     amazon = config.get('amazon_catalogo', {}).get('enabled')
     failure = None
@@ -542,8 +681,13 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     def registrar(_root):
         git_estado.preparar(ROOT, [*staged, 'assets/pinterest/feeds'])
     flagged = {}
-    # Sin tope de rondas: cada vuelta o pasa, o para (no nombra libros nuevos), o aparta al menos un libro más;
-    # con 1000 altas por tanda caben más de 3 tandas de problemas encadenados, y el catálogo es finito.
+    # Sin tope de rondas: cada vuelta o pasa, o para (no nombra libros nuevos ni la cuarentena hace nada con los ya
+    # nombrados), o avanza; con 1000 altas por tanda caben más de 3 tandas de problemas encadenados, y el catálogo
+    # es finito. Un libro repetido no es automáticamente «la regla rota»: 16/11, isbn-9791388205675 volvía a
+    # nombrarse en la segunda ronda porque la primera solo pudo revertirlo (había cambiado un dato ajeno al
+    # contrato, como la fecha del barrido de precios) sin arreglar el motivo; revertirlo lo deja idéntico a su
+    # versión publicada, y esa segunda ronda es la que la cuarentena por fin puede apartar de verdad (isolate()
+    # la retira). Solo para si, además de repetirse, la cuarentena no mueve nada (como hacía antes de verificar).
     while True:
         # Misma cadena que rebase-regenerando y merge-main (scripts/materializar_generados.py).
         materializar.construir(ROOT, antes_de_indexar=registrar)
@@ -553,11 +697,17 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
         if not failures:
             break
         named = reading_quarantine.flagged_books(failures, read_json(ROOT / reading_quarantine.CATALOGUE))
-        if named is None or set(named) <= set(flagged):
-            raise RuntimeError('check-reading-data falló en contratos que no se resuelven apartando libros: '
+        if named is None:
+            raise RuntimeError('check-reading-data falló en contratos que no nombran ningún libro: '
                                + '; '.join(f['test'] for f in failures)[:600])
+        repeated = set(named) <= set(flagged)
         flagged.update(named)
         quarantined = reading_quarantine.apply(ROOT, flagged=flagged)
+        # No basta con que la cuarentena mueva algo: puede estar moviendo libros de noches anteriores sin
+        # relación con los que se repiten aquí. Solo cuenta como avance si toca a los propios repetidos.
+        if repeated and not ({h['libro']['id'] for h in quarantined} & set(named)):
+            raise RuntimeError('check-reading-data falló en contratos que no se resuelven apartando libros: '
+                               + '; '.join(f['test'] for f in failures)[:600])
         released = held_before - {h['libro']['id'] for h in quarantined}
         drop_orphan_pages(quarantined)
     quarantine_alert(report, quarantined)

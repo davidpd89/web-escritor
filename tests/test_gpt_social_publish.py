@@ -31,6 +31,9 @@ def run(cwd, *a):
     return r.stdout.strip()
 
 
+B = pub.BRANCH  # R5-6: the publisher writes to the state branch, never to main
+
+
 class PublisherTests(unittest.TestCase):
     def setUp(self):
         self.tmp = Path(tempfile.mkdtemp())
@@ -47,6 +50,7 @@ class PublisherTests(unittest.TestCase):
         run(self.seed, "add", "-A")
         run(self.seed, "commit", "-qm", "seed")
         run(self.seed, "push", "-q", "origin", "HEAD:main")
+        run(self.seed, "push", "-q", "origin", f"HEAD:{B}")
         self.src = self.tmp / "src.json"
         self.clone = self.tmp / "clone"
 
@@ -54,27 +58,27 @@ class PublisherTests(unittest.TestCase):
         self.src.write_text(text)
         return pub.publish(self.src, self.clone, str(self.bare), now=NOW, **kw)
 
-    def remote_files(self, ref="main"):
+    def remote_files(self, ref=B):
         return run(self.bare, "diff", "--name-only", f"{ref}~1", ref).split()
 
     def test_data_only_publication(self):
         self.assertEqual(self.go(snapshot(150)), "published")
         self.assertEqual(self.remote_files(), ["redes-sociales/social-metrics.json"])
-        self.assertEqual(run(self.bare, "rev-list", "--count", "main"), "2")
+        self.assertEqual(run(self.bare, "rev-list", "--count", B), "2")
 
     def test_identical_data_is_noop(self):
         self.go(snapshot(150))
-        head = run(self.bare, "rev-parse", "main")
+        head = run(self.bare, "rev-parse", B)
         self.assertEqual(self.go(snapshot(150)), "noop")
-        self.assertEqual(run(self.bare, "rev-parse", "main"), head)
+        self.assertEqual(run(self.bare, "rev-parse", B), head)
 
     def test_not_due_when_recent_and_not_expiring(self):
         self.go(snapshot(150))
-        head = run(self.bare, "rev-parse", "main")
+        head = run(self.bare, "rev-parse", B)
         later = NOW + timedelta(hours=2)
         self.src.write_text(snapshot(160, later))
         self.assertEqual(pub.publish(self.src, self.clone, str(self.bare), now=later), "not-due")
-        self.assertEqual(run(self.bare, "rev-parse", "main"), head)
+        self.assertEqual(run(self.bare, "rev-parse", B), head)
 
     def test_republishes_near_expiry_even_if_values_same(self):
         self.go(snapshot(150))
@@ -86,27 +90,27 @@ class PublisherTests(unittest.TestCase):
         def move_remote():
             (self.seed / "other.txt").write_text("unrelated work")
             run(self.seed, "commit", "-qam", "unrelated")
-            run(self.seed, "push", "-q", "origin", "HEAD:main")
+            run(self.seed, "push", "-q", "origin", f"HEAD:{B}")
         self.assertEqual(self.go(snapshot(150), before_push=move_remote), "published")
-        self.assertEqual(run(self.bare, "show", "main:other.txt"), "unrelated work")
+        self.assertEqual(run(self.bare, "show", f"{B}:other.txt"), "unrelated work")
         self.assertEqual(self.remote_files(), ["redes-sociales/social-metrics.json"])
 
     def test_invalid_or_private_data_rejected(self):
-        head = run(self.bare, "rev-parse", "main")
+        head = run(self.bare, "rev-parse", B)
         for bad in ("not json", snapshot(150).replace('"status": "ok"', '"status": "ok", "brandId": "1"', 1),
                     snapshot(150, NOW - timedelta(days=5))):
             with self.assertRaises(pub.PublishError):
                 self.go(bad)
-        self.assertEqual(run(self.bare, "rev-parse", "main"), head)
+        self.assertEqual(run(self.bare, "rev-parse", B), head)
 
     def test_failed_push_leaves_remote_intact_and_clone_recovers(self):
         hook = self.bare / "hooks" / "pre-receive"
         hook.write_text("#!/bin/sh\nexit 1\n")
         hook.chmod(0o755)
-        head = run(self.bare, "rev-parse", "main")
+        head = run(self.bare, "rev-parse", B)
         with self.assertRaises(pub.PublishError):
             self.go(snapshot(150))
-        self.assertEqual(run(self.bare, "rev-parse", "main"), head)
+        self.assertEqual(run(self.bare, "rev-parse", B), head)
         hook.unlink()
         self.assertEqual(self.go(snapshot(150)), "published")  # clone self-heals on next run
 
@@ -117,8 +121,24 @@ class PublisherTests(unittest.TestCase):
         run(self.seed, "add", "-A")
         run(self.seed, "commit", "-qm", "feature work")
         self.go(snapshot(150))
-        self.assertNotIn("feature.txt", run(self.bare, "ls-tree", "--name-only", "main"))
-        self.assertEqual(run(self.bare, "rev-list", "--count", "main"), "2")
+        self.assertNotIn("feature.txt", run(self.bare, "ls-tree", "--name-only", B))
+        self.assertEqual(run(self.bare, "rev-list", "--count", B), "2")
+
+    def test_main_is_never_written(self):
+        main = run(self.bare, "rev-parse", "main")
+        self.assertEqual(self.go(snapshot(150)), "published")
+        self.assertEqual(run(self.bare, "rev-parse", "main"), main)
+        self.assertEqual(B, "social-estado")
+
+    def test_clone_made_for_main_migrates_to_state_branch(self):
+        # PC clones predate R5-6: single-branch clones of main must publish to the state branch, not to main
+        run(self.tmp, "clone", "-q", "--branch", "main", "--single-branch", str(self.bare), str(self.clone))
+        run(self.clone, "config", "user.name", "t")
+        run(self.clone, "config", "user.email", "t@t")
+        main = run(self.bare, "rev-parse", "main")
+        self.assertEqual(self.go(snapshot(150)), "published")
+        self.assertEqual(run(self.bare, "rev-parse", "main"), main)
+        self.assertEqual(run(self.bare, "rev-list", "--count", B), "2")
 
     def test_hung_git_becomes_publish_error_without_prompting(self):
         seen = {}

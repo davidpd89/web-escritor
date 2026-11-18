@@ -22,11 +22,13 @@ import importlib.util
 import json
 import math
 import re
+import shutil
 import subprocess
 import sys
 from datetime import date
 from pathlib import Path
 
+from git_estado import en_commit
 from reading_intake_fetch import write_if_changed
 from reading_ratings_refresh import write_changed
 
@@ -45,11 +47,11 @@ build = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(build)
 
 
-def culprit(message, data):
-    """Id del libro al que se refiere el error («<id>: …» o «<id>.campo: …»), si es un libro."""
-    match = re.match(r'([a-z0-9-]+)[.:]', message)
-    ids = {b['id'] for b in data['libros']}
-    return match[1] if match and match[1] in ids else None
+def owner(exc, data):
+    """Id del libro dueño del fallo (`ValidationError.libro`), si es un libro de este catálogo. Nunca se lee el texto:
+    un título con el id de otro libro o un mensaje reescrito no cambian a quién se aparta (R4-2)."""
+    libro = getattr(exc, 'libro', None)
+    return libro if libro and any(b['id'] == libro for b in data['libros']) else None
 
 
 def cause(message):
@@ -60,12 +62,22 @@ def cause(message):
     return re.sub(r'\d+', 'N', text)[:160] or 'sin motivo'
 
 
+GIT = shutil.which('git') or 'git'  # ruta completa del ejecutable (no depende del PATH al lanzar)
+
+
 def committed(root):
+    """Catálogo publicado (HEAD). None solo si HEAD no tiene catálogo: no hay nada publicado que proteger.
+
+    Cualquier otro fallo (no hay repo, git roto, JSON ilegible) aborta (F4, R4-3): sin la versión publicada todo
+    libro contaría como nuevo, el tope crecería al catálogo entero y los publicados se apartarían de la web en vez
+    de volver a su versión buena."""
     try:
-        out = subprocess.run(['git', 'show', 'HEAD:' + CATALOGUE], cwd=root, capture_output=True, check=True)
+        if not en_commit(root, 'HEAD', [CATALOGUE]):
+            return None
+        out = subprocess.run([GIT, 'show', 'HEAD:' + CATALOGUE], cwd=root, capture_output=True, check=True)
         return json.loads(out.stdout.decode('utf-8'))
-    except (subprocess.CalledProcessError, ValueError, OSError):
-        return None
+    except (subprocess.CalledProcessError, ValueError, OSError) as exc:
+        raise RuntimeError(f'Cuarentena: no se puede leer el catálogo publicado (HEAD:{CATALOGUE}): {exc}') from exc
 
 
 def limit(data, previous):
@@ -124,24 +136,65 @@ def isolate(data, root, previous=None, held=(), today=None, flagged=None):
     good_rel = {}
     for r in (previous or {}).get('libro_categorias', []):
         good_rel.setdefault(r['libro_id'], []).append(r)
+    # Un contrato de recuento (p. ej. «como mucho 2 títulos anónimos») cita también libros ya publicados que no han
+    # cambiado: si entre los señalados hay alguno cambiado, los culpables son esos y los intactos se quedan (si el
+    # contrato sigue fallando sin ellos, la carga lo ve al repetirlo). Solo intactos: es la regla y se para.
+    by_id = {b['id']: b for b in data['libros']}
+    blame = {i: why for i, why in (flagged or {}).items() if i in by_id and good.get(i) != by_id[i]} or dict(flagged or {})
     out, reverted = [], set()
     while True:
         try:
-            for book_id, why in (flagged or {}).items():
+            for book_id, why in blame.items():
                 if book_id not in reverted and any(b['id'] == book_id for b in data['libros']):
-                    raise build.ValidationError(f'{book_id}: {why}')
+                    raise build.ValidationError(f'{book_id}: {why}', libro=book_id, regla=why)
             build.validate(data, root)
             return data, out
         except build.ValidationError as exc:
-            book_id = culprit(str(exc), data)
-            twin = re.search(r'portada duplicada \(igual que ([a-z0-9-]+)\)', str(exc))
-            if book_id and twin and twin[1] not in reverted and (book_id in reverted or good.get(book_id) == next(
-                    b for b in data['libros'] if b['id'] == book_id)) and any(b['id'] == twin[1] for b in data['libros']):
-                # De dos portadas iguales, la culpable es la que ha cambiado, no la que ya estaba publicada así.
-                book_id = twin[1]
-            # Sin libro, su versión buena también falla o la publicada falla sin cambios: es la regla, no el dato.
-            if not book_id or book_id in reverted or good.get(book_id) == next(
-                    b for b in data['libros'] if b['id'] == book_id):
+            book_id = owner(exc, data)
+            rel, pos = getattr(exc, 'relacion', None), getattr(exc, 'posicion', None)
+            if not book_id and isinstance(rel, int) and 0 <= rel < len(data['libro_categorias']):
+                # Relación de un libro que no existe: no hay libro que apartar, sobra la relación (R5-10).
+                print(f'Cuarentena: se quita la relación {data["libro_categorias"][rel]} ({getattr(exc, "regla", None)})', flush=True)
+                del data['libro_categorias'][rel]
+                continue
+            if not book_id and isinstance(pos, int) and 0 <= pos < len(data['libros']):
+                # Ficha sin id utilizable (inválido o repetido): sale del lote por su posición, como un libro nuevo.
+                fresh = [h for h in out if h['libro']['id'] not in good]
+                if len(fresh) >= new_cap:
+                    raise build.ValidationError(f'Error global: más de {new_cap} libros nuevos apartados en un lote') from exc
+                book = data['libros'].pop(pos)
+                key = book.get('id') if isinstance(book, dict) and isinstance(book.get('id'), str) else None
+                if key and not any(b.get('id') == key for b in data['libros'] if isinstance(b, dict)):
+                    data['libro_categorias'] = [r for r in data['libro_categorias'] if r.get('libro_id') != key]
+                if key:
+                    out.append({'libro': book, 'categorias': [], 'motivo': str(exc), 'causa': cause(getattr(exc, 'regla', None) or exc),
+                                'isbn': book.get('isbn13', ''), 'fuente': book.get('fuente_publicacion_url') or book.get('fuente_bibliografica_url', ''),
+                                'desde': before.get(key, {}).get('desde', today), 'intentos': int(before.get(key, {}).get('intentos', 0)) + 1,
+                                'ultimo_intento': today})
+                else:
+                    print(f'Cuarentena: se descarta una ficha sin id en la posición {pos} ({getattr(exc, "regla", None)})', flush=True)
+                continue
+            twin = getattr(exc, 'otro', None)
+            twin = twin if twin and any(b['id'] == twin for b in data['libros']) else None
+
+            def changed(i):
+                return i not in reverted and good.get(i) != next(b for b in data['libros'] if b['id'] == i)
+            if book_id and twin and twin != book_id:
+                if not changed(book_id) and changed(twin):
+                    # De dos fichas que chocan (portada, ISBN, slug, obra…), la culpable es la que ha cambiado, no
+                    # la que ya estaba publicada así.
+                    book_id = twin
+                elif changed(book_id) and changed(twin):
+                    # Cambiaron las dos: ninguna es de fiar; la otra se aparta en la siguiente vuelta.
+                    blame.setdefault(twin, getattr(exc, 'regla', None) or 'choca con otra ficha cambiada')
+            current = book_id and next((b for b in data['libros'] if b['id'] == book_id), None)
+            stuck = current is not None and good.get(book_id) == current  # revertir sería un no-op: ya es esa versión
+            # Sin libro, o ya se reintentó: es la regla, no el dato. Publicado, sin cambios y aun así inválido por el
+            # esquema (build.validate, sin pasar por `flagged`) tampoco se despublica en silencio: es la regla.
+            # Un contrato de datos por libro (QA de la PR, `flagged`) que sigue señalando la misma versión ya
+            # publicada sí se aparta: revertir no cambia nada y parar el lote cada noche no corrige el dato (origen:
+            # isbn-9791388205675 con un solo módulo, 16/11 — #1387 quiso apartarlo y la carga seguía parando entera).
+            if not book_id or book_id in reverted or (stuck and book_id not in blame):
                 raise
             published = book_id in good
             same = [h for h in out if (h['libro']['id'] in good) == published]
@@ -150,17 +203,26 @@ def isolate(data, root, previous=None, held=(), today=None, flagged=None):
                 kind = 'publicados revertidos' if published else 'altas apartadas'
                 raise build.ValidationError(
                     f'Error global: más de {cap} {kind} en un lote; causas: '
-                    + '; '.join(sorted({cause(h['motivo']) for h in same}))[:400]) from exc
+                    + '; '.join(sorted({h['causa'] for h in same}))[:400]) from exc
             at = next(i for i, b in enumerate(data['libros']) if b['id'] == book_id)
             book = data['libros'][at]
             prior = before.get(book_id, {})
             out.append({'libro': book, 'categorias': sorted(r['categoria_id'] for r in data['libro_categorias'] if r['libro_id'] == book_id),
-                        'motivo': str(exc), 'causa': cause(exc), 'isbn': book.get('isbn13', ''),
+                        'motivo': str(exc), 'causa': cause(getattr(exc, 'regla', None) or exc), 'isbn': book.get('isbn13', ''),
                         'fuente': book.get('fuente_publicacion_url') or book.get('fuente_bibliografica_url', ''),
                         'desde': prior.get('desde', today), 'intentos': int(prior.get('intentos', 0)) + 1, 'ultimo_intento': today})
             mine = [r for r in data['libro_categorias'] if r['libro_id'] == book_id]
-            if book_id in good:
-                # Ya publicado: sigue en línea con su última versión buena; si esa también falla, la regla está rota.
+            if stuck:
+                # Ya es su versión publicada: no hay a qué revertir, así que sale de publicación hasta que se corrija el dato.
+                # `out[-1]['libro']` guarda el original (datos originales de la cuarentena): formatos_compra se
+                # copia antes de despreciar el precio para no mutar también ese registro.
+                retired = {**book, 'estado': 'borrador', 'fecha_actualizacion': today,
+                           'formatos_compra': [dict(o) for o in book.get('formatos_compra', [])]}
+                unprice(retired)
+                data['libros'][at] = retired
+                reverted.add(book_id)
+            elif book_id in good:
+                # Ya publicado con otra versión buena: vuelve a ella; si esa también falla, la regla está rota.
                 data['libros'][at] = good[book_id]
                 restore_cover(root, good[book_id])
                 if mine != good_rel.get(book_id, []):
@@ -175,14 +237,22 @@ def flagged_books(failures, data):
     """De los fallos de los contratos de datos, {id: motivo} si TODOS nombran algún libro del catálogo; si alguno no
     nombra ninguno es una regla rota (o código), no un dato, y se devuelve None para que la carga pare."""
     ids = {b['id'] for b in data['libros']}
+    # Hay contratos que citan el libro por su ISBN-13 («Título · 9788412345678») en vez de por su id.
+    by_isbn = {b['isbn13']: b['id'] for b in data['libros'] if b.get('isbn13')}
     out = {}
     for failure in failures:
-        named = [t for t in dict.fromkeys(re.findall(r'[a-z0-9]+(?:-[a-z0-9]+)+', failure['texto'])) if t in ids]
+        found = [t for t in re.findall(r'[a-z0-9]+(?:-[a-z0-9]+)+', failure['texto']) if t in ids]
+        found += [by_isbn[t] for t in re.findall(r'(?<!\d)97[89]\d{10}(?!\d)', failure['texto']) if t in by_isbn]
+        named = list(dict.fromkeys(found))
         if not named:
             return None
-        last = [line for line in failure['texto'].strip().splitlines() if line.strip()][-1:] or ['']
+        lines = [line.strip() for line in failure['texto'].strip().splitlines() if line.strip()] or ['']
+        isbn_of = {v: k for k, v in by_isbn.items()}
         for book_id in named:
-            out.setdefault(book_id, f"contrato de datos {failure['test'].split('.')[-1]}: {last[0].strip()[:240]}")
+            # Un contrato que nombra varios libros da a cada uno su propia línea; si ninguna lo nombra, la última.
+            own = [line for line in lines if book_id in line or (isbn_of.get(book_id) or book_id) in line]
+            motivo = (own or lines)[-1 if not own else 0]
+            out.setdefault(book_id, f"contrato de datos {failure['test'].split('.')[-1]}: {motivo[:240]}")
     return out
 
 
@@ -315,6 +385,7 @@ def apply(root=ROOT, today=None, flagged=None):
     """Aplica la cuarentena a los datos del árbol de trabajo. Devuelve la lista de libros apartados."""
     today = today or date.today().isoformat()
     path, held_path = root / CATALOGUE, root / QUARANTINE
+    published = committed(root)  # antes que nada: sin la versión publicada no se toca el árbol (F4)
     data = json.loads(path.read_text(encoding='utf-8'))
     original = json.loads(json.dumps(data))
     held = json.loads(held_path.read_text(encoding='utf-8'))['libros'] if held_path.exists() else []
@@ -323,11 +394,10 @@ def apply(root=ROOT, today=None, flagged=None):
     # Después de las reparaciones: el género de respaldo por sello cuenta solo lo que sigue publicado.
     from reading_taxonomy import repair_classification
     repair_classification(data, today=today)
-    previous = committed(root)
     # Ids que entran a la cuarentena (catálogo + apartados de noches anteriores), antes de que isolate saque altas.
     entering = {'libros': [{'id': i} for i in {b['id'] for b in data['libros']} | {h['libro']['id'] for h in held}]}
-    clean, out = isolate(data, root, previous, held, today=today, flagged=flagged)
-    LAST['alert'] = rate_alert(out, entering, previous)
+    clean, out = isolate(data, root, published, held, today=today, flagged=flagged)
+    LAST['alert'] = rate_alert(out, entering, published)
     if clean != original:  # mismo formato que el último escritor del catálogo (precios), sin reordenar claves
         write_changed(path, clean)
     if out or held_path.exists():
