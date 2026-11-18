@@ -27,6 +27,8 @@ _ROOT = Path(__file__).resolve().parents[1]
 _SPEC = importlib.util.spec_from_file_location(
     "build_site_shell", _ROOT / "scripts" / "build-site-shell.py"
 )
+if _SPEC is None or _SPEC.loader is None:
+    raise ImportError("no se puede cargar scripts/build-site-shell.py")
 _MODULE = importlib.util.module_from_spec(_SPEC)
 sys.modules[_SPEC.name] = _MODULE  # @dataclass necesita el módulo ya registrado
 _SPEC.loader.exec_module(_MODULE)
@@ -44,6 +46,8 @@ inject_shell = _MODULE.inject_shell
 _CONTEXT_SPEC = importlib.util.spec_from_file_location(
     "build_section_context_nav", _ROOT / "scripts" / "build-section-context-nav.py"
 )
+if _CONTEXT_SPEC is None or _CONTEXT_SPEC.loader is None:
+    raise ImportError("no se puede cargar scripts/build-section-context-nav.py")
 _CONTEXT_MODULE = importlib.util.module_from_spec(_CONTEXT_SPEC)
 sys.modules[_CONTEXT_SPEC.name] = _CONTEXT_MODULE
 _CONTEXT_SPEC.loader.exec_module(_CONTEXT_MODULE)

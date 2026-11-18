@@ -214,7 +214,8 @@ def strip_shouting(text: str) -> str:
 
 def _lower_shouted_runs(rest: list[str]) -> list[str]:
     """Pasa a minúscula (con mayúscula inicial de frase) cada tramo de 3+ palabras en mayúsculas."""
-    out, k = [], 0
+    out: list[str] = []
+    k = 0
     while k < len(rest):
         end = k
         while end < len(rest) and _is_shout(rest[end]):

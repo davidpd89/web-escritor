@@ -11,6 +11,7 @@ import functools
 import hashlib
 import html
 import json
+import heapq
 import math
 import os
 import re
@@ -365,6 +366,36 @@ def index_categories(data):
     CATEGORY_INDEX = (data, index)
 
 
+_CATALOGUE_CACHE: dict[str, object] = {}
+
+
+def catalogue_cache(data):
+    """Derivados del catálogo (publicados, fecha de referencia, grupos por autor…) calculados una vez por índice.
+
+    Recalculados en cada ficha, el build crecía con el cuadrado del catálogo (200 s con 4.946 libros, 850 s con
+    9.946: qa/reading-growth-simulation.py). Sin índice activo (tests) devuelve None y cada función calcula al vuelo.
+    """
+    if CATEGORY_INDEX is None or CATEGORY_INDEX[0] is not data:
+        return None
+    if _CATALOGUE_CACHE.get('index') is not CATEGORY_INDEX:
+        _CATALOGUE_CACHE.clear()
+        _CATALOGUE_CACHE['index'] = CATEGORY_INDEX
+    return _CATALOGUE_CACHE
+
+
+def cached(data, key, compute):
+    cache = catalogue_cache(data)
+    if cache is None:
+        return compute()
+    if key not in cache:
+        cache[key] = compute()
+    return cache[key]
+
+
+def published_books(data):
+    return cached(data, 'published', lambda: [x for x in data['libros'] if x['estado'] == 'publicado'])
+
+
 def category_index(data):
     """Índice libro → categorías: el de main() si está activo para `data`; si no, uno nuevo para esta llamada.
 
@@ -380,13 +411,23 @@ def category_index(data):
 
 
 def categories(data, b, index=None):
+    if index is None and CATEGORY_INDEX is not None and CATEGORY_INDEX[0] is data:
+        index = CATEGORY_INDEX[1]
     if index is not None:
         ids = index.get(b["id"], set())
-    elif CATEGORY_INDEX is not None and CATEGORY_INDEX[0] is data:
-        ids = CATEGORY_INDEX[1].get(b["id"], set())
-    else:
-        ids = {r["categoria_id"] for r in data["libro_categorias"] if r["libro_id"] == b["id"]}
+        active = cached(data, 'active_categories', lambda: _active_by_id(data))
+        # Mismo orden que el recorrido completo: la clave (orden, id) solo empata entre filas del mismo id.
+        return sorted((c for i in ids for c in active.get(i, ())), key=lambda c: (c["orden"], c["id"]))
+    ids = {r["categoria_id"] for r in data["libro_categorias"] if r["libro_id"] == b["id"]}
     return sorted((c for c in data["categorias"] if c["id"] in ids and c["activa"]), key=lambda c: (c["orden"], c["id"]))
+
+
+def _active_by_id(data):
+    active = {}
+    for c in data["categorias"]:
+        if c["activa"]:
+            active.setdefault(c["id"], []).append(c)
+    return active
 
 
 # Contrato de la tarjeta y la ficha (docs/contrato-tarjeta-libro.md): todos los límites aquí, en un solo sitio.
@@ -483,8 +524,8 @@ _SHARED_META = {}
 def book_meta_description(data, b):
     """Descripción meta única: si otra ficha publicada comparte el texto editorial
     (sagas con la misma contracubierta) en los 160 caracteres visibles, se antepone el título."""
-    books = [x for x in data['libros'] if x['estado'] == 'publicado']
-    key = tuple(x['id'] for x in books)
+    books = published_books(data)
+    key = cached(data, 'published_key', lambda: tuple(x['id'] for x in books))
     if _SHARED_META.get('key') != key:
         seen = {}
         for x in books:
@@ -558,7 +599,9 @@ def own_block_html(x, live):
 def own_text_section(b, data=None):
     """«Antes de elegir este libro»: solo aparece si el libro tiene módulos validados."""
     t = OWN_TEXTS.get(b['id'])
-    live = {x['id']: x for x in (data or {}).get('libros', []) if x['estado'] == 'publicado'}
+    if not t:
+        return ''
+    live = cached(data, 'published_by_id', lambda: {x['id']: x for x in published_books(data)}) if data else {}
     blocks = ''.join(own_block_html(x, live) for x in t['bloques']) if t else ''
     if not blocks:
         return ''
@@ -669,6 +712,16 @@ def short_titles(title):
         if t and t != out[-1]:
             out.append(t)
     return out
+
+
+def same_author_books(data, b):
+    """Publicados con exactamente las mismas firmas: los únicos que pueden chocar con el título corto de `b`."""
+    def group():
+        groups = {}
+        for x in published_books(data):
+            groups.setdefault(tuple(x['autores']), []).append(x)
+        return groups
+    return cached(data, 'by_signature', group).get(tuple(b['autores']), [])
 
 
 def book_title(b, books=()):
@@ -1357,13 +1410,13 @@ def render_hub(data, books, template, page_number=1):
     return inject_shell_auto(page)
 
 
-def render_book(data,b,template):
+def render_book(data,b,template):  # skipcq: PY-R1000 (orden P2-1: refactor con hash idéntico pendiente)
     canonical=SITE+url(b)
-    title=book_title(b,[x for x in data['libros'] if x['estado']=='publicado'])
+    title=book_title(b,same_author_books(data,b))
     description=own_meta_description(b) or book_meta_description(data,b)
     own_before=own_text_section(b,data)
     cats=categories(data,b)
-    upcoming=b in upcoming_books([book for book in data['libros'] if book['estado'] == 'publicado'])
+    upcoming=b in cached(data,'upcoming',lambda:upcoming_books(published_books(data)))
     rows=[('Edición',b['edicion'].split(' · ')[0]),('ISBN-13',b.get('isbn13')),('Idioma',LANGUAGES.get(b.get('idioma'),b.get('idioma')))]
     details='<details class="catalogue-details"><summary>Más datos de la edición</summary><dl>'+''.join(f'<dt>{esc(k)}</dt><dd>{esc(v)}</dd>' for k,v in rows if v)+'</dl></details>'
     fragment=''  # Audio and samples are not rendered until all editions can support them.
@@ -1375,7 +1428,7 @@ def render_book(data,b,template):
     destination=amazon_destination(b)
     main_format=primary_format(b)
     buy_label=amazon_action_label(b)+(' · '+FORMATS[main_format] if main_format else '')
-    buy=format_box(b, anchor=data_anchor([x for x in data['libros'] if x['estado']=='publicado']))+(('<a class="catalogue-buy-link" href="'+esc(destination)+'" target="_blank" aria-label="'+esc(buy_label)+' (otra pestaña)" rel="sponsored nofollow noopener noreferrer">'+esc(buy_label)+' <span aria-hidden="true">↗</span></a>') if destination else '')
+    buy=format_box(b, anchor=cached(data,'anchor',lambda:data_anchor(published_books(data))))+(('<a class="catalogue-buy-link" href="'+esc(destination)+'" target="_blank" aria-label="'+esc(buy_label)+' (otra pestaña)" rel="sponsored nofollow noopener noreferrer">'+esc(buy_label)+' <span aria-hidden="true">↗</span></a>') if destination else '')
     cover=image(b, sizes='(max-width: 600px) 65vw, 400px')
     amazon_href = amazon_destination(b)
     if amazon_href:
@@ -1433,13 +1486,22 @@ def related_pool(data):
             counts[c] = counts.get(c, 0) + 1
     pool = {'books': books, 'cats': cats, 'counts': counts,
             'publics': {i: audience(ids) for i, ids in cats.items()}, 'ages': {x['id']: min_age(x) for x in books}}
+    # Índices inversos (categoría → posiciones, autor → posiciones): cada ficha solo mira los libros que comparten
+    # algo con ella, no el catálogo entero.
+    by_cat, by_author = {}, {}
+    for n, x in enumerate(books):
+        for c in cats[x['id']]:
+            by_cat.setdefault(c, []).append(n)
+        for name in x['autores']:
+            by_author.setdefault(name, []).append(n)
+    pool.update(by_cat=by_cat, by_author=by_author)
     if indexed:
         _RELATED_POOL.clear()
         _RELATED_POOL.update(pool, index=CATEGORY_INDEX)
     return pool
 
 
-def related_books(data, book):
+def related_books(data, book):  # skipcq: PY-R1000 (orden P2-1: refactor con hash idéntico pendiente)
     # Cada categoría compartida pesa por lo rara que es («Hockey» dice más que «Romance») y no se cruzan públicos.
     own={c['id'] for c in categories(data,book)}
     wanted={c['id'] for c in categories(data,book) if c['tipo'] in {'genero','tematica'}}
@@ -1449,8 +1511,14 @@ def related_books(data, book):
     df={c:1+pool['counts'].get(c,0)-(inside and c in own) for c in wanted}
     public,age=audience(own),min_age(book)
     authors=set(book['autores'])
+    weight={c:math.log(total/df[c]) for c in wanted}  # mismo valor y mismo orden de suma que antes
     ranked=[]
-    for candidate in pool['books']:
+    near=set()
+    for c in wanted:
+        near.update(pool['by_cat'].get(c,()))
+    for name in authors:
+        near.update(pool['by_author'].get(name,()))
+    for candidate in (pool['books'][n] for n in sorted(near)):
         if candidate['id']==book['id']:
             continue
         shared=wanted & pool['cats'][candidate['id']]
@@ -1462,8 +1530,8 @@ def related_books(data, book):
             continue
         # Orden fijo (no depende del hash) y redondeo a 9 decimales: empates reales que math.log resolvía por el
         # último bit distinto en Windows y en Linux cambiaban los relacionados entre local y CI (PR #1227).
-        ranked.append((same_author,round(sum(math.log(total/df[c]) for c in sorted(shared)),9),candidate))
-    ranked.sort(key=lambda row:(-row[0],-row[1],row[2]['titulo'].casefold(),row[2]['id']))
+        ranked.append((same_author,round(sum(weight[c] for c in sorted(shared)),9),candidate))
+    ranked=heapq.nsmallest(6,ranked,key=lambda row:(-row[0],-row[1],row[2]['titulo'].casefold(),row[2]['id']))
     if not ranked:
         return ''
     return '<section class="catalogue-related" aria-labelledby="related-books"><h2 id="related-books">También te puede interesar</h2><ul>'+''.join('<li><a class="catalogue-related__cover" href="'+url(candidate)+'" tabindex="-1" aria-hidden="true">'+image(candidate,True,'120px','catalogue-related__image','')+'</a><a href="'+url(candidate)+'">'+esc(candidate['titulo'])+'</a><p>'+esc(', '.join(candidate['autores']))+'</p></li>' for _,_,candidate in ranked[:6])+'</ul></section>'
@@ -1493,7 +1561,7 @@ def render_detail_page(template,main,canonical,title,description,schema,b=None):
     return inject_shell_auto(page)
 
 
-def render_author(a,data,books,template,all_authors=()):
+def render_author(a,data,books,template,all_authors=()):  # skipcq: PY-R1000 (orden P2-1: refactor con hash idéntico pendiente)
     selected=sorted([b for b in books if a['nombre'] in b['autores']], key=lambda b:(b.get('fecha_publicacion') or b.get('fecha_publicacion_parcial') or str(b.get('anio_publicacion','')), b['titulo']), reverse=True)
     canonical=SITE+author_url(a)
     topics={c['id']:c for b in selected for c in categories(data,b) if c['tipo'] in {'genero','tematica'}}
@@ -1509,10 +1577,15 @@ def render_author(a,data,books,template,all_authors=()):
         context+='<p>Editoriales: '+', '.join(publisher_link(b) for b in publishers.values())+'.</p>'
     related=[]
     if topics and all_authors:
-        by_author={}
-        for b in books:
-            for name in b['autores']:
-                by_author.setdefault(name,[]).append(b)
+        def group():
+            out: dict[str, list[dict]] = {}
+            for b in books:
+                for name in b['autores']:
+                    out.setdefault(name,[]).append(b)
+            return books,out
+        # Una vez por lista de libros (main pasa siempre la misma), no una vez por autor.
+        grouped=cached(data,'books_by_author',group)
+        by_author=grouped[1] if grouped[0] is books else group()[1]
         for other in all_authors:
             if other['nombre']==a['nombre']: continue
             shared=sum(1 for b in by_author.get(other['nombre'],()) for c in categories(data,b) if c['id'] in topics)

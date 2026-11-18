@@ -22,6 +22,7 @@ on:
       - 'qa/catalogue-facet-count-parity.mjs'
       - 'qa/catalogue-filter-matrix.mjs'
       - 'qa/catalogue-filter-interaction-matrix.mjs'
+      - 'qa/catalogue-random-walk.mjs'
       - 'qa/catalogue-filter-parity.mjs'
       - 'qa/catalogue-filter-reference.mjs'
       - 'qa/reading-upcoming-browser.mjs'
@@ -119,6 +120,7 @@ jobs:
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-facet-count-parity.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-matrix.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-interaction-matrix.mjs
+          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-random-walk.mjs
           QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-parity.mjs
           node qa/reading-upcoming-browser.mjs
       - name: Use lockfile-pinned Lighthouse CI
