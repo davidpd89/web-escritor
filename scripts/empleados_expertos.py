@@ -26,6 +26,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 PROMPTS = ROOT / '.github' / 'empleados'
 # Todo lo que lee o escribe el script vive aquí: ningún argumento puede sacar una ruta fuera.
 DATOS = Path(os.environ.get('EMPLEADOS_DATOS') or ROOT / '.empleados').resolve()
@@ -245,7 +247,7 @@ def seguridad(base):
         out += [f'- {bot}: {estado}' for bot, estado in robots_bots(robots, base)]
     except Exception as e:  # noqa: BLE001
         out.append(f'- ERROR {type(e).__name__}')
-    rutas = subprocess.run(['git', 'ls-files'], cwd=ROOT, capture_output=True, text=True, check=False).stdout.splitlines()
+    rutas = arbol_publicado.run(['git', 'ls-files'], cwd=ROOT, capture_output=True, text=True, check=False).stdout.splitlines()
     sens = ficheros_sensibles(rutas)
     out += ['', '## Ficheros con nombre sensible versionados (solo la ruta, nunca el contenido)']
     out += [f'- {r}' for r in sens[:50]] or ['- ninguno']
