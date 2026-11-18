@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import re
 import subprocess
+import time
 from html import escape
 from urllib.parse import urlsplit
 
@@ -172,6 +173,21 @@ def run(report: Path, output: Path, quarantine: Path | None = None, today: date 
 
     with ThreadPoolExecutor(max_workers=4) as pool:
         results = list(pool.map(guarded, urls))
+    # Second pass (2026-11-18): every red scan of main that morning failed on two *different* external hosts
+    # answering 000 (sansilvestresalmantina, lanota-latina, fivebooks, bibalex, insolitaeditorial), all reachable
+    # minutes later. That is the runner's network, not the data. An external unreachable/5xx URL gets one more
+    # check after RECHECK_PAUSE seconds; only one that is still down counts. 404s, 403s and own URLs are not retried.
+    pause = float(os.environ.get('RECHECK_PAUSE') or 0)
+    retry = [i for i, result in enumerate(results) if not result['ok'] and not own_url(result['url'])
+             and re.fullmatch(r'(?:000|5\d\d)?', str(result.get('status') or ''))]
+    if retry:
+        time.sleep(pause)
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            again = list(pool.map(guarded, [results[i]['url'] for i in retry]))
+        for i, result in zip(retry, again):
+            if result['ok']:
+                result['intermittent'] = results[i].get('status') or '000'
+                results[i] = result
     warnings = []
     for result in results:
         entry = None if result['ok'] else quarantined(result, active)
@@ -203,7 +219,8 @@ def run(report: Path, output: Path, quarantine: Path | None = None, today: date 
         label = ('PASS' if result['ok'] else 'WARN quarantined' if 'quarantine' in result
                  else 'WARN preexisting' if 'preexisting' in result
                  else 'WARN third-party' if 'third_party' in result else 'FAIL')
-        print(f'{label} native recheck: {result["url"]} HTTP {result.get("status", "unavailable")}')
+        note = f' (primer intento HTTP {result["intermittent"]})' if 'intermittent' in result else ''
+        print(f'{label} native recheck: {result["url"]} HTTP {result.get("status", "unavailable")}{note}')
     summary = os.environ.get('GITHUB_STEP_SUMMARY')
     if summary and (warnings or external or preexisting):
         with open(summary, 'a', encoding='utf-8') as handle:
