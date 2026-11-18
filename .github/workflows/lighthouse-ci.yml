@@ -54,7 +54,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -113,7 +113,7 @@ jobs:
 
       - name: Set up Node
         if: steps.changes.outputs.relevant == 'true'
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -147,7 +147,7 @@ jobs:
       # lleno; la accion no lo miraba.
       - name: Upload local Lighthouse reports
         if: always() && steps.changes.outputs.relevant == 'true'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: lighthouse-reports
           path: .lighthouseci/

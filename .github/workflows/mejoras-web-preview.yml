@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -52,7 +52,7 @@ jobs:
           printf '/*\n  X-Robots-Tag: noindex, nofollow\n' > _site/_headers
 
       - name: Conservar el sitio como artefacto
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: mejoras-web-sitio
           path: _site

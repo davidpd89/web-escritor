@@ -48,7 +48,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -116,7 +116,7 @@ jobs:
         run: python3 scripts/recheck-link-timeouts.py --report lychee/out.md --output lychee/timeout-recheck.json --quarantine .linkcheck-quarantine.json ${BASE_REF:+--base-ref "origin/$BASE_REF"}
 
       - name: Upload report
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: broken-links-report
