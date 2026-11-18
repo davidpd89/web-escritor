@@ -22,6 +22,9 @@ import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import issue_vivo  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRO = ROOT / 'data' / 'expertos.json'
 WORKFLOWS = ROOT / '.github' / 'workflows'
@@ -78,9 +81,9 @@ def fallos_registro(registro, workflows):
             asignados.add(nombre)
             if nombre not in workflows:
                 fallos.append(f'{ident}: el workflow «{nombre}» no existe en .github/workflows')
-        for item in dep.get('descartados', []) + dep.get('pendientes', []):
+        for item in dep.get('descartados', []) + dep.get('pendientes', []) + dep.get('cubiertos', []):
             if not item.get('herramienta') or not item.get('motivo'):
-                fallos.append(f'{ident}: descartado o pendiente sin herramienta o sin motivo')
+                fallos.append(f'{ident}: descartado, pendiente o cubierto sin herramienta o sin motivo')
     for nombre in sorted(set(workflows) - asignados):
         fallos.append(f'el workflow «{nombre}» no tiene departamento: añádelo a data/expertos.json')
     for nombre, dias in registro.get('plazos', {}).items():
@@ -192,23 +195,14 @@ def informe(filas, registro, ahora=None):
 
 
 def gh(*args):
-    return subprocess.run(['gh', *args], capture_output=True, text=True, encoding='utf-8', check=False)
+    return issue_vivo.gh(*args)
 
 
 def publicar_issue(texto, malos, repo):
     """Un solo issue vivo con la etiqueta: se actualiza mientras haya caídos y se cierra cuando no queda ninguno."""
-    gh('label', 'create', ETIQUETA, '--repo', repo, '--color', 'B60205', '--force',
-       '--description', 'Empleados automáticos caídos o sin fichar')
-    abierto = gh('issue', 'list', '--repo', repo, '--label', ETIQUETA, '--state', 'open', '--json', 'number',
-                 '-q', '.[0].number').stdout.strip()
-    titulo = f'Latido: {len(malos)} empleados caídos o sin fichar'
-    if malos and abierto:
-        return gh('issue', 'edit', abierto, '--repo', repo, '--title', titulo, '--body', texto)
-    if malos:
-        return gh('issue', 'create', '--repo', repo, '--title', titulo, '--body', texto, '--label', ETIQUETA)
-    if abierto:
-        return gh('issue', 'close', abierto, '--repo', repo, '--comment', 'Todos los empleados vuelven a fichar en verde.')
-    return None
+    return issue_vivo.publicar(ETIQUETA, f'Latido: {len(malos)} empleados caídos o sin fichar', texto, bool(malos),
+                               repo, 'Todos los empleados vuelven a fichar en verde.',
+                               'Empleados automáticos caídos o sin fichar')
 
 
 def main(argv=None):

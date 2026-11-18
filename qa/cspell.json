@@ -1,0 +1,23 @@
+{
+  "version": "0.2",
+  "language": "es,en",
+  "import": ["@cspell/dict-es-es/cspell-ext.json"],
+  "dictionaryDefinitions": [
+    {"name": "propios", "path": "./cspell-propios.txt", "addWords": true}
+  ],
+  "dictionaries": ["propios"],
+  "minWordLength": 4,
+  "globRoot": "..",
+  "ignorePaths": [
+    "recomendaciones/**", "editoriales/**", "herramientas/**", "lab/**", "tests/**", "atlas-literario/**",
+    "video-ios-test/**", "scripts/**", "data/**", "assets/**", "pagefind/**", "node_modules/**", ".worktrees/**",
+    "mapa-del-sitio/**", "convocatorias-escritores/**"
+  ],
+  "ignoreRegExpList": ["Urls", "Email", "HexValues", "/\\b[A-Z0-9]{8,}\\b/g", "/#[a-z0-9-]+/g"],
+  "languageSettings": [
+    {
+      "languageId": "html",
+      "ignoreRegExpList": ["/<(script|style)[\\s\\S]*?<\\/\\1>/gi", "/<[^>]*>/g", "/&[a-z#0-9]+;/gi"]
+    }
+  ]
+}

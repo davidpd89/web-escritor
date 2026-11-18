@@ -64,6 +64,26 @@ class AmazonAuditTests(unittest.TestCase):
             public = json.loads((tree / 'data/reading-amazon-audit.json').read_text(encoding='utf-8'))['libros']
             self.assertNotIn('sinopsis_amazon', public['lib-1'])
 
+    def test_amazon_synopsis_never_publishes_a_space_before_punctuation(self):
+        # Las descripciones de Amazon pegan la etiqueta en línea al signo («<i>mágicas</i> .»): al quitar la
+        # etiqueta queda «mágicas .». La ingesta lo limpiaba al escribir, pero la auditoría publica por otra vía;
+        # el 17/11 dos fichas (9788410391796, 9791388002106) tumbaron check-reading-data. La limpieza vive ahora
+        # en el extractor, común a todas las fuentes, así que ningún escritor puede publicar ese espacio.
+        import re
+        gate = re.compile(r'\w [,.;:)]')
+        styled = DESCRIPTION.replace('poquito m&aacute;gicas.', 'poquito <i>m&aacute;gicas</i> .')
+        with tempfile.TemporaryDirectory() as tmp:
+            tree = Path(tmp)
+            (tree / 'data').mkdir()
+            (tree / 'data/reading-catalogue.json').write_text(json.dumps({'libros': [{**BOOK}]}), encoding='utf-8')
+            record = audit_book({**BOOK}, lambda url: PAGE + styled, '2026-11-03')
+            self.assertIsNotNone(gate.search(record['sinopsis_amazon']))  # el texto crudo sí trae el espacio
+            audit.apply_records(tree, {'lib-1': record}, 'davidporto-21', covers=0)
+            saved = json.loads((tree / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros'][0]
+            for field in ('sinopsis_breve', 'sinopsis_completa'):
+                self.assertIsNone(gate.search(saved.get(field) or ''), (field, saved.get(field)))
+            self.assertTrue(saved['sinopsis_completa'].startswith('Dicen que las princesas'))
+
     def test_books_without_synopsis_not_yet_read_for_it_go_first_closest_first(self):
         now = datetime(2026, 11, 3, 12, tzinfo=ZoneInfo('Europe/Madrid'))
         books = [{'id': 'viejo', 'estado': 'publicado', 'fecha_publicacion': '2020-01-01'},

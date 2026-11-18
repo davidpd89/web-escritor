@@ -73,6 +73,24 @@ class RecoveryTests(unittest.TestCase):
     refresh.carry(branch,root=repo.work)
    self.assertEqual(repo.git('status','--porcelain'),'')
 
+ def test_a_book_without_provenance_is_set_aside_and_the_rest_is_recovered(self):
+  # CodeRabbit #1397: una sola alta sin procedencia no retira todo el punto de guardado.
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-12-mixed'
+   repo.git('switch','-q','-c',branch,'origin/main')
+   data=json.loads(books('a','b','c','d','e','f'))
+   data['libros']+= [{'id':'isbn-9780241838044','isbn13':'9780241838044'},{'id':'isbn-9780241838051','isbn13':'9780241838051'}]
+   item={'estado_ingesta':'publicado','libro_id':'isbn-9780241838051'}
+   repo.write({CATALOGUE:json.dumps(data),'data/reading-intake-state.json':json.dumps({'schema_version':1,'items':{'isbn13:9780241838051':item}})})
+   repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
+   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book')})
+   skipped=[]
+   self.assertEqual(refresh.carry(branch,root=repo.work,skipped=skipped),['isbn-9780241838051'])
+   self.assertEqual(skipped,['isbn-9780241838044'])
+   ids={b['id'] for b in json.loads((repo.work/CATALOGUE).read_text())['libros']}
+   self.assertIn('isbn-9780241838051',ids);self.assertNotIn('isbn-9780241838044',ids)
+   self.assertIn('main-book',ids)
+
  def test_existing_book_updates_survive_a_conflicting_main(self):
   """#1312 (CodeRabbit): con choque, solo se trasladaban altas y los cambios de libros existentes se perdían."""
   with tempfile.TemporaryDirectory() as tmp:
