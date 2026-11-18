@@ -25,6 +25,8 @@ on:
       - 'qa/catalogue-filter-parity.mjs'
       - 'qa/catalogue-filter-reference.mjs'
       - 'qa/reading-upcoming-browser.mjs'
+      - 'qa/reading-intake-browser.mjs'
+      - 'tests/test_reading_catalogue_isbn_search_smoke.py'
       - 'qa/build-reading-scale-fixture.py'
       - 'assets/reading-market.json'
       - 'data/reading-authors.json'
@@ -46,7 +48,7 @@ jobs:
     timeout-minutes: 35
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -54,7 +56,7 @@ jobs:
             /*
             !/assets/no usadas/
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Install CI/QA dependencies (Node)
@@ -62,7 +64,7 @@ jobs:
 
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -93,7 +95,7 @@ jobs:
           RECOMMENDATIONS_ARTIFACT_DIR: artifacts/recommendations
         run: node qa/recommendations-browser.mjs
       - name: Set up Python for catalogue validation
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Install shared Python dependencies
@@ -101,26 +103,32 @@ jobs:
       - name: Validate reading catalogue and fixture interactions
         env:
           RECOMMENDATIONS_ARTIFACT_DIR: artifacts/recommendations/catalogue
+        # Todos los pasos corren aunque falle uno: la carga recibe la lista completa de fallos de una vez y no
+        # uno por relanzamiento (15/11).
         run: |
-          python scripts/build-reading-catalogue.py --check
-          python tests/test-reading-static-pagination.py
-          python tests/test-catalogue-performance-budget-coverage.py
-          python tests/test-ahrefs-schema-regressions.py
-          node qa/reading-catalogue-browser.mjs
-          QA_ORIGIN=http://127.0.0.1:4173 node qa/reading-catalogue-script-failure-smoke.mjs
-          node qa/reading-commerce-browser.mjs
-          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-ratings-trust.mjs
-          node qa/reading-intake-browser.mjs
-          node qa/reading-catalogue-v2-browser.mjs
-          node qa/reading-type-selector-browser.mjs
-          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-mobile-discovery.mjs
-          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-pagination-shareable-url.mjs
-          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-device-matrix.mjs
-          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-facet-count-parity.mjs
-          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-matrix.mjs
-          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-interaction-matrix.mjs
-          QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-parity.mjs
-          node qa/reading-upcoming-browser.mjs
+          fallos=()
+          paso() { echo "::group::$1"; if ! bash -c "$1"; then fallos+=("$1"); echo "::error::Paso fallido: $1"; fi; echo '::endgroup::'; }
+          paso 'python scripts/build-reading-catalogue.py --check'
+          paso 'python tests/test-reading-static-pagination.py'
+          paso 'python tests/test_reading_catalogue_isbn_search_smoke.py'
+          paso 'python tests/test-catalogue-performance-budget-coverage.py'
+          paso 'python tests/test-ahrefs-schema-regressions.py'
+          paso 'node qa/reading-catalogue-browser.mjs'
+          paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/reading-catalogue-script-failure-smoke.mjs'
+          paso 'node qa/reading-commerce-browser.mjs'
+          paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-ratings-trust.mjs'
+          paso 'node qa/reading-intake-browser.mjs'
+          paso 'node qa/reading-catalogue-v2-browser.mjs'
+          paso 'node qa/reading-type-selector-browser.mjs'
+          paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-mobile-discovery.mjs'
+          paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-pagination-shareable-url.mjs'
+          paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-device-matrix.mjs'
+          paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-facet-count-parity.mjs'
+          paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-matrix.mjs'
+          paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-interaction-matrix.mjs'
+          paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-parity.mjs'
+          paso 'node qa/reading-upcoming-browser.mjs'
+          if ((${#fallos[@]})); then printf 'PASO FALLIDO: %s\n' "${fallos[@]}"; exit 1; fi
       - name: Use lockfile-pinned Lighthouse CI
         if: always()
         run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"
@@ -168,7 +176,7 @@ jobs:
           cp /tmp/recommendations-server.log artifacts/recommendations/server.log || true
       - name: Upload QA artifacts
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: recommendations-qa
           path: |
