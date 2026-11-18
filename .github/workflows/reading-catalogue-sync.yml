@@ -39,7 +39,6 @@ permissions:
   issues: write
   actions: write
   statuses: write
-  issues: write  # issue `fallo` de una carga degradada o con fallo de código (R4-5)
 
 jobs:
   clock:
