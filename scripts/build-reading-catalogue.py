@@ -506,14 +506,37 @@ def load_own_texts(root):
 
 
 def own_block_html(x, live):
-    """Un módulo; las comparaciones enlazan cada título a su ficha y desaparecen si un afín ya no está publicado."""
+    """Un módulo; las comparaciones enlazan cada título a su ficha y desaparecen si un afín ya no está publicado.
+
+    Las posiciones se resuelven sobre el texto ORIGINAL, no sobre el texto ya etiquetado: un reemplazo en cadena
+    (text.replace tras otro text.replace) anidaba un <a> dentro de otro cuando un título era substring de otro
+    (p. ej. «Japón 2027-2028» dentro de «Explora Japón 2027-2028 (Guías Explora Lonely Planet)»), lo que test-dom-integrity.py
+    rechaza como anidamiento interactivo inválido.
+    """
     text = esc(x['texto'])
+    spans = []  # (inicio, fin, i) resueltos sobre el texto original, sin solaparse entre sí
     for i in x.get('enlaces', []):
         if i not in live:
             return ''
         title = esc(live[i]['titulo'])
-        text = text.replace(title, '<a href="' + url(live[i]) + '">' + title + '</a>', 1)
-    return '<h3>' + MODULE_TITLES[x['modulo']] + '</h3><p>' + text + '</p>'
+        start = 0
+        while True:
+            pos = text.find(title, start)
+            if pos == -1:
+                break
+            end = pos + len(title)
+            if any(pos < e and s < end for s, e, _ in spans):
+                start = pos + 1
+                continue
+            spans.append((pos, end, i))
+            break
+    out, cursor = [], 0
+    for start, end, i in sorted(spans):
+        out.append(text[cursor:start])
+        out.append('<a href="' + url(live[i]) + '">' + text[start:end] + '</a>')
+        cursor = end
+    out.append(text[cursor:])
+    return '<h3>' + MODULE_TITLES[x['modulo']] + '</h3><p>' + ''.join(out) + '</p>'
 
 
 def own_text_section(b, data=None):
