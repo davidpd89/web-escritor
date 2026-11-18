@@ -248,6 +248,33 @@ class JuvenileAudienceTests(unittest.TestCase):
         self.assertNotIn('narrativa-juvenil', got)
         self.assertTrue({'filosofia', 'juvenil'} <= got, got)
 
+    def test_a_node_genre_dropped_later_still_repairs_the_audience(self):
+        # «aventuras» salía del nodo (la materia no la respalda): al quitarla, la novela juvenil queda sola con la
+        # no ficción y el público se repara en la segunda pasada.
+        data, ident = self.catalogue(['aventuras', 'filosofia', 'juvenil', 'narrativa-juvenil'])
+        book = next(b for b in data['libros'] if b['id'] == ident)
+        book['descripcion_breve'] = 'Ensayo. La editorial la incluye en filosofía, juvenil.'
+        repair_classification(data, '2026-11-16')
+        got = labels(data)[ident]
+        self.assertNotIn('aventuras', got)
+        self.assertNotIn('narrativa-juvenil', got)
+        self.assertTrue({'filosofia', 'juvenil'} <= got, got)
+
+    def test_the_genre_fallback_does_not_restore_the_removed_juvenile_novel(self):
+        # «nutricion-y-bienestar» es temática, no género: sin la novela juvenil el libro queda sin género y el
+        # respaldo la deducía otra vez de «juvenil».
+        data, ident = self.catalogue(['nutricion-y-bienestar', 'juvenil', 'narrativa-juvenil'])
+        book = next(b for b in data['libros'] if b['id'] == ident)
+        book['descripcion_breve'] = 'Divulgación. La editorial la incluye en alimentación saludable, juvenil.'
+        for cat in data['categorias']:  # como la declara RULES: temática
+            if cat['id'] == 'nutricion-y-bienestar':
+                cat['tipo'] = 'tematica'
+        for _ in range(2):
+            repair_classification(data, '2026-11-16')
+            got = labels(data)[ident]
+            self.assertNotIn('narrativa-juvenil', got)
+            self.assertTrue({'nutricion-y-bienestar', 'juvenil'} <= got, got)
+
     def test_juvenile_novel_keeps_its_genre(self):
         for cats in (['narrativa-juvenil', 'juvenil'], ['narrativa-juvenil', 'historia', 'aventuras', 'juvenil']):
             with self.subTest(cats):

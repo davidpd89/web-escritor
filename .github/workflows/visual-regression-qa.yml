@@ -38,7 +38,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -72,7 +72,7 @@ jobs:
 
       - name: Set up Node
         if: steps.changes.outputs.relevant == 'true'
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -83,7 +83,7 @@ jobs:
       - name: Cache Playwright browsers
         if: steps.changes.outputs.relevant == 'true'
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -102,7 +102,7 @@ jobs:
 
       - name: Upload screenshots and diffs
         if: always() && steps.changes.outputs.relevant == 'true'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: visual-regression-evidence
           path: .ci/visual-regression/
@@ -116,7 +116,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -125,7 +125,7 @@ jobs:
             !/assets/no usadas/
 
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -139,7 +139,7 @@ jobs:
         run: node qa/visual-regression-browser.mjs --update-baseline
 
       - name: Upload baselines
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: visual-baselines
           path: qa/visual-baselines/

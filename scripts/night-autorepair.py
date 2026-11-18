@@ -35,7 +35,7 @@ Tarea: scripts/night-autorepair.cmd, cada hora (schtasks /Create /TN web-escrito
 """
 from __future__ import annotations
 
-import argparse, datetime as dt, json, os, re, shutil, subprocess, sys, time
+import argparse, datetime as dt, json, os, re, shutil, subprocess, sys, time, types
 from pathlib import Path
 
 import yaml  # PyYAML, declarado en scripts/requirements.txt (antes un except lo tragaba y la CI no lo tenía)
@@ -43,6 +43,7 @@ import yaml  # PyYAML, declarado en scripts/requirements.txt (antes un except lo
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import estado_local  # noqa: E402
 import ci_checks  # noqa: E402
+import turno_issues  # noqa: E402
 
 # El Programador de tareas ejecuta la copia de origin/main (ver night-autorepair.cmd); el repo vivo se indica aparte.
 REPO = Path(os.environ.get('AUTOREPAIR_REPO') or Path(__file__).resolve().parents[1])
@@ -482,7 +483,8 @@ def limpiar_worktree(wt):
 
 
 def deshacer(wt):
-    sh(['git', 'checkout', '--', '.'], cwd=wt)
+    # reset --hard vacía también el índice: un fichero que el agente dejó en stage no sobrevive al descarte.
+    sh(['git', 'reset', '-q', '--hard', 'HEAD'], cwd=wt)
     sh(['git', 'clean', '-fdq', '-e', 'node_modules'], cwd=wt)
 
 
@@ -951,6 +953,14 @@ def pasada(dry=False, solo=None, ahora=None):  # skipcq: PY-R1000 (orden P2-1: r
                 registrar_intento(estado.setdefault(flujo, {}), res, run, ahora)
         except Exception as exc:   # un flujo roto no puede parar la vigilancia de los demás
             log(f"{flujo}: error del turno de noche: {exc}")
+        finally:
+            dry or guardar_estado(estado)
+    if not solo and not caida:
+        # Turno de issues (15/11): con el mismo cerrojo, consume las issues `fallo` y `experto` de una en una.
+        try:
+            turno_issues.pasada_issues(types.SimpleNamespace(**globals()), estado, ahora, dry)
+        except Exception as exc:
+            log(f"turno de issues: error: {exc}")
         finally:
             dry or guardar_estado(estado)
 
