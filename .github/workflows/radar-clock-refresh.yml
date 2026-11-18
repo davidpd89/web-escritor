@@ -37,7 +37,7 @@ jobs:
       - name: Límite del job para el publicador
         run: echo "PUBLICAR_HASTA=$(( $(date +%s) + 100 * 60 ))" >> "$GITHUB_ENV"
       - name: Checkout latest main
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -48,7 +48,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
@@ -106,7 +106,7 @@ jobs:
 
       - name: Set up Node for Pagefind
         if: steps.html.outputs.changed == 'true'
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 

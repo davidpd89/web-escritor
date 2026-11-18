@@ -107,7 +107,7 @@ def main() -> int:
     if sueltos:
         print('Sin versionar (no son generados): ' + ', '.join(sueltos[:8]))
     if cambios:
-        git_paths(['add', '-A'], cambios)
+        git_estado.preparar(ROOT, cambios)  # un borrado ya en el índice no tumba el commit (#1318)
         git('commit', '-q', '-m', f'Regenerar artefactos sobre {git("rev-parse", "--short", a.onto).stdout.strip()}')
         print(f'Commit de regeneración con {len(cambios)} fichero(s)')
     else:

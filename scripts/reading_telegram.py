@@ -205,7 +205,8 @@ def from_reading_catalogue(path: Path, channels_path: Path, groups: dict | None 
 # Amazon.es acepta varios ISBN en el filtro p_66 separados por «|» (probado con 60: devuelve sus ediciones).
 # Con más libros el resumen lleva varios enlaces, uno por cada bloque de 60.
 DIGEST_MAX_ISBNS = 60
-DIGEST_MAX_TITLES = 30
+DIGEST_MAX_TITLES = 40
+DIGEST_MAX_CHARS = 3400  # por mensaje: Telegram admite 4096 y el HTML de los enlaces no cuenta como texto visible
 SEND_AT = dtime(11, 30)  # Hora de Madrid a la que salen todos los envíos del día.
 WEEK_DAYS = 7
 MONTHS = (
@@ -263,20 +264,20 @@ def digest(
     label: str = "",
     until: str = "",
     start: str = "",
-) -> dict | None:
-    """Un único mensaje: cada título enlaza a su propia ficha de Amazon (los enlaces de búsqueda por
-    muchos ISBN no abrían bien en la app de Amazon). Si sobran títulos, uno o varios enlaces de búsqueda
-    cubren el resto.
+) -> list[dict]:
+    """Los títulos del día como uno o varios mensajes. Cada título enlaza a su ficha de Amazon (los enlaces
+    de búsqueda por muchos ISBN no abren en la app de Amazon), así que si no caben en un mensaje de
+    Telegram se reparten en varios consecutivos («1/3», «2/3»…) en vez de dejar un «…y N más».
 
     Diario («Aquí tienes las publicaciones del día…») o semanal si se da `until`
     («Próximos lanzamientos del … al …», con la fecha de cada libro; `start` es el primer día)."""
-    isbns = list(dict.fromkeys(b["isbn13"] for b in books if b.get("isbn13")))
-    if not isbns and not any(b.get("amazon_url") for b in books):
-        return None
+    books = [b for b in books if b.get("isbn13") or b.get("amazon_url") or b.get("asin")]
+    if not books:
+        return []
     tag = tag or tag_from_books(books)
     books = sorted(books, key=lambda b: (b["release_date"], b["title"])) if until else books
     lines = []
-    for b in books[:DIGEST_MAX_TITLES]:
+    for b in books:
         url = b.get("amazon_url") or (amazon_url(b["asin"], tag) if b.get("asin") else "")
         title = f"<b>{escape(shorten(b['title'], 140))}</b>"
         if url:
@@ -285,33 +286,30 @@ def digest(
             (f"• {human_date(b['release_date'])}: " if until else "• ")
             + f"{title} — {escape(shorten(b['author'], 100))}"
         )
-    rest = books[DIGEST_MAX_TITLES:]
-    links = []
-    if rest:
-        lines.append(f"…y {len(rest)} más")
-        rest_isbns = list(dict.fromkeys(b["isbn13"] for b in rest if b.get("isbn13")))
-        chunks = [
-            rest_isbns[i : i + DIGEST_MAX_ISBNS]
-            for i in range(0, len(rest_isbns), DIGEST_MAX_ISBNS)
-        ]
-        for n, chunk in enumerate(chunks):
-            text = "Ver el resto en Amazon"
-            if len(chunks) > 1:
-                first = n * DIGEST_MAX_ISBNS + 1
-                text += f" ({first}–{first + len(chunk) - 1})"
-            links.append(f'👉 <a href="{escape(isbn_search_url(chunk, tag), quote=True)}">{text}</a>')
+    chunks, current, size = [], [], 0
+    for line in lines:
+        if current and (len(current) >= DIGEST_MAX_TITLES or size + len(line) > DIGEST_MAX_CHARS):
+            chunks.append(current)
+            current, size = [], 0
+        current.append(line)
+        size += len(line) + 1
+    chunks.append(current)
     count = f"{len(books)} libro" + ("s" if len(books) != 1 else "")
-    if until:
-        first_day = start or day
-        head = f"{HASHTAGS_PROXIMOS}\n\n🗓️ <b>Próximos lanzamientos del {human_date(first_day)} al {human_date(until)}</b>"
-        key = weekly_key(day)
-    else:
-        head = f"{HASHTAGS_NOVEDAD}\n\n📚 <b>Aquí tienes las publicaciones del día {human_date(day)}</b>"
-        key = digest_key(day)
     sub = f"{escape(label)} · {count}" if label else count
-    text = f"{head}\n{sub}\n\n" + "\n".join(lines) + ("\n\n" + "\n".join(links) if links else "")
-
-    return {"asin": key, "digest": True, "text": text, "release_date": day}
+    parts = []
+    for n, chunk in enumerate(chunks, 1):
+        page = f" ({n}/{len(chunks)})" if len(chunks) > 1 else ""
+        if until:
+            head = f"{HASHTAGS_PROXIMOS}\n\n🗓️ <b>Próximos lanzamientos del {human_date(start or day)} al {human_date(until)}{page}</b>"
+            key = weekly_key(day)
+        else:
+            head = f"{HASHTAGS_NOVEDAD}\n\n📚 <b>Aquí tienes las publicaciones del día {human_date(day)}{page}</b>"
+            key = digest_key(day)
+        if n > 1:
+            key += f"-{n}"
+        text = f"{head}\n{sub}\n\n" + f"\n".join(chunk)
+        parts.append({"asin": key, "digest": True, "text": text, "release_date": day})
+    return parts
 
 
 CAPTION_LIMIT = 1024
@@ -474,13 +472,13 @@ def send_discord(
     return "uncertain", first_id
 
 
-# Telegram recorta en el chat las fotos más altas que ~4:5; las portadas (≈ 5:8) se veían cortadas.
+# Telegram recorta en el chat las fotos altas (también las 4:5: se perdía el título arriba y el pie abajo).
 # Se centra la portada entera sobre un fondo suave de la misma imagen y se sube ya con esa proporción.
-COVER_MAX_RATIO = 1.25  # alto / ancho
+COVER_MAX_RATIO = 1.0  # alto / ancho: cuadrada, la única proporción que Telegram no recorta en el móvil
 
 
 def padded_cover(photo_url: str, get=requests.get) -> bytes | None:
-    """JPEG con la portada completa en proporción 4:5, o None si no se puede (se envía la URL tal cual)."""
+    """JPEG con la portada completa en proporción 1:1, o None si no se puede (se envía la URL tal cual)."""
     try:
         from io import BytesIO
 
@@ -586,12 +584,10 @@ def channel_jobs(channel: dict, books: list[dict], today: date, tag: str) -> lis
         first = today + timedelta(days=1)
         until = first + timedelta(days=WEEK_DAYS - 1)
         week = [b for b in mine if first.isoformat() <= b["release_date"] <= until.isoformat()]
-        summary = digest(week, day, tag, label, until=until.isoformat(), start=first.isoformat())
-        return [summary] if summary else []
+        return digest(week, day, tag, label, until=until.isoformat(), start=first.isoformat())
     due = [b for b in mine if b["release_date"] == day]
     if channel.get("mode") == "digest":
-        summary = digest(due, day, tag, label)
-        return [summary] if summary else []
+        return digest(due, day, tag, label)
     return due
 
 
