@@ -48,7 +48,7 @@ const existsInBase = (() => {
   }
 })();
 const baseHtml = existsInBase
-  ? normalizeEol(execFileSync('git', ['show', `${BASE_SHA}:${PAGE_PATH}`], { encoding: 'utf8' }))
+  ? normalizeEol(execFileSync('git', ['show', `${BASE_SHA}:${PAGE_PATH}`], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 }))
   : null;
 const navJs = fs.readFileSync(path.join(ROOT, JS_PATH), 'utf8');
 

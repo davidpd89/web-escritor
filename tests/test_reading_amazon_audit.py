@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
-from reading_amazon_market import audit_book, apply_audit, page_rating  # noqa: E402
+from reading_amazon_market import audit_book, apply_audit, page_rating, page_synopsis  # noqa: E402
 from test_reading_amazon_market import BOOK, SWATCH_PAGE, COVER_PAGE  # noqa: E402
 
 spec = importlib.util.spec_from_file_location('reading_amazon_audit', ROOT / 'scripts/reading-amazon-audit.py')
@@ -26,7 +26,74 @@ STARS = ('<div id="averageCustomerReviews" data-asin="8498382378"><span class="a
          '<span id="acrCustomerReviewText" aria-label="12.345 valoraciones" class="a-size-base">(12.345)</span></a></div>')
 
 
+# Bloque de descripción tal como lo sirve amazon.es (16/11, ficha 8408331140), recortado.
+DESCRIPTION = ('<div id="bookDescription_feature_div" class="celwidget" data-feature-name="bookDescription">'
+               '<div data-a-expander-name="book_description_expander" class="a-expander-collapsed-height a-row">'
+               '<div data-expanded="false" class="a-expander-content a-expander-partial-collapse-content">'
+               '<p><span>Dicen que las princesas son elegantes, encantadoras y un poquito m&aacute;gicas. '
+               'Mora Florentina de Florent&iacute;a no es ninguna de esas cosas.</span></p>'
+               '<p><span>Es hija del hada m&aacute;s poderosa del reino, pero no tiene ni un solo poder.</span></p></div>'
+               '<div class="a-expander-header a-expander-partial-collapse-header"><a data-action="a-expander-toggle">'
+               'Leer m&aacute;s</a></div></div></div>')
+
+
 class AmazonAuditTests(unittest.TestCase):
+    def test_synopsis_is_read_from_the_book_description_block(self):
+        text = page_synopsis(PAGE + DESCRIPTION)
+        self.assertTrue(text.startswith('Dicen que las princesas son elegantes, encantadoras y un poquito mágicas.'))
+        self.assertIn('\n\nEs hija del hada más poderosa', text)
+        self.assertNotIn('Leer más', text)
+        self.assertEqual(page_synopsis(PAGE), '')
+        self.assertEqual(audit_book({**BOOK}, lambda url: PAGE, '2026-11-03')['sinopsis_amazon'], '')
+
+    def test_amazon_synopsis_reaches_only_books_without_one_and_stays_out_of_the_register(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tree = Path(tmp)
+            (tree / 'data').mkdir()
+            own = {**BOOK, 'id': 'lib-2', 'sinopsis_breve': 'Propia.', 'sinopsis_completa': 'Propia ' * 20,
+                   'sinopsis_tipo': 'extracto_editorial', 'sinopsis_fuente_url': 'https://editorial.example/x'}
+            (tree / 'data/reading-catalogue.json').write_text(json.dumps({'libros': [{**BOOK}, own]}), encoding='utf-8')
+            record = audit_book({**BOOK}, lambda url: PAGE + DESCRIPTION, '2026-11-03')
+            stats = audit.apply_records(tree, {'lib-1': record, 'lib-2': record}, 'davidporto-21', covers=0)
+            self.assertEqual(stats['synopses_added'], 1)
+            books = json.loads((tree / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros']
+            self.assertEqual(books[0]['sinopsis_fuente_url'], 'https://www.amazon.es/dp/8498382378')
+            self.assertEqual(books[0]['sinopsis_tipo'], 'extracto_editorial')
+            self.assertTrue(books[0]['sinopsis_completa'].startswith('Dicen que las princesas'))
+            self.assertEqual(books[1]['sinopsis_breve'], 'Propia.')
+            public = json.loads((tree / 'data/reading-amazon-audit.json').read_text(encoding='utf-8'))['libros']
+            self.assertNotIn('sinopsis_amazon', public['lib-1'])
+
+    def test_amazon_synopsis_never_publishes_a_space_before_punctuation(self):
+        # Las descripciones de Amazon pegan la etiqueta en línea al signo («<i>mágicas</i> .»): al quitar la
+        # etiqueta queda «mágicas .». La ingesta lo limpiaba al escribir, pero la auditoría publica por otra vía;
+        # el 17/11 dos fichas (9788410391796, 9791388002106) tumbaron check-reading-data. La limpieza vive ahora
+        # en el extractor, común a todas las fuentes, así que ningún escritor puede publicar ese espacio.
+        import re
+        gate = re.compile(r'\w [,.;:)]')
+        styled = DESCRIPTION.replace('poquito m&aacute;gicas.', 'poquito <i>m&aacute;gicas</i> .')
+        with tempfile.TemporaryDirectory() as tmp:
+            tree = Path(tmp)
+            (tree / 'data').mkdir()
+            (tree / 'data/reading-catalogue.json').write_text(json.dumps({'libros': [{**BOOK}]}), encoding='utf-8')
+            record = audit_book({**BOOK}, lambda url: PAGE + styled, '2026-11-03')
+            self.assertIsNotNone(gate.search(record['sinopsis_amazon']))  # el texto crudo sí trae el espacio
+            audit.apply_records(tree, {'lib-1': record}, 'davidporto-21', covers=0)
+            saved = json.loads((tree / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros'][0]
+            for field in ('sinopsis_breve', 'sinopsis_completa'):
+                self.assertIsNone(gate.search(saved.get(field) or ''), (field, saved.get(field)))
+            self.assertTrue(saved['sinopsis_completa'].startswith('Dicen que las princesas'))
+
+    def test_books_without_synopsis_not_yet_read_for_it_go_first_closest_first(self):
+        now = datetime(2026, 11, 3, 12, tzinfo=ZoneInfo('Europe/Madrid'))
+        books = [{'id': 'viejo', 'estado': 'publicado', 'fecha_publicacion': '2020-01-01'},
+                 {'id': 'cerca', 'estado': 'publicado', 'fecha_publicacion': '2026-11-04'},
+                 {'id': 'leido', 'estado': 'publicado', 'fecha_publicacion': '2026-11-03'},
+                 {'id': 'con', 'estado': 'publicado', 'sinopsis_breve': 'x'}]
+        records = {b: {'fecha': '2026-11-02', 'estado': 'ok'} for b in ('viejo', 'cerca', 'con')}
+        records['leido'] = {'fecha': '2026-11-02', 'estado': 'ok', 'sinopsis_amazon': ''}
+        self.assertEqual([b['id'] for b in audit.due({'libros': books}, records, now)], ['cerca', 'viejo'])
+
     def test_book_without_formats_is_found_by_its_isbn10_and_completed(self):
         book = {**BOOK}
         urls = []
@@ -61,13 +128,19 @@ class AmazonAuditTests(unittest.TestCase):
         self.assertEqual(audit_book({**BOOK, 'isbn13': '9791388306181'}, missing, '2026-11-03')['estado'], 'sin_asin')
 
     def test_every_published_book_is_due_oldest_first_without_a_cap(self):
-        books = [{'id': f'b{i}', 'estado': 'publicado'} for i in range(500)] + [{'id': 'x', 'estado': 'borrador'}]
+        books = [{'id': f'b{i}', 'estado': 'publicado', 'sinopsis_breve': 'x'} for i in range(500)] + [{'id': 'x', 'estado': 'borrador'}]
         records = {'b0': {'fecha': '2026-11-02', 'estado': 'ok'}, 'b1': {'fecha': '2026-10-01', 'estado': 'ok'},
                    'b2': {'fecha': '2026-11-02', 'estado': 'sin_ficha'}}
         now = datetime(2026, 11, 3, 12, tzinfo=ZoneInfo('Europe/Madrid'))
         ids = [b['id'] for b in audit.due({'libros': books}, records, now)]
         self.assertEqual(len(ids), 499)  # b0 se auditó ayer; el resto, sin límite
         self.assertEqual(ids[-2:], ['b1', 'b2'])
+
+    def test_sin_registro_van_antes_los_libros_sin_sinopsis_aunque_sean_mas_lejanos(self):
+        now = datetime(2026, 11, 16, 12, tzinfo=ZoneInfo('Europe/Madrid'))
+        books = [{'id': 'cerca-con', 'estado': 'publicado', 'sinopsis_breve': 'x', 'fecha_publicacion': '2026-11-16'},
+                 {'id': 'lejos-sin', 'estado': 'publicado', 'fecha_publicacion': '2019-01-01'}]
+        self.assertEqual([b['id'] for b in audit.due({'libros': books}, {}, now)], ['lejos-sin', 'cerca-con'])
 
     def test_records_reach_the_catalogue_and_the_public_register(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -79,7 +152,7 @@ class AmazonAuditTests(unittest.TestCase):
             record = audit_book(book, lambda url: PAGE, '2026-11-03')
             stats = audit.apply_records(tree, {'lib-1': record}, 'davidporto-21', fetch_bytes=lambda url: b'img',
                                         convert=lambda raw: (b'big', b'small', (800, 1200)))
-            self.assertEqual(stats, {'formats_added': 3, 'covers_replaced': 1, 'ratings': 0})
+            self.assertEqual(stats, {'formats_added': 3, 'covers_replaced': 1, 'synopses_added': 0, 'ratings': 0})
             saved = json.loads((tree / 'data/reading-catalogue.json').read_text(encoding='utf-8'))['libros'][0]
             self.assertTrue(saved['portada_sustituida'])
             self.assertEqual((tree / 'assets/reading-covers/isbn-9788498382372-320.webp').read_bytes(), b'small')

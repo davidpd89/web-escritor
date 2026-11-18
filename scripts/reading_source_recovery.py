@@ -19,7 +19,8 @@ def document(root, ref, path, default):
     return json.loads(result.stdout) if result.returncode == 0 else default
 
 
-def recover(root, source, base, latest):
+def recover(root, source, base, latest, skipped=None):
+    """`skipped` recoge los ids de altas sin procedencia publicada: se apartan y el resto se recupera."""
     root = Path(root)
     path = 'data/reading-catalogue.json'
     current = document(root, latest, path, None)
@@ -31,6 +32,21 @@ def recover(root, source, base, latest):
     known = {b['id'] for b in current['libros']} | {b['id'] for b in original['libros']}
     known |= {h['libro']['id'] for h in held.get('libros', [])}
     additions = [b for b in previous['libros'] if b['id'] not in known]
+    # El importador exige procedencia publicada para cada alta ISBN. Un libro sin ella se aparta (y lo conserva
+    # quien llama, en `reading-atascado-*`); nunca tumba el resto del lote (CodeRabbit #1397).
+    state_path = 'data/reading-intake-state.json'
+    old_state = document(root, source, state_path, {'items': {}})
+
+    def provenance(book):
+        evidence = old_state.get('items', {}).get('isbn13:' + book.get('isbn13', ''), {})
+        return evidence.get('estado_ingesta') == 'publicado' and evidence.get('libro_id') == book['id']
+    orphans = [b['id'] for b in additions if b['id'].startswith('isbn-') and not provenance(b)]
+    if orphans:
+        if skipped is None:
+            raise ValueError('La recuperación no tiene procedencia publicada: ' + ', '.join(orphans))
+        skipped.extend(orphans)
+        known |= set(orphans)
+        additions = [b for b in additions if b['id'] not in known]
     ids = {b['id'] for b in additions}
     changed = {}
     # Libros que ya existían: antes solo se trasladaban altas, y un punto de guardado con solo cambios de
@@ -64,18 +80,12 @@ def recover(root, source, base, latest):
         current.setdefault('libro_categorias', []).extend(relations)
     if additions or updated or relations:
         changed[path] = current
-    # El importador exige procedencia publicada para cada alta ISBN; se traslada el registro original.
-    state_path = 'data/reading-intake-state.json'
+    # Se traslada el registro de procedencia original de cada alta ISBN (ya comprobado arriba).
     state = document(root, latest, state_path, {'schema_version': 1, 'items': {}})
-    old_state = document(root, source, state_path, {'items': {}})
     for book in additions:
-        if not book['id'].startswith('isbn-'):
-            continue
-        key = 'isbn13:' + book.get('isbn13', '')
-        evidence = old_state.get('items', {}).get(key, {})
-        if evidence.get('estado_ingesta') != 'publicado' or evidence.get('libro_id') != book['id']:
-            raise ValueError('La recuperación no tiene procedencia publicada: ' + book['id'])
-        state.setdefault('items', {})[key] = evidence
+        if book['id'].startswith('isbn-'):
+            key = 'isbn13:' + book.get('isbn13', '')
+            state.setdefault('items', {})[key] = old_state['items'][key]
     base_state = document(root, base, state_path, {'items': {}})
     # También conservamos candidatos nuevos pendientes; no resucitamos los retirados por main.
     pending_added = False

@@ -322,8 +322,9 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-24.04
-    # 30: el carril lento de production-fetch puede añadir minutos cuando GitHub Pages limita (429)
-    timeout-minutes: 30
+    # 30: el carril lento de production-fetch puede añadir minutos cuando GitHub Pages limita (429);
+    # +15: reconstruir como el despliegue (~4-8 min).
+    timeout-minutes: 45
     env:
       SITE_BASE_URL: https://davidportodiaz.com
       EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
@@ -338,10 +339,24 @@ jobs:
             !/assets/no usadas/
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
-      - name: Set up Node
-        uses: actions/setup-node@v5
+      # Desde R4-4 el despliegue rehace lo generado con el día de Madrid (CATALOGO_HOY): el árbol del commit no
+      # es lo publicado. Se lee el día del despliegue en /version.json y se reconstruye igual que deploy-pages.
+      - name: Día con el que se construyó el despliegue
+        id: dia
+        shell: bash
+        run: |
+          set -euo pipefail
+          version=$(curl -fsS --retry 3 "$SITE_BASE_URL/version.json")
+          hoy=$(printf '%s' "$version" | python3 -c 'import json,sys; print(json.load(sys.stdin)["hoy"])')
+          sha=$(printf '%s' "$version" | python3 -c 'import json,sys; print(json.load(sys.stdin)["sha"])')
+          [[ "$hoy" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || { echo "::error::version.json sin día válido: $hoy"; exit 1; }
+          [ "$sha" = "$EXPECTED_RELEASE_SHA" ] || echo "::warning::Producción sirve $sha, se audita $EXPECTED_RELEASE_SHA."
+          echo "hoy=$hoy" >> "$GITHUB_OUTPUT"
+
+      - name: Construir como el despliegue
+        uses: ./.github/actions/construir-como-despliegue
         with:
-          node-version: '22'
+          hoy: ${{ steps.dia.outputs.hoy }}
 
       - name: Audit exact production parity and real-clock freshness
         run: node qa/production-professional-resources-audit.mjs

@@ -37,6 +37,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 110
     steps:
+      # El publicador recorta todas sus esperas a este límite (limite_del_job): mejor soltar con informe que
+      # dejar que GitHub cancele el job a mitad de una espera. Minutos = timeout-minutes - 10.
+      - name: Límite del job para el publicador
+        run: echo "PUBLICAR_HASTA=$(( $(date +%s) + 100 * 60 ))" >> "$GITHUB_ENV"
       - name: Checkout latest main
         uses: actions/checkout@v5
         with:

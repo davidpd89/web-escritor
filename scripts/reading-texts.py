@@ -12,6 +12,7 @@ pueda cambiar de commit sin perder nada; publish los copia a data/reading-texts 
 """
 import argparse
 import hashlib
+import heapq
 import importlib.util
 import json
 import math
@@ -195,12 +196,20 @@ def affine_index(data):
     rows = []
     for x in published(data):
         cats = {c['id'] for c in catalogue.categories(data, x)}
-        rows.append((x, cats, min_age(x), audience(cats)))
+        # Autores y título plegado se precalculan: affine_books los miraba por candidato (27 M de casefold en el test).
+        rows.append((x, cats, min_age(x), audience(cats), frozenset(x['autores']), x['titulo'].casefold()))
     counts = {}
-    for _, cats, _, _ in rows:
+    # Listas invertidas: un afín comparte categoría o autor, así que affine_books solo mira esos candidatos (recorrer
+    # todo el catálogo por cada libro hacía cuadrático el lote: 150 s el contrato con ~5.000 libros).
+    by_cat, by_author, position = {}, {}, {}
+    for i, (x, cats, *_) in enumerate(rows):
+        position.setdefault(x['id'], i)
         for c in cats:
             counts[c] = counts.get(c, 0) + 1
-    result = (rows, counts)
+            by_cat.setdefault(c, []).append(i)
+        for a in set(x['autores']):
+            by_author.setdefault(a, []).append(i)
+    result = (rows, counts, by_cat, by_author, position)
     if key is not None and key[0] is data:
         AFFINE_INDEX = (key, result)
     return result
@@ -211,28 +220,41 @@ def affine_books(data, b, cat_ids):
 
     Cada categoría compartida pesa según lo rara que es: compartir «Fantasía» dice poco y compartir «Hockey», mucho.
     Un álbum de 4 años y una novela de 12, o una juvenil y una de adultos, no se comparan aunque coincidan las etiquetas.
+    La rareza se mide sobre el catálogo y el catálogo crece: un libro publicado cuyo único afín pasaba justo el umbral
+    lo perdía (y con él su segundo módulo) cuando entraban libros de su tema, sin que su ficha cambiara, y la carga
+    no podía apartarlo (16/11, isbn-9791388205675). Si ninguno pasa el umbral, valen los que comparten tema y público.
     """
     names = {c['id']: c['nombre'] for c in data['categorias'] if c['tipo'] in ('genero', 'tematica')}
     wanted = cat_ids & set(names)
-    index, counts = affine_index(data)
-    own = next((c for x, c, _, _ in index if x['id'] == b['id']), set())
+    index, counts, by_cat, by_author, position = affine_index(data)
+    own = index[position[b['id']]][1] if b['id'] in position else set()
     df = {c: counts.get(c, 0) - (c in own) + 1 for c in wanted}
-    total = len(index) - any(x['id'] == b['id'] for x, _, _, _ in index) + 1
+    total = len(index) - (b['id'] in position) + 1
     age, public = min_age(b), audience(cat_ids)
-    rows = []
-    for x, x_cats, other, other_public in index:
+    weight = {c: math.log(total / df[c]) for c in wanted}
+    own_authors = set(b['autores'])
+    # Solo puede entrar quien comparte una categoría buscada o un autor (también en `weak`): esos son los candidatos.
+    candidates = sorted({i for c in wanted for i in by_cat.get(c, ())} | {i for a in own_authors for i in by_author.get(a, ())})
+    rows, weak = [], []
+    for i in candidates:
+        x, x_cats, other, other_public, x_authors, folded = index[i]
         if x['id'] == b['id']:
             continue
         shared = wanted & x_cats
-        author = bool(set(x['autores']) & set(b['autores']))
+        author = not own_authors.isdisjoint(x_authors)
         if not author and ((age is not None and other is not None and abs(age - other) > 4)
                            or (public and other_public and public != other_public)):
             continue
-        score = sum(math.log(total / df[c]) for c in shared)
+        # Mismo orden de suma que antes (el de `shared`): el resultado es idéntico bit a bit.
+        score = sum(weight[c] for c in shared)
+        row = (not author, -score, folded, i, shared)
         if author or (shared and score >= MIN_AFFINITY):
-            rows.append((author, score, x['titulo'].casefold(), x, sorted(names[c] for c in shared) or ['autor']))
-    rows.sort(key=lambda r: (-r[0], -r[1], r[2]))
-    return [(r[3], r[4]) for r in rows[:AFFINES]]
+            rows.append(row)
+        elif shared:
+            weak.append(row)
+    # nsmallest equivale a sorted(...)[:n] y no ordena todo el catálogo por libro; los nombres, solo de los elegidos.
+    best = heapq.nsmallest(AFFINES, rows or weak, key=lambda r: r[:3])
+    return [(index[i][0], sorted(names[c] for c in shared) or ['autor']) for _, _, _, i, shared in best]
 
 
 def source_hash(p):
@@ -680,6 +702,13 @@ def catalogue_in_ci(opened, now=None):
     return None
 
 
+def publishable_blocks(p, record):
+    """Bloques que se publican: el umbral es el del validador, min(MIN_BLOCKS, módulos permitidos).
+    Un libro que hoy solo admite «para_quien» (perdió sus afines al crecer el catálogo) conserva su texto."""
+    blocks = valid_blocks(p, record.get('bloques'))
+    return blocks if len(blocks) >= min(MIN_BLOCKS, len(p['modulos_permitidos'])) else []
+
+
 def _publish_once(out, publisher):
     """Copia los textos a un árbol limpio de origin/main y publica con el flujo protegido del barrido."""
     texts = sorted(out.glob('*.json'))
@@ -694,15 +723,15 @@ def _publish_once(out, publisher):
     tree = publisher.clean_main_tree(ROOT, ROOT / '.local/reading-texts/main')
     data = read_json(tree / 'data/reading-catalogue.json')
     catalogue.index_categories(data)
-    ids = {b['id'] for b in published(data)}
+    books = {b['id']: b for b in published(data)}
     target = tree / 'data/reading-texts'
     target.mkdir(exist_ok=True)
     for path in texts:
         record = read_json(path)
-        if path.stem in ids:
+        if path.stem in books:
             # Se publica solo lo que pasa el validador vigente, aunque se guardara con uno más permisivo.
-            blocks = valid_blocks(payload(data, next(b for b in published(data) if b['id'] == path.stem)), record.get('bloques'))
-            if len(blocks) >= MIN_BLOCKS:
+            blocks = publishable_blocks(payload(data, books[path.stem]), record)
+            if blocks:
                 write_json(target / path.name, {**record, 'bloques': blocks})
     run = lambda *cmd: subprocess.run([sys.executable, *cmd], cwd=tree, check=True)
     for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):

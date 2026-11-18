@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+  # Cambio de día (D1, R4-4): a las 00:05 de Madrid se vuelve a publicar con la fecha nueva aunque no haya
+  # commits (novedades, próximos, ofertas). GitHub usa UTC: 22:05 en verano y 23:05 en invierno; el job «dia»
+  # descarta la que cae a las 23 de Madrid (aún el día anterior). Un retraso de GitHub no la pierde.
+  schedule:
+    - cron: '5 22 * * *'
+    - cron: '5 23 * * *'
   workflow_dispatch:
     inputs:
       before_sha:
@@ -16,14 +22,43 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
 jobs:
-  build:
+  # De los dos horarios, solo publica el que corresponde a las 00:05 de Madrid (22:05 UTC en verano, 23:05 en
+  # invierno), decidido por el cron que disparó y el horario vigente, no por la hora de llegada: un retraso de
+  # GitHub no lo pierde y en verano no se publica dos veces. Push y manuales, siempre.
+  dia:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 2
+    outputs:
+      hoy: ${{ steps.dia.outputs.hoy }}
+      seguir: ${{ steps.dia.outputs.seguir }}
+    steps:
+      - name: Día del despliegue (Madrid)
+        id: dia
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          CRON: ${{ github.event.schedule }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "hoy=$(TZ=Europe/Madrid date +%F)" >> "$GITHUB_OUTPUT"
+          seguir=true
+          if [ "$EVENT_NAME" = schedule ]; then
+            # +0200 verano: vale el de las 22 UTC; +0100 invierno: el de las 23 UTC.
+            if [ "$(TZ=Europe/Madrid date +%z)" = +0200 ]; then propio='5 22 * * *'; else propio='5 23 * * *'; fi
+            [ "$CRON" = "$propio" ] || seguir=false
+          fi
+          echo "seguir=$seguir" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: dia
+    if: needs.dia.outputs.seguir == 'true'
+    # La concurrencia va en el build, no en el workflow: un disparo descartado no cancela un despliegue por push.
+    concurrency:
+      group: pages-build
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    timeout-minutes: 25  # rehacer la cadena con el día (~4-8 min) además de construir y subir
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -35,16 +70,21 @@ jobs:
             !/assets/no usadas/
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v6
+      # Lo que depende del día (portal, páginas, próximos, ofertas, descuentos caducados) se rehace con la fecha
+      # de Madrid de hoy, no con la de los datos del último commit: así el día cambia aunque una noche no haya
+      # carga. Toda la cadena (shell, sitemap, Pagefind) para que nada quede del día anterior.
+      # La misma acción la usa postdeploy-deep-audit para comparar producción con lo que de verdad se publicó.
+      - name: Construir como el despliegue (día de Madrid)
+        uses: ./.github/actions/construir-como-despliegue
         with:
-          python-version: '3.12'
-
-      - name: Materializar generados
-        uses: ./.github/actions/materializar
+          hoy: ${{ needs.dia.outputs.hoy }}
 
       - name: Build public artifact (allowlist-first)
         run: python scripts/build-public-dist.py --out .preview-dist
+
+      # R5-6: la instantánea social vive en la rama social-estado; se superpone la más reciente válida.
+      - name: Overlay social snapshot from social-estado
+        run: python scripts/social_estado.py --out .preview-dist
 
       - name: Verify built artifact satisfies the public-artifact contract
         run: python scripts/build-public-dist.py --check-contents --out .preview-dist
@@ -89,10 +129,13 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      # /version.json {sha, hoy}: qué commit y qué día de Madrid están publicados (R5-13, vigilancia del día).
       - name: Stamp exact release identity
+        env:
+          CATALOGO_HOY: ${{ needs.dia.outputs.hoy }}
         run: |
-          python scripts/stamp-release-identity.py --out .preview-dist --sha "$GITHUB_SHA"
-          python scripts/stamp-release-identity.py --check --out .preview-dist --sha "$GITHUB_SHA"
+          python scripts/stamp-release-identity.py --out .preview-dist --sha "$GITHUB_SHA" --hoy "$CATALOGO_HOY"
+          python scripts/stamp-release-identity.py --check --out .preview-dist --sha "$GITHUB_SHA" --hoy "$CATALOGO_HOY"
 
       - name: Stop Pages from Jekyll-processing the artifact
         run: touch .preview-dist/.nojekyll
@@ -107,7 +150,11 @@ jobs:
 
   deploy:
     needs: build
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false  # un despliegue a medias no se corta; el siguiente espera
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -116,12 +163,8 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v5
 
-  verify-production:
-    name: Verify production after deploy
-    needs: deploy
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
+      # La verificación va en este job: el grupo pages-deploy solo cubre `deploy` y, en un job aparte, otro
+      # despliegue podía publicar un SHA más nuevo antes de verificar este (#1391).
       - name: Checkout deployed SHA
         uses: actions/checkout@v5
         with:
@@ -164,7 +207,7 @@ jobs:
     name: Notify IndexNow after verified deploy
     needs:
       - build
-      - verify-production
+      - deploy
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
