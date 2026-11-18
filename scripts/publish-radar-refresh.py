@@ -286,6 +286,27 @@ def main_cambio_entradas(repo, sha, hasta='main'):
     return [f for f in files if entrada_de_builders(f)]
 
 
+def limite_del_job(entorno=None, ahora=None, reloj=None):
+    """Instante (time.monotonic) en que hay que soltar antes de que GitHub cancele el job, o None.
+
+    Clase de fallo (atlas-directory-sync, 09/11 y 16/11): el reintento en bash tras un exit 75 vuelve a llamar al
+    publicador con un presupuesto nuevo de 90 min, y esperar a la carga o a la CI acaba más allá del timeout del
+    job. GitHub lo cancela sin informe ni PR anotada. El job fija PUBLICAR_HASTA (epoch) al empezar y todas las
+    esperas se recortan a ese límite común, sea cual sea el intento.
+    """
+    hasta = (os.environ if entorno is None else entorno).get('PUBLICAR_HASTA', '').strip()
+    if not hasta:
+        return None
+    ahora = time.time() if ahora is None else ahora
+    reloj = time.monotonic() if reloj is None else reloj
+    return reloj + (float(hasta) - ahora)
+
+
+def recortar_al_job(deadline, entorno=None):
+    limite = limite_del_job(entorno)
+    return deadline if limite is None else min(deadline, limite)
+
+
 def esperar_escritores(ceder_a, deadline, poll=60):
     propio = os.environ.get('GITHUB_RUN_ID', '')
     while True:
@@ -381,7 +402,9 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         # Se fija la ejecución despachada por su id: nunca una anterior verde ni una de otro despacho.
         source[workflow], pinned[workflow] = ('workflow_dispatch', frozenset()), despachar(repo, workflow, branch)
 
-    deadline = time.monotonic() + timeout
+    deadline = recortar_al_job(time.monotonic() + timeout)
+    if deadline <= time.monotonic():
+        raise TimeoutError('No queda tiempo del job para la CI; PR abierta, la fusiona el siguiente cron')
     pending = set(workflows)
     retried = set()
     while pending:
@@ -497,7 +520,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     merged_sha = merged['mergeCommit']['oid']
     print(f'Dispatched Pages after validated merge {merged_sha}', flush=True)
     if deploy_before:
-        deadline = time.monotonic() + 1800
+        deadline = recortar_al_job(time.monotonic() + 1800)
         followed = None  # deploy posterior que contiene merged_sha, tras cancelarse el nuestro por concurrencia
         while time.monotonic() < deadline:
             if followed is None:
