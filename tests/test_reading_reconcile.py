@@ -32,6 +32,9 @@ def deploy_gh(runs, calls):
         calls.append(args)
         if args[:2] == ('repo', 'view'):
             return 'dueño/web\n'
+        if args[0] == 'api' and args[1].endswith('/jobs'):
+            run_id = int(args[1].split('/runs/')[1].split('/')[0])
+            return json.dumps({'jobs': next(r.get('jobs', []) for r in runs if r['id'] == run_id)})
         if args[0] == 'api':
             return json.dumps({'workflow_runs': runs})
         if args[:2] == ('workflow', 'run'):
@@ -61,12 +64,18 @@ class ReconcileDeployTests(unittest.TestCase):
         self.assertTrue(self.dispatched([]))
 
     def test_a_failed_or_cancelled_deploy_of_main_is_retried(self):
-        self.assertTrue(self.dispatched([{'status': 'completed', 'conclusion': 'failure'},
-                                         {'status': 'completed', 'conclusion': 'cancelled'}]))
+        self.assertTrue(self.dispatched([{'id': 4, 'status': 'completed', 'conclusion': 'failure'},
+                                         {'id': 5, 'status': 'completed', 'conclusion': 'cancelled'}]))
 
     def test_a_green_or_running_deploy_is_left_alone(self):
-        self.assertFalse(self.dispatched([{'status': 'completed', 'conclusion': 'success'}]))
-        self.assertFalse(self.dispatched([{'status': 'in_progress', 'conclusion': None}]))
+        self.assertFalse(self.dispatched([{'id': 1, 'status': 'completed', 'conclusion': 'success', 'jobs': [{'name': 'deploy', 'conclusion': 'success'}]}]))
+        self.assertFalse(self.dispatched([{'id': 2, 'status': 'in_progress', 'conclusion': None}]))
+
+    def test_a_green_run_that_skipped_the_deploy_does_not_count(self):
+        # CodeRabbit #1397: el disparo horario descartado (`seguir=false`) acaba en verde sin desplegar.
+        saltado = [{'name': 'dia', 'conclusion': 'success'}, {'name': 'build', 'conclusion': 'skipped'},
+                   {'name': 'deploy', 'conclusion': 'skipped'}]
+        self.assertTrue(self.dispatched([{'id': 3, 'status': 'completed', 'conclusion': 'success', 'jobs': saltado}]))
 
     def test_refresh_reconciles_before_anything_else(self):
         with patch.object(refresh.subprocess, 'check_output', return_value=''), \
@@ -107,17 +116,16 @@ class StuckDataTests(unittest.TestCase):
                 return 'https://github.com/x/y/issues/1\n'
             raise AssertionError(args)
 
-        def failing_carry(branch, root=None):
+        def failing_carry(branch, root=None, skipped=None):
             repo.git('fetch', '-q', 'origin', f'+refs/heads/{branch}:refs/remotes/origin/{branch}')
             (Path(repo.work) / CATALOGUE).write_text('a medias', encoding='utf-8')  # escritura a medias
             raise ValueError('La recuperación no tiene procedencia publicada: isbn-g')
 
         with patch.object(refresh.publisher.publication, 'gh', side_effect=gh), \
                 patch.object(refresh, 'carry', side_effect=failing_carry):
-            try:
+            with self.assertRaises(ValueError) as fallo:
                 refresh.carry(SAVED, root=repo.work)
-            except ValueError as exc:
-                keep = refresh.report_stuck(SAVED, exc, root=repo.work)
+            keep = refresh.report_stuck(SAVED, fallo.exception, root=repo.work)
 
         stuck = refresh.STUCK_PREFIX + '2026-11-16-1'
         self.assertEqual(keep, stuck)
@@ -131,10 +139,31 @@ class StuckDataTests(unittest.TestCase):
         self.assertEqual(refresh.checkpoints(root=repo.work), [])
         self.assertEqual(repo.git('status', '--porcelain'), '')
 
+    def test_a_carry_that_failed_before_fetching_still_keeps_a_copy(self):
+        # CodeRabbit #1397: sin la referencia remota descargada, el push de la copia lanzaba y tumbaba refresh.
+        with patch.object(refresh.publisher.publication, 'gh', return_value=''):
+            keep = refresh.report_stuck(SAVED, ValueError('fetch caído'), root=self.repo.work)
+        self.assertEqual(keep, refresh.STUCK_PREFIX + '2026-11-16-1')
+        after = self.heads()
+        self.assertEqual(after[keep], self.saved_sha)
+        self.assertNotIn(SAVED, after)
+
+    def test_without_a_copy_the_checkpoint_is_never_deleted(self):
+        real_git = refresh.git
+
+        def git(*args, **kw):
+            if args[0] == 'push' and refresh.STUCK_PREFIX in args[-1]:
+                raise refresh.subprocess.CalledProcessError(1, 'git push')
+            return real_git(*args, **kw)
+        with patch.object(refresh, 'git', side_effect=git),                 patch.object(refresh.publisher.publication, 'gh', return_value=''):
+            keep = refresh.report_stuck(SAVED, ValueError('roto'), root=self.repo.work)
+        self.assertEqual(keep, SAVED)
+        self.assertEqual(self.heads()[SAVED], self.saved_sha)
+
     def test_refresh_skips_a_stuck_checkpoint_and_publishes_the_next(self):
         good = refresh.CHECKPOINT_PREFIX + '2026-11-16-2'
 
-        def carry(branch, root=None):
+        def carry(branch, root=None, skipped=None):
             if branch == SAVED:
                 raise ValueError('Blob fuente no disponible')
             return ['isbn-x']
@@ -151,6 +180,16 @@ class StuckDataTests(unittest.TestCase):
             self.assertEqual(refresh.refresh(publish=True), 'ok')
         self.assertEqual(stuck.call_args.args[0], SAVED)
         self.assertEqual(assemble.call_args.kwargs['checkpoint'], good)
+
+    def test_set_aside_books_are_kept_and_the_rest_is_published(self):
+        def carry(branch, root=None, skipped=None):
+            skipped.append('isbn-huerfano')
+            return ['isbn-x']
+
+        with patch.object(refresh.subprocess, 'check_output', return_value=''),                 patch.object(refresh, 'read_json', return_value={'autopublish': True}),                 patch.object(refresh, 'reconcile_deploy'),                 patch.object(refresh.publisher.publication, 'gh', return_value='[]'),                 patch.object(refresh, 'checkpoints', return_value=[SAVED]),                 patch.object(refresh, 'carry', side_effect=carry),                 patch.object(refresh, 'report_skipped', return_value='copia') as skipped,                 patch.object(refresh, 'chain_report'),                 patch.object(refresh, 'assemble', return_value='ok') as assemble:
+            self.assertEqual(refresh.refresh(publish=True), 'ok')
+        skipped.assert_called_once_with(SAVED, ['isbn-huerfano'])
+        self.assertEqual(assemble.call_args.kwargs['checkpoint'], SAVED)
 
     def test_a_pending_batch_that_cannot_be_carried_is_closed_kept_and_the_night_goes_on(self):
         def gh(*args):
