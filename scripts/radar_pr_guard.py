@@ -14,6 +14,11 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import gh_listas  # noqa: E402
 from datetime import date
 
 
@@ -34,12 +39,10 @@ def active_radar_prs(rows: object, today: str) -> list[int]:
 
 
 def check_no_open_radar_pr(today: str, *, run=subprocess.run, supersede: bool = False) -> None:
-    result = run(
-        ["gh", "pr", "list", "--state", "open", "--base", "main",
-         "--limit", "1000", "--json", "number,headRefName"],
-        capture_output=True, text=True, check=True,
-    )
-    existing = active_radar_prs(json.loads(result.stdout), today)
+    abiertas = gh_listas.lista(
+        lambda *a: run(["gh", *a], capture_output=True, text=True, check=True).stdout,
+        "pr", "list", "--state", "open", "--base", "main", "--json", "number,headRefName", tope=1000)
+    existing = active_radar_prs(abiertas, today)
     if existing and supersede:
         for number in existing:
             run(["gh", "pr", "close", str(number), "--delete-branch", "--comment",

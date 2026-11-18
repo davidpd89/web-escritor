@@ -23,6 +23,9 @@ import sys
 import time
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import gh_listas  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 REPO = 'davidpd89/web-escritor'
 CARGA = 'reading-catalogue-sync.yml'
@@ -84,7 +87,9 @@ def estado_pr(numero):
 
 def cargas_vivas():
     try:
-        return sum(len(json.loads(gh('run', 'list', '--workflow', CARGA, '--status', s, '--json', 'databaseId').stdout))
+        # Todas: con el --limit por defecto (20) una cola larga contaba de menos; Truncada -> None (no se sabe).
+        return sum(len(gh_listas.lista(lambda *a: gh(*a).stdout, 'run', 'list', '--workflow', CARGA, '--status', s,
+                                       '--json', 'databaseId', tope=100))
                    for s in ('in_progress', 'queued'))
     except (RuntimeError, ValueError):
         return None

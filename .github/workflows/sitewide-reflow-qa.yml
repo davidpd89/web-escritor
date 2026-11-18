@@ -45,7 +45,9 @@ jobs:
       - name: Checkout script
         uses: actions/checkout@v5
         with:
-          sparse-checkout: scripts/ci_reflow_rotation.py
+          sparse-checkout: |
+            scripts/ci_reflow_rotation.py
+            scripts/gh_listas.py
           sparse-checkout-cone-mode: false
 
       - name: Pick slot and report coverage of the last completed runs

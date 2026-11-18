@@ -15,6 +15,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
 import git_estado
+import gh_listas
 import reading_quarantine
 import catalogo_estado as estado
 import materializar_generados as materializar
@@ -315,7 +316,7 @@ def refresh(*, publish=False):
     if publish:
         reconcile_deploy()
     # A failed previous batch stays inspectable; never pile up duplicate writers.
-    opened = json.loads(publisher.publication.gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName'))
+    opened = gh_listas.lista(publisher.publication.gh, 'pr', 'list', '--state', 'open', '--base', 'main', '--json', 'headRefName')
     pending = pending_batches(opened)
     if pending:
         current = reconcile_pending(pending) if publish else pending[-1]

@@ -908,6 +908,18 @@ class EntornoVetado(unittest.TestCase):
         self.assertEqual(env, {'READING_QA_BASE': 'http://127.0.0.1:4173'})
         self.assertEqual(args[1:], ['qa/a.mjs'])
 
+class IngestaEnMarchaTest(unittest.TestCase):
+    def test_cada_estado_previo_a_terminar_cuenta_como_carga_en_marcha(self):
+        """Una carga en `requested` (o cualquier estado anterior a completed) frena el auto-merge."""
+        from unittest.mock import patch
+        for estado in ('requested', 'pending', 'waiting', 'queued', 'in_progress'):
+            with self.subTest(estado), patch.object(na, 'gh_json', lambda *a, e=estado: (
+                    [{'status': e}] if a[a.index('--status') + 1] == e else [])):
+                self.assertTrue(na.ingesta_en_marcha())
+        with patch.object(na, 'gh_json', lambda *a: []):
+            self.assertFalse(na.ingesta_en_marcha())
+
+
 if __name__ == '__main__':
     unittest.main()
 
