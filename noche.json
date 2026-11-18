@@ -1,47 +1,14 @@
 {
- "dia": "2026-11-17",
+ "dia": "2026-11-18",
  "intentos": [
   {
-   "run": 43986900706,
+   "run": 44207086243,
    "intento": 1,
-   "sha": "b0ac49fdeaf08a1ad8e116dcbacefb251a51bd08",
+   "sha": "aded6e2a7f237650cbeb86bbee295f43198f4060",
    "motivo": "respaldo",
-   "inicio": "2026-11-17T00:21:29Z",
-   "fin": "2026-11-17T01:19:55Z",
-   "resultado": "fallido",
-   "clase": null,
-   "firma": null
-  },
-  {
-   "run": 43994758522,
-   "intento": 1,
-   "sha": "b0ac49fdeaf08a1ad8e116dcbacefb251a51bd08",
-   "motivo": "reintento",
-   "inicio": "2026-11-17T01:20:25Z",
-   "fin": "2026-11-17T02:38:28Z",
-   "resultado": "fallido",
-   "clase": null,
-   "firma": null
-  },
-  {
-   "run": 43998568828,
-   "intento": 1,
-   "sha": "b0ac49fdeaf08a1ad8e116dcbacefb251a51bd08",
-   "motivo": "reintento",
-   "inicio": "2026-11-17T02:39:09Z",
-   "fin": "2026-11-17T03:28:37Z",
-   "resultado": "fallido",
-   "clase": null,
-   "firma": null
-  },
-  {
-   "run": 44037663067,
-   "intento": 1,
-   "sha": "8d995e285fdd5e639a3c0d7e40bbfae6272f100f",
-   "motivo": "manual",
-   "inicio": "2026-11-17T07:18:44Z",
-   "fin": "2026-11-17T08:59:38Z",
-   "resultado": "fallido",
+   "inicio": "2026-11-18T00:39:51Z",
+   "fin": null,
+   "resultado": "en_curso",
    "clase": null,
    "firma": null
   }
