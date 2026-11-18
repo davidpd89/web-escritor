@@ -43,7 +43,7 @@ jobs:
       slot: ${{ steps.pick.outputs.slot }}
     steps:
       - name: Checkout script
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           sparse-checkout: scripts/ci_reflow_rotation.py
           sparse-checkout-cone-mode: false
@@ -60,7 +60,7 @@ jobs:
 
       - name: Record slot for the next runs
         if: github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: reflow-rotation-slot-${{ steps.pick.outputs.slot }}
           path: reflow-rotation.json
@@ -79,7 +79,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -116,7 +116,7 @@ jobs:
 
       - name: Set up Node
         if: steps.sel.outputs.run == 'true'
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -135,7 +135,7 @@ jobs:
       - name: Cache Playwright browsers
         if: steps.sel.outputs.run == 'true'
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -265,7 +265,7 @@ jobs:
 
       - name: Upload artifacts
         if: always() && steps.sel.outputs.run == 'true'
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: sitewide-reflow-qa-${{ matrix.shard }}
           path: artifacts/sitewide-reflow/

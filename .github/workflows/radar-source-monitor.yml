@@ -26,18 +26,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /*
             !/assets/no usadas/
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Restore monitor state
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6
         with:
           path: .ci/radar-monitor/state.json
           key: radar-monitor-state-${{ github.run_id }}
@@ -53,11 +53,11 @@ jobs:
           python scripts/radar_source_monitor.py --max "$max"
       - name: Save monitor state
         if: always()
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6
         with:
           path: .ci/radar-monitor/state.json
           key: radar-monitor-state-${{ github.run_id }}
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         with:
           name: radar-monitor-report
           path: .ci/radar-monitor/report.*

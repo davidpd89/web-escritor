@@ -61,7 +61,7 @@ jobs:
     timeout-minutes: 25  # rehacer la cadena con el día (~4-8 min) además de construir y subir
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -136,7 +136,7 @@ jobs:
           git worktree remove --force "$before_root"
 
       - name: Upload IndexNow change set
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: indexnow-change-set
           path: ${{ runner.temp }}/indexnow-urls.json
@@ -182,7 +182,7 @@ jobs:
       # La verificación va en este job: el grupo pages-deploy solo cubre `deploy` y, en un job aparte, otro
       # despliegue podía publicar un SHA más nuevo antes de verificar este (#1391).
       - name: Checkout deployed SHA
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -191,7 +191,7 @@ jobs:
             !/assets/no usadas/
 
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -228,7 +228,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout deployed SHA
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -237,7 +237,7 @@ jobs:
             !/assets/no usadas/
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
