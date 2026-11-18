@@ -1,0 +1,21 @@
+{
+  "minLines": 15,
+  "threshold": 1,
+  "minTokens": 100,
+  "format": [
+    "python",
+    "javascript"
+  ],
+  "ignore": [
+    "**/node_modules/**",
+    "**/*.min.js",
+    "**/vendor/**"
+  ],
+  "reporters": [
+    "json",
+    "console"
+  ],
+  "output": "jscpd-informe",
+  "silent": true,
+  "absolute": false
+}

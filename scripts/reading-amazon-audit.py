@@ -23,6 +23,7 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 import git_estado  # noqa: E402
 import gh_listas  # noqa: E402
 from reading_amazon_market import audit_book, apply_audit, cover_kind, fetch_amazon_image, fetch_amazon_page, replace_cover  # noqa: E402
+from sinopsis_google_books import cercania, sinopsis_de  # noqa: E402
 
 LOCAL = ROOT / '.local/reading-amazon-audit'
 RECORD = LOCAL / 'audit.json'
@@ -52,16 +53,37 @@ def git(*args, cwd=ROOT, capture=False):
     subprocess.run(['git', *args], cwd=cwd, check=True)
 
 
+def sin_sinopsis(book):
+    return not book.get('sinopsis_breve') and not book.get('sinopsis_completa') and book.get('sinopsis_tipo') != 'resumen_propio'
+
+
 def due(data, records, now):
-    """Libros publicados por auditar, los que llevan más tiempo sin mirar primero."""
+    """Libros publicados por auditar, los que llevan más tiempo sin mirar primero.
+    Antes que nada, los que no tienen sinopsis y cuya ficha aún no se leyó buscándola (los más cercanos a hoy
+    primero): la API de Amazon no da la descripción y la ficha sí."""
     def last(b):
         r = records.get(b['id'])
-        if not r:
+        if not r or (sin_sinopsis(b) and r.get('estado') == 'ok' and 'sinopsis_amazon' not in r):
             return ''
         wait = AUDIT_AFTER if r.get('estado') in ('ok', 'otra_obra') else RETRY_AFTER
         return None if r['fecha'] > (now - wait).date().isoformat() else r['fecha']  # auditado hace poco: aún no
     books = [(last(b), b) for b in data['libros'] if b.get('estado') == 'publicado']
-    return [b for when, b in sorted(((w, b) for w, b in books if w is not None), key=lambda x: x[0])]
+    today = now.date()
+    return [b for when, b in sorted(((w, b) for w, b in books if w is not None),
+                                    key=lambda x: (x[0], (not sin_sinopsis(x[1]), cercania(x[1], today)) if x[0] == '' else (0, (0, 0))))]
+
+
+def apply_synopsis(book, record):
+    """Sinopsis de la ficha de Amazon para el libro que sigue sin ninguna; 1 si la pone."""
+    if record.get('estado') != 'ok' or not sin_sinopsis(book) or not record.get('asin'):
+        return 0
+    textos = sinopsis_de(record.get('sinopsis_amazon') or '')
+    if not textos:
+        return 0
+    book['sinopsis_breve'], book['sinopsis_completa'] = textos
+    book['sinopsis_tipo'] = 'extracto_editorial'
+    book['sinopsis_fuente_url'] = f"https://www.amazon.es/dp/{record['asin']}"
+    return 1
 
 
 def loop(args):
@@ -116,7 +138,7 @@ def start_publish():
 
 def days_from(book, today):
     """Distancia en días entre la fecha de publicación (completa, solo mes o solo año) y hoy; sin fecha, al final."""
-    value = (book.get('fecha_publicacion') or '')[:10]
+    value = str(book.get('fecha_publicacion') or '')[:10]
     if len(value) in (4, 7):
         value += '-01-01'[len(value) - 4:]
     try:
@@ -156,6 +178,14 @@ def apply_ratings(tree, published, tag):
     return len(found)
 
 
+def public_record(book, record):
+    """Lo que se publica de la auditoría de un libro: la ficha de Amazon frente a lo que muestra la web (sin el
+    texto de la sinopsis, que ya va en la ficha del libro)."""
+    shown = [o['formato'] for o in book.get('formatos_compra', [])]
+    return {**{k: v for k, v in record.items() if k != 'sinopsis_amazon'}, 'mostrados': shown,
+            'faltan': [f for f in record['amazon'] if f not in shown], 'portada': cover_kind(book)}
+
+
 def apply_records(tree, records, tag, fetch_bytes=fetch_amazon_image, convert=None, today=None, covers=COVERS_PER_PUBLISH):
     """Lleva el registro al catálogo del árbol: formatos que faltan y portada real donde la nuestra es generada.
     La portada se decide por el libro tal como está en main, no por lo que decía el registro al auditarlo: antes
@@ -165,11 +195,12 @@ def apply_records(tree, records, tag, fetch_bytes=fetch_amazon_image, convert=No
         from reading_intake_pipeline import amazon_cover_bytes as convert
     today = today or datetime.now(MADRID).date()
     data = read_json(tree / 'data/reading-catalogue.json')
-    stats = {'formats_added': 0, 'covers_replaced': 0}
+    stats = {'formats_added': 0, 'covers_replaced': 0, 'synopses_added': 0}
     published = [(book, records[book['id']]) for book in data['libros']
                  if book.get('estado') == 'publicado' and records.get(book['id'])]
     for book, record in published:
         stats['formats_added'] += apply_audit(book, record, tag)
+        stats['synopses_added'] += apply_synopsis(book, record)
     pending = [(book, record) for book, record in published
                if cover_kind(book) == 'generada' and record.get('portada_amazon') and book.get('portada_local')]
     for book, record in sorted(pending, key=lambda pair: days_from(pair[0], today)):
@@ -184,9 +215,7 @@ def apply_records(tree, records, tag, fetch_bytes=fetch_amazon_image, convert=No
     stats['ratings'] = apply_ratings(tree, published, tag)
     public = {}
     for book, record in published:
-        shown = [o['formato'] for o in book.get('formatos_compra', [])]
-        public[book['id']] = {**record, 'mostrados': shown, 'faltan': [f for f in record['amazon'] if f not in shown],
-                              'portada': cover_kind(book)}
+        public[book['id']] = public_record(book, record)
     write_json(tree / 'data/reading-catalogue.json', data)
     write_json(tree / PUBLISHED, {'nota': 'Registro por libro de la ficha de Amazon frente a lo que muestra la web; '
                                           'lo escribe scripts/reading-amazon-audit.py.',
@@ -226,7 +255,8 @@ def publish():
     if outside:
         raise ValueError('Cambios fuera de los artefactos permitidos: ' + str(outside))
     branch = 'automation/reading-catalogue-amazon-' + datetime.now(MADRID).strftime('%Y-%m-%d-%H%M%S')
-    title = f"Amazon: {stats['formats_added']} formatos y {stats['covers_replaced']} portadas; registro de {len(records)} fichas"
+    title = (f"Amazon: {stats['formats_added']} formatos, {stats['covers_replaced']} portadas y "
+             f"{stats['synopses_added']} sinopsis; registro de {len(records)} fichas")
     git('switch', '-q', '-c', branch, cwd=tree)
     subprocess.run(['git', 'add', '--pathspec-from-file=-', '--pathspec-file-nul'], cwd=tree, check=True,
                    input='\0'.join(paths).encode('utf-8'))

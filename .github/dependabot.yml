@@ -1,0 +1,19 @@
+# Una sola PR agrupada al mes por ecosistema: cada PR lanza toda la CI y la cola de Actions es el recurso escaso.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 1
+    groups:
+      acciones:
+        patterns: ["*"]
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 1
+    groups:
+      npm:
+        patterns: ["*"]
