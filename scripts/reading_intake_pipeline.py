@@ -12,6 +12,7 @@ import hashlib
 import importlib.util
 import io
 import json
+import os
 import re
 import shutil
 import sys
@@ -26,11 +27,13 @@ from reading_editorial_sources import CachedHTTP, SourceError, penguin_edition, 
 from reading_intake_core import affiliate_destination, clean_author, clean_title, split_authors, normalize_text, publisher_slug, tidy_prose
 from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
+import sinopsis_google_books
+from fecha_cercana import cercania  # una sola regla de «fechas cercanas primero»
 from reading_taxonomy import apply_derived, extra_categories, non_reading_reason, reference_work, REFERENCE_ID
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
 from reading_generic_source import generic_edition, generic_links, reviewed_hosts
 from reading_planeta_source import COVER_HOSTS as PLANETA_COVER_HOSTS, planeta_edition, planeta_links
-from reading_ttl_source import sitemap_children, sitemap_products, ttl_edition, ttl_url, typographic_cover, url_isbn
+from reading_ttl_source import consulta_ttl, ttl_sinopsis, sitemap_children, sitemap_products, ttl_edition, ttl_url, typographic_cover, url_isbn
 from reading_titles import proper_words, tidy_title
 from urllib.parse import urlsplit
 from reading_author_wikipedia import WikipediaSummaries, fill_missing_bios
@@ -535,39 +538,6 @@ def read_candidates(queue, refresh_urls, http, limit, existing, known_urls, stat
     return documents
 
 
-def periodo(fecha):
-    """(primer día, último día) de una fecha completa, de un mes (AAAA-MM) o de un año (AAAA); None si no se lee."""
-    try:
-        partes = [int(x) for x in str(fecha or '').split('-')[:3]]
-        if len(partes) == 3:
-            dia = date(*partes)
-            return dia, dia
-        if len(partes) == 2:
-            inicio = date(partes[0], partes[1], 1)
-            return inicio, (inicio.replace(day=28) + timedelta(days=4)).replace(day=1) - timedelta(days=1)
-        if len(partes) == 1:
-            return date(partes[0], 1, 1), date(partes[0], 12, 31)
-    except (TypeError, ValueError):
-        pass
-    return None
-
-
-def cercania(fecha, hoy):
-    """Clave de orden: hoy, mañana y pasado; luego el futuro de más cercano a más lejano; luego el pasado de más
-    reciente a más antiguo; al final lo que no tiene fecha legible. Una fecha incompleta (mes o año) cuenta por su
-    día más cercano a hoy: «2026-11» un 2 de noviembre es hoy."""
-    tramo = periodo(fecha)
-    if not tramo:
-        return (3, 0)
-    inicio, fin = tramo
-    if inicio <= hoy <= fin:
-        return (0, 0)
-    if inicio > hoy:
-        dias = (inicio - hoy).days
-        return (0 if dias <= 2 else 1, dias)
-    return (2, (hoy - fin).days)
-
-
 def by_date(queue, refresh_urls, documents, today=None):
     """Revisiones primero; después por cercanía a hoy (`cercania`): lo que sale ya, luego lo próximo, luego lo
     publicado. Antes iba de la fecha más reciente a la más antigua y la preventa de dentro de seis meses se
@@ -579,6 +549,37 @@ def by_date(queue, refresh_urls, documents, today=None):
         fecha = record.get('fecha_publicacion_edicion', '') if isinstance(record, dict) else ''
         return (item[0] not in refresh_urls, cercania(fecha, hoy))
     return sorted(queue.items(), key=clave)
+
+
+def sinopsis_de_respaldo(catalogue, state, config, day, stats):
+    """Sinopsis para las fichas que la ficha editorial no cubre (altas de Amazon); anota en `stats` cuántas y la
+    cobertura."""
+    # Las altas de Amazon llegan sin sinopsis: primero la ficha de todostuslibros por ISBN (1 s por petición,
+    # 1000 por noche ~17 min, cercanas primero; sin ficha, se reintenta a la semana) y la misma noche Google Books
+    # para lo que quede (sin resultado, otra vez a los 2 días). Lo que Google no da en dos intentos queda en
+    # `sinopsis_pendientes` del informe; la auditoría local lee además la ficha de Amazon (reading-amazon-audit).
+    red = os.getenv('READING_SYNOPSIS_NETWORK', '1') == '1' and not os.getenv('PYTEST_CURRENT_TEST')
+    if red:
+        stats['synopses_ttl'] = sinopsis_google_books.rellenar(
+            catalogue, consulta_ttl(), state.setdefault('sinopsis_ttl', {}), day,
+            int(config.get('max_ttl_synopsis', 1000)), extraer=ttl_sinopsis, reintento_dias=7)
+    # Respaldo para las fichas que siguen sin sinopsis: Google Books por ISBN exacto y en español (P1-11).
+    # Sin clave (tests, ensayos locales) no sale a la red.
+    google_key = os.getenv('GOOGLE_BOOKS_API_KEY', '').strip()
+    stats['synopses_google'] = sinopsis_google_books.rellenar(
+        catalogue, sinopsis_google_books.consulta_google(google_key), state.setdefault('sinopsis_google', {}),
+        day, int(config.get('max_google_synopsis', 120)),
+        fallos=state.setdefault('sinopsis_fallos_google', {})) if google_key and red else 0
+    # La lista, en el estado (para la búsqueda manual o con GPT); en el informe, cuántos son.
+    # Plazo: con 20 días sin sinopsis entra en la lista aunque las fuentes sigan probando; ninguna llega a 30.
+    state['sinopsis_pendientes'] = sinopsis_google_books.pendientes(
+        catalogue, state.setdefault('sinopsis_fallos_google', {}), desde=state.setdefault('sinopsis_desde', {}),
+        hoy=day)
+    stats['synopses_pending_manual'] = len(state['sinopsis_pendientes'])
+    stats['synopses_overdue_30d'] = sinopsis_google_books.vencidas(state['sinopsis_desde'], day)
+    publicadas = [b for b in catalogue['libros'] if b.get('estado') == 'publicado']
+    # Cobertura de sinopsis real (objetivo P1-11: ≥ 60 %), en el informe de cada carga.
+    stats['synopsis_coverage'] = round(sum(bool(b.get('sinopsis_breve')) for b in publicadas) / max(1, len(publicadas)), 3)
 
 
 def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False, today=None, isbns=()):
@@ -831,6 +832,7 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                 stats['pending'] += 1
         update_authors(authors, catalogue, new_books + updated_books, today)
         stats['synopses_completed'] = fill_full_synopses(catalogue, providers, http, int(config.get('max_synopsis_backfill', 6)))
+        sinopsis_de_respaldo(catalogue, state, config, day, stats)
         stats['author_profiles_updated'] = enrich_author_bios(authors, state, http, today)
         wiki = config.get('author_wikipedia', {})
         if wiki.get('enabled'):

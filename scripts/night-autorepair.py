@@ -5,10 +5,14 @@ Se ejecuta cada hora desde el Programador de tareas de Windows del equipo de Dav
 de los CLI). Para cada flujo vigilado mira la última ejecución en main:
 
 1. Falla por primera vez → la relanza una vez sobre main (`gh workflow run`): lo pasajero o ya arreglado se cura solo.
+   La carga del catálogo no: su publicador ya reintenta los jobs fallidos, así que relanzarla sin código nuevo en main
+   repite el mismo fallo (15/11: tres relanzamientos idénticos). Se relanza solo si main cambió código; si no, se repara.
 2. Vuelve a fallar → crea un worktree limpio desde origin/main, le da el registro del fallo a una IA y le pide la causa
    raíz con su prueba. Rotación: Claude (cuenta del sistema) → Claude cuenta 2 (CLAUDE_CONFIG_DIR) → Codex; si una
    responde que no le queda cuota pasa a la siguiente, y si una no deja cambios válidos también.
-3. Con cambios: puerta local (`local-ci.py --baseline`), commit, PR con auto-merge.
+3. Con cambios: puerta local dirigida (los pasos que fallaron y las pruebas tocadas), commit, PR con auto-merge; la
+   batería completa la corre la CI de la PR antes de entrar. Con la carga en marcha la PR se abre sin auto-merge y se
+   activa en la primera pasada sin carga.
 4. Cuando la PR entra en main, relanza el flujo y deja de vigilar ese fallo cuando sale verde.
 
 Por método (11/11: dos arreglos seguidos sobre una hipótesis falsa, tres noches de textos sin publicar y nadie se enteró):
@@ -22,13 +26,19 @@ Por método (11/11: dos arreglos seguidos sobre una hipótesis falsa, tres noche
 Excepción explícita a «no mergear de 00:00 a 06:00»: David pidió reparar y relanzar la nocturna sin esperar. Sí respeta
 «no mergear durante la ingesta»: si la carga del catálogo está en marcha, la PR espera a la siguiente pasada.
 
-Uso: python scripts/night-autorepair.py [--dry-run] [--solo FLUJO.yml]
+Vigía de la carga (`--vigia-carga`, tarea aparte cada 15 min): solo lanza la carga si a la 01:00 UTC no ha salido. Va
+aparte porque una reparación larga (hasta 3 agentes × 90 min) bloqueaba la pasada horaria y el Programador de tareas no
+arranca otra instancia mientras tanto (IgnoreNew): el 15/11 la de las 00:20 duró hasta las 02:13 y nadie vigiló la carga.
+
+Uso: python scripts/night-autorepair.py [--dry-run] [--solo FLUJO.yml] [--vigia-carga]
 Tarea: scripts/night-autorepair.cmd, cada hora (schtasks /Create /TN web-escritor-autorepair /SC HOURLY /TR <ruta .cmd> /IT).
 """
 from __future__ import annotations
 
 import argparse, datetime as dt, json, os, re, shutil, subprocess, sys, time
 from pathlib import Path
+
+import yaml  # PyYAML, declarado en scripts/requirements.txt (antes un except lo tragaba y la CI no lo tenía)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import estado_local  # noqa: E402
@@ -106,19 +116,43 @@ def decidir(run: dict | None, previo: dict | None, ahora: dt.datetime, intentos_
     return 'reparar'
 
 
-CARGA_PERDIDA_DESDE_H = 1  # UTC; el cron es a las 00:17
+VIGIA_HORAS_UTC = range(1, 5)  # 01:00-04:59 UTC: después del cron (00:17) y del reloj externo (00:20)
 
 
-def carga_perdida(ultima: dict | None, ahora: dt.datetime, lanzada_hoy: bool) -> bool:
-    """El cron de la carga (00:17 UTC) no llegó a crear ejecución: GitHub a veces se salta crons, sobre todo en
-    incidencias. A partir de las 01:00 UTC, si hoy no hay ninguna carga, se lanza una (una vez al día). Con 02:00 la
-    carga del 2026-11-10 no salió hasta la pasada de las 02:20 UTC: una hora menos de margen hasta las 06:00 Madrid."""
-    if lanzada_hoy or ahora.hour < CARGA_PERDIDA_DESDE_H:
+def vigia_carga(dry=False, ahora=None):
+    """Pide un respaldo de la carga una vez por hora entre la 01:00 y las 05:00 UTC (Fable R3-5).
+
+    El vigía ya no decide si la carga se perdió: antes miraba solo si había alguna ejecución de hoy, y una ejecución
+    cuyo job `intake` no corrió (un reloj que decidió «no cargar», un ensayo, una carga cancelada) lo dejaba callado.
+    Ahora lanza `respaldo=true` y decide `scripts/ci_intake_backup.py`, el mismo criterio que los crons y el reloj
+    externo: con una carga en verde esta noche, el respaldo no carga.
+
+    Cerrojo y marca por hora compartidos con la pasada horaria (Codex/CodeRabbit en #1339): nunca dos respaldos en
+    la misma hora. Los errores se registran; sin marca, el siguiente intento lo repite."""
+    ahora = ahora or dt.datetime.now(dt.timezone.utc)
+    if ahora.hour not in VIGIA_HORAS_UTC:
         return False
-    if not ultima:
+    hora = f'{ahora:%Y-%m-%dT%H}'
+    marca = ESTADO_DIR / 'carga-lanzada.txt'
+    cerrojo = tomar_cerrojo(ESTADO_DIR / 'lock-vigia')
+    if cerrojo is None:
+        return False  # el otro camino lo está comprobando ahora mismo
+    try:
+        if marca.exists() and marca.read_text(encoding='utf-8').strip() == hora:
+            return False
+        if actions_caido():
+            return False
+        log(f"{'[dry] ' if dry else ''}{INGESTA}: respaldo de las {ahora:%H:%M} UTC (vigía); decide ci_intake_backup.py")
+        if not dry:
+            sh(['gh', 'workflow', 'run', INGESTA, '--ref', 'main', '--repo', GH_REPO, '-f', 'respaldo=true'],
+               check=True)
+            marca.write_text(hora, encoding='utf-8')
         return True
-    creado = dt.datetime.fromisoformat(ultima['createdAt'].replace('Z', '+00:00'))
-    return creado.date() < ahora.date()
+    except Exception as exc:
+        log(f"{INGESTA}: el vigía no pudo comprobar o lanzar la carga: {exc}")
+        return False
+    finally:
+        cerrojo.close()
 
 
 def sin_cuota(salida: str) -> bool:
@@ -205,9 +239,39 @@ con lo cambiado (puertos, servidores, entorno), explícalo en AUTOREPAIR_SUMMARY
 
 # --- efectos (gh, git, CLIs) ---------------------------------------------------------------------------------------
 
+def matar_arbol(pid):
+    """El proceso y todos sus descendientes (servidores, navegadores, Lighthouse que lanzó un agente)."""
+    if os.name == 'nt':
+        taskkill = str(Path(os.environ.get('SystemRoot', r'C:\Windows')) / 'System32' / 'taskkill.exe')
+        # check=False a propósito: si el árbol ya terminó, taskkill sale con 128 y no hay nada que hacer.
+        subprocess.run([taskkill, '/T', '/F', '/PID', str(pid)], capture_output=True, creationflags=SIN_VENTANA, check=False)
+    else:
+        try:
+            os.killpg(pid, 9)
+        except OSError:
+            pass   # el grupo ya terminó: no queda nada que matar
+
+
 def sh(args, cwd=REPO, timeout=600, env=None, check=False, entrada=None):
-    r = subprocess.run(args, cwd=str(cwd), capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=timeout,
-                       env={**os.environ, **(env or {})}, input=entrada, creationflags=SIN_VENTANA)
+    """subprocess.run con plazo que mata el árbol entero al agotarse.
+
+    15/11: un agente agotó sus 90 min y `subprocess.run` mató solo al hijo directo; sus nietos (Lighthouse, servidor)
+    siguieron vivos 10 h y, con las tuberías abiertas, la espera de la salida podía no acabar nunca: la pasada horaria
+    se quedaba colgada y el Programador de tareas no arrancaba otra (IgnoreNew)."""
+    p = subprocess.Popen(args, cwd=str(cwd), stdin=subprocess.PIPE if entrada is not None else subprocess.DEVNULL,
+                         stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding='utf-8', errors='replace',
+                         env={**os.environ, **(env or {})}, creationflags=SIN_VENTANA,
+                         start_new_session=os.name != 'nt')
+    try:
+        out, err = p.communicate(entrada, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        matar_arbol(p.pid)
+        try:
+            p.communicate(timeout=30)
+        except subprocess.TimeoutExpired:
+            log(f"{args[0]}: tras matar el árbol las tuberías siguen abiertas; se abandonan")   # nada más que hacer
+        raise
+    r = subprocess.CompletedProcess(args, p.returncode, out, err)
     if check and r.returncode:
         raise RuntimeError(f"{' '.join(map(str, args[:4]))}… → {r.returncode}: {(r.stderr or r.stdout)[-400:]}")
     return r
@@ -218,7 +282,8 @@ def exe(nombre):
 
 
 def gh_json(*args):
-    r = sh(['gh', *args, '--repo', GH_REPO], check=True)
+    # `gh api` no admite --repo («unknown flag»): ahí el repo va en la ruta (repos/{GH_REPO}/…).
+    r = sh(['gh', *args] + ([] if args[0] == 'api' else ['--repo', GH_REPO]), check=True)
     return json.loads(r.stdout or 'null')
 
 
@@ -231,7 +296,7 @@ def ultima_ejecucion(flujo):
     if es_local(flujo):
         return estado_local.leer(flujo.removeprefix(LOCAL))
     runs = gh_json('run', 'list', '--workflow', flujo, '--branch', 'main', '--limit', '1',
-                   '--json', 'databaseId,status,conclusion,attempt,url,createdAt,event')
+                   '--json', 'databaseId,status,conclusion,attempt,url,createdAt,event,headSha')
     return runs[0] if runs else None
 
 
@@ -249,11 +314,20 @@ def actions_caido():
     return None
 
 
+def id_ejecucion(run_id) -> str:
+    """El id de una ejecución como texto solo de dígitos: viene del estado local y de registros, así que nada más
+    llega a `gh` (Sonar S6350; `int()` no le basta como saneado). ValueError si no lo es."""
+    valido = re.fullmatch(r'\d{1,20}', str(run_id))
+    if not valido:
+        raise ValueError(f'id de ejecución no válido: {run_id!r}')
+    return valido.group()
+
+
 def fallo_de_infraestructura(run_id) -> bool:
     """Una ejecución fallida sin trabajos, o cuyos trabajos fallaron sin llegar a ejecutar ningún paso, es GitHub
     (caída, «workflow file issue» durante incidencias, runner perdido), no el código."""
     try:
-        jobs = gh_json('run', 'view', str(run_id), '--json', 'jobs')['jobs']
+        jobs = gh_json('run', 'view', id_ejecucion(run_id), '--json', 'jobs')['jobs']
     except Exception:
         return False
     fallidos = [j for j in jobs if j.get('conclusion') in ('failure', 'timed_out', 'startup_failure', None)]
@@ -267,10 +341,55 @@ def ingesta_en_marcha():
     return any(r['status'] in ('in_progress', 'queued', 'waiting', 'pending') for r in runs)
 
 
+CODIGO_CI = ('qa/', 'tests/', 'scripts/', '.github/', 'package.json', 'package-lock.json')
+RAMA_DATOS = re.compile(r'automation/reading-catalogue-[\w-]+')
+
+
+def main_cambio_codigo(sha) -> list[str] | None:
+    """Código (pruebas, scripts, workflows) que main tiene y `sha` no: si no hay, relanzar repite el mismo resultado.
+
+    None si no se puede saber (API caída, SHA borrado por un force-push): entonces se relanza, como antes. Solo se
+    repara sin relanzar cuando la comparación confirma que main no trae código nuevo."""
+    if not re.fullmatch(r'[0-9a-f]{7,40}', sha or ''):   # viene del estado local: solo un SHA llega a `gh api`
+        log(f"SHA no válido ({sha!r}); se relanza")
+        return None
+    sha = re.fullmatch(r'[0-9a-f]{7,40}', sha).group()
+    return codigo_nuevo_en_main(sha)
+
+
+def codigo_nuevo_en_main(sha, base='origin/main', repo=None) -> list[str] | None:
+    """`git diff --name-only sha...base` en local, filtrado a CODIGO_CI.
+
+    No la API de compare: devuelve como mucho 300 ficheros de toda la comparación y, tras una fusión de datos con
+    miles de HTML, el código quedaba fuera de la lista (Fable C2, ronda 3). None si git no puede compararlos."""
+    repo = repo or REPO
+    if base.startswith('origin/'):
+        sh(['git', 'fetch', '-q', 'origin', base.split('/', 1)[1]], cwd=repo, timeout=300)
+        sh(['git', 'fetch', '-q', 'origin', sha], cwd=repo, timeout=300)   # un SHA de rama de datos puede no estar
+    r = sh(['git', 'diff', '--name-only', f'{sha}...{base}', '--', *CODIGO_CI], cwd=repo, timeout=300)
+    if r.returncode != 0:
+        log(f"no pude comparar {sha[:9]} con {base}; se relanza")
+        return None
+    return [f for f in (r.stdout or '').splitlines() if f.strip()]
+
+
+# Sin «.» en la clase: «[\w.-]+\.yml» retrocedía de forma superlineal (Sonar #1339).
+RE_QA_HIJO = re.compile(r'\b([\w-]+\.yml) failed \((\d+)\)')
+
+
+def registro_qa_hijo(texto, lineas=150) -> str:
+    """La carga solo dice «recommendations-browser-qa.yml failed (ID)»: el fallo real está en la CI de la PR de datos."""
+    partes = []
+    for flujo, run_id in dict.fromkeys(RE_QA_HIJO.findall(texto)):
+        hijo = registro_fallo(run_id, lineas)
+        partes.append(f"\n--- fallo en {flujo} (ejecución {run_id}, CI de la PR de datos) ---\n{hijo}")
+    return ''.join(partes)
+
+
 def registro_fallo(run_id, lineas=250, run=None):
     if run is not None and 'registro' in run:   # publicación local: la cola de su publish.log y la traza
         return '\n'.join(l for l in run['registro'].splitlines() if l.strip())[-24000:]
-    r = sh(['gh', 'run', 'view', str(run_id), '--log-failed', '--repo', GH_REPO], timeout=300)
+    r = sh(['gh', 'run', 'view', id_ejecucion(run_id), '--log-failed', '--repo', GH_REPO], timeout=300)
     texto = re.sub(r'\x1b\[[0-9;]*m', '', r.stdout or r.stderr or '')
     # Fuera fechas y ruido de setup: lo que importa está al final.
     utiles = [re.sub(r'^\S+\t\S+\t\S+Z ', '', l) for l in texto.splitlines() if l.strip()]
@@ -325,6 +444,7 @@ def quitar_worktree(wt):
     10/11: un `worktree remove` a medias (ficheros abiertos al cortar la pasada) dejó la carpeta con solo el enlace a
     node_modules y sin registro en git; `remove` ya no la reconocía y atlas falló cada hora con «already exists».
     """
+    matar_procesos_en(wt)
     nm = wt / 'node_modules'
     if os.path.lexists(nm):
         # Primero el enlace, sin seguirlo: borrar su contenido sería borrar el node_modules del repo vivo.
@@ -334,6 +454,27 @@ def quitar_worktree(wt):
     if wt.exists() and not os.path.lexists(nm):
         shutil.rmtree(wt, ignore_errors=True)
     sh(['git', 'worktree', 'prune'])
+
+
+def patron_worktree(wt) -> str:
+    """La ruta del worktree seguida de separador, comilla, espacio o fin (Fable C5).
+
+    Con `Contains` a pelo, `…-123` casaba también con `…-1234` y la limpieza mataba los procesos del otro árbol.
+    Expresión válida igual en Python y en .NET (`-match`, sin distinguir mayúsculas como las rutas de Windows)."""
+    return re.escape(str(wt)) + r'(?=[\\/"\'\s]|$)'
+
+
+def matar_procesos_en(wt):
+    """Procesos que siguen vivos con el worktree en su línea de órdenes: impiden borrarlo y gastan la máquina."""
+    if os.name != 'nt':
+        return
+    patron = patron_worktree(wt).replace("'", "''")
+    ps = ("Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -and $_.CommandLine -match '" + patron + "' "
+          "-and $_.ProcessId -ne $PID } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }")
+    try:
+        sh(['powershell', '-NoProfile', '-Command', ps], timeout=120)
+    except subprocess.TimeoutExpired:
+        pass   # sh ya mató el árbol de PowerShell; quitar_worktree sigue con lo que pueda borrar
 
 
 def limpiar_worktree(wt):
@@ -368,15 +509,202 @@ def dejar_como_el_indice(wt):
     sh(['git', 'clean', '-fdq', '--', '.', ':!node_modules'], cwd=wt)
 
 
-def puerta_local(wt, registro=''):
-    # Puerta por impacto (local-ci la elige sola) más los pasos que fallaron en el workflow. 10/11: la vía completa
-    # rechazó tres arreglos correctos por falsos fallos del entorno y la carga pasó 4 h sin publicar.
-    extra = [a for paso in pasos_fallidos(registro) for a in ('--tambien', paso)]
-    r = sh([sys.executable, 'scripts/local-ci.py', '--baseline', *extra], cwd=wt, timeout=3 * 3600)
+ORDEN_CI = re.compile(r'((?:\w+=[^\s\'"]+ )*)(python3?|node) ((?:qa|tests|scripts)/[\w./-]+(?: [^|&;<>`$()\'"]*)?)')
+
+
+def pasos_del_workflow(wt, fichero, nombres) -> list[str]:
+    """Las órdenes de los pasos `nombres` de `.github/workflows/<fichero>` del worktree (con el arreglo aplicado).
+
+    Solo órdenes simples `[VAR=v ...] python|node qa|tests|scripts/...`: tuberías, redirecciones o sustituciones no se
+    repiten aquí (las decide la CI de la PR). El env sin expresiones `${{ }}` del workflow, trabajo y paso va delante."""
+    try:
+        wf = yaml.safe_load((wt / '.github/workflows' / fichero).read_text(encoding='utf-8')) or {}
+    except (OSError, yaml.YAMLError) as exc:  # fichero ilegible o YAML roto: decide la CI de la PR
+        log(f"puerta: no pude leer el workflow {fichero} ({exc})")
+        return []
+    pasos = []
+    for job in (wf.get('jobs') or {}).values():
+        for paso in (job or {}).get('steps') or []:
+            run = (paso or {}).get('run')
+            if run and (paso.get('name') or 'Run ' + run.strip().splitlines()[0]) in nombres:
+                pasos += ordenes_del_paso(run, {**(wf.get('env') or {}), **(job.get('env') or {}), **(paso.get('env') or {})})
+    return pasos
+
+
+def _texto_env(valor) -> str:
+    return str(valor).lower() if isinstance(valor, bool) else str(valor)
+
+
+def ordenes_del_paso(run: str, env: dict) -> list[str]:
+    """Las órdenes simples de un `run:` con el env literal delante (sin `${{ }}` ni valores con espacios o comillas)."""
+    prefijo = ''.join(f'{k}={_texto_env(v)} ' for k, v in env.items()
+                      if '${{' not in _texto_env(v) and re.fullmatch(r'[^\s\'"]+', _texto_env(v)))
+    ordenes = []
+    for linea in re.sub(r'\\\n\s*', ' ', run).splitlines():
+        m = ORDEN_CI.fullmatch(linea.strip())
+        if m:
+            ordenes.append(f"{prefijo}{m.group(1)}{'python' if m.group(2).startswith('python') else 'node'} {m.group(3).strip()}")
+    return ordenes
+
+
+def pasos_de_las_ejecuciones(flujo, run, registro, wt) -> list[str]:
+    """Las órdenes de los pasos que fallaron, por los metadatos de la ejecución (trabajos y pasos con conclusión
+    «failure») y el YAML del workflow, no por el texto del registro.
+
+    15/11 (Codex en #1339): el registro solo dejaba ver `CalledProcessError` de scripts y `FAIL:` de unittest; los pasos
+    de navegador (`node qa/...`) que tumbaron la carga nunca llegaban a la puerta y un arreglo sin verificar pasaba.
+    La carga solo publica «<workflow>.yml failed (<id>)» de la CI de su PR de datos (mensaje del propio publicador):
+    se siguen también esas ejecuciones. Los flujos locales no tienen metadatos: ahí sigue el registro."""
+    if es_local(flujo):
+        return pasos_fallidos(registro)
+    ejecuciones = [(flujo, run['databaseId'])]
+    if flujo == INGESTA:
+        ejecuciones += list(dict.fromkeys(RE_QA_HIJO.findall(registro)))
+    pasos = []
+    for fichero, run_id in ejecuciones:
+        try:
+            jobs = gh_json('run', 'view', id_ejecucion(run_id), '--json', 'jobs')['jobs']
+        except Exception as exc:
+            log(f"puerta: sin metadatos de {fichero} ({run_id}): {exc}")
+            continue
+        nombres = {s.get('name') for j in jobs for s in j.get('steps') or [] if s.get('conclusion') == 'failure'}
+        pasos += pasos_del_workflow(wt, fichero, nombres)
+    return list(dict.fromkeys(pasos)) or pasos_fallidos(registro)
+
+
+def paso_de_prueba(wt, fichero) -> str:
+    """unittest descubre todas las clases del módulo; ejecutarlo directo salta las definidas tras `unittest.main()`."""
+    try:
+        usa_unittest = 'unittest' in (wt / fichero).read_text(encoding='utf-8', errors='replace')
+    except OSError:
+        usa_unittest = False
+    if usa_unittest and fichero.count('/') == 1:
+        return f'python -m unittest discover -s tests -p {fichero.split("/")[1]}'
+    return f'python {fichero}'
+
+
+def pasos_de_la_puerta(wt, registro='', pasos_ci=None):
+    """Los pasos que fallaron en la CI (por metadatos si los hay) más las pruebas de tests/ que el arreglo crea o cambia."""
+    pasos = list(pasos_ci) if pasos_ci is not None else pasos_fallidos(registro)
+    cambiados = sh(['git', 'diff', '--cached', '--name-only'], cwd=wt).stdout.split()
+    pasos += [paso_de_prueba(wt, f) for f in cambiados
+              if re.fullmatch(r'tests/test[-_][\w.-]*\.py', f) and (wt / f).exists()]
+    return list(dict.fromkeys(pasos))
+
+
+ENTORNO_VETADO = {'PATH', 'PATHEXT', 'COMSPEC', 'NODE_OPTIONS', 'NODE_PATH', 'PYTHONPATH', 'PYTHONHOME',
+                  'PYTHONSTARTUP', 'PYTHONINSPECT'}
+
+
+def entorno_vetado(clave) -> bool:
+    """Variables que cambian qué código carga el intérprete (Fable C6): una orden que las fija no se ejecuta en local."""
+    clave = clave.upper()
+    return clave in ENTORNO_VETADO or clave.startswith(('LD_', 'DYLD_'))
+
+
+def preparar_orden(paso):
+    """`VAR=v python x.py a` → (argv, env): sin shell, el prefijo de entorno del YAML va al entorno del proceso.
+
+    Con una variable vetada devuelve argv vacío: `orden_segura` la rechaza y la puerta la deja a la CI."""
+    args, env = paso.split(), {}
+    while args and re.fullmatch(r'\w+=\S*', args[0]):
+        clave, valor = args.pop(0).split('=', 1)
+        if entorno_vetado(clave):
+            return [], {}
+        env[clave] = valor
+    if args and args[0] == 'python':
+        args[0] = sys.executable
+    elif args and args[0] == 'node':
+        args[0] = exe('node')
+    return args, env
+
+
+ARG_SEGURO = re.compile(r'[\w./=:,-]+')
+
+
+def orden_segura(args, wt) -> bool:
+    """Solo se ejecutan órdenes con intérprete fijo y un script versionado del propio repo (Sonar S6350).
+
+    Las órdenes salen del YAML del worktree: aunque sea del repo, no se lanza nada que no sea `python|node` sobre un
+    fichero de qa/, tests/ o scripts/ que git conoce, ni `python -m unittest`, ni argumentos con caracteres raros."""
+    if len(args) < 2 or args[0] not in (sys.executable, exe('node')):
+        return False
+    if not all(ARG_SEGURO.fullmatch(a) for a in args[1:]):
+        return False
+    if args[1] == '-m':
+        return args[0] == sys.executable and args[2:3] == ['unittest']
+    if not re.fullmatch(r'(?:qa|tests|scripts)/[\w./-]+', args[1]) or '..' in args[1]:
+        return False
+    # cat-file sobre el índice (`:ruta`, como ls-files) y no ls-files: el trinquete de tests/test_arbol_publicado.py prohíbe listar el árbol a pelo.
+    return sh(['git', 'cat-file', '-e', f':{args[1]}'], cwd=wt).returncode == 0
+
+
+def servidor_listo(servidor, puerto=4173, plazo=20.0) -> bool:
+    """True cuando el servidor que acabamos de lanzar acepta conexiones; False si muere o no responde a tiempo."""
+    import socket
+    limite = time.monotonic() + plazo
+    while time.monotonic() < limite:
+        if servidor.poll() is not None:
+            return False
+        try:
+            with socket.create_connection(('127.0.0.1', puerto), timeout=1):
+                pass
+            # Con el puerto ya ocupado responde otro servidor (otro árbol) y el nuestro muere al poco: se comprueba.
+            time.sleep(0.5)
+            return servidor.poll() is None
+        except OSError:
+            time.sleep(0.3)
+    return False
+
+
+def puerta_local(wt, registro='', pasos_ci=None):
+    """Puerta dirigida: solo lo que falló y lo tocado; la batería completa la corre la CI de la PR antes del auto-merge.
+
+    15/11: la puerta anterior (`local-ci.py --baseline`, toda la batería por impacto) rechazó cada arreglo de la noche por
+    fallos ajenos al cambio y al entorno («83 ya fallaban en main», un píxel de la portada en móvil): ninguna reparación
+    llegó a PR y todo lo arregló una persona. local-ci dejó de mantenerse el 14/11.
+    Las pruebas de navegador de la CI sirven el sitio en 127.0.0.1:4173: si hay alguna, se levanta aquí igual."""
+    salida, fallos, hechos = [], [], 0
+    pasos = pasos_de_la_puerta(wt, registro, pasos_ci)
+    total = len(pasos)
+    servidor = None
+    if any(preparar_orden(p)[0][:1] == [exe('node')] for p in pasos):
+        servidor = subprocess.Popen([sys.executable, '-m', 'http.server', '4173', '--bind', '127.0.0.1'], cwd=str(wt),
+                                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, creationflags=SIN_VENTANA,
+                                    start_new_session=os.name != 'nt')
+        if not servidor_listo(servidor):
+            # Puerto ocupado o arranque fallido: las pruebas de navegador fallarían por el entorno, no por el arreglo.
+            log("puerta: el servidor 127.0.0.1:4173 no arrancó; los pasos de navegador los decide la CI de la PR")
+            matar_arbol(servidor.pid)
+            servidor = None
+            pasos = [p for p in pasos if preparar_orden(p)[0][:1] != [exe('node')]]
+    try:
+        for paso in pasos:
+            args, env = preparar_orden(paso)
+            if not orden_segura(args, wt):
+                salida.append(f'omitido (orden no permitida, la decide la CI de la PR): {paso}')
+                continue
+            hechos += 1
+            try:
+                r = sh(args, cwd=wt, timeout=30 * 60, env=env)
+                codigo, texto = r.returncode, (r.stdout or '') + (r.stderr or '')
+            except subprocess.TimeoutExpired:
+                codigo, texto = 124, 'agotó 30 min'
+            if codigo:
+                fallos.append(paso)
+                salida.append(f'## {paso}  (código {codigo})\n' + '\n'.join(texto.strip().splitlines()[-40:]))
+            else:
+                salida.append(f'ok {paso}')
+    finally:
+        if servidor is not None:
+            matar_arbol(servidor.pid)
     dejar_como_el_indice(wt)
-    salida = (r.stdout or '') + (r.stderr or '')
-    guardar_puerta(wt, salida)
-    return veredicto_puerta(r.returncode, salida, pasos_fallidos(registro))
+    if not salida:
+        salida.append('sin pasos locales que repetir: decide la CI de la PR')
+    # La última línea sobrevive al recorte de 3000 caracteres: de ella sale el «Comprobado» de la PR (Fable C4).
+    texto = '\n'.join(salida + [f'{hechos} ejecutados, {total - hechos} omitidos, {len(fallos)} fallos'])
+    guardar_puerta(wt, texto)
+    return not fallos, texto[-3000:]
 
 
 def guardar_puerta(wt, salida, conservar=30):
@@ -435,15 +763,38 @@ def instantanea(flujo) -> str:
             + '\n\n'.join(partes)[-8000:] + "\n```")
 
 
-def reparar(flujo, run, dry, historial=None):
-    registro = registro_fallo(run['databaseId'], run=run if es_local(flujo) else None)
+def rama_de_datos(wt, rama, flujo) -> str:
+    """El agente va sin credenciales: el orquestador le deja la rama de datos para reproducir con el catálogo real."""
+    try:
+        r = sh(['git', 'fetch', '-q', 'origin', f'{rama}:refs/remotes/origin/{rama}'], cwd=wt, timeout=600)
+    except subprocess.TimeoutExpired:
+        log(f"{flujo}: no pude traer {rama} (agotó 10 min); el agente reproduce con los datos de main")
+        return ''
+    if r.returncode:
+        log(f"{flujo}: no pude traer {rama} ({(r.stderr or '').strip()[-200:]}); el agente reproduce con los datos de main")
+        return ''
+    return (f"\n\nLa rama de datos que falló está en `origin/{rama}`. Para reproducir con el catálogo real: "
+            f"`git worktree add --detach ../datos-repro origin/{rama}`, copia ahí qa/ y tests/ de tu worktree, "
+            "sirve con `python -m http.server 4173 --bind 127.0.0.1` y ejecuta la prueba que falló; "
+            "al acabar para el servidor y borra ese worktree.")
+
+
+def reparar(flujo, run, dry, historial=None, auto=True):  # skipcq: PY-R1000 (orden P2-1: refactor pendiente)
+    completo = registro_fallo(run['databaseId'], run=run if es_local(flujo) else None)
+    if flujo == INGESTA:
+        completo += registro_qa_hijo(completo)
+    # Rama de datos y ejecuciones hijas se buscan en el registro entero; solo el prompt lleva el recorte (CodeRabbit #1339).
+    registro = completo[-30000:]
     if dry:
         log(f"[dry] {flujo}: repararía con {[a[0] for a in agentes()]}; registro {len(registro)} caracteres; "
             f"{len(historial or [])} intentos anteriores")
         return None
     wt, rama = preparar_worktree(flujo, run['databaseId'])
     prompt = prompt_reparacion(flujo, run, registro, historial, instantanea(flujo))
+    datos = list(dict.fromkeys(RAMA_DATOS.findall(completo)))
     try:
+        if datos:
+            prompt += rama_de_datos(wt, datos[-1], flujo)
         for nombre, argv, env, trailer in agentes():
             log(f"{flujo}: probando {nombre}")
             args = [exe(argv[0]), *argv[1:]] + (['-C', str(wt), '-'] if nombre == 'codex' else [])
@@ -466,48 +817,66 @@ def reparar(flujo, run, dry, historial=None):
             ok, motivo = diff_valido(sh(['git', 'diff', '--cached'], cwd=wt).stdout)
             if not ok:
                 log(f"{flujo}: {nombre} rechazado ({motivo})"); sh(['git', 'reset', '-q'], cwd=wt); deshacer(wt); continue
-            pasa, salida_puerta = puerta_local(wt, registro)
+            # Tras cada arreglo: si el agente cambió el comando de un paso en el YAML, la puerta corre el nuevo.
+            pasos_ci = pasos_de_las_ejecuciones(flujo, run, completo, wt)
+            pasa, salida_puerta = puerta_local(wt, registro, pasos_ci)
             if not pasa:
                 # No se tira el arreglo: el siguiente agente parte de él y de lo que dijo la puerta (10/11: tres
                 # arreglos correctos rehechos desde cero, uno tras otro).
                 log(f"{flujo}: {nombre} no pasa la puerta local:\n{salida_puerta[-1500:]}"); sh(['git', 'reset', '-q'], cwd=wt)
                 prompt = prompt_continuar(prompt, nombre, salida_puerta); continue
-            titulo = (resumen.splitlines() or [f'Reparar {flujo}'])[0].lstrip('# ').strip()[:90] or f'Reparar {flujo}'
-            cuerpo = '\n'.join(resumen.splitlines()[1:]).strip()
-            mensaje = f"{titulo}\n\nReparación automática del turno de noche ({nombre}) tras dos fallos de {flujo}.\n{run['url']}\n\n{cuerpo}".strip()
-            if trailer:
-                mensaje += '\n\n' + trailer
-            sh(['git', 'commit', '-q', '-F', '-'], cwd=wt, entrada=mensaje, check=True)
-            sh(['git', 'push', '-q', '-u', 'origin', rama], cwd=wt, check=True, timeout=600)
-            body = (f"## Qué falló\n`{flujo}` falló dos veces seguidas en main: {run['url']}\n\n## Arreglo ({nombre})\n{cuerpo or titulo}\n\n"
-                    f"## Comprobado\n- Puerta local por impacto (`local-ci.py --baseline` + los pasos que fallaron): sin fallos nuevos.\n- Al entrar en main, el turno de noche relanza `{flujo}`.\n\n{PIE_PR}")
-            url = sh(['gh', 'pr', 'create', '--repo', GH_REPO, '--base', 'main', '--head', rama, '--title', titulo, '--body-file', '-'],
-                     cwd=wt, entrada=body, check=True).stdout.strip().splitlines()[-1]
-            numero = int(url.rstrip('/').rsplit('/', 1)[-1])
-            sh(['gh', 'pr', 'merge', str(numero), '--repo', GH_REPO, '--auto', '--squash'])
-            log(f"{flujo}: PR {url} con auto-merge ({nombre})")
-            return {'pr': numero, 'agente': nombre, 'titulo': titulo}
+            return publicar_arreglo(flujo, run, wt, rama, nombre, resumen, trailer, auto, salida_puerta)
         log(f"{flujo}: ninguna IA dejó un arreglo válido")
         return {'fallido': True}
     finally:
         limpiar_worktree(wt)
 
 
-def pasada(dry=False, solo=None):
+def linea_comprobado(puerta: str) -> str:
+    """Lo que la puerta hizo de verdad (Fable C4): sin pasos ejecutados no se dice «en verde»."""
+    m = re.search(r'(\d+) ejecutados, (\d+) omitidos, (\d+) fallos\s*$', puerta or '')
+    if not m or m.group(1) == '0':
+        omitidos = f" ({m.group(2)} pasos omitidos)" if m and m.group(2) != '0' else ''
+        return f"- Sin verificación local{omitidos}: decide la CI de esta PR."
+    texto = f"- Puerta local dirigida: {m.group(1)} pasos ejecutados en verde"
+    if m.group(2) != '0':
+        texto += f", {m.group(2)} omitidos (los decide la CI)"
+    return texto + ". La batería completa la corre esta PR."
+
+
+def publicar_arreglo(flujo, run, wt, rama, nombre, resumen, trailer, auto, puerta=''):
+    """Commit, push y PR del arreglo que pasó la puerta; auto-merge ya o, con la carga en marcha, en la primera pasada sin ella."""
+    titulo = (resumen.splitlines() or [f'Reparar {flujo}'])[0].lstrip('# ').strip()[:90] or f'Reparar {flujo}'
+    cuerpo = '\n'.join(resumen.splitlines()[1:]).strip()
+    mensaje = f"{titulo}\n\nReparación automática del turno de noche ({nombre}) tras dos fallos de {flujo}.\n{run['url']}\n\n{cuerpo}".strip()
+    if trailer:
+        mensaje += '\n\n' + trailer
+    sh(['git', 'commit', '-q', '-F', '-'], cwd=wt, entrada=mensaje, check=True)
+    sh(['git', 'push', '-q', '-u', 'origin', rama], cwd=wt, check=True, timeout=600)
+    body = (f"## Qué falló\n`{flujo}` falló dos veces seguidas en main: {run['url']}\n\n## Arreglo ({nombre})\n{cuerpo or titulo}\n\n"
+            f"## Comprobado\n{linea_comprobado(puerta)}\n- Al entrar en main, el turno de noche relanza `{flujo}`.\n\n{PIE_PR}")
+    url = sh(['gh', 'pr', 'create', '--repo', GH_REPO, '--base', 'main', '--head', rama, '--title', titulo, '--body-file', '-'],
+             cwd=wt, entrada=body, check=True).stdout.strip().splitlines()[-1]
+    numero = int(url.rstrip('/').rsplit('/', 1)[-1])
+    # Los agentes y la puerta pueden durar horas: se vuelve a mirar si arrancó una carga antes de activar el auto-merge.
+    auto = auto and (flujo == INGESTA or not ingesta_en_marcha())
+    if not auto:
+        log(f"{flujo}: PR {url} ({nombre}); la carga está en marcha: auto-merge en la primera pasada sin carga")
+        return {'pr': numero, 'agente': nombre, 'titulo': titulo, 'auto_pendiente': True}
+    sh(['gh', 'pr', 'merge', str(numero), '--repo', GH_REPO, '--auto', '--squash'])
+    log(f"{flujo}: PR {url} con auto-merge ({nombre})")
+    return {'pr': numero, 'agente': nombre, 'titulo': titulo}
+
+
+def pasada(dry=False, solo=None, ahora=None):  # skipcq: PY-R1000 (orden P2-1: refactor pendiente)
     estado = cargar_estado()
-    ahora = dt.datetime.now(dt.timezone.utc)
+    ahora = ahora or dt.datetime.now(dt.timezone.utc)
     hoy = ahora.date().isoformat()
     caida = actions_caido()
     if caida:
         log(f"GitHub Actions en incidencia ({caida}): no relanzo ni reparo nada; reintento en la siguiente pasada")
-    if not solo or solo == INGESTA:
-        try:
-            if not caida and carga_perdida(ultima_ejecucion(INGESTA), ahora, estado.get('carga_perdida') == hoy):
-                log(f"{'[dry] ' if dry else ''}{INGESTA}: hoy no se ha lanzado la carga nocturna; la lanzo")
-                dry or sh(['gh', 'workflow', 'run', INGESTA, '--ref', 'main', '--repo', GH_REPO], check=True)
-                estado['carga_perdida'] = hoy
-        except Exception as exc:
-            log(f"{INGESTA}: no pude comprobar si la carga se lanzó: {exc}")
+    if (not solo or solo == INGESTA) and not caida:
+        vigia_carga(dry, ahora)
     for flujo in [solo] if solo else [*VIGILADOS, *flujos_locales()]:
         try:
             run = ultima_ejecucion(flujo)
@@ -523,6 +892,12 @@ def pasada(dry=False, solo=None):
                 if pr['state'] == 'CLOSED':
                     previo['pr_cerrada'] = True
                     anotar(previo, 'PR cerrada sin entrar')
+                elif previo.get('auto_pendiente') and not ingesta_en_marcha():
+                    log(f"{flujo}: la carga terminó; activo el auto-merge de la PR #{previo['pr']}")
+                    # check=True: si falla (API caída), la marca se queda y la siguiente pasada lo reintenta.
+                    if not dry:
+                        sh(['gh', 'pr', 'merge', str(previo['pr']), '--repo', GH_REPO, '--auto', '--squash'], check=True)
+                    previo.pop('auto_pendiente', None)
                 elif (motivo := pr_atascada(pr, ahora)):
                     log(f"{flujo}: PR #{previo['pr']} no puede entrar ({motivo}); la cierro y cuento el intento como fallido")
                     dry or sh(['gh', 'pr', 'close', str(previo['pr']), '--repo', GH_REPO, '--delete-branch', '--comment',
@@ -533,6 +908,10 @@ def pasada(dry=False, solo=None):
             fallido = run and run.get('status') == 'completed' and run.get('conclusion') in ('failure', 'timed_out', 'startup_failure')
             infra = bool(fallido) and not es_local(flujo) and fallo_de_infraestructura(run['databaseId'])
             accion = decidir(run, previo, ahora, intentos, infra)
+            if (accion == 'relanzar' and flujo == INGESTA and not infra and not (previo or {}).get('sin_arreglo')
+                    and run.get('headSha') and main_cambio_codigo(run['headSha']) == []):
+                log(f"{flujo}: falló y main no trae código nuevo desde {run['headSha'][:9]}: relanzar repetiría el fallo; reparo")
+                accion = 'reparar' if intentos < MAX_INTENTOS_DIA else 'agotado'
             if caida and accion in ('relanzar', 'reparar'):
                 continue
             if infra and accion == 'relanzar':
@@ -559,10 +938,11 @@ def pasada(dry=False, solo=None):
                 dry or relanzar(flujo, run)
                 estado.setdefault(flujo, {})['relanzado'] = ahora.isoformat()
                 continue
-            if flujo != INGESTA and ingesta_en_marcha():
-                log(f"{flujo}: la carga del catálogo está en marcha; reparo en la siguiente pasada"); continue
+            # Con la carga en marcha se repara igual (antes se aplazaba, y la carga ocupa casi toda la noche: el 15/11 no
+            # se reparó nada); solo se retrasa el auto-merge.
             try:
-                res = reparar(flujo, run, dry, (previo or {}).get('historial'))
+                res = reparar(flujo, run, dry, (previo or {}).get('historial'),
+                              auto=flujo == INGESTA or not ingesta_en_marcha())
             except Exception as exc:
                 # También cuenta si falla commit/push/PR: de otro modo se repite cada hora sin límite ni aviso.
                 log(f"{flujo}: error durante la reparación: {exc}")
@@ -577,7 +957,7 @@ def pasada(dry=False, solo=None):
 
 def registrar_intento(e: dict, res: dict, run: dict, ahora: dt.datetime):
     e.setdefault('intentos', []).append(ahora.isoformat())
-    for k in ('sin_arreglo', 'fallido', 'pr', 'agente', 'titulo', 'error'):
+    for k in ('sin_arreglo', 'fallido', 'pr', 'agente', 'titulo', 'error', 'auto_pendiente'):
         e.pop(k, None)
     e.update(res, run=run['databaseId'], pr_cerrada=not res.get('pr'))
     if res.get('pr'):
@@ -621,7 +1001,7 @@ def relanzar(flujo, run):
     if flujo == 'reading-telegram-publish.yml':
         # El dispatch manual exige test_asin. Reintentar el fallo conserva el evento diario
         # y su historial de entregas; el checkout del workflow obtiene el código actual de main.
-        sh(['gh', 'run', 'rerun', str(run['databaseId']), '--failed', '--repo', GH_REPO], check=True)
+        sh(['gh', 'run', 'rerun', id_ejecucion(run['databaseId']), '--failed', '--repo', GH_REPO], check=True)
         return
     if not es_local(flujo):
         sh(['gh', 'workflow', 'run', flujo, '--ref', 'main', '--repo', GH_REPO], check=True)
@@ -696,6 +1076,7 @@ def tomar_cerrojo(ruta):
     moría sin borrar el fichero bloqueaba las siguientes hasta que caducaba. Devuelve el fichero abierto (cerrarlo lo
     suelta) o None si otro proceso lo tiene.
     """
+    Path(ruta).parent.mkdir(parents=True, exist_ok=True)
     f = open(ruta, 'a+')
     try:
         if os.name == 'nt':
@@ -723,17 +1104,20 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument('--dry-run', action='store_true')
     ap.add_argument('--solo')
+    ap.add_argument('--vigia-carga', action='store_true')
     a = ap.parse_args()
     ESTADO_DIR.mkdir(parents=True, exist_ok=True)
+    if a.vigia_carga:
+        vigia_carga(a.dry_run)   # toma él mismo lock-vigia: la pasada horaria lo llama también
+        return
     cerrojo = tomar_cerrojo(ESTADO_DIR / 'lock')
     if cerrojo is None:
-        print('Otra pasada sigue en marcha'); return 0
+        print('Otra pasada sigue en marcha'); return
     try:
         pasada(a.dry_run, a.solo)
     finally:
         cerrojo.close()
-    return 0
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    main()

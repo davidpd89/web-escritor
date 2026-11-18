@@ -29,6 +29,38 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 NAV_PATH = ROOT / "data" / "navigation.json"
 
+# R5-3: los iconos del shell (cabecera y pie) van en un sprite común y cacheable en vez de repetirse en línea en
+# cada página (unos 5 KB por ficha). Cada <svg> conserva sus atributos exteriores (viewBox, tamaño, fill/stroke,
+# aria-hidden), que el contenido de <use> hereda: mismo aspecto. El id sale del contenido, así que cambiar un icono
+# cambia su referencia. El sprite se escribe aquí mismo y `--check` lo vigila como a las páginas.
+ICON_SPRITE_REL = "assets/iconos.svg"
+ICON_SPRITE_PATH = ROOT / ICON_SPRITE_REL
+_SVG_RE = re.compile(r'<svg\b([^>]*)>(.*)</svg>', re.S)
+ICONS: dict[str, tuple[str, str]] = {}
+
+
+# Relleno y trazo viajan al <symbol>, que los hereda a su contenido. El viewBox se queda en el <svg> de la página
+# (con él en el <symbol> el dibujo se desplazaba 1 px al reescalar) y el <symbol> no lleva viewBox: mismas coordenadas.
+_DRAWING_ATTR = re.compile(r'\s(fill|stroke(?:-[a-z]+)?)="([^"]*)"')
+
+
+def icon(svg: str) -> str:
+    """Devuelve el mismo <svg> con el dibujo por referencia al sprite y lo registra en ICONS."""
+    match = _SVG_RE.fullmatch(svg)
+    if not match or "viewBox=" not in match.group(1) or "<svg" in match.group(2):
+        raise ValueError(f"icono no apto para el sprite: {svg[:80]}")
+    drawing = "".join(f' {k}="{v}"' for k, v in _DRAWING_ATTR.findall(match.group(1)))
+    outer = _DRAWING_ATTR.sub("", match.group(1))
+    ident = "i" + hashlib.sha256(f"{drawing}|{match.group(2)}".encode()).hexdigest()[:6]
+    if ICONS.setdefault(ident, (drawing, match.group(2))) != (drawing, match.group(2)):
+        raise ValueError(f"colisión de id en el sprite: {ident}")
+    return f'<svg{outer}><use href="/{ICON_SPRITE_REL}#{ident}"/></svg>'
+
+
+def render_icon_sprite() -> str:
+    symbols = "".join(f'<symbol id="{ident}"{drawing}>{inner}</symbol>' for ident, (drawing, inner) in sorted(ICONS.items()))
+    return f'<svg xmlns="http://www.w3.org/2000/svg">{symbols}</svg>\n'
+
 
 def support_active() -> bool:
     """El icono de apoyo solo existe cuando hay al menos un canal de cobro configurado."""
@@ -260,6 +292,17 @@ FOOTER_SOCIAL: list[tuple[str, str, str]] = [
      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M19.3 5.3A16.6 16.6 0 0 0 15.2 4l-.5 1a15.4 15.4 0 0 0-5.4 0L8.8 4a16.6 16.6 0 0 0-4.1 1.3C2.1 9.2 1.4 13 1.7 16.7a16.7 16.7 0 0 0 5.1 2.6l1.1-1.8c-.6-.2-1.2-.5-1.7-.9l.4-.3a11.9 11.9 0 0 0 10.8 0l.4.3c-.5.4-1.1.7-1.7.9l1.1 1.8a16.6 16.6 0 0 0 5.1-2.6c.4-4.3-.7-8-3-11.4zM8.7 14.4c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2zm6.6 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2z"/></svg>'),
 ]
 
+FOOTER_SOCIAL_ICONS = [(name, url, icon(svg)) for name, url, svg in FOOTER_SOCIAL]
+
+_ICON_0 = icon('<svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16"/></svg>')
+_ICON_1 = icon('<svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M3.5 10.5 12 3.7l8.5 6.8"/><path d="M5.5 9.2V20h13V9.2"/><path d="M9.5 20v-6h5v6"/></svg>')
+_ICON_2 = icon('<svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M3 6.5 9 4l6 2.5 6-2.5v13.5l-6 2.5-6-2.5-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg>')
+_ICON_3 = icon('<svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.35-4.35"/></svg>')
+_ICON_4 = icon('<svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M4 6.5h16v11H4z"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>')
+_ICON_5 = icon('<svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6"/></svg>')
+_ICON_6 = icon('<svg aria-hidden="true" viewBox="0 0 16 16" focusable="false"><path d="m4 6 4 4 4-4"/></svg>')
+_ICON_7 = icon('<svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>')
+
 
 def render_footer_social() -> str:
     def attrs(name: str, url: str) -> str:
@@ -269,7 +312,7 @@ def render_footer_social() -> str:
 
     items = "".join(
         f'<li><a class="ft-social" href="{url}" {attrs(name, url)}>{svg}</a></li>'
-        for name, url, svg in FOOTER_SOCIAL
+        for name, url, svg in FOOTER_SOCIAL_ICONS
     )
     return f'<ul class="ft__social" aria-label="Redes sociales">{items}</ul>'
 
@@ -489,16 +532,16 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         '  <div class="site-header__inner">\n'
         '    <div class="site-header__left">\n'
         '      <button class="explore-trigger" type="button" aria-haspopup="dialog" aria-controls="explore-dialog" aria-expanded="false" aria-label="Abrir menú" data-explore-open>\n'
-        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M4 7h16M4 12h16M4 17h16"/></svg>\n'
+        '        ' + _ICON_0 + '\n'
         '      </button>\n'
         '      <a class="header-home" href="/" aria-label="Volver a inicio" title="Inicio">\n'
-        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M3.5 10.5 12 3.7l8.5 6.8"/><path d="M5.5 9.2V20h13V9.2"/><path d="M9.5 20v-6h5v6"/></svg>\n'
+        '        ' + _ICON_1 + '\n'
         '      </a>\n'
         '      <a class="header-sitemap" href="/mapa-del-sitio/" aria-label="Mapa del sitio" title="Mapa del sitio">\n'
-        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M3 6.5 9 4l6 2.5 6-2.5v13.5l-6 2.5-6-2.5-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg>\n'
+        '        ' + _ICON_2 + '\n'
         '      </a>\n'
         '      <button class="header-search" type="button" data-assistant-search-open aria-label="Abrir asistente">\n'
-        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.35-4.35"/></svg>\n'
+        '        ' + _ICON_3 + '\n'
         '        <span>Asistente</span>\n'
         '      </button>\n'
         '    </div>\n'
@@ -507,7 +550,7 @@ def render_header(nav: dict, by_id: dict[str, Entry], current_path: str) -> str:
         # Same mail chooser as the footer «@ Escríbeme» (email-reveal.js +
         # v1-shell.js); without JS it stays a link to the press contact section.
         '      <a class="header-contact" href="/prensa.html#contacto" data-email-reveal data-email-keep-markup aria-label="Contactar" title="Contactar">\n'
-        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M4 6.5h16v11H4z"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>\n'
+        '        ' + _ICON_4 + '\n'
         '      </a>\n'
         f"{SUPPORT_LINK if support_active() else ''}"
         f"{buy_link}"
@@ -585,7 +628,7 @@ def render_explore_territories(nav: dict, by_id: dict[str, Entry]) -> str:
             expand_button = (
                 f'\n            <button type="button" class="explore-row__toggle" aria-expanded="false" '
                 f'aria-controls="{panel_id}" aria-label="Mostrar más de {entry.short_label}">'
-                '<svg aria-hidden="true" viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6"/></svg></button>'
+                '' + _ICON_5 + '</button>'
             )
             child_links = "".join(
                 f'<a href="{href}">{label}</a>' for href, label in children
@@ -642,7 +685,7 @@ def render_masthead_nav(nav: dict, by_id: dict[str, Entry]) -> str:
         items.append(
             '            <li class="masthead-nav__item">\n'
             f'              <a href="{entry.url}" data-territory="{item["id"]}">{entry.short_label}</a>\n'
-            f'              <button type="button" class="masthead-nav__submenu-trigger" aria-label="Ver opciones de {entry.short_label}" aria-expanded="false" aria-controls="{panel}"><svg aria-hidden="true" viewBox="0 0 16 16" focusable="false"><path d="m4 6 4 4 4-4"/></svg></button>\n'
+            f'              <button type="button" class="masthead-nav__submenu-trigger" aria-label="Ver opciones de {entry.short_label}" aria-expanded="false" aria-controls="{panel}">' + _ICON_6 + '</button>\n'
             f'              <div class="masthead-nav__submenu" id="{panel}" aria-label="Opciones de {entry.short_label}">\n'
             f'{links}\n'
             '              </div>\n'
@@ -698,7 +741,7 @@ def render_explore(nav: dict, by_id: dict[str, Entry], current_path: str, allow_
         '        <h2 id="explore-title">Explorar</h2>\n'
         '      </div>\n'
         '      <button class="icon-button" type="button" aria-label="Cerrar Explorar" data-explore-close>\n'
-        '        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M5 5l14 14M19 5L5 19"/></svg>\n'
+        '        ' + _ICON_7 + '\n'
         '      </button>\n'
         '    </div>\n\n'
         '    <div class="explore-dialog__grid">\n'
@@ -794,6 +837,7 @@ FOOTER_CHEVRON = (
     'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" '
     'focusable="false"><path d="m6 9 6 6 6-6"/></svg>'
 )
+FOOTER_CHEVRON = icon(FOOTER_CHEVRON)
 
 
 def render_footer(nav: dict, by_id: dict[str, Entry], extras: dict, rel_path: str, current_path: str,
@@ -1099,6 +1143,12 @@ def main() -> int:
             changed.append(rel)
             if not args.check:
                 standalone.write_text(updated, encoding="utf-8", newline="\n")
+
+    sprite = render_icon_sprite()
+    if not ICON_SPRITE_PATH.exists() or ICON_SPRITE_PATH.read_text(encoding="utf-8") != sprite:
+        changed.append(ICON_SPRITE_REL)
+        if not args.check:
+            ICON_SPRITE_PATH.write_bytes(sprite.encode("utf-8"))
 
     if args.check and changed:
         print("FAIL: shell desactualizado en:", file=sys.stderr)

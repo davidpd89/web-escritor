@@ -25,7 +25,7 @@ await fs.mkdir(OUT, { recursive: true });
 const normalizeEol = value => value.replace(/\r\n?/g, '\n');
 if (BASE_SHA) {
   const current = normalizeEol(await fs.readFile('fragmento/index.html', 'utf8'));
-  const before = normalizeEol(execFileSync('git', ['show', `${BASE_SHA}:fragmento/index.html`], { encoding: 'utf8' }));
+  const before = normalizeEol(execFileSync('git', ['show', `${BASE_SHA}:fragmento/index.html`], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 }));
   const pattern = /<article class="fragment-reading fragment-text" data-nosnippet>([\s\S]*?)<\/article>/;
   const currentText = current.match(pattern)?.[1];
   const baseText = before.match(pattern)?.[1];

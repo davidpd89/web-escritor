@@ -17,3 +17,5 @@ tzdata==2025.3
 # catálogo en tests/test_reading_catalogue_font_subset.py (cobertura de glifos).
 fonttools==4.63.0
 brotli==1.2.0
+# PyYAML: scripts/night-autorepair.py lee los workflows para repetir los pasos fallidos.
+PyYAML==6.0.3

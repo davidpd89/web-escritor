@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://davidporto.es/schemas/reading-catalogue/libro-v1.schema.json",
+  "title": "Libro publicado de data/reading-catalogue.json",
+  "description": "Mínimo que necesita una ficha publicada. Lo valida tests/test_reading_catalogue_schema_smoke.py, que entra solo en la puerta de datos de la carga y nombra los ids que fallan.",
+  "type": "object",
+  "required": ["id", "isbn13", "titulo", "autores", "slug", "estado", "formato_edicion", "editorial", "idioma", "portada_local"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^(isbn-97[89][0-9]{10}|lib-[0-9]{4})$"},
+    "isbn13": {"type": "string", "pattern": "^97[89][0-9]{10}$"},
+    "titulo": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "autores": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "pattern": "\\S"}},
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "estado": {"enum": ["publicado", "borrador"]},
+    "formato_edicion": {"enum": ["tapa-blanda", "tapa-dura", "ebook", "audiolibro"]},
+    "editorial": {"type": "string", "minLength": 1, "pattern": "\\S"},
+    "idioma": {"type": "string", "minLength": 2},
+    "portada_local": {"type": "string", "pattern": "^/assets/"},
+    "fecha_publicacion": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"}
+  }
+}

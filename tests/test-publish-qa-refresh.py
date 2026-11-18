@@ -50,13 +50,17 @@ def scenario(main_files, conflict=False, workflows=('qa.yml',), cancel_race=Fals
         if args[:2] == ('run', 'cancel') and cancel_race:
             state['cancelado'] = True
             raise module.subprocess.CalledProcessError(1, 'gh')  # terminó entre el listado y la cancelación
+        if args[0] == 'api' and args[1:3] == ('--method', 'POST') and args[3].endswith('/dispatches'):
+            return json.dumps({'workflow_run_id': 3})
+        if args[:3] == ('run', 'view', '3'):
+            return json.dumps({'databaseId': 3, 'headSha': 'merged', 'status': 'completed', 'conclusion': 'success'})
         if args[:2] == ('run', 'view'):
             return json.dumps({'status': 'completed'})
         if args[:2] == ('run', 'list'):
             ok = state['head'] == 'new'
             return json.dumps([{'databaseId': 1 if not ok else 2, 'headSha': state['head'], 'status': 'completed',
                                 'conclusion': 'success' if ok else 'failure'}])
-        if args[:2] in {('run', 'rerun'), ('pr', 'merge'), ('workflow', 'run'), ('run', 'cancel')}:
+        if args[:2] in {('run', 'rerun'), ('pr', 'merge'), ('run', 'cancel')}:
             return ''
         raise AssertionError(args)
 
@@ -71,14 +75,27 @@ state = scenario(['qa/catalogue-filter-interaction-matrix.mjs'])
 assert any(c[:2] == ('pr', 'merge') and 'new' in c for c in state['calls']), state['calls']
 assert not any(c[:2] == ('run', 'rerun') for c in state['calls'])
 
-# main solo cambió datos: no hay arreglo que traer; reintento único y fallo.
-for files in ([], ['data/social/snapshot.json']):
+# main no cambió ni código de QA ni entradas de los builders: no hay arreglo que traer ni nada que regenerar;
+# reintento único y fallo.
+for files in ([], ['.ci/performance-budget.json']):
     try:
         scenario(files)
     except RuntimeError as exc:
         assert 'failed' in str(exc), exc
     else:
         raise AssertionError(f'{files}: debía fallar')
+
+# main cambió solo entradas de los builders (datos, html, plantillas), sin tocar código de QA: un reintento repetiría
+# el mismo fallo contra lo generado ya desfasado y update-branch solo mezclaría dos regeneraciones distintas del
+# mismo artefacto; se regenera desde main sin esperar a que cambie también el código (16/11: PR #1328, tres noches
+# reintentando el mismo commit porque main solo había movido `recomendaciones/**` y `data/**`).
+for files in (['data/reading-catalogue.json'], ['recomendaciones/libros/x/index.html']):
+    try:
+        scenario(files)
+    except module.StaleMerge as exc:
+        assert 'entradas de lo generado' in str(exc), exc
+    else:
+        raise AssertionError(f'{files}: debía pedir regenerar')
 
 # La rama no se puede poner al día (conflicto con datos de main): se regenera.
 try:
