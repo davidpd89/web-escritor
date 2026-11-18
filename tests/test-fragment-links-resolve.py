@@ -56,6 +56,10 @@ def path_to_file(path: str) -> Path | None:
         return ROOT / path / "index.html"
     if path.endswith(".html"):
         return ROOT / path
+    if Path(path).suffix:
+        # Recurso con fragmento (sprite SVG `<use href="/assets/iconos.svg#id">`): el id se busca en el propio
+        # fichero, así que un icono que falta en el sprite sigue fallando.
+        return ROOT / path
     for candidate in (ROOT / f"{path}/index.html", ROOT / f"{path}.html"):
         if candidate.exists():
             return candidate

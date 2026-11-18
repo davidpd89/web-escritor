@@ -834,6 +834,18 @@ def page_rating(document):
     return {'puntuacion':value,'numero_valoraciones':total} if 1<=value<=5 and total>0 else None
 
 
+def page_synopsis(document):
+    """Descripción del libro en la ficha (`bookDescription_feature_div`), en párrafos de texto plano; '' si no hay.
+    Las altas que llegan por la API de Amazon no traen sinopsis (Creators no la devuelve) y la ficha sí."""
+    block=re.search(r'id="bookDescription_feature_div"(.*?)(?:<div class="a-expander-header|</noscript>|id="detailBullets)',document,re.S)
+    if not block:
+        return ''
+    body=re.sub(r'(?is)<(script|style)\b.*?</\1>','',block.group(1))
+    body=re.sub(r'(?i)<br\s*/?>|</p>|</div>','\n\n',body.split('>',1)[-1])
+    paragraphs=[' '.join(html.unescape(re.sub(r'<[^>]+>',' ',part)).split()) for part in body.split('\n\n')]
+    return '\n\n'.join(p for p in paragraphs if p)
+
+
 def cover_kind(book):
     if book.get('portada_sustituida'):
         return 'amazon'
@@ -872,7 +884,9 @@ def audit_book(book,fetch,day):
     record['faltan']=[f for f in record['amazon'] if f not in shown]
     record['sin_confirmar']=[f for f in shown if f not in record['amazon']]
     rating=page_rating(document)
-    return {**record,'estado':'ok','portada_amazon':page_cover_url(document),**({'valoracion':rating} if rating else {})}
+    synopsis=page_synopsis(document)  # '' también se guarda: la ficha ya se miró y no tiene descripción
+    return {**record,'estado':'ok','portada_amazon':page_cover_url(document),**({'valoracion':rating} if rating else {}),
+            'sinopsis_amazon':synopsis}
 
 
 def apply_audit(book,record,tag):

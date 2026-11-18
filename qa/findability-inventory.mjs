@@ -29,7 +29,7 @@ function inventory(html){
     sections:sectionTags.map(t=>attr(t,'id')||'(sin id)')
   };
 }
-const baseText=p=>execFileSync('git',['show',`${BASE}:${p}`],{encoding:'utf8'});
+const baseText=p=>execFileSync('git',['show',`${BASE}:${p}`],{encoding:'utf8',maxBuffer:256*1024*1024});
 
 // A baseline destination may only disappear if it was already broken: the
 // target file does not exist, or its #anchor matches no id in that file.

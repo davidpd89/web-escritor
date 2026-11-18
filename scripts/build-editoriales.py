@@ -180,9 +180,6 @@ def validate_record(record: dict, seen: set[str], today: date) -> list[str]:
         )
     if page_updated > today:
         raise ValidationError(f"{slug}: page_updated_at está en el futuro")
-    age = (today - verified).days
-    if age > 90:
-        warnings.append(f"{slug}: verificación antigua ({age} días); mostrar aviso y revisar antes de enviar")
     if verified > today:
         raise ValidationError(f"{slug}: verified_at está en el futuro")
 
@@ -366,8 +363,11 @@ def status_badge(record: dict) -> str:
     return f'<span class="editorial-badge editorial-badge--{cls}">{esc(STATUS_LABELS[record["status"]])}</span>'
 
 
-def stale(record: dict, today: date) -> bool:
-    return (today - parse_iso_date(record["verified_at"], "verified_at")).days > 90
+# Sin caducidad por fecha (17/11/2026): el aviso de «más de 90 días sin verificar»
+# hacía que el HTML dependiera del día del build, así que main se quedaba desfasado
+# cada vez que una ficha cruzaba el umbral y la CI de cualquier PR salía roja.
+# El directorio ya no se mantiene como servicio de manuscritos verificado a diario;
+# se muestra la fecha de comprobación y nada más. tests/test-editoriales-builder-parity-v1.py
 
 
 def directory_date_modified(records: list[dict]) -> str:
@@ -383,7 +383,6 @@ def render_index(site: str, records: list[dict], today: date) -> str:
         genres_pipe = "|".join(r["genres"])
         families_pipe = "|".join(families_for(r["genres"], families))
         tags = "".join(f'<span class="editorial-genre">{esc(g)}</span>' for g in r["genres"])
-        stale_note = '<p class="tool-note">Verificación antigua: revisa la fuente oficial antes de enviar.</p>' if stale(r, today) else ""
         cards.append(f'''
 <article class="id-card editorial-card" data-editorial-card data-name="{esc(r['name'])}" data-group="{esc(r['group'])}" data-genres="{esc(genres_pipe)}" data-families="{esc(families_pipe)}" data-status="{esc(r['status'])}" data-country="{esc(r['country'])}" data-verified-at="{esc(r['verified_at'])}" data-direct="{'true' if r['direct_submission'] else 'false'}">
     <div class="editorial-card__head"><div><h2><a href="/editoriales/{esc(r['slug'])}/">{esc(r['name'])}</a></h2><p class="tool-meta">{esc(r['group'])}</p></div>{status_badge(r)}</div>
@@ -391,7 +390,6 @@ def render_index(site: str, records: list[dict], today: date) -> str:
     <div class="editorial-genres">{tags}</div>
     <p class="editorial-match" data-genre-match hidden></p>
   <p class="editorial-verified">Comprobado: <time datetime="{esc(r['verified_at'])}">{esc(r['verified_at'])}</time></p>
-{stale_note}
     <div class="id-card__actions"><a class="text-action" href="/editoriales/{esc(r['slug'])}/">Ver requisitos y fuentes<span class="sr-only"> de {esc(r['name'])}</span></a></div>
 </article>''')
 
@@ -503,7 +501,6 @@ def render_detail(site: str, record: dict, today: date) -> str:
     email = record.get("submission_email")
     email_html = f'<a href="mailto:{esc(email)}">{esc(email)}</a>' if email else "No se publica un correo de envío para el estado actual."
     response = esc(record.get("response_time") or "No se publica un plazo oficial en esta ficha.")
-    stale_html = '<p class="tool-note"><strong>Revisión recomendada:</strong> esta ficha lleva más de 90 días sin verificarse. Comprueba la fuente oficial antes de usar los datos.</p>' if stale(record, today) else ""
     description = detail_description(record)
     instructions = (
         '<p class="tool-note">El canal oficial no está disponible. La recepción de manuscritos queda por verificar.</p>'
@@ -516,7 +513,6 @@ def render_detail(site: str, record: dict, today: date) -> str:
   {breadcrumbs([('Inicio', '/'), ('Editoriales', '/editoriales/'), (record['name'], None)])}
     <header class="tool-hero"><p class="eyebrow">Ficha editorial · fuentes y fechas</p><h1>{esc(record['name'])}</h1><div class="editorial-genres editorial-genres--spaced">{status_badge(record)}<span class="editorial-badge">{esc(record['publisher_type'])}</span></div><p class="tool-hero__lead">{esc(record['summary'])}</p><div class="editorial-genres">{genre_tags}</div></header>
     <section class="v1-section">
-        {stale_html}
         <dl class="spec-ledger"><div class="editorial-fact"><dt>Estado de originales</dt> <dd>{esc(status)}</dd></div><div class="editorial-fact"><dt>Última comprobación</dt> <dd><time datetime="{esc(record['verified_at'])}">{esc(record['verified_at'])}</time></dd></div><div class="editorial-fact"><dt>Canal</dt> <dd>{esc(record['submission_channel'])}</dd></div><div class="editorial-fact"><dt>Correo de envío</dt> <dd>{email_html}</dd></div><div class="editorial-fact"><dt>Grupo / tipo</dt> <dd>{esc(record['group'])}</dd></div><div class="editorial-fact"><dt>País</dt> <dd>{esc(record['country'])}</dd></div></dl>
 
         <div class="tool-findings-block"><h2>Qué pide ahora</h2><ul class="tool-findings">{requirements}</ul>{instructions}</div>
@@ -595,7 +591,7 @@ def render_methodology(site: str, records: list[dict], today: date) -> str:
 
     Todo lo que afirma se deriva del propio validador/builder de este archivo
     o del dataset: los estados permitidos son los que valida load_and_validate,
-    la caducidad de 90 días es la que aplica stale(), y la separación hoja
+    no hay caducidad por fecha (el HTML no depende del día del build), y la separación hoja
     privada / dataset público es la que hace safe_payload en build(). No se
     documenta ningún proceso que el código no haga de verdad.
     """
@@ -625,7 +621,7 @@ def render_methodology(site: str, records: list[dict], today: date) -> str:
 
         <div class="tool-findings-block"><h2>Estados de recepción</h2><p>El estado es un valor cerrado, no texto libre, para que no aparezcan variantes contradictorias entre fichas:</p><dl class="spec-ledger">{states}</dl></div>
 
-        <div class="tool-findings-block"><h2>Fechas y caducidad</h2><p>Cada ficha distingue dos fechas: <strong>última comprobación</strong> (cuándo se revisó la fuente oficial) y <strong>última actualización de la página</strong> (cuándo cambió de forma significativa el contenido publicado aquí). Una ficha comprobada hace más de 90 días se marca para revisión: la información de recepción cambia sin aviso y una fecha vieja no es una garantía.</p></div>
+        <div class="tool-findings-block"><h2>Fechas</h2><p>Cada ficha distingue dos fechas: <strong>última comprobación</strong> (cuándo se revisó la fuente oficial) y <strong>última actualización de la página</strong> (cuándo cambió de forma significativa el contenido publicado aquí). La información de recepción cambia sin aviso: una fecha de comprobación antigua no es una garantía, así que conviene confirmar en la fuente oficial antes de enviar.</p></div>
 
         <div class="tool-findings-block"><h2>Qué no se publica</h2><p>El dataset público se genera filtrando la hoja de trabajo interna, así que notas privadas y campos de seguimiento no llegan a la web. Los correos de contacto solo se publican cuando la propia editorial los ofrece como vía de envío y la recepción está abierta: publicar un correo histórico de una recepción cerrada solo genera envíos que nadie va a leer.</p><p>No hay valoraciones, rankings ni recomendaciones de una editorial sobre otra. El builder falla si alguien intenta introducir un campo de ranking.</p></div>
 
