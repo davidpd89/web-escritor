@@ -139,20 +139,34 @@ class DespliegueTest(unittest.TestCase):
         self.assertEqual(self.wf['jobs']['build']['concurrency'], {'group': 'pages-build', 'cancel-in-progress': True})
         self.assertFalse(self.wf['jobs']['deploy']['concurrency']['cancel-in-progress'])
 
+
+    def pasos_build(self):
+        """Pasos del build con la acción común (construir-como-despliegue) desplegada en su sitio."""
+        pasos = []
+        for paso in self.wf['jobs']['build']['steps']:
+            if paso.get('uses') == './.github/actions/construir-como-despliegue':
+                accion = yaml.safe_load((ROOT / '.github/actions/construir-como-despliegue/action.yml')
+                                        .read_text(encoding='utf-8'))
+                self.assertEqual(paso['with']['hoy'], '${{ needs.dia.outputs.hoy }}')
+                pasos += accion['runs']['steps']
+            else:
+                pasos.append(paso)
+        return pasos
+
     def test_dependencias_python_antes_de_la_cadena(self):
-        pasos = self.wf['jobs']['build']['steps']
+        pasos = self.pasos_build()
         nombres = [p.get('name', '') for p in pasos]
         pip = nombres.index('Dependencias Python')
         self.assertIn('requirements.txt', pasos[pip]['run'])
         self.assertLess(pip, nombres.index('Materializar generados'))
 
     def test_lo_generado_se_rehace_con_el_dia_antes_de_publicar(self):
-        pasos = self.wf['jobs']['build']['steps']
+        pasos = self.pasos_build()
         nombres = [p.get('name', '') for p in pasos]
-        rehacer = nombres.index('Rehacer lo generado con el día de hoy')
+        rehacer = nombres.index('Rehacer lo generado con el día')
         self.assertLess(nombres.index('Materializar generados'), rehacer)
         self.assertLess(rehacer, nombres.index('Build public artifact (allowlist-first)'))
-        self.assertEqual(pasos[rehacer]['env']['CATALOGO_HOY'], '${{ needs.dia.outputs.hoy }}')
+        self.assertEqual(pasos[rehacer]['env']['CATALOGO_HOY'], '${{ inputs.hoy }}')  # = needs.dia.outputs.hoy
         # la cadena acaba en `npx --no-install pagefind`: Node y el lockfile instalados antes de rehacer
         self.assertLess(nombres.index('Set up Node'), rehacer)
         npm = nombres.index('Instalar Pagefind (lockfile)')
