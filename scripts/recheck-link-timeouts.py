@@ -142,8 +142,9 @@ def quarantined(result: dict, active: dict[str, dict]) -> dict | None:
 # whole load unpublished. A host that is down says nothing about a PR that did
 # not add the link, so on a PR an unreachable/5xx external URL that already
 # exists in the base tree is a warning. Links the PR introduces, our own
-# domain, 404s and DNS/TLS errors stay fatal, and push/schedule scans of main
-# (no base ref) keep failing, so a host that stays down is still caught there.
+# domain, 404s and DNS/TLS errors stay fatal. A push to main compares with the
+# previous commit (18/11: random 000s on hosts the push never touched), and the
+# weekly schedule (no base ref) keeps failing, so a host that stays down is caught.
 def in_base(url: str, base: str) -> bool:
     for needle in dict.fromkeys((url, escape(url, quote=False))):
         found = subprocess.run(['git', 'grep', '-q', '-F', '-e', needle, base, '--'],
