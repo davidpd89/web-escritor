@@ -1,4 +1,5 @@
 """Offline edition identity, fail-closed parsing, covers and catalogue contracts."""
+import collections
 import copy
 import html
 import io
@@ -18,6 +19,7 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 from reading_editorial_sources import SourceError, CachedHTTP, _Redirects, allowed_url, penguin_edition, product_links
 from reading_intake_pipeline import make_book, cover_bytes, update_authors, classify, work_key, builder
 import reading_intake_pipeline as pipeline
+from contrato_libros import incumplen
 
 URL = 'https://www.penguinlibros.com/es/fantasia/123-libro-prueba-9780140328721'
 
@@ -251,11 +253,12 @@ class ContractTests(unittest.TestCase):
         data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
         books = [b for b in data['libros'] if b['estado'] == 'publicado']
         titles = {b['id']: builder.book_title(b, books) for b in books}
-        self.assertEqual(len(set(titles.values())), len(titles))
-        self.assertTrue(all(len(t) <= 75 for t in titles.values()))
-        # Con el id de cada libro: la carga aparta los libros que nombra un contrato que falla.
-        anonymous = [(b['id'], t) for b in books if b['autores'][0] not in (t := titles[b['id']])]
-        self.assertLessEqual(len(anonymous), 2, anonymous)
+        repeated = collections.Counter(titles.values())
+        incumplen('título único', {i: f'título repetido: {t}' for i, t in titles.items() if repeated[t] > 1})
+        incumplen('título de 75 caracteres como mucho', {i: f'{len(t)} caracteres: {t}' for i, t in titles.items() if len(t) > 75})
+        anonymous = {b['id']: f'sin autor en el título: {titles[b["id"]]}' for b in books if b['autores'][0] not in titles[b['id']]}
+        if len(anonymous) > 2:
+            incumplen('como mucho 2 títulos sin autor', anonymous)
 
     def test_partial_publication_never_gets_fake_day(self):
         self.record.update(precision_fecha='mes', fecha_publicacion_edicion='2026-10')
