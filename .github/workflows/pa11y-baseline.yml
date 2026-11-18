@@ -100,9 +100,11 @@ jobs:
         with:
           node-version: '22'
 
+      # Desde el lockfile (pa11y-ci y su puppeteer fijados): un `npm install --global` resolvía cada vez la última
+      # versión del rango y caía con 404 mientras npm propagaba una recién publicada (#1420, 17/11).
       - name: Install Pa11y CI
         if: steps.scope.outputs.run == 'true'
-        run: npm install --global pa11y-ci@5.0.0
+        run: npm ci --no-audit --no-fund
 
       - name: Materializar generados
         if: steps.scope.outputs.run == 'true'
@@ -131,12 +133,12 @@ jobs:
           if [ "${{ steps.lane.outputs.lane }}" = "content" ]; then
             # Solo contenido generado: mismas reglas, sobre los índices y las páginas cambiadas más pesadas.
             ROUTES='${{ steps.lane.outputs.routes }}' python3 -c "import json, os; c = json.load(open('.pa11yci')); c['urls'] = ['http://127.0.0.1:4173' + r for r in os.environ['ROUTES'].split(',') if r]; json.dump(c, open('/tmp/pa11y-content.json', 'w'))"
-            pa11y-ci --config /tmp/pa11y-content.json 2>&1 | tee pa11y-baseline.txt
+            npx --no-install pa11y-ci --config /tmp/pa11y-content.json 2>&1 | tee pa11y-baseline.txt
           else
             # Páginas sueltas siempre y una muestra rotatoria de cada familia de plantilla (scripts/pa11y_urls.py),
             # repartidas en 4 shards a 4 páginas a la vez (los vCPU del runner).
             python3 scripts/pa11y_urls.py --shard ${{ matrix.shard }} --shards 4 --dia ${{ github.run_number }} --out /tmp/pa11y-full.json
-            pa11y-ci --config /tmp/pa11y-full.json 2>&1 | tee pa11y-baseline.txt
+            npx --no-install pa11y-ci --config /tmp/pa11y-full.json 2>&1 | tee pa11y-baseline.txt
           fi
           status=${PIPESTATUS[0]}
           echo "exit_code=$status" >> "$GITHUB_OUTPUT"

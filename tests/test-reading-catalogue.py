@@ -170,4 +170,22 @@ with tempfile.TemporaryDirectory() as tmp:
         old_data['libro_categorias'].append({'libro_id': 'contrato-dos', 'categoria_id': 'clasicos'})
         payload = {'hub': m.render_hub(old_data, [b, second], template), 'book': m.render_book(data, b, template), 'cover': base64.b64encode((root / b['portada_local'].lstrip('/')).read_bytes()).decode()}
         Path(sys.argv[sys.argv.index('--browser-fixture') + 1]).write_text(json.dumps(payload), encoding='utf-8')
+    # Comparación de afines (own_block_html): un título que es subcadena de otro (p. ej. «Japón 2027-2028» dentro
+    # de «Explora Japón 2027-2028 (Guías Explora Lonely Planet)») no anida un <a> dentro del <a> ya insertado
+    # para el otro afín (test-dom-integrity.py lo rechaza; isbn-9788408329534, 18/11).
+    live_afines = {
+        'afin-corto': {'id': 'afin-corto', 'slug': 'afin-corto', 'titulo': 'Japón 2027-2028'},
+        'afin-largo': {'id': 'afin-largo', 'slug': 'afin-largo', 'titulo': 'Explora Japón 2027-2028 (Guías Explora Lonely Planet)'},
+    }
+    solapado = {'modulo': 'lecturas_afines', 'enlaces': ['afin-largo', 'afin-corto'],
+                'texto': 'Explora Japón 2027-2028 (Guías Explora Lonely Planet) también aborda un destino asiático.'}
+    html_solapado = m.own_block_html(solapado, live_afines)
+    assert '<a href="/recomendaciones/libros/afin-largo/">Explora Japón 2027-2028 (Guías Explora Lonely Planet)</a>' in html_solapado
+    assert html_solapado.count('<a ') == 1, 'ningún <a> debe anidarse dentro del <a> ya insertado: ' + html_solapado
+    # Dos títulos que sí aparecen por separado siguen enlazándose ambos, en el orden del texto.
+    separados = {'modulo': 'lecturas_afines', 'enlaces': ['afin-largo', 'afin-corto'],
+                 'texto': 'Japón 2027-2028 y Explora Japón 2027-2028 (Guías Explora Lonely Planet) tratan el mismo país.'}
+    html_separado = m.own_block_html(separados, live_afines)
+    assert html_separado.count('<a ') == 2
+    assert html_separado.index('afin-corto') < html_separado.index('afin-largo')
 print('PASS catálogo: validación, estados, duplicados, metadatos, afiliación y HTML estático.')
