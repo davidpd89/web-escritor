@@ -14,23 +14,27 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
+# R5-8: el token por defecto del repo es de escritura; en pull_request basta con leer.
+permissions:
+  contents: read
+
 jobs:
   readiness:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /*
             !/assets/no usadas/
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Install Python dependencies
         run: pip install -r scripts/requirements.txt
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Release readiness unit tests
@@ -40,7 +44,7 @@ jobs:
       - name: Generate release readiness report
         run: python scripts/release-readiness.py --output artifacts/release-readiness/RELEASE-READINESS-V1.md
       - name: Upload readiness report artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: release-readiness-report
           path: artifacts/release-readiness/RELEASE-READINESS-V1.md

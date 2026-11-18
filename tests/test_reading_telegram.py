@@ -68,7 +68,7 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertNotIn("Ficha", text)
         self.assertNotIn("davidportodiaz.com", text)
         self.assertNotIn("📅", text)
-        self.assertTrue(text.startswith("#Novedades #publicidad"))
+        self.assertTrue(text.startswith("📚 #Novedades #publicidad"))
         self.assertFalse(text.rstrip().endswith("#publicidad"))
 
     def test_only_verified_site_cover_is_used(self):
@@ -312,7 +312,8 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertIn("Aquí tienes las publicaciones del día 1 de noviembre", text)
         self.assertIn("2 libros", text)
         self.assertIn("#publicidad", text)
-        self.assertIn("rh=p_66:9788498382372|9788401042751", text)
+        self.assertIn("https://www.amazon.es/dp/8498382378", text)
+        self.assertIn("https://www.amazon.es/dp/8401042755", text)
         self.assertIn("tag=davidporto-21", text)
         self.assertIn("&lt;uno&gt;", text)
         self.assertEqual(len([r for r in result if r["chat_id"] == "@general"]), 2)
@@ -464,13 +465,13 @@ class ReadingTelegramTests(unittest.TestCase):
         result = run(catalog, date(2026, 11, 2), self.root / "w.db")
         self.assertEqual(len(result), 1)
         text = result[0]["text"]
-        self.assertIn("Próximos lanzamientos del 2 de noviembre al 8 de noviembre", text)
-        self.assertIn("8 de noviembre: <b>Libro b</b>", text)
-        self.assertIn("9788498382372|9788401042751", text)
-        self.assertNotIn("9788401042768", text)
-        next_week = run(catalog, date(2026, 11, 9), self.root / "w.db")
-        self.assertIn("9788401042768", next_week[0]["text"])
-        self.assertNotIn("9788401042751", next_week[0]["text"])
+        self.assertIn("Próximos lanzamientos del 3 de noviembre al 9 de noviembre", text)
+        self.assertIn("8 de noviembre: <a ", text)
+        self.assertIn("<b>Libro b</b>", text)
+        self.assertIn("9 de noviembre", text)  # the range starts tomorrow: today is a novelty, not an upcoming release
+        self.assertNotIn("2 de noviembre:", text)
+        self.assertIn("2 libros", text)
+        self.assertEqual(run(catalog, date(2026, 11, 9), self.root / "w.db"), [])  # Monday 9th: 10th–16th is empty
 
     def test_weekly_channel_must_be_a_digest(self):
         self.config["channels"] = [{"chat_id": "@x", "token_env": "T", "period": "weekly"}]
@@ -613,3 +614,49 @@ class ReadingTelegramTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DigestPartsTests(unittest.TestCase):
+    def books(self, n):
+        return [
+            {
+                "asin": f"B{i:09d}", "title": f"Libro número {i} con un título algo largo para ocupar", "author": "Autora Ejemplo",
+                "release_date": "2026-11-18", "isbn13": f"97884{i:08d}",
+                "amazon_url": f"https://www.amazon.es/dp/B{i:09d}?tag=davidporto-21",
+            }
+            for i in range(n)
+        ]
+
+    def test_long_digest_is_split_into_numbered_messages_with_every_title_linked(self):
+        from reading_telegram import digest, visible_length
+
+        parts = digest(self.books(170), "2026-11-18")
+        self.assertGreater(len(parts), 1)
+        self.assertEqual(len({p["asin"] for p in parts}), len(parts))  # one delivery key each
+        self.assertEqual(parts[0]["asin"], "digest-2026-11-18")
+        text = "\n".join(p["text"] for p in parts)
+        for i in range(170):
+            self.assertIn(f"/dp/B{i:09d}", text)
+        self.assertNotIn(" más", text)
+        self.assertNotIn("p_66", text)  # the ISBN search link does not open in the Amazon app
+        self.assertTrue(all(len(p["text"]) <= 4096 and visible_length(p["text"]) <= 4096 for p in parts))
+        self.assertIn(f"(1/{len(parts)})", parts[0]["text"])
+        self.assertIn("Aquí tienes las publicaciones del día", parts[-1]["text"])
+
+    def test_short_digest_is_a_single_message_without_counter(self):
+        from reading_telegram import digest
+
+        parts = digest(self.books(3), "2026-11-18")
+        self.assertEqual(len(parts), 1)
+        self.assertNotIn("(1/", parts[0]["text"])
+
+    def test_cover_is_padded_to_a_square(self):
+        from io import BytesIO
+        from PIL import Image
+        from reading_telegram import padded_cover
+
+        source = BytesIO()
+        Image.new("RGB", (329, 500), (200, 30, 30)).save(source, "PNG")
+        response = Mock(status_code=200, content=source.getvalue())
+        out = Image.open(BytesIO(padded_cover("https://x/c.png", get=lambda *a, **k: response)))
+        self.assertEqual(out.size[0], out.size[1])

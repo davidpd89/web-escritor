@@ -1,0 +1,132 @@
+name: Higiene del repositorio
+
+# Cuatro empleados gratuitos que faltaban: actionlint (workflows mal escritos), zizmor (workflows inseguros),
+# gitleaks (secretos en el historial) y OSV-Scanner (dependencias con vulnerabilidades conocidas).
+# Informativo: cada herramienta deja su resultado en el resumen y no bloquea la PR. Cuando una quede limpia,
+# se quita su «continue-on-error» y pasa a ser obligatoria.
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/**"
+      - ".github/actions/**"
+      - "package-lock.json"
+      - "requirements*.txt"
+  workflow_dispatch:
+  schedule:
+    - cron: '23 5 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  workflows:
+    name: actionlint y zizmor
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            .github
+      - name: actionlint
+        id: actionlint
+        continue-on-error: true
+        run: |
+          docker run --rm -v "$PWD:/repo" -w /repo rhysd/actionlint:1.7.7 -color > actionlint.txt 2>&1
+      - name: zizmor
+        id: zizmor
+        continue-on-error: true
+        run: |
+          pipx run zizmor==1.5.2 --offline --min-severity medium .github/workflows > zizmor.txt 2>&1
+      - name: Resumen
+        if: always()
+        env:
+          ACTIONLINT: ${{ steps.actionlint.outcome }}
+          ZIZMOR: ${{ steps.zizmor.outcome }}
+        run: |
+          {
+            echo "## actionlint: $ACTIONLINT"; echo '```'; tail -n 80 actionlint.txt 2>/dev/null; echo '```'
+            echo "## zizmor: $ZIZMOR"; echo '```'; tail -n 120 zizmor.txt 2>/dev/null; echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Guardar informes
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: higiene-workflows
+          path: |
+            actionlint.txt
+            zizmor.txt
+          if-no-files-found: ignore
+          retention-days: 30
+
+  secretos:
+    name: gitleaks
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+      - name: gitleaks
+        id: gitleaks
+        continue-on-error: true
+        env:
+          EVENTO: ${{ github.event_name }}
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          # En una PR, solo sus commits; en el semanal, el último mes. --redact: el valor nunca sale en el log.
+          if [ "$EVENTO" = "pull_request" ]; then rango="$BASE..HEAD"; else rango="--since=35.days"; fi
+          docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:v8.24.3 git /repo \
+            --redact --no-banner --log-opts="$rango" --report-format json --report-path /repo/gitleaks.json \
+            > gitleaks.txt 2>&1
+      - name: Resumen
+        if: always()
+        env:
+          GITLEAKS: ${{ steps.gitleaks.outcome }}
+        run: |
+          {
+            echo "## gitleaks: $GITLEAKS"; echo '```'; tail -n 20 gitleaks.txt 2>/dev/null; echo '```'
+            python3 -c "import json,collections;d=json.load(open('gitleaks.json'));print(len(d),'hallazgos');[print('-',r,n) for r,n in collections.Counter((x['RuleID'],x['File']) for x in d).most_common(30)]" 2>/dev/null || true
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  dependencias:
+    name: OSV-Scanner
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            package.json
+            package-lock.json
+            requirements*.txt
+      - name: OSV-Scanner
+        id: osv
+        continue-on-error: true
+        run: |
+          docker run --rm -v "$PWD:/src" ghcr.io/google/osv-scanner:v2.0.2 scan source --recursive /src > osv.txt 2>&1
+      - name: Resumen
+        if: always()
+        env:
+          OSV: ${{ steps.osv.outcome }}
+        run: |
+          { echo "## OSV-Scanner: $OSV"; echo '```'; tail -n 120 osv.txt 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY"

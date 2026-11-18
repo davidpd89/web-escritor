@@ -35,24 +35,30 @@ concurrency:
 
 jobs:
   parity:
+    name: parity ${{ matrix.shard }}/4
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    # Una sola pasada por las ~6000 fichas agotaba los 15 min (17/11); cada fragmento hace una cuarta parte.
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /*
             !/assets/no usadas/
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Install CI/QA dependencies (Node)
         run: npm ci
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -63,4 +69,7 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: bash scripts/ci/playwright-install-deps.sh deps chromium
       - name: Run section-context parity check
+        env:
+          SHARD_TOTAL: '4'
+          SHARD_INDEX: ${{ matrix.shard }}
         run: node qa/section-context-parity.mjs

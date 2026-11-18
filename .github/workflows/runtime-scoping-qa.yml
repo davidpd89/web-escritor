@@ -30,6 +30,9 @@ on:
       - 'recomendaciones/ofertas.json'
       - 'editoriales/*/index.html'
       - 'editoriales-sitemap.xml'
+      - 'editoriales/index.html'
+      - 'editoriales/editoriales-data.json'
+      - 'metodologia-editorial/index.html'
       - 'mapa-del-sitio/index.html'
       - 'sitemap.xml'
       - 'pagefind/**'
@@ -43,13 +46,17 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
+# R5-8: el token por defecto del repo es de escritura; en pull_request basta con leer.
+permissions:
+  contents: read
+
 jobs:
   runtime-scoping:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -64,7 +71,7 @@ jobs:
         run: python tests/test-check-runtime-scoping.py
 
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -73,7 +80,7 @@ jobs:
 
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}

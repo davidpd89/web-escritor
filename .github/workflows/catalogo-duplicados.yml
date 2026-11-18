@@ -1,0 +1,73 @@
+name: Duplicados del catálogo
+
+# Empleado gratuito (RapidFuzz): busca libros repetidos o casi repetidos en data/reading-catalogue.json y
+# nombra los ids de cada pareja. Informativo: nunca tumba una carga ni una PR. No se dispara con cada carga
+# nocturna (la cola de Actions es el recurso escaso): una vez por semana o a mano. Lo encontrado va a un issue vivo
+# con la etiqueta «duplicados» (scripts/issue_vivo.py), que se cierra solo cuando el catálogo vuelve a estar limpio.
+# Sin pull_request: escribe issues y R5-8 prohíbe escrituras en workflows de PR. En las PR, los tests del detector
+# (tests/test_catalogo_duplicados.py) corren dentro de la puerta obligatoria.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 4 * * 2'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  duplicados:
+    name: Duplicados (RapidFuzz)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            scripts/catalogo_duplicados.py
+            scripts/issue_vivo.py
+            tests/test_catalogo_duplicados.py
+            data/reading-catalogue.json
+      - name: Instalar RapidFuzz
+        id: instalar
+        continue-on-error: true
+        run: python -m pip install --quiet "rapidfuzz==3.*"
+      - name: Tests del detector
+        run: python -m unittest tests.test_catalogo_duplicados
+      - name: Buscar duplicados
+        id: buscar
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/catalogo_duplicados.py --salida duplicados.md --json duplicados.json --issue
+      - name: Resumen
+        if: always()
+        env:
+          INSTALAR: ${{ steps.instalar.outcome }}
+          BUSCAR: ${{ steps.buscar.outcome }}
+        run: |
+          {
+            echo "Instalación de RapidFuzz: $INSTALAR (si falla, el detector usa difflib). Búsqueda: $BUSCAR."
+            echo
+            cat duplicados.md 2>/dev/null || echo "El detector no dejó informe."
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Guardar informe
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: catalogo-duplicados
+          path: |
+            duplicados.md
+            duplicados.json
+          if-no-files-found: ignore
+          retention-days: 30

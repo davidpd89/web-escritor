@@ -58,6 +58,14 @@ class FullSynopsisTests(unittest.TestCase):
         self.assertEqual(editorial_synopsis(html), 'En El paraíso perdido, de Milton, el arcángel revela una historia futura que Eva no debe escuchar nunca.')
         self.assertIn('perdido, de', editorial_excerpt(html))
 
+    def test_literal_space_before_punctuation_is_removed_by_the_extractor(self):
+        # «amor ,» o «todos .» llegan de fuentes que dejan un espacio ante el signo (Amazon al quitar una etiqueta
+        # en línea, Penguin en algunas fichas). El extractor es el punto común de todas las fuentes y nunca lo publica.
+        html = '<p>Una historia sobre el amor , la pérdida y la esperanza en tiempos muy difíciles para todos .</p>'
+        self.assertEqual(editorial_synopsis(html),
+                         'Una historia sobre el amor, la pérdida y la esperanza en tiempos muy difíciles para todos.')
+        self.assertIsNone(re.search(r'\w [,.;:)]', editorial_excerpt(html)))
+
     def test_published_synopses_have_no_space_before_punctuation(self):
         data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
         bad = [b['id'] for b in data['libros'] for k in ('sinopsis_completa', 'sinopsis_breve') if re.search(r'\w [,.;:)]', b.get(k) or '')]

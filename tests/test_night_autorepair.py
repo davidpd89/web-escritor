@@ -1,10 +1,15 @@
 import datetime as dt
+import os
 import importlib.util
 import subprocess
 import tempfile
 import sys
 import unittest
 from pathlib import Path
+
+# 2026-11-16: los tests escribían en el autorepair.log real del equipo (líneas «o/r/pull/9» entre las de la
+# noche). Antes de cargar el módulo, todo el estado local va a una carpeta temporal.
+os.environ['AUTOREPAIR_ESTADO_DIR'] = tempfile.mkdtemp(prefix='autorepair-test-')
 
 spec = importlib.util.spec_from_file_location('night_autorepair', Path(__file__).resolve().parents[1] / 'scripts' / 'night-autorepair.py')
 na = importlib.util.module_from_spec(spec)
@@ -920,3 +925,17 @@ class DeshacerVaciaElIndice(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class EstadoAislado(unittest.TestCase):
+    def test_los_tests_nunca_escriben_en_el_estado_real(self):
+        real = Path(os.environ.get('LOCALAPPDATA') or Path.home()) / 'web-escritor-autorepair'
+        self.assertNotEqual(na.ESTADO_DIR.resolve(), real.resolve())
+        self.assertTrue(str(na.ESTADO_DIR).startswith(tempfile.gettempdir()))
+
+    def test_todo_test_que_carga_el_estado_local_lo_aisla(self):
+        for f in Path(__file__).parent.glob('test*.py'):
+            texto = f.read_text(encoding='utf-8')
+            if 'night-autorepair' in texto or 'estado_local' in texto:
+                with self.subTest(f.name):
+                    self.assertIn("os.environ['AUTOREPAIR_ESTADO_DIR']", texto)

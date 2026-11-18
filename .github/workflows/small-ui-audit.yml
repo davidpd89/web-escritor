@@ -36,6 +36,9 @@ on:
       - '!recomendaciones/ofertas.json'
       - '!editoriales/*/index.html'
       - '!editoriales-sitemap.xml'
+      - '!editoriales/index.html'
+      - '!editoriales/editoriales-data.json'
+      - '!metodologia-editorial/index.html'
       - '!mapa-del-sitio/index.html'
       - '!sitemap.xml'
       - '!pagefind/**'
@@ -57,14 +60,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /*
             !/assets/no usadas/
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Validate the audit with independent fixtures
@@ -79,7 +82,7 @@ jobs:
           fi
       - name: Preserve JSON and readable report
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: small-ui-audit
           path: .ci/small-ui-audit/

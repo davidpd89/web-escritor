@@ -40,6 +40,9 @@ on:
       - '!recomendaciones/ofertas.json'
       - '!editoriales/*/index.html'
       - '!editoriales-sitemap.xml'
+      - '!editoriales/index.html'
+      - '!editoriales/editoriales-data.json'
+      - '!metodologia-editorial/index.html'
       - '!mapa-del-sitio/index.html'
       - '!sitemap.xml'
       - '!pagefind/**'
@@ -69,19 +72,19 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /*
             !/assets/no usadas/
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Install existing browser dependencies
         run: npm ci
-      - uses: actions/cache@v5
+      - uses: actions/cache@v6
         id: browsers
         with:
           path: ~/.cache/ms-playwright
@@ -102,7 +105,7 @@ jobs:
           fi
       - name: Preserve results and failure screenshots
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: navigation-roundtrips
           path: .ci/navigation-roundtrips/

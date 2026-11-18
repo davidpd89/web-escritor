@@ -120,6 +120,61 @@ with tempfile.TemporaryDirectory() as tmp:
     timeout = '| Errors | 0 |\n* [TIMEOUT] <https://example.org/slow>\n'
     assert run_report(timeout, [{'url': 'https://example.org/slow', 'ok': False, 'status': '404', 'exit': 22}]) == 1, \
         'a timeout that rechecks as 404 still fails'
+# Pre-existing links: on a PR, a down external host whose URL is already in the base tree only warns.
+import subprocess
+with tempfile.TemporaryDirectory() as tmp:
+    tmp = Path(tmp)
+    git = lambda *a: subprocess.run(['git', '-C', str(tmp), *a], check=True, capture_output=True)
+    git('init', '-q'); git('config', 'user.email', 't@t'); git('config', 'user.name', 't')
+    (tmp/'page.html').write_text('<a href="https://www.umbrieleditores.com/">U</a>'
+                                 '<a href="https://x.example/q?a=1&amp;b=2">Q</a>', encoding='utf-8')
+    git('add', '.'); git('commit', '-qm', 'base'); git('branch', 'base')
+    report = '\n'.join(['| Errors | 3 |', '* [503] <https://www.umbrieleditores.com/>',
+                        '* [503] <https://x.example/q?a=1&b=2>', '* [503] <https://nuevo.example/>', ''])
+    (tmp/'out.md').write_text(report, encoding='utf-8')
+    down = lambda u: {'url': u, 'ok': False, 'status': '503', 'exit': 22}
+    def run_pr(base, results=None):
+        by_url = results or {}
+        cwd = os.getcwd(); os.chdir(tmp)
+        try:
+            with patch.object(module, 'check_url', side_effect=lambda u: dict(by_url.get(u) or down(u))), \
+                 patch.dict(os.environ, {'GITHUB_STEP_SUMMARY': str(tmp/'summary.md')}), redirect_stdout(io.StringIO()):
+                return module.run(tmp/'out.md', tmp/'res.json', base=base)
+        finally:
+            os.chdir(cwd)
+    assert run_pr('base') == 1, 'a down host the PR adds still fails'
+    saved = {r['url']: r for r in json.loads((tmp/'res.json').read_text(encoding='utf-8'))}
+    assert saved['https://www.umbrieleditores.com/']['preexisting'] == 'base'
+    assert saved['https://x.example/q?a=1&b=2']['preexisting'] == 'base', 'HTML-escaped hrefs count as present'
+    assert 'preexisting' not in saved['https://nuevo.example/']
+    ok = {'https://nuevo.example/': {'url': 'https://nuevo.example/', 'ok': True, 'status': '200', 'exit': 0}}
+    assert run_pr('base', ok) == 0, 'only pre-existing links down: the PR (the nightly load) is not blocked'
+    assert run_pr(None, ok) == 1, 'without a base (push/schedule on main) a down host stays fatal'
+    gone = dict(ok, **{'https://www.umbrieleditores.com/': {'url': 'https://www.umbrieleditores.com/', 'ok': False,
+                                                           'status': '404', 'exit': 22}})
+    assert run_pr('base', gone) == 1, 'a pre-existing link that answers 404 is a gone page and fails'
+# Second pass: an external host the runner could not reach is checked once more before it counts (main, 18/11).
+with tempfile.TemporaryDirectory() as tmp:
+    tmp = Path(tmp)
+    report = '| Errors | 0 |\n* [TIMEOUT] <https://www.bibalex.org/>\n'
+    (tmp/'out.md').write_text(report, encoding='utf-8')
+    def run_seq(*answers):
+        calls = []
+        def fake(url):
+            calls.append(url)
+            return dict(answers[min(len(calls), len(answers)) - 1], url=url)
+        with patch.object(module, 'check_url', side_effect=fake), patch.object(module.time, 'sleep') as nap, \
+                patch.dict(os.environ, {'GITHUB_STEP_SUMMARY': str(tmp/'summary.md'), 'RECHECK_PAUSE': '120'}), \
+                redirect_stdout(io.StringIO()) as out:
+            code = module.run(tmp/'out.md', tmp/'res.json')
+        return code, len(calls), nap.call_args_list, out.getvalue()
+    down, up = {'ok': False, 'status': '000', 'exit': 28}, {'ok': True, 'status': '200', 'exit': 0}
+    code, calls, naps, out = run_seq(down, up)
+    assert (code, calls) == (0, 2) and naps[0].args == (120.0,), 'a blip of the runner network clears on the second pass'
+    assert 'primer intento HTTP 000' in out
+    assert run_seq(down, down)[:2] == (1, 2), 'a host still down after the pause stays fatal on main'
+    assert run_seq({'ok': False, 'status': '503', 'exit': 22}, up)[:2] == (0, 2), '5xx gets the second pass too'
+    assert run_seq({'ok': False, 'status': '404', 'exit': 22}, up)[:2] == (1, 1), 'a 404 is never retried'
 # The committed quarantine itself must be valid.
 module.load_quarantine(ROOT/'.linkcheck-quarantine.json', date.today())
 print('PASS link timeout recheck: only actual 2xx clears timeout/transport errors; HTTP errors, loops and unknown reports stay fatal; quarantine only excuses listed unreachable hosts until it expires')

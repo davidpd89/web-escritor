@@ -34,6 +34,9 @@ on:
       - '!recomendaciones/ofertas.json'
       - '!editoriales/*/index.html'
       - '!editoriales-sitemap.xml'
+      - '!editoriales/index.html'
+      - '!editoriales/editoriales-data.json'
+      - '!metodologia-editorial/index.html'
       - '!mapa-del-sitio/index.html'
       - '!sitemap.xml'
       - '!pagefind/**'
@@ -61,14 +64,14 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /*
             !/assets/no usadas/
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Validate public temporal semantics

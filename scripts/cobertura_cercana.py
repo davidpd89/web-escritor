@@ -9,7 +9,12 @@ pendiente de algún dato, aplazado por el cupo de altas, descartado («Amazon no
     python scripts/cobertura_cercana.py [--dia AAAA-MM-DD] [--dias 2] [--salida .ci/reading-intake/cobertura-cercana.json]
 
 Solo lee: ni toca el catálogo ni la cola. Los listados no traen la fecha de cada tarjeta: se lee la de la última
-de cada página (si cae dentro, la página entera cae dentro) y solo en la página frontera se abre ficha a ficha.
+de cada página (si cae dentro, la página entera cae dentro) y en la página frontera se busca el corte por
+bisección (unas 10 fichas en vez de 30); solo si alguna fecha no se lee se abre ficha a ficha.
+
+Tiene presupuesto (peticiones, minutos y errores seguidos de la fuente) y va por rondas: la página 1 de todos los
+listados antes que la 2 de ninguno. Si el presupuesto se agota escribe igualmente el informe, con
+`completo: false` y los listados que quedaron a medias; solo falla si no llegó a dar la primera ronda entera.
 """
 from __future__ import annotations
 
@@ -54,9 +59,57 @@ def tarjetas(document):
     return salida
 
 
-def leer_listado(fetch, categoria, modo, orden, desde, hasta):
-    """{isbn: fecha} de un listado ordenado por fecha, solo lo que cae en [desde, hasta]."""
-    dentro, anterior = {}, None
+class SinPresupuesto(Exception):
+    """Se acabó lo que este recorrido puede gastar; el mensaje dice qué."""
+
+
+class Presupuesto:
+    """Reparte las peticiones: tope de peticiones, de tiempo y de errores seguidos (fuente caída o que bloquea)."""
+
+    def __init__(self, get, max_peticiones, segundos, max_errores_seguidos=8, reloj=time.monotonic):
+        self.get, self.max_peticiones, self.segundos = get, max_peticiones, segundos
+        self.max_errores_seguidos, self.reloj, self.inicio = max_errores_seguidos, reloj, reloj()
+        self.peticiones, self.seguidos, self.errores = 0, 0, []
+
+    def fetch(self, url):
+        if self.seguidos >= self.max_errores_seguidos:
+            raise SinPresupuesto(f'la fuente falló {self.seguidos} veces seguidas')
+        if self.peticiones >= self.max_peticiones:
+            raise SinPresupuesto(f'tope de {self.max_peticiones} peticiones')
+        if self.reloj() - self.inicio >= self.segundos:
+            raise SinPresupuesto(f'tope de {round(self.segundos / 60)} minutos')
+        self.peticiones += 1
+        try:
+            documento = self.get(url)
+        except (OSError, ValueError) as exc:
+            self.seguidos += 1
+            self.errores.append(f'{url[-90:]}: {str(exc)[:80]}')
+            return ''
+        self.seguidos = 0
+        return documento
+
+
+def tramo_dentro(n, fecha_de, desde, hasta):
+    """(a, b) tal que las posiciones [a, b) de una lista de n fechas ascendentes caen en [desde, hasta], por
+    bisección. None si alguna fecha consultada no se lee: sin ella no se puede partir."""
+    def primera(cumple):
+        lo, hi = 0, n
+        while lo < hi:
+            medio = (lo + hi) // 2
+            fecha = fecha_de(medio)
+            if not fecha:
+                raise LookupError(medio)
+            lo, hi = (lo, medio) if cumple(fecha) else (medio + 1, hi)
+        return lo
+    try:
+        return primera(lambda f: f >= desde), primera(lambda f: f > hasta)
+    except LookupError:
+        return None
+
+
+def recorrer(fetch, categoria, modo, orden, desde, hasta, dentro):
+    """Va llenando `dentro` ({isbn: fecha} de lo que cae en [desde, hasta]) y cede el turno tras cada página."""
+    anterior = None
     for pagina in range(1, MAX_PAGINAS + 1):
         cartas = tarjetas(fetch(ttl_listing_url(categoria, modo, orden, pagina)))
         if not cartas or cartas == anterior:
@@ -68,14 +121,54 @@ def leer_listado(fetch, categoria, modo, orden, desde, hasta):
         if ultima and primera and all(desde <= f <= hasta for f in (primera, ultima)):
             dentro.update((isbn, None) for isbn, _ in cartas[:-1])
             dentro[cartas[-1][0]] = ultima
+            yield pagina
             continue
-        # Página frontera (o sin fecha legible en la última): ficha a ficha.
-        for isbn, link in cartas:
-            fecha = ttl_publication_date(fetch(link) or '')
-            if fecha and desde <= fecha <= hasta:
-                dentro[isbn] = fecha
+        # Página frontera: el corte se busca por bisección sobre la página puesta en orden ascendente.
+        asc = cartas if orden == 'asc' else cartas[::-1]
+        fechas = {0 if orden == 'asc' else len(asc) - 1: primera, len(asc) - 1 if orden == 'asc' else 0: ultima}
+
+        def fecha_de(i):
+            if i not in fechas:
+                fechas[i] = ttl_publication_date(fetch(asc[i][1]) or '')
+            return fechas[i]
+        tramo = tramo_dentro(len(asc), fecha_de, desde, hasta)
+        if tramo:
+            dentro.update((asc[i][0], fechas.get(i)) for i in range(*tramo))
+        else:  # alguna fecha ilegible: ficha a ficha, aprovechando las ya leídas
+            dentro.update((asc[i][0], fecha_de(i)) for i in range(len(asc)) if desde <= (fecha_de(i) or '') <= hasta)
         break
+
+
+def leer_listado(fetch, categoria, modo, orden, desde, hasta):
+    """{isbn: fecha} de un listado ordenado por fecha, solo lo que cae en [desde, hasta]."""
+    dentro = {}
+    for _ in recorrer(fetch, categoria, modo, orden, desde, hasta, dentro):
+        pass
     return dentro
+
+
+def recoger(fetch, listados, desde, hasta, aviso=lambda _texto: None):
+    """Recorre los listados [(categoria, modo, orden)] por rondas. Devuelve (libros, a_medias, rondas, motivo):
+    `a_medias` son los listados sin terminar y `motivo` por qué se paró («» si terminó todo)."""
+    hallado = {(c, m): {} for c, m, _ in listados}
+    vivos = {(c, m): recorrer(fetch, c, m, o, desde, hasta, hallado[c, m]) for c, m, o in listados}
+    rondas, motivo = 0, ''
+    try:
+        while vivos:
+            for clave in list(vivos):
+                if next(vivos[clave], None) is None:
+                    del vivos[clave]
+            rondas += 1
+            aviso(f'ronda {rondas}: quedan {len(vivos)} listados, {sum(map(len, hallado.values()))} libros')
+    except SinPresupuesto as exc:
+        motivo = str(exc)
+    libros = {}
+    for (categoria, _modo), dentro in hallado.items():
+        for isbn, fecha in dentro.items():
+            libros.setdefault(isbn, {'fecha': fecha, 'categoria': categoria})
+            if fecha and not libros[isbn]['fecha']:
+                libros[isbn]['fecha'] = fecha
+    return libros, [f'{c}/{m}' for c, m in vivos], rondas, motivo
 
 
 def estado_rama(ref):
@@ -126,29 +219,19 @@ def main(argv=None):
     p.add_argument('--dias', type=int, default=2)
     p.add_argument('--estado', default='origin/catalogo-estado')
     p.add_argument('--pausa', type=float, default=1.0)
+    p.add_argument('--max-peticiones', type=int, default=1500)
+    p.add_argument('--minutos', type=float, default=35, help='tope de tiempo del recorrido; el informe sale igual')
     p.add_argument('--salida', default='.ci/reading-intake/cobertura-cercana.json')
     args = p.parse_args(argv)
     hoy = date.fromisoformat(args.dia)
     desde, hasta = hoy.isoformat(), (hoy + timedelta(days=args.dias)).isoformat()
-    peticiones, errores = 0, []
-
-    def fetch(url):
-        nonlocal peticiones
-        peticiones += 1
-        try:
-            return get(url, args.pausa if peticiones > 1 else 0)
-        except (OSError, ValueError) as exc:
-            errores.append(f'{url[-90:]}: {str(exc)[:80]}')
-            return ''
-
-    libros = {}
-    for categoria in TTL_CATEGORIES:
-        # «novedades» descendente empieza en hoy; «próximas» ascendente, en mañana.
-        for modo, orden in (('novedades', 'desc'), ('proximas_apariciones', 'asc')):
-            for isbn, fecha in leer_listado(fetch, categoria, modo, orden, desde, hasta).items():
-                libros.setdefault(isbn, {'fecha': fecha, 'categoria': categoria})
-                if fecha and not libros[isbn]['fecha']:
-                    libros[isbn]['fecha'] = fecha
+    presupuesto = Presupuesto(lambda url: get(url, args.pausa if presupuesto.peticiones > 1 else 0),
+                              args.max_peticiones, args.minutos * 60)
+    # «novedades» descendente empieza en hoy; «próximas» ascendente, en mañana.
+    listados = [(categoria, modo, orden) for categoria in TTL_CATEGORIES
+                for modo, orden in (('novedades', 'desc'), ('proximas_apariciones', 'asc'))]
+    libros, a_medias, rondas, motivo = recoger(presupuesto.fetch, listados, desde, hasta,
+                                               lambda texto: print(texto, file=sys.stderr, flush=True))
     catalogo = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
     publicados = {b.get('isbn13') for b in catalogo.get('libros', [])}
     semillas, pendientes, descartados = estado_rama(args.estado)
@@ -157,19 +240,23 @@ def main(argv=None):
         (ROOT / 'data/reading-quarantine.json').read_text(encoding='utf-8')).get('libros', []) if h.get('isbn')}
     detalle = []
     for isbn, info in sorted(libros.items()):
-        situacion, motivo = clasificar(isbn, publicados, semillas, pendientes, descartados, args.dia, cuarentena)
-        detalle.append({'isbn13': isbn, **info, 'situacion': situacion, 'motivo': motivo})
+        situacion, causa = clasificar(isbn, publicados, semillas, pendientes, descartados, args.dia, cuarentena)
+        detalle.append({'isbn13': isbn, **info, 'situacion': situacion, 'motivo': causa})
     cuenta = Counter(d['situacion'] for d in detalle)
     informe = {'dia': args.dia, 'ventana': [desde, hasta], 'libros': len(detalle), 'situacion': dict(cuenta),
                'cobertura': round(cuenta['en_la_web'] / len(detalle), 3) if detalle else None,
                'motivos_fuera': dict(Counter(d['motivo'] for d in detalle if d['situacion'] != 'en_la_web').most_common(10)),
-               'peticiones': peticiones, 'errores': errores[-5:],
+               'completo': not a_medias, 'parado_por': motivo, 'rondas': rondas, 'listados_a_medias': a_medias,
+               'peticiones': presupuesto.peticiones, 'errores': presupuesto.errores[-5:],
                'fuera': [d for d in detalle if d['situacion'] != 'en_la_web']}
     salida = ROOT / args.salida
     salida.parent.mkdir(parents=True, exist_ok=True)
     salida.write_text(json.dumps(informe, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     resumen = {k: v for k, v in informe.items() if k != 'fuera'}
     print(json.dumps(resumen, ensure_ascii=False, indent=2))
+    if a_medias and not rondas:
+        print(f'::error::Cobertura sin primera ronda completa ({motivo}): el informe no sirve.', file=sys.stderr)
+        return 1
     return 0
 
 
