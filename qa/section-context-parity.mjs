@@ -124,9 +124,14 @@ async function checkPage(page, rel) {
   try {
     // buildContextNav() runs on DOMContentLoaded, so there is nothing to wait for after it: `networkidle`
     // added a fixed >=500 ms of idle per page and, at ~6000 pages, pushed the job past its timeout.
-    await page.goto(`${ORIGIN}${urlPath}?parityStripped=1`, { waitUntil: 'domcontentloaded' });
-    const generatedOuter = await page.waitForSelector('.section-context', { state: 'attached', timeout: 5000 })
-      .then(el => el.evaluate(node => node.outerHTML)).catch(() => null);
+    // Un runner cargado puede tardar más de 5 s en un script diferido: antes de dar la página por rota se
+    // repite la carga una vez con margen amplio (solo la paga la página lenta; un fallo real sigue fallando).
+    const generar = async timeout => {
+      await page.goto(`${ORIGIN}${urlPath}?parityStripped=1`, { waitUntil: 'domcontentloaded' });
+      return page.waitForSelector('.section-context', { state: 'attached', timeout })
+        .then(el => el.evaluate(node => node.outerHTML)).catch(() => null);
+    };
+    const generatedOuter = (await generar(5000)) ?? (await generar(20000));
     assert.ok(generatedOuter, `${rel}: v1-editorial-interior-v4.js did not generate a .section-context when none was pre-rendered`);
     const generatedLinks = extractLinks(generatedOuter);
 

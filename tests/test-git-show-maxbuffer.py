@@ -6,17 +6,16 @@ iconos, #1432) tumbaba findability-qa con `spawnSync git ENOBUFS`. El tamaño de
 que la llamada debe declarar su tope en lugar de depender del de Node.
 """
 import re
-import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 CALL = re.compile(r"(?:execFileSync|spawnSync)\(\s*'git'\s*,\s*\[\s*'show'[^;]*", re.S)
 
 fuera = []
-ficheros = subprocess.run(['git', 'ls-files', '-z', '*.mjs', '*.js', '*.cjs'], cwd=ROOT, capture_output=True,
-                          check=True).stdout.decode('utf-8').split('\0')
-for rel in filter(None, ficheros):
+for rel in arbol_publicado.listar(ROOT, '*.mjs', '*.js', '*.cjs'):
     texto = (ROOT / rel).read_text(encoding='utf-8', errors='ignore')
     for m in CALL.finditer(texto):
         if 'maxBuffer' not in m.group(0):
