@@ -34,6 +34,7 @@ jobs:
           sparse-checkout: |
             data/expertos.json
             scripts/empleados_latido.py
+            scripts/issue_vivo.py
             tests/test_empleados_registro.py
             .github/workflows
       - name: Registro y workflows cuadran
@@ -45,7 +46,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           EVENTO: ${{ github.event_name }}
         run: |
-          # El issue solo lo toca la ejecución de main (empleados_latido.py ignora --issue desde otra rama).
+          # El issue solo lo toca la ejecución de main (scripts/issue_vivo.py no publica fuera de main).
           python scripts/empleados_latido.py latido --salida latido.md --issue
           cat latido.md >> "$GITHUB_STEP_SUMMARY"
       - name: Guardar informe
