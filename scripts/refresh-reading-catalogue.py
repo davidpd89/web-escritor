@@ -85,7 +85,7 @@ def follow_main(root=ROOT):
     return head
 
 
-def carry(branch, root=ROOT):
+def carry(branch, root=ROOT, skipped=None):
     """Datos fuente de una PR verde pero obsoleta, sobre el main actual y sin volver a consultar las fuentes.
 
     Devuelve las altas recuperadas frente a main, o None si ya están publicadas. Si los JSON chocan,
@@ -100,7 +100,7 @@ def carry(branch, root=ROOT):
         return None
     if not replay(patch, latest, root):
         from reading_source_recovery import recover
-        return recover(root, head, base, latest)
+        return recover(root, head, base, latest, skipped)
     added = sorted(catalogue_ids((root / 'data/reading-catalogue.json').read_bytes()) - before)
     # Un punto de guardado ya publicado no provoca otra publicación vacía ni rebobina la siguiente noche.
     if not added and not git('diff', 'HEAD', '--', *SOURCE_PATHS, root=root).strip():
@@ -224,11 +224,50 @@ def reconcile_deploy(root=ROOT):
     sha = git('rev-parse', 'origin/main', root=root).decode().strip()
     repo = gh('repo', 'view', '--json', 'nameWithOwner', '--jq', '.nameWithOwner').strip()
     runs = json.loads(gh('api', f'repos/{repo}/actions/workflows/deploy-pages.yml/runs?head_sha={sha}'))['workflow_runs']
-    if any(r.get('status') != 'completed' or r.get('conclusion') == 'success' for r in runs):
+    if any(r.get('status') != 'completed' for r in runs):
+        return False
+
+    def deployed(run):
+        # Un run en verde puede no haber desplegado: el disparo horario descartado (`seguir=false`) salta `deploy`.
+        jobs = json.loads(gh('api', f'repos/{repo}/actions/runs/{run["id"]}/jobs'))['jobs']
+        return any(j.get('name') == 'deploy' and j.get('conclusion') == 'success' for j in jobs)
+    if any(r.get('conclusion') == 'success' and deployed(r) for r in runs):
         return False
     print(f'::warning::main {sha[:12]} sin despliegue en verde ni en curso; se despliega ahora', flush=True)
     gh('workflow', 'run', 'deploy-pages.yml', '--ref', 'main')
     return True
+
+
+def keep_copy(source, root=ROOT):
+    """Copia un punto de guardado a `reading-atascado-*`. Devuelve la copia, o None si no se pudo crear."""
+    keep = STUCK_PREFIX + source[len(CHECKPOINT_PREFIX):]
+    try:
+        # La referencia remota puede no existir en este checkout si `carry` falló antes de descargarla.
+        git('fetch', '--quiet', 'origin', f'+refs/heads/{source}:refs/remotes/origin/{source}', root=root)
+        git('push', '--quiet', 'origin', f'refs/remotes/origin/{source}:refs/heads/{keep}', root=root)
+    except Exception as exc:  # noqa: BLE001
+        print(f'::error::No se pudo copiar {source} a {keep} ({exc}); se conserva el original', flush=True)
+        return None
+    return keep
+
+
+def open_stuck_issue(keep, body):
+    try:
+        publisher.publication.gh('issue', 'create', '--title', f'Carga: datos sin trasladar en {keep}', '--body', body)
+    except Exception as issue_exc:  # noqa: BLE001
+        print(f'::error::No se pudo abrir la issue ({issue_exc}); los datos siguen en {keep}', flush=True)
+
+
+def report_skipped(source, skipped, root=ROOT):
+    """Altas apartadas por falta de procedencia: el resto se publica; ellas quedan en una copia con su issue."""
+    if not skipped:
+        return None
+    keep = keep_copy(source, root) if source.startswith(CHECKPOINT_PREFIX) else source
+    print(f'::warning::{len(skipped)} altas sin procedencia apartadas de {source}: {", ".join(skipped[:20])}', flush=True)
+    if keep:
+        open_stuck_issue(keep, f'Altas sin procedencia publicada, apartadas al trasladar `{source}`: '
+                         f'{", ".join(skipped[:100])}.\n\nEl resto del lote se publicó. Sus datos siguen en `{keep}`.')
+    return keep
 
 
 def report_stuck(source, exc, *, number=None, root=ROOT):
@@ -240,20 +279,16 @@ def report_stuck(source, exc, *, number=None, root=ROOT):
     """
     git('reset', '--quiet', '--hard', root=root)
     git('clean', '--quiet', '-fd', root=root)
-    keep = source
-    if source.startswith(CHECKPOINT_PREFIX):
-        keep = STUCK_PREFIX + source[len(CHECKPOINT_PREFIX):]
-        git('push', '--quiet', 'origin', f'refs/remotes/origin/{source}:refs/heads/{keep}', root=root)
+    keep = keep_copy(source, root) if source.startswith(CHECKPOINT_PREFIX) else source
     cause = f'{type(exc).__name__}: {exc}'[:1500]
+    if keep is None:
+        # Sin copia no se destruye nada: el punto de guardado sigue y la noche continúa con una consulta nueva.
+        print(f'::error::{source} no se puede trasladar ({cause}); se conserva el original', flush=True)
+        return source
     print(f'::error::{source} no se puede trasladar ({cause}); se conserva en {keep}', flush=True)
-    gh = publisher.publication.gh
-    try:
-        gh('issue', 'create', '--title', f'Carga: datos sin trasladar en {keep}',
-           '--body', f'`carry` falló con `{cause}`.\n\nLos datos siguen en la rama `{keep}`. La noche siguió '
+    open_stuck_issue(keep, f'`carry` falló con `{cause}`.\n\nLos datos siguen en la rama `{keep}`. La noche siguió '
                      'con una consulta nueva; nada se ha descartado. Hay que revisar la causa y trasladarlos a mano o '
                      'arreglar la recuperación.')
-    except Exception as issue_exc:  # noqa: BLE001
-        print(f'::error::No se pudo abrir la issue ({issue_exc}); los datos siguen en {keep}', flush=True)
     if number is not None:
         publisher.close_proposal(number, f'Sus datos no se pueden trasladar al main actual ({cause[:300]}). Se conserva la '
                                  'rama y queda una issue; el escritor vuelve a consultar las fuentes.')
@@ -292,11 +327,13 @@ def refresh(*, publish=False):
             return
         if action == 'carry':
             replaced = json.loads(publisher.publication.gh('pr', 'view', current, '--json', 'number'))['number']
+            skipped = []
             try:
-                carried = carry(current)
+                carried = carry(current, skipped=skipped)
             except Exception as exc:  # noqa: BLE001
                 report_stuck(current, exc, number=replaced)
                 carried = replaced = None
+            report_skipped(current, skipped)
             if carried is not None:
                 print(f'Datos de #{replaced} trasladados a main sin nueva consulta: {len(carried)} libros nuevos', flush=True)
                 chain_report(len(carried), trasladada_de=current, new_books=carried)
@@ -308,10 +345,16 @@ def refresh(*, publish=False):
     if publish:
         # Una ejecución anterior consultó y no llegó a abrir PR: se publica eso, sin consultar de nuevo.
         for saved in checkpoints():
+            skipped = []
             try:
-                carried = carry(saved)
+                carried = carry(saved, skipped=skipped)
             except Exception as exc:  # noqa: BLE001
                 report_stuck(saved, exc)
+                continue
+            if skipped and report_skipped(saved, skipped) is None:
+                # Sin copia de las apartadas no se publica (eso borraría el punto de guardado): se reintenta mañana.
+                git('reset', '--quiet', '--hard')
+                git('clean', '--quiet', '-fd')
                 continue
             if carried is None:
                 print(f'{saved}: ya está en main; se descarta', flush=True)

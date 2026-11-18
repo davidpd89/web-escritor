@@ -32,6 +32,7 @@ CODIGO = {
     'test_reading_source_recovery.RecoveryTests.test_concurrent_book_additions_keep_main_and_pending_source_data',
     'test_reading_source_recovery.RecoveryTests.test_existing_book_updates_survive_a_conflicting_main',
     'test_reading_source_recovery.RecoveryTests.test_existing_book_dependencies_and_asset_only_changes_survive',
+    'test_reading_source_recovery.RecoveryTests.test_a_book_without_provenance_is_set_aside_and_the_rest_is_recovered',
     'test_reading_texts.ReadingTextsTest.test_git_output_is_read_as_utf8_whatever_the_console_codepage',
     'test_reading_texts.ReadingTextsTest.test_book_page_renders_modules_before_editorial_synopsis',
 }
