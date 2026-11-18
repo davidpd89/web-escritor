@@ -36,7 +36,7 @@ jobs:
     timeout-minutes: 40
     steps:
       - name: Checkout del commit de tests
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -54,14 +54,14 @@ jobs:
           git merge --no-edit origin/main
 
       - name: Driver de resultados (del commit que lanza el workflow)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.sha }}
           path: .qa-gpt-driver
           sparse-checkout: scripts/qa-gpt
 
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -70,7 +70,7 @@ jobs:
 
       - name: Cache Playwright browser
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -103,7 +103,7 @@ jobs:
 
       - name: Conservar resultados
         if: always()
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: qa-gpt-resultados
           path: ${{ runner.temp }}/resultados.json
