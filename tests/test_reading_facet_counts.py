@@ -22,7 +22,7 @@ class FacetCountTests(unittest.TestCase):
     def setUp(self):
         self.data = {'categorias': [{'id': 'novela', 'tipo': 'genero', 'nombre': 'Novela'}]}
         self.orig = m.categories, m.book_group, m.public, m.purchase_formats
-        m.categories = lambda data, b: [{'id': b['_cat'], 'tipo': 'genero'}]
+        m.categories = lambda data, b, index=None: [{'id': b['_cat'], 'tipo': 'genero'}]
         m.book_group = lambda cats: 'ficcion'
         m.public = lambda cats: cats
         m.purchase_formats = lambda b: []

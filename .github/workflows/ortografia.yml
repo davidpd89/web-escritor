@@ -1,0 +1,79 @@
+name: Ortografía de los textos propios
+
+# Empleado gratuito: cspell con el diccionario de español sobre las páginas escritas a mano (portada, autor,
+# novelas, cuaderno, universo...). No mira las fichas de recomendaciones ni las editoriales: sus sinopsis son
+# de terceros. Las exclusiones están en qa/cspell.json; los nombres propios, en qa/cspell-propios.txt.
+# Línea base 0 (17/11/2026: 49 páginas, 0 palabras desconocidas; detecta «prueva», «escrivir»...). Por eso la
+# comprobación queda en rojo si aparece alguna: así se ve en la PR que la introduce, no en un resumen que nadie
+# abre. No es check requerido. Una palabra correcta que no conoce el diccionario se añade a
+# qa/cspell-propios.txt; una errata se corrige en la página.
+on:
+  pull_request:
+    paths:
+      - "*.html"
+      - "*/**/*.html"
+      - "!recomendaciones/**"
+      - "!editoriales/**"
+      - "qa/cspell.json"
+      - "qa/cspell-propios.txt"
+      - ".github/workflows/ortografia.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: '41 5 * * 4'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  cspell:
+    name: cspell en español
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/recomendaciones/
+            !/editoriales/
+            !/assets/
+            !/pagefind/
+      - name: cspell
+        id: cspell
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          npm install --no-save --no-audit --no-fund --prefix "$RUNNER_TEMP/cspell" cspell@8 @cspell/dict-es-es@3 > /dev/null
+          export NODE_PATH="$RUNNER_TEMP/cspell/node_modules"
+          "$RUNNER_TEMP/cspell/node_modules/.bin/cspell" --no-progress --config qa/cspell.json --show-context "**/*.html" > cspell.txt 2>&1
+      - name: Resumen
+        if: always()
+        run: |
+          {
+            echo "## Ortografía (cspell)"
+            echo
+            echo "Resultado: ${{ steps.cspell.outcome }}."
+            if [ -s cspell.txt ]; then
+              echo "Palabras desconocidas: $(grep -c 'Unknown word' cspell.txt || true)."
+              echo
+              echo '```'
+              grep 'Unknown word' cspell.txt | head -100 || true
+              tail -2 cspell.txt
+              echo '```'
+            fi
+            echo
+            echo "Errata: corregirla en la página. Palabra correcta: añadirla a qa/cspell-propios.txt."
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Palabras desconocidas
+        if: steps.cspell.outcome == 'failure'
+        run: |
+          echo "::error::cspell encontró palabras desconocidas: ver el resumen."
+          exit 1

@@ -38,6 +38,21 @@ def cover_url(book: dict) -> str | None:
     return None
 
 
+def price_cents(book: dict) -> int:
+    """Precio en céntimos: el de Amazon del formato impreso si está verificado; si no, el PVP."""
+    for fmt in book.get("formatos_compra") or []:
+        if fmt.get("formato") in ("tapa-blanda", "tapa-dura", "bolsillo") and isinstance(
+            fmt.get("precio_centimos"), int
+        ):
+            return fmt["precio_centimos"]
+    pvp = str(book.get("pvp_centimos") or "")
+    return int(pvp) if pvp.isdigit() else 0
+
+
+def euros(cents: int) -> str:
+    return f"{cents // 100},{cents % 100:02d} €"
+
+
 def amazon_url(asin: str, tag: str = "") -> str:
     if not re.fullmatch(r"[A-Z0-9]{10}", asin):
         raise ValueError("ASIN must contain exactly 10 uppercase letters/digits")
@@ -170,6 +185,8 @@ def from_reading_catalogue(path: Path, channels_path: Path, groups: dict | None 
                 "cover_url": cover_url(book),
                 "generated_cover": bool(generated_cover(book)),
                 "publisher": str(book.get("editorial") or ""),
+                "price_cents": price_cents(book),
+                "pages": int(book["numero_paginas"]) if str(book.get("numero_paginas") or "").isdigit() else 0,
                 "synopsis": str(book.get("sinopsis_breve") or "")
                 or edition_note(book),
                 "web_url": f"https://davidportodiaz.com/recomendaciones/libros/{book['slug']}/"
@@ -188,7 +205,8 @@ def from_reading_catalogue(path: Path, channels_path: Path, groups: dict | None 
 # Amazon.es acepta varios ISBN en el filtro p_66 separados por «|» (probado con 60: devuelve sus ediciones).
 # Con más libros el resumen lleva varios enlaces, uno por cada bloque de 60.
 DIGEST_MAX_ISBNS = 60
-DIGEST_MAX_TITLES = 12
+DIGEST_MAX_TITLES = 40
+DIGEST_MAX_CHARS = 3400  # por mensaje: Telegram admite 4096 y el HTML de los enlaces no cuenta como texto visible
 SEND_AT = dtime(11, 30)  # Hora de Madrid a la que salen todos los envíos del día.
 WEEK_DAYS = 7
 MONTHS = (
@@ -245,44 +263,53 @@ def digest(
     tag: str = "",
     label: str = "",
     until: str = "",
-) -> dict | None:
-    """Un único mensaje: los títulos y uno o varios enlaces de Amazon filtrados por sus ISBN.
+    start: str = "",
+) -> list[dict]:
+    """Los títulos del día como uno o varios mensajes. Cada título enlaza a su ficha de Amazon (los enlaces
+    de búsqueda por muchos ISBN no abren en la app de Amazon), así que si no caben en un mensaje de
+    Telegram se reparten en varios consecutivos («1/3», «2/3»…) en vez de dejar un «…y N más».
 
     Diario («Aquí tienes las publicaciones del día…») o semanal si se da `until`
-    («Próximos lanzamientos del … al …», con la fecha de cada libro)."""
-    isbns = list(dict.fromkeys(b["isbn13"] for b in books if b.get("isbn13")))
-    if not isbns:
-        return None
+    («Próximos lanzamientos del … al …», con la fecha de cada libro; `start` es el primer día)."""
+    books = [b for b in books if b.get("isbn13") or b.get("amazon_url") or b.get("asin")]
+    if not books:
+        return []
     tag = tag or tag_from_books(books)
     books = sorted(books, key=lambda b: (b["release_date"], b["title"])) if until else books
-    lines = [
-        (f"• {human_date(b['release_date'])}: " if until else "• ")
-        + f"<b>{escape(shorten(b['title'], 140))}</b> — {escape(shorten(b['author'], 100))}"
-        for b in books[:DIGEST_MAX_TITLES]
-    ]
-    if len(books) > DIGEST_MAX_TITLES:
-        lines.append(f"…y {len(books) - DIGEST_MAX_TITLES} más")
-    chunks = [isbns[i : i + DIGEST_MAX_ISBNS] for i in range(0, len(isbns), DIGEST_MAX_ISBNS)]
-    links = []
-    for n, chunk in enumerate(chunks):
-        if len(chunks) == 1:
-            text = f"Ver los {len(chunk)} en Amazon" if len(chunk) > 1 else "Ver en Amazon"
-        else:
-            first = n * DIGEST_MAX_ISBNS + 1
-            text = f"Ver en Amazon ({first}–{first + len(chunk) - 1})"
-        links.append(f'👉 <a href="{escape(isbn_search_url(chunk, tag), quote=True)}">{text}</a>')
+    lines = []
+    for b in books:
+        url = b.get("amazon_url") or (amazon_url(b["asin"], tag) if b.get("asin") else "")
+        title = f"<b>{escape(shorten(b['title'], 140))}</b>"
+        if url:
+            title = f'<a href="{escape(url, quote=True)}">{title}</a>'
+        lines.append(
+            (f"• {human_date(b['release_date'])}: " if until else "• ")
+            + f"{title} — {escape(shorten(b['author'], 100))}"
+        )
+    chunks, current, size = [], [], 0
+    for line in lines:
+        if current and (len(current) >= DIGEST_MAX_TITLES or size + len(line) > DIGEST_MAX_CHARS):
+            chunks.append(current)
+            current, size = [], 0
+        current.append(line)
+        size += len(line) + 1
+    chunks.append(current)
     count = f"{len(books)} libro" + ("s" if len(books) != 1 else "")
-    if until:
-        head = f"{HASHTAGS_PROXIMOS}\n\n🗓️ <b>Próximos lanzamientos del {human_date(day)} al {human_date(until)}</b>"
-        key = weekly_key(day)
-    else:
-        head = f"{HASHTAGS_NOVEDAD}\n\n📚 <b>Aquí tienes las publicaciones del día {human_date(day)}</b>"
-        key = digest_key(day)
     sub = f"{escape(label)} · {count}" if label else count
-    text = (
-        f"{head}\n{sub}\n\n" + "\n".join(lines) + "\n\n" + "\n".join(links)
-    )
-    return {"asin": key, "digest": True, "text": text, "release_date": day}
+    parts = []
+    for n, chunk in enumerate(chunks, 1):
+        page = f" ({n}/{len(chunks)})" if len(chunks) > 1 else ""
+        if until:
+            head = f"{HASHTAGS_PROXIMOS}\n\n🗓️ <b>Próximos lanzamientos del {human_date(start or day)} al {human_date(until)}{page}</b>"
+            key = weekly_key(day)
+        else:
+            head = f"{HASHTAGS_NOVEDAD}\n\n📚 <b>Aquí tienes las publicaciones del día {human_date(day)}{page}</b>"
+            key = digest_key(day)
+        if n > 1:
+            key += f"-{n}"
+        text = f"{head}\n{sub}\n\n" + f"\n".join(chunk)
+        parts.append({"asin": key, "digest": True, "text": text, "release_date": day})
+    return parts
 
 
 CAPTION_LIMIT = 1024
@@ -310,17 +337,24 @@ def message(book: dict, tag: str) -> str:
     title = shorten(book["title"], 360)
     author = shorten(book["author"], 280)
     # Sin emoji de calendario (su dibujo muestra un «17» que confunde) y sin enlace a la ficha de la web:
-    # el único enlace es el de Amazon.
-    head = (
-        f"{HASHTAGS_NOVEDAD}\n\n📚 <b>Novedad de hoy</b>\n\n<b>{escape(title)}</b>\n"
-        f"✍️ {escape(author)}\n"
-        + (f"🏢 {escape(shorten(book['publisher'], 100))}\n" if book.get("publisher") else "")
-        + (f"🏷️ {escape(genres)}\n" if genres else "")
+    # el único enlace es el de Amazon. Sin sinopsis: repetía lo anterior.
+    byline = escape(author) + (
+        f" · {escape(shorten(book['publisher'], 100))}" if book.get("publisher") else ""
     )
-    tail = f'\n👉 <a href="{escape(url, quote=True)}">Ver en Amazon</a>'
-    room = CAPTION_LIMIT - 24 - visible_length(head + tail)
-    blurb = shorten(book.get("synopsis", ""), min(320, room)) if room > 40 else ""
-    return head + (f"\n<i>{escape(blurb)}</i>\n" if blurb else "") + tail
+    facts = [
+        part
+        for part in (
+            f"🏷️ {escape(genres)}" if genres else "",
+            f"💶 {euros(book['price_cents'])}" if book.get("price_cents") else "",
+            f"📄 {book['pages']} págs." if book.get("pages") else "",
+        )
+        if part
+    ]
+    return (
+        f"📚 {HASHTAGS_NOVEDAD}\n\n<b>{escape(title)}</b>\n✍️ {byline}\n"
+        + (" · ".join(facts) + "\n" if facts else "")
+        + f'\n👉 <a href="{escape(url, quote=True)}">Ver en Amazon</a>'
+    )
 
 
 DISCORD_WEBHOOK = re.compile(
@@ -438,6 +472,36 @@ def send_discord(
     return "uncertain", first_id
 
 
+# Telegram recorta en el chat las fotos altas (también las 4:5: se perdía el título arriba y el pie abajo).
+# Se centra la portada entera sobre un fondo suave de la misma imagen y se sube ya con esa proporción.
+COVER_MAX_RATIO = 1.0  # alto / ancho: cuadrada, la única proporción que Telegram no recorta en el móvil
+
+
+def padded_cover(photo_url: str, get=requests.get) -> bytes | None:
+    """JPEG con la portada completa en proporción 1:1, o None si no se puede (se envía la URL tal cual)."""
+    try:
+        from io import BytesIO
+
+        from PIL import Image, ImageFilter
+
+        response = get(photo_url, timeout=15)
+        if response.status_code != 200:
+            return None
+        cover = Image.open(BytesIO(response.content)).convert("RGB")
+        width, height = cover.size
+        if width < 50 or height <= width * COVER_MAX_RATIO:
+            return None
+        canvas_w = math.ceil(height / COVER_MAX_RATIO)
+        back = cover.resize((canvas_w, height)).filter(ImageFilter.GaussianBlur(40))
+        back = Image.blend(back, Image.new("RGB", back.size, (255, 255, 255)), 0.35)
+        back.paste(cover, ((canvas_w - width) // 2, 0))
+        out = BytesIO()
+        back.save(out, "JPEG", quality=90)
+        return out.getvalue()
+    except Exception:  # noqa: BLE001 - la portada es un extra: nunca debe impedir el envío
+        return None
+
+
 def send(
     token: str, chat_id: str, text: str, photo_url: str | None = None
 ) -> tuple[str, int | None]:
@@ -445,15 +509,29 @@ def send(
     try:
         method = "sendPhoto" if photo_url else "sendMessage"
         payload = {"chat_id": chat_id, "parse_mode": "HTML"}
+        files = None
         if photo_url:
-            payload.update(photo=photo_url, caption=text)
+            payload.update(caption=text)
+            image = padded_cover(photo_url)
+            if image:
+                files = {"photo": ("portada.jpg", image, "image/jpeg")}
+            else:
+                payload.update(photo=photo_url)
         else:
             payload.update(text=text, link_preview_options={"is_disabled": True})
-        response = requests.post(
-            f"https://api.telegram.org/bot{token}/{method}",
-            json=payload,
-            timeout=15,
-        )
+        if files:
+            response = requests.post(
+                f"https://api.telegram.org/bot{token}/{method}",
+                data=payload,
+                files=files,
+                timeout=30,
+            )
+        else:
+            response = requests.post(
+                f"https://api.telegram.org/bot{token}/{method}",
+                json=payload,
+                timeout=15,
+            )
         data = response.json()
         if response.status_code == 200 and data.get("ok") is True:
             mid = data.get("result", {}).get("message_id")
@@ -502,14 +580,14 @@ def channel_jobs(channel: dict, books: list[dict], today: date, tag: str) -> lis
     if channel.get("period") == "weekly":
         if today.weekday() != int(channel.get("weekday", 0)):
             return []
-        until = today + timedelta(days=WEEK_DAYS - 1)
-        week = [b for b in mine if day <= b["release_date"] <= until.isoformat()]
-        summary = digest(week, day, tag, label, until=until.isoformat())
-        return [summary] if summary else []
+        # Hoy ya es novedad: los próximos lanzamientos empiezan mañana.
+        first = today + timedelta(days=1)
+        until = first + timedelta(days=WEEK_DAYS - 1)
+        week = [b for b in mine if first.isoformat() <= b["release_date"] <= until.isoformat()]
+        return digest(week, day, tag, label, until=until.isoformat(), start=first.isoformat())
     due = [b for b in mine if b["release_date"] == day]
     if channel.get("mode") == "digest":
-        summary = digest(due, day, tag, label)
-        return [summary] if summary else []
+        return digest(due, day, tag, label)
     return due
 
 
@@ -671,8 +749,8 @@ def smoke(
 
     def test_text(text):
         return text.replace(
-            "📚 <b>Novedad de hoy</b>",
-            "🧪 <b>PRUEBA · ficha de libro</b>\nNo es una novedad de hoy.",
+            f"📚 {HASHTAGS_NOVEDAD}",
+            "🧪 <b>PRUEBA · ficha de libro</b>\nNo es una novedad de hoy.\n\n📚 "+HASHTAGS_NOVEDAD,
             1,
         )
 

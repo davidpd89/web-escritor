@@ -22,6 +22,8 @@ WORK = ROOT / '.local/catalogo'
 BRANCH = 'catalogo-estado'
 FILES = ('semillas.json', 'pendientes.json', 'sellos.json', 'rendimiento-sellos.json', 'recorrido-sellos.json',
          'pendientes-creacion.json', 'descartados.jsonl', 'salud.json')
+# Escritos por otros procesos en la misma rama: guardar() los conserva tal como están en el remoto.
+AJENOS = ('noche.json',)
 
 
 def git(*args, env=None, data=None, check=True):
@@ -50,31 +52,41 @@ def restaurar():
     return len(names)
 
 
-def latest_photo():
-    photos = sorted((WORK / 'revision').glob('foto-*.json'))
-    return photos[-1:] if photos else []
-
-
-def guardar(message):
-    """Commit con los ficheros de estado encima del último de la rama; si otro lo movió entretanto, reintenta."""
-    paths = [WORK / name for name in FILES if (WORK / name).exists()] + latest_photo()
-    if not paths:
-        print('Estado: nada que guardar', flush=True)
+def leer(name):
+    """Contenido de un fichero de la rama tal como está en el remoto ahora, o None si no existe."""
+    head = remote_head()
+    if not head:
         return None
+    git('fetch', '--quiet', '--no-tags', 'origin', f'+refs/heads/{BRANCH}:refs/remotes/origin/{BRANCH}')
+    shown = git('show', f'{head}:{name}', check=False)
+    return shown.stdout if shown.returncode == 0 else None
+
+
+def _commit(entries, message, keep_parent):
+    """Commit encima de la cabeza de la rama con `entries` (nombre -> bytes). Con `keep_parent` se parte del árbol
+    anterior y solo se sustituyen esos nombres; sin él, el árbol es exactamente `entries` más los ficheros AJENOS
+    del anterior (los escribe otro proceso y no se pueden perder). Reintenta si otro movió la rama."""
     for attempt in range(3):
         parent = remote_head()
-        with tempfile.TemporaryDirectory() as tmp:
-            env = {'GIT_INDEX_FILE': str(Path(tmp) / 'index')}
-            for path in paths:
-                blob = git('hash-object', '-w', '--', str(path)).stdout.decode().strip()
-                name = path.relative_to(WORK).as_posix()
-                git('update-index', '--add', '--cacheinfo', f'100644,{blob},{name}', env=env)
-            tree = git('write-tree', env=env).stdout.decode().strip()
         if parent:
             git('fetch', '--quiet', '--no-tags', 'origin', f'+refs/heads/{BRANCH}:refs/remotes/origin/{BRANCH}')
-            if git('rev-parse', parent + '^{tree}').stdout.decode().strip() == tree:
-                print('Estado sin cambios', flush=True)
-                return parent
+        with tempfile.TemporaryDirectory() as tmp:
+            env = {'GIT_INDEX_FILE': str(Path(tmp) / 'index')}
+            if parent and keep_parent:
+                git('read-tree', parent, env=env)
+            elif parent:
+                for name in AJENOS:
+                    if name not in entries:
+                        line = git('ls-tree', parent, '--', name).stdout.decode().split()
+                        if line:
+                            git('update-index', '--add', '--cacheinfo', f'100644,{line[2]},{name}', env=env)
+            for name, data in entries.items():
+                blob = git('hash-object', '-w', '--stdin', data=data).stdout.decode().strip()
+                git('update-index', '--add', '--cacheinfo', f'100644,{blob},{name}', env=env)
+            tree = git('write-tree', env=env).stdout.decode().strip()
+        if parent and git('rev-parse', parent + '^{tree}').stdout.decode().strip() == tree:
+            print('Estado sin cambios', flush=True)
+            return parent
         identity = {'GIT_AUTHOR_NAME': 'github-actions[bot]', 'GIT_COMMITTER_NAME': 'github-actions[bot]',
                     'GIT_AUTHOR_EMAIL': '41898282+github-actions[bot]@users.noreply.github.com',
                     'GIT_COMMITTER_EMAIL': '41898282+github-actions[bot]@users.noreply.github.com'}
@@ -85,6 +97,27 @@ def guardar(message):
             return commit
         print(f'Estado: la rama cambió durante el guardado (intento {attempt + 1})', flush=True)
     raise RuntimeError('No se pudo guardar el estado en ' + BRANCH)
+
+
+def escribir(name, data, message):
+    """Sustituye un solo fichero de la rama y conserva el resto (el libro de la noche, scripts/noche.py)."""
+    return _commit({name: data}, message, keep_parent=True)
+
+
+def latest_photo():
+    photos = sorted((WORK / 'revision').glob('foto-*.json'))
+    return photos[-1:] if photos else []
+
+
+def guardar(message):
+    """Commit con los ficheros de estado encima del último de la rama; si otro lo movió entretanto, reintenta.
+    Los ficheros AJENOS (el libro de la noche) se toman del remoto, nunca de la copia local restaurada."""
+    paths = [WORK / name for name in FILES if (WORK / name).exists()] + latest_photo()
+    if not paths:
+        print('Estado: nada que guardar', flush=True)
+        return None
+    return _commit({path.relative_to(WORK).as_posix(): path.read_bytes() for path in paths}, message,
+                   keep_parent=False)
 
 
 def main(argv=None):

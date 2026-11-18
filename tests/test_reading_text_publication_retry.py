@@ -17,7 +17,7 @@ class TextPublicationRetryTests(unittest.TestCase):
    book={'id':'book','estado':'publicado'}
    patches=[(texts,'load_module',lambda *a:pub),(texts,'ROOT',root),
     (texts,'read_json',lambda p,*a:{'id':'book','bloques':[{}]*10}),
-    (texts,'published',lambda d:[book]),(texts,'payload',lambda *a:{}),
+    (texts,'published',lambda d:[book]),(texts,'payload',lambda *a:{'modulos_permitidos':[{'modulo':'para_quien'},{'modulo':'lecturas_afines'}]}),
     (texts,'valid_blocks',lambda *a:[{}]*10),(texts,'write_json',lambda *a:None),
     (texts,'git',lambda *a,**k:' M data/reading-texts/book.json\n' if k.get('capture') else None),
     (texts,'git_add',lambda *a,**k:None),(texts.git_estado,'rutas',lambda *a,**k:['data/reading-texts/book.json']),(texts.catalogue,'index_categories',lambda *a:None),

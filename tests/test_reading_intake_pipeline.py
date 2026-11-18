@@ -253,7 +253,8 @@ class ContractTests(unittest.TestCase):
         titles = {b['id']: builder.book_title(b, books) for b in books}
         self.assertEqual(len(set(titles.values())), len(titles))
         self.assertTrue(all(len(t) <= 75 for t in titles.values()))
-        anonymous = [t for b in books if b['autores'][0] not in (t := titles[b['id']])]
+        # Con el id de cada libro: la carga aparta los libros que nombra un contrato que falla.
+        anonymous = [(b['id'], t) for b in books if b['autores'][0] not in (t := titles[b['id']])]
         self.assertLessEqual(len(anonymous), 2, anonymous)
 
     def test_partial_publication_never_gets_fake_day(self):
