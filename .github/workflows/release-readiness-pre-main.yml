@@ -14,6 +14,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
+# R5-8: el token por defecto del repo es de escritura; en pull_request basta con leer.
+permissions:
+  contents: read
+
 jobs:
   readiness:
     runs-on: ubuntu-latest

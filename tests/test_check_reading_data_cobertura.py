@@ -22,6 +22,8 @@ CODIGO = {
     'test_reading_amazon_audit.AmazonAuditTests.test_every_published_book_is_due_oldest_first_without_a_cap',
     'test_reading_amazon_audit.AmazonAuditTests.test_cover_follows_the_book_in_main_not_the_kind_stored_in_the_record',
     'test_reading_amazon_audit.AmazonAuditTests.test_cover_cap_goes_to_the_books_closest_to_today',
+    'test_reading_amazon_audit.AmazonAuditTests.test_books_without_synopsis_not_yet_read_for_it_go_first_closest_first',
+    'test_reading_amazon_audit.AmazonAuditTests.test_sin_registro_van_antes_los_libros_sin_sinopsis_aunque_sean_mas_lejanos',
     'test_reading_enrichment.EnrichmentTests.test_editorial_outage_preserves_catalogue_and_allows_independent_refresh',
     'test_reading_intake_multibook_contract.MultiBookContractTests.test_three_independent_pages_one_hub_and_categories',
     'test_reading_intake_multibook_contract.MultiBookContractTests.test_partially_ready_book_does_not_break_other_two',
@@ -30,6 +32,7 @@ CODIGO = {
     'test_reading_source_recovery.RecoveryTests.test_concurrent_book_additions_keep_main_and_pending_source_data',
     'test_reading_source_recovery.RecoveryTests.test_existing_book_updates_survive_a_conflicting_main',
     'test_reading_source_recovery.RecoveryTests.test_existing_book_dependencies_and_asset_only_changes_survive',
+    'test_reading_source_recovery.RecoveryTests.test_a_book_without_provenance_is_set_aside_and_the_rest_is_recovered',
     'test_reading_texts.ReadingTextsTest.test_git_output_is_read_as_utf8_whatever_the_console_codepage',
     'test_reading_texts.ReadingTextsTest.test_book_page_renders_modules_before_editorial_synopsis',
 }
