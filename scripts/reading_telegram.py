@@ -295,9 +295,19 @@ def hashtag(name: str) -> str:
     return "#" + "".join(w.capitalize() for w in re.findall(r"[A-Za-z0-9]+", plain))
 
 
+# Etiqueta fija por género (consultada con ChatGPT 19/11/2026): estable, sin tildes y la que el lector busca.
+GENRE_HASHTAG = {
+    "misterio-y-thriller": "#Thriller", "biografias-y-memorias": "#Biografias", "familia-y-crianza": "#Crianza",
+    "nutricion-y-bienestar": "#NutricionYBienestar", "comic-y-novela-grafica": "#Comic",
+    "infantil": "#LibrosInfantiles", "narrativa-juvenil": "#LiteraturaJuvenil",
+}
+
+
 def genre_tag(book: dict) -> str:
     name = genre_name(book)
-    return hashtag(name) if name != OTHER_GENRE else "#Novedades"
+    if name == OTHER_GENRE:
+        return "#Novedades"
+    return GENRE_HASHTAG.get(book.get("genre_id", ""), hashtag(name))
 
 
 def _sort_text(text: str) -> str:
@@ -323,20 +333,16 @@ def genre_runs(books: list[dict]) -> list[list[dict]]:
 
 
 def genre_banner(book: dict, count: int) -> str:
-    """Mensaje que abre la tanda de un género en los canales de libro a libro."""
-    plural = "libro" if count == 1 else "libros"
-    line = "➖➖➖➖➖➖➖➖➖➖"
-    return (
-        f"{line}\n{genre_emoji(book)} <b>A partir de aquí: {escape(genre_name(book))}</b>\n"
-        f"{count} {plural} · {genre_tag(book)}\n{line}"
-    )
+    """Mensaje corto que abre la tanda de un género en los canales de libro a libro."""
+    plural = "novedad" if count == 1 else "novedades"
+    return f"{genre_emoji(book)} <b>{escape(genre_name(book))}</b>\n{count} {plural} · {genre_tag(book)}"
 
 
 def genre_banners(books: list[dict], day: str) -> list[dict]:
     """Los libros de un canal ordenados por género con un mensaje separador delante de cada género.
 
-    La clave del separador lleva el primer libro de la tanda: si a media mañana entran libros nuevos de un
-    género ya enviado, salen precedidos de un separador propio en lugar de quedar sueltos."""
+    La clave del separador es solo día + género: si el ciclo se reanuda a mitad de una tanda (un libro en
+    reintento, uno que entra tarde) no se repite el separador, y la ficha lleva igualmente su emoji y hashtag."""
     if not any(b.get("genres") for b in books):
         return list(books)  # sin ningún género conocido no hay nada que separar
     jobs = []
@@ -344,7 +350,7 @@ def genre_banners(books: list[dict], day: str) -> list[dict]:
         first = run_books[0]
         jobs.append(
             {
-                "asin": f"sep-{day}-{first.get('genre_id') or 'otros'}-{first['asin']}",
+                "asin": f"sep-{day}-{first.get('genre_id') or 'otros'}",
                 "separator": True,
                 "text": genre_banner(first, len(run_books)),
                 "release_date": day,
@@ -454,7 +460,7 @@ def message(book: dict, tag: str) -> str:
     if book.get("digest") or book.get("separator"):
         return book["text"]
     url = book.get("amazon_url") or amazon_url(book["asin"], tag)
-    genres = " ".join(hashtag(g) for g in book.get("genres", [])[:3])
+    genres = genre_tag(book) if book.get("genres") else ""
     title = shorten(book["title"], 360)
     author = shorten(book["author"], 280)
     # Sin emoji de calendario (su dibujo muestra un «17» que confunde) y sin enlace a la ficha de la web:
@@ -688,8 +694,16 @@ GLOBAL_GAP = 0.2
 BATCH = 25
 
 
+LATE_DAYS = 3  # un libro verificado con retraso se anuncia hasta 3 días después de su fecha (libro a libro)
+
+
 def channel_jobs(
-    channel: dict, books: list[dict], today: date, tag: str, known: frozenset | set = frozenset()
+    channel: dict,
+    books: list[dict],
+    today: date,
+    tag: str,
+    known: frozenset | set = frozenset(),
+    done: frozenset | set = frozenset(),
 ) -> list[dict]:
     """What a channel publishes today: one digest, or one message per book; weekly only on its day."""
     day = today.isoformat()
@@ -709,6 +723,10 @@ def channel_jobs(
         week = [b for b in mine if first.isoformat() <= b["release_date"] <= until.isoformat()]
         return digest(week, day, tag, label, until=until.isoformat(), start=first.isoformat())
     due = [b for b in mine if b["release_date"] == day]
+    if channel.get("mode") != "digest":
+        # Libros de días anteriores que entraron al catálogo tarde (carga nocturna caída) y no se anunciaron.
+        oldest = (today - timedelta(days=LATE_DAYS)).isoformat()
+        due += [b for b in mine if oldest <= b["release_date"] < day and b["asin"] not in done]
     if channel.get("mode") == "digest":
         # Solo lo que aún no salió en un resumen de este canal: así los libros tardíos van en otro, sin repetir.
         return digest([b for b in due if b["asin"] not in known], day, tag, label)
@@ -763,10 +781,14 @@ def run(
 ) -> list[dict]:
     if now is not None and now.time() < SEND_AT:
         return []  # Nothing goes out before 11:30 (Madrid); the 11:30 run sends the day.
-    def build(known_by_chat):
+    def build(known_by_chat, done_by_chat=None):
+        done_by_chat = done_by_chat or {}
         return interleave(
             [
-                (c, channel_jobs(c, catalog["books"], today, tag, known_by_chat.get(c["chat_id"], set())))
+                (c, channel_jobs(
+                        c, catalog["books"], today, tag,
+                        known_by_chat.get(c["chat_id"], set()), done_by_chat.get(c["chat_id"], set()),
+                    ))
                 for c in catalog["channels"]
             ]
         )
@@ -805,7 +827,17 @@ def run(
             }
             for c in catalog["channels"]
         }
-        jobs = build(known_by_chat)
+        done_by_chat = {
+            c["chat_id"]: {
+                row[0]
+                for row in db.execute(
+                    "SELECT asin FROM deliveries WHERE chat=? AND status IN ('sent','uncertain','rejected')",
+                    (c["chat_id"],),
+                )
+            }
+            for c in catalog["channels"]
+        }
+        jobs = build(known_by_chat, done_by_chat)
         waiting = set()  # canales con un separador aplazado por límite: sus libros esperan para no salir antes que él
         for channel, book in jobs:
             key = (channel["chat_id"], book["asin"])

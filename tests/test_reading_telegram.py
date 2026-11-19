@@ -39,7 +39,7 @@ class ReadingTelegramTests(unittest.TestCase):
                         "categories": group["categories"][:1],
                     }
                     other = {**own, "asin": "1234567891", "categories": ["incorrecta"]}
-                    old = {**own, "asin": "1234567892", "release_date": "2026-11-10"}
+                    old = {**own, "asin": "1234567892", "release_date": "2026-11-05"}
                     future = {**own, "asin": "1234567893", "release_date": "2026-11-12"}
                     jobs = channel_jobs(channel, [own, other, old, future], today, "")
                     if name == "proximos":
@@ -288,14 +288,14 @@ class ReadingTelegramTests(unittest.TestCase):
         result = run(catalog, date(2026, 11, 1), db)
         self.assertEqual(len(result), 3)  # separador de género en @general + libro + libro en @fantasia
         sep = result[0]
-        self.assertIn("A partir de aquí: Fantasía", sep["text"])
+        self.assertIn("Fantasía</b>\n1 novedad · #Fantasia", sep["text"])
         self.assertIn("#Fantasia", sep["text"])
         book = result[1]
         self.assertIn("tag=davidporto-21", book["text"])
         self.assertIn("&lt;uno&gt;", book["text"])
         self.assertIn("🐉 #Fantasia", book["text"])
         self.assertNotIn("comisión", result[0]["text"])
-        self.assertEqual(run(catalog, date(2026, 11, 2), db), [])
+        self.assertEqual(run(catalog, date(2026, 11, 5), db), [])
         self.assertFalse(db.exists())
 
     def test_digest_channel_gets_one_daily_message_with_isbn_filter(self):
@@ -323,7 +323,7 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertIn("tag=davidporto-21", text)
         self.assertIn("&lt;uno&gt;", text)
         self.assertEqual(len([r for r in result if r["chat_id"] == "@general"]), 4)  # 2 libros + 2 separadores
-        self.assertEqual(run(self.catalog(), date(2026, 11, 2), self.root / "s.db"), [])
+        self.assertEqual(run(self.catalog(), date(2026, 11, 5), self.root / "s.db"), [])
 
     def test_discord_channel_posts_digest_by_webhook_without_bot_token(self):
         self.source["libros"][0]["isbn13"] = "9788498382372"
@@ -698,9 +698,9 @@ class GenreGroupingTests(unittest.TestCase):
         jobs = genre_banners(self.books(), "2026-11-19")
         kinds = ["sep" if j.get("separator") else j["asin"] for j in jobs]
         self.assertEqual(kinds, ["sep", "B2", "sep", "B3", "B1", "sep", "B4"])  # «Otros libros» al final
-        self.assertIn("A partir de aquí: Fantasía", jobs[0]["text"])
+        self.assertIn("Fantasía</b>\n1 novedad · #Fantasia", jobs[0]["text"])
         self.assertIn("#Fantasia", jobs[0]["text"])
-        self.assertIn("2 libros · #Romance", jobs[2]["text"])
+        self.assertIn("2 novedades · #Romance", jobs[2]["text"])
         self.assertEqual(len({j["asin"] for j in jobs}), len(jobs))
 
     def test_single_category_channel_gets_no_separators(self):
@@ -740,6 +740,6 @@ class GenreGroupingTests(unittest.TestCase):
         }
         keys = digest_candidate_keys(catalog, date(2026, 11, 19))
         self.assertIn("in-2026-11-19-B1", keys)
-        self.assertTrue(any(k.startswith("sep-2026-11-19-fantasia-") for k in keys))
+        self.assertTrue(any(k.startswith("sep-2026-11-19-fantasia") for k in keys))
         self.assertTrue(any(k.startswith("digest2-2026-11-19-") and k.endswith("-2") for k in keys))
         self.assertEqual(len(keys), len(set(keys)))
