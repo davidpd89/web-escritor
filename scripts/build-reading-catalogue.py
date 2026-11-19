@@ -1265,13 +1265,36 @@ def catalogue_page_url(number):
     return '/recomendaciones/' if number == 1 else f'/recomendaciones/pagina/{number}/'
 
 
+def pager_window(number, pages):
+    """Páginas visibles de un paginador (patrón GOV.UK): primera, última y vecinas de la actual; None = hueco «…»."""
+    out, last = [], 0
+    for page in sorted({1, pages, *range(max(1, number - 1), min(pages, number + 1) + 1)}):
+        if page - last > 1:
+            out.append(None)
+        out.append(page)
+        last = page
+    return out
+
+
 def catalogue_pager(number, pages):
+    """Paginador estático: Anterior · 1 … n-1 [n] n+1 … N · Siguiente, y caja «Ir a la página» (se activa con JS).
+    Sin JS se recorre todo con Anterior/Siguiente; el JS sabe cuántas páginas hay por data-catalogue-page-count."""
     if pages <= 1:
         return ''
-    links = ''.join(f'<span aria-current="page">{i}</span>' if i == number else
-                    f'<a href="{catalogue_page_url(i)}" target="_self" data-catalogue-page aria-label="Página {i}">{i}</a>'
-                    for i in range(1, pages + 1))
-    return '<nav class="catalogue-pagination catalogue-static-pagination" data-catalogue-static-pagination aria-label="Páginas del catálogo">' + links + '</nav>'
+    def link(page, text, extra=''):
+        return f'<a href="{catalogue_page_url(page)}" target="_self" data-catalogue-page{extra}>{text}</a>'
+    numbers = ''.join('<span class="catalogue-pagination__gap" aria-hidden="true">…</span>' if page is None else
+                      f'<span aria-current="page">{page}</span>' if page == number else
+                      link(page, str(page), f' aria-label="Página {page}"')
+                      for page in pager_window(number, pages))
+    prev = link(number - 1, '← Anterior', ' rel="prev"') if number > 1 else ''
+    nxt = link(number + 1, 'Siguiente →', ' rel="next"') if number < pages else ''
+    jump = (f'<form class="catalogue-pagination__jump" data-catalogue-jump hidden><label>Ir a la página '
+            f'<input type="number" name="pagina" min="1" max="{pages}" value="{number}" inputmode="numeric" required></label> '
+            '<button type="submit">Ir</button></form>')
+    return (f'<nav class="catalogue-pagination catalogue-static-pagination" data-catalogue-static-pagination data-catalogue-page-count="{pages}" aria-label="Páginas del catálogo">'
+            + prev + '<span class="catalogue-pagination__pages">' + numbers + '</span>' + nxt
+            + f'<span class="catalogue-pagination__position">Página {number} de {pages}</span>' + jump + '</nav>')
 
 
 def render_hub(data, books, template, page_number=1):
@@ -1329,7 +1352,7 @@ def render_hub(data, books, template, page_number=1):
     quiz='<details class="catalogue-quiz"><summary>¿Qué te apetece leer? Haz el test y encuentra tu próximo libro</summary><div class="catalogue-quiz__panel"><p>Puedes recorrer las páginas del catálogo para consultar todas las fichas.</p></div></details>' if books and page_number == 1 else ''
     page=template.replace('{{catalogue}}',quiz+catalogue)
     if page_number == 1:
-        page = page.replace('<link rel="stylesheet" href="/assets/reading-catalogue.css?v=33">', '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=33"><link rel="stylesheet" href="/assets/v1-catalogue-community.css?v=2">', 1)
+        page = page.replace('<link rel="stylesheet" href="/assets/reading-catalogue.css?v=34">', '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=34"><link rel="stylesheet" href="/assets/v1-catalogue-community.css?v=2">', 1)
     page = page.replace('data-reading-catalogue data-family=', f'data-reading-catalogue data-catalogue-total="{len(books)}" data-catalogue-version="{version}" data-family=')
     modified=max((b['fecha_actualizacion'] for b in books),default='2026-10-20')
     page=re.sub(r'("dateModified":\s*")[^"]*',lambda match:match[1]+modified,page,count=1)

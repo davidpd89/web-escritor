@@ -18,7 +18,8 @@ class CatalogueFontSubsetTest(unittest.TestCase):
         self.assertIn('subset', src)
         font = ROOT / src.lstrip('/')
         self.assertLess(font.stat().st_size, 4096)
-        line = re.search(r"const text = fresh \? (.+);", JS).group(1)
+        # La línea que elige la etiqueta, sin depender del nombre de las variables (15/11: el renombrado a isFresh rompió este test).
+        line = re.search(r"^.*'Novedad'.*$", JS, re.M).group(0)
         labels = {json.loads('"' + l + '"') for l in re.findall(r"'([^']+)'", line)}
         labels |= set(re.findall(r'hidden>([^<]+)</span>', BUILDER))
         self.assertTrue({'Novedad', 'Próximamente'} <= labels, labels)
