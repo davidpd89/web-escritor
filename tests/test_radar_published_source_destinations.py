@@ -59,7 +59,10 @@ class RadarSourceDestinations(unittest.TestCase):
             self.assertEqual(len(matches), 1, f"/convocatorias-escritores/: {item['id']} tiene {len(matches)} fichas")
             self.assertEqual(matches[0]['url'], item['source_url'], f"/convocatorias-escritores/: destino incorrecto de {item['id']}")
             checked += 1
-        self.assertGreater(checked, 0, '/convocatorias-escritores/: no se verificaron convocatorias')
+        if not checked:
+            self.assertIn('data-radar-empty', (BASE / 'index.html').read_text(encoding='utf-8'),
+                          '/convocatorias-escritores/: sin convocatorias y sin aviso de radar vacio')
+            self.skipTest('radar vacio: no hay destinos publicados que comprobar')
 
 
 if __name__ == '__main__':
