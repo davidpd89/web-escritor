@@ -21,7 +21,8 @@ ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / '.local/catalogo'
 BRANCH = 'catalogo-estado'
 FILES = ('semillas.json', 'pendientes.json', 'sellos.json', 'rendimiento-sellos.json', 'recorrido-sellos.json',
-         'pendientes-creacion.json', 'descartados.jsonl', 'salud.json')
+         'pendientes-creacion.json', 'descartados.jsonl', 'salud.json',
+         'altas-por-dia.json')
 # Escritos por otros procesos en la misma rama: guardar() los conserva tal como están en el remoto.
 AJENOS = ('noche.json',)
 

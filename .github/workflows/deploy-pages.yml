@@ -89,6 +89,20 @@ jobs:
       - name: Verify built artifact satisfies the public-artifact contract
         run: python scripts/build-public-dist.py --check-contents --out .preview-dist
 
+      # R5-1: Pages admite 1 GB. Por encima de 900 MB no se sube; la medida la usa la carga para su cupo de altas.
+      - name: Site budget (fails over 900 MB)
+        run: python scripts/presupuesto_sitio.py medir --dist .preview-dist --out "$RUNNER_TEMP/presupuesto-sitio.json"
+
+      # Siempre: el despliegue que falla por pasar de 900 MB es la medida que la carga necesita para frenar.
+      - name: Upload site budget
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: presupuesto-sitio
+          path: ${{ runner.temp }}/presupuesto-sitio.json
+          if-no-files-found: warn
+          retention-days: 30
+
       - name: Derive changed public URLs for IndexNow
         env:
           EVENT_NAME: ${{ github.event_name }}
@@ -144,6 +158,8 @@ jobs:
         uses: actions/configure-pages@v6
 
       - name: Upload artifact
+        # Hoy tarda 11-16 s; el límite de empaquetado de Pages es 10 min. Si se acerca, falla aquí y no a medias.
+        timeout-minutes: 8
         uses: actions/upload-pages-artifact@v5
         with:
           path: .preview-dist

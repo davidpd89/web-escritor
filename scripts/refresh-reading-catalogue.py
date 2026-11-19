@@ -18,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos ta
 import git_estado
 import reading_quarantine
 import catalogo_estado as estado
+import presupuesto_sitio as presupuesto
 import materializar_generados as materializar
 from reading_intake_pipeline import ingest
 from reading_intake_fetch import read_json, write_if_changed
@@ -451,12 +452,24 @@ def amazon_intake(config, publish):
     catalogue_path = ROOT / 'data/reading-catalogue.json'
     before = catalogue_ids(catalogue_path.read_bytes())
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
+    altas = int(settings.get('altas', 1000))
+    if publish:
+        # R5-1: Pages admite 1 GB. Sin sitio (o sin medida) no hay altas; precios y fechas siguen. No es un fallo:
+        # la noche acaba degradada y no despierta al reparador. `--altas 0` no sirve: catalogo_amazon lo toma por 1000.
+        libros_ahora = presupuesto.publicados(json.loads(catalogue_path.read_bytes()))
+        altas = min(altas, presupuesto.cupo_de_hoy(estado.WORK, day, libros_ahora))
+        if altas <= 0:
+            print('::warning::Sin presupuesto de sitio para altas esta noche (clase presupuesto); siguen precios y fechas',
+                  flush=True)
+            return {'new_books': [], 'updated_books': [], 'stats': {'accepted': 0, 'fuente': 'amazon_catalogo',
+                                                                   'degradada': 'presupuesto'}}
     # La prueba solo comprueba credenciales y fuentes con unas pocas peticiones: ni transforma ni gasta cuota.
     phase, requests = ('todo', int(settings.get('peticiones', 600))) if publish else ('descargar', 20)
     import catalogo_amazon
-    code = catalogo_amazon.main([phase, '--dia', day, '--peticiones', str(requests),
-                          '--altas', str(int(settings.get('altas', 1000)))])
+    code = catalogo_amazon.main([phase, '--dia', day, '--peticiones', str(requests), '--altas', str(altas)])
     new = sorted(catalogue_ids(catalogue_path.read_bytes()) - before)
+    if publish:
+        presupuesto.anotar(estado.WORK, day, len(new))
     summary = read_json(catalogo_amazon.WORK / f'informe-{day}.json', {})
     if code:
         # Libros vaciados o desaparecidos respecto a la foto anterior. No lo causa la ingesta (solo añade y enlaza);
