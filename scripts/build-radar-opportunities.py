@@ -222,6 +222,12 @@ def expired_items(items, today):
     ]
     return sorted(expired, key=lambda item: item["deadline"], reverse=True)
 
+def strip_trailing_space(html):
+    """Secciones vacias (p. ej. sin fichas en seguimiento) dejaban lineas de
+    solo espacios; `git diff --check` las rechaza y tumbaba el refresco."""
+    return "\n".join(line.rstrip() for line in html.split("\n"))
+
+
 def render_page_body(items, today, watchlist=None):
     active = active_items(items, today)
     watch = watch_items(watchlist or [], today)
@@ -496,7 +502,7 @@ def main():
         return
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "index.html").write_text(build_html(items, today, watchlist), encoding="utf-8", newline="\n")
+    (out / "index.html").write_text(strip_trailing_space(build_html(items, today, watchlist)), encoding="utf-8", newline="\n")
     (out / "opportunities.json").write_text(public_json(items, today, watchlist), encoding="utf-8", newline="\n")
     (out / "deadlines.ics").write_text(build_ics(items, today), encoding="utf-8", newline="")
     active = len(active_items(items, today))
