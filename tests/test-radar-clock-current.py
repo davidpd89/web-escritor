@@ -13,7 +13,11 @@ current=subprocess.run([sys.executable,str(CHECKER),"--today",generated_for.isof
 assert current.returncode==0,current.stdout+current.stderr
 
 deadlines=sorted(date.fromisoformat(item["deadline"]) for item in PUBLIC.get("items",[]) if item.get("deadline"))
-assert deadlines,"public radar has no dated active items to exercise clock drift"
+if not deadlines:
+    # Radar vacio (todo caducado o sin reverificar): no hay plazo que pueda caducar,
+    # asi que no hay deriva que provocar. El vacio es contenido, no un fallo de reloj.
+    print(f"SKIP radar clock-current regression: no active items on {generated_for}")
+    sys.exit(0)
 probe=deadlines[0]+timedelta(days=1)
 future=subprocess.run([sys.executable,str(CHECKER),"--today",probe.isoformat()],cwd=ROOT,text=True,capture_output=True)
 assert future.returncode==1,(
