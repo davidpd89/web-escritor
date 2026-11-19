@@ -85,12 +85,28 @@ def proper_words(catalogue):
     return ProperWords(found, names=set(found) - set(upper))
 
 
+MOJIBAKE = re.compile('[ÃÂ]|â€')
+
+
+def fix_mojibake(text):
+    """UTF-8 leído como Windows-1252 («quÃ­mica», «â€•»): vuelve al texto original. Si no es
+    reversible, se deja igual. Origen (19/11, isbn-9791399079395): la fuente lo trajo así y la tarjeta ya no
+    empezaba por el título, con lo que la carga entera quedaba con la puerta en rojo."""
+    if isinstance(text, str) and MOJIBAKE.search(text):
+        try:
+            return text.encode('cp1252').decode('utf-8')
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            return text
+    return text
+
+
 def tidy_title(title, proper=None):
     """Título entero (o casi) en mayúsculas → mayúscula inicial (norma del español), con los nombres propios
     que el catálogo ya conoce y los numerales romanos; el artículo pospuesto de catálogo («MUNDO, EL») vuelve
     delante."""
     proper = proper or {}
     names = getattr(proper, 'names', set())
+    title = fix_mojibake(title).lstrip(' .,;:')  # un punto delante no es parte del título: la tarjeta lo recorta
     if is_shouting(title):
         words = []
         parts = title.split(' ')
