@@ -19,7 +19,11 @@ assert all(set(entry) == {"title", "id"} for entry in coverage["entries"]), "cov
 targets = {entry["id"] for entry in coverage["entries"]}
 assert len(targets) == 157, "weekly rounds and shared modalities are intentionally grouped"
 clock = date.fromisoformat(coverage["reviewed_at"])
-public = json.loads(radar.public_json(items, clock, watch))
+# La cobertura no depende de cuándo se reverificó cada ficha (la reverificación periódica mueve verified_at):
+# se mide con todas las fichas «recién verificadas» en el reloj de la revisión.
+fresh = [{**item, "verified_at": coverage["reviewed_at"]} for item in items]
+fresh_watch = [{**item, "verified_at": coverage["reviewed_at"]} for item in watch]
+public = json.loads(radar.public_json(fresh, clock, fresh_watch))
 published = {item["id"] for key in ("items", "expired", "watchlist") for item in public[key]}
 assert targets <= published, f"reviewed contests missing from public output: {sorted(targets - published)}"
 ics = radar.build_ics(items, clock)
