@@ -71,10 +71,61 @@ class QuarantineTest(unittest.TestCase):
 
     def test_too_many_books_is_a_rule_problem(self):
         data = copy.deepcopy(DATA)
-        for b in data['libros'][:q.MAX_BOOKS + 1]:
+        _, published_cap = q.limit(DATA, DATA)
+        for b in data['libros'][:published_cap + 1]:
             b['descripcion_breve'] = 'corta'
-        with self.assertRaises(q.build.ValidationError):
+        with self.assertRaisesRegex(q.build.ValidationError, 'publicados revertidos'):
             q.isolate(data, ROOT, DATA)
+
+    def test_q01_few_new_books_publish_the_valid_ones_with_alert(self):
+        """Q01: llegan 5 altas y 3 traen datos rotos: se publican las 2 buenas y salta la alerta."""
+        ids = {b['id'] for b in DATA['libros'][:5]}
+        before = copy.deepcopy(DATA)
+        before['libros'] = [b for b in before['libros'] if b['id'] not in ids]
+        before['libro_categorias'] = [r for r in before['libro_categorias'] if r['libro_id'] not in ids]
+        data = copy.deepcopy(DATA)
+        for b in data['libros'][:3]:
+            b['autores'] = []
+        clean, out = q.isolate(data, ROOT, before, today='2026-11-15')
+        self.assertEqual(len(out), 3)
+        self.assertEqual(len(ids & {b['id'] for b in clean['libros']}), 2)
+        self.assertTrue(q.rate_alert(out, data, before))
+        self.assertFalse(q.rate_alert(out[:1], data, before), 'una sola alta apartada no es alerta')
+
+    def test_q02_published_regression_stops_or_reverts(self):
+        """Q02: con 5.000 publicados, más del 1 % roto para la carga; por debajo, vuelven a HEAD y se publica."""
+        big = copy.deepcopy(DATA)
+        while len(big['libros']) < 5000:
+            big['libros'] += [dict(b, id=f"{b['id']}-x{len(big['libros'])}") for b in DATA['libros'][:5000 - len(big['libros'])]]
+        big['libros'] = big['libros'][:5000]
+        _, published_cap = q.limit(big, big)
+        self.assertEqual(published_cap, 50)
+        for broken, stops in ((80, True), (40, False)):
+            data = copy.deepcopy(DATA)
+            for b in data['libros'][:broken]:
+                b['descripcion_breve'] = 'corta'
+            # Mismos topes que con 5.000 publicados, validando sobre el catálogo real (los clones no pasarían validate).
+            original = q.limit
+            q.limit = lambda d, p: (q.MAX_BOOKS, published_cap)
+            try:
+                if stops:
+                    with self.assertRaisesRegex(q.build.ValidationError, 'Error global: más de 50 publicados revertidos'):
+                        q.isolate(data, ROOT, DATA)
+                else:
+                    clean, out = q.isolate(data, ROOT, DATA)
+                    self.assertEqual(len(out), broken)
+                    self.assertEqual(clean, DATA)
+            finally:
+                q.limit = original
+
+    def test_price_night_does_not_inflate_the_new_books_cap(self):
+        """Antes el tope salía de los libros «cambiados»: una noche de precios lo subía a ~2.500."""
+        data = copy.deepcopy(DATA)
+        for b in data['libros']:
+            b['precio_cambiado_test'] = 1
+        new_cap, published_cap = q.limit(data, DATA)
+        self.assertEqual(new_cap, q.MAX_BOOKS)
+        self.assertLessEqual(published_cap, max(q.MAX_BOOKS, -(-len(DATA['libros']) // 100)))
 
     def test_duplicate_cover_blames_the_changed_book(self):
         # Ingesta 42588397174: el tomo que cambió tomó la portada de otro ya publicado; se apartaba al publicado
