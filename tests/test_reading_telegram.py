@@ -288,12 +288,13 @@ class ReadingTelegramTests(unittest.TestCase):
         result = run(catalog, date(2026, 11, 1), db)
         self.assertEqual(len(result), 3)  # separador de género en @general + libro + libro en @fantasia
         sep = result[0]
-        self.assertIn("Fantasía</b>\n1 novedad · #Fantasia", sep["text"])
-        self.assertIn("#Fantasia", sep["text"])
+        self.assertIn("FANTASÍA", sep["text"])
+        self.assertIn("⬇️", sep["text"])
+        self.assertNotIn("#", sep["text"])
         book = result[1]
         self.assertIn("tag=davidporto-21", book["text"])
         self.assertIn("&lt;uno&gt;", book["text"])
-        self.assertIn("🐉 #Fantasia", book["text"])
+        self.assertIn("🐉 Fantasía", book["text"])
         self.assertNotIn("comisión", result[0]["text"])
         self.assertEqual(run(catalog, date(2026, 11, 5), db), [])
         self.assertFalse(db.exists())
@@ -676,6 +677,7 @@ class GenreGroupingTests(unittest.TestCase):
             "asin": asin, "title": title, "author": "Autora", "release_date": "2026-11-19",
             "isbn13": "9788400000000", "amazon_url": f"https://www.amazon.es/dp/{asin}?tag=t-21",
             "genre_id": genre_id, "genres": [genre] if genre else [],
+            "categories": [genre_id] if genre_id else [],
         }
 
     def books(self):
@@ -686,27 +688,36 @@ class GenreGroupingTests(unittest.TestCase):
             self.book("B4", "Sin género", "", ""),
         ]
 
-    def test_hashtag_strips_accents_and_spaces(self):
-        from reading_telegram import hashtag
-
-        self.assertEqual(hashtag("Cómic y novela gráfica"), "#ComicYNovelaGrafica")
-        self.assertEqual(hashtag("Fantasía"), "#Fantasia")
-
     def test_separator_opens_each_genre_and_books_stay_grouped(self):
         from reading_telegram import genre_banners
 
         jobs = genre_banners(self.books(), "2026-11-19")
         kinds = ["sep" if j.get("separator") else j["asin"] for j in jobs]
         self.assertEqual(kinds, ["sep", "B2", "sep", "B3", "B1", "sep", "B4"])  # «Otros libros» al final
-        self.assertIn("Fantasía</b>\n1 novedad · #Fantasia", jobs[0]["text"])
-        self.assertIn("#Fantasia", jobs[0]["text"])
-        self.assertIn("2 novedades · #Romance", jobs[2]["text"])
+        self.assertIn("FANTASÍA", jobs[0]["text"])
+        self.assertIn("1 novedad", jobs[0]["text"])
+        self.assertIn("ROMANCE", jobs[2]["text"])
+        self.assertIn("2 novedades", jobs[2]["text"])
         self.assertEqual(len({j["asin"] for j in jobs}), len(jobs))
 
-    def test_single_category_channel_gets_no_separators(self):
-        channel = {"chat_id": "@f", "categories": ["romance"]}
-        jobs = channel_jobs(channel, self.books(), date(2026, 11, 19), "t-21")
-        self.assertFalse(any(j.get("separator") for j in jobs))
+    def test_thematic_channels_get_no_separators_even_with_several_categories(self):
+        for cats in (["romance"], ["romance", "fantasia"]):
+            channel = {"chat_id": "@f", "categories": cats}
+            jobs = channel_jobs(channel, self.books(), date(2026, 11, 19), "t-21")
+            self.assertTrue(jobs)
+            self.assertFalse(any(j.get("separator") for j in jobs))
+
+    def test_general_channel_gets_separators(self):
+        jobs = channel_jobs({"chat_id": "@g"}, self.books(), date(2026, 11, 19), "t-21")
+        self.assertTrue(any(j.get("separator") for j in jobs))
+
+    def test_youth_channel_skips_adult_romance_tagged_juvenile(self):
+        channel = {"chat_id": "@j", "group": "infantil-juvenil", "categories": ["infantil", "juvenil"]}
+        adult = {**self.books()[0], "asin": "X1", "categories": ["romance", "juvenil"]}
+        kids = {**self.books()[0], "asin": "X2", "categories": ["infantil", "juvenil"]}
+        teen = {**self.books()[0], "asin": "X3", "categories": ["juvenil"]}
+        jobs = channel_jobs(channel, [adult, kids, teen], date(2026, 11, 19), "t-21")
+        self.assertEqual(sorted(j["asin"] for j in jobs), ["X2", "X3"])
 
     def test_digest_groups_by_genre_with_headers(self):
         from reading_telegram import digest
@@ -715,7 +726,7 @@ class GenreGroupingTests(unittest.TestCase):
         text = part["text"]
         self.assertLess(text.index("Fantasía"), text.index("Romance"))
         self.assertLess(text.index("Romance"), text.index("Otros libros"))
-        self.assertIn("#Romance", text)
+        self.assertNotIn("#Romance", text)
         self.assertEqual(sorted(part["members"]), ["B1", "B2", "B3", "B4"])
 
     def test_late_books_get_their_own_digest_without_repeating_known_ones(self):

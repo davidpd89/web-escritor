@@ -208,6 +208,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
           git add -- \
+            data/radar-opportunities.json \
             convocatorias-escritores/index.html \
             convocatorias-escritores/opportunities.json \
             convocatorias-escritores/deadlines.ics \
