@@ -114,8 +114,9 @@ async function noOverflow(p,label){const x=await p.evaluate(()=>document.documen
   // La cuenta atras («faltan N dias») se quito de las fichas: la fecha ya esta a la vista.
   assert.equal(await p.locator('[data-radar-relative]').count(),0,'la cuenta atras sigue en las fichas');
   // La busqueda sale de los datos publicados: una convocatoria fija («Alfaguara») caduca y dejaba la prueba en rojo.
-  const probe=radarDefault[0].title;
-  await p.locator('[data-radar-search]').fill(probe.toLocaleUpperCase('es'));assert.equal(await visible(p,'[data-radar-item]'),radarDefault.filter(x=>norm(x.title).includes(norm(probe))).length);
+  // Con el radar vacio (todas las verificaciones caducadas) no hay ficha de la que sacar la sonda.
+  if(radarDefault.length){const probe=radarDefault[0].title;
+  await p.locator('[data-radar-search]').fill(probe.toLocaleUpperCase('es'));assert.equal(await visible(p,'[data-radar-item]'),radarDefault.filter(x=>norm(x.title).includes(norm(probe))).length);}
   await p.locator('[data-radar-clear]').click();
   await p.locator('select[data-radar-kind]').selectOption('active');assert.equal(await visible(p,'[data-radar-item]'),radarItems.length);
   await p.locator('select[data-radar-kind]').selectOption('watch');assert.equal(await visible(p,'[data-radar-item]'),radarWatch.length);

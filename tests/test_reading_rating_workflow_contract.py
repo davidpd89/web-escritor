@@ -57,7 +57,7 @@ class RatingWorkflowContract(unittest.TestCase):
         self.assertIn("secrets.GOOGLE_BOOKS_API_KEY", yaml)
         self.assertIn("secrets.HARDCOVER_API_KEY", yaml)
         config = json.loads((ROOT / "data/reading-intake-config.json").read_text(encoding="utf-8"))
-        self.assertTrue(config["ratings_refresh"]["enabled"])
+        self.assertFalse(config["ratings_refresh"]["enabled"])  # 19/11: la web no muestra notas; ver notes
         self.assertLessEqual(config["ratings_refresh"]["google_books_requests_per_day"], 100)
         self.assertLessEqual(config["ratings_refresh"]["hardcover_requests_per_day"], 100)
         self.assertEqual(config["amazon_partner_tag"], "davidporto-21")

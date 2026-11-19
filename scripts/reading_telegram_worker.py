@@ -35,7 +35,7 @@ from reading_ttl_source import HOST as TTL_HOST, ttl_edition
 from reading_telegram import (
     SEND_AT,
     amazon_url,
-    digest_key,
+    digest_candidate_keys,
     from_reading_catalogue,
     run,
     smoke,
@@ -120,6 +120,10 @@ def editorial_product(document, url, book, source, today=None):
 
 
 AMAZON_FRESH_DAYS = 2
+# Un libro cuya fuente ES su ficha de Amazon ya trae de ella el ASIN y la fecha. Si la carga nocturna falla
+# varias noches seguidas (19/11/2026: tres fallos y 105 libros del día descartados, el bot publicó 2), la
+# comprobación sigue valiendo unos días: cada noche se relee y una fecha movida se corrige en cuanto vuelve.
+AMAZON_SOURCE_FRESH_DAYS = 6
 
 
 def catalogue_print_asin(book, today):
@@ -144,7 +148,7 @@ def amazon_product(book, url, today):
         str(book.get("precios_amazon_revision") or ""),
         str(book.get("fecha_verificacion") or ""),
     )
-    if checked < (today - timedelta(days=AMAZON_FRESH_DAYS)).isoformat():
+    if checked < (today - timedelta(days=AMAZON_SOURCE_FRESH_DAYS)).isoformat():
         raise SourceError("Amazon product data not refreshed recently")
     published = book["fecha_publicacion"]
     date.fromisoformat(published)
@@ -347,10 +351,7 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False
     catalog = from_reading_catalogue(
         root / "catalogue.json", root / "channels.json", groups
     )
-    catalog["digests"] = [
-        digest_key(today.isoformat()),
-        weekly_key(today.isoformat()),
-    ]
+    catalog["digests"] = digest_candidate_keys(catalog, today)
     cover_fixes = []
     store = None
     if live:
