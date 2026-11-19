@@ -5,6 +5,7 @@ import importlib.util
 import json
 import os
 import re
+import shutil
 import subprocess
 import tempfile
 import urllib.request
@@ -17,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos ta
 import git_estado
 import reading_quarantine
 import catalogo_estado as estado
+import presupuesto_sitio as presupuesto
 import materializar_generados as materializar
 from reading_intake_pipeline import ingest
 from reading_intake_fetch import read_json, write_if_changed
@@ -450,12 +452,24 @@ def amazon_intake(config, publish):
     catalogue_path = ROOT / 'data/reading-catalogue.json'
     before = catalogue_ids(catalogue_path.read_bytes())
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
+    altas = int(settings.get('altas', 1000))
+    if publish:
+        # R5-1: Pages admite 1 GB. Sin sitio (o sin medida) no hay altas; precios y fechas siguen. No es un fallo:
+        # la noche acaba degradada y no despierta al reparador. `--altas 0` no sirve: catalogo_amazon lo toma por 1000.
+        libros_ahora = presupuesto.publicados(json.loads(catalogue_path.read_bytes()))
+        altas = min(altas, presupuesto.cupo_de_hoy(estado.WORK, day, libros_ahora))
+        if altas <= 0:
+            print('::warning::Sin presupuesto de sitio para altas esta noche (clase presupuesto); siguen precios y fechas',
+                  flush=True)
+            return {'new_books': [], 'updated_books': [], 'stats': {'accepted': 0, 'fuente': 'amazon_catalogo',
+                                                                   'degradada': 'presupuesto'}}
     # La prueba solo comprueba credenciales y fuentes con unas pocas peticiones: ni transforma ni gasta cuota.
     phase, requests = ('todo', int(settings.get('peticiones', 600))) if publish else ('descargar', 20)
     import catalogo_amazon
-    code = catalogo_amazon.main([phase, '--dia', day, '--peticiones', str(requests),
-                          '--altas', str(int(settings.get('altas', 1000)))])
+    code = catalogo_amazon.main([phase, '--dia', day, '--peticiones', str(requests), '--altas', str(altas)])
     new = sorted(catalogue_ids(catalogue_path.read_bytes()) - before)
+    if publish:
+        presupuesto.anotar(estado.WORK, day, len(new))
     summary = read_json(catalogo_amazon.WORK / f'informe-{day}.json', {})
     if code:
         # Libros vaciados o desaparecidos respecto a la foto anterior. No lo causa la ingesta (solo añade y enlaza);
@@ -572,6 +586,63 @@ def quarantine_summary(quarantined, released):
     return ''.join(lines) + ('\n' if lines else '')
 
 
+def quarantine_alert_note():
+    if not reading_quarantine.LAST['alert']:
+        return ''
+    return '**Alerta de cuarentena:** más del 5 % de las altas apartadas; se publica lo válido y queda una issue `fallo` por causa.\n\n'
+
+
+def quarantine_alert(report, quarantined):
+    """Muchas altas apartadas: se publica lo válido, pero la carga no se da por limpia y queda una issue por causa."""
+    if not reading_quarantine.LAST['alert']:
+        return
+    report['quarantine_rate_alert'] = True
+    # Se añade al informe guardado, no se sustituye: un lote recuperado guarda ahí stats.accepted y recuperado_de,
+    # y la cadena nocturna lee stats.accepted. Un fallo al escribirlo no tumba la publicación de lo válido.
+    path = ROOT / '.ci/reading-intake/publisher-report.json'
+    try:
+        saved = read_json(path) if path.exists() else {}
+        write_if_changed(path, {**report, **saved, 'quarantine_rate_alert': True})
+    except (OSError, ValueError) as exc:
+        print(f'::warning::No se pudo marcar la alerta en publisher-report.json: {exc}', flush=True)
+    groups = {}
+    for h in quarantined:
+        groups.setdefault(h.get('causa') or reading_quarantine.cause(h['motivo']), []).append(h['libro']['id'])
+    print(f'::warning::Cuarentena alta: {len(quarantined)} libros apartados en {len(groups)} causas; se publica lo válido', flush=True)
+    summary = os.getenv('GITHUB_STEP_SUMMARY')
+    if summary:
+        with open(summary, 'a', encoding='utf-8') as fh:
+            fh.write('**Carga con alerta de cuarentena** (no es una carga limpia):\n\n' + quarantine_summary(quarantined, set()))
+    if not os.getenv('GITHUB_ACTIONS') or os.getenv('DRY_RUN') == 'true':  # el ensayo no abre issues reales
+        return
+    for why, ids in groups.items():
+        open_issue('Cuarentena: ' + why[:120], f'{len(ids)} libros apartados en la carga del {datetime.now(ZoneInfo("Europe/Madrid")):%Y-%m-%d}: '
+                   + ', '.join(f'`{i}`' for i in ids[:30]) + (' …' if len(ids) > 30 else ''))
+
+
+def open_issue(title, body):
+    """Abre la issue `fallo` con ese título, o comenta en la abierta: una por causa, no una por noche.
+
+    Un fallo al crearla no tumba la carga (ya se publicó lo válido); queda el aviso en el log."""
+    def gh(*args):
+        return subprocess.run([shutil.which('gh') or 'gh', *args], cwd=ROOT, capture_output=True, text=True, encoding='utf-8', check=True).stdout
+    try:
+        gh('label', 'create', 'fallo', '--color', 'B60205', '--description', 'Fallo detectado por un empleado automático', '--force')
+        query = title.replace('"', ' ')  # unas comillas en la causa romperían la búsqueda literal
+        found = json.loads(gh('issue', 'list', '--state', 'open', '--label', 'fallo', '--limit', '200',
+                              '--search', f'"{query}" in:title', '--json', 'number,title'))
+        same = [i for i in found if i['title'] == title]
+        if same:
+            seen = json.loads(gh('issue', 'view', str(same[0]['number']), '--json', 'body,comments'))
+            # Un reintento de la misma carga (código 75) repite el mismo texto: no se comenta dos veces.
+            if body != seen.get('body') and all(c.get('body') != body for c in seen.get('comments', [])):
+                gh('issue', 'comment', str(same[0]['number']), '--body', body)
+        else:
+            gh('issue', 'create', '--title', title, '--label', 'fallo', '--body', body)
+    except (subprocess.CalledProcessError, OSError, ValueError) as exc:
+        print(f'::warning::No se pudo abrir la issue «{title}»: {exc}', flush=True)
+
+
 def data_contract_failures():
     """Corre los contratos de datos; devuelve sus fallos ([{test, texto}], vacío si pasan)."""
     with tempfile.TemporaryDirectory() as tmp:
@@ -652,6 +723,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
                                + '; '.join(f['test'] for f in failures)[:600])
         released = held_before - {h['libro']['id'] for h in quarantined}
         drop_orphan_pages(quarantined)
+    quarantine_alert(report, quarantined)
     command('git', 'diff', '--check')
     paths = git_estado.rutas(ROOT)
     if not paths or any(not publisher.allowed_path(p) for p in paths):
@@ -673,6 +745,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
                      if replaced else '') + 'Incorpora ' + str(len(report['new_books'])) + ' ediciones verificadas en sus fichas editoriales oficiales.\n\n'
                     'Carga sin LLM ni API de pago; portadas optimizadas, ISBN comprobados, autores y enlaces internos generados. '
                     'No importa precios ni valoraciones sin un proveedor autorizado. Los candidatos incompletos quedan pendientes.\n\n'
+                    + quarantine_alert_note()
                     + quarantine_summary(quarantined, released) +
                     'Se ejecutan las pruebas reales del commit y las reglas de main antes de fusionar. Después se despliega y se comprueba producción.\n', encoding='utf-8')
     publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,

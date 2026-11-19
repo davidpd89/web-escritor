@@ -33,16 +33,16 @@ on:
         type: string
         default: manual
 
+# Escritura solo en el job que carga (Sonar S8233); clock solo lee las ejecuciones de la noche.
 permissions:
-  contents: write
-  pull-requests: write
-  issues: write
-  actions: write
-  statuses: write
+  contents: read
 
 jobs:
   clock:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
     timeout-minutes: 2
     outputs:
       run: ${{ steps.madrid.outputs.run }}
@@ -75,6 +75,12 @@ jobs:
     needs: clock
     if: needs.clock.outputs.run == 'true' && vars.READING_INTAKE_ENABLED == 'true' && (github.ref == 'refs/heads/main' || inputs.dry_run)
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write   # cuarentena alta: una issue `fallo` por causa (scripts/refresh-reading-catalogue.py)
+      pull-requests: write
+      actions: write
+      statuses: write
     # En el job y no en el workflow: un respaldo que decide no cargar nunca sustituye en la cola a una carga
     # encadenada pendiente (GitHub deja un solo pendiente por grupo).
     concurrency:
