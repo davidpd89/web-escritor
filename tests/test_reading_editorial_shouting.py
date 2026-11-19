@@ -84,6 +84,20 @@ class PublishedCatalogueTests(unittest.TestCase):
             for text in (self.builder.meta_synopsis(b), self.builder.card_synopsis(b)):
                 self.assertIsNone(shout.match(text), (b["id"], text[:80]))
 
+    def test_broken_caps_title_is_normalised_before_it_reaches_the_card(self):
+        """Un título gritado salvo la inicial («dERMATOLOGÍA GENERAL BÁSICA») lo rechaza este contrato por su racha
+        de 2+ mayúsculas; el normalizador de altas (tidy_title) debe verlo igual y arreglarlo, no solo los enteros
+        en mayúsculas. Si no, el título llega a la sinopsis de la ficha y tumba la carga (16/11)."""
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("reading_titles", ROOT / "scripts/reading_titles.py")
+        titles = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(titles)
+        shout = re.compile(self.SHOUT)
+        for raw in ("dERMATOLOGÍA GENERAL BÁSICA", "DERMATOLOGÍA GENERAL BÁSICA", "hISTORIA DE LA FILOSOFÍA"):
+            tidy = titles.tidy_title(raw)
+            card = f"{tidy}, de Juan Ferrando Barberá. Edición de Grupo Aula Médica en castellano."
+            self.assertIsNone(shout.match(card), (raw, tidy))
+
     def test_no_published_author_is_written_in_capitals(self):
         names = {a for b in self.data["libros"] for a in b["autores"]}
         self.assertEqual({a for a in names if clean_author(a) != a}, set())
