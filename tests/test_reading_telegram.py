@@ -196,7 +196,7 @@ class ReadingTelegramTests(unittest.TestCase):
     def test_rate_limited_job_waits_and_then_retries(self):
         catalog = self.catalog()
         catalog["channels"] = catalog["channels"][:1]
-        sender = Mock(side_effect=[("retry:1060", None), ("sent", 50)])
+        sender = Mock(side_effect=[("retry:1060", None), ("sent", 50), ("sent", 51)])
         with (
             patch.dict("os.environ", {"TEST_TOKEN": "test"}),
             patch("reading_telegram.time.sleep"),
@@ -216,13 +216,14 @@ class ReadingTelegramTests(unittest.TestCase):
             result = run(
                 catalog, date(2026, 11, 1), self.root / "retry.db", True, sender=sender
             )
-        self.assertEqual(result[0]["status"], "sent")
-        self.assertEqual(sender.call_count, 2)
+        self.assertEqual([r["status"] for r in result], ["sent", "sent"])  # separador y libro, en orden
+        self.assertEqual(sender.call_count, 3)
 
     def test_labelled_smoke_preview(self):
         result = smoke(self.catalog(), "8498382378", self.root / "smoke.db")
-        self.assertIn("PRUEBA", result[0]["text"])
-        self.assertNotIn("Novedad de hoy", result[0]["text"])
+        book = [r for r in result if "text" in r and "Libro" in r["text"]][0]
+        self.assertIn("PRUEBA", book["text"])
+        self.assertNotIn("Novedad de hoy", book["text"])
         self.assertFalse((self.root / "smoke.db").exists())
 
     def test_smoke_delivery_and_dedup(self):
@@ -235,8 +236,9 @@ class ReadingTelegramTests(unittest.TestCase):
             result = smoke(self.catalog(), "8498382378", db, True, sender=sender)
             self.assertEqual(result[0]["status"], "sent")
             self.assertIn("PRUEBA", sender.call_args.args[2])
+            sent = sender.call_count
             smoke(self.catalog(), "8498382378", db, True, sender=sender)
-            self.assertEqual(sender.call_count, 2)
+            self.assertEqual(sender.call_count, sent)
 
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -284,10 +286,14 @@ class ReadingTelegramTests(unittest.TestCase):
         catalog = self.catalog()
         db = self.root / "state.db"
         result = run(catalog, date(2026, 11, 1), db)
-        self.assertEqual(len(result), 2)
-        self.assertIn("tag=davidporto-21", result[0]["text"])
-        self.assertIn("&lt;uno&gt;", result[0]["text"])
-        self.assertIn("Fantasía", result[0]["text"])
+        self.assertEqual(len(result), 3)  # separador de género en @general + libro + libro en @fantasia
+        sep = result[0]
+        self.assertIn("A partir de aquí: Fantasía", sep["text"])
+        self.assertIn("#Fantasia", sep["text"])
+        book = result[1]
+        self.assertIn("tag=davidporto-21", book["text"])
+        self.assertIn("&lt;uno&gt;", book["text"])
+        self.assertIn("🐉 #Fantasia", book["text"])
         self.assertNotIn("comisión", result[0]["text"])
         self.assertEqual(run(catalog, date(2026, 11, 2), db), [])
         self.assertFalse(db.exists())
@@ -316,7 +322,7 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertIn("https://www.amazon.es/dp/8401042755", text)
         self.assertIn("tag=davidporto-21", text)
         self.assertIn("&lt;uno&gt;", text)
-        self.assertEqual(len([r for r in result if r["chat_id"] == "@general"]), 2)
+        self.assertEqual(len([r for r in result if r["chat_id"] == "@general"]), 4)  # 2 libros + 2 separadores
         self.assertEqual(run(self.catalog(), date(2026, 11, 2), self.root / "s.db"), [])
 
     def test_discord_channel_posts_digest_by_webhook_without_bot_token(self):
@@ -381,7 +387,8 @@ class ReadingTelegramTests(unittest.TestCase):
             again = run(self.catalog(), date(2026, 11, 1), db, True, sender=sender)
         self.assertEqual(sender.call_count, 1)
         self.assertIsNone(sender.call_args.args[3])
-        self.assertEqual(again, [{"chat_id": "@novedades", "asin": "digest-2026-11-01", "status": "skipped:sent"}])
+        # Todos sus libros ya constan como enviados en el resumen: no hay nada nuevo que repetir.
+        self.assertEqual(again, [])
 
     def test_pending_partial_dates_search_links_and_unpublished(self):
         for field, value in [
@@ -418,7 +425,7 @@ class ReadingTelegramTests(unittest.TestCase):
                 db = self.root / (status + ".db")
                 run(self.catalog(), date(2026, 11, 1), db, True, sender=sender)
                 result = run(self.catalog(), date(2026, 11, 1), db, True, sender=sender)
-                self.assertEqual(sender.call_count, 2)
+                self.assertEqual(sender.call_count, 3)
                 self.assertTrue(all(r["status"] == "skipped:" + status for r in result))
 
     def test_crash_claim_survives(self):
@@ -450,7 +457,7 @@ class ReadingTelegramTests(unittest.TestCase):
         self.assertEqual(run(catalog, date(2026, 11, 1), self.root / "a.db",
                              now=datetime(2026, 11, 1, 11, 29)), [])
         self.assertEqual(len(run(catalog, date(2026, 11, 1), self.root / "a.db",
-                                 now=datetime(2026, 11, 1, 11, 30))), 2)
+                                 now=datetime(2026, 11, 1, 11, 30))), 3)
 
     def test_weekly_digest_only_on_monday_covers_next_seven_days(self):
         self.source["libros"][0]["isbn13"] = "9788498382372"
@@ -508,7 +515,7 @@ class ReadingTelegramTests(unittest.TestCase):
         ):
             result = run(self.catalog(), date(2026, 11, 1), self.root / "big.db", True,
                          sender=sender, checkpoint=checkpoints.append)
-        self.assertEqual(len(result), 63)
+        self.assertEqual(len(result), 64)
         self.assertTrue(all(r["status"] == "sent" for r in result))
         self.assertEqual(order[0], "@resumen")  # the digest goes first
         self.assertEqual(order[1:3], ["@general", "@fantasia"])  # then round robin
@@ -529,7 +536,7 @@ class ReadingTelegramTests(unittest.TestCase):
             sender.return_value = ("sent", 2)
             again = run(self.catalog(), date(2026, 11, 1), self.root / "rl.db", True, sender=sender)
         self.assertEqual(sorted(r["status"][:7] for r in again),
-                         ["sent", "sent", "skipped", "skipped"])
+                         ["sent", "sent", "sent", "skipped", "skipped"])
 
     def test_cover_resolver_replaces_generated_cover(self):
         self.config["channels"] = self.config["channels"][:1]
@@ -633,7 +640,8 @@ class DigestPartsTests(unittest.TestCase):
         parts = digest(self.books(170), "2026-11-18")
         self.assertGreater(len(parts), 1)
         self.assertEqual(len({p["asin"] for p in parts}), len(parts))  # one delivery key each
-        self.assertEqual(parts[0]["asin"], "digest-2026-11-18")
+        self.assertEqual(parts[0]["asin"], "digest2-2026-11-18-B000000000")
+        self.assertEqual(parts[1]["asin"], "digest2-2026-11-18-B000000000-2")
         text = "\n".join(p["text"] for p in parts)
         for i in range(170):
             self.assertIn(f"/dp/B{i:09d}", text)
@@ -660,3 +668,78 @@ class DigestPartsTests(unittest.TestCase):
         response = Mock(status_code=200, content=source.getvalue())
         out = Image.open(BytesIO(padded_cover("https://x/c.png", get=lambda *a, **k: response)))
         self.assertEqual(out.size[0], out.size[1])
+
+
+class GenreGroupingTests(unittest.TestCase):
+    def book(self, asin, title, genre_id, genre):
+        return {
+            "asin": asin, "title": title, "author": "Autora", "release_date": "2026-11-19",
+            "isbn13": "9788400000000", "amazon_url": f"https://www.amazon.es/dp/{asin}?tag=t-21",
+            "genre_id": genre_id, "genres": [genre] if genre else [],
+        }
+
+    def books(self):
+        return [
+            self.book("B1", "Zeta", "romance", "Romance"),
+            self.book("B2", "Alfa", "fantasia", "Fantasía"),
+            self.book("B3", "Beta", "romance", "Romance"),
+            self.book("B4", "Sin género", "", ""),
+        ]
+
+    def test_hashtag_strips_accents_and_spaces(self):
+        from reading_telegram import hashtag
+
+        self.assertEqual(hashtag("Cómic y novela gráfica"), "#ComicYNovelaGrafica")
+        self.assertEqual(hashtag("Fantasía"), "#Fantasia")
+
+    def test_separator_opens_each_genre_and_books_stay_grouped(self):
+        from reading_telegram import genre_banners
+
+        jobs = genre_banners(self.books(), "2026-11-19")
+        kinds = ["sep" if j.get("separator") else j["asin"] for j in jobs]
+        self.assertEqual(kinds, ["sep", "B2", "sep", "B3", "B1", "sep", "B4"])  # «Otros libros» al final
+        self.assertIn("A partir de aquí: Fantasía", jobs[0]["text"])
+        self.assertIn("#Fantasia", jobs[0]["text"])
+        self.assertIn("2 libros · #Romance", jobs[2]["text"])
+        self.assertEqual(len({j["asin"] for j in jobs}), len(jobs))
+
+    def test_single_category_channel_gets_no_separators(self):
+        channel = {"chat_id": "@f", "categories": ["romance"]}
+        jobs = channel_jobs(channel, self.books(), date(2026, 11, 19), "t-21")
+        self.assertFalse(any(j.get("separator") for j in jobs))
+
+    def test_digest_groups_by_genre_with_headers(self):
+        from reading_telegram import digest
+
+        (part,) = digest(self.books(), "2026-11-19")
+        text = part["text"]
+        self.assertLess(text.index("Fantasía"), text.index("Romance"))
+        self.assertLess(text.index("Romance"), text.index("Otros libros"))
+        self.assertIn("#Romance", text)
+        self.assertEqual(sorted(part["members"]), ["B1", "B2", "B3", "B4"])
+
+    def test_late_books_get_their_own_digest_without_repeating_known_ones(self):
+        from reading_telegram import digest_key
+
+        channel = {"chat_id": "@d", "mode": "digest"}
+        books = self.books()
+        first = channel_jobs(channel, books, date(2026, 11, 19), "t-21")
+        self.assertEqual(len(first), 1)
+        late = channel_jobs(channel, books, date(2026, 11, 19), "t-21", known={"B1", "B2", "B3"})
+        self.assertEqual(late[0]["members"], ["B4"])
+        self.assertNotEqual(first[0]["asin"], late[0]["asin"])
+        self.assertEqual(first[0]["asin"], digest_key("2026-11-19", "B2"))
+        self.assertEqual(channel_jobs(channel, books, date(2026, 11, 19), "t-21", known={"B1", "B2", "B3", "B4"}), [])
+
+    def test_candidate_keys_cover_digest_parts_and_separators(self):
+        from reading_telegram import digest_candidate_keys
+
+        catalog = {
+            "books": self.books(),
+            "channels": [{"chat_id": "@g", "categories": []}, {"chat_id": "@d", "mode": "digest"}],
+        }
+        keys = digest_candidate_keys(catalog, date(2026, 11, 19))
+        self.assertIn("in-2026-11-19-B1", keys)
+        self.assertTrue(any(k.startswith("sep-2026-11-19-fantasia-") for k in keys))
+        self.assertTrue(any(k.startswith("digest2-2026-11-19-") and k.endswith("-2") for k in keys))
+        self.assertEqual(len(keys), len(set(keys)))

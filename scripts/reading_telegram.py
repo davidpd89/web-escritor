@@ -14,6 +14,7 @@ import re
 import sqlite3
 import sys
 import time
+import unicodedata
 from urllib.parse import parse_qs, urlencode, urlsplit
 from zoneinfo import ZoneInfo
 
@@ -173,6 +174,7 @@ def from_reading_catalogue(path: Path, channels_path: Path, groups: dict | None 
                 "release_date": published,
                 "isbn13": str(book.get("isbn13") or ""),
                 "categories": assigned,
+                "genre_id": next((c for c in assigned if c in genre_names), ""),
                 "genres": list(
                     dict.fromkeys(
                         genre_names[c]
@@ -238,8 +240,14 @@ def is_digest_text(text: str) -> bool:
     return any(line.startswith(DIGEST_HEADS) for line in text.split("\n", 3)[:3])
 
 
-def digest_key(day: str) -> str:
-    return f"digest-{day}"
+def digest_key(day: str, seed: str = "") -> str:
+    """Sin `seed`, la clave histórica del resumen del día; con ella, la de una tanda (digest2)."""
+    return f"digest2-{day}-{seed}" if seed else f"digest-{day}"
+
+
+def member_key(day: str, asin: str) -> str:
+    """Fila de entrega que recuerda que el libro ya salió en un resumen del día en ese canal."""
+    return f"in-{day}-{asin}"
 
 
 def weekly_key(monday: str) -> str:
@@ -257,6 +265,99 @@ def tag_from_books(books: list[dict]) -> str:
     )
 
 
+OTHER_GENRE = "Otros libros"
+# Un emoji distinto por género para reconocerlo de un vistazo al desplazarse por el canal.
+GENRE_EMOJI = {
+    "fantasia": "🐉", "fantasia-juvenil": "🧙", "fantasia-oscura": "🌑", "romantasy": "💞", "romance": "💘",
+    "terror": "👻", "novela-historica": "🏰", "misterio-y-thriller": "🕵️", "narrativa": "📖",
+    "aventuras": "🧭", "biografias-y-memorias": "🪪", "desarrollo-personal": "🌱", "familia-y-crianza": "👨‍👩‍👧",
+    "cocina": "🍳", "nutricion-y-bienestar": "🥗", "ciencia-ficcion": "🚀", "poesia": "🪶", "humor": "😂",
+    "historia": "🏛️", "ensayo": "🧠", "comic-y-novela-grafica": "🦸", "infantil": "🧸",
+    "divulgacion-cientifica": "🔬", "filosofia": "🤔", "narrativa-juvenil": "🎒", "relatos": "✒️",
+    "psicologia": "🧩", "guias-y-referencia": "📘", "ocio-y-aficiones": "🎲", "economia-y-empresa": "💼",
+    "politica-y-actualidad": "🗳️", "religion-y-espiritualidad": "🕊️", "viajes": "✈️", "arte-y-diseno": "🎨",
+    "derecho": "⚖️",
+}
+
+
+def genre_name(book: dict) -> str:
+    genres = book.get("genres") or []
+    return genres[0] if genres else OTHER_GENRE
+
+
+def genre_emoji(book: dict) -> str:
+    return GENRE_EMOJI.get(book.get("genre_id", ""), "📖")
+
+
+def hashtag(name: str) -> str:
+    """«Cómic y novela gráfica» -> #ComicYNovelaGrafica (Telegram solo enlaza letras, cifras y «_»)."""
+    plain = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    return "#" + "".join(w.capitalize() for w in re.findall(r"[A-Za-z0-9]+", plain))
+
+
+def genre_tag(book: dict) -> str:
+    name = genre_name(book)
+    return hashtag(name) if name != OTHER_GENRE else "#Novedades"
+
+
+def _sort_text(text: str) -> str:
+    return unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().lower()
+
+
+def sort_by_genre(books: list[dict]) -> list[dict]:
+    """Por género (orden alfabético estable, «Otros libros» al final) y título dentro de cada uno."""
+    return sorted(
+        books,
+        key=lambda b: (genre_name(b) == OTHER_GENRE, _sort_text(genre_name(b)), _sort_text(b["title"])),
+    )
+
+
+def genre_runs(books: list[dict]) -> list[list[dict]]:
+    runs, current = [], None
+    for book in sort_by_genre(books):
+        if genre_name(book) != current:
+            current = genre_name(book)
+            runs.append([])
+        runs[-1].append(book)
+    return runs
+
+
+def genre_banner(book: dict, count: int) -> str:
+    """Mensaje que abre la tanda de un género en los canales de libro a libro."""
+    plural = "libro" if count == 1 else "libros"
+    line = "➖➖➖➖➖➖➖➖➖➖"
+    return (
+        f"{line}\n{genre_emoji(book)} <b>A partir de aquí: {escape(genre_name(book))}</b>\n"
+        f"{count} {plural} · {genre_tag(book)}\n{line}"
+    )
+
+
+def genre_banners(books: list[dict], day: str) -> list[dict]:
+    """Los libros de un canal ordenados por género con un mensaje separador delante de cada género.
+
+    La clave del separador lleva el primer libro de la tanda: si a media mañana entran libros nuevos de un
+    género ya enviado, salen precedidos de un separador propio en lugar de quedar sueltos."""
+    if not any(b.get("genres") for b in books):
+        return list(books)  # sin ningún género conocido no hay nada que separar
+    jobs = []
+    for run_books in genre_runs(books):
+        first = run_books[0]
+        jobs.append(
+            {
+                "asin": f"sep-{day}-{first.get('genre_id') or 'otros'}-{first['asin']}",
+                "separator": True,
+                "text": genre_banner(first, len(run_books)),
+                "release_date": day,
+            }
+        )
+        jobs += run_books
+    return jobs
+
+
+def genre_header(book: dict, count: int) -> str:
+    return f"\n{genre_emoji(book)} <b>{escape(genre_name(book))}</b> · {count} · {genre_tag(book)}"
+
+
 def digest(
     books: list[dict],
     day: str,
@@ -269,46 +370,66 @@ def digest(
     de búsqueda por muchos ISBN no abren en la app de Amazon), así que si no caben en un mensaje de
     Telegram se reparten en varios consecutivos («1/3», «2/3»…) en vez de dejar un «…y N más».
 
-    Diario («Aquí tienes las publicaciones del día…») o semanal si se da `until`
-    («Próximos lanzamientos del … al …», con la fecha de cada libro; `start` es el primer día)."""
+    Diario («Aquí tienes las publicaciones del día…», agrupado por género con un encabezado y una etiqueta
+    por género) o semanal si se da `until` («Próximos lanzamientos del … al …», con la fecha de cada libro;
+    `start` es el primer día)."""
     books = [b for b in books if b.get("isbn13") or b.get("amazon_url") or b.get("asin")]
     if not books:
         return []
     tag = tag or tag_from_books(books)
-    books = sorted(books, key=lambda b: (b["release_date"], b["title"])) if until else books
-    lines = []
+    books = sorted(books, key=lambda b: (b["release_date"], b["title"])) if until else sort_by_genre(books)
+    group_count = {}
+    for b in books:
+        group_count[genre_name(b)] = group_count.get(genre_name(b), 0) + 1
+    chunks, current, size, shown, members, titles = [], [], 0, None, [], 0
     for b in books:
         url = b.get("amazon_url") or (amazon_url(b["asin"], tag) if b.get("asin") else "")
         title = f"<b>{escape(shorten(b['title'], 140))}</b>"
         if url:
             title = f'<a href="{escape(url, quote=True)}">{title}</a>'
-        lines.append(
-            (f"• {human_date(b['release_date'])}: " if until else "• ")
-            + f"{title} — {escape(shorten(b['author'], 100))}"
+        line = (f"• {human_date(b['release_date'])}: " if until else "• ") + (
+            f"{title} — {escape(shorten(b['author'], 100))}"
         )
-    chunks, current, size = [], [], 0
-    for line in lines:
-        if current and (len(current) >= DIGEST_MAX_TITLES or size + len(line) > DIGEST_MAX_CHARS):
-            chunks.append(current)
-            current, size = [], 0
+        header = genre_header(b, group_count[genre_name(b)]) if not until and genre_name(b) != shown else ""
+        if current and (titles >= DIGEST_MAX_TITLES or size + len(line) + len(header) > DIGEST_MAX_CHARS):
+            chunks.append((current, members))
+            current, size, shown, members, titles = [], 0, None, [], 0
+            header = genre_header(b, group_count[genre_name(b)]) if not until else ""
+        if header:
+            current.append(header)
+            size += len(header) + 1
+            shown = genre_name(b)
         current.append(line)
+        members.append(b["asin"])
+        titles += 1
         size += len(line) + 1
-    chunks.append(current)
+    chunks.append((current, members))
     count = f"{len(books)} libro" + ("s" if len(books) != 1 else "")
     sub = f"{escape(label)} · {count}" if label else count
+    seed = books[0]["asin"]
     parts = []
-    for n, chunk in enumerate(chunks, 1):
+    for n, (chunk, chunk_members) in enumerate(chunks, 1):
         page = f" ({n}/{len(chunks)})" if len(chunks) > 1 else ""
         if until:
             head = f"{HASHTAGS_PROXIMOS}\n\n🗓️ <b>Próximos lanzamientos del {human_date(start or day)} al {human_date(until)}{page}</b>"
             key = weekly_key(day)
         else:
             head = f"{HASHTAGS_NOVEDAD}\n\n📚 <b>Aquí tienes las publicaciones del día {human_date(day)}{page}</b>"
-            key = digest_key(day)
+            # Clave por tanda: los libros que entran más tarde salen en su propio resumen sin repetir los ya
+            # publicados (cada libro enviado se anota como miembro, ver `member_key` y `known_in_digest`).
+            key = digest_key(day, seed)
         if n > 1:
             key += f"-{n}"
-        text = f"{head}\n{sub}\n\n" + f"\n".join(chunk)
-        parts.append({"asin": key, "digest": True, "text": text, "release_date": day})
+        text = f"{head}\n{sub}\n" + ("\n" if until else "") + "\n".join(chunk)
+        parts.append(
+            {
+                "asin": key,
+                "digest": True,
+                "text": text,
+                "release_date": day,
+                "members": [] if until else chunk_members,
+            }
+        )
     return parts
 
 
@@ -330,10 +451,10 @@ def shorten(text: str, limit: int) -> str:
 def message(book: dict, tag: str) -> str:
     """Ficha de un libro. Cabe en el pie de una foto de Telegram (1024 caracteres visibles):
     si no, la sinopsis se acorta."""
-    if book.get("digest"):
+    if book.get("digest") or book.get("separator"):
         return book["text"]
     url = book.get("amazon_url") or amazon_url(book["asin"], tag)
-    genres = shorten(", ".join(book.get("genres", [])[:3]), 120)
+    genres = " ".join(hashtag(g) for g in book.get("genres", [])[:3])
     title = shorten(book["title"], 360)
     author = shorten(book["author"], 280)
     # Sin emoji de calendario (su dibujo muestra un «17» que confunde) y sin enlace a la ficha de la web:
@@ -344,7 +465,7 @@ def message(book: dict, tag: str) -> str:
     facts = [
         part
         for part in (
-            f"🏷️ {escape(genres)}" if genres else "",
+            f"{genre_emoji(book)} {escape(genres)}" if genres else "",
             f"💶 {euros(book['price_cents'])}" if book.get("price_cents") else "",
             f"📄 {book['pages']} págs." if book.get("pages") else "",
         )
@@ -567,7 +688,9 @@ GLOBAL_GAP = 0.2
 BATCH = 25
 
 
-def channel_jobs(channel: dict, books: list[dict], today: date, tag: str) -> list[dict]:
+def channel_jobs(
+    channel: dict, books: list[dict], today: date, tag: str, known: frozenset | set = frozenset()
+) -> list[dict]:
     """What a channel publishes today: one digest, or one message per book; weekly only on its day."""
     day = today.isoformat()
     mine = [
@@ -587,8 +710,31 @@ def channel_jobs(channel: dict, books: list[dict], today: date, tag: str) -> lis
         return digest(week, day, tag, label, until=until.isoformat(), start=first.isoformat())
     due = [b for b in mine if b["release_date"] == day]
     if channel.get("mode") == "digest":
-        return digest(due, day, tag, label)
-    return due
+        # Solo lo que aún no salió en un resumen de este canal: así los libros tardíos van en otro, sin repetir.
+        return digest([b for b in due if b["asin"] not in known], day, tag, label)
+    if len(set(channel.get("categories") or [])) == 1:
+        return sort_by_genre(due)  # un canal de un solo género no necesita separadores
+    return genre_banners(due, day)
+
+
+def digest_candidate_keys(catalog: dict, today: date) -> list[str]:
+    """Todas las claves de entrega que pueden existir hoy además de los libros: resúmenes, separadores y
+    la anotación de miembros. El estado remoto guarda solo hashes, así que se restauran por candidatas."""
+    day = today.isoformat()
+    keys = [digest_key(day), weekly_key(day)]
+    for book in catalog["books"]:
+        if book["release_date"] == day:
+            keys.append(member_key(day, book["asin"]))
+            keys += [digest_key(day, book["asin"])] + [
+                f"{digest_key(day, book['asin'])}-{n}" for n in range(2, 16)
+            ]
+    for channel in catalog["channels"]:
+        keys += [
+            job["asin"]
+            for job in channel_jobs(channel, catalog["books"], today, "")
+            if job.get("separator") or job.get("digest")
+        ]
+    return list(dict.fromkeys(keys))
 
 
 def interleave(per_channel: list[tuple[dict, list[dict]]]) -> list[tuple[dict, dict]]:
@@ -617,9 +763,15 @@ def run(
 ) -> list[dict]:
     if now is not None and now.time() < SEND_AT:
         return []  # Nothing goes out before 11:30 (Madrid); the 11:30 run sends the day.
-    jobs = interleave(
-        [(c, channel_jobs(c, catalog["books"], today, tag)) for c in catalog["channels"]]
-    )
+    def build(known_by_chat):
+        return interleave(
+            [
+                (c, channel_jobs(c, catalog["books"], today, tag, known_by_chat.get(c["chat_id"], set())))
+                for c in catalog["channels"]
+            ]
+        )
+
+    jobs = build({})
     if not live:
         return [
             {"chat_id": c["chat_id"], "status": "preview", "text": message(b, tag)}
@@ -641,8 +793,24 @@ def run(
             "CREATE TABLE IF NOT EXISTS deliveries (chat TEXT, asin TEXT, status TEXT, message_id INTEGER, PRIMARY KEY(chat, asin))"
         )
         stale = False
+        day = today.isoformat()
+        prefix = member_key(day, "")
+        known_by_chat = {
+            c["chat_id"]: {
+                row[0][len(prefix):]
+                for row in db.execute(
+                    "SELECT asin FROM deliveries WHERE chat=? AND status='sent' AND substr(asin, 1, ?)=?",
+                    (c["chat_id"], len(prefix), prefix),
+                )
+            }
+            for c in catalog["channels"]
+        }
+        jobs = build(known_by_chat)
+        waiting = set()  # canales con un separador aplazado por límite: sus libros esperan para no salir antes que él
         for channel, book in jobs:
             key = (channel["chat_id"], book["asin"])
+            if key[0] in waiting:
+                continue
             row = db.execute(
                 "SELECT status FROM deliveries WHERE chat=? AND asin=?", key
             ).fetchone()
@@ -663,6 +831,8 @@ def run(
                     {"chat_id": key[0], "asin": key[1], "status": "uncertain:stale-claim"}
                 )
             elif row:
+                if row[0].startswith("retry:") and book.get("separator"):
+                    waiting.add(key[0])
                 results.append(
                     {"chat_id": key[0], "asin": key[1], "status": "skipped:" + row[0]}
                 )
@@ -723,6 +893,11 @@ def run(
                     "UPDATE deliveries SET status=?, message_id=? WHERE chat=? AND asin=?",
                     (status, mid, *key),
                 )
+                if status == "sent" and book.get("digest"):
+                    db.executemany(
+                        "INSERT OR REPLACE INTO deliveries VALUES (?, ?, 'sent', NULL)",
+                        [(key[0], member_key(day, asin)) for asin in book.get("members", [])],
+                    )
                 db.commit()
                 results.append({"chat_id": key[0], "asin": key[1], "status": status})
             if checkpoint:
