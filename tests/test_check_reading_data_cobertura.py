@@ -35,6 +35,7 @@ CODIGO = {
     'test_reading_source_recovery.RecoveryTests.test_a_book_without_provenance_is_set_aside_and_the_rest_is_recovered',
     'test_reading_texts.ReadingTextsTest.test_git_output_is_read_as_utf8_whatever_the_console_codepage',
     'test_reading_texts.ReadingTextsTest.test_book_page_renders_modules_before_editorial_synopsis',
+    'test_presupuesto_sitio.MedidaYRegistro.test_unreadable_or_incomplete_measurement_is_no_measurement',
 }
 ITERABLES = ('published(', 'libros', 'books')
 UN_ARGUMENTO = ('assertTrue', 'assertFalse', 'assertIsNone', 'assertIsNotNone')
