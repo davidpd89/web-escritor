@@ -126,6 +126,10 @@ class ToRecord(unittest.TestCase):
             'NI ORIENTE NI OCCIDENTE (Andalucía)': 'Ni oriente ni occidente (Andalucía)',
             'EL GUERRERO DEL ANTIFAZ Vol. 11': 'El guerrero del antifaz Vol. 11',
             'SIN CITY 07. IDA Y VUELTA': 'Sin city 07. Ida y vuelta',  # una letra sigue la norma
+            # Mayúscula rota de la fuente (bloqueo de mayúsculas sin el shift inicial): el título sigue gritando
+            # salvo la inicial y antes se colaba a la ficha; la comprobación del catálogo publicado lo tumbaba.
+            'dERMATOLOGÍA GENERAL BÁSICA': 'Dermatología general básica',
+            'EL hÉROE DISCRETO': 'El héroe discreto',
             # apellido suelto = palabra común; título en estilo inglés o traducción no dan nombres propios
             'LA SENCILLA RUTA A LA SANTIDAD': 'La sencilla ruta a la santidad',
             'IA Y TEOLOGÍA': 'IA y teología',
