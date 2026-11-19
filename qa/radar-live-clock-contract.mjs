@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 // after the current contests have expired and covers both Madrid DST changes.
 export async function assertRadarLiveClock(browser, origin) {
   const html = await fs.readFile('convocatorias-escritores/index.html', 'utf8');
-  if (!/<article[^>]*data-radar-item/.test(html)) { console.log('radar-live-clock: SKIP (el radar no tiene ninguna ficha)'); return; }
+  if (!/<article\b[^>]*data-radar-item/.test(html)) { console.log('radar-live-clock: SKIP (el radar no tiene ninguna ficha)'); return; }
   for (const [day, instant] of [
     ['2026-10-19', '2026-10-19T21:59:30Z'],
     ['2026-01-15', '2026-01-15T22:59:30Z'],
