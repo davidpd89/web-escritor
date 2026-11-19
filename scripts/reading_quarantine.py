@@ -3,8 +3,14 @@
 La validación del catálogo se detiene en el primer error. Si el error nombra un libro, este módulo lo aparta y
 vuelve a validar: un libro ya publicado recupera su última versión buena (la de HEAD) y uno nuevo sale del lote.
 Lo apartado queda en data/reading-quarantine.json (ISBN, fuente, datos originales, motivo, causa agrupable e
-intentos) y se reintenta en cada carga. Un error que no nombra un libro, o que aparta a más de la mitad del lote,
-sigue parando la carga: eso es una regla rota, no un dato, y se notifica como fallo del workflow.
+intentos) y se reintenta en cada carga. Un error que no nombra un libro sigue parando la carga: eso es una regla
+rota, no un dato, y se notifica como fallo del workflow.
+
+Dos topes, porque altas y publicados fallan por motivos distintos (P0-6, .ci/fable-direccion-2026-11-15.md):
+- altas (ids que no están en HEAD): más de la mitad apartada = regla rota. Por debajo se publica lo válido: las
+  novedades del día no se pierden por unos cuantos datos malos. Con más del 5 % (y al menos 2) salta la alerta.
+- publicados (ids en HEAD): más del 1 % del catálogo revertido = regresión global, la carga para. Antes el tope
+  salía de los libros «cambiados», y una noche de precios cambia casi todos: el tope real era ~2.500.
 
 Aprender de cada caso: cuando una causa se corrige en la regla general, se añade una reparación en REPAIRS (o se
 arregla el script que la produce) con su test de regresión, y la siguiente carga recupera todos los afectados.
@@ -14,6 +20,7 @@ arregla el script que la produce) con su test de regresión, y la siguiente carg
 """
 import importlib.util
 import json
+import math
 import re
 import shutil
 import subprocess
@@ -30,8 +37,11 @@ CATALOGUE = 'data/reading-catalogue.json'
 QUARANTINE = 'data/reading-quarantine.json'
 PUBLISHERS = 'data/reading-publishers.json'
 INTAKE_STATE = 'data/reading-intake-state.json'
-MAX_BOOKS = 10       # siempre se toleran al menos estos libros apartados
-MAX_SHARE = 0.5      # más de la mitad del lote apartada = regla rota, no datos
+MAX_BOOKS = 10             # siempre se toleran al menos estos libros apartados (por tope)
+MAX_NEW_SHARE = 0.5        # más de la mitad de las altas apartada = regla rota, no datos
+MAX_PUBLISHED_SHARE = 0.01 # más del 1 % de lo publicado revertido = regresión global
+ALERT_NEW_SHARE = 0.05     # más del 5 % de las altas apartadas (y al menos 2): se publica, pero con alerta
+ALERT_MIN_BOOKS = 2
 _spec = importlib.util.spec_from_file_location('reading_catalogue_build', ROOT / 'scripts/build-reading-catalogue.py')
 build = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(build)
@@ -71,10 +81,24 @@ def committed(root):
 
 
 def limit(data, previous):
-    """Libros apartables en este lote: los nuevos o cambiados respecto a lo publicado."""
-    good = {b['id']: b for b in (previous or {}).get('libros', [])}
-    batch = sum(1 for b in data['libros'] if good.get(b['id']) != b)
-    return max(MAX_BOOKS, int(batch * MAX_SHARE))
+    """Topes de este lote: (altas apartables, publicados revertibles).
+
+    Las altas son los ids que no están en lo publicado; los publicados, los que sí, cambien o no esta noche."""
+    good = {b['id'] for b in (previous or {}).get('libros', [])}
+    new = sum(1 for b in data['libros'] if b['id'] not in good)
+    published = sum(1 for b in data['libros'] if b['id'] in good)
+    return (max(MAX_BOOKS, math.ceil(new * MAX_NEW_SHARE)),
+            max(MAX_BOOKS, math.ceil(published * MAX_PUBLISHED_SHARE)))
+
+
+def rate_alert(out, data, previous):
+    """Altas apartadas por encima del 5 % (y al menos 2): se publica lo válido, pero no es una carga «limpia».
+
+    `data` es el catálogo de entrada a la cuarentena (con las altas todavía dentro)."""
+    good = {b['id'] for b in (previous or {}).get('libros', [])}
+    held_new = sum(1 for h in out if h['libro']['id'] not in good)
+    new = sum(1 for b in data['libros'] if b['id'] not in good)
+    return held_new >= ALERT_MIN_BOOKS and held_new > new * ALERT_NEW_SHARE
 
 
 def restore_cover(root, book):
@@ -107,7 +131,7 @@ def isolate(data, root, previous=None, held=(), today=None, flagged=None):
         if h['libro']['id'] not in present:
             data['libros'].append(h['libro'])
             data['libro_categorias'] += [{'libro_id': h['libro']['id'], 'categoria_id': c} for c in h['categorias']]
-    cap = limit(data, previous)
+    new_cap, published_cap = limit(data, previous)
     good = {b['id']: b for b in (previous or {}).get('libros', [])}
     good_rel = {}
     for r in (previous or {}).get('libro_categorias', []):
@@ -135,8 +159,9 @@ def isolate(data, root, previous=None, held=(), today=None, flagged=None):
                 continue
             if not book_id and isinstance(pos, int) and 0 <= pos < len(data['libros']):
                 # Ficha sin id utilizable (inválido o repetido): sale del lote por su posición, como un libro nuevo.
-                if len(out) >= cap:
-                    raise build.ValidationError(f'Error global: más de {cap} libros apartados en un lote') from exc
+                fresh = [h for h in out if h['libro']['id'] not in good]
+                if len(fresh) >= new_cap:
+                    raise build.ValidationError(f'Error global: más de {new_cap} libros nuevos apartados en un lote') from exc
                 book = data['libros'].pop(pos)
                 key = book.get('id') if isinstance(book, dict) and isinstance(book.get('id'), str) else None
                 if key and not any(b.get('id') == key for b in data['libros'] if isinstance(b, dict)):
@@ -171,10 +196,14 @@ def isolate(data, root, previous=None, held=(), today=None, flagged=None):
             # isbn-9791388205675 con un solo módulo, 16/11 — #1387 quiso apartarlo y la carga seguía parando entera).
             if not book_id or book_id in reverted or (stuck and book_id not in blame):
                 raise
-            if len(out) >= cap:
+            published = book_id in good
+            same = [h for h in out if (h['libro']['id'] in good) == published]
+            cap = published_cap if published else new_cap
+            if len(same) >= cap:
+                kind = 'publicados revertidos' if published else 'altas apartadas'
                 raise build.ValidationError(
-                    f'Error global: más de {cap} libros apartados en un lote; causas: '
-                    + '; '.join(sorted({h['causa'] for h in out}))[:400]) from exc
+                    f'Error global: más de {cap} {kind} en un lote; causas: '
+                    + '; '.join(sorted({h['causa'] for h in same}))[:400]) from exc
             at = next(i for i, b in enumerate(data['libros']) if b['id'] == book_id)
             book = data['libros'][at]
             prior = before.get(book_id, {})
@@ -361,6 +390,9 @@ def drop_retired_pages(data, root):
     return pages
 
 
+LAST = {'alert': False}   # alerta de tasa de la última apply(); la lee refresh-reading-catalogue para el informe
+
+
 def apply(root=ROOT, today=None, flagged=None):
     """Aplica la cuarentena a los datos del árbol de trabajo. Devuelve la lista de libros apartados."""
     today = today or date.today().isoformat()
@@ -374,7 +406,10 @@ def apply(root=ROOT, today=None, flagged=None):
     # Después de las reparaciones: el género de respaldo por sello cuenta solo lo que sigue publicado.
     from reading_taxonomy import repair_classification
     repair_classification(data, today=today)
+    # Ids que entran a la cuarentena (catálogo + apartados de noches anteriores), antes de que isolate saque altas.
+    entering = {'libros': [{'id': i} for i in {b['id'] for b in data['libros']} | {h['libro']['id'] for h in held}]}
     clean, out = isolate(data, root, published, held, today=today, flagged=flagged)
+    LAST['alert'] = rate_alert(out, entering, published)
     if clean != original:  # mismo formato que el último escritor del catálogo (precios), sin reordenar claves
         write_changed(path, clean)
     if out or held_path.exists():

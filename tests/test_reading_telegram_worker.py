@@ -154,6 +154,18 @@ class EditorialTelegramTests(unittest.TestCase):
             "https://www.amazon.es/dp/8415955626?tag=davidporto-21",
         )
 
+    def test_amazon_source_checked_days_ago_still_counts_after_failed_nightly_intake(self):
+        # 19/11/2026: tres cargas nocturnas fallidas dejaron la revisión en 16/11 y se descartaron 105 libros.
+        book = {
+            **self.book,
+            "fuente_publicacion_url": "https://www.amazon.es/dp/8415955626",
+            "precios_amazon_revision": "2026-10-27",
+        }
+        for today, expected in [(date(2026, 11, 1), 1), (date(2026, 11, 3), 0)]:
+            with self.subTest(today=today):
+                _, report = verified_snapshot({"libros": [book]}, self.intake, today, lambda *_: self.html)
+                self.assertEqual(report["resolved"], expected)
+
     def test_stale_or_search_amazon_source_stays_pending(self):
         for extra in [
             {"fuente_publicacion_url": "https://www.amazon.es/dp/8415955626",

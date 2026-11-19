@@ -20,12 +20,18 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
   actions: write
   statuses: write
 
 concurrency:
   group: refresh-radar-clock
   cancel-in-progress: false
+
+# Reloj estricto (site_clock.clock_window): decide si refrescar: debe ver el desfase del mismo día.
+# Las PR aceptan generados de hasta 2 días; esto no.
+env:
+  RELOJ_ESTRICTO: "1"
 
 jobs:
   refresh:
@@ -58,6 +64,37 @@ jobs:
           set -euo pipefail
           git fetch origin main
           git reset --hard origin/main
+
+      # Una convocatoria se oculta a los 30 días de su verified_at. Sin este paso nadie la renovaba y el 19/11/2026
+      # el radar público quedó vacío con 25 convocatorias abiertas. Solo renueva las que su fuente sigue confirmando.
+      - name: Reverify open calls against their official source
+        id: reverify
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/reverify_radar.py --informe "$RUNNER_TEMP/reverify.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          python - <<'PY' > "$RUNNER_TEMP/reverify-issue.md"
+          import json, os
+          r = json.load(open(os.environ['RUNNER_TEMP'] + '/reverify.json', encoding='utf-8'))
+          if r['urgentes']:
+              print('Estas convocatorias abiertas están a punto de ocultarse del radar porque su fuente no confirma el plazo '
+                    '(o no responde). Revísalas a mano y actualiza `verified_at`/plazo en `data/radar-opportunities.json`, '
+                    'o retíralas si ya no están abiertas:')
+              print()
+              for p in r['urgentes']:
+                  print(f"- `{p['id']}` (plazo {p['plazo']}, verificada {p['verified_at']}): {p['motivo']}")
+          PY
+          if [ -s "$RUNNER_TEMP/reverify-issue.md" ]; then
+            title="Radar: convocatorias sin reverificar"
+            n="$(gh issue list --state open --search "\"$title\" in:title" --json number -q '.[0].number // empty')"
+            if [ -n "$n" ]; then
+              gh issue edit "$n" --body-file "$RUNNER_TEMP/reverify-issue.md"
+            else
+              gh issue create --title "$title" --body-file "$RUNNER_TEMP/reverify-issue.md"
+            fi
+          fi
 
       - name: Resolve Madrid civil date and detect clock drift
         id: clock
@@ -142,7 +179,7 @@ jobs:
           bad=0
           while IFS= read -r path; do
             case "$path" in
-              convocatorias-escritores/index.html|convocatorias-escritores/opportunities.json|convocatorias-escritores/deadlines.ics|.lycheeignore|pagefind/*|editoriales/*.html)
+              data/radar-opportunities.json|convocatorias-escritores/index.html|convocatorias-escritores/opportunities.json|convocatorias-escritores/deadlines.ics|.lycheeignore|pagefind/*|editoriales/*.html)
                 ;;
               *)
                 echo "Unexpected generated change: $path"
@@ -176,6 +213,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$branch"
           git add -- \
+            data/radar-opportunities.json \
             convocatorias-escritores/index.html \
             convocatorias-escritores/opportunities.json \
             convocatorias-escritores/deadlines.ics \

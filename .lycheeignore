@@ -125,7 +125,6 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # Misma revisión: Cloudflare devuelve un managed challenge 403 a clientes
 # automáticos. La reproducción completa de las bases 2027 se recuperó mediante
 # búsqueda/lectura web; la ficha sigue PENDIENTE de contraste primario, sin ICS.
-^https://www\.finalescerrados\.com/p/cl-xxiii-concurso-prix-hemingway\.html$
 
 # CelebrArt supera los reintentos/timeout de CI; la URL existente se volvió a
 # comprobar con GET 200 y la convocatoria Letras correcta el 2026-10-19.
