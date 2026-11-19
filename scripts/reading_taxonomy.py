@@ -580,6 +580,9 @@ def ensure_genre(catalogue: dict, by_book: dict, fallback: GenreFallback) -> dic
         pick = fallback.pick(book, assigned)
         if not pick:
             continue
+        # La reparación del público quitó esa novela juvenil (no ficción temática + «juvenil»): el respaldo no la repone.
+        if AMAZON_SOURCE in (book.get('fuente_bibliografica_url') or '') and juvenile_audience_only(assigned | {pick}):
+            continue
         if pick not in cats:
             name, desc, _topics = FALLBACK_GENRES[pick]
             cats[pick] = {'id': pick, 'slug': pick, 'nombre': name, 'tipo': 'genero', 'descripcion': desc,
@@ -626,7 +629,8 @@ def repair_classification(catalogue, today=None):
     touched = set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
     touched |= set(repair_amazon_rules(catalogue, by_book, fallback))
     touched |= set(repair_inherited_health(catalogue, by_book)) | set(repair_axis(catalogue, by_book))
-    touched |= set(ensure_genre(catalogue, by_book, fallback))
+    # Quitar etiquetas de nodo puede dejar «narrativa-juvenil» sola con la no ficción: el público se repara otra vez.
+    touched |= set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
     if today:
         for book in catalogue['libros']:
             if book['id'] in touched:
