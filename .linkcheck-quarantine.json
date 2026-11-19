@@ -10,5 +10,17 @@
     "reason": "HTTP 500 en /barrett/manuscritos/ desde Actions y local (13/11, recomprobado). Si no vuelve, revisar submission_url en data/editoriales.json.",
     "added": "2026-11-13",
     "expires": "2026-11-27"
+  },
+  {
+    "host": "www.bibalex.org",
+    "reason": "Rechaza o agota la conexión solo desde Actions (run 44287683234: connection refused/timeout); desde España responde 200/302 el 18/11. Bloqueo de IP de Actions, no enlace roto; si al caducar sigue, retirar el enlace o renovar.",
+    "added": "2026-11-18",
+    "expires": "2026-12-02"
+  },
+  {
+    "host": "www.insolitaeditorial.com",
+    "reason": "Rechaza o agota la conexión solo desde Actions (run 44287683234: connection refused/timeout); desde España responde 200/302 el 18/11. Bloqueo de IP de Actions, no enlace roto; si al caducar sigue, retirar el enlace o renovar.",
+    "added": "2026-11-18",
+    "expires": "2026-12-02"
   }
 ]

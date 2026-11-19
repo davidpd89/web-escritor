@@ -244,11 +244,11 @@
     "notes": "Próximamente y novedades de Amazon (Libros, NewestArrivals) que faltan en el catálogo. Cada nodo que llena sus 10 páginas se parte en sus hijos (GetBrowseNodes) hasta 3 niveles o 1500 peticiones (~28 min a 1/s). Los ISBN españoles o en castellano pasan a la ingesta de esta misma ejecución; el informe da nodos leídos y nodos que siguen sin cubrir."
   },
   "ratings_refresh": {
-    "enabled": true,
+    "enabled": false,
     "goodreads_requests_per_day": 100,
     "google_books_requests_per_day": 40,
     "hardcover_requests_per_day": 40,
-    "notes": "Hasta 100 consultas públicas por ISBN a Goodreads y 40 por API a Google Books y Hardcover; estas dos APIs solo se consultan si tienen su secreto. Cada valoración identifica su proveedor. No se consultan reseñas ni bibliotecas personales. Un proveedor indisponible o limitado se detiene hasta la siguiente ejecución, conservando los datos y sus fechas reales."
+    "notes": "DESACTIVADO 19/11: la web no muestra notas (la ficha enlaza a Goodreads por ISBN, decisión 08/11) y el reto WAF de Goodreads tumbaba cada noche. Se conservan las 183 existentes. Antes: hasta 100 consultas públicas por ISBN a Goodreads y 40 por API a Google Books y Hardcover; estas dos APIs solo se consultan si tienen su secreto. Cada valoración identifica su proveedor. No se consultan reseñas ni bibliotecas personales. Un proveedor indisponible o limitado se detiene hasta la siguiente ejecución, conservando los datos y sus fechas reales."
   },
   "author_wikipedia": {
     "enabled": true,

@@ -28,7 +28,7 @@ jobs:
       issues: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
           filter: blob:none
@@ -85,7 +85,7 @@ jobs:
             --descripcion "HTML mal formado o CSS con errores (HTML-validate, Stylelint)" --color D93F0B
       - name: Guardar informes
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: calidad-html-css
           path: |

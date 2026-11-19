@@ -9,6 +9,7 @@
 Sin cupo de libros: el ritmo lo marca la pausa entre fichas y, si Amazon pide captcha, una espera creciente.
 """
 import argparse
+import os
 import importlib.util
 import json
 import subprocess
@@ -29,6 +30,7 @@ RECORD = LOCAL / 'audit.json'
 PUBLISHED = 'data/reading-amazon-audit.json'
 AUDIT_AFTER = timedelta(days=7)  # un libro auditado bien se repasa cada semana
 RETRY_AFTER = timedelta(days=1)  # sin ASIN todavía (la API lo busca cada noche), sin ficha o error: al día siguiente
+PERMISO_SCRAPING = 'PERMITIR_SCRAPING_AMAZON_ES'
 PAUSE = 15  # segundos entre fichas, además de los 2 de fetch_amazon_page
 MADRID = ZoneInfo('Europe/Madrid')
 # Portadas reales por publicación (~65 kB cada una con su miniatura): unas 50 MB por PR; el resto, en la siguiente.
@@ -257,8 +259,7 @@ def publish():
     title = (f"Amazon: {stats['formats_added']} formatos, {stats['covers_replaced']} portadas y "
              f"{stats['synopses_added']} sinopsis; registro de {len(records)} fichas")
     git('switch', '-q', '-c', branch, cwd=tree)
-    subprocess.run(['git', 'add', '--pathspec-from-file=-', '--pathspec-file-nul'], cwd=tree, check=True,
-                   input='\0'.join(paths).encode('utf-8'))
+    git_estado.preparar(tree, paths)  # sin fallar por un borrado ya en el índice (#1318)
     git('commit', '-q', '-m', title, cwd=tree)
     git('push', '-q', 'origin', 'HEAD:refs/heads/' + branch, cwd=tree)
     body = LOCAL / 'pr-body.md'
@@ -283,6 +284,11 @@ def main(argv=None):
     sub.add_parser('publish')
     args = parser.parse_args(argv)
     if args.cmd == 'run':
+        # `run` lee las fichas HTML de amazon.es desde la IP de casa (UA de navegador, captcha incluido): riesgo de
+        # bloqueo de IP. La Creators API ya da precios y formatos; por eso queda apagado salvo orden expresa.
+        if os.environ.get(PERMISO_SCRAPING) != '1':
+            sys.exit(f'run desactivado: lee fichas de amazon.es desde esta IP (riesgo de bloqueo). '
+                     f'Solo con {PERMISO_SCRAPING}=1 y orden expresa de David.')
         loop(args)
     else:
         # La autorreparación vigila esta publicación como un workflow más (scripts/estado_local.py).

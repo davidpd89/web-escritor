@@ -5,6 +5,7 @@ import fs from 'node:fs/promises';
 // after the current contests have expired and covers both Madrid DST changes.
 export async function assertRadarLiveClock(browser, origin) {
   const html = await fs.readFile('convocatorias-escritores/index.html', 'utf8');
+  if (!/<article\b[^>]*data-radar-item/.test(html)) { console.log('radar-live-clock: SKIP (el radar no tiene ninguna ficha)'); return; }
   for (const [day, instant] of [
     ['2026-10-19', '2026-10-19T21:59:30Z'],
     ['2026-01-15', '2026-01-15T22:59:30Z'],
@@ -18,6 +19,9 @@ export async function assertRadarLiveClock(browser, origin) {
       await page.route('**/convocatorias-escritores/', route => route.fulfill({
         contentType: 'text/html; charset=utf-8',
         body: html.replace(/<article\b[^>]*data-radar-item[^>]*>/, tag => tag
+          // La primera ficha puede ser una caducada (radar sin convocatorias vigentes): se convierte en abierta.
+          .replace(/ radar-card--(expired|watch)/, '')
+          .replace(/ data-radar-kind="[^"]*"/, '')
           .replace(/data-deadline="[^"]*"/, `data-deadline="${day}"`)
           .replace(/data-verified-at="[^"]*"/, `data-verified-at="${day}"`)),
       }));

@@ -41,7 +41,7 @@ jobs:
       QA_OUT: qa-artifacts/samuel-ecosystem
       PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -50,7 +50,7 @@ jobs:
             !/assets/no usadas/
           fetch-depth: 0
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -62,7 +62,7 @@ jobs:
 
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -78,7 +78,7 @@ jobs:
       # Los .deb de poppler se guardan en caché: si apt se queda sin red (11/11: DNS de Azure caído durante
       # horas), se instalan con dpkg sin descargar nada. Solo se baja lo que falta en la imagen fijada.
       - name: Cache poppler-utils packages
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/poppler-debs
           key: poppler-debs-ubuntu-24.04-v1
@@ -126,7 +126,7 @@ jobs:
 
       - name: Upload Samuel ecosystem QA evidence
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: samuel-ecosystem-qa
           path: qa-artifacts/samuel-ecosystem/
