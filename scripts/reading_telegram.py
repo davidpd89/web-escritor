@@ -289,27 +289,6 @@ def genre_emoji(book: dict) -> str:
     return GENRE_EMOJI.get(book.get("genre_id", ""), "📖")
 
 
-def hashtag(name: str) -> str:
-    """«Cómic y novela gráfica» -> #ComicYNovelaGrafica (Telegram solo enlaza letras, cifras y «_»)."""
-    plain = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
-    return "#" + "".join(w.capitalize() for w in re.findall(r"[A-Za-z0-9]+", plain))
-
-
-# Etiqueta fija por género (consultada con ChatGPT 19/11/2026): estable, sin tildes y la que el lector busca.
-GENRE_HASHTAG = {
-    "misterio-y-thriller": "#Thriller", "biografias-y-memorias": "#Biografias", "familia-y-crianza": "#Crianza",
-    "nutricion-y-bienestar": "#NutricionYBienestar", "comic-y-novela-grafica": "#Comic",
-    "infantil": "#LibrosInfantiles", "narrativa-juvenil": "#LiteraturaJuvenil",
-}
-
-
-def genre_tag(book: dict) -> str:
-    name = genre_name(book)
-    if name == OTHER_GENRE:
-        return "#Novedades"
-    return GENRE_HASHTAG.get(book.get("genre_id", ""), hashtag(name))
-
-
 def _sort_text(text: str) -> str:
     return unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().lower()
 
@@ -333,16 +312,22 @@ def genre_runs(books: list[dict]) -> list[list[dict]]:
 
 
 def genre_banner(book: dict, count: int) -> str:
-    """Mensaje corto que abre la tanda de un género en los canales de libro a libro."""
+    """Cartel que abre la tanda de un género en el canal de novedades: flechas y rayas arriba y abajo y el
+    nombre en mayúsculas, para que al desplazarse no pase por otra ficha más (sin hashtags: nadie los busca)."""
     plural = "novedad" if count == 1 else "novedades"
-    return f"{genre_emoji(book)} <b>{escape(genre_name(book))}</b>\n{count} {plural} · {genre_tag(book)}"
+    emoji = genre_emoji(book)
+    rule = "⬇️ ━━━━━━━━━━━━ ⬇️"
+    return (
+        f"{rule}\n{emoji} <b>{escape(genre_name(book).upper())}</b> {emoji}\n"
+        f"{count} {plural}\n{rule}"
+    )
 
 
 def genre_banners(books: list[dict], day: str) -> list[dict]:
     """Los libros de un canal ordenados por género con un mensaje separador delante de cada género.
 
     La clave del separador es solo día + género: si el ciclo se reanuda a mitad de una tanda (un libro en
-    reintento, uno que entra tarde) no se repite el separador, y la ficha lleva igualmente su emoji y hashtag."""
+    reintento, uno que entra tarde) no se repite el separador, y la ficha lleva igualmente su emoji y género."""
     if not any(b.get("genres") for b in books):
         return list(books)  # sin ningún género conocido no hay nada que separar
     jobs = []
@@ -361,7 +346,7 @@ def genre_banners(books: list[dict], day: str) -> list[dict]:
 
 
 def genre_header(book: dict, count: int) -> str:
-    return f"\n{genre_emoji(book)} <b>{escape(genre_name(book))}</b> · {count} · {genre_tag(book)}"
+    return f"\n{genre_emoji(book)} <b>{escape(genre_name(book))}</b> · {count}"
 
 
 def digest(
@@ -460,7 +445,7 @@ def message(book: dict, tag: str) -> str:
     if book.get("digest") or book.get("separator"):
         return book["text"]
     url = book.get("amazon_url") or amazon_url(book["asin"], tag)
-    genres = genre_tag(book) if book.get("genres") else ""
+    genres = genre_name(book) if book.get("genres") else ""
     title = shorten(book["title"], 360)
     author = shorten(book["author"], 280)
     # Sin emoji de calendario (su dibujo muestra un «17» que confunde) y sin enlace a la ficha de la web:
@@ -697,6 +682,17 @@ BATCH = 25
 LATE_DAYS = 3  # un libro verificado con retraso se anuncia hasta 3 días después de su fecha (libro a libro)
 
 
+# «Juvenil» llega de la clasificación de la editorial y a veces cubre novela adulta (romance, terror…):
+# el canal infantil-juvenil solo recibe un libro así si además es claramente infantil.
+GROUP_EXCLUDES = {"infantil-juvenil": {"romance", "romantasy", "terror", "tema-amor-y-pareja"}}
+
+
+def excluded_here(channel: dict, book: dict) -> bool:
+    banned = GROUP_EXCLUDES.get(channel.get("group", ""), set())
+    cats = set(book.get("categories", []))
+    return bool(banned & cats) and "infantil" not in cats
+
+
 def channel_jobs(
     channel: dict,
     books: list[dict],
@@ -711,7 +707,10 @@ def channel_jobs(
         b
         for b in books
         if not channel.get("categories")
-        or set(b.get("categories", [])) & set(channel["categories"])
+        or (
+            set(b.get("categories", [])) & set(channel["categories"])
+            and not excluded_here(channel, b)
+        )
     ]
     label = channel.get("label", "")
     if channel.get("period") == "weekly":
@@ -730,9 +729,9 @@ def channel_jobs(
     if channel.get("mode") == "digest":
         # Solo lo que aún no salió en un resumen de este canal: así los libros tardíos van en otro, sin repetir.
         return digest([b for b in due if b["asin"] not in known], day, tag, label)
-    if len(set(channel.get("categories") or [])) == 1:
-        return sort_by_genre(due)  # un canal de un solo género no necesita separadores
-    return genre_banners(due, day)
+    if channel.get("categories"):
+        return sort_by_genre(due)  # canal ya segmentado por tema: sin carteles de género
+    return genre_banners(due, day)  # solo el canal general («novedades» y Discord) lleva variedad
 
 
 def digest_candidate_keys(catalog: dict, today: date) -> list[str]:
