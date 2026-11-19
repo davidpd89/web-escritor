@@ -328,6 +328,36 @@ def repair_title_accents(books, root, today):
     return fixed
 
 
+def repair_titles(books, root, today):
+    """Título y textos que la fuente trajo mal (gritado, con la inicial caída, con punto delante o en mojibake) y
+    que ya estaban guardados así, también en los apartados: la alta nueva ya pasa por tidy_title, pero un libro
+    guardado antes volvía a la carga con su título viejo y la descripción que lo repetía.
+
+    Origen (19/11): isbn-9788478857500 seguía en cuarentena tras #1472 y isbn-9791399079395 (mojibake) tumbó
+    test-reading-card-title-integrity en la PR de la carga."""
+    from reading_titles import fix_mojibake, tidy_title
+    fixed = 0
+    for book in books:
+        old = book.get('titulo')
+        if not isinstance(old, str):
+            continue
+        for field in PROSE_FIELDS[1:]:
+            if isinstance(book.get(field), str) and book[field] != (new := fix_mojibake(book[field])):
+                book[field] = new
+        new = tidy_title(old)
+        if new == old:
+            continue
+        book['titulo'] = new
+        brief = book.get('descripcion_breve')
+        if isinstance(brief, str):
+            for prefix in (old, fix_mojibake(old)):
+                if brief.startswith(prefix):
+                    book['descripcion_breve'] = new + brief[len(prefix):]
+                    break
+        fixed += 1
+    return fixed
+
+
 def repair_retire_non_reading(books, root, today):
     """Retira (borrador) lo que no es un libro de lectura: cuadernos, agendas, pegatinas, métodos de idiomas.
 
@@ -357,7 +387,7 @@ def unprice(book):
         option.pop('precio_referencia_centimos', None)
 
 
-REPAIRS = (repair_catalogue_publishers, repair_title_accents, repair_retire_non_reading)
+REPAIRS = (repair_catalogue_publishers, repair_titles, repair_title_accents, repair_retire_non_reading)
 
 
 def retired_pages(data, root):
