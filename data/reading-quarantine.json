@@ -5,7 +5,7 @@
         "divulgacion-cientifica"
       ],
       "causa": "contrato de datos test_no_meta_description_or_card_opens_with_a_shouted_tagline: AssertionError: <re.Match object; span=(N, N), match='dERMATOLOGÍA GENERAL BÁSI",
-      "desde": "2026-11-18",
+      "desde": "2026-11-19",
       "fuente": "https://www.amazon.es/dp/8478857508",
       "intentos": 1,
       "isbn": "9788478857500",
@@ -59,15 +59,15 @@
         "titulo": "dERMATOLOGÍA GENERAL BÁSICA"
       },
       "motivo": "isbn-9788478857500: contrato de datos test_no_meta_description_or_card_opens_with_a_shouted_tagline: AssertionError: <re.Match object; span=(0, 29), match='dERMATOLOGÍA GENERAL BÁSICA, '> is not None : ('isbn-9788478857500', 'dERMATOLOGÍA GENERAL BÁSICA, de Juan Ferrando Barberá. Edición de Grupo Aula Méd')",
-      "ultimo_intento": "2026-11-18"
+      "ultimo_intento": "2026-11-19"
     },
     {
       "categorias": [
         "religion-y-espiritualidad",
         "tema-religion-y-espiritualidad"
       ],
-      "causa": "contrato de datos test_catalogue_titles_are_bounded_distinct_and_name_the_author: AssertionError: N not less than or equal to N : [('isbn-<isbn>', 'Guiones para",
-      "desde": "2026-11-18",
+      "causa": "contrato de datos como mucho N títulos sin autor: sin autor en el título: Guiones para la adoración eucarística con… · <isbn>",
+      "desde": "2026-11-19",
       "fuente": "https://www.amazon.es/dp/B0HMJG72PC",
       "intentos": 1,
       "isbn": "9791399005448",
@@ -90,7 +90,7 @@
         "formatos_amazon_buscados": "2026-11-11",
         "formatos_compra": [
           {
-            "fecha_verificacion": "2026-11-16",
+            "fecha_verificacion": "2026-11-19",
             "formato": "tapa-blanda",
             "fuente_url": "https://www.amazon.es/dp/B0HMJG72PC",
             "precio_centimos": 2000,
@@ -111,7 +111,7 @@
         "portada_fuente_url": "https://m.media-amazon.com/images/I/51OK-DtWM-L.jpg",
         "portada_local": "/assets/reading-covers/isbn-9791399005448.webp",
         "portada_sustituida": true,
-        "precios_amazon_revision": "2026-11-16",
+        "precios_amazon_revision": "2026-11-19",
         "resenas": [
           {
             "fecha_verificacion": "2026-11-10",
@@ -122,15 +122,15 @@
         "slug": "guiones-para-la-adoracion-eucaristica-con-jovenes-9791399005448",
         "titulo": "Guiones para la adoración eucarística con jóvenes"
       },
-      "motivo": "isbn-9791399005448: contrato de datos test_catalogue_titles_are_bounded_distinct_and_name_the_author: AssertionError: 4 not less than or equal to 2 : [('isbn-9791399005448', 'Guiones para la adoración eucarística con… · 9791399005448'), ('isbn-9791399293715', 'Guía andaluza para el manejo de la… · 9791399293715'), ('isbn-9788430995271', 'Ma",
-      "ultimo_intento": "2026-11-18"
+      "motivo": "isbn-9791399005448: contrato de datos como mucho 2 títulos sin autor: sin autor en el título: Guiones para la adoración eucarística con… · 9791399005448",
+      "ultimo_intento": "2026-11-19"
     },
     {
       "categorias": [
         "divulgacion-cientifica"
       ],
-      "causa": "contrato de datos test_catalogue_titles_are_bounded_distinct_and_name_the_author: AssertionError: N not less than or equal to N : [('isbn-<isbn>', 'Guiones para",
-      "desde": "2026-11-18",
+      "causa": "contrato de datos como mucho N títulos sin autor: sin autor en el título: Guía andaluza para el manejo de la… · <isbn>",
+      "desde": "2026-11-19",
       "fuente": "https://www.amazon.es/dp/B0HMM9CD74",
       "intentos": 1,
       "isbn": "9791399293715",
@@ -150,10 +150,10 @@
         "fecha_publicacion": "2026-10-10",
         "fecha_verificacion": "2026-11-15",
         "formato_edicion": "tapa-blanda",
-        "formatos_amazon_buscados": "2026-11-16",
+        "formatos_amazon_buscados": "2026-11-19",
         "formatos_compra": [
           {
-            "fecha_verificacion": "2026-11-16",
+            "fecha_verificacion": "2026-11-19",
             "formato": "tapa-blanda",
             "fuente_url": "https://www.amazon.es/dp/B0HMM9CD74",
             "precio_centimos": 2500,
@@ -174,7 +174,7 @@
         "portada_fuente_url": "https://m.media-amazon.com/images/I/31hL8W+auFL.jpg",
         "portada_local": "/assets/reading-covers/isbn-9791399293715.webp",
         "portada_sustituida": true,
-        "precios_amazon_revision": "2026-11-16",
+        "precios_amazon_revision": "2026-11-19",
         "resenas": [
           {
             "fecha_verificacion": "2026-11-15",
@@ -185,16 +185,16 @@
         "slug": "guia-andaluza-para-el-manejo-de-la-endometriosis-9791399293715",
         "titulo": "Guía andaluza para el manejo de la endometriosis"
       },
-      "motivo": "isbn-9791399293715: contrato de datos test_catalogue_titles_are_bounded_distinct_and_name_the_author: AssertionError: 4 not less than or equal to 2 : [('isbn-9791399005448', 'Guiones para la adoración eucarística con… · 9791399005448'), ('isbn-9791399293715', 'Guía andaluza para el manejo de la… · 9791399293715'), ('isbn-9788430995271', 'Ma",
-      "ultimo_intento": "2026-11-18"
+      "motivo": "isbn-9791399293715: contrato de datos como mucho 2 títulos sin autor: sin autor en el título: Guía andaluza para el manejo de la… · 9791399293715",
+      "ultimo_intento": "2026-11-19"
     },
     {
       "categorias": [
         "derecho",
         "tema-derecho"
       ],
-      "causa": "contrato de datos test_catalogue_titles_are_bounded_distinct_and_name_the_author: AssertionError: N not less than or equal to N : [('isbn-<isbn>', 'Guiones para",
-      "desde": "2026-11-18",
+      "causa": "contrato de datos como mucho N títulos sin autor: sin autor en el título: Martina mini. Las N preguntas \"clave\" de la… · <isbn>",
+      "desde": "2026-11-19",
       "fuente": "https://www.amazon.es/dp/8430995277",
       "intentos": 1,
       "isbn": "9788430995271",
@@ -214,10 +214,10 @@
         "fecha_publicacion": "2027-01-21",
         "fecha_verificacion": "2026-11-15",
         "formato_edicion": "tapa-blanda",
-        "formatos_amazon_buscados": "2026-11-16",
+        "formatos_amazon_buscados": "2026-11-19",
         "formatos_compra": [
           {
-            "fecha_verificacion": "2026-11-16",
+            "fecha_verificacion": "2026-11-19",
             "formato": "tapa-blanda",
             "fuente_url": "https://www.amazon.es/dp/8430995277",
             "precio_centimos": 1230,
@@ -239,7 +239,7 @@
         "portada_fuente_url": "https://m.media-amazon.com/images/I/41El5XJwWqL.jpg",
         "portada_local": "/assets/reading-covers/isbn-9788430995271.webp",
         "portada_sustituida": true,
-        "precios_amazon_revision": "2026-11-16",
+        "precios_amazon_revision": "2026-11-19",
         "resenas": [
           {
             "fecha_verificacion": "2026-11-15",
@@ -250,16 +250,80 @@
         "slug": "martina-mini-las-1040-preguntas-clave-de-la-constitucion-espanola-constituc-9788430995271",
         "titulo": "Martina mini. Las 1040 preguntas \"clave\" de la Constitución Española: Constitución Española (Derecho - Práctica Jurídica)"
       },
-      "motivo": "isbn-9788430995271: contrato de datos test_catalogue_titles_are_bounded_distinct_and_name_the_author: AssertionError: 4 not less than or equal to 2 : [('isbn-9791399005448', 'Guiones para la adoración eucarística con… · 9791399005448'), ('isbn-9791399293715', 'Guía andaluza para el manejo de la… · 9791399293715'), ('isbn-9788430995271', 'Ma",
-      "ultimo_intento": "2026-11-18"
+      "motivo": "isbn-9788430995271: contrato de datos como mucho 2 títulos sin autor: sin autor en el título: Martina mini. Las 1040 preguntas \"clave\" de la… · 9788430995271",
+      "ultimo_intento": "2026-11-19"
+    },
+    {
+      "categorias": [
+        "arte-y-diseno",
+        "tema-arte-y-diseno"
+      ],
+      "causa": "contrato de datos como mucho N títulos sin autor: sin autor en el título: Na architects N-N: una puntada en el tiempo / a… · <isbn>",
+      "desde": "2026-11-19",
+      "fuente": "https://www.amazon.es/dp/B0HMNW9TR2",
+      "intentos": 1,
+      "isbn": "9791399178814",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791399178814&tag=davidporto-21",
+        "anio_publicacion": 2026,
+        "autores": [
+          "EL CROQUIS, Publicación de Arquitectura, Construcción",
+          "Diseño, S.L."
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "6a architects 2018-2026: una puntada en el tiempo / a stitch in time: 236 (EL CROQUIS), de EL CROQUIS, Publicación de Arquitectura, Construcción, Diseño, S.L.. Edición de El Croquis en castellano, en tapa blanda. Consta de 304 páginas. La editorial la incluye en arte y diseño. Publicación editorial: 2026-10-13.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Tapa blanda · El Croquis",
+        "editorial": "El Croquis",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-19",
+        "fecha_publicacion": "2026-10-13",
+        "fecha_verificacion": "2026-11-19",
+        "formato_edicion": "tapa-blanda",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-19",
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/B0HMNW9TR2",
+            "precio_centimos": 8455,
+            "precio_referencia_centimos": 8900,
+            "url": "https://www.amazon.es/dp/B0HMNW9TR2?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/B0HMNW9TR2",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/B0HMNW9TR2",
+        "id": "isbn-9791399178814",
+        "idioma": "es",
+        "isbn13": "9791399178814",
+        "numero_paginas": 304,
+        "portada_alto": 829,
+        "portada_ancho": 600,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-19",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/710PT0STfeL.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9791399178814.webp",
+        "portada_sustituida": true,
+        "precios_amazon_revision": "2026-11-19",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-19",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9791399178814"
+          }
+        ],
+        "slug": "6a-architects-2018-2026-una-puntada-en-el-tiempo-a-stitch-in-time-236-el-cr-9791399178814",
+        "titulo": "6a architects 2018-2026: una puntada en el tiempo / a stitch in time: 236 (EL CROQUIS)"
+      },
+      "motivo": "isbn-9791399178814: contrato de datos como mucho 2 títulos sin autor: sin autor en el título: 6a architects 2018-2026: una puntada en el tiempo / a… · 9791399178814",
+      "ultimo_intento": "2026-11-19"
     },
     {
       "categorias": [
         "derecho",
         "tema-derecho"
       ],
-      "causa": "contrato de datos test_catalogue_titles_are_bounded_distinct_and_name_the_author: AssertionError: N not less than or equal to N : [('isbn-<isbn>', 'Guiones para",
-      "desde": "2026-11-18",
+      "causa": "contrato de datos como mucho N títulos sin autor: sin autor en el título: Martina mini. Las N preguntas \"clave\" de la LPAC: Ley… · <isbn>",
+      "desde": "2026-11-19",
       "fuente": "https://www.amazon.es/dp/8430995285",
       "intentos": 1,
       "isbn": "9788430995288",
@@ -275,13 +339,13 @@
         "edicion": "Tapa blanda · Tecnos",
         "editorial": "Tecnos",
         "estado": "publicado",
-        "fecha_actualizacion": "2026-11-16",
+        "fecha_actualizacion": "2026-11-19",
         "fecha_publicacion": "2027-01-21",
-        "fecha_verificacion": "2026-11-16",
+        "fecha_verificacion": "2026-11-19",
         "formato_edicion": "tapa-blanda",
         "formatos_compra": [
           {
-            "fecha_verificacion": "2026-11-16",
+            "fecha_verificacion": "2026-11-19",
             "formato": "tapa-blanda",
             "fuente_url": "https://www.amazon.es/dp/8430995285",
             "precio_centimos": 1282,
@@ -298,14 +362,14 @@
         "portada_alto": 500,
         "portada_ancho": 368,
         "portada_edicion_verificada": true,
-        "portada_fecha_revision": "2026-11-16",
+        "portada_fecha_revision": "2026-11-19",
         "portada_fuente_url": "https://m.media-amazon.com/images/I/41Ew-dGaXLL.jpg",
         "portada_local": "/assets/reading-covers/isbn-9788430995288.webp",
         "portada_sustituida": true,
-        "precios_amazon_revision": "2026-11-16",
+        "precios_amazon_revision": "2026-11-19",
         "resenas": [
           {
-            "fecha_verificacion": "2026-11-16",
+            "fecha_verificacion": "2026-11-19",
             "titulo": "Buscar reseñas en Goodreads",
             "url": "https://www.goodreads.com/search?q=9788430995288"
           }
@@ -313,8 +377,8 @@
         "slug": "martina-mini-las-1040-preguntas-clave-de-la-lpac-ley-39-2015-de-1-de-octubr-9788430995288",
         "titulo": "Martina mini. Las 1040 preguntas \"clave\" de la LPAC: Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común (Derecho - Práctica Jurídica)"
       },
-      "motivo": "isbn-9788430995288: contrato de datos test_catalogue_titles_are_bounded_distinct_and_name_the_author: AssertionError: 4 not less than or equal to 2 : [('isbn-9791399005448', 'Guiones para la adoración eucarística con… · 9791399005448'), ('isbn-9791399293715', 'Guía andaluza para el manejo de la… · 9791399293715'), ('isbn-9788430995271', 'Ma",
-      "ultimo_intento": "2026-11-18"
+      "motivo": "isbn-9788430995288: contrato de datos como mucho 2 títulos sin autor: sin autor en el título: Martina mini. Las 1040 preguntas \"clave\" de la LPAC: Ley… · 9788430995288",
+      "ultimo_intento": "2026-11-19"
     }
   ],
   "schema_version": 1
