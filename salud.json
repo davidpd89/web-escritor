@@ -1,22 +1,22 @@
 {
- "generado": "2026-11-16T01:39:43+00:00",
- "publicados": 5938,
+ "generado": "2026-11-19T01:44:53+00:00",
+ "publicados": 6930,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 833,
-   "proximos": 340,
+   "total": 907,
+   "proximos": 300,
    "por_mes": {
     "2027-08": 1,
-    "2027-05": 5,
+    "2027-05": 6,
     "2027-04": 7,
-    "2027-03": 5,
+    "2027-03": 3,
     "2027-02": 85,
     "2027-01": 57,
-    "2026-12": 71,
-    "2026-11": 325,
-    "2026-10": 262,
-    "2026-09": 9,
-    "2026-08": 3,
+    "2026-12": 72,
+    "2026-11": 346,
+    "2026-10": 313,
+    "2026-09": 12,
+    "2026-08": 2,
     "2025-08": 1
    },
    "muestra": [
@@ -117,14 +117,6 @@
      "fuente": "https://www.amazon.es/dp/6287897570"
     },
     {
-     "id": "isbn-9788401038204",
-     "titulo": "Vasmora (Edición limitada en español) (El Bosque Voraz 3) (Éxitos)",
-     "isbn13": "9788401038204",
-     "editorial": "Plaza & Janés",
-     "fecha_publicacion": "2027-03-18",
-     "fuente": "https://www.amazon.es/dp/8401038200"
-    },
-    {
      "id": "isbn-9788425375538",
      "titulo": "Deja sitio para el bizcocho: Más de 80 bizcochos clásicos y modernos para todos los días (Cocina casera)",
      "isbn13": "9788425375538",
@@ -139,14 +131,6 @@
      "editorial": "Nova",
      "fecha_publicacion": "2027-03-04",
      "fuente": "https://www.amazon.es/dp/8419260738"
-    },
-    {
-     "id": "isbn-9798890989994",
-     "titulo": "Vivir con confianza: Un estudio bíblico de 8 sesiones sobre conocer y amar quién eres / Living Confidently",
-     "isbn13": "9798890989994",
-     "editorial": "Origen",
-     "fecha_publicacion": "2027-03-02",
-     "fuente": "https://www.amazon.es/dp/B0HMGDN2V5"
     },
     {
      "id": "isbn-9791388163111",
@@ -219,16 +203,32 @@
      "editorial": "Lumen",
      "fecha_publicacion": "2027-02-25",
      "fuente": "https://www.amazon.es/dp/8426433286"
+    },
+    {
+     "id": "isbn-9788448875022",
+     "titulo": "Érase una (y otra) vez: Todo lo que no sabías sobre los cuentos clásicos (Cuentos infantiles)",
+     "isbn13": "9788448875022",
+     "editorial": "Beascoa",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/8448875028"
+    },
+    {
+     "id": "isbn-9788448872632",
+     "titulo": "La casa de muñecas de Gabby. Libro de cartón - Con mucho amor, Gabby (Pequeñas manitas)",
+     "isbn13": "9788448872632",
+     "editorial": "Beascoa",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/8448872630"
     }
    ]
   },
   "formatos_sin_precio": {
-   "total": 576,
-   "libros": 440,
+   "total": 547,
+   "libros": 413,
    "por_formato": {
-    "ebook": 221,
-    "tapa-blanda": 163,
-    "tapa-dura": 100,
+    "ebook": 218,
+    "tapa-blanda": 139,
+    "tapa-dura": 98,
     "audiolibro": 92
    },
    "muestra": [
@@ -460,15 +460,8 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 196,
+   "total": 206,
    "muestra": [
-    {
-     "id": "isbn-9788408326861",
-     "titulo": "El día de la Trilla (Empíreo) Edición limitada con cantos tintados",
-     "isbn13": "9788408326861",
-     "editorial": "Editorial Planeta",
-     "fecha_publicacion": "2026-09-30"
-    },
     {
      "id": "isbn-9791388042324",
      "titulo": "Maldita agencia de detectives. El caso de la estatua decapitada",
@@ -636,22 +629,32 @@
      "isbn13": "9798890989901",
      "editorial": "Bruguera Infantil",
      "fecha_publicacion": "2026-10-20"
+    },
+    {
+     "id": "isbn-9791399274523",
+     "titulo": "Bestias extrañas",
+     "isbn13": "9791399274523",
+     "editorial": "Shiro Libros",
+     "fecha_publicacion": "2026-11-11"
     }
    ]
   },
   "sin_texto": {
-   "total": 2738,
-   "proximos": 573,
+   "total": 3730,
+   "proximos": 555,
    "por_mes": {
-    "2027-05": 2,
-    "2027-04": 2,
+    "2028-01": 1,
+    "2027-10": 1,
+    "2027-09": 1,
+    "2027-05": 5,
+    "2027-04": 3,
     "2027-03": 8,
-    "2027-02": 43,
-    "2027-01": 109,
-    "2026-12": 147,
-    "2026-11": 918,
-    "2026-10": 1301,
-    "2026-09": 208
+    "2027-02": 48,
+    "2027-01": 131,
+    "2026-12": 173,
+    "2026-11": 1089,
+    "2026-10": 1722,
+    "2026-09": 359
    },
    "muestra": [
     {
@@ -837,9 +840,9 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 230,
-  "formatos_sin_precio": 117,
-  "sin_formatos_de_compra": 34,
+  "portadas_tipograficas": 74,
+  "formatos_sin_precio": -29,
+  "sin_formatos_de_compra": 10,
   "sin_texto": 992,
   "portada_sin_fichero": 0
  },
@@ -851,144 +854,144 @@
   "oportunidades": [],
   "sin_portada_en_amazon": [
    {
-    "id": "isbn-9788418467172",
-    "titulo": "Destinados a la bienaventuranza: Un estudio tomístico sobre escatología y ética (ESTUDIOS TOMISTAS)",
-    "isbn13": "9788418467172",
-    "editorial": "Ediciones Cor Iesu",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791388003240",
+    "titulo": "Los Padrinos. Érase una vez en Nueva York (Súper BD)",
+    "isbn13": "9791388003240",
+    "editorial": "Cartem Cómics",
+    "fecha_publicacion": "2026-11-19"
    },
    {
-    "id": "isbn-9788419943477",
-    "titulo": "Conservadores que no conservan nada: Carta abierta dirigida al ayuntamiento de Ruan (FUERA DE COLECCIÓN)",
-    "isbn13": "9788419943477",
-    "editorial": "Libros de la Resistencia",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9788494545894",
+    "titulo": "Crónicas de la amnistía: De la conciencia republicana de España",
+    "isbn13": "9788494545894",
+    "editorial": "Movimiento Ciudadano Hacia la República Constitucional",
+    "fecha_publicacion": "2026-11-19"
    },
    {
-    "id": "isbn-9788419943583",
-    "titulo": "Otra forma de obrar: Textos sobre poesía y poéticas: 52 (Paralajes)",
-    "isbn13": "9788419943583",
-    "editorial": "Libros de la Resistencia",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9788410251021",
+    "titulo": "José María Gil: 10 (Islas de Memoria)",
+    "isbn13": "9788410251021",
+    "editorial": "Fundación César Manrique",
+    "fecha_publicacion": "2026-11-19"
    },
    {
-    "id": "isbn-9788448271817",
-    "titulo": "Regina de Miguel: Aguas intoxicadas",
-    "isbn13": "9788448271817",
-    "editorial": "Generalitat Valenciana",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9788496513730",
+    "titulo": "Huellas navarras en la historia de un reino",
+    "isbn13": "9788496513730",
+    "editorial": "Editorial Mintzoa",
+    "fecha_publicacion": "2026-11-19"
    },
    {
-    "id": "isbn-9791399159400",
-    "titulo": "Rebrotar: Un camino a la renaturalización: 7 (Centella)",
-    "isbn13": "9791399159400",
-    "editorial": "Episkaia",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9788419555649",
+    "titulo": "Verano perdido: 2 (Alterego)",
+    "isbn13": "9788419555649",
+    "editorial": "Experimenta",
+    "fecha_publicacion": "2026-11-19"
    },
    {
-    "id": "isbn-9788412972573",
-    "titulo": "Admirados Soñadores",
-    "isbn13": "9788412972573",
-    "editorial": "Letras de Almagre",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791399321807",
+    "titulo": "Hombres de frontera: Especial Gran Oeste: 0 (Colección Gran Oeste)",
+    "isbn13": "9791399321807",
+    "editorial": "Laramie Ediciones",
+    "fecha_publicacion": "2026-11-19"
    },
    {
-    "id": "isbn-9788448271831",
-    "titulo": "Jaime I, un viaje documental y visual",
-    "isbn13": "9788448271831",
-    "editorial": "Generalitat Valenciana",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791399262230",
+    "titulo": "Los ritos del adiós: 4 (Narrativa)",
+    "isbn13": "9791399262230",
+    "editorial": "Abril 26",
+    "fecha_publicacion": "2026-11-19"
    },
    {
-    "id": "isbn-9788488020987",
-    "titulo": "La palabra encendida: 29 (Vanguardia clásica)",
-    "isbn13": "9788488020987",
-    "editorial": "Ardora Ediciones",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791399165630",
+    "titulo": "Casi rocanrol",
+    "isbn13": "9791399165630",
+    "editorial": "Esto No Es Berlín Ediciones",
+    "fecha_publicacion": "2026-11-19"
    },
    {
-    "id": "isbn-9788496113206",
-    "titulo": "La imagen de España a través de sus invenciones",
-    "isbn13": "9788496113206",
-    "editorial": "Oficina Española de Patentes y Marcas.",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791388225277",
+    "titulo": "Maldita ignorancia",
+    "isbn13": "9791388225277",
+    "editorial": "Grupo Editorial Arcanas, S. L.",
+    "fecha_publicacion": "2026-11-19"
    },
    {
-    "id": "isbn-9791399229158",
-    "titulo": "SACU: Sistema de Asistencia Cognitiva Universal",
-    "isbn13": "9791399229158",
-    "editorial": "Unquinto",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9788410126800",
+    "titulo": "Pistons & Dragons: WARGASMER",
+    "isbn13": "9788410126800",
+    "editorial": "Fandogamia Editorial, C.b.",
+    "fecha_publicacion": "2026-11-19"
    },
    {
-    "id": "isbn-9789508894922",
-    "titulo": "¡Qué emoción! ¿Qué emoción? (EN POCAS PALABRAS)",
-    "isbn13": "9789508894922",
-    "editorial": "La Marca Editora",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791399294705",
+    "titulo": "Plaza spñ8: Espacio cultural y social de la Fundación mutua madrileña",
+    "isbn13": "9791399294705",
+    "editorial": "Ediciones Ingobernables SL",
+    "fecha_publicacion": "2026-11-20"
    },
    {
-    "id": "isbn-9791399126235",
-    "titulo": "Tecnomusas: Utopías y distopías de mujeres conectadas: 1",
-    "isbn13": "9791399126235",
-    "editorial": "Apache Libros",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791399318111",
+    "titulo": "SIZIGIA: El renacer de la leyenda: 1",
+    "isbn13": "9791399318111",
+    "editorial": "Mimaia Ediciones",
+    "fecha_publicacion": "2026-11-20"
    },
    {
-    "id": "isbn-9791399321012",
-    "titulo": "Derrumbe y Regeneración",
-    "isbn13": "9791399321012",
-    "editorial": "Edicions Zaku",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9788429030402",
+    "titulo": "Personas sobresalientes en los programas de cine (Otium)",
+    "isbn13": "9788429030402",
+    "editorial": "Editorial Reus S.a.",
+    "fecha_publicacion": "2026-11-20"
    },
    {
-    "id": "isbn-9788412966589",
-    "titulo": "Jodidas hormiguitas",
-    "isbn13": "9788412966589",
-    "editorial": "Comitia Editorial Sl",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791388540042",
+    "titulo": "DEPRESIÓN: La enfermedad invisible",
+    "isbn13": "9791388540042",
+    "editorial": "Livensoul",
+    "fecha_publicacion": "2026-11-20"
    },
    {
-    "id": "isbn-9791370260217",
-    "titulo": "El Maset del Pedralbino (Llíria, Valencia): Necrópolis y asentamiento de una comunidad edetana: 134 (Trabajos Varios del SIP)",
-    "isbn13": "9791370260217",
-    "editorial": "Diputación de Valencia",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9788494133183",
+    "titulo": "Viviendas de Vizcaya 1949-1991: Historia de una promotora de vivienda creada por la Diputación de Bizkaia",
+    "isbn13": "9788494133183",
+    "editorial": "Grupo Publicitario Cruzial, S.l.",
+    "fecha_publicacion": "2026-11-20"
    },
    {
-    "id": "isbn-9791388240058",
-    "titulo": "Una visita de San Nicolás: o Era la Nochebuena: 1 (Fuera de colección)",
-    "isbn13": "9791388240058",
-    "editorial": "Ofelia Editora",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791399070293",
+    "titulo": "Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad",
+    "isbn13": "9791399070293",
+    "editorial": "Kabo&bero Ediciones",
+    "fecha_publicacion": "2026-11-20"
    },
    {
-    "id": "isbn-9791399288308",
-    "titulo": "Metamorfosis del Estado de Bienestar: hacia un nuevo paradigma de Estado Social digital: 39 (Obras Colectivas)",
-    "isbn13": "9791399288308",
-    "editorial": "Fundación Manuel Giménez Abad",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791399280920",
+    "titulo": "El detective Carapatata. El misterio del lago: Misterio en el lago: 1",
+    "isbn13": "9791399280920",
+    "editorial": "Kilikids",
+    "fecha_publicacion": "2026-11-20"
    },
    {
-    "id": "isbn-9788428576109",
-    "titulo": "Las apariencias engañan: La parábola de “los últimos serán los primeros y los primeros serán los últimos” (Mashal)",
-    "isbn13": "9788428576109",
-    "editorial": "Editorial San Pablo",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9788496513723",
+    "titulo": "NAVARROS EN ARGENTINA: Exilio y emigración",
+    "isbn13": "9788496513723",
+    "editorial": "Editorial Mintzoa",
+    "fecha_publicacion": "2026-11-20"
    },
    {
-    "id": "isbn-9788428576116",
-    "titulo": "Benedicto XVI. El Papa de la razón (vol. III): El pontificado, la renuncia y el retiro (2005-2022): 3 (Biblioteca Ratzinger)",
-    "isbn13": "9788428576116",
-    "editorial": "Editorial San Pablo",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791399224047",
+    "titulo": "Segovia Callada. Volumen III: 109 rincones escondidos. El final del viaje: 3",
+    "isbn13": "9791399224047",
+    "editorial": "Enrique del Barrio",
+    "fecha_publicacion": "2026-11-18"
    },
    {
-    "id": "isbn-9788428576130",
-    "titulo": "¿Me permites que te ayude como psicólogo y filósofo? (Alétheia XL)",
-    "isbn13": "9788428576130",
-    "editorial": "Editorial San Pablo",
-    "fecha_publicacion": "2026-11-16"
+    "id": "isbn-9791399305159",
+    "titulo": "Donde las grietas dejan entrar la luz",
+    "isbn13": "9791399305159",
+    "editorial": "Castellón Digital SL",
+    "fecha_publicacion": "2026-11-18"
    }
   ]
  }

@@ -553,146 +553,33 @@
     "gustavo cinca",
     "gustavo miguel cinca",
     "colectivo 5w",
-    "opus 5 ai"
+    "opus 5 ai",
+    "cinco puntos pr",
+    "cinco puntos press u s",
+    "cinco puntos press",
+    "frederico manica cinco continentes editora",
+    "cinco ediciones y contenidos"
   ],
   "cola": [
     {
       "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "902632031",
+      "nivel": 3,
+      "nodo": "13356130031",
       "ruta": [
         "Infantil",
-        "Aprendizaje temprano"
+        "Literatura y ficción",
+        "Primeras lecturas y lectores"
       ],
       "sello": "Cinca"
     },
     {
       "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "5272146031",
+      "nivel": 3,
+      "nodo": "16172034031",
       "ruta": [
         "Infantil",
-        "Arte, música y fotografía"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "13355923031",
-      "ruta": [
-        "Infantil",
-        "Biografías"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "5272177031",
-      "ruta": [
-        "Infantil",
-        "Ciencia, naturaleza y cómo funciona"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "5272181031",
-      "ruta": [
-        "Infantil",
-        "Coches, trenes y otros vehículos"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "5273743031",
-      "ruta": [
-        "Infantil",
-        "Cuentos, fábulas y mitos"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "902622031",
-      "ruta": [
-        "Infantil",
-        "Cómics y novelas gráficas"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "5272297031",
-      "ruta": [
-        "Infantil",
-        "Deporte y juegos al aire libre"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "902626031",
-      "ruta": [
-        "Infantil",
-        "Desarrollo y cuestiones personales y sociales"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "902623031",
-      "ruta": [
-        "Infantil",
-        "Educación y consulta"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "1349108031",
-      "ruta": [
-        "Infantil",
-        "Fantasía y ciencia ficción"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "5272184031",
-      "ruta": [
-        "Infantil",
-        "Historia"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "5272306031",
-      "ruta": [
-        "Infantil",
-        "Humor"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "5382015031",
-      "ruta": [
-        "Infantil",
-        "Literatura y ficción"
+        "Literatura y ficción",
+        "Viajes"
       ],
       "sello": "Cinca"
     },
@@ -1229,14 +1116,19 @@
     "gustavo Cinca",
     "Gustavo Miguel Cinca",
     "COLECTIVO 5W",
-    "Opus 5, AI"
+    "Opus 5, AI",
+    "Cinco Puntos Pr",
+    "Cinco Puntos Press,U.S.",
+    "Cinco Puntos Press",
+    "Frederico Manica/Cinco Continentes Editora",
+    "Cinco Ediciones Y Contenidos"
   ],
   "dia": "2026-11-08",
   "errores": [],
   "grupos": {
     "cinca": {
-      "libros_es": 122,
-      "pendientes": 31
+      "libros_es": 142,
+      "pendientes": 19
     }
   },
   "hijos": {
@@ -2165,6 +2057,48 @@
       [
         "5272186031",
         "Manualidades y Hobbies"
+      ]
+    ],
+    "5273743031": [
+      [
+        "13355986031",
+        "Africanos"
+      ],
+      [
+        "16171989031",
+        "Americanos"
+      ],
+      [
+        "13355987031",
+        "Antologías"
+      ],
+      [
+        "13355988031",
+        "Asiáticos"
+      ],
+      [
+        "13355991031",
+        "Europeos"
+      ],
+      [
+        "13355992031",
+        "Griegos y romanos"
+      ],
+      [
+        "13355994031",
+        "Multiculturales"
+      ],
+      [
+        "13355995031",
+        "Nórdicos"
+      ],
+      [
+        "16171990031",
+        "Oriente Medio"
+      ],
+      [
+        "13355997031",
+        "Rey Arturo"
       ]
     ],
     "5382015031": [
@@ -3625,7 +3559,7 @@
       ]
     ]
   },
-  "libros_es": 12442,
+  "libros_es": 12469,
   "origen": {
     "Editorial Akelarre Ediciones": "Akelarre Ediciones",
     "Editorial Asociacion HAY Soluciones para Todo": "Asociacion HAY Soluciones para Todo",
@@ -3641,14 +3575,14 @@
     "Editorial Plomo Ediciones": "Plomo Ediciones",
     "Grupo Planeta Mexico": "Grupo Planeta México"
   },
-  "particiones": 1416,
-  "peticiones": 2701,
-  "reintentos": 8395,
-  "reintentos_dia": "2026-11-16",
-  "segundos": 83,
+  "particiones": 1474,
+  "peticiones": 2776,
+  "reintentos": 7707,
+  "reintentos_dia": "2026-11-19",
+  "segundos": 84,
   "sellos_leidos": 182,
-  "sellos_llenos": 182,
-  "sellos_nuevos": 85,
+  "sellos_llenos": 191,
+  "sellos_nuevos": 90,
   "sellos_saltados": 9,
   "variantes_probadas": [
     "matchstories|editorial matchstories",
