@@ -1,0 +1,114 @@
+name: Equipo de expertos
+
+# Un experto distinto cada día, a las 05:17 en Madrid (madrugada, sin ocupar runners de día) (lunes investigador, martes SEO, miércoles GEO, jueves UX, viernes rendimiento,
+# sábado arquitecto, domingo tester) y un turno extra de seguridad los domingos a las 05:47. Las herramientas
+# deterministas miden y el experto LLM (GitHub Models, gratuito con el GITHUB_TOKEN; sin tokens de Claude) devuelve
+# JSON; el script abre como mucho 3 issues `experto` sin duplicar títulos. No toca el repositorio ni abre PR.
+# Equipo, herramientas y estado: .ci/empleados-expertos.md. Lógica: scripts/empleados_expertos.py.
+on:
+  schedule:
+    - cron: '17 5 * * *'
+      timezone: Europe/Madrid
+    - cron: '47 5 * * 0'
+      timezone: Europe/Madrid
+  workflow_dispatch:
+    inputs:
+      rol:
+        description: 'Rol concreto (vacío = el del día): investigador, seo, geo, ux, rendimiento, arquitecto, tester, seguridad'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+  issues: write
+  models: read
+
+concurrency:
+  group: empleados-expertos
+  cancel-in-progress: false
+
+env:
+  WEB: https://davidportodiaz.com
+  SITEONE: v2.5.1
+
+jobs:
+  experto:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+
+      - id: rol
+        env:
+          ROL: ${{ github.event.schedule == '47 5 * * 0' && 'seguridad' || inputs.rol }}
+        run: python scripts/empleados_expertos.py elegir ${ROL:+--rol "$ROL"}
+
+      - name: Etiquetas
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ROL: ${{ steps.rol.outputs.rol }}
+        run: |
+          gh label create experto --color 5319e7 --description 'Hallazgo del equipo de expertos' --force
+          gh label create "rol:$ROL" --color c5def5 --force
+
+      - name: Muestra del sitemap
+        if: steps.rol.outputs.rol != 'investigador' && steps.rol.outputs.rol != 'arquitecto' && steps.rol.outputs.rol != 'tester' && steps.rol.outputs.rol != 'seguridad'
+        run: |
+          mkdir -p .empleados
+          # Dos muestras repartidas por separado: cortar la larga dejaría solo páginas de primer nivel.
+          python scripts/empleados_expertos.py muestra --sitemap "$WEB/sitemap.xml" --n 300 --salida .empleados/muestra-larga.txt
+          python scripts/empleados_expertos.py muestra --sitemap "$WEB/sitemap.xml" --n 40 --salida .empleados/muestra.txt
+
+      - name: SiteOne Crawler (MIT)
+        if: steps.rol.outputs.rol == 'seo' || steps.rol.outputs.rol == 'rendimiento'
+        continue-on-error: true
+        env:
+          ROL: ${{ steps.rol.outputs.rol }}
+        run: |
+          mkdir -p /tmp/siteone && cd /tmp/siteone
+          curl -fsSL --proto '=https' --proto-redir '=https' -o so.tgz "https://github.com/janreges/siteone-crawler/releases/download/$SITEONE/siteone-crawler-$SITEONE-linux-x64.tar.gz"
+          tar xzf so.tgz
+          BIN=$(find . -maxdepth 3 -type f \( -name 'siteone-crawler' -o -name 'crawler' \) | head -n 1)
+          test -n "$BIN" && chmod +x "$BIN"
+          EXTRA=$([ "$ROL" = 'seo' ] && echo '--disable-all-assets' || true)
+          "$BIN" --url="$WEB/sitemap.xml" --max-visited-urls=300 --workers=2 --max-reqs-per-sec=3 $EXTRA \
+            --output-json-file="$GITHUB_WORKSPACE/.empleados/siteone.json" --output-html-report='' \
+            --result-storage=file || true
+
+      - name: Resumen SiteOne
+        if: steps.rol.outputs.rol == 'seo' || steps.rol.outputs.rol == 'rendimiento'
+        run: python scripts/empleados_expertos.py resumir-siteone --json .empleados/siteone.json --salida .empleados/siteone.md
+
+      - name: Comprobaciones GEO
+        if: steps.rol.outputs.rol == 'geo'
+        run: python scripts/empleados_expertos.py geo --base "$WEB" --muestra .empleados/muestra.txt --salida .empleados/geo.md
+
+      - name: Comprobaciones de seguridad
+        if: steps.rol.outputs.rol == 'seguridad'
+        run: |
+          mkdir -p .empleados
+          python scripts/empleados_expertos.py seguridad --base "$WEB" --salida .empleados/seguridad.md
+
+      - name: Experto (GitHub Models)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
+          ROL: ${{ steps.rol.outputs.rol }}
+        run: |
+          mkdir -p .empleados
+          python scripts/empleados_expertos.py experto --rol "$ROL"
+
+      - if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: empleados-${{ steps.rol.outputs.rol }}
+          path: .empleados/
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 14

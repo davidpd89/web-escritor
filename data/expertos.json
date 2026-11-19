@@ -10,11 +10,8 @@
       "id": "revision-codigo",
       "nombre": "Revisión de código",
       "mision": "Leer cada PR y el código existente antes de que llegue a producción.",
-      "workflows": ["revision-existente"],
+      "workflows": ["empleados-expertos", "revision-existente"],
       "externos": ["CodeRabbit", "SonarCloud", "DeepSource", "Codex"],
-      "pendientes": [
-        {"herramienta": "Expertos por rol (PR #1373)", "motivo": "Un experto distinto cada día abre hasta 3 issues; falta dejar su CI en verde y fusionar."}
-      ],
       "descartados": [
         {"herramienta": "Reviewdog", "motivo": "Duplica los comentarios en línea que ya ponen CodeRabbit, SonarCloud y DeepSource."}
       ]

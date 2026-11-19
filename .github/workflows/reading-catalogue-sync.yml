@@ -48,7 +48,7 @@ jobs:
       run: ${{ steps.madrid.outputs.run }}
     steps:
       - if: github.event_name == 'schedule' || inputs.respaldo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           sparse-checkout: |
             scripts/ci_intake_backup.py
@@ -88,7 +88,7 @@ jobs:
       # dejar que GitHub cancele el job a mitad de una espera. Minutos = timeout-minutes - 10.
       - name: Límite del job para el publicador
         run: echo "PUBLICAR_HASTA=$(( $(date +%s) + 230 * 60 ))" >> "$GITHUB_ENV"
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -97,7 +97,7 @@ jobs:
             !/assets/no usadas/
           ref: ${{ github.ref }}
           fetch-depth: 0
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Take the night turn
@@ -116,7 +116,7 @@ jobs:
           if [ "$RESPALDO" = 'true' ]; then MOTIVO=respaldo; fi
           if [ "$EVENT" = 'schedule' ]; then MOTIVO=cron; fi
           python scripts/noche.py abrir --motivo "$MOTIVO" >> "$GITHUB_OUTPUT"
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         if: inputs.dry_run || steps.libro.outputs.cargar == 'true'
         with:
           node-version: '22'
@@ -128,7 +128,7 @@ jobs:
           npm ci
       - name: Restore public editorial response cache
         if: inputs.dry_run || steps.libro.outputs.cargar == 'true'
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: .ci/reading-editorial-cache
           key: reading-editorial-v1-${{ github.run_id }}
@@ -237,7 +237,7 @@ jobs:
         run: python qa/reading-provider-pilot.py
       - name: Upload factual ingestion report
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: reading-intake-review
           path: .ci/reading-intake/
