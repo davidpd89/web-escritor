@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -48,7 +48,7 @@ jobs:
               if not r['completo']:
                   print(f"\n**Informe parcial**: parado por {r['parado_por']}; {len(r['listados_a_medias'])} listados a medias.")
           EOF
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: cobertura-cercana

@@ -235,12 +235,24 @@ def isolate(data, root, previous=None, held=(), today=None, flagged=None):
 
 def flagged_books(failures, data):
     """De los fallos de los contratos de datos, {id: motivo} si TODOS nombran algún libro del catálogo; si alguno no
-    nombra ninguno es una regla rota (o código), no un dato, y se devuelve None para que la carga pare."""
+    nombra ninguno es una regla rota (o código), no un dato, y se devuelve None para que la carga pare.
+
+    Un contrato migrado declara sus libros (`libros`: {id: motivo}, tests/contrato_libros.py) y manda eso: nada de
+    buscar ids en su texto, que puede citar a otro libro. Un id declarado que no está en el catálogo es una regla
+    rota. Los contratos sin migrar siguen por su texto (ids o ISBN-13) hasta pasar al canal estructurado."""
     ids = {b['id'] for b in data['libros']}
     # Hay contratos que citan el libro por su ISBN-13 («Título · 9788412345678») en vez de por su id.
     by_isbn = {b['isbn13']: b['id'] for b in data['libros'] if b.get('isbn13')}
     out = {}
     for failure in failures:
+        rule = failure.get('regla') or failure['test'].split('.')[-1]
+        if 'libros' in failure:
+            declared = failure['libros']
+            if not declared or set(declared) - ids:
+                return None
+            for book_id, why in declared.items():
+                out.setdefault(book_id, f'contrato de datos {rule}: {str(why)[:240]}')
+            continue
         found = [t for t in re.findall(r'[a-z0-9]+(?:-[a-z0-9]+)+', failure['texto']) if t in ids]
         found += [by_isbn[t] for t in re.findall(r'(?<!\d)97[89]\d{10}(?!\d)', failure['texto']) if t in by_isbn]
         named = list(dict.fromkeys(found))
@@ -252,7 +264,7 @@ def flagged_books(failures, data):
             # Un contrato que nombra varios libros da a cada uno su propia línea; si ninguna lo nombra, la última.
             own = [line for line in lines if book_id in line or (isbn_of.get(book_id) or book_id) in line]
             motivo = (own or lines)[-1 if not own else 0]
-            out.setdefault(book_id, f"contrato de datos {failure['test'].split('.')[-1]}: {motivo[:240]}")
+            out.setdefault(book_id, f"contrato de datos {rule}: {motivo[:240]}")
     return out
 
 

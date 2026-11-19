@@ -32,7 +32,7 @@ jobs:
       PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -41,7 +41,7 @@ jobs:
             !/assets/no usadas/
           fetch-depth: 0
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
       - name: Install CI/QA dependencies (Node)
@@ -49,7 +49,7 @@ jobs:
 
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -81,7 +81,7 @@ jobs:
         run: node qa/manecillas-fragments-hash-regression.mjs
       - name: Upload QA evidence
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: content-parity-manecillas-v1
           path: qa-artifacts/

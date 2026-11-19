@@ -69,14 +69,14 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /*
             !/assets/no usadas/
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with: {python-version: '3.13'}
       - name: Validate publisher source
         run: python3 scripts/build-editoriales.py --data data/editoriales.json --output . --check
@@ -95,7 +95,7 @@ jobs:
 
       - name: Check radar refresh coverage around Madrid midnight
         run: python3 tests/test-radar-refresh-schedule.py
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with: {node-version: '22'}
       - name: Install CI/QA dependencies (Node)
         run: npm ci
@@ -104,7 +104,7 @@ jobs:
 
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -133,20 +133,20 @@ jobs:
         run: node qa/pro-resources-browser.mjs
       - name: Upload browser evidence
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with: {name: pro-resources-browser-qa, path: 'qa-artifacts/browser/', if-no-files-found: error, retention-days: 14}
   lighthouse:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /*
             !/assets/no usadas/
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         with: {node-version: '22'}
       - name: Install lockfile-pinned Lighthouse CI
         run: npm ci
@@ -158,5 +158,5 @@ jobs:
         run: lhci assert --config=./lighthouserc-pro-resources.json
       - name: Upload Lighthouse reports
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with: {name: pro-resources-lighthouse, path: '.lighthouseci/', include-hidden-files: true, if-no-files-found: warn, retention-days: 14}
