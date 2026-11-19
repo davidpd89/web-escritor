@@ -114,7 +114,13 @@ jobs:
           # la regla de #1430: un host externo caído que ya estaba en main solo avisa. Fuera de main se compara con main.
           BASE_REF: ${{ github.base_ref || (github.ref_name != 'main' && 'main' || '') }}
           RECHECK_PAUSE: '120'  # segundo repaso de externos caídos: la red del runner falla a ratos
-        run: python3 scripts/recheck-link-timeouts.py --report lychee/out.md --output lychee/timeout-recheck.json --quarantine .linkcheck-quarantine.json ${BASE_REF:+--base-ref "origin/$BASE_REF"}
+          # 18/11: en push a main fallaba por hosts ajenos al push (000 aleatorio). Se compara con el commit anterior:
+          # solo un enlace que trae el propio push es fatal. El programado semanal sigue siendo estricto.
+          PUSH_BASE: ${{ github.event_name == 'push' && github.event.before || '' }}
+        run: |
+          base=${BASE_REF:+origin/$BASE_REF}
+          case "$PUSH_BASE" in ''|0000000000000000000000000000000000000000) ;; *) git cat-file -e "$PUSH_BASE^{commit}" 2>/dev/null && base=$PUSH_BASE ;; esac
+          python3 scripts/recheck-link-timeouts.py --report lychee/out.md --output lychee/timeout-recheck.json --quarantine .linkcheck-quarantine.json ${base:+--base-ref "$base"}
 
       - name: Upload report
         uses: actions/upload-artifact@v7
