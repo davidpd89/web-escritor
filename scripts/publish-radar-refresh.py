@@ -554,7 +554,7 @@ def run(branch: str, timeout: int = 5400):
     if not re.fullmatch(r'automation/radar-clock-[a-zA-Z0-9-]+', branch):
         raise ValueError('Only generated radar-clock branches are accepted')
     allowed = {'convocatorias-escritores/index.html', 'convocatorias-escritores/opportunities.json',
-               'convocatorias-escritores/deadlines.ics', '.lycheeignore'}
+               'convocatorias-escritores/deadlines.ics', '.lycheeignore', 'data/radar-opportunities.json'}
     publish_generated(branch, lambda p: p in allowed or p.startswith('pagefind/')
                       or (p.startswith('editoriales/') and p.endswith('.html')), WORKFLOWS, timeout=timeout,
                       ceder_a=CARGA)
