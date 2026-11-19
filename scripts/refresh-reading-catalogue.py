@@ -16,6 +16,7 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
 import git_estado
 import reading_quarantine
+import resultado_carga
 import catalogo_estado as estado
 import materializar_generados as materializar
 from reading_intake_pipeline import ingest
@@ -306,30 +307,42 @@ def chain_report(accepted, consumed=None, **extra):
                      {**extra, 'stats': {'accepted': accepted, 'checkpoints_restantes': len(set(checkpoints()) - {consumed})}})
 
 
+# R5-12: cada paso declara su etapa; resultado_carga saca de ella la clase (transitorio/dato/entorno/codigo) y la
+# firma, sin leer el texto del error. Lo que salte fuera de toda etapa queda «desconocido».
+etapa = resultado_carga.etapa
+
+
 def refresh(*, publish=False):
-    config = read_json(ROOT / 'data/reading-intake-config.json')
-    if publish and subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=all'], cwd=ROOT, text=True).strip():
-        raise ValueError('La publicación automática exige un checkout limpio')
-    if publish and not config.get('autopublish'):
-        raise ValueError('Autopublicación desactivada en la configuración')
+    DESCARTADOS.clear()
+    with etapa('preparacion'):
+        config = read_json(ROOT / 'data/reading-intake-config.json')
+        if publish and subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=all'], cwd=ROOT, text=True).strip():
+            raise ValueError('La publicación automática exige un checkout limpio')
+        if publish and not config.get('autopublish'):
+            raise ValueError('Autopublicación desactivada en la configuración')
     if publish:
-        reconcile_deploy()
+        with etapa('remoto'):
+            reconcile_deploy()
     # A failed previous batch stays inspectable; never pile up duplicate writers.
-    opened = json.loads(publisher.publication.gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName'))
+    with etapa('remoto'):
+        opened = json.loads(publisher.publication.gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName'))
     pending = pending_batches(opened)
     if pending:
-        current = reconcile_pending(pending) if publish else pending[-1]
-        action = publisher.resume_pending(current) if publish else 'resumed'
+        with etapa('remoto'):
+            current = reconcile_pending(pending) if publish else pending[-1]
+            action = publisher.resume_pending(current) if publish else 'resumed'
         if action == 'resumed':
             print('Carga pendiente conservada: ' + current)
             if publish:
                 chain_report(0, reanudada=current)
             return
         if action == 'carry':
-            replaced = json.loads(publisher.publication.gh('pr', 'view', current, '--json', 'number'))['number']
+            with etapa('remoto'):
+                replaced = json.loads(publisher.publication.gh('pr', 'view', current, '--json', 'number'))['number']
             skipped = []
             try:
-                carried = carry(current, skipped=skipped)
+                with etapa('remoto'):
+                    carried = carry(current, skipped=skipped)
             except Exception as exc:  # noqa: BLE001
                 report_stuck(current, exc, number=replaced)
                 carried = replaced = None
@@ -340,14 +353,18 @@ def refresh(*, publish=False):
                 return assemble({'new_books': carried, 'updated_books': [], 'stats': {}}, changed=True,
                                 replaced=replaced, source=current)
             if replaced is not None:
-                publisher.close_proposal(replaced, 'Sus datos fuente ya están en main (o main ganó en los mismos libros). Se conserva '
-                                         'esta propuesta y su rama como referencia; el escritor vuelve a consultar las fuentes.')
+                with etapa('remoto'):
+                    publisher.close_proposal(replaced, 'Sus datos fuente ya están en main (o main ganó en los mismos libros). Se conserva '
+                                             'esta propuesta y su rama como referencia; el escritor vuelve a consultar las fuentes.')
     if publish:
         # Una ejecución anterior consultó y no llegó a abrir PR: se publica eso, sin consultar de nuevo.
-        for saved in checkpoints():
+        with etapa('remoto'):
+            guardados = checkpoints()
+        for saved in guardados:
             skipped = []
             try:
-                carried = carry(saved, skipped=skipped)
+                with etapa('remoto'):
+                    carried = carry(saved, skipped=skipped)
             except Exception as exc:  # noqa: BLE001
                 report_stuck(saved, exc)
                 continue
@@ -368,10 +385,11 @@ def refresh(*, publish=False):
     failure = None
     if amazon and publish:
         # Un fallo de las altas no puede dejar la noche sin precios ni portadas (09/11: un ISBN repetido tumbó
-        # refresh() antes de market_refresh). Se deshacen sus escrituras, siguen precios y portadas y al final se
-        # sale con error para que el fallo siga a la vista (y lo recoja la autorreparación nocturna).
+        # refresh() antes de market_refresh). Se deshacen sus escrituras, siguen precios y portadas y la carga acaba
+        # «degradada» (R4-5): código 0, la cadena sigue y el fallo va a una issue `fallo` con su firma.
         try:
-            report = amazon_intake(config, publish)
+            with etapa('consulta'):
+                report = amazon_intake(config, publish)
         except Exception as exc:  # noqa: BLE001
             failure = exc
             print(f'::error::Altas de Amazon fallidas ({type(exc).__name__}: {exc}); se descartan y siguen precios y portadas',
@@ -380,9 +398,11 @@ def refresh(*, publish=False):
             report = {'new_books': [], 'updated_books': [], 'stats': {'accepted': 0, 'fuente': 'amazon_catalogo',
                                                                       'error': f'{type(exc).__name__}: {exc}'}}
     elif amazon:
-        report = amazon_intake(config, publish)
+        with etapa('consulta'):
+            report = amazon_intake(config, publish)
     else:
-        report = ingest(config, ROOT, ROOT / '.ci/reading-editorial-cache', apply=publish, isbns=radar_isbns(config))
+        with etapa('consulta'):
+            report = ingest(config, ROOT, ROOT / '.ci/reading-editorial-cache', apply=publish, isbns=radar_isbns(config))
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json', report)
     print(json.dumps(report['stats'], ensure_ascii=True), flush=True)
     if not publish:
@@ -392,26 +412,28 @@ def refresh(*, publish=False):
     antes = git_estado.foto(ROOT, *SOURCE_PATHS)
     market_failure = None
     try:
-        changed = market_refresh(config)
+        with etapa('consulta'):
+            changed = market_refresh(config)
     except Exception as exc:  # noqa: BLE001
         market_failure = exc
         print(f'::error::Precios y portadas fallidos ({type(exc).__name__}: {exc}); se deshacen y siguen las altas',
               flush=True)
         git_estado.restaurar(ROOT, antes, *SOURCE_PATHS)
         changed = False
-    follow_main()
-    day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
-    saved = save_checkpoint(day)
+    with etapa('remoto'):
+        follow_main()
+        day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
+        saved = save_checkpoint(day)
     health_report(config)
     if amazon and not failure:
         # Solo ahora: los libros ya están a salvo en la rama de datos (o no había nada), así que la cola de
         # semillas puede avanzar sin perder ninguno si después falla la PR.
-        estado.guardar(f'Estado de la ingesta {day}: {len(report["new_books"])} altas')
+        with etapa('remoto'):
+            estado.guardar(f'Estado de la ingesta {day}: {len(report["new_books"])} altas')
     result = assemble(report, changed=changed, checkpoint=saved)
-    if failure:
-        raise RuntimeError('Las altas de Amazon fallaron; precios y portadas sí se publicaron') from failure
-    if market_failure:
-        raise RuntimeError('Precios y portadas fallaron; las altas sí se publicaron') from market_failure
+    # Lo publicado ya está en main: un paso descartado no convierte la noche en fallida (F2). Antes se lanzaba
+    # aquí una excepción: la ejecución acababa en rojo, el reintento repetía a ciegas y el juez la contaba perdida.
+    DESCARTADOS.update({k: v for k, v in (('amazon', failure), ('mercado', market_failure)) if v})
     return result
 
 
@@ -600,14 +622,16 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     # Un libro que incumple el contrato sale del lote (o vuelve a su versión publicada) en vez de pararlo.
     held_path = ROOT / reading_quarantine.QUARANTINE
     held_before = {h['libro']['id'] for h in read_json(held_path)['libros']} if held_path.exists() else set()
-    quarantined = reading_quarantine.apply(ROOT)
+    with etapa('cuarentena'):
+        quarantined = reading_quarantine.apply(ROOT)
     # Una regla corregida libera libros apartados: eso también se publica, aunque no haya novedades.
     released = held_before - {h['libro']['id'] for h in quarantined}
     # A scheduled RSS item can become due without a new book or rating. Build
     # current pages first, then advance feeds inside this SAME daily writer.
-    command(sys.executable, 'scripts/build-reading-catalogue.py')
-    rss_config=read_json(ROOT / 'data/reading-pinterest-boards.json')
-    command(sys.executable, 'scripts/build-reading-pinterest-rss.py', *(['--assign'] if rss_config.get('rss_enabled') else []))
+    with etapa('construccion'):
+        command(sys.executable, 'scripts/build-reading-catalogue.py')
+        rss_config=read_json(ROOT / 'data/reading-pinterest-boards.json')
+        command(sys.executable, 'scripts/build-reading-pinterest-rss.py', *(['--assign'] if rss_config.get('rss_enabled') else []))
     rss_changed=bool(subprocess.check_output(['git','status','--porcelain','--untracked-files=all','--','assets/pinterest/feeds','data/reading-pinterest-state.json'],cwd=ROOT,text=True).strip())
     # Una reparación de la cuarentena (clasificación, retirada de no-libros) también se publica sin novedades.
     repaired = bool(subprocess.check_output(['git', 'status', '--porcelain', '--', reading_quarantine.CATALOGUE, 'recomendaciones/libros'], cwd=ROOT, text=True).strip())
@@ -632,41 +656,53 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     # la retira). Solo para si, además de repetirse, la cuarentena no mueve nada (como hacía antes de verificar).
     while True:
         # Misma cadena que rebase-regenerando y merge-main (scripts/materializar_generados.py).
-        materializar.construir(ROOT, antes_de_indexar=registrar)
-        materializar.comprobar(ROOT, assets=False)
+        with etapa('construccion'):
+            materializar.construir(ROOT, antes_de_indexar=registrar)
+            materializar.comprobar(ROOT, assets=False)
         # Solo los contratos de datos: el código ya lo probó la batería completa del Required merge gate en main.
-        failures = data_contract_failures()
+        # Un check-reading-data que ni siquiera carga sus tests es construcción; sus contratos rotos, dato.
+        with etapa('construccion'):
+            failures = data_contract_failures()
         if not failures:
             break
-        named = reading_quarantine.flagged_books(failures, read_json(ROOT / reading_quarantine.CATALOGUE))
-        if named is None:
-            raise RuntimeError('check-reading-data falló en contratos que no nombran ningún libro: '
-                               + '; '.join(f['test'] for f in failures)[:600])
+        regla = ','.join(sorted({str(f.get('test')) for f in failures}))
+        with etapa('contrato', regla):
+            named = reading_quarantine.flagged_books(failures, read_json(ROOT / reading_quarantine.CATALOGUE))
+            if named is None:
+                raise RuntimeError('check-reading-data falló en contratos que no nombran ningún libro: '
+                                   + '; '.join(f['test'] for f in failures)[:600])
         repeated = set(named) <= set(flagged)
         flagged.update(named)
-        quarantined = reading_quarantine.apply(ROOT, flagged=flagged)
+        with etapa('cuarentena'):
+            quarantined = reading_quarantine.apply(ROOT, flagged=flagged)
         # No basta con que la cuarentena mueva algo: puede estar moviendo libros de noches anteriores sin
         # relación con los que se repiten aquí. Solo cuenta como avance si toca a los propios repetidos.
         if repeated and not ({h['libro']['id'] for h in quarantined} & set(named)):
-            raise RuntimeError('check-reading-data falló en contratos que no se resuelven apartando libros: '
-                               + '; '.join(f['test'] for f in failures)[:600])
+            with etapa('contrato', regla):
+                raise RuntimeError('check-reading-data falló en contratos que no se resuelven apartando libros: '
+                                   + '; '.join(f['test'] for f in failures)[:600])
         released = held_before - {h['libro']['id'] for h in quarantined}
         drop_orphan_pages(quarantined)
-    command('git', 'diff', '--check')
-    paths = git_estado.rutas(ROOT)
-    if not paths or any(not publisher.allowed_path(p) for p in paths):
-        raise ValueError('Cambios fuera de los artefactos permitidos: ' + str([p for p in paths if not publisher.allowed_path(p)]))
-    git_estado.preparar(ROOT, paths)
-    day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
-    branch = publisher.publication.fresh_branch('automation/reading-catalogue-' + day + '-', cwd=ROOT)
-    bot_identity()
-    command('git', 'switch', '-c', branch)
-    command('git', 'commit', '-m', 'Actualizar catálogo de lectura ' + day)
-    command('git', 'push', 'origin', 'HEAD:refs/heads/' + branch)
+    with etapa('construccion'):
+        command('git', 'diff', '--check')
+        paths = git_estado.rutas(ROOT)
+        if not paths or any(not publisher.allowed_path(p) for p in paths):
+            raise ValueError('Cambios fuera de los artefactos permitidos: ' + str([p for p in paths if not publisher.allowed_path(p)]))
+        git_estado.preparar(ROOT, paths)
+        day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
+    with etapa('remoto'):
+        branch = publisher.publication.fresh_branch('automation/reading-catalogue-' + day + '-', cwd=ROOT)
+    with etapa('construccion'):
+        bot_identity()
+        command('git', 'switch', '-c', branch)
+        command('git', 'commit', '-m', 'Actualizar catálogo de lectura ' + day)
+    with etapa('remoto'):
+        command('git', 'push', 'origin', 'HEAD:refs/heads/' + branch)
     if replaced:
         # Antes de abrir la nueva: nunca quedan dos cargas abiertas. Si algo falla después, las dos ramas siguen en origin.
-        publisher.close_proposal(replaced, f'main avanzó durante su CI. Sus datos fuente (libros, pendientes, precios y cuarentena) '
-                                 f'pasan sin nueva consulta a `{branch}`, reconstruida sobre el main actual. Se conserva la rama `{source}`.')
+        with etapa('remoto'):
+            publisher.close_proposal(replaced, f'main avanzó durante su CI. Sus datos fuente (libros, pendientes, precios y cuarentena) '
+                                     f'pasan sin nueva consulta a `{branch}`, reconstruida sobre el main actual. Se conserva la rama `{source}`.')
     body = ROOT / '.ci/reading-intake/pr-body.md'
     body.parent.mkdir(parents=True, exist_ok=True)
     body.write_text((f'Sustituye a #{replaced}: mismos datos consultados, trasladados al main actual y con páginas e índices regenerados.\n\n'
@@ -675,11 +711,16 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
                     'No importa precios ni valoraciones sin un proveedor autorizado. Los candidatos incompletos quedan pendientes.\n\n'
                     + quarantine_summary(quarantined, released) +
                     'Se ejecutan las pruebas reales del commit y las reglas de main antes de fusionar. Después se despliega y se comprueba producción.\n', encoding='utf-8')
-    publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,
-                             '--title', 'Actualizar catálogo de lectura ' + day, '--body-file', str(body))
+    with etapa('remoto'):
+        publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,
+                                 '--title', 'Actualizar catálogo de lectura ' + day, '--body-file', str(body))
     # La PR puede cerrarse por CI rojo: conservar la copia hasta comprobar publicación y Pages.
-    publisher.run(branch)
+    with etapa('publicacion'):
+        publisher.run(branch)
     drop_checkpoint(checkpoint)
+
+
+DESCARTADOS = {}  # paso -> excepción de lo que se descartó en una carga que sí publicó (R4-5)
 
 
 def main(publish):
@@ -688,7 +729,20 @@ def main(publish):
     except publisher.publication.StaleMerge as exc:
         # The stale bot PR is closed and regenerated by the next invocation.
         print(exc, flush=True)
+        if publish:
+            resultado = resultado_carga.fallido(exc)
+            resultado_carga.escribir(ROOT, dict(resultado, clase='transitorio'))  # main se movió: no es código
         sys.exit(publisher.publication.STALE_EXIT_CODE)
+    except Exception as exc:
+        if publish:
+            resultado_carga.escribir(ROOT, resultado_carga.fallido(exc))
+        raise
+    if publish:
+        resultado = resultado_carga.degradado(DESCARTADOS)
+        resultado_carga.escribir(ROOT, resultado)
+        for paso in resultado['degradado']:
+            print(f"::warning::Carga degradada: {paso['paso']} descartado ({paso['error']}); firma {paso['firma']}",
+                  flush=True)
 
 
 if __name__ == '__main__':
