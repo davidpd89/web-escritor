@@ -511,7 +511,11 @@ def build_html(items, today, watchlist=None):
     scripts/build-site-shell.py desde data/navigation.json, igual que en el
     resto del sitio. Ver scripts/site_shell.py.
     """
-    return inject_shell_auto(render_page_body(items, today, watchlist))
+    html = inject_shell_auto(render_page_body(items, today, watchlist))
+    # Una seccion vacia (sin vigilancia, sin activas) deja la linea de su
+    # sangria sola; `git diff --check` la rechaza y el refresco nocturno
+    # no publicaba (19/11). Se limpia toda linea, no el caso concreto.
+    return "\n".join(line.rstrip() for line in html.split("\n"))
 
 
 if __name__ == "__main__":

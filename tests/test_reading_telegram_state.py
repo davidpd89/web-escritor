@@ -15,7 +15,7 @@ from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from reading_telegram_state import GitHubState
-from reading_telegram import run
+from reading_telegram import digest_candidate_keys, run
 
 
 class Session:
@@ -135,8 +135,8 @@ class RemoteTelegramStateTests(unittest.TestCase):
                 {"chat_id": "private-channel", "token_env": "TEST_TOKEN", "mode": "digest"}
             ],
             "books": [{**self.catalog["books"][0], "isbn13": "9788498382372"}],
-            "digests": ["digest-2026-11-01"],
         }
+        catalog["digests"] = digest_candidate_keys(catalog, date(2026, 11, 1))
         self.store.restore(self.db, catalog)
         with (
             patch.dict("os.environ", {"TEST_TOKEN": "test"}),
@@ -153,7 +153,7 @@ class RemoteTelegramStateTests(unittest.TestCase):
             result = run(catalog, date(2026, 11, 1), fresh_db, True,
                          sender=Mock(side_effect=AssertionError("duplicate")),
                          checkpoint=restarted.checkpoint)
-        self.assertEqual(result[0]["status"], "skipped:sent")
+        self.assertEqual(result, [])  # los libros ya constan como enviados en el resumen restaurado
 
     def test_checkpoint_failure_blocks_http(self):
         self.store.restore(self.db, self.catalog)
