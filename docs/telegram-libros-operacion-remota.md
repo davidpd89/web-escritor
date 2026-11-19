@@ -30,7 +30,9 @@ Los secretos de Actions son `READING_TELEGRAM_BOT_TOKEN`, `READING_TELEGRAM_CHAN
 ]}
 ```
 
-- `mode: "digest"`: un mensaje al día con los títulos de hoy y un solo enlace de Amazon filtrado por sus ISBN (`rh=p_66:ISBN|ISBN…`). Sin `mode`: un mensaje por libro con portada.
+- `mode: "digest"`: resumen del día con los títulos de hoy (cada uno enlaza a su ficha de Amazon), **agrupados por género** con un encabezado `emoji Género · n · #Etiqueta`. Si no caben en un mensaje (Telegram 4096 caracteres: tope práctico `DIGEST_MAX_CHARS=3400` y 40 títulos; Discord 2000 con embeds) se reparte en «1/3, 2/3…» repitiendo el encabezado del género al empezar cada mensaje. Cada tanda tiene clave `digest2-<día>-<primer ASIN>[-n]`; los libros enviados se anotan como `in-<día>-<ASIN>` y un libro que entra más tarde sale en un resumen propio sin repetir los anteriores. Sin `mode`: un mensaje por libro con portada.
+- **Separadores de género** (canales de libro a libro con varios géneros): antes de cada tanda sale «<emoji> <Género> · N novedades · #Hashtag» (mapa fijo `GENRE_HASHTAG`: `#Thriller`, `#Comic`…; clave estable `sep-<día>-<género>`). Los libros de hasta 3 días antes que no salieron (carga tardía) se envían en el siguiente ciclo en canales de libro a libro. Los libros van ordenados por género y la línea de género de cada ficha es el hashtag. Un canal de un solo género no lleva separadores. Si un separador queda aplazado por límite de Telegram, sus libros esperan al siguiente ciclo para no salir antes que él.
+- **Frescura de datos:** un libro cuya fuente es su propia ficha de Amazon vale con una revisión de hasta 6 días (`AMAZON_SOURCE_FRESH_DAYS`); el resto, 2. El 19/11/2026 tres cargas nocturnas fallidas dejaron 105 libros fuera y el bot publicó 2.
 - `categories`: slugs de `data/reading-catalogue.json`; el canal solo recibe esos géneros.
 - `platform: "discord"`: publica por webhook (Ajustes del canal → Integraciones → Webhooks). La URL del webhook es la credencial y solo vive en este secreto. Discord comparte el estado y la deduplicación de Telegram; el texto se adapta a markdown y a 2000 caracteres.
 
