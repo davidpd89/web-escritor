@@ -1,0 +1,522 @@
+#!/usr/bin/env python3
+"""Valida oportunidades verificadas y genera página estática, JSON público y calendario ICS."""
+from __future__ import annotations
+
+import argparse
+import html
+import json
+import math
+import re
+from decimal import Decimal
+from datetime import date, timedelta
+import sys
+from pathlib import Path
+from urllib.parse import urlsplit
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_clock import site_today  # noqa: E402
+from site_shell import inject_shell_auto  # noqa: E402
+from genre_families import families_for, families_json, genre_select_options, load_families  # noqa: E402
+
+FAMILIES = load_families()
+
+STALE_DAYS = 30
+# Cuanto tiempo sigue publicada una convocatoria despues de cerrar. No se
+# borra: el trabajo de documentarla (bases, cuantia, quien puede participar,
+# fuente oficial) sigue siendo util para quien busca ese premio, y cuando se
+# abre la edicion siguiente solo hay que actualizar fecha y verificacion en
+# vez de rehacer la ficha. Pasado el ano se cae de la pagina, pero el dato se
+# queda en data/radar-opportunities.json.
+EXPIRED_WINDOW_DAYS = 365
+TITLE = "Concursos, becas y manuscritos para escritores | David Porto Díaz"
+DESCRIPTION = "Radar de concursos, premios, becas, ayudas y convocatorias para escritores, verificados contra su fuente oficial y ordenados por fecha límite."
+CANONICAL = "https://davidportodiaz.com/convocatorias-escritores/"
+SHARE_IMAGE = "https://davidportodiaz.com/assets/david-porto-imagen-compartir.jpg"
+SHARE_IMAGE_WIDTH = 1731
+SHARE_IMAGE_HEIGHT = 909
+ALLOWED_TYPES = {"concurso", "premio", "ayuda", "beca", "residencia", "manuscritos"}
+REQ = {"id", "title", "type", "organizer", "deadline", "genres", "source_url", "verified_at", "published", "fee_eur"}
+WATCH_REQ = {"id", "title", "type", "organizer", "genres", "source_url", "verified_at", "published", "status_note", "reference_note"}
+WATCH_KINDS = {"announced", "recurring", "verification"}
+# Public-schema allowlists. Unknown keys are rejected rather than silently
+# copied to opportunities.json: this prevents internal research/tracking fields
+# from becoming public if they are ever added to the source dataset.
+ITEM_ALLOWED = REQ | {"eligibility", "prize", "submission_mode", "editorial_note"}
+WATCH_ALLOWED = WATCH_REQ | {"expected_window", "editorial_note", "watch_kind"}
+FORBIDDEN_URL = re.compile(r"[\s\\\x00-\x1f\x7f<>\"{}|^`]")
+
+def iso_date(value, field):
+    if not isinstance(value, str):
+        raise ValueError(f"{field}: debe ser string ISO")
+    try:
+        return date.fromisoformat(value)
+    except Exception as exc:
+        raise ValueError(f"{field}: fecha ISO inválida: {value!r}") from exc
+
+def esc(value):
+    return html.escape(str(value or ""), quote=True)
+
+def slug_ok(value):
+    return isinstance(value, str) and bool(re.fullmatch(r"[a-z0-9][a-z0-9-]{2,79}", value))
+
+def https_url(value):
+    if not isinstance(value, str) or not value or FORBIDDEN_URL.search(value):
+        return False
+    try:
+        parsed = urlsplit(value)
+    except ValueError:
+        return False
+    try:
+        port = parsed.port
+    except ValueError:
+        return False
+    return (
+        parsed.scheme == "https"
+        and bool(parsed.hostname)
+        and parsed.username is None
+        and parsed.password is None
+        and port in (None, 443)
+    )
+
+def validate(item):
+    if not isinstance(item, dict):
+        raise ValueError("cada oportunidad debe ser un objeto")
+    extra = set(item) - ITEM_ALLOWED
+    if extra:
+        raise ValueError(f"{item.get('id', '?')}: campos no públicos/no permitidos: {sorted(extra)}")
+    missing = REQ - set(item)
+    if missing:
+        raise ValueError(f"{item.get('id', '?')}: faltan {sorted(missing)}")
+    if not slug_ok(item["id"]):
+        raise ValueError(f"id inválido: {item['id']!r}")
+    for field in ("title", "organizer"):
+        if not isinstance(item[field], str) or not item[field].strip():
+            raise ValueError(f"{item['id']}: {field} vacío")
+    if item["type"] not in ALLOWED_TYPES:
+        raise ValueError(f"{item['id']}: type no permitido")
+    if not https_url(item["source_url"]):
+        raise ValueError(f"{item['id']}: source_url HTTPS inválida")
+    if not isinstance(item["genres"], list) or not item["genres"] or not all(isinstance(g, str) and g.strip() for g in item["genres"]):
+        raise ValueError(f"{item['id']}: genres inválido")
+    if not isinstance(item["published"], bool):
+        raise ValueError(f"{item['id']}: published debe ser boolean")
+    fee = item["fee_eur"]
+    if fee is not None and (
+        isinstance(fee, bool)
+        or not isinstance(fee, (int, float))
+        or (isinstance(fee, float) and not math.isfinite(fee))
+        or fee < 0
+        or (Decimal(str(fee)) * 100) % 1 != 0
+    ):
+        raise ValueError(f"{item['id']}: fee_eur debe ser número finito >= 0, con precisión de céntimos, o null")
+    iso_date(item["deadline"], "deadline")
+    iso_date(item["verified_at"], "verified_at")
+
+def validate_watch(item):
+    if not isinstance(item, dict):
+        raise ValueError("cada próxima convocatoria debe ser un objeto")
+    extra = set(item) - WATCH_ALLOWED
+    if extra:
+        raise ValueError(f"{item.get('id', '?')}: campos no públicos/no permitidos: {sorted(extra)}")
+    missing = WATCH_REQ - set(item)
+    if missing:
+        raise ValueError(f"{item.get('id', '?')}: faltan campos watchlist {sorted(missing)}")
+    if not slug_ok(item["id"]):
+        raise ValueError(f"id watchlist inválido: {item['id']!r}")
+    for field in ("title", "organizer", "status_note", "reference_note"):
+        if not isinstance(item[field], str) or not item[field].strip():
+            raise ValueError(f"{item['id']}: {field} vacío")
+    if item["type"] not in ALLOWED_TYPES:
+        raise ValueError(f"{item['id']}: type no permitido")
+    if not https_url(item["source_url"]):
+        raise ValueError(f"{item['id']}: source_url HTTPS inválida")
+    if not isinstance(item["genres"], list) or not item["genres"] or not all(isinstance(g, str) and g.strip() for g in item["genres"]):
+        raise ValueError(f"{item['id']}: genres inválido")
+    if not isinstance(item["published"], bool):
+        raise ValueError(f"{item['id']}: published debe ser boolean")
+    iso_date(item["verified_at"], "verified_at")
+    watch_kind = item.get("watch_kind", "announced")
+    if watch_kind not in WATCH_KINDS:
+        raise ValueError(f"{item['id']}: watch_kind no permitido: {watch_kind!r}")
+
+
+def state(item, today):
+    deadline = iso_date(item["deadline"], "deadline")
+    verified = iso_date(item["verified_at"], "verified_at")
+    if verified > today:
+        return "stale"
+    if deadline < today:
+        return "expired"
+    if today - verified > timedelta(days=STALE_DAYS):
+        return "stale"
+    if (deadline - today).days <= 7:
+        return "closing_soon"
+    return "open"
+
+def card(item, expired=False):
+    genres = ", ".join(item["genres"])
+    prize = f'<div><dt>Premio/ayuda</dt> <dd>{esc(item.get("prize"))}</dd></div>' if item.get("prize") else ""
+    eligibility = f'<div><dt>Quién puede participar</dt> <dd>{esc(item.get("eligibility"))}</dd></div>' if item.get("eligibility") else ""
+    submission_mode = f'<div><dt>Cómo presentarse</dt> <dd>{esc(item.get("submission_mode"))}</dd></div>' if item.get("submission_mode") else ""
+    note = f'<p class="radar-note">{esc(item.get("editorial_note"))}</p>' if item.get("editorial_note") else ""
+    deadline_label = iso_date(item["deadline"], "deadline").strftime("%d/%m/%Y")
+    classes = "radar-card radar-card--expired" if expired else "radar-card"
+    kind_attr = ' data-radar-kind="expired"' if expired else ""
+    badge = "Plazo finalizado" if expired else "Plazo verificado"
+    deadline_term = "Cerró el" if expired else "Fecha límite"
+    return f'''<article class="{classes}" data-radar-item{kind_attr} data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-families="{esc('|'.join(families_for(item['genres'], FAMILIES)))}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="{esc(item['deadline'])}" data-verified-at="{esc(item['verified_at'])}">
+<div class="radar-card__top"><span class="radar-badge" data-radar-status>{esc(badge)}</span><span>{esc(item['type'].capitalize())}</span></div>
+<h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
+<dl><div><dt>{deadline_term}</dt> <dd><time datetime="{esc(item['deadline'])}">{deadline_label}</time></dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{prize}{eligibility}{submission_mode}</dl>
+<p class="radar-match" data-genre-match hidden></p>
+{note}
+<p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer" aria-label="Consultar convocatoria y bases: {esc(item['title'])}">Consultar convocatoria y bases</a></p></article>'''
+
+def watch_card(item):
+    genres = ", ".join(item["genres"])
+    watch_kind = item.get("watch_kind", "announced")
+    badge = {"announced": "Próxima apertura", "recurring": "Próxima edición a vigilar", "verification": "Pendiente de verificar"}[watch_kind]
+    expected_label = "Próxima apertura" if watch_kind == "announced" else "Cuándo revisar"
+    expected = f'<div><dt>{expected_label}</dt> <dd>{esc(item.get("expected_window") or "Fecha aún no publicada")}</dd></div>'
+    reference = f'<div><dt>Fuente y referencia</dt> <dd>{esc(item["reference_note"])}</dd></div>'
+    note = f'<p class="radar-note">{esc(item.get("editorial_note"))}</p>' if item.get("editorial_note") else ""
+    return f'''<article class="radar-card radar-card--watch" data-radar-item data-radar-kind="watch" data-watch-kind="{esc(watch_kind)}" data-type="{esc(item['type'])}" data-genres="{esc('|'.join(item['genres']).lower())}" data-families="{esc('|'.join(families_for(item['genres'], FAMILIES)))}" data-title="{esc(item['title'].lower())}" data-organizer="{esc(item['organizer'].lower())}" data-deadline="" data-verified-at="{esc(item['verified_at'])}">
+<div class="radar-card__top"><span class="radar-badge" data-radar-status>{esc(badge)}</span><span>{esc(item['type'].capitalize())}</span></div>
+<h2>{esc(item['title'])}</h2><p class="radar-org">{esc(item['organizer'])}</p>
+<dl><div><dt>Estado</dt> <dd>{esc(item['status_note'])}</dd></div><div><dt>Géneros</dt> <dd>{esc(genres)}</dd></div>{expected}{reference}</dl>
+<p class="radar-match" data-genre-match hidden></p>
+{note}
+<p><a class="button secondary" data-radar-source data-radar-source-type="{esc(item['type'])}" href="{esc(item['source_url'])}" target="_blank" rel="noopener noreferrer" aria-label="Consultar convocatoria y bases: {esc(item['title'])}">Consultar convocatoria y bases</a></p></article>'''
+
+
+def watch_items(items, today):
+    visible = []
+    for item in items:
+        if not item.get("published"):
+            continue
+        verified = iso_date(item["verified_at"], "verified_at")
+        if verified <= today and today - verified <= timedelta(days=STALE_DAYS):
+            visible.append(item)
+    return sorted(visible, key=lambda item: item["title"].casefold())
+
+
+def active_items(items, today):
+    active = [item for item in items if item.get("published") and state(item, today) in {"open", "closing_soon"}]
+    return sorted(active, key=lambda item: item["deadline"])
+
+
+def expired_items(items, today):
+    """Convocatorias cerradas que la pagina sigue mostrando, bajo peticion.
+
+    El estado se deriva de la fecha, no de un campo: el dia que el plazo pasa,
+    la siguiente regeneracion mueve la ficha de «En plazo» a «Vencidas» sin
+    que nadie edite nada. La verificacion caducada no las saca de aqui -- en
+    una convocatoria cerrada no hay nada que volver a verificar -- pero sigue
+    sacando de la lista activa a las que estan en plazo.
+    """
+    expired = [
+        item for item in items
+        if item.get("published")
+        and state(item, today) == "expired"
+        and (today - iso_date(item["deadline"], "deadline")).days <= EXPIRED_WINDOW_DAYS
+    ]
+    return sorted(expired, key=lambda item: item["deadline"], reverse=True)
+
+def render_page_body(items, today, watchlist=None):
+    active = active_items(items, today)
+    watch = watch_items(watchlist or [], today)
+    expired = expired_items(items, today)
+    active_cards = "\n".join(card(item) for item in active) or '<p data-radar-empty>No hay oportunidades verificadas activas ahora mismo.</p>'
+    watch_cards = "\n".join(watch_card(item) for item in watch)
+    expired_cards = "\n".join(card(item, expired=True) for item in expired)
+    visible_pool = active + watch + expired
+    disabled_controls = " disabled" if not visible_pool else ""
+    types = sorted({item["type"] for item in visible_pool})
+    options = lambda values: "\n".join(f'<option value="{esc(value)}">{esc(value.capitalize())}</option>' for value in values)
+    watch_section = (
+        f'<section class="radar-section radar-section--watch" data-radar-section="watch">'
+        f'<div class="radar-section__head"><p class="eyebrow">En seguimiento</p>'
+        f'<h2>Próximas aperturas y premios a vigilar</h2>'
+        f'<p>Se distinguen las próximas aperturas, los premios recurrentes y las convocatorias pendientes de verificar. '
+        f'Las fuentes secundarias y las bases incompletas se identifican en cada ficha. Estas fichas no se añaden al calendario hasta confirmar las bases y el plazo.</p></div>'
+        f'<div class="radar-grid" data-radar-grid>{watch_cards}</div></section>'
+        if watch_cards else ""
+    )
+    # Oculta por defecto con CSS puro (ver el selector :has() en
+    # assets/radar-convocatorias.css), no con JavaScript: asi no aparece ni un
+    # fotograma antes de esconderse, no desplaza nada al cargar y la casilla
+    # sigue funcionando sin JavaScript, que en esta pagina importa porque su
+    # CSP no admite estilos ni scripts inline.
+    expired_section = (
+        f'<section class="radar-section radar-section--expired" data-radar-section="expired">'
+        f'<div class="radar-section__head"><p class="eyebrow">Fuera de plazo</p>'
+        f'<h2>Convocatorias ya cerradas</h2>'
+        f'<p>Se conservan {len(expired)} fichas cuyo plazo termin\u00f3 en el \u00faltimo a\u00f1o: '
+        f'las bases, la cuant\u00eda y la fuente oficial siguen siendo \u00fatiles para quien busca ese premio, '
+        f'y cuando se abra la edici\u00f3n siguiente solo habr\u00e1 que actualizar la fecha. '
+        f'No entran en el calendario descargable ni cuentan como convocatorias activas.</p></div>'
+        f'<div class="radar-grid" data-radar-grid>{expired_cards}</div></section>'
+        if expired_cards else ""
+    )
+    schema = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Convocatorias para escritores",
+        "url": CANONICAL,
+        "inLanguage": "es",
+        "isPartOf": {"@id": "https://davidportodiaz.com/#website"},
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://davidportodiaz.com/"},
+                {"@type": "ListItem", "position": 2, "name": "Libros recomendados", "item": "https://davidportodiaz.com/recomendaciones/"},
+                {"@type": "ListItem", "position": 3, "name": "Concursos", "item": CANONICAL},
+            ],
+        },
+    }, ensure_ascii=False, separators=(",", ":"))
+    # El header/dialog de abajo son placeholders minimos: apply_shell() en
+    # build-site-shell.py los sustituye por completo (via HEADER_RE/DIALOG_RE)
+    # antes de que inject_shell_auto() devuelva el HTML, asi que cualquier
+    # contenido real de aqui se descarta sin llegar nunca a escribirse a
+    # disco. Mantenerlos vacios evita otra copia a mano de cabecera/Explorar
+    # -- ver scripts/site_shell.py.
+    return f'''<!DOCTYPE html>
+<html lang="es" class="v1">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <title>{TITLE}</title>
+  <meta name="description" content="{DESCRIPTION}">
+  <meta property="og:title" content="{TITLE}">
+  <meta property="og:description" content="{DESCRIPTION}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{CANONICAL}">
+  <meta property="og:image" content="{SHARE_IMAGE}">
+  <meta property="og:image:width" content="{SHARE_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="{SHARE_IMAGE_HEIGHT}">
+  <meta property="og:image:alt" content="{TITLE}">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="David Porto Díaz">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{TITLE}">
+  <meta name="twitter:description" content="{DESCRIPTION}">
+  <meta name="twitter:image" content="{SHARE_IMAGE}">
+  <meta name="twitter:image:alt" content="{TITLE}">
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="canonical" href="{CANONICAL}">
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/assets/david-porto-favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <link rel="stylesheet" href="/assets/v1-fonts.css?v=3" />
+  <link rel="stylesheet" href="/assets/v1-tokens.css?v=3" />
+  <link rel="stylesheet" href="/assets/v1-base.css?v=2" />
+  <!-- v1-shell-preload:start (generated by scripts/add_v1_shell_preloads.py -- do not edit by hand) -->
+  <link rel="preload" as="style" href="/assets/v1-shell-base.css?v=14" />
+  <link rel="preload" as="style" href="/assets/v1-shell-lrb-v2.css?v=6" />
+  <link rel="preload" as="style" href="/assets/v1-lrb-material-v2.css?v=1" />
+  <link rel="preload" as="style" href="/assets/v1-home-editorial-v3.css?v=1" />
+  <link rel="preload" as="style" href="/assets/v1-editorial-interior-v4.css?v=4" />
+  <link rel="preload" as="style" href="/assets/v1-editorial-interactions-v4.css?v=1" />
+  <link rel="preload" as="style" href="/assets/v1-site-cohesion-v6.css?v=2" />
+  <link rel="preload" as="style" href="/assets/v1-reflow-hardening-v7.css?v=1" />
+  <link rel="preload" as="style" href="/assets/v1-text-resilience-v8.css?v=1" />
+  <!-- v1-shell-preload:end -->
+  <link rel="stylesheet" href="/assets/v1-shell.css?v=21" />
+  <link rel="stylesheet" href="/assets/v1-components.css?v=3" />
+  <link rel="stylesheet" href="/assets/v1-families.css?v=2" />
+  <link rel="stylesheet" href="/assets/v1-tools.css?v=7" />
+  <link rel="stylesheet" href="/assets/radar-convocatorias.css?v=7">
+  <script type="application/ld+json">{schema}</script>
+</head>
+<body data-back-to-top>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
+
+  <header class="site-header" data-header></header>
+
+  <dialog class="explore-dialog" id="explore-dialog" aria-labelledby="explore-title" data-explore-dialog></dialog>
+
+  <main id="contenido" tabindex="-1" class="v1-main" data-family="tool">
+    <nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Concursos</li></ol></nav>
+
+    <header class="tool-hero">
+      <p class="eyebrow">Radar para escritores · fuentes verificadas</p>
+      <h1>Concursos que todavía están a tiempo.</h1>
+      <p class="tool-hero__lead">Concursos, premios, ayudas, becas, residencias y vías de envío de manuscritos revisadas contra la fuente oficial. Cuando pasa la fecha límite salen de la lista activa y quedan en «Convocatorias ya cerradas», que puedes mostrar con una casilla; si la verificación supera 30 días, la ficha se retira hasta volver a comprobarla.</p>
+      <p class="tool-note"><strong>Importante:</strong> esta web no organiza estas convocatorias ni garantiza que sigan abiertas después de la fecha mostrada. Confirma siempre en la fuente oficial antes de enviar.</p>
+      <p class="tool-hero__actions"><a class="button secondary" data-radar-calendar href="/convocatorias-escritores/deadlines.ics" download="convocatorias-escritores.ics">Añadir fechas a mi calendario</a></p>
+    </header>
+
+    <noscript><p class="tool-note" role="status">JavaScript está desactivado. La lista completa y sus fuentes siguen visibles, pero los filtros y la búsqueda necesitan JavaScript.</p></noscript>
+
+    <section class="tool-finder" aria-label="Filtrar convocatorias">
+      <div class="tool-options">
+        <div class="tool-field"><label class="tool-field-label" for="radar-search">Buscar</label><input class="tool-input" id="radar-search" type="search" autocomplete="off" enterkeyhint="search" data-radar-search{disabled_controls} placeholder="Entidad, premio, género…"></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-type">Tipo</label><select class="tool-select" id="radar-type" data-radar-type{disabled_controls}><option value="">Todos</option>{options(types)}</select></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-genre">Género</label><select class="tool-select" id="radar-genre" aria-describedby="radar-genre-ayuda" data-radar-genre{disabled_controls}><option value="">Todos</option>{genre_select_options([item["genres"] for item in visible_pool], FAMILIES, exact_label=lambda g: g.capitalize(), counts=False)}</select></div>
+        <div class="tool-field"><label class="tool-field-label" for="radar-kind">Situación</label><select class="tool-select" id="radar-kind" data-radar-kind{disabled_controls}><option value="">Todas</option><option value="active">En plazo</option><option value="watch">Próximas / a vigilar</option></select></div>
+      </div>
+      <p class="tool-note radar-genre-scope" id="radar-genre-ayuda">Una familia reúne variantes (por ejemplo, Cuento, relato y microrrelato incluye relato corto y microrrelato); la etiqueta exacta es la que declaran las bases. Que coincida el género no significa que cumplas los requisitos: revísalos en las bases oficiales.</p>
+      <label class="tool-check"><input type="checkbox" data-radar-soon{disabled_controls}> <span>Cierra en 7 días</span></label>
+      <label class="tool-check"><input type="checkbox" id="radar-expired" data-radar-expired{disabled_controls}> <span>Mostrar vencidas</span></label>
+      <div class="tool-actions"><button type="button" class="text-action" data-radar-clear{disabled_controls}>Limpiar</button></div>
+      <p class="tool-count" role="status" aria-live="polite" data-radar-count>{len(active) + len(watch)} convocatorias verificadas</p>
+    </section>
+
+    <section class="radar-section" data-radar-section="active">
+      <div class="radar-section__head"><p class="eyebrow">En plazo</p><h2>Convocatorias abiertas</h2><p>Ordenadas por fecha límite. Cuando el plazo termina, la ficha pasa sola a las cerradas.</p></div>
+      <div class="radar-grid" data-radar-grid>{active_cards}</div>
+    </section>
+    {watch_section}
+    {expired_section}
+    <div class="radar-empty" data-radar-filter-empty hidden><p>No hay coincidencias con estos filtros.</p><button type="button" class="button secondary" data-radar-empty-clear>Limpiar filtros</button></div>
+    <script type="application/json" data-genre-families>{families_json(FAMILIES)}</script>
+
+    <section class="v1-section">
+      <div class="tool-findings-block"><h2>Cómo se mantiene este radar</h2><p>Una lista de fuentes oficiales se revisa para detectar posibles cambios y nuevas convocatorias. Nada se publica automáticamente: una oportunidad solo aparece después de revisar la fuente oficial, su fecha límite y sus condiciones básicas. Una convocatoria activa que lleva más de 30 días sin volver a comprobarse deja de mostrarse aquí aunque su plazo siga abierto. Y cuando el plazo termina, la ficha no se borra: pasa a las cerradas, donde sigue a mano durante un año con sus bases y su fuente oficial, porque casi todas estas convocatorias vuelven a abrir al año siguiente.</p></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+
+  <script defer src="/assets/v1-shell.js?v=36"></script>
+  <script src="/assets/radar-convocatorias.js?v=9" defer></script>
+</body>
+</html>'''
+
+def ics_escape(value):
+    # RFC 5545 TEXT must escape logical newlines, not leak bare CR bytes.
+    normalized = str(value).replace("\r\n", "\n").replace("\r", "\n")
+    return normalized.replace("\\", "\\\\").replace("\n", "\\n").replace(",", "\\,").replace(";", "\\;")
+
+def fold_ics_line(line):
+    chunks = []
+    current = ""
+    for char in line:
+        candidate = current + char
+        if len(candidate.encode("utf-8")) > 75:
+            chunks.append(current)
+            current = " " + char
+        else:
+            current = candidate
+    chunks.append(current)
+    return "\r\n".join(chunks)
+
+def build_ics(items, today):
+    lines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//David Porto Diaz//Radar escritores//ES",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "X-WR-CALNAME:Convocatorias para escritores",
+    ]
+    for item in active_items(items, today):
+        deadline = iso_date(item["deadline"], "deadline")
+        lines.extend([
+            "BEGIN:VEVENT",
+            f"UID:{item['id']}@davidportodiaz.com",
+            # RFC 5545 requires DTSTAMP on each VEVENT. Pin it to the last
+            # verified civil date (UTC midnight) rather than the runner clock:
+            # unchanged source evidence must regenerate identical bytes.
+            f"DTSTAMP:{iso_date(item['verified_at'], 'verified_at'):%Y%m%d}T000000Z",
+            f"DTSTART;VALUE=DATE:{deadline:%Y%m%d}",
+            f"DTEND;VALUE=DATE:{deadline + timedelta(days=1):%Y%m%d}",
+            f"SUMMARY:{ics_escape(item['title'])}",
+            f"DESCRIPTION:{ics_escape(item['organizer'])}",
+            f"URL:{item['source_url']}",
+            "END:VEVENT",
+        ])
+    lines.extend(["END:VCALENDAR", ""])
+    return "\r\n".join(fold_ics_line(line) for line in lines)
+
+def public_json(items, today, watchlist=None):
+    # "items" sigue significando lo mismo que el primer dia -- lo que esta en
+    # plazo -- para no romper a nadie que ya lo consuma. Las cerradas van en su
+    # propia clave, con su fecha, para que se puedan distinguir sin adivinar.
+    payload = {
+        "generated_for": today.isoformat(),
+        "items": active_items(items, today),
+        "watchlist": watch_items(watchlist or [], today),
+        "expired": expired_items(items, today),
+    }
+    return json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+
+def load_items(path):
+    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    if not isinstance(payload, dict) or not isinstance(payload.get("items"), list):
+        raise ValueError("dataset: se esperaba objeto con items[]")
+    items = payload["items"]
+    ids = set()
+    for item in items:
+        validate(item)
+        if item["id"] in ids:
+            raise ValueError(f"id duplicado: {item['id']}")
+        ids.add(item["id"])
+    return items
+
+def load_watchlist(path):
+    payload = json.loads(Path(path).read_text(encoding="utf-8"))
+    watch = payload.get("watchlist", [])
+    if not isinstance(watch, list):
+        raise ValueError("dataset: watchlist debe ser una lista")
+    ids = set()
+    for item in watch:
+        validate_watch(item)
+        if item["id"] in ids:
+            raise ValueError(f"id watchlist duplicado: {item['id']}")
+        ids.add(item["id"])
+    return watch
+
+
+def ensure_disjoint_ids(items, watchlist):
+    item_ids = {item["id"] for item in items}
+    watch_ids = {item["id"] for item in watchlist}
+    overlapping_ids = sorted(item_ids & watch_ids)
+    if overlapping_ids:
+        raise ValueError(f"dataset: ids repetidos entre items y watchlist: {overlapping_ids}")
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--data", required=True)
+    parser.add_argument("--out", required=True)
+    parser.add_argument("--today", default=site_today().isoformat())
+    parser.add_argument("--check", action="store_true")
+    args = parser.parse_args()
+    items = load_items(args.data)
+    watchlist = load_watchlist(args.data)
+    ensure_disjoint_ids(items, watchlist)
+    today = iso_date(args.today, "today")
+    if args.check:
+        states = {name: sum(state(item, today) == name and item.get("published") for item in items) for name in ("open", "closing_soon", "stale", "expired")}
+        print(f"OK items={len(items)} active={states['open'] + states['closing_soon']} watch={len(watch_items(watchlist, today))} stale={states['stale']} expired={states['expired']}")
+        return
+    out = Path(args.out)
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "index.html").write_text(build_html(items, today, watchlist), encoding="utf-8", newline="\n")
+    (out / "opportunities.json").write_text(public_json(items, today, watchlist), encoding="utf-8", newline="\n")
+    (out / "deadlines.ics").write_text(build_ics(items, today), encoding="utf-8", newline="")
+    active = len(active_items(items, today))
+    watch = len(watch_items(watchlist, today))
+    expired = len(expired_items(items, today))
+    print(f"built active={active} watch={watch} expired={expired} hidden={len(items) - active - expired}")
+
+def build_html(items, today, watchlist=None):
+    """Pagina completa del radar, con el shell generado desde el contrato.
+
+    El shell ya no vive en la plantilla de este fichero: lo pone
+    scripts/build-site-shell.py desde data/navigation.json, igual que en el
+    resto del sitio. Ver scripts/site_shell.py.
+    """
+    html = inject_shell_auto(render_page_body(items, today, watchlist))
+    # Una seccion vacia (sin vigilancia, sin activas) deja la linea de su
+    # sangria sola; `git diff --check` la rechaza y el refresco nocturno
+    # no publicaba (19/11). Se limpia toda linea, no el caso concreto.
+    return "\n".join(line.rstrip() for line in html.split("\n"))
+
+
+if __name__ == "__main__":
+    main()
