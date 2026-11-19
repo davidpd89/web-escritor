@@ -35,3 +35,9 @@ def pendientes(rollup, propios=()):
     """Checks propios que aún no han terminado."""
     return [c for c in rollup or [] if cuenta(c, propios)
             and ((c.get('status') or 'COMPLETED').upper() != 'COMPLETED' or estado(c) in ('PENDING', 'EXPECTED', ''))]
+
+
+def verdes(rollup, propios=()):
+    """Nombres de los checks propios que terminaron en verde. Sin ninguno (lista vacía, todo cancelado u omitido) no
+    hay prueba de que la PR funcione."""
+    return sorted({nombre(c) for c in rollup or [] if cuenta(c, propios) and estado(c) == 'SUCCESS'})

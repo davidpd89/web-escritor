@@ -24,6 +24,11 @@ async function open(market, { width = 1280, javaScriptEnabled = true, path = '/r
   const page = await context.newPage();
   if (javaScriptEnabled) await page.clock.install({ time: now });
   await page.goto(origin + path, { waitUntil: 'networkidle' });
+  // networkidle no espera a la hidratación: con 4946 libros el orden y los controles cambiaban después de leerlos
+  // (15/11, «más vendidos» leído sobre el orden previo). Se espera a que el catálogo se declare listo.
+  if (javaScriptEnabled && path.startsWith('/recomendaciones/')) {
+    await page.waitForFunction(() => document.querySelector('[data-reading-catalogue]')?.dataset.catalogueReady === 'true', null, { timeout: 120000 });
+  }
   return { context, page, external };
 }
 const noScores = async (page, where) => {
