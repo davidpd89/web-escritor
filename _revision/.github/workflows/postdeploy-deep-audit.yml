@@ -1,0 +1,667 @@
+name: Post-deploy deep audit
+
+on:
+  pull_request:
+    paths:
+      - 'qa/production-professional-resources-audit.mjs'
+      - 'qa/site-civil-clock.mjs'
+      - 'tests/test-site-civil-clock.mjs'
+      - 'tests/test-python-test-discovery-structure.py'
+      - 'tests/test-event-calendars.py'
+      - 'qa/adaptive-formats-production.mjs'
+      - 'qa/production-global-integrity-audit.mjs'
+      - 'qa/production-semantic-parity.mjs'
+      - 'qa/production-cross-engine-smoke.mjs'
+      - 'qa/production-rotating-cross-engine.mjs'
+      - 'qa/production-runtime-dom-audit.mjs'
+      - 'qa/production-runtime-interactive-contract.mjs'
+      - 'qa/production-focus-restoration.mjs'
+      - 'qa/production-metadata-artifacts-audit.mjs'
+      - 'qa/production-edge-cases.mjs'
+      - 'qa/production-release-marker.mjs'
+      - 'qa/production-url-normalization.mjs'
+      - 'qa/production-url-alias-canonical.mjs'
+      - 'qa/production-session-resilience.mjs'
+      - 'qa/production-pwa-install.mjs'
+      - 'qa/production-pwa-page-cache.mjs'
+      - 'qa/production-pwa-network-first-refresh.mjs'
+      - 'qa/production-cross-page-fragments.mjs'
+      - 'qa/production-nojs-history.mjs'
+      - 'qa/production-asset-parity.mjs'
+      - 'qa/production-pagefind-search.mjs'
+      - 'qa/test-production-pagefind-retry.mjs'
+      - 'qa/production-pagefind-coverage.mjs'
+      - 'qa/production-format-contract.mjs'
+      - 'qa/production-http-semantics.mjs'
+      - 'qa/production-public-artifacts.mjs'
+      - 'qa/production-jsonld-link-integrity.mjs'
+      - 'qa/production-media-decode.mjs'
+      - 'qa/production-compact-landscape.mjs'
+      - 'qa/production-rotating-device-audit.mjs'
+      - 'qa/keyboard-focus-state.mjs'
+      - 'qa/keyboard-focus-state.test.mjs'
+      - 'qa/production-short-viewport-history.mjs'
+      - 'qa/production-filter-input-fuzz.mjs'
+      - 'qa/production-radar-timezone.mjs'
+      - 'qa/production-late-widget-audit.mjs'
+      - 'qa/production-script-failure-resilience.mjs'
+      - 'scripts/check-*.py'
+      - 'scripts/audit-public-email-exposure.py'
+      - 'scripts/asset-version-hashes.json'
+      - '.github/workflows/postdeploy-deep-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'qa/production-professional-resources-audit.mjs'
+      - 'qa/site-civil-clock.mjs'
+      - 'tests/test-site-civil-clock.mjs'
+      - 'qa/adaptive-formats-production.mjs'
+      - 'qa/production-global-integrity-audit.mjs'
+      - 'qa/production-semantic-parity.mjs'
+      - 'qa/production-cross-engine-smoke.mjs'
+      - 'qa/production-rotating-cross-engine.mjs'
+      - 'qa/production-runtime-dom-audit.mjs'
+      - 'qa/production-runtime-interactive-contract.mjs'
+      - 'qa/production-focus-restoration.mjs'
+      - 'qa/production-metadata-artifacts-audit.mjs'
+      - 'qa/production-edge-cases.mjs'
+      - 'qa/production-release-marker.mjs'
+      - 'qa/production-url-normalization.mjs'
+      - 'qa/production-url-alias-canonical.mjs'
+      - 'qa/production-session-resilience.mjs'
+      - 'qa/production-pwa-install.mjs'
+      - 'qa/production-pwa-page-cache.mjs'
+      - 'qa/production-pwa-network-first-refresh.mjs'
+      - 'qa/production-cross-page-fragments.mjs'
+      - 'qa/production-nojs-history.mjs'
+      - 'qa/production-asset-parity.mjs'
+      - 'qa/production-pagefind-search.mjs'
+      - 'qa/test-production-pagefind-retry.mjs'
+      - 'qa/production-pagefind-coverage.mjs'
+      - 'qa/production-format-contract.mjs'
+      - 'qa/production-http-semantics.mjs'
+      - 'qa/production-public-artifacts.mjs'
+      - 'qa/production-jsonld-link-integrity.mjs'
+      - 'qa/production-media-decode.mjs'
+      - 'qa/production-compact-landscape.mjs'
+      - 'qa/production-rotating-device-audit.mjs'
+      - 'qa/keyboard-focus-state.mjs'
+      - 'qa/keyboard-focus-state.test.mjs'
+      - 'qa/production-short-viewport-history.mjs'
+      - 'qa/production-filter-input-fuzz.mjs'
+      - 'qa/production-radar-timezone.mjs'
+      - 'qa/production-late-widget-audit.mjs'
+      - 'qa/production-script-failure-resilience.mjs'
+      - 'scripts/check-*.py'
+      - 'scripts/audit-public-email-exposure.py'
+      - 'scripts/asset-version-hashes.json'
+      - '.github/workflows/postdeploy-deep-audit.yml'
+  workflow_run:
+    workflows: ['Deploy Pages']
+    types: [completed]
+  schedule:
+    - cron: '41 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # Un solo grupo para todo lo que audita producción (deploy, cron y lanzamiento manual): dos auditorías a
+  # la vez se reparten la cuota de GitHub Pages, provocan tormentas de 429 y agotan el límite del job
+  # (11/11: 11:20+11:25 y 12:32+12:33). PR y push solo prueban la rama y siguen agrupados por ref.
+  group: postdeploy-deep-audit-${{ (github.event_name == 'pull_request' || github.event_name == 'push') && github.ref || 'production' }}
+  cancel-in-progress: ${{ github.event_name == 'workflow_run' }}
+
+
+# Reloj estricto (site_clock.clock_window): la auditoría del sitio publicado vigila la frescura exacta.
+# Las PR aceptan generados de hasta 2 días; esto no.
+env:
+  # Estricto (solo hoy) en push, cron y dispatch; en PR, la gracia de site_clock (unos generados de ayer no tumban la PR).
+  RELOJ_ESTRICTO: ${{ github.event_name == 'pull_request' && '0' || '1' }}
+
+jobs:
+  static-regression:
+    if: github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install shared Python dependencies
+        run: python -m pip install --requirement scripts/requirements.txt
+
+      - name: Check JS Europe/Madrid civil clock boundaries
+        run: node tests/test-site-civil-clock.mjs
+
+      - name: Run Python test-discovery and calendar regressions
+        run: |
+          python tests/test-python-test-discovery-structure.py
+          python tests/test-event-calendars.py
+
+      - name: Syntax-check new production audits
+        run: |
+          node --check qa/production-professional-resources-audit.mjs
+          node --check qa/site-civil-clock.mjs
+          node --check tests/test-site-civil-clock.mjs
+          node --check qa/adaptive-formats-production.mjs
+          node --check qa/production-global-integrity-audit.mjs
+          node --check qa/production-semantic-parity.mjs
+          node --check qa/production-cross-engine-smoke.mjs
+          node --check qa/production-rotating-cross-engine.mjs
+          node --check qa/production-runtime-dom-audit.mjs
+          node --check qa/production-runtime-interactive-contract.mjs
+          node --check qa/production-focus-restoration.mjs
+          node --check qa/production-metadata-artifacts-audit.mjs
+          node --check qa/production-edge-cases.mjs
+          node --check qa/production-release-marker.mjs
+          node --check qa/production-fetch.mjs
+          node --check qa/production-session-resilience.mjs
+          node --check qa/production-pwa-install.mjs
+          node --check qa/production-pwa-page-cache.mjs
+          node --check qa/production-pwa-network-first-refresh.mjs
+          node --check qa/production-cross-page-fragments.mjs
+          node --check qa/production-nojs-history.mjs
+          node --check qa/production-url-normalization.mjs
+          node --check qa/production-url-alias-canonical.mjs
+          node --check qa/production-asset-parity.mjs
+          node --check qa/production-pagefind-search.mjs
+          node --check qa/test-production-pagefind-retry.mjs
+          node --check qa/production-pagefind-coverage.mjs
+          node --check qa/production-format-contract.mjs
+          node --check qa/production-http-semantics.mjs
+          node --check qa/production-public-artifacts.mjs
+          node --check qa/production-jsonld-link-integrity.mjs
+          node --check qa/production-media-decode.mjs
+          node --check qa/production-compact-landscape.mjs
+          node --check qa/production-rotating-device-audit.mjs
+          node --check qa/production-short-viewport-history.mjs
+          node --check qa/production-filter-input-fuzz.mjs
+          node --check qa/production-radar-timezone.mjs
+          node --check qa/production-late-widget-audit.mjs
+          node --check qa/production-script-failure-resilience.mjs
+          node tests/test-production-fetch.mjs
+
+      - name: Re-run global static contracts after main integration
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/check-professional-resources.py
+          python scripts/check-global-discoverability.py
+          python scripts/check-dom-integrity.py
+          python scripts/check-seo-meta-quality.py
+          python scripts/check-breadcrumb-parity.py
+          python scripts/check-heading-structure.py
+          python scripts/check-jsonld-absolute-urls.py
+          python scripts/check-responsive-images.py
+          python scripts/check-social-cards.py --strict
+          python scripts/check-local-assets.py
+          python scripts/check-internal-graph.py
+          python scripts/check-navigation-coverage.py
+          python scripts/check-asset-versions.py
+          python scripts/check-secrets.py
+          python scripts/audit-public-email-exposure.py --strict
+          python scripts/check-wikidata-sameas.py
+          python scripts/check-copy-tildes.py
+          python scripts/check-public-text-encoding.py
+          python scripts/check-public-html-safety.py
+          python scripts/check-head-icons.py --check
+          python tests/test-head-icon-normalizer.py
+          python scripts/check-interaction-a11y-contracts.py
+          python scripts/check-public-document-form-contract.py
+          python scripts/check-hrefs.py
+          python scripts/check-orphan-assets.py --exclude-campaign-assets
+
+      - name: Generate consolidated static evidence
+        run: python scripts/release-readiness.py --output artifacts/postdeploy/static-readiness.md
+
+      - name: Upload static evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: postdeploy-static-evidence
+          path: artifacts/postdeploy/
+          if-no-files-found: warn
+          retention-days: 14
+
+  production-focus-contract:
+    # Este contrato se corre tambien en la propia PR, y contra un servidor local
+    # de la rama, no contra produccion: a diferencia del resto de este workflow
+    # comprueba comportamiento que la PR acaba de cambiar, y produccion todavia
+    # sirve el anterior.
+    name: production-focus-contract
+    if: >-
+      github.event_name == 'pull_request' ||
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      SITE_BASE_URL: ${{ github.event_name == 'pull_request' && 'http://127.0.0.1:4173' || 'https://davidportodiaz.com' }}
+    steps:
+      - name: Checkout audit code
+        uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies
+        run: npm ci
+
+      - name: Cache Playwright Chromium
+        id: playwright-focus-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium with OS dependencies
+        if: steps.playwright-focus-cache.outputs.cache-hit != 'true'
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
+
+      - name: Install browser OS dependencies only
+        if: steps.playwright-focus-cache.outputs.cache-hit == 'true'
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium
+
+      - name: Materializar generados
+        if: github.event_name == 'pull_request'
+        uses: ./.github/actions/materializar
+
+      - name: Start local branch server for pull-request focus audit
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/focus-contract-http.log 2>&1 &
+          echo $! > /tmp/focus-contract-http.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/focus-contract-http.log
+          exit 1
+
+      - name: Test keyboard focus observation regressions
+        run: node qa/keyboard-focus-state.test.mjs
+
+      - name: Regression - Pagefind audit recovers from a rotated index
+        if: github.event_name == 'pull_request'
+        run: node qa/test-production-pagefind-retry.mjs
+
+      - name: Audit focus trapping and restoration
+        run: node qa/production-focus-restoration.mjs
+
+  production-parity:
+    if: >-
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-24.04
+    # 30: el carril lento de production-fetch puede añadir minutos cuando GitHub Pages limita (429);
+    # +15: reconstruir como el despliegue (~4-8 min).
+    timeout-minutes: 45
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+      EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - name: Checkout audited release
+        uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      # Desde R4-4 el despliegue rehace lo generado con el día de Madrid (CATALOGO_HOY): el árbol del commit no
+      # es lo publicado. Se lee el día del despliegue en /version.json y se reconstruye igual que deploy-pages.
+      - name: Día con el que se construyó el despliegue
+        id: dia
+        shell: bash
+        run: |
+          set -euo pipefail
+          version=$(curl -fsS --retry 3 "$SITE_BASE_URL/version.json")
+          hoy=$(printf '%s' "$version" | python3 -c 'import json,sys; print(json.load(sys.stdin)["hoy"])')
+          sha=$(printf '%s' "$version" | python3 -c 'import json,sys; print(json.load(sys.stdin)["sha"])')
+          [[ "$hoy" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || { echo "::error::version.json sin día válido: $hoy"; exit 1; }
+          [ "$sha" = "$EXPECTED_RELEASE_SHA" ] || echo "::warning::Producción sirve $sha, se audita $EXPECTED_RELEASE_SHA."
+          echo "hoy=$hoy" >> "$GITHUB_OUTPUT"
+
+      - name: Construir como el despliegue
+        uses: ./.github/actions/construir-como-despliegue
+        with:
+          hoy: ${{ steps.dia.outputs.hoy }}
+
+      - name: Audit exact production parity and real-clock freshness
+        run: node qa/production-professional-resources-audit.mjs
+
+      - name: Audit whole-site production integrity
+        run: node qa/production-global-integrity-audit.mjs
+
+      - name: Audit deployed semantic metadata parity
+        run: node qa/production-semantic-parity.mjs
+
+      - name: Audit live internal URLs referenced by JSON-LD
+        run: node qa/production-jsonld-link-integrity.mjs
+
+      - name: Audit production URL normalization
+        run: node qa/production-url-normalization.mjs
+
+      - name: Audit index.html aliases against canonical metadata
+        run: node qa/production-url-alias-canonical.mjs
+
+      - name: Audit production static asset parity
+        run: node qa/production-asset-parity.mjs
+
+      - name: Audit production raw formats and MIME types
+        run: node qa/production-format-contract.mjs
+
+      - name: Audit production HTTP semantics and media ranges
+        run: node qa/production-http-semantics.mjs
+
+      - name: Audit deployed RSS, editorial sitemap and event calendars
+        run: node qa/production-public-artifacts.mjs
+
+      - name: Audit production metadata and non-HTML artifacts
+        run: node qa/production-metadata-artifacts-audit.mjs
+
+      - name: Observe production security headers
+        run: node qa/live-security-headers.mjs
+
+      - name: Observe production compression negotiation
+        run: node qa/live-compression-origin.mjs
+
+      - name: Upload production evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: postdeploy-production-evidence
+          path: |
+            artifacts/security-headers/
+            artifacts/compression/
+          if-no-files-found: warn
+          retention-days: 14
+
+  production-cross-engine:
+    name: production-cross-engine
+    if: >
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') ||
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch'
+    needs: production-parity
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+      EXPECTED_RELEASE_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - name: Checkout audited release
+        uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+          ref: ${{ env.EXPECTED_RELEASE_SHA }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cross-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-cross-engine-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Chromium, Firefox and WebKit with OS dependencies
+        if: steps.playwright-cross-cache.outputs.cache-hit != 'true'
+        run: bash scripts/ci/playwright-install-deps.sh full chromium firefox webkit
+
+      - name: Install browser OS dependencies only
+        if: steps.playwright-cross-cache.outputs.cache-hit == 'true'
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium firefox webkit
+
+      - name: Audit production in Chromium, Firefox and WebKit
+        run: node qa/production-cross-engine-smoke.mjs
+
+      - name: Audit deployed Pagefind search
+        run: node qa/production-pagefind-search.mjs
+
+      - name: Audit distributed Pagefind coverage
+        run: node qa/production-pagefind-coverage.mjs
+
+  adaptive-formats:
+    needs: production-parity
+    # Auditoría pesada de formatos: solo nocturna o manual, no tras cada deploy.
+    if: >-
+      always() && needs.production-parity.result == 'success' &&
+      (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+      EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - name: Checkout audited release
+        uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium with OS dependencies
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
+
+      - name: Install Playwright OS dependencies only
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium
+
+      - name: Audit production runtime DOM after JavaScript
+        run: node qa/production-runtime-dom-audit.mjs
+
+      - name: Audit runtime links, media and form control semantics
+        run: node qa/production-runtime-interactive-contract.mjs
+
+      - name: Audit deployed image decoding
+        run: node qa/production-media-decode.mjs
+
+      - name: Audit compact landscape production layouts
+        run: node qa/production-compact-landscape.mjs
+
+      - name: Audit print, reduced motion, forced colors and webfont failure
+        run: node qa/adaptive-formats-production.mjs
+
+      - name: Audit blocked storage and live orientation changes
+        run: node qa/production-session-resilience.mjs
+
+      - name: Audit tiny viewports, 200% text scaling and keyboard paths
+        run: node qa/production-edge-cases.mjs
+
+      - name: Audit production PWA installability and active caches
+        run: node qa/production-pwa-install.mjs
+
+      - name: Audit real production page-cache population
+        run: node qa/production-pwa-page-cache.mjs
+
+      - name: Audit network-first replacement of stale page cache
+        run: node qa/production-pwa-network-first-refresh.mjs
+
+      - name: Audit cross-page fragment targets
+        run: node qa/production-cross-page-fragments.mjs
+
+      - name: Audit no-JS fallback and browser history state
+        run: node qa/production-nojs-history.mjs
+
+      - name: Audit short mobile viewport and cross-page history restoration
+        run: node qa/production-short-viewport-history.mjs
+
+      - name: Audit filter inputs with Unicode and malformed URL state
+        run: node qa/production-filter-input-fuzz.mjs
+
+      - name: Audit radar date invariance across visitor time zones
+        run: node qa/production-radar-timezone.mjs
+
+      - name: Audit late-loaded assistant widget in production
+        run: node qa/production-late-widget-audit.mjs
+
+      - name: Audit server-rendered resilience when critical JS fails
+        run: node qa/production-script-failure-resilience.mjs
+
+  rotating-production-sample:
+    name: rotating-production-sample
+    needs: production-parity
+    # Muestra rotativa: solo nocturna o manual; tras cada deploy repetía la muestra sin libros nuevos.
+    if: >-
+      always() && needs.production-parity.result == 'success' &&
+      (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+      EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - name: Checkout audited release
+        uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies
+        run: npm ci
+
+      - name: Cache Playwright Chromium
+        id: playwright-rotating-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium with OS dependencies
+        if: steps.playwright-rotating-cache.outputs.cache-hit != 'true'
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
+
+      - name: Install Playwright OS dependencies only
+        if: steps.playwright-rotating-cache.outputs.cache-hit == 'true'
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium
+
+      - name: Audit rotating production pages across device classes and keyboard
+        run: node qa/production-rotating-device-audit.mjs
+
+      - name: Upload rotating device failure evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: rotating-production-device-evidence
+          path: artifacts/rotating-device/
+          if-no-files-found: ignore
+          retention-days: 14
+
+  rotating-cross-engine-production:
+    name: rotating-cross-engine-production
+    needs: production-parity
+    # Muestra rotativa: solo nocturna o manual; tras cada deploy repetía la muestra sin libros nuevos.
+    if: >-
+      always() && needs.production-parity.result == 'success' &&
+      (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      SITE_BASE_URL: https://davidportodiaz.com
+      EXPECTED_RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - name: Checkout audited release
+        uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-rotating-cross-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-cross-engine-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Chromium, Firefox and WebKit with OS dependencies
+        if: steps.playwright-rotating-cross-cache.outputs.cache-hit != 'true'
+        run: bash scripts/ci/playwright-install-deps.sh full chromium firefox webkit
+
+      - name: Install browser OS dependencies only
+        if: steps.playwright-rotating-cross-cache.outputs.cache-hit == 'true'
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium firefox webkit
+
+      - name: Audit rotating secondary pages in Chromium, Firefox and WebKit
+        run: node qa/production-rotating-cross-engine.mjs
