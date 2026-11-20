@@ -31,7 +31,7 @@ def strings(value):
 
 
 def suspicious(book):
-    return {token for text in strings(book) for token in encoding.MOJIBAKE if token in text}
+    return {token for text in strings(book) for token, _at in encoding.mojibake_hits(text)}
 
 
 class ReadingTextEncodingTest(unittest.TestCase):
@@ -42,9 +42,16 @@ class ReadingTextEncodingTest(unittest.TestCase):
         incumplen('texto sin mojibake', bad)
 
     def test_detector_sees_the_known_cases(self):
-        self.assertTrue(suspicious({'titulo': 'El origen de los Âsanas'}))
+        self.assertTrue(suspicious({'titulo': 'Cuentos Â· de otoño'}))
+        self.assertTrue(suspicious({'titulo': 'MarÃ­a y la sombra'}))
+        self.assertTrue(suspicious({'titulo': 'Niâ€™s'}))
         self.assertTrue(suspicious({'autores': ['Ana �']}))
         self.assertFalse(suspicious({'titulo': 'El origen de los Ásanas', 'autores': ['Isabel Hernández']}))
+
+    def test_sanskrit_and_uppercase_letters_are_not_mojibake(self):
+        # Transliteración del sánscrito y mayúsculas portuguesas: letras reales, no codificación rota.
+        for texto in ('El origen de los Âsanas', 'Mândûkyakârikâ', 'SÃO PAULO', 'Âtman'):
+            self.assertFalse(suspicious({'titulo': texto}), texto)
 
 
 if __name__ == '__main__':
