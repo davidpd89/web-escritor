@@ -7,7 +7,6 @@ fallida («Pages failed ... 41919892051») por esa cancelación. Un fallo real s
 """
 import importlib.util
 import json
-import subprocess
 from pathlib import Path
 from unittest.mock import patch
 
@@ -124,6 +123,8 @@ respuestas = {'404': 'HTTP/2.0 404 Not Found\r\nX: y\r\n\r\n{"message": "Not Fou
               '200': 'HTTP/2.0 200 OK\r\nX: y\r\n\r\n' + json.dumps({'id': 7, 'head_sha': 's', 'status': 'completed', 'conclusion': 'success'})}
 with patch.object(module.subprocess, 'run', lambda cmd, **k: Salida(respuestas['404' if cmd[-1].endswith('/1') else '200'])):
     assert module.consultar_ejecucion('o/r', 1) == (404, None)
+    respuestas['404'] = ''  # sin respuesta (fallo de red): código 0, se reintenta
+    assert module.consultar_ejecucion('o/r', 1) == (0, None)
     assert module.consultar_ejecucion('o/r', 7) == (200, {'databaseId': 7, 'headSha': 's', 'status': 'completed', 'conclusion': 'success'})
 esperas, ahora = [], [0.0]
 def dormir(s):
@@ -137,6 +138,9 @@ with patch.object(module, 'consultar_ejecucion', lambda r, i: (404, None)),     
     else:
         raise AssertionError('un 404 permanente debe fallar')
 assert sum(esperas) == 25 and esperas[-1] == 5, esperas
+intentos = iter([(0, None), (502, None), (200, {'databaseId': 1})])
+with patch.object(module, 'consultar_ejecucion', lambda r, i: next(intentos)), patch.object(module.time, 'sleep', lambda s: None):
+    assert module.ejecucion('o/r', 1) == {'databaseId': 1}
 with patch.object(module, 'consultar_ejecucion', lambda r, i: (403, None)):
     try:
         module.ejecucion('o/r', 1)

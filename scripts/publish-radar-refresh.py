@@ -248,7 +248,10 @@ def consultar_ejecucion(repo, run_id):
     cabecera, _, cuerpo = salida.replace('\r\n', '\n').partition('\n\n')
     partes = cabecera.split(None, 2)
     if len(partes) < 2 or not partes[0].startswith('HTTP/') or not partes[1].isdigit():
-        raise RuntimeError(f'Respuesta sin estado HTTP al leer la ejecución {run_id}: {salida[:200]!r}')
+        # Sin línea de estado no hubo respuesta (red caída, conexión cortada): código 0, que se reintenta como un
+        # 5xx dentro de la misma espera acotada (CodeRabbit #1508).
+        print(f'gh api {run_id}: sin respuesta HTTP; se reintenta', file=sys.stderr, flush=True)
+        return 0, None
     codigo = int(partes[1])
     if codigo != 200:
         return codigo, None
@@ -268,7 +271,7 @@ def ejecucion(repo, run_id, hasta=None, espera=180):
         codigo, run = consultar_ejecucion(repo, run_id)
         if run is not None:
             return run
-        if not (codigo == 404 or codigo >= 500):
+        if not (codigo in (0, 404) or codigo >= 500):
             raise RuntimeError(f'No se pudo leer la ejecución {run_id}: HTTP {codigo}')
         restante = limite - time.monotonic()
         if restante <= 0:
