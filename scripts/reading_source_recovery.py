@@ -40,12 +40,24 @@ def recover(root, source, base, latest, skipped=None):
     def provenance(book):
         evidence = old_state.get('items', {}).get('isbn13:' + book.get('isbn13', ''), {})
         return evidence.get('estado_ingesta') == 'publicado' and evidence.get('libro_id') == book['id']
+    # Un nombre del almacén sin huella en el manifiesto de origen no prueba que sus bytes llegaran al almacén
+    # (20/11, #1500: la carga 44767256039 dio de alta 500 nombres y su runner murió antes de subirlos). Esos
+    # nombres no viajan y sus libros se apartan como los que no tienen procedencia: la consulta siguiente los rehace.
+    store_file = 'data/reading-covers-store.json'
+    store_old = document(root, source, store_file, {'archivos': [], 'sha256': {}})
+    old_digests = store_old.get('sha256') or {}
+    unproven = {n for n in store_old.get('archivos', []) if n not in old_digests}
+
+    def cover_unproven(book):
+        name = book.get('portada_local', '').rsplit('/', 1)[-1]
+        return bool(name) and (name in unproven or name.replace('.webp', '-320.webp') in unproven)
     orphans = [b['id'] for b in additions if b['id'].startswith('isbn-') and not provenance(b)]
-    if orphans:
+    stranded = [b['id'] for b in previous['libros'] if cover_unproven(b) and b['id'] not in orphans]
+    if orphans or stranded:
         if skipped is None:
-            raise ValueError('La recuperación no tiene procedencia publicada: ' + ', '.join(orphans))
-        skipped.extend(orphans)
-        known |= set(orphans)
+            raise ValueError('La recuperación no tiene procedencia publicada: ' + ', '.join(orphans + stranded))
+        skipped.extend(orphans + stranded)
+        known |= set(orphans) | set(stranded)
         additions = [b for b in additions if b['id'] not in known]
     ids = {b['id'] for b in additions}
     changed = {}
@@ -59,6 +71,8 @@ def recover(root, source, base, latest, skipped=None):
     untouched = set(ids)
     for book in previous['libros']:
         old, i = base_books.get(book['id']), position.get(book['id'])
+        if book['id'] in stranded:
+            continue
         if old is not None and i is not None and current['libros'][i] == old:
             untouched.add(book['id'])
             if book != old:
@@ -123,14 +137,13 @@ def recover(root, source, base, latest, skipped=None):
             changed[market_file] = market
     # Portadas del almacén externo: el manifiesto viaja como unión (main gana en sus nombres). Es seguro porque el
     # almacén es de solo añadir y el punto de guardado solo se escribe con sus bytes ya subidos (CodeRabbit #1495).
-    store_file = 'data/reading-covers-store.json'
     store_now = document(root, latest, store_file, {'base_url': '', 'archivos': [], 'sha256': {}})
-    store_old = document(root, source, store_file, {'archivos': [], 'sha256': {}})
-    extra_names = [n for n in store_old.get('archivos', []) if n not in set(store_now.get('archivos', []))]
+    present = set(store_now.get('archivos', []))
+    extra_names = [n for n in store_old.get('archivos', []) if n not in present and n not in unproven]
     if extra_names:
         store_now['base_url'] = store_now.get('base_url') or store_old.get('base_url', '')
-        store_now['archivos'] = sorted({*store_now.get('archivos', []), *extra_names})
-        store_now['sha256'] = {**{n: store_old['sha256'][n] for n in extra_names}, **store_now.get('sha256', {})}
+        store_now['archivos'] = sorted(present | set(extra_names))
+        store_now['sha256'] = {**{n: old_digests[n] for n in extra_names}, **store_now.get('sha256', {})}
         changed[store_file] = store_now
     # Portadas/audio de las altas y de los libros que main no tocó, con una lectura conjunta de blobs.
     moved = [b for b in previous['libros'] if b['id'] in untouched]

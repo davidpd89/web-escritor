@@ -78,6 +78,27 @@ class RecoveryTests(unittest.TestCase):
    manifest=json.loads((repo.work/store).read_text(encoding='utf-8'))
    self.assertEqual(manifest['archivos'],['compartida.webp','isbn-9780241838044.webp','main.webp'])
    self.assertEqual(manifest['sha256'],{'compartida.webp':'3'*64,'isbn-9780241838044.webp':'1'*64,'main.webp':'4'*64})
+ def test_a_legacy_manifest_without_digests_sets_its_books_aside_instead_of_failing(self):
+  # #1500: el punto de guardado de una carga cuyo runner murió registró nombres sin huella y sin bytes subidos.
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-atascado-2026-11-20-legacy'
+   store='data/reading-covers-store.json';base='https://example.github.io/portadas'
+   repo.git('switch','-q','-c',branch,'origin/main')
+   data=json.loads(books('a','b','c','d','e','f'))
+   data['libros']+=[{'id':'isbn-9780241838044','isbn13':'9780241838044','portada_local':'/assets/reading-covers/isbn-9780241838044.webp'},
+                    {'id':'isbn-9780241838051','isbn13':'9780241838051'}]
+   items={'isbn13:'+i[5:]:{'estado_ingesta':'publicado','libro_id':i} for i in ('isbn-9780241838044','isbn-9780241838051')}
+   repo.write({CATALOGUE:json.dumps(data),'data/reading-intake-state.json':json.dumps({'schema_version':1,'items':items}),
+               store:json.dumps({'base_url':base,'archivos':['isbn-9780241838044.webp','isbn-9780241838044-320.webp']})})
+   repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
+   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book')})
+   skipped=[]
+   self.assertEqual(refresh.carry(branch,root=repo.work,skipped=skipped),['isbn-9780241838051'])
+   self.assertEqual(skipped,['isbn-9780241838044'])
+   ids={b['id'] for b in json.loads((repo.work/CATALOGUE).read_text())['libros']}
+   self.assertIn('isbn-9780241838051',ids);self.assertNotIn('isbn-9780241838044',ids)
+   manifest=repo.work/store
+   self.assertTrue(not manifest.exists() or 'isbn-9780241838044.webp' not in json.loads(manifest.read_text(encoding='utf-8'))['archivos'])
  def test_missing_provenance_fails_before_writing_a_conflicting_recovery(self):
   with tempfile.TemporaryDirectory() as tmp:
    repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-12-invalid'
