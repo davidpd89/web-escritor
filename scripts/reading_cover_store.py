@@ -12,6 +12,7 @@ Con el manifiesto vacío todo es un no-op: activar el almacén es dar de alta no
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -25,22 +26,29 @@ LOGICAL_PREFIX = '/assets/reading-covers/'
 SITE = 'https://davidportodiaz.com'
 NAME = re.compile(r'[a-z0-9][a-z0-9-]*\.(?:webp|jpg|jpeg|png)')
 TEXT_SUFFIXES = {'.html', '.json', '.js', '.mjs', '.xml', '.txt', '.css', '.webmanifest', '.rss'}
+DIGEST = re.compile(r'[0-9a-f]{64}')
 IMG_SRC = re.compile(r"(img-src[^;\"]*?)(?=;|\"|$)")
 
 
 def load(root: Path = ROOT) -> dict:
     path = root / MANIFEST
     if not path.is_file():
-        return {'base_url': '', 'archivos': []}
+        return {'base_url': '', 'archivos': [], 'sha256': {}}
     data = json.loads(path.read_text(encoding='utf-8'))
     base = str(data.get('base_url', '')).rstrip('/')
     names = data.get('archivos', [])
+    digests = data.get('sha256', {})
     if names and not (urlparse(base).scheme == 'https' and urlparse(base).netloc):
         raise ValueError(f'{MANIFEST}: base_url debe ser una URL https si hay archivos')
     bad = [n for n in names if not isinstance(n, str) or not NAME.fullmatch(n)]
     if bad:
         raise ValueError(f'{MANIFEST}: nombres no válidos: {bad[:3]}')
-    return {'base_url': base, 'archivos': sorted(set(names))}
+    # Cada portada del almacén lleva la huella de sus bytes: sin ella la validación no podría comprobar duplicados
+    # ni que el fichero publicado sea el que se validó al darlo de alta.
+    if not isinstance(digests, dict) or any(not isinstance(digests.get(n), str) or not DIGEST.fullmatch(digests[n]) for n in names):
+        raise ValueError(f'{MANIFEST}: cada archivo necesita su sha256')
+    unique = sorted(set(names))
+    return {'base_url': base, 'archivos': unique, 'sha256': {n: digests[n] for n in unique}}
 
 
 def names(root: Path = ROOT) -> set[str]:
@@ -143,45 +151,131 @@ def store_dir() -> Path | None:
     return Path(value) if value else None
 
 
-def register(root: Path, name: str) -> None:
+def digest(content: bytes) -> str:
+    return hashlib.sha256(content).hexdigest()
+
+
+def stored_digest(path: str, root: Path = ROOT) -> str | None:
+    """Huella registrada de una portada del almacén (None si no está en el almacén)."""
+    name = _name(path)
+    return load(root)['sha256'].get(name) if name else None
+
+
+def owner_of_bytes(content: bytes, root: Path = ROOT, *, exclude: str = '') -> str | None:
+    """Nombre de una portada principal del almacén con exactamente estos bytes (las -320 no cuentan)."""
+    wanted, skip = digest(content), _name(exclude)
+    for name, value in load(root)['sha256'].items():
+        if value == wanted and name != skip and not name.endswith('-320.webp'):
+            return name
+    return None
+
+
+def local_file(path: str, root: Path = ROOT) -> Path | None:
+    """Fichero con los bytes de una portada si están a mano: el del repo o el de la copia local del almacén."""
+    local = root / path.lstrip('/')
+    if local.is_file():
+        return local
+    directory, name = store_dir(), _name(path)
+    if directory and name and is_stored(path, root) and (directory / name).is_file():
+        return directory / name
+    return None
+
+
+def register(root: Path, name: str, sha256: str) -> None:
     path = root / MANIFEST
     data = load(root)
-    if name in data['archivos']:
+    if data['sha256'].get(name) == sha256:
         return
     data['archivos'] = sorted({*data['archivos'], name})
+    data['sha256'][name] = sha256
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + chr(10), encoding='utf-8', newline='')
 
 
+def goes_to_store(root: Path, path: str) -> bool:
+    """¿`put` escribiría esta ruta en el almacén? Sí con el almacén activo si la portada es nueva o ya está allí."""
+    name = _name(path)
+    return bool(store_dir() and name and (name in names(root) or not (root / path.lstrip('/')).exists()))
+
+
 def put(root: Path, path: str, content: bytes) -> Path:
-    """Guarda una portada. Con almacén activo, una portada nueva (sin fichero en este repo) o ya del almacén va allí
-    y se da de alta en el manifiesto; una portada local existente se sigue escribiendo en su sitio."""
+    """Guarda una portada. Con almacén activo, una portada nueva (sin fichero en este repo) va allí y se da de alta
+    en el manifiesto con su huella; una portada local existente se sigue escribiendo en su sitio.
+
+    El almacén es de solo añadir: un nombre ya dado de alta no cambia nunca de bytes (ValueError). Así deshacer un
+    cambio del catálogo (reversión del mercado, cuarentena, recuperación) basta para volver a la imagen vieja, que
+    sigue intacta; una portada sustituida recibe un nombre nuevo (`fresh_name`)."""
     target = root / path.lstrip('/')
     directory, name = store_dir(), _name(path)
-    if directory and name and (name in names(root) or not target.exists()):
+    if directory and name and goes_to_store(root, path):
+        value = digest(content)
+        known = load(root)['sha256'].get(name)
+        if known and known != value:
+            raise ValueError(f'{name}: el almacén no sobrescribe portadas dadas de alta; usar un nombre nuevo')
         directory.mkdir(parents=True, exist_ok=True)
         (directory / name).write_bytes(content)
-        register(root, name)
+        register(root, name, value)
         return directory / name
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_bytes(content)
     return target
 
 
-def flush(message: str = 'Portadas de la carga') -> int:
-    """Sube al almacén las portadas escritas con `put`. Devuelve cuántos ficheros nuevos o cambiados subió."""
+VERSION = re.compile(r'-v[0-9a-f]{8}$')
+
+
+def fresh_name(path: str, content: bytes) -> str:
+    """Ruta nueva para sustituir una portada del almacén: el mismo nombre con la huella de los bytes nuevos."""
+    stem, dot, ext = path.rpartition('.')
+    return f'{VERSION.sub("", stem)}-v{digest(content)[:8]}{dot}{ext}'
+
+
+def _store_git(directory: Path):
+    def git(*args, check=True):
+        return subprocess.run(['git', '-C', str(directory), *args], capture_output=True, text=True, check=check, encoding='utf-8')
+    return git
+
+
+def _commit_registered(git, directory: Path, root: Path, message: str) -> None:
+    """Commit con las portadas del manifiesto que estén en la copia local (los huérfanos se quedan fuera)."""
+    from git_estado import preparar  # rutas por stdin y literales: la regla de todos los publicadores
+    preparar(directory, sorted(n for n in names(root) if (directory / n).is_file()))
+    if git('diff', '--cached', '--quiet', check=False).returncode:
+        git('-c', 'user.name=github-actions[bot]', '-c', 'user.email=41898282+github-actions[bot]@users.noreply.github.com',
+            'commit', '-q', '-m', message)
+
+
+def _push_once(git) -> int | None:
+    """Un intento de subida. Devuelve los ficheros publicados (0 si no había nada) o None si el push fue rechazado."""
+    if git('ls-remote', '--exit-code', '--heads', 'origin', 'main', check=False).returncode == 2:
+        # origin aún sin rama main (almacén nuevo): se publica tal cual
+        pending = [line for line in git('ls-tree', '-r', '--name-only', 'HEAD').stdout.splitlines() if line.strip()]
+    else:
+        git('fetch', '--quiet', 'origin', 'main')
+        if git('rev-list', '--count', 'origin/main..HEAD').stdout.strip() == '0':
+            return 0
+        if git('rebase', '--quiet', 'origin/main', check=False).returncode:
+            git('rebase', '--abort', check=False)
+            raise RuntimeError('Almacén de portadas: el rebase sobre origin/main choca; no se sube nada')
+        pending = [line for line in git('diff', '--name-only', 'origin/main', 'HEAD').stdout.splitlines() if line.strip()]
+    return None if git('push', '--quiet', 'origin', 'HEAD:main', check=False).returncode else len(pending)
+
+
+def flush(message: str = 'Portadas de la carga', root: Path = ROOT) -> int:
+    """Sube al almacén las portadas del manifiesto escritas con `put`. Devuelve cuántos ficheros publicó.
+
+    Solo sube nombres dados de alta en el manifiesto actual: lo que una reversión quitó de él se queda fuera. Un
+    commit de un intento anterior que no llegó a subirse se vuelve a intentar; si el rebase choca, se aborta y
+    falla (nunca se da por subido lo que no está en origin)."""
     directory = store_dir()
     if not directory:
         return 0
-
-    def git(*args, check=True):
-        return subprocess.run(['git', '-C', str(directory), *args], capture_output=True, text=True, check=check, encoding='utf-8')
-    git('add', '-A')
-    changed = [line for line in git('status', '--porcelain').stdout.splitlines() if line.strip()]
-    if not changed:
-        return 0
-    git('-c', 'user.name=github-actions[bot]', '-c', 'user.email=41898282+github-actions[bot]@users.noreply.github.com',
-        'commit', '-q', '-m', f'{message} ({len(changed)} ficheros)')
-    git('pull', '--rebase', '--quiet', check=False)
-    git('push', '--quiet', 'origin', 'HEAD:main')
-    return len(changed)
+    git = _store_git(directory)
+    _commit_registered(git, directory, root, message)
+    if git('rev-parse', '--verify', '--quiet', 'HEAD', check=False).returncode:
+        return 0  # almacén recién creado y sin nada que subir
+    for _ in range(3):
+        published = _push_once(git)
+        if published is not None:
+            return published
+    raise RuntimeError('Almacén de portadas: no se pudo subir tras 3 intentos')

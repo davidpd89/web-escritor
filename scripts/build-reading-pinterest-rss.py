@@ -180,7 +180,7 @@ def target_url(site: str, slug: str, book_id: str, board_slug: str) -> str:
 
 
 def build_feed(board: dict, entries: list[dict], state: dict,
-               today: date, site: str, cap: int) -> str:
+               today: date, site: str, cap: int, catalogue_root: Path = ROOT) -> str:
     root = ET.Element("rss", {"version": "2.0"})
     ch = ET.SubElement(root, "channel")
     for tag, value in (("title", board["name"]),
@@ -211,7 +211,7 @@ def build_feed(board: dict, entries: list[dict], state: dict,
         ET.SubElement(item, "pubDate").text = format_datetime(dt, usegmt=True)
         path = entry["image"]
         ET.SubElement(item, f"{{{MEDIA_NS}}}content", {
-            "url": cover_store.public_url(path, ROOT, site=site),
+            "url": cover_store.public_url(path, catalogue_root, site=site),
             "type": ALLOWED_IMAGE_EXTENSIONS[Path(path).suffix.lower()]
         })
     ET.indent(root, space="  ")
@@ -244,7 +244,7 @@ def expected_files(root: Path, config: dict, data: dict, state: dict,
         if not SLUG.fullmatch(slug):
             raise ValueError("Slug de tablero inválido")
         outputs[root / OUTPUT / (slug + ".xml")] = build_feed(
-            board, entries, state, today, site, cap)
+            board, entries, state, today, site, cap, root)
     return outputs, entries
 
 

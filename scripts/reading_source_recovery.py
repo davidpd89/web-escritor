@@ -121,6 +121,17 @@ def recover(root, source, base, latest, skipped=None):
         if extra:
             market.setdefault(key, []).extend(extra)
             changed[market_file] = market
+    # Portadas del almacén externo: el manifiesto viaja como unión (main gana en sus nombres). Es seguro porque el
+    # almacén es de solo añadir y el punto de guardado solo se escribe con sus bytes ya subidos (CodeRabbit #1495).
+    store_file = 'data/reading-covers-store.json'
+    store_now = document(root, latest, store_file, {'base_url': '', 'archivos': [], 'sha256': {}})
+    store_old = document(root, source, store_file, {'archivos': [], 'sha256': {}})
+    extra_names = [n for n in store_old.get('archivos', []) if n not in set(store_now.get('archivos', []))]
+    if extra_names:
+        store_now['base_url'] = store_now.get('base_url') or store_old.get('base_url', '')
+        store_now['archivos'] = sorted({*store_now.get('archivos', []), *extra_names})
+        store_now['sha256'] = {**{n: store_old['sha256'][n] for n in extra_names}, **store_now.get('sha256', {})}
+        changed[store_file] = store_now
     # Portadas/audio de las altas y de los libros que main no tocó, con una lectura conjunta de blobs.
     moved = [b for b in previous['libros'] if b['id'] in untouched]
 

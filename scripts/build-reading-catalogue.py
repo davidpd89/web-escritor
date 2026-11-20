@@ -273,20 +273,24 @@ def validate(data, root, actual):
             require(bool(re.fullmatch(r'/assets/reading-audio/[a-z0-9-]+\.mp3', b['audio_descripcion'])) and (root / b['audio_descripcion'].lstrip('/')).is_file(), f'{name}: audio local inválido o ausente')
         cover = b["portada_local"]
         require(bool(re.fullmatch(r"/assets/reading-covers/[a-z0-9-]+\.(?:jpg|jpeg|png|webp)", cover)), f"{name}: portada fuera de assets/reading-covers")
-        file = (root / cover.lstrip("/")).resolve()
-        if not file.is_file() and cover_store.is_stored(cover, root):
-            # Portada en el almacén externo (data/reading-covers-store.json): el fichero no está en este repo.
-            # Se comprobó con todos sus controles al darla de alta en la carga; aquí solo cuenta que no se repita la ruta.
-            require(cover not in covers, f"{name}: portada duplicada (igual que otra ruta)", regla='portada duplicada')
-            covers.add(cover)
-            require(all(type(b.get(k)) is int and b[k] > 0 for k in ("portada_ancho", "portada_alto")), f"{name}: dimensiones de portada obligatorias")
+        # Portada del repo o, si está en el almacén externo (data/reading-covers-store.json), su copia local cuando la
+        # carga la tiene a mano. Sin bytes (build sin copia del almacén) cuenta la huella registrada en el manifiesto:
+        # la comprobación de duplicados es la misma para las dos (Codex/CodeRabbit #1495).
+        stored = cover_store.stored_digest(cover, root)
+        local = cover_store.local_file(cover, root)
+        file = local.resolve() if local else (root / cover.lstrip("/")).resolve()
+        if local is None and stored:
+            digest = stored
         else:
-            require(file.is_relative_to(root.resolve()) and file.is_file(), f"{name}: portada local inexistente")
+            inside = file.is_relative_to(root.resolve()) or (stored is not None and local is not None)
+            require(inside and file.is_file(), f"{name}: portada local inexistente")
             digest = hashlib.sha256(file.read_bytes()).hexdigest()
-            require(cover not in covers and digest not in hash_owner, f"{name}: portada duplicada (igual que {hash_owner.get(digest, 'otra ruta')})",
-                    regla='portada duplicada', otro=hash_owner.get(digest))
-            covers.add(cover); hash_owner[digest] = b.get("id", name)
-            require(all(type(b.get(k)) is int and b[k] > 0 for k in ("portada_ancho", "portada_alto")), f"{name}: dimensiones de portada obligatorias")
+            require(stored is None or digest == stored, f"{name}: la portada del almacén no coincide con su huella", regla='portada corrupta')
+        require(cover not in covers and digest not in hash_owner, f"{name}: portada duplicada (igual que {hash_owner.get(digest, 'otra ruta')})",
+                regla='portada duplicada', otro=hash_owner.get(digest))
+        covers.add(cover); hash_owner[digest] = b.get("id", name)
+        require(all(type(b.get(k)) is int and b[k] > 0 for k in ("portada_ancho", "portada_alto")), f"{name}: dimensiones de portada obligatorias")
+        if local is not None or not stored:
             try:
                 with Image.open(file) as img:
                     require(img.size == (b['portada_ancho'], b['portada_alto']), f"{name}: dimensiones no coinciden con la portada")

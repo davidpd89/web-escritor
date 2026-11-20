@@ -122,6 +122,9 @@ def save_checkpoint(day, root=ROOT):
     Si algo falla después (una prueba, un generador, el límite de tiempo del job), la siguiente ejecución los
     publica con `carry` sin repetir la ingesta. Usa un índice temporal: ni HEAD ni el índice real cambian.
     """
+    # El punto de guardado registra portadas del almacén externo: sus bytes se suben antes, o una ejecución
+    # posterior podría publicar el catálogo con portadas que no existen (Codex #1495). Sin almacén: no-op.
+    cover_store.flush('Portadas de la carga ' + day, root)
     paths = [p for p in SOURCE_PATHS if (root / p).exists()]
     index = root / git('rev-parse', '--git-path', 'checkpoint-index', root=root).decode().strip()
     env = {**os.environ, 'GIT_INDEX_FILE': str(index)}
