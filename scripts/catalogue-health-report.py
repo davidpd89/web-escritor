@@ -27,6 +27,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
+import reading_cover_store as cover_store  # noqa: E402
 OUT = ROOT / '.ci/salud-catalogo'
 SAMPLE = 25
 
@@ -53,7 +54,7 @@ def check(catalogue, root):
     no_formats = [b for b in books if not b.get('formatos_compra')]
     no_text = [b for b in books if not has_text(b, root)]
     # portada_local es una ruta del sitio («/assets/...»): sin quitar la barra, Path la trata como absoluta.
-    missing_files = [b for b in books if b.get('portada_local') and not (root / b['portada_local'].lstrip('/')).exists()]
+    missing_files = [b for b in books if b.get('portada_local') and not cover_store.exists(b['portada_local'], root)]
     today = datetime.now(timezone.utc).date().isoformat()
     upcoming = lambda group: [b for b in group if (b.get('fecha_publicacion') or '') >= today]
     sections = {

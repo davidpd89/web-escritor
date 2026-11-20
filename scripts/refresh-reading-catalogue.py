@@ -16,6 +16,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
 import git_estado
+import reading_cover_store as cover_store
 import reading_quarantine
 import catalogo_estado as estado
 import presupuesto_sitio as presupuesto
@@ -36,7 +37,7 @@ spec.loader.exec_module(publisher)
 # Lo que la ingesta consulta fuera (fichas, pendientes, valoraciones, precios, portadas, audio). Todo lo demás
 # (fichas HTML, pagefind, mapas, registro) se reconstruye con el código actual y nunca se arrastra.
 SOURCE_PATHS = ('data/reading-catalogue.json', 'assets/reading-market.json', 'data/reading-authors.json',
-                'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-quarantine.json', 'assets/reading-covers', 'assets/reading-audio')
+                'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-quarantine.json', 'data/reading-covers-store.json', 'assets/reading-covers', 'assets/reading-audio')
 
 
 def command(*args):
@@ -734,6 +735,8 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     bot_identity()
     command('git', 'switch', '-c', branch)
     command('git', 'commit', '-m', 'Actualizar catálogo de lectura ' + day)
+    # Las portadas nuevas deben estar en el almacén antes de que la PR pueda fusionarse (sin almacén activo: no-op).
+    print(f'Portadas subidas al almacén: {cover_store.flush("Portadas de la carga " + day)}', flush=True)
     command('git', 'push', 'origin', 'HEAD:refs/heads/' + branch)
     if replaced:
         # Antes de abrir la nueva: nunca quedan dos cargas abiertas. Si algo falla después, las dos ramas siguen en origin.

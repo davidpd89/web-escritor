@@ -55,6 +55,7 @@ from reading_amazon_market import (AMAZON_COVER_BASIS, BINDINGS, CreatorsPrices,
 from reading_amazon_radar import BOOKS_NODE, SPANISH  # noqa: E402
 from reading_ratings_refresh import isbn13, key  # noqa: E402
 from reading_taxonomy import non_reading_reason  # noqa: E402
+import reading_cover_store as cover_store  # noqa: E402
 from reading_titles import proper_words, tidy_title  # noqa: E402,F401
 
 WORK = ROOT / '.local/catalogo'
@@ -1533,10 +1534,8 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT, fetch_image=fet
     apply_derived(catalogue)
     for book_id, (path, image, small, _) in added.items():
         for relative, content in ((path, image), (path.replace('.webp', '-320.webp'), small)):
-            target = root / relative.lstrip('/')
-            target.parent.mkdir(parents=True, exist_ok=True)
-            if not target.exists():
-                target.write_bytes(content)
+            if not (root / relative.lstrip('/')).exists() and not cover_store.is_stored(relative, root):
+                cover_store.put(root, relative, content)
 
     def drop(book_id, reason):
         if book_id not in added:  # ya apartado: nunca toca libros publicados

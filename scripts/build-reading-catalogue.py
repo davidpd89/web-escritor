@@ -23,6 +23,7 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from site_shell import inject_shell_auto
 from reading_intake_core import strip_shouting, decode_text_entities
+import reading_cover_store as cover_store
 import site_clock
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -273,19 +274,26 @@ def validate(data, root, actual):
         cover = b["portada_local"]
         require(bool(re.fullmatch(r"/assets/reading-covers/[a-z0-9-]+\.(?:jpg|jpeg|png|webp)", cover)), f"{name}: portada fuera de assets/reading-covers")
         file = (root / cover.lstrip("/")).resolve()
-        require(file.is_relative_to(root.resolve()) and file.is_file(), f"{name}: portada local inexistente")
-        digest = hashlib.sha256(file.read_bytes()).hexdigest()
-        require(cover not in covers and digest not in hash_owner, f"{name}: portada duplicada (igual que {hash_owner.get(digest, 'otra ruta')})",
-                regla='portada duplicada', otro=hash_owner.get(digest))
-        covers.add(cover); hash_owner[digest] = b.get("id", name)
-        require(all(type(b.get(k)) is int and b[k] > 0 for k in ("portada_ancho", "portada_alto")), f"{name}: dimensiones de portada obligatorias")
-        try:
-            with Image.open(file) as img:
-                require(img.size == (b['portada_ancho'], b['portada_alto']), f"{name}: dimensiones no coinciden con la portada")
-                require(img.format in {'JPEG', 'PNG', 'WEBP'}, f"{name}: formato de portada inválido")
-                img.verify()
-        except OSError as exc:
-            raise ValidationError(f"{name}: portada corrupta", libro=name, regla='portada corrupta') from exc
+        if not file.is_file() and cover_store.is_stored(cover, root):
+            # Portada en el almacén externo (data/reading-covers-store.json): el fichero no está en este repo.
+            # Se comprobó con todos sus controles al darla de alta en la carga; aquí solo cuenta que no se repita la ruta.
+            require(cover not in covers, f"{name}: portada duplicada (igual que otra ruta)", regla='portada duplicada')
+            covers.add(cover)
+            require(all(type(b.get(k)) is int and b[k] > 0 for k in ("portada_ancho", "portada_alto")), f"{name}: dimensiones de portada obligatorias")
+        else:
+            require(file.is_relative_to(root.resolve()) and file.is_file(), f"{name}: portada local inexistente")
+            digest = hashlib.sha256(file.read_bytes()).hexdigest()
+            require(cover not in covers and digest not in hash_owner, f"{name}: portada duplicada (igual que {hash_owner.get(digest, 'otra ruta')})",
+                    regla='portada duplicada', otro=hash_owner.get(digest))
+            covers.add(cover); hash_owner[digest] = b.get("id", name)
+            require(all(type(b.get(k)) is int and b[k] > 0 for k in ("portada_ancho", "portada_alto")), f"{name}: dimensiones de portada obligatorias")
+            try:
+                with Image.open(file) as img:
+                    require(img.size == (b['portada_ancho'], b['portada_alto']), f"{name}: dimensiones no coinciden con la portada")
+                    require(img.format in {'JPEG', 'PNG', 'WEBP'}, f"{name}: formato de portada inválido")
+                    img.verify()
+            except OSError as exc:
+                raise ValidationError(f"{name}: portada corrupta", libro=name, regla='portada corrupta') from exc
         if b.get("url_amazon_afiliada"):
             url = b["url_amazon_afiliada"]
             require(https(url), f"{name}: URL Amazon inválida")

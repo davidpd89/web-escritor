@@ -21,6 +21,7 @@ from zoneinfo import ZoneInfo
 import requests
 from reading_amazon_market import asin_from_url, generated_cover
 
+import reading_cover_store as cover_store
 from reading_taxonomy import REVIEWED_CATEGORY_EXCLUSIONS
 
 
@@ -35,7 +36,7 @@ def cover_url(book: dict) -> str | None:
             r"/assets/reading-covers/[a-zA-Z0-9_-]+\.(?:webp|jpg|jpeg|png)", path
         )
     ):
-        return "https://davidportodiaz.com" + path
+        return cover_store.public_url(path, site="https://davidportodiaz.com")
     return None
 
 

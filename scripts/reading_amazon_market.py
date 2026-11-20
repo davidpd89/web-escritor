@@ -13,6 +13,7 @@ from urllib.parse import parse_qs, urlsplit
 from urllib.request import Request, urlopen
 
 from reading_ratings_refresh import isbn13, title_matches, author_matches, key
+import reading_cover_store as cover_store
 
 RESOURCES=['itemInfo.title','itemInfo.byLineInfo','itemInfo.externalIds',
            'itemInfo.classifications','offersV2.listings.price',
@@ -620,8 +621,9 @@ def replace_cover(book,root,image,small,dimensions,source,day,basis=AMAZON_COVER
     if cover_taken(root,path,image):
         book['portadas_amazon_buscadas']=day
         return False
-    path.write_bytes(image)
-    path.with_name(path.name.replace('.webp','-320.webp')).write_bytes(small)
+    logical=book['portada_local']
+    cover_store.put(root,logical,image)
+    cover_store.put(root,logical.replace('.webp','-320.webp'),small)
     book.update(portada_fuente_url=source,portada_ancho=dimensions[0],portada_alto=dimensions[1],portada_fecha_revision=day,
                 portada_sustituida=True,autorizacion_o_base_uso=basis,portadas_amazon_buscadas=day)
     return True
