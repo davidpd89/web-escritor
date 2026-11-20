@@ -238,9 +238,8 @@ def _store_git(directory: Path):
 
 def _commit_registered(git, directory: Path, root: Path, message: str) -> None:
     """Commit con las portadas del manifiesto que estén en la copia local (los huérfanos se quedan fuera)."""
-    wanted = sorted(n for n in names(root) if (directory / n).is_file())
-    for start in range(0, len(wanted), 200):
-        git('add', '--', *wanted[start:start + 200])
+    from git_estado import preparar  # rutas por stdin y literales: la regla de todos los publicadores
+    preparar(directory, sorted(n for n in names(root) if (directory / n).is_file()))
     if git('diff', '--cached', '--quiet', check=False).returncode:
         git('-c', 'user.name=github-actions[bot]', '-c', 'user.email=41898282+github-actions[bot]@users.noreply.github.com',
             'commit', '-q', '-m', message)
