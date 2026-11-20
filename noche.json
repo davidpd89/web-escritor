@@ -62,6 +62,17 @@
    "sha": "b9b57008013e20d68a331fc0bc85e0f693e53909",
    "motivo": "manual",
    "inicio": "2026-11-20T15:54:48Z",
+   "fin": "2026-11-20T18:22:45Z",
+   "resultado": "fallido",
+   "clase": "corte",
+   "firma": null
+  },
+  {
+   "run": 44792117743,
+   "intento": 1,
+   "sha": "57a1cf7d2101e295694602a16fd35921cf093251",
+   "motivo": "manual",
+   "inicio": "2026-11-20T18:22:45Z",
    "fin": null,
    "resultado": "en_curso",
    "clase": null,
