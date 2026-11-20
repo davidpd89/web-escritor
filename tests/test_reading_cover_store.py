@@ -16,7 +16,7 @@ def tree(names, local=()):
     directory = tempfile.TemporaryDirectory()
     root = Path(directory.name)
     (root / 'data').mkdir()
-    (root / 'data/reading-covers-store.json').write_text(json.dumps({'base_url': BASE, 'archivos': names}), encoding='utf-8')
+    (root / 'data/reading-covers-store.json').write_text(json.dumps({'base_url': BASE, 'archivos': names, 'sha256': {n: store.digest(n.encode()) for n in names}}), encoding='utf-8')
     for name in local:
         (root / 'assets/reading-covers').mkdir(parents=True, exist_ok=True)
         (root / 'assets/reading-covers' / name).write_bytes(b'local')
@@ -85,10 +85,6 @@ class CoverStoreTest(unittest.TestCase):
         self.assertNotIn('github.io', (out / 'i.html').read_text(encoding='utf-8'))
 
 
-if __name__ == '__main__':
-    unittest.main()
-
-
 class CoverStoreWriteTest(unittest.TestCase):
     def setUp(self):
         import os
@@ -103,7 +99,7 @@ class CoverStoreWriteTest(unittest.TestCase):
         target = store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'x')
         self.assertEqual(target, self.root / 'assets/reading-covers/isbn-9780000000001.webp')
         self.assertEqual(store.names(self.root), set())
-        self.assertEqual(store.flush(), 0)
+        self.assertEqual(store.flush(root=self.root), 0)
 
     def test_with_a_store_directory_new_covers_go_out_and_existing_local_ones_stay(self):
         import os
@@ -114,9 +110,31 @@ class CoverStoreWriteTest(unittest.TestCase):
         self.assertFalse((self.root / 'assets/reading-covers/isbn-9780000000001.webp').exists())
         self.assertEqual((self.root / 'assets/reading-covers/isbn-9780000000009.webp').read_bytes(), b'cambiada')
         self.assertEqual(store.names(self.root), {'isbn-9780000000001.webp'})
-        # una portada ya del almacén se actualiza allí aunque exista copia local
-        store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'reemplazo')
-        self.assertEqual((Path(self.dir.name) / 'isbn-9780000000001.webp').read_bytes(), b'reemplazo')
+        self.assertEqual(store.stored_digest('/assets/reading-covers/isbn-9780000000001.webp', self.root), store.digest(b'nueva'))
+        # el almacén es de solo añadir: mismos bytes sí, otros bytes nunca (la sustituta lleva nombre nuevo)
+        store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'nueva')
+        with self.assertRaises(ValueError):
+            store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'reemplazo')
+        self.assertEqual((Path(self.dir.name) / 'isbn-9780000000001.webp').read_bytes(), b'nueva')
+        self.assertTrue(store.goes_to_store(self.root, '/assets/reading-covers/isbn-9780000000001.webp'))
+        self.assertFalse(store.goes_to_store(self.root, '/assets/reading-covers/isbn-9780000000009.webp'))
+
+    def test_a_replacement_gets_a_fresh_name_and_duplicates_are_found_by_digest(self):
+        import os
+        os.environ[store.STORE_DIR_ENV] = self.dir.name
+        first = store.fresh_name('/assets/reading-covers/a.webp', b'uno')
+        self.assertRegex(first, r'^/assets/reading-covers/a-v[0-9a-f]{8}\.webp$')
+        self.assertEqual(store.fresh_name(first, b'dos').count('-v'), 1)
+        store.put(self.root, first, b'uno')
+        self.assertEqual(store.owner_of_bytes(b'uno', self.root), first.rsplit('/', 1)[1])
+        self.assertIsNone(store.owner_of_bytes(b'uno', self.root, exclude=first))
+        self.assertEqual(store.local_file(first, self.root), Path(self.dir.name) / first.rsplit('/', 1)[1])
+        self.assertIsNone(store.local_file('/assets/reading-covers/otra.webp', self.root))
+
+    def test_the_manifest_requires_a_digest_for_each_file(self):
+        (self.root / store.MANIFEST).write_text(json.dumps({'base_url': BASE, 'archivos': ['a.webp']}), encoding='utf-8')
+        with self.assertRaises(ValueError):
+            store.load(self.root)
 
     def test_flush_commits_and_pushes_only_what_changed(self):
         import os
@@ -130,6 +148,24 @@ class CoverStoreWriteTest(unittest.TestCase):
         run('config', 'user.email', 't@t', cwd=self.dir.name)
         os.environ[store.STORE_DIR_ENV] = self.dir.name
         store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'nueva')
-        self.assertEqual(store.flush(), 1)
-        self.assertEqual(store.flush(), 0)
+        self.assertEqual(store.flush(root=self.root), 1)
+        self.assertEqual(store.flush(root=self.root), 0)
         self.assertIn('isbn-9780000000001.webp', run('ls-tree', '--name-only', 'main', cwd=remote.name).stdout)
+        # lo que una reversión quitó del manifiesto no se sube
+        (Path(self.dir.name) / 'huerfana.webp').write_bytes(b'x')
+        self.assertEqual(store.flush(root=self.root), 0)
+        self.assertNotIn('huerfana.webp', run('ls-tree', '--name-only', 'main', cwd=remote.name).stdout)
+        # un commit que no llegó a subirse se reintenta en la siguiente llamada
+        hook = Path(remote.name) / 'hooks/pre-receive'
+        hook.write_text('#!/bin/sh' + chr(10) + 'exit 1' + chr(10), encoding='utf-8')
+        hook.chmod(0o755)
+        store.put(self.root, '/assets/reading-covers/isbn-9780000000002.webp', b'otra')
+        with self.assertRaises(RuntimeError):
+            store.flush(root=self.root)
+        hook.unlink()
+        self.assertEqual(store.flush(root=self.root), 1)
+        self.assertIn('isbn-9780000000002.webp', run('ls-tree', '--name-only', 'main', cwd=remote.name).stdout)
+
+
+if __name__ == '__main__':
+    unittest.main()

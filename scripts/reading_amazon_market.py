@@ -606,6 +606,8 @@ def cover_taken(root,path,image):
     varios tomos (ingesta 42588397174: «La luna en una noche de lluvia» 1 y 9); publicarla dos veces rompe la
     validación «portada duplicada». Solo se comparan los ficheros del mismo tamaño."""
     folder=path.parent
+    if cover_store.owner_of_bytes(image,root,exclude='/'+path.relative_to(root).as_posix()):
+        return True
     if not folder.is_dir():
         return False
     for other in folder.iterdir():
@@ -622,8 +624,13 @@ def replace_cover(book,root,image,small,dimensions,source,day,basis=AMAZON_COVER
         book['portadas_amazon_buscadas']=day
         return False
     logical=book['portada_local']
+    if cover_store.goes_to_store(root,logical):
+        # El almacén es de solo añadir: la sustituta va con nombre nuevo y la vieja sigue intacta, así que revertir
+        # el JSON (mercado fallido, cuarentena) basta para volver a la imagen anterior (Codex #1495).
+        logical=cover_store.fresh_name(logical,image)
     cover_store.put(root,logical,image)
     cover_store.put(root,logical.replace('.webp','-320.webp'),small)
+    book['portada_local']=logical
     book.update(portada_fuente_url=source,portada_ancho=dimensions[0],portada_alto=dimensions[1],portada_fecha_revision=day,
                 portada_sustituida=True,autorizacion_o_base_uso=basis,portadas_amazon_buscadas=day)
     return True

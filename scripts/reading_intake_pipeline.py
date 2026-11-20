@@ -673,7 +673,12 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
             source_dir = root / 'assets' / folder
             if source_dir.exists():
                 shutil.copytree(source_dir, validation_root / 'assets' / folder)
-        documents = read_candidates(queue, refresh_urls, http, limit, existing, known_urls, state, today)
+        # Las portadas ya en el almacén externo solo existen por su registro: sin él la validación del catálogo
+        # existente fallaba en cuanto la primera portada saliera del repo (Codex #1495).
+        if (root / cover_store.MANIFEST).is_file():
+            (validation_root / cover_store.MANIFEST).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(root / cover_store.MANIFEST, validation_root / cover_store.MANIFEST)
+        documents =read_candidates(queue, refresh_urls, http, limit, existing, known_urls, state, today)
         for url, source in by_date(queue, refresh_urls, documents, today):
             if len(new_books) >= limit or http.requests >= http.budget:
                 break
@@ -761,7 +766,8 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                     image, small, dimensions = typographic_cover(record)
                 else:
                     image, small, dimensions = cover_bytes(http.get(record['portada_fuente_url'], ttl=30 * 86400))
-                path = '/assets/reading-covers/isbn-' + isbn + '.webp'
+                # Un refresco conserva la ruta publicada: una portada sustituida en el almacén lleva nombre propio.
+                path = old_book['portada_local'] if refresh else '/assets/reading-covers/isbn-' + isbn + '.webp'
                 mini = path.replace('.webp', '-320.webp')
                 (validation_root / 'data').mkdir(parents=True, exist_ok=True)
                 (validation_root / 'data/reading-publishers.json').write_text(json.dumps(catalogue_publishers), encoding='utf-8')

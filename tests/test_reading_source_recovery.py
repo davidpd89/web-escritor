@@ -62,6 +62,22 @@ class RecoveryTests(unittest.TestCase):
    state=json.loads((repo.work/'data/reading-intake-state.json').read_text())
    self.assertEqual(state['items']['isbn13:9780241838044'],item)
    self.assertEqual(state['items']['keep']['fuente'],'main')
+ def test_store_manifest_registrations_travel_with_recovered_books(self):
+  # CodeRabbit #1495: una alta cuya portada vive en el almacén externo conserva su registro; main gana en los suyos.
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-12-store'
+   store='data/reading-covers-store.json';base='https://example.github.io/portadas'
+   repo.git('switch','-q','-c',branch,'origin/main')
+   data=json.loads(books('a','b','c','d','e','f'));data['libros'].append({'id':'isbn-9780241838044','isbn13':'9780241838044','portada_local':'/assets/reading-covers/isbn-9780241838044.webp'})
+   item={'estado_ingesta':'publicado','libro_id':'isbn-9780241838044'}
+   repo.write({CATALOGUE:json.dumps(data),'data/reading-intake-state.json':json.dumps({'schema_version':1,'items':{'isbn13:9780241838044':item}}),
+               store:json.dumps({'base_url':base,'archivos':['isbn-9780241838044.webp','compartida.webp'],'sha256':{'isbn-9780241838044.webp':'1'*64,'compartida.webp':'2'*64}})})
+   repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
+   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book'),store:json.dumps({'base_url':base,'archivos':['compartida.webp','main.webp'],'sha256':{'compartida.webp':'3'*64,'main.webp':'4'*64}})})
+   self.assertEqual(refresh.carry(branch,root=repo.work),['isbn-9780241838044'])
+   manifest=json.loads((repo.work/store).read_text(encoding='utf-8'))
+   self.assertEqual(manifest['archivos'],['compartida.webp','isbn-9780241838044.webp','main.webp'])
+   self.assertEqual(manifest['sha256'],{'compartida.webp':'3'*64,'isbn-9780241838044.webp':'1'*64,'main.webp':'4'*64})
  def test_missing_provenance_fails_before_writing_a_conflicting_recovery(self):
   with tempfile.TemporaryDirectory() as tmp:
    repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-12-invalid'
