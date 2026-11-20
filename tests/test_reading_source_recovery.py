@@ -107,15 +107,18 @@ class RecoveryTests(unittest.TestCase):
    repo.git('switch','-q','-c',branch,'origin/main')
    data=json.loads(books('a','b','c','d','e','f'))
    data['libros']+=[{'id':'isbn-9780241838044','isbn13':'9780241838044','portada_local':'/assets/reading-covers/isbn-9780241838044.webp'},
-                    {'id':'isbn-9780241838051','isbn13':'9780241838051','portada_local':None}]
-   items={'isbn13:9780241838044':{'estado_ingesta':'publicado','libro_id':'isbn-9780241838044'}}
+                    {'id':'isbn-9780241838051','isbn13':'9780241838051','portada_local':None},
+                    {'id':'isbn-9780241838068','isbn13':'9780241838068','portada_local':None}]
+   # CodeRabbit #1501: un alta con procedencia y sin portada (null) se traslada sin tumbar el lote.
+   items={'isbn13:9780241838044':{'estado_ingesta':'publicado','libro_id':'isbn-9780241838044'},
+          'isbn13:9780241838068':{'estado_ingesta':'publicado','libro_id':'isbn-9780241838068'}}
    repo.write({CATALOGUE:json.dumps(data),'data/reading-intake-state.json':json.dumps({'schema_version':1,'items':items}),
                store:json.dumps({'base_url':base,'archivos':['isbn-9780241838044.webp','isbn-9780241838044-320.webp']})})
    repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
    names=['isbn-9780241838044-320.webp','isbn-9780241838044.webp']
    repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book'),store:json.dumps({'base_url':base,'archivos':names,'sha256':{n:'5'*64 for n in names}})})
    skipped=[]
-   self.assertEqual(refresh.carry(branch,root=repo.work,skipped=skipped),['isbn-9780241838044'])
+   self.assertEqual(refresh.carry(branch,root=repo.work,skipped=skipped),['isbn-9780241838044','isbn-9780241838068'])
    self.assertEqual(skipped,['isbn-9780241838051'])
  def test_missing_provenance_fails_before_writing_a_conflicting_recovery(self):
   with tempfile.TemporaryDirectory() as tmp:

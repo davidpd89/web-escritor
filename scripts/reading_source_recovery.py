@@ -155,7 +155,8 @@ def recover(root, source, base, latest, skipped=None):
 
     def owned(books):
         prefixes = tuple('assets/reading-covers/' + b['id'] for b in books)
-        explicit = {b.get('portada_local', '').lstrip('/') for b in books} - {''}
+        # `portada_local: null` es un libro sin portada, no un fallo del lote (CodeRabbit #1501).
+        explicit = {b['portada_local'].lstrip('/') for b in books if isinstance(b.get('portada_local'), str)} - {''}
         for book in books:
             for field in ('audio_descripcion', 'audio_fragmento'):
                 value = book.get(field)
