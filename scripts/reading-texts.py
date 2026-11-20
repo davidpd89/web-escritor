@@ -38,7 +38,6 @@ PROMPT = ROOT / 'scripts/templates/reading-texts-prompt.md'
 RRSS_TOOLS = Path(os.environ.get('RRSS_TOOLS', r'C:\GIT\RRSS_DavidPorto\tools'))
 VERSION = 3
 MAX_ATTEMPTS = 4
-MAX_BLOCKS = 5
 MIN_BLOCKS = 2
 COPY_WORDS = 8
 REPAIR_TURNS = 3  # correcciones dentro del mismo chat tras la primera respuesta
@@ -427,7 +426,7 @@ def validate_text(p, t):
     if not isinstance(t, dict) or t.get('id') != p['id']:
         return [], ['id distinto']
     blocks = t.get('bloques')
-    if not isinstance(blocks, list) or len(blocks) > MAX_BLOCKS:
+    if not isinstance(blocks, list) or len(blocks) > len(MODULES):
         return [], ['bloques: lista inválida']
     if not blocks:
         return [], ['sin bloques: no se admite abstenerse, escribe los módulos permitidos con lo que sí dicen las evidencias']
@@ -615,7 +614,10 @@ def absorb(payloads, fichas, rows, improving=False):
         p = payloads.get(r.get('id')) if isinstance(r, dict) else None
         if not p or not isinstance(r.get('bloques'), list):
             continue
-        blocks = fichas.setdefault(p['id'], {'id': p['id'], 'bloques': []})['bloques']
+        ficha = fichas.setdefault(p['id'], {'id': p['id'], 'bloques': []})
+        if isinstance(r.get('clasificacion'), dict) and not ficha.get('clasificacion'):
+            ficha['clasificacion'] = r['clasificacion']  # la opinión llega en el primer turno; las correcciones solo traen bloques
+        blocks = ficha['bloques']
         for x in r['bloques']:
             if not isinstance(x, dict):
                 continue

@@ -111,6 +111,21 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertEqual([x['modulo'] for x in blocks], ['encaje_documentado', 'para_quien', 'que_formato_elegir', 'lecturas_afines'])
         self.assertEqual(blocks[-1]['enlaces'], [self.payload['afines_ids'][self.affine]])
 
+    def test_absorb_keeps_the_second_opinion_across_repair_turns(self):
+        opinion = {'genero': 'Fantasía', 'publico': 'juvenil', 'motivo': ''}
+        by_id, fichas = {self.book['id']: self.payload}, {}
+        texts.absorb(by_id, fichas, [{'id': self.book['id'], 'clasificacion': opinion, 'bloques': [self.block]}])
+        texts.absorb(by_id, fichas, [{'id': self.book['id'], 'bloques': [self.block]}])
+        self.assertEqual(fichas[self.book['id']]['clasificacion'], opinion)
+
+    def test_the_block_cap_follows_the_modules_not_a_fixed_number(self):
+        """Una novela con todos sus módulos permitidos llegó a rechazarse entera por un tope fijo de 5 bloques."""
+        fake = [{'modulo': name, 'texto': 'x', 'evidencias': []} for name in texts.MODULES]
+        _, errors = texts.validate_text(self.payload, {'id': self.book['id'], 'bloques': fake})
+        self.assertNotIn('bloques: lista inválida', errors)
+        _, errors = texts.validate_text(self.payload, {'id': self.book['id'], 'bloques': fake + fake[:1]})
+        self.assertEqual(errors, ['bloques: lista inválida'])
+
     def test_affines_are_recognised_by_short_title_and_bring_their_names_and_numbers(self):
         p = {**self.payload, 'afines_ids': {'Diario de Greg 21 - Montando un pollo': 'greg', 'Alchemised (edición coleccionista limitada)': 'alc', 'Amor': 'amor'},
              'evidencias': {**self.payload['evidencias'], 'afines_catalogo': ['«Diario de Greg 21 - Montando un pollo», de Jeff Kinney: Greg vuelve al instituto.']}}
