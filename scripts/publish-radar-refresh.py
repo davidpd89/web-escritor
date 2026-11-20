@@ -240,8 +240,17 @@ def despachar(repo, workflow, ref, **inputs):
         raise RuntimeError(f'El despacho de {workflow} no devolvió el id de su ejecución: {respuesta[:200]!r}') from None
 
 
-def ejecucion(run_id):
-    return json.loads(gh('run', 'view', str(run_id), '--json', 'databaseId,headSha,status,conclusion'))
+def ejecucion(run_id, espera=180):
+    """Estado de una ejecución por su id. Una recién despachada puede dar 404 unos segundos aunque el despacho ya
+    devolvió su id (20/11, carga 44792117743: fusionó, despachó Pages y cayó en rojo al leerlo): ese 404 se espera."""
+    limite = time.monotonic() + espera
+    while True:
+        try:
+            return json.loads(gh('run', 'view', str(run_id), '--json', 'databaseId,headSha,status,conclusion'))
+        except subprocess.CalledProcessError as exc:
+            if 'HTTP 404' not in (exc.stderr or '') or time.monotonic() >= limite:
+                raise
+            time.sleep(10)
 
 
 def superseding_pages(repo, merged_sha, after_id):

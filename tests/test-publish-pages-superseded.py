@@ -7,6 +7,7 @@ fallida («Pages failed ... 41919892051») por esa cancelación. Un fallo real s
 """
 import importlib.util
 import json
+import subprocess
 from pathlib import Path
 from unittest.mock import patch
 
@@ -17,7 +18,7 @@ spec.loader.exec_module(module)
 
 
 def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled', exact_present=True, main_files=(),
-             vistas_en_cola=0, ajeno=False):
+             vistas_en_cola=0, ajeno=False, aun_sin_registrar=0):
     """R5-14: el deploy se despacha por la API y se sigue por SU id (10). `exact_present=False`: main avanzó y nuestro
     deploy se construyó desde `newer-sha`. `vistas_en_cola`: la ejecución tarda en arrancar. `ajeno`: otro despacho
     verde del mismo commit aparece en la lista y no puede tapar el resultado del nuestro."""
@@ -31,7 +32,9 @@ def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled'
             return json.dumps({'workflow_run_id': 10})
         if args[:3] == ('run', 'view', '10'):
             vistas['n'] += 1
-            if vistas['n'] <= vistas_en_cola:
+            if vistas['n'] <= aun_sin_registrar:
+                raise subprocess.CalledProcessError(1, ['gh', *args], stderr='failed to get run: HTTP 404: Not Found')
+            if vistas['n'] <= aun_sin_registrar + vistas_en_cola:
                 return json.dumps({'databaseId': 10, 'headSha': nuestro_sha, 'status': 'queued', 'conclusion': None})
             return json.dumps({'databaseId': 10, 'headSha': nuestro_sha, 'status': 'completed', 'conclusion': exact_conclusion})
         if args[:2] == ('repo', 'view'):
@@ -98,6 +101,17 @@ else:
 
 # R5-14: la ejecución tarda en arrancar (cola de Actions): se espera a ESA, sin redespachar.
 scenario('success', exact_conclusion='success', vistas_en_cola=3)
+# 20/11 (carga 44792117743): la ejecución recién despachada da 404 unos segundos; se espera, sin redespachar.
+scenario('success', exact_conclusion='success', aun_sin_registrar=2)
+# Un 404 que no se resuelve sí falla (no se espera para siempre).
+clock = iter(range(0, 10**6, 60))
+with patch.object(module.time, 'monotonic', lambda: next(clock)):
+    try:
+        scenario('success', exact_conclusion='success', aun_sin_registrar=10**6)
+    except subprocess.CalledProcessError:
+        pass
+    else:
+        raise AssertionError('un 404 permanente debe fallar')
 # R5-14: un despacho ajeno del mismo commit no tapa el fallo del nuestro.
 try:
     scenario('success', exact_conclusion='failure', ajeno=True)
