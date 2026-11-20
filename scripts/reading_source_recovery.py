@@ -45,14 +45,20 @@ def recover(root, source, base, latest, skipped=None):
     # nombres no viajan y sus libros se apartan como los que no tienen procedencia: la consulta siguiente los rehace.
     store_file = 'data/reading-covers-store.json'
     store_old = document(root, source, store_file, {'archivos': [], 'sha256': {}})
+    store_now = document(root, latest, store_file, {'base_url': '', 'archivos': [], 'sha256': {}})
     old_digests = store_old.get('sha256') or {}
-    unproven = {n for n in store_old.get('archivos', []) if n not in old_digests}
+    # Un nombre que main ya registró con su huella sí está probado (el almacén es de solo añadir; Codex #1501).
+    proven_in_main = store_now.get('sha256') or {}
+    unproven = {n for n in store_old.get('archivos', []) if n not in old_digests and n not in proven_in_main}
 
     def cover_unproven(book):
-        name = book.get('portada_local', '').rsplit('/', 1)[-1]
-        return bool(name) and (name in unproven or name.replace('.webp', '-320.webp') in unproven)
+        cover = book.get('portada_local')
+        if not unproven or not isinstance(cover, str) or not cover:
+            return False
+        name = cover.rsplit('/', 1)[-1]
+        return name in unproven or name.replace('.webp', '-320.webp') in unproven
     orphans = [b['id'] for b in additions if b['id'].startswith('isbn-') and not provenance(b)]
-    stranded = [b['id'] for b in previous['libros'] if cover_unproven(b) and b['id'] not in orphans]
+    stranded = [b['id'] for b in previous['libros'] if b['id'] not in orphans and cover_unproven(b)]
     if orphans or stranded:
         if skipped is None:
             raise ValueError('La recuperación no tiene procedencia publicada: ' + ', '.join(orphans + stranded))
@@ -137,7 +143,6 @@ def recover(root, source, base, latest, skipped=None):
             changed[market_file] = market
     # Portadas del almacén externo: el manifiesto viaja como unión (main gana en sus nombres). Es seguro porque el
     # almacén es de solo añadir y el punto de guardado solo se escribe con sus bytes ya subidos (CodeRabbit #1495).
-    store_now = document(root, latest, store_file, {'base_url': '', 'archivos': [], 'sha256': {}})
     present = set(store_now.get('archivos', []))
     extra_names = [n for n in store_old.get('archivos', []) if n not in present and n not in unproven]
     if extra_names:

@@ -99,6 +99,24 @@ class RecoveryTests(unittest.TestCase):
    self.assertIn('isbn-9780241838051',ids);self.assertNotIn('isbn-9780241838044',ids)
    manifest=repo.work/store
    self.assertTrue(not manifest.exists() or 'isbn-9780241838044.webp' not in json.loads(manifest.read_text(encoding='utf-8'))['archivos'])
+ def test_legacy_names_main_already_proved_and_null_covers_do_not_block_recovery(self):
+  # Codex #1501: un nombre que main registró con huella sí está probado; una portada null no rompe el apartado.
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-atascado-2026-11-20-proved'
+   store='data/reading-covers-store.json';base='https://example.github.io/portadas'
+   repo.git('switch','-q','-c',branch,'origin/main')
+   data=json.loads(books('a','b','c','d','e','f'))
+   data['libros']+=[{'id':'isbn-9780241838044','isbn13':'9780241838044','portada_local':'/assets/reading-covers/isbn-9780241838044.webp'},
+                    {'id':'isbn-9780241838051','isbn13':'9780241838051','portada_local':None}]
+   items={'isbn13:9780241838044':{'estado_ingesta':'publicado','libro_id':'isbn-9780241838044'}}
+   repo.write({CATALOGUE:json.dumps(data),'data/reading-intake-state.json':json.dumps({'schema_version':1,'items':items}),
+               store:json.dumps({'base_url':base,'archivos':['isbn-9780241838044.webp','isbn-9780241838044-320.webp']})})
+   repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
+   names=['isbn-9780241838044-320.webp','isbn-9780241838044.webp']
+   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book'),store:json.dumps({'base_url':base,'archivos':names,'sha256':{n:'5'*64 for n in names}})})
+   skipped=[]
+   self.assertEqual(refresh.carry(branch,root=repo.work,skipped=skipped),['isbn-9780241838044'])
+   self.assertEqual(skipped,['isbn-9780241838051'])
  def test_missing_provenance_fails_before_writing_a_conflicting_recovery(self):
   with tempfile.TemporaryDirectory() as tmp:
    repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-12-invalid'
