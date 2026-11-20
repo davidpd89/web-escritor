@@ -240,8 +240,43 @@ def despachar(repo, workflow, ref, **inputs):
         raise RuntimeError(f'El despacho de {workflow} no devolvió el id de su ejecución: {respuesta[:200]!r}') from None
 
 
-def ejecucion(run_id):
-    return json.loads(gh('run', 'view', str(run_id), '--json', 'databaseId,headSha,status,conclusion'))
+def consultar_ejecucion(repo, run_id):
+    """(código HTTP, ejecución o None) leyendo la línea de estado de `gh api -i`, no el texto de error de gh
+    (Codex #1508: decidir por el mensaje dependía de su formato)."""
+    salida = subprocess.run(['gh', 'api', '-i', f'repos/{repo}/actions/runs/{int(run_id)}'], capture_output=True,
+                            text=True, encoding='utf-8', errors='replace').stdout
+    cabecera, _, cuerpo = salida.replace('\r\n', '\n').partition('\n\n')
+    partes = cabecera.split(None, 2)
+    if len(partes) < 2 or not partes[0].startswith('HTTP/') or not partes[1].isdigit():
+        # Sin línea de estado no hubo respuesta (red caída, conexión cortada): código 0, que se reintenta como un
+        # 5xx dentro de la misma espera acotada (CodeRabbit #1508).
+        print(f'gh api {run_id}: sin respuesta HTTP; se reintenta', file=sys.stderr, flush=True)
+        return 0, None
+    codigo = int(partes[1])
+    if codigo != 200:
+        return codigo, None
+    run = json.loads(cuerpo)
+    return codigo, {'databaseId': run['id'], 'headSha': run['head_sha'], 'status': run['status'],
+                    'conclusion': run['conclusion']}
+
+
+def ejecucion(repo, run_id, hasta=None, espera=180):
+    """Estado de una ejecución por su id. Una recién despachada puede dar 404 unos segundos aunque el despacho ya
+    devolvió su id (20/11, carga 44792117743: fusionó, despachó Pages y cayó en rojo al leerlo): ese 404 (y un 5xx
+    pasajero) se espera hasta `espera` segundos y nunca más allá de `hasta`, el límite del job (CodeRabbit #1508)."""
+    limite = time.monotonic() + espera
+    if hasta is not None:
+        limite = min(limite, hasta)
+    while True:
+        codigo, run = consultar_ejecucion(repo, run_id)
+        if run is not None:
+            return run
+        if not (codigo in (0, 404) or codigo >= 500):
+            raise RuntimeError(f'No se pudo leer la ejecución {run_id}: HTTP {codigo}')
+        restante = limite - time.monotonic()
+        if restante <= 0:
+            raise RuntimeError(f'La ejecución {run_id} sigue sin poder leerse (HTTP {codigo})')
+        time.sleep(min(10, restante))
 
 
 def superseding_pages(repo, merged_sha, after_id):
@@ -526,7 +561,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
             if followed is None:
                 # Nuestro deploy, por su id. `ref main` despacha desde la punta: si main avanzó tras la fusión su
                 # commit es posterior y debe contener el merge (#1312); si no lo contiene, no valida nada.
-                current = ejecucion(propio)
+                current = ejecucion(repo, propio, hasta=deadline)
                 if current['headSha'] != merged_sha and gh(
                         'api', f'repos/{repo}/compare/{merged_sha}...{current["headSha"]}', '--jq', '.status') not in ('ahead', 'identical'):
                     raise RuntimeError(f'Pages {propio} @ {current["headSha"]} no contiene el merge {merged_sha}')
