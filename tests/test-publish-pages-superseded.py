@@ -25,18 +25,20 @@ def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled'
     despachos, vistas = [], {'n': 0}
     nuestro_sha = 'merged-sha' if exact_present else 'newer-sha'
 
+    def consultar(repo, run_id):
+        assert (repo, run_id) == ('owner/repo', 10), (repo, run_id)
+        vistas['n'] += 1
+        if vistas['n'] <= aun_sin_registrar:
+            return 404, None
+        if vistas['n'] <= aun_sin_registrar + vistas_en_cola:
+            return 200, {'databaseId': 10, 'headSha': nuestro_sha, 'status': 'queued', 'conclusion': None}
+        return 200, {'databaseId': 10, 'headSha': nuestro_sha, 'status': 'completed', 'conclusion': exact_conclusion}
+
     def gh(*args):
         if args[0] == 'api' and args[1:3] == ('--method', 'POST') and args[3].endswith('deploy-pages.yml/dispatches'):
             despachos.append(args)
             assert 'inputs[before_sha]=base' in args, args
             return json.dumps({'workflow_run_id': 10})
-        if args[:3] == ('run', 'view', '10'):
-            vistas['n'] += 1
-            if vistas['n'] <= aun_sin_registrar:
-                raise subprocess.CalledProcessError(1, ['gh', *args], stderr='failed to get run: HTTP 404: Not Found')
-            if vistas['n'] <= aun_sin_registrar + vistas_en_cola:
-                return json.dumps({'databaseId': 10, 'headSha': nuestro_sha, 'status': 'queued', 'conclusion': None})
-            return json.dumps({'databaseId': 10, 'headSha': nuestro_sha, 'status': 'completed', 'conclusion': exact_conclusion})
         if args[:2] == ('repo', 'view'):
             return 'owner/repo'
         if args[:3] == ('api', '--paginate', '--slurp'):
@@ -60,7 +62,7 @@ def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled'
             return 'ahead' if (later_contains and 'newer-sha' in args[1]) else 'diverged'
         raise AssertionError(args)
 
-    with patch.object(module, 'gh', gh), patch.object(module.time, 'sleep', lambda s: None), \
+    with patch.object(module, 'gh', gh), patch.object(module, 'consultar_ejecucion', consultar), patch.object(module.time, 'sleep', lambda s: None), \
          patch.object(module, 'report_job', lambda *a, **k: None):
         try:
             module.publish_generated('automation/x', lambda p: True, (), deploy_before=True, pr_wait=0)
@@ -108,10 +110,40 @@ clock = iter(range(0, 10**6, 60))
 with patch.object(module.time, 'monotonic', lambda: next(clock)):
     try:
         scenario('success', exact_conclusion='success', aun_sin_registrar=10**6)
-    except subprocess.CalledProcessError:
+    except RuntimeError as exc:
+        assert 'sigue sin poder leerse (HTTP 404)' in str(exc), exc
+    else:
+        raise AssertionError('un 404 permanente debe fallar')
+
+# Codex #1508: el código sale de la línea de estado de `gh api -i`, no del texto de error; CodeRabbit #1508: la
+# espera no pasa del límite del job.
+class Salida:
+    def __init__(self, stdout):
+        self.stdout = stdout
+respuestas = {'404': 'HTTP/2.0 404 Not Found\r\nX: y\r\n\r\n{"message": "Not Found"}',
+              '200': 'HTTP/2.0 200 OK\r\nX: y\r\n\r\n' + json.dumps({'id': 7, 'head_sha': 's', 'status': 'completed', 'conclusion': 'success'})}
+with patch.object(module.subprocess, 'run', lambda cmd, **k: Salida(respuestas['404' if cmd[-1].endswith('/1') else '200'])):
+    assert module.consultar_ejecucion('o/r', 1) == (404, None)
+    assert module.consultar_ejecucion('o/r', 7) == (200, {'databaseId': 7, 'headSha': 's', 'status': 'completed', 'conclusion': 'success'})
+esperas, ahora = [], [0.0]
+def dormir(s):
+    esperas.append(s)
+    ahora[0] += s
+with patch.object(module, 'consultar_ejecucion', lambda r, i: (404, None)),      patch.object(module.time, 'monotonic', lambda: ahora[0]), patch.object(module.time, 'sleep', dormir):
+    try:
+        module.ejecucion('o/r', 1, hasta=25)
+    except RuntimeError:
         pass
     else:
         raise AssertionError('un 404 permanente debe fallar')
+assert sum(esperas) == 25 and esperas[-1] == 5, esperas
+with patch.object(module, 'consultar_ejecucion', lambda r, i: (403, None)):
+    try:
+        module.ejecucion('o/r', 1)
+    except RuntimeError as exc:
+        assert 'HTTP 403' in str(exc), exc
+    else:
+        raise AssertionError('un 403 no se espera')
 # R5-14: un despacho ajeno del mismo commit no tapa el fallo del nuestro.
 try:
     scenario('success', exact_conclusion='failure', ajeno=True)
