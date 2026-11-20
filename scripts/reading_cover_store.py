@@ -206,8 +206,9 @@ def put(root: Path, path: str, content: bytes) -> Path:
     cambio del catálogo (reversión del mercado, cuarentena, recuperación) basta para volver a la imagen vieja, que
     sigue intacta; una portada sustituida recibe un nombre nuevo (`fresh_name`)."""
     target = root / path.lstrip('/')
-    if goes_to_store(root, path):
-        directory, name, value = store_dir(), _name(path), digest(content)
+    directory, name = store_dir(), _name(path)
+    if directory and name and goes_to_store(root, path):
+        value = digest(content)
         known = load(root)['sha256'].get(name)
         if known and known != value:
             raise ValueError(f'{name}: el almacén no sobrescribe portadas dadas de alta; usar un nombre nuevo')
@@ -229,6 +230,38 @@ def fresh_name(path: str, content: bytes) -> str:
     return f'{VERSION.sub("", stem)}-v{digest(content)[:8]}{dot}{ext}'
 
 
+def _store_git(directory: Path):
+    def git(*args, check=True):
+        return subprocess.run(['git', '-C', str(directory), *args], capture_output=True, text=True, check=check, encoding='utf-8')
+    return git
+
+
+def _commit_registered(git, directory: Path, root: Path, message: str) -> None:
+    """Commit con las portadas del manifiesto que estén en la copia local (los huérfanos se quedan fuera)."""
+    wanted = sorted(n for n in names(root) if (directory / n).is_file())
+    for start in range(0, len(wanted), 200):
+        git('add', '--', *wanted[start:start + 200])
+    if git('diff', '--cached', '--quiet', check=False).returncode:
+        git('-c', 'user.name=github-actions[bot]', '-c', 'user.email=41898282+github-actions[bot]@users.noreply.github.com',
+            'commit', '-q', '-m', message)
+
+
+def _push_once(git) -> int | None:
+    """Un intento de subida. Devuelve los ficheros publicados (0 si no había nada) o None si el push fue rechazado."""
+    if git('ls-remote', '--exit-code', '--heads', 'origin', 'main', check=False).returncode == 2:
+        # origin aún sin rama main (almacén nuevo): se publica tal cual
+        pending = [line for line in git('ls-tree', '-r', '--name-only', 'HEAD').stdout.splitlines() if line.strip()]
+    else:
+        git('fetch', '--quiet', 'origin', 'main')
+        if git('rev-list', '--count', 'origin/main..HEAD').stdout.strip() == '0':
+            return 0
+        if git('rebase', '--quiet', 'origin/main', check=False).returncode:
+            git('rebase', '--abort', check=False)
+            raise RuntimeError('Almacén de portadas: el rebase sobre origin/main choca; no se sube nada')
+        pending = [line for line in git('diff', '--name-only', 'origin/main', 'HEAD').stdout.splitlines() if line.strip()]
+    return None if git('push', '--quiet', 'origin', 'HEAD:main', check=False).returncode else len(pending)
+
+
 def flush(message: str = 'Portadas de la carga', root: Path = ROOT) -> int:
     """Sube al almacén las portadas del manifiesto escritas con `put`. Devuelve cuántos ficheros publicó.
 
@@ -238,31 +271,12 @@ def flush(message: str = 'Portadas de la carga', root: Path = ROOT) -> int:
     directory = store_dir()
     if not directory:
         return 0
-
-    def git(*args, check=True):
-        return subprocess.run(['git', '-C', str(directory), *args], capture_output=True, text=True, check=check, encoding='utf-8')
-    wanted = sorted(n for n in names(root) if (directory / n).is_file())
-    for start in range(0, len(wanted), 200):
-        git('add', '--', *wanted[start:start + 200])
-    if git('diff', '--cached', '--quiet', check=False).returncode:
-        git('-c', 'user.name=github-actions[bot]', '-c', 'user.email=41898282+github-actions[bot]@users.noreply.github.com',
-            'commit', '-q', '-m', message)
+    git = _store_git(directory)
+    _commit_registered(git, directory, root, message)
     if git('rev-parse', '--verify', '--quiet', 'HEAD', check=False).returncode:
         return 0  # almacén recién creado y sin nada que subir
     for _ in range(3):
-        if git('ls-remote', '--exit-code', '--heads', 'origin', 'main', check=False).returncode == 2:
-            # origin aún sin rama main (almacén nuevo): se publica tal cual
-            pending = [line for line in git('ls-tree', '-r', '--name-only', 'HEAD').stdout.splitlines() if line.strip()]
-            if not git('push', '--quiet', 'origin', 'HEAD:main', check=False).returncode:
-                return len(pending)
-            continue
-        git('fetch', '--quiet', 'origin', 'main')
-        if git('rev-list', '--count', 'origin/main..HEAD').stdout.strip() == '0':
-            return 0
-        if git('rebase', '--quiet', 'origin/main', check=False).returncode:
-            git('rebase', '--abort', check=False)
-            raise RuntimeError('Almacén de portadas: el rebase sobre origin/main choca; no se sube nada')
-        pending = [line for line in git('diff', '--name-only', 'origin/main', 'HEAD').stdout.splitlines() if line.strip()]
-        if not git('push', '--quiet', 'origin', 'HEAD:main', check=False).returncode:
-            return len(pending)
+        published = _push_once(git)
+        if published is not None:
+            return published
     raise RuntimeError('Almacén de portadas: no se pudo subir tras 3 intentos')
