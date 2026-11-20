@@ -12,16 +12,27 @@ REGISTRY = json.loads((ROOT / "data/content-registry.json").read_text(encoding="
 DEFAULTS = REGISTRY.get("defaults", {})
 
 MOJIBAKE = (
-    "\ufffd",   # Unicode replacement character
-    "Ã",        # UTF-8 decoded as Windows-1252/Latin-1
-    "Â",
-    "â€",
-    "â€™",
-    "â€œ",
-    "â€\x9d",
+    "�",   # Unicode replacement character
+    "â€",       # UTF-8 decoded as Windows-1252/Latin-1 (comillas, guiones, euro)
     "ðŸ",
     "ï»¿",
 )
+
+# «Ã» y «Â» sueltas son letras legítimas (Âsanas, Mândûkyakârikâ, SÃO PAULO): solo son mojibake cuando les
+# sigue lo que Windows-1252 pone en lugar de un byte de continuación UTF-8 («Â·», «Â », «Ã©», «Ã±»).
+_CONTINUATION = ''.join(chr(c) for c in (*range(0x80, 0xC0), *range(0x2013, 0x203B), 0x152, 0x153, 0x160, 0x161, 0x178, 0x17D, 0x17E, 0x192, 0x2C6, 0x2DC, 0x20AC, 0x2122))
+MOJIBAKE_LEAD = re.compile('[' + chr(0xC3) + chr(0xC2) + '][' + re.escape(_CONTINUATION) + ']')
+
+
+def mojibake_hits(text: str):
+    """(señal, posición) de cada resto de codificación rota en el texto."""
+    for token in MOJIBAKE:
+        at = text.find(token)
+        if at >= 0:
+            yield token, at
+    found = MOJIBAKE_LEAD.search(text)
+    if found:
+        yield found.group(), found.start()
 
 # Parse the serialized <meta> tag: HTMLParser decodes character references in
 # attribute values, but charset declarations may not contain character refs.
