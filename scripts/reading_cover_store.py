@@ -112,8 +112,11 @@ def apply_to_dist(out_dir: Path, root: Path = ROOT) -> int:
     if not data['archivos']:
         return 0
     changed = 0
+    base = out_dir.resolve()
     for path in out_dir.rglob('*'):
-        if not path.is_file() or path.suffix.lower() not in TEXT_SUFFIXES:
+        if path.is_symlink() or not path.is_file() or path.suffix.lower() not in TEXT_SUFFIXES:
+            continue
+        if not path.resolve().is_relative_to(base):
             continue
         try:
             original = path.read_text(encoding='utf-8')
