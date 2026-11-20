@@ -558,132 +558,49 @@
     "cinco puntos press u s",
     "cinco puntos press",
     "frederico manica cinco continentes editora",
-    "cinco ediciones y contenidos"
+    "cinco ediciones y contenidos",
+    "5 hour learning",
+    "oscar de leon palacios 5",
+    "grupo mateo 5 14"
   ],
   "cola": [
     {
       "consulta": "Cinca",
-      "nivel": 3,
-      "nodo": "13356130031",
+      "nivel": 2,
+      "nodo": "14177718031",
       "ruta": [
-        "Infantil",
         "Literatura y ficción",
-        "Primeras lecturas y lectores"
+        "Literatura mundial"
       ],
       "sello": "Cinca"
     },
     {
       "consulta": "Cinca",
-      "nivel": 3,
-      "nodo": "16172034031",
+      "nivel": 2,
+      "nodo": "902684031",
       "ruta": [
-        "Infantil",
         "Literatura y ficción",
-        "Viajes"
+        "Mitos, leyendas y sagas"
       ],
       "sello": "Cinca"
     },
     {
       "consulta": "Cinca",
       "nivel": 2,
-      "nodo": "5272187031",
+      "nodo": "902691031",
       "ruta": [
-        "Infantil",
-        "Lugares y culturas"
+        "Literatura y ficción",
+        "Poesía"
       ],
       "sello": "Cinca"
     },
     {
       "consulta": "Cinca",
       "nivel": 2,
-      "nodo": "13356163031",
+      "nodo": "902692031",
       "ruta": [
-        "Infantil",
-        "Misterios y detectives"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "5328472031",
-      "ruta": [
-        "Infantil",
-        "Ordenadores y tecnología"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "5272188031",
-      "ruta": [
-        "Infantil",
-        "Religión"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "13356180031",
-      "ruta": [
-        "Infantil",
-        "Vacaciones y celebraciones"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "902652031",
-      "ruta": [
-        "Informática, internet y medios digitales"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "12942013031",
-      "ruta": [
-        "Juvenil"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "902665031",
-      "ruta": [
-        "Lengua, lingüística y redacción"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "27198630031",
-      "ruta": [
-        "Libros LGBTQ+"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "902729031",
-      "ruta": [
-        "Libros y guías de viaje"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "902674031",
-      "ruta": [
-        "Literatura y ficción"
+        "Literatura y ficción",
+        "Teatro"
       ],
       "sello": "Cinca"
     },
@@ -1121,14 +1038,17 @@
     "Cinco Puntos Press,U.S.",
     "Cinco Puntos Press",
     "Frederico Manica/Cinco Continentes Editora",
-    "Cinco Ediciones Y Contenidos"
+    "Cinco Ediciones Y Contenidos",
+    "5 Hour Learning",
+    "Oscar de León Palacios 5",
+    "Grupo Mateo 5:14"
   ],
   "dia": "2026-11-08",
   "errores": [],
   "grupos": {
     "cinca": {
-      "libros_es": 142,
-      "pendientes": 19
+      "libros_es": 221,
+      "pendientes": 10
     }
   },
   "hijos": {
@@ -1260,6 +1180,68 @@
         "Thrillers y suspense"
       ]
     ],
+    "13356180031": [
+      [
+        "13356181031",
+        "Alrededor del mundo"
+      ],
+      [
+        "13356185031",
+        "Día de Acción de Gracias"
+      ],
+      [
+        "13356187031",
+        "Día de san Patricio"
+      ],
+      [
+        "13356188031",
+        "Día de san Valentín"
+      ],
+      [
+        "13356189031",
+        "Halloween"
+      ],
+      [
+        "13356190031",
+        "Kwanzaa"
+      ],
+      [
+        "13356191031",
+        "Navidad"
+      ],
+      [
+        "13356193031",
+        "Año Nuevo Lunar y Año Nuevo Chino"
+      ],
+      [
+        "13356195031",
+        "Semana Santa y Pascua"
+      ],
+      [
+        "13356183031",
+        "Hanukkah"
+      ],
+      [
+        "13356184031",
+        "Pascua Judía"
+      ],
+      [
+        "206206053031",
+        "Día de los Muertos"
+      ],
+      [
+        "206206051031",
+        "Diecinueve de junio"
+      ],
+      [
+        "206206047031",
+        "Diwali"
+      ],
+      [
+        "206206049031",
+        "Ramadán"
+      ]
+    ],
     "13440889031": [
       [
         "13440890031",
@@ -1312,6 +1294,36 @@
       [
         "902643031",
         "Terror, fantasmas y monstruos"
+      ]
+    ],
+    "14177602031": [
+      [
+        "14177603031",
+        "Amistad"
+      ],
+      [
+        "14177604031",
+        "Divorcio"
+      ],
+      [
+        "14177605031",
+        "Hermanas"
+      ],
+      [
+        "14177606031",
+        "Madres e hijos"
+      ],
+      [
+        "14177607031",
+        "Mujer contemporánea"
+      ],
+      [
+        "14177608031",
+        "Mujer soltera"
+      ],
+      [
+        "14177609031",
+        "Vida doméstica"
       ]
     ],
     "14177618031": [
@@ -1450,6 +1462,16 @@
       [
         "14177639031",
         "Vida urbana"
+      ]
+    ],
+    "14177706031": [
+      [
+        "902688031",
+        "Antologías"
+      ],
+      [
+        "902677031",
+        "Historias cortas"
       ]
     ],
     "14177707031": [
@@ -3559,7 +3581,7 @@
       ]
     ]
   },
-  "libros_es": 12469,
+  "libros_es": 12563,
   "origen": {
     "Editorial Akelarre Ediciones": "Akelarre Ediciones",
     "Editorial Asociacion HAY Soluciones para Todo": "Asociacion HAY Soluciones para Todo",
@@ -3575,14 +3597,14 @@
     "Editorial Plomo Ediciones": "Plomo Ediciones",
     "Grupo Planeta Mexico": "Grupo Planeta México"
   },
-  "particiones": 1474,
-  "peticiones": 2776,
-  "reintentos": 7707,
-  "reintentos_dia": "2026-11-19",
-  "segundos": 84,
+  "particiones": 1566,
+  "peticiones": 2896,
+  "reintentos": 8288,
+  "reintentos_dia": "2026-11-20",
+  "segundos": 133,
   "sellos_leidos": 182,
-  "sellos_llenos": 191,
-  "sellos_nuevos": 90,
+  "sellos_llenos": 208,
+  "sellos_nuevos": 93,
   "sellos_saltados": 9,
   "variantes_probadas": [
     "matchstories|editorial matchstories",

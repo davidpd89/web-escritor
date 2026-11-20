@@ -1,23 +1,23 @@
 {
- "generado": "2026-11-19T01:44:53+00:00",
- "publicados": 6930,
+ "generado": "2026-11-20T17:17:01+00:00",
+ "publicados": 7176,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 907,
-   "proximos": 300,
+   "total": 946,
+   "proximos": 284,
    "por_mes": {
+    "2107-12": 1,
+    "2105-07": 1,
     "2027-08": 1,
     "2027-05": 6,
-    "2027-04": 7,
+    "2027-04": 1,
     "2027-03": 3,
-    "2027-02": 85,
-    "2027-01": 57,
-    "2026-12": 72,
-    "2026-11": 346,
-    "2026-10": 313,
-    "2026-09": 12,
-    "2026-08": 2,
-    "2025-08": 1
+    "2027-02": 82,
+    "2027-01": 41,
+    "2026-12": 85,
+    "2026-11": 394,
+    "2026-10": 315,
+    "2026-09": 11
    },
    "muestra": [
     {
@@ -67,54 +67,6 @@
      "editorial": "Vintage Espanol",
      "fecha_publicacion": "2027-05-04",
      "fuente": "https://www.amazon.es/dp/B0GXN4B62M"
-    },
-    {
-     "id": "isbn-9786287880658",
-     "titulo": "Otras Aguas. Cuentos nuevos y selectos / Other Waters: New and Selected Stories",
-     "isbn13": "9786287880658",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-04-06",
-     "fuente": "https://www.amazon.es/dp/6287880651"
-    },
-    {
-     "id": "isbn-9786287880641",
-     "titulo": "Las noches todas / All the Nights",
-     "isbn13": "9786287880641",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-04-06",
-     "fuente": "https://www.amazon.es/dp/6287880643"
-    },
-    {
-     "id": "isbn-9786287880627",
-     "titulo": "Sin remedio / No Remedy",
-     "isbn13": "9786287880627",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-04-06",
-     "fuente": "https://www.amazon.es/dp/6287880627"
-    },
-    {
-     "id": "isbn-9786287880603",
-     "titulo": "Los Sinsabores del Verdadero Policia / Woes of the True Policeman",
-     "isbn13": "9786287880603",
-     "editorial": "Alfaguara",
-     "fecha_publicacion": "2027-04-06",
-     "fuente": "https://www.amazon.es/dp/6287880600"
-    },
-    {
-     "id": "isbn-9786287832732",
-     "titulo": "Supernova (Spanish Edition)",
-     "isbn13": "9786287832732",
-     "editorial": "Grijalbo",
-     "fecha_publicacion": "2027-04-06",
-     "fuente": "https://www.amazon.es/dp/6287832738"
-    },
-    {
-     "id": "isbn-9786287897571",
-     "titulo": "El Fin de la Eternidad / The End of Eternity",
-     "isbn13": "9786287897571",
-     "editorial": "Debolsillo",
-     "fecha_publicacion": "2027-04-06",
-     "fuente": "https://www.amazon.es/dp/6287897570"
     },
     {
      "id": "isbn-9788425375538",
@@ -219,16 +171,64 @@
      "editorial": "Beascoa",
      "fecha_publicacion": "2027-02-25",
      "fuente": "https://www.amazon.es/dp/8448872630"
+    },
+    {
+     "id": "isbn-9788448872625",
+     "titulo": "La casa de muñecas de Gabby. Libro de cartón - Fiesta sorpresa de cumpleaños (Pequeñas manitas)",
+     "isbn13": "9788448872625",
+     "editorial": "Beascoa",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/8448872622"
+    },
+    {
+     "id": "isbn-9788402432216",
+     "titulo": "Lo mejor de las mujeres de Bruguera (Bruguera Clásica)",
+     "isbn13": "9788402432216",
+     "editorial": "Bruguera",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/8402432212"
+    },
+    {
+     "id": "isbn-9791388387913",
+     "titulo": "El mundo sin nosotros (Sociedad)",
+     "isbn13": "9791388387913",
+     "editorial": "Debate",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/B0HP1W5Q24"
+    },
+    {
+     "id": "isbn-9791387972639",
+     "titulo": "Sangre de cuervo (Serie Infinita)",
+     "isbn13": "9791387972639",
+     "editorial": "Montena",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/B0HK4CBSP5"
+    },
+    {
+     "id": "isbn-9791387972110",
+     "titulo": "Diario de un alien pringado: Atrapado en las redes (Montena)",
+     "isbn13": "9791387972110",
+     "editorial": "Montena",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/B0HNWM9GXZ"
+    },
+    {
+     "id": "isbn-9791388417573",
+     "titulo": "Islotes (GROU)",
+     "isbn13": "9791388417573",
+     "editorial": "Montena",
+     "fecha_publicacion": "2027-02-25",
+     "fuente": "https://www.amazon.es/dp/B0HNWM4P5X"
     }
    ]
   },
   "formatos_sin_precio": {
-   "total": 547,
-   "libros": 413,
+   "total": 541,
+   "libros": 407,
    "por_formato": {
     "ebook": 218,
-    "tapa-blanda": 139,
-    "tapa-dura": 98,
+    "tapa-blanda": 136,
+    "tapa-dura": 95,
     "audiolibro": 92
    },
    "muestra": [
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 206,
+   "total": 265,
    "muestra": [
     {
      "id": "isbn-9791388042324",
@@ -640,21 +640,21 @@
    ]
   },
   "sin_texto": {
-   "total": 3730,
-   "proximos": 555,
+   "total": 3976,
+   "proximos": 585,
    "por_mes": {
-    "2028-01": 1,
+    "2107-12": 1,
+    "2105-07": 2,
+    "2028-09": 1,
+    "2028-01": 2,
     "2027-10": 1,
     "2027-09": 1,
     "2027-05": 5,
     "2027-04": 3,
     "2027-03": 8,
     "2027-02": 48,
-    "2027-01": 131,
-    "2026-12": 173,
-    "2026-11": 1089,
-    "2026-10": 1722,
-    "2026-09": 359
+    "2027-01": 130,
+    "2026-12": 202
    },
    "muestra": [
     {
@@ -840,10 +840,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 74,
-  "formatos_sin_precio": -29,
-  "sin_formatos_de_compra": 10,
-  "sin_texto": 992,
+  "portadas_tipograficas": 39,
+  "formatos_sin_precio": -6,
+  "sin_formatos_de_compra": 59,
+  "sin_texto": 246,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -854,87 +854,10 @@
   "oportunidades": [],
   "sin_portada_en_amazon": [
    {
-    "id": "isbn-9791388003240",
-    "titulo": "Los Padrinos. Érase una vez en Nueva York (Súper BD)",
-    "isbn13": "9791388003240",
-    "editorial": "Cartem Cómics",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9788494545894",
-    "titulo": "Crónicas de la amnistía: De la conciencia republicana de España",
-    "isbn13": "9788494545894",
-    "editorial": "Movimiento Ciudadano Hacia la República Constitucional",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9788410251021",
-    "titulo": "José María Gil: 10 (Islas de Memoria)",
-    "isbn13": "9788410251021",
-    "editorial": "Fundación César Manrique",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9788496513730",
-    "titulo": "Huellas navarras en la historia de un reino",
-    "isbn13": "9788496513730",
-    "editorial": "Editorial Mintzoa",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9788419555649",
-    "titulo": "Verano perdido: 2 (Alterego)",
-    "isbn13": "9788419555649",
-    "editorial": "Experimenta",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9791399321807",
-    "titulo": "Hombres de frontera: Especial Gran Oeste: 0 (Colección Gran Oeste)",
-    "isbn13": "9791399321807",
-    "editorial": "Laramie Ediciones",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9791399262230",
-    "titulo": "Los ritos del adiós: 4 (Narrativa)",
-    "isbn13": "9791399262230",
-    "editorial": "Abril 26",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9791399165630",
-    "titulo": "Casi rocanrol",
-    "isbn13": "9791399165630",
-    "editorial": "Esto No Es Berlín Ediciones",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9791388225277",
-    "titulo": "Maldita ignorancia",
-    "isbn13": "9791388225277",
-    "editorial": "Grupo Editorial Arcanas, S. L.",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9788410126800",
-    "titulo": "Pistons & Dragons: WARGASMER",
-    "isbn13": "9788410126800",
-    "editorial": "Fandogamia Editorial, C.b.",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
     "id": "isbn-9791399294705",
     "titulo": "Plaza spñ8: Espacio cultural y social de la Fundación mutua madrileña",
     "isbn13": "9791399294705",
     "editorial": "Ediciones Ingobernables SL",
-    "fecha_publicacion": "2026-11-20"
-   },
-   {
-    "id": "isbn-9791399318111",
-    "titulo": "SIZIGIA: El renacer de la leyenda: 1",
-    "isbn13": "9791399318111",
-    "editorial": "Mimaia Ediciones",
     "fecha_publicacion": "2026-11-20"
    },
    {
@@ -980,18 +903,95 @@
     "fecha_publicacion": "2026-11-20"
    },
    {
-    "id": "isbn-9791399224047",
-    "titulo": "Segovia Callada. Volumen III: 109 rincones escondidos. El final del viaje: 3",
-    "isbn13": "9791399224047",
-    "editorial": "Enrique del Barrio",
-    "fecha_publicacion": "2026-11-18"
+    "id": "isbn-9791399129885",
+    "titulo": "Libro de entrada de los señores abades y canónigos del sacro-monte desde la Fundación de la abadía",
+    "isbn13": "9791399129885",
+    "editorial": "Editorial Tleo",
+    "fecha_publicacion": "2026-11-20"
    },
    {
-    "id": "isbn-9791399305159",
-    "titulo": "Donde las grietas dejan entrar la luz",
-    "isbn13": "9791399305159",
-    "editorial": "Castellón Digital SL",
-    "fecha_publicacion": "2026-11-18"
+    "id": "isbn-9791399269437",
+    "titulo": "La contrarrevolución en España: 24 (Estel Negre)",
+    "isbn13": "9791399269437",
+    "editorial": "Calumnia",
+    "fecha_publicacion": "2026-11-20"
+   },
+   {
+    "id": "isbn-9791399319101",
+    "titulo": "Carretera y memoria",
+    "isbn13": "9791399319101",
+    "editorial": "Peyper Ediciones",
+    "fecha_publicacion": "2026-11-20"
+   },
+   {
+    "id": "isbn-9791399326802",
+    "titulo": "No los hagas ricos, hazlos libres: Educación financiera para familias conscientes",
+    "isbn13": "9791399326802",
+    "editorial": "Praxis Press",
+    "fecha_publicacion": "2026-11-20"
+   },
+   {
+    "id": "isbn-9788497445436",
+    "titulo": "América en los márgenes de la libertad (Miscelánea)",
+    "isbn13": "9788497445436",
+    "editorial": "Docecalles.com",
+    "fecha_publicacion": "2026-11-20"
+   },
+   {
+    "id": "isbn-9788497445603",
+    "titulo": "Cofradías en América durante la Edad Moderna: Investigaciones históricas y artísticas (Miscelánea)",
+    "isbn13": "9788497445603",
+    "editorial": "Docecalles.com",
+    "fecha_publicacion": "2026-11-20"
+   },
+   {
+    "id": "isbn-9788497445962",
+    "titulo": "Me gusta el cine: El cine bélico: La Segunda Guerra Mundial (1) El frente occidental (Fondo en Distribución: Museo del Cine)",
+    "isbn13": "9788497445962",
+    "editorial": "Docecalles.com",
+    "fecha_publicacion": "2026-11-20"
+   },
+   {
+    "id": "isbn-9791399284416",
+    "titulo": "Trazarte",
+    "isbn13": "9791399284416",
+    "editorial": "Editorial Letra Eterna S.l",
+    "fecha_publicacion": "2026-11-20"
+   },
+   {
+    "id": "isbn-9791388003240",
+    "titulo": "Los Padrinos. Érase una vez en Nueva York (Súper BD)",
+    "isbn13": "9791388003240",
+    "editorial": "Cartem Cómics",
+    "fecha_publicacion": "2026-11-19"
+   },
+   {
+    "id": "isbn-9788494545894",
+    "titulo": "Crónicas de la amnistía: De la conciencia republicana de España",
+    "isbn13": "9788494545894",
+    "editorial": "Movimiento Ciudadano Hacia la República Constitucional",
+    "fecha_publicacion": "2026-11-19"
+   },
+   {
+    "id": "isbn-9788410251021",
+    "titulo": "José María Gil: 10 (Islas de Memoria)",
+    "isbn13": "9788410251021",
+    "editorial": "Fundación César Manrique",
+    "fecha_publicacion": "2026-11-19"
+   },
+   {
+    "id": "isbn-9788496513730",
+    "titulo": "Huellas navarras en la historia de un reino",
+    "isbn13": "9788496513730",
+    "editorial": "Editorial Mintzoa",
+    "fecha_publicacion": "2026-11-19"
+   },
+   {
+    "id": "isbn-9788419555649",
+    "titulo": "Verano perdido: 2 (Alterego)",
+    "isbn13": "9788419555649",
+    "editorial": "Experimenta",
+    "fecha_publicacion": "2026-11-19"
    }
   ]
  }
