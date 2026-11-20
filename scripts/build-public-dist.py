@@ -352,6 +352,10 @@ def build(out_dir: Path, root: Path = ROOT) -> tuple[int, int]:
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dst)
         included += 1
+    # Portadas del almacén externo: referencias y CSP del artefacto; con el manifiesto vacío no hace nada.
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import reading_cover_store
+    reading_cover_store.apply_to_dist(out_dir, root)
     return included, excluded
 
 
