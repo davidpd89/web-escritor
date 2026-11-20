@@ -561,120 +561,15 @@
     "cinco ediciones y contenidos",
     "5 hour learning",
     "oscar de leon palacios 5",
-    "grupo mateo 5 14"
+    "grupo mateo 5 14",
+    "cinco",
+    "art 5 verlag",
+    "yonki books",
+    "libros tucuman ediciones",
+    "homoromance ediciones libros lesbicos novelas lesbicas",
+    "editoriales saldo"
   ],
   "cola": [
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "14177718031",
-      "ruta": [
-        "Literatura y ficción",
-        "Literatura mundial"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "902684031",
-      "ruta": [
-        "Literatura y ficción",
-        "Mitos, leyendas y sagas"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "902691031",
-      "ruta": [
-        "Literatura y ficción",
-        "Poesía"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 2,
-      "nodo": "902692031",
-      "ruta": [
-        "Literatura y ficción",
-        "Teatro"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "902685031",
-      "ruta": [
-        "Policíaca, negra y suspense"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "902693031",
-      "ruta": [
-        "Política"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "902702031",
-      "ruta": [
-        "Religión"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "902686031",
-      "ruta": [
-        "Romántica"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "902716031",
-      "ruta": [
-        "Salud, familia y desarrollo personal"
-      ],
-      "sello": "Cinca"
-    },
-    {
-      "consulta": "Cinca",
-      "nivel": 1,
-      "nodo": "902721031",
-      "ruta": [
-        "Sociedad y ciencias sociales"
-      ],
-      "sello": "Cinca"
-    },
-    "Cristiandad",
-    "Ediciones de Intervención Cultural",
-    "Ediciones JC",
-    "Koan",
-    "Ediciones la Libreria",
-    "Luciérnaga",
-    "Martínez Roca",
-    "Mensajero",
-    "Nobel",
-    "Paidós",
-    "Paraninfo",
-    "Península",
-    "Trea",
-    "Ariel",
-    "Ciudad Nueva",
-    "Comanegra",
-    "Contraseña",
     "Crítica",
     "Edaf",
     "Everest",
@@ -1041,16 +936,17 @@
     "Cinco Ediciones Y Contenidos",
     "5 Hour Learning",
     "Oscar de León Palacios 5",
-    "Grupo Mateo 5:14"
+    "Grupo Mateo 5:14",
+    "CINCO",
+    "Art.5 Verlag",
+    "YONKI BOOKS",
+    "Libros Tucuman Ediciones",
+    "Homoromance Ediciones - Libros lésbicos, novelas lésbicas",
+    "EDITORIALES SALDO"
   ],
   "dia": "2026-11-08",
   "errores": [],
-  "grupos": {
-    "cinca": {
-      "libros_es": 221,
-      "pendientes": 10
-    }
-  },
+  "grupos": {},
   "hijos": {
     "12942013031": [
       [
@@ -2315,6 +2211,7 @@
     "89265422031": [],
     "89265425031": [],
     "89265427031": [],
+    "89265428031": [],
     "902503031": [
       [
         "902504031",
@@ -3581,7 +3478,7 @@
       ]
     ]
   },
-  "libros_es": 12563,
+  "libros_es": 13053,
   "origen": {
     "Editorial Akelarre Ediciones": "Akelarre Ediciones",
     "Editorial Asociacion HAY Soluciones para Todo": "Asociacion HAY Soluciones para Todo",
@@ -3597,14 +3494,14 @@
     "Editorial Plomo Ediciones": "Plomo Ediciones",
     "Grupo Planeta Mexico": "Grupo Planeta México"
   },
-  "particiones": 1566,
-  "peticiones": 2896,
+  "particiones": 1610,
+  "peticiones": 3016,
   "reintentos": 8288,
   "reintentos_dia": "2026-11-20",
-  "segundos": 133,
-  "sellos_leidos": 182,
-  "sellos_llenos": 208,
-  "sellos_nuevos": 93,
+  "segundos": 217,
+  "sellos_leidos": 199,
+  "sellos_llenos": 216,
+  "sellos_nuevos": 99,
   "sellos_saltados": 9,
   "variantes_probadas": [
     "matchstories|editorial matchstories",
