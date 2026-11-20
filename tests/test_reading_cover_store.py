@@ -87,3 +87,49 @@ class CoverStoreTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class CoverStoreWriteTest(unittest.TestCase):
+    def setUp(self):
+        import os
+        self.d, self.root = tree([], local=['isbn-9780000000009.webp'])
+        self.dir = tempfile.TemporaryDirectory()
+        self.addCleanup(self.d.cleanup)
+        self.addCleanup(self.dir.cleanup)
+        self.saved = os.environ.pop(store.STORE_DIR_ENV, None)
+        self.addCleanup(lambda: os.environ.__setitem__(store.STORE_DIR_ENV, self.saved) if self.saved else os.environ.pop(store.STORE_DIR_ENV, None))
+
+    def test_without_a_store_directory_everything_is_written_where_it_always_was(self):
+        target = store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'x')
+        self.assertEqual(target, self.root / 'assets/reading-covers/isbn-9780000000001.webp')
+        self.assertEqual(store.names(self.root), set())
+        self.assertEqual(store.flush(), 0)
+
+    def test_with_a_store_directory_new_covers_go_out_and_existing_local_ones_stay(self):
+        import os
+        os.environ[store.STORE_DIR_ENV] = self.dir.name
+        store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'nueva')
+        store.put(self.root, '/assets/reading-covers/isbn-9780000000009.webp', b'cambiada')
+        self.assertEqual((Path(self.dir.name) / 'isbn-9780000000001.webp').read_bytes(), b'nueva')
+        self.assertFalse((self.root / 'assets/reading-covers/isbn-9780000000001.webp').exists())
+        self.assertEqual((self.root / 'assets/reading-covers/isbn-9780000000009.webp').read_bytes(), b'cambiada')
+        self.assertEqual(store.names(self.root), {'isbn-9780000000001.webp'})
+        # una portada ya del almacén se actualiza allí aunque exista copia local
+        store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'reemplazo')
+        self.assertEqual((Path(self.dir.name) / 'isbn-9780000000001.webp').read_bytes(), b'reemplazo')
+
+    def test_flush_commits_and_pushes_only_what_changed(self):
+        import os
+        import subprocess
+        remote = tempfile.TemporaryDirectory()
+        self.addCleanup(remote.cleanup)
+        run = lambda *a, cwd: subprocess.run(['git', *a], cwd=cwd, check=True, capture_output=True, text=True)
+        run('init', '-q', '--bare', '-b', 'main', cwd=remote.name)
+        run('clone', '-q', remote.name, self.dir.name, cwd=remote.name)
+        run('config', 'user.name', 't', cwd=self.dir.name)
+        run('config', 'user.email', 't@t', cwd=self.dir.name)
+        os.environ[store.STORE_DIR_ENV] = self.dir.name
+        store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'nueva')
+        self.assertEqual(store.flush(), 1)
+        self.assertEqual(store.flush(), 0)
+        self.assertIn('isbn-9780000000001.webp', run('ls-tree', '--name-only', 'main', cwd=remote.name).stdout)

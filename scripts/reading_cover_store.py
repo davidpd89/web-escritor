@@ -13,7 +13,9 @@ Con el manifiesto vacío todo es un no-op: activar el almacén es dar de alta no
 from __future__ import annotations
 
 import json
+import os
 import re
+import subprocess
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -129,3 +131,57 @@ def apply_to_dist(out_dir: Path, root: Path = ROOT) -> int:
             path.write_text(text, encoding='utf-8', newline='')
             changed += 1
     return changed
+
+
+# --- Escritura: la carga deja las portadas nuevas en una copia del repositorio del almacén y la sube con `flush`.
+STORE_DIR_ENV = 'READING_COVERS_STORE_DIR'
+
+
+def store_dir() -> Path | None:
+    """Copia local del repositorio del almacén; sin ella (variable sin definir) todo se escribe en este repo."""
+    value = os.environ.get(STORE_DIR_ENV, '').strip()
+    return Path(value) if value else None
+
+
+def register(root: Path, name: str) -> None:
+    path = root / MANIFEST
+    data = load(root)
+    if name in data['archivos']:
+        return
+    data['archivos'] = sorted({*data['archivos'], name})
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + chr(10), encoding='utf-8', newline='')
+
+
+def put(root: Path, path: str, content: bytes) -> Path:
+    """Guarda una portada. Con almacén activo, una portada nueva (sin fichero en este repo) o ya del almacén va allí
+    y se da de alta en el manifiesto; una portada local existente se sigue escribiendo en su sitio."""
+    target = root / path.lstrip('/')
+    directory, name = store_dir(), _name(path)
+    if directory and name and (name in names(root) or not target.exists()):
+        directory.mkdir(parents=True, exist_ok=True)
+        (directory / name).write_bytes(content)
+        register(root, name)
+        return directory / name
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(content)
+    return target
+
+
+def flush(message: str = 'Portadas de la carga') -> int:
+    """Sube al almacén las portadas escritas con `put`. Devuelve cuántos ficheros nuevos o cambiados subió."""
+    directory = store_dir()
+    if not directory:
+        return 0
+
+    def git(*args, check=True):
+        return subprocess.run(['git', '-C', str(directory), *args], capture_output=True, text=True, check=check, encoding='utf-8')
+    git('add', '-A')
+    changed = [line for line in git('status', '--porcelain').stdout.splitlines() if line.strip()]
+    if not changed:
+        return 0
+    git('-c', 'user.name=github-actions[bot]', '-c', 'user.email=41898282+github-actions[bot]@users.noreply.github.com',
+        'commit', '-q', '-m', f'{message} ({len(changed)} ficheros)')
+    git('pull', '--rebase', '--quiet', check=False)
+    git('push', '--quiet', 'origin', 'HEAD:main')
+    return len(changed)

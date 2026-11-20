@@ -22,6 +22,9 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import reading_cover_store as cover_store  # noqa: E402
+
 SKIP_PARTS = {
     ".git", ".github", "node_modules", "tests", "vendor",
     "WEB DAVID PORTO nuevas ideas", "archive", ".codex_work",
@@ -155,7 +158,7 @@ def audit_file(path: Path, root: Path) -> list[str]:
             continue
         seen.add(key)
         target = resolve_local(url, path, root)
-        if not target.is_file():
+        if not target.is_file() and not cover_store.is_stored('/' + target.relative_to(root).as_posix() if root in target.parents else '', root):
             errors.append(f"{rel}:{line}: missing local {kind} target: {url} -> {target.relative_to(root) if root in target.parents or target == root else target}")
     return errors
 
