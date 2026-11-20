@@ -33,11 +33,11 @@ import git_estado
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / '.local/reading-texts/out'
 STATE = ROOT / '.local/reading-texts/state.json'
+CLASIFICACION = ROOT / '.local/reading-texts/clasificacion.json'  # segunda opinión de ChatGPT sobre género y público
 PROMPT = ROOT / 'scripts/templates/reading-texts-prompt.md'
 RRSS_TOOLS = Path(os.environ.get('RRSS_TOOLS', r'C:\GIT\RRSS_DavidPorto\tools'))
 VERSION = 3
 MAX_ATTEMPTS = 4
-MAX_BLOCKS = 5
 MIN_BLOCKS = 2
 COPY_WORDS = 8
 REPAIR_TURNS = 3  # correcciones dentro del mismo chat tras la primera respuesta
@@ -157,6 +157,8 @@ def payload(data, b):
     modules = [{'modulo': m, 'titulo': catalogue.MODULE_TITLES[m], 'necesidad': need}
                for m, (fams, need, ok) in MODULES.items() if fam in fams and ok(evidence)]
     return {'id': b['id'], 'familia': fam, 'modulos_permitidos': modules, 'evidencias': evidence,
+            'clasificacion_actual': {'generos': [c['nombre'] for c in cats if c['tipo'] == 'genero'],
+                                     'publico': audience({c['id'] for c in cats}) or 'sin indicar'},
             'afines_ids': {x['titulo']: x['id'] for x, _ in affines}}
 
 
@@ -257,10 +259,42 @@ def affine_books(data, b, cat_ids):
     return [(index[i][0], sorted(names[c] for c in shared) or ['autor']) for _, _, _, i, shared in best]
 
 
+GENEROS = ('Misterio y thriller', 'Fantasía', 'Romance', 'Ciencia ficción', 'Terror', 'Novela histórica', 'Aventuras', 'Poesía',
+           'Humor', 'Ensayo', 'Cómic y novela gráfica', 'Biografías y memorias', 'Cocina', 'Desarrollo personal',
+           'Narrativa contemporánea', 'Infantil', 'Otro')
+PUBLICOS = ('infantil', 'juvenil', 'adultos')
+
+
+def fold(text):
+    return unicodedata.normalize('NFKD', str(text)).encode('ascii', 'ignore').decode().casefold().strip()
+
+
+def compare_classification(p, c):
+    """Segunda opinión de ChatGPT frente a la clasificación propia: (registro, None) o (None, motivo de rechazo).
+
+    No cambia ninguna categoría: solo deja constancia de si coinciden y de por qué no, para revisar las reglas."""
+    if not isinstance(c, dict):
+        return None, 'sin clasificación'
+    genre, public, reason = c.get('genero'), fold(c.get('publico', '')), str(c.get('motivo') or '').strip()
+    if fold(genre) not in {fold(g) for g in GENEROS}:
+        return None, 'género fuera de la lista'
+    if public not in PUBLICOS:
+        return None, 'público fuera de la lista'
+    mine = p.get('clasificacion_actual', {})
+    same_genre = fold(genre) in {fold(g) for g in mine.get('generos', [])}
+    same_public = public == fold(mine.get('publico', ''))
+    agree = same_genre and same_public
+    if not agree and len(reason) < 20:
+        return None, 'no coincide y falta el motivo'
+    return {'genero_gpt': genre, 'publico_gpt': public, 'genero_nuestro': mine.get('generos', []),
+            'publico_nuestro': mine.get('publico'), 'coincide': agree, 'motivo': reason}, None
+
+
 def source_hash(p):
     """Cambia si cambian los datos que sostienen el texto o el contrato; no por precios ni por los libros afines,
     que crecen con el catálogo (el constructor oculta la comparación si un afín deja de estar publicado)."""
     stable = {**p, 'evidencias': {k: v for k, v in p['evidencias'].items() if k != 'afines_catalogo'}, 'afines_ids': None,
+              'clasificacion_actual': None,  # la segunda opinión no invalida un texto ya escrito
               'modulos_permitidos': [m['modulo'] for m in p['modulos_permitidos'] if m['modulo'] != 'lecturas_afines'], 'version': VERSION}
     return hashlib.sha256(json.dumps(stable, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
 
@@ -302,7 +336,8 @@ def build_prompt(payloads, state=None):
         if entry.get('errores') and entry.get('hash') == source_hash(p):
             row['corregir'] = entry['errores']
         books.append(row)
-    return PROMPT.read_text(encoding='utf-8').replace('{{LIBROS}}', json.dumps(books, ensure_ascii=False))
+    return (PROMPT.read_text(encoding='utf-8').replace('{{GENEROS}}', ', '.join(f'«{g}»' for g in GENEROS))
+            .replace('{{LIBROS}}', json.dumps(books, ensure_ascii=False)))
 
 
 def words(text):
@@ -391,7 +426,7 @@ def validate_text(p, t):
     if not isinstance(t, dict) or t.get('id') != p['id']:
         return [], ['id distinto']
     blocks = t.get('bloques')
-    if not isinstance(blocks, list) or len(blocks) > MAX_BLOCKS:
+    if not isinstance(blocks, list) or len(blocks) > len(MODULES):
         return [], ['bloques: lista inválida']
     if not blocks:
         return [], ['sin bloques: no se admite abstenerse, escribe los módulos permitidos con lo que sí dicen las evidencias']
@@ -451,6 +486,11 @@ def save_results(payloads, rows, state, out=OUT):
             entry.update(hash=h, intentos=0)
         entry['intentos'] += 1
         t = by_id.get(p['id'])
+        if t is not None:
+            record, _why = compare_classification(p, t.get('clasificacion'))
+            if record:
+                where = CLASIFICACION if out is OUT else out / 'clasificacion.opiniones'  # fuera de *.json: publish copia solo textos
+                write_json(where, {**read_json(where, {}), p['id']: record})
         blocks, errors = ([], ['sin respuesta']) if t is None else validate_text(p, t)
         entry['errores'] = errors
         old = read_json(out / (p['id'] + '.json'))
@@ -574,7 +614,10 @@ def absorb(payloads, fichas, rows, improving=False):
         p = payloads.get(r.get('id')) if isinstance(r, dict) else None
         if not p or not isinstance(r.get('bloques'), list):
             continue
-        blocks = fichas.setdefault(p['id'], {'id': p['id'], 'bloques': []})['bloques']
+        ficha = fichas.setdefault(p['id'], {'id': p['id'], 'bloques': []})
+        if isinstance(r.get('clasificacion'), dict) and not ficha.get('clasificacion'):
+            ficha['clasificacion'] = r['clasificacion']  # la opinión llega en el primer turno; las correcciones solo traen bloques
+        blocks = ficha['bloques']
         for x in r['bloques']:
             if not isinstance(x, dict):
                 continue
@@ -859,6 +902,7 @@ def main(argv=None):
     ru.add_argument('--publish-at', type=int, nargs='*', default=[],
                     help='horas de Madrid a las que publicar en segundo plano (p. ej. 21); sustituye a --publish-every')
     ru.add_argument('--refresh-data', action='store_true', help='releer el catálogo de origin/main tras cada lote')
+    sub.add_parser('discrepancias', help='libros donde ChatGPT no coincide con nuestro género o público')
     sub.add_parser('publish')
     args = parser.parse_args(argv)
     data = read_json(ROOT / 'data/reading-catalogue.json')
@@ -881,6 +925,12 @@ def main(argv=None):
                 bad += bool(errors)
                 print(row.get('id'), f'{len(blocks)} bloques', 'OK' if not errors else '; '.join(errors))
         return 1 if bad else 0
+    elif args.cmd == 'discrepancias':
+        opinions = read_json(CLASIFICACION, {})
+        different = {i: o for i, o in opinions.items() if not o['coincide']}
+        print(f'{len(different)} discrepancias de {len(opinions)} opiniones')
+        for i, o in different.items():
+            print(i, '| nuestro:', ', '.join(o['genero_nuestro']) or '-', o['publico_nuestro'], '| GPT:', o['genero_gpt'], o['publico_gpt'], '|', o['motivo'])
     elif args.cmd == 'run':
         loop(args)
     elif args.cmd == 'publish':

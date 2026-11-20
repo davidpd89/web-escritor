@@ -31,8 +31,14 @@ Frase permitida: «En tapa dura, sus 608 páginas aguantan mejor la relectura y 
 Frase prohibida: «La sinopsis no especifica la edad del protagonista.» (habla de la fuente en vez de informar)
 Frase prohibida: «Una novela apasionante que engancha desde la primera página.» (valoración sin evidencia)
 
+Además, para cada libro das tu propia clasificación, como segunda opinión sobre la nuestra ("clasificacion_actual", que viene en los datos del libro):
+- "genero": el género principal de la obra, uno solo de esta lista: {{GENEROS}}. Para un cómic o novela gráfica es «Cómic y novela gráfica» salvo que sea claramente otra cosa; «Biografías y memorias» solo si es un relato real de una vida, no una novela con recuerdos.
+- "publico": «infantil», «juvenil» o «adultos». La edad mínima que indica la editorial no basta: una novela romántica con escenas explícitas es para adultos aunque diga 16+.
+- "motivo": si tu género o público no coincide con "clasificacion_actual", explica en una frase concreta por qué (qué dato de la sinopsis lo respalda); si coincide, déjalo vacío.
+Sé independiente: no copies "clasificacion_actual" por inercia. Esto no afecta a los bloques de texto, que se escriben igual.
+
 Responde con un único bloque ```json y nada más, con esta forma exacta y un elemento por libro:
-{"fichas": [{"id": "...", "bloques": [{"modulo": "...", "texto": "...", "evidencias": ["clave", "..."]}]}]}
+{"fichas": [{"id": "...", "clasificacion": {"genero": "...", "publico": "...", "motivo": "..."}, "bloques": [{"modulo": "...", "texto": "...", "evidencias": ["clave", "..."]}]}]}
 
 Libros:
 {{LIBROS}}
