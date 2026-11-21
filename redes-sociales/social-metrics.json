@@ -1,31 +1,31 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-20T22:14:48Z",
+  "generated_at": "2026-11-21T04:14:20Z",
   "networks": [
     {
       "id": "bluesky",
       "profile_url": "https://bsky.app/profile/davidportoescritor.bsky.social",
-      "followers": 5272,
-      "observed_at": "2026-11-20T22:14:48Z",
-      "valid_until": "2026-11-22T22:14:48Z",
+      "followers": 5274,
+      "observed_at": "2026-11-21T04:14:20Z",
+      "valid_until": "2026-11-23T04:14:20Z",
       "source": "bluesky-public-appview",
       "status": "ok"
     },
     {
       "id": "mastodon",
       "profile_url": "https://mastodon.social/@davidportodiaz",
-      "followers": 1509,
-      "observed_at": "2026-11-20T22:14:48Z",
-      "valid_until": "2026-11-22T22:14:48Z",
+      "followers": 1512,
+      "observed_at": "2026-11-21T04:14:20Z",
+      "valid_until": "2026-11-23T04:14:20Z",
       "source": "mastodon-public-search",
       "status": "ok"
     },
     {
       "id": "threads",
       "profile_url": "https://www.threads.com/@davidportodiaz",
-      "followers": 757,
-      "observed_at": "2026-11-20T22:14:48Z",
-      "valid_until": "2026-11-22T22:14:48Z",
+      "followers": 761,
+      "observed_at": "2026-11-21T04:14:20Z",
+      "valid_until": "2026-11-23T04:14:20Z",
       "source": "threads-public-profile",
       "status": "ok"
     },
@@ -33,17 +33,17 @@
       "id": "instagram",
       "profile_url": "https://www.instagram.com/davidportodiaz/",
       "followers": 3070,
-      "observed_at": "2026-11-20T22:14:48Z",
-      "valid_until": "2026-11-22T22:14:48Z",
+      "observed_at": "2026-11-21T04:14:20Z",
+      "valid_until": "2026-11-23T04:14:20Z",
       "source": "instagram-public-profile",
       "status": "ok"
     },
     {
       "id": "tiktok",
       "profile_url": "https://www.tiktok.com/@davidportoescritor",
-      "followers": 1859,
-      "observed_at": "2026-11-20T22:14:48Z",
-      "valid_until": "2026-11-22T22:14:48Z",
+      "followers": 1863,
+      "observed_at": "2026-11-21T04:14:20Z",
+      "valid_until": "2026-11-23T04:14:20Z",
       "source": "tiktok-public-profile",
       "status": "ok"
     },
@@ -51,8 +51,8 @@
       "id": "pinterest",
       "profile_url": "https://www.pinterest.com/davidportodiaz/",
       "followers": 8,
-      "observed_at": "2026-11-20T22:14:48Z",
-      "valid_until": "2026-11-22T22:14:48Z",
+      "observed_at": "2026-11-21T04:14:20Z",
+      "valid_until": "2026-11-23T04:14:20Z",
       "source": "pinterest-public-profile",
       "status": "ok"
     },
@@ -60,25 +60,25 @@
       "id": "facebook",
       "profile_url": "https://www.facebook.com/profile.php?id=61590793667301",
       "followers": 489,
-      "observed_at": "2026-11-20T22:14:48Z",
-      "valid_until": "2026-11-22T22:14:48Z",
+      "observed_at": "2026-11-21T04:14:20Z",
+      "valid_until": "2026-11-23T04:14:20Z",
       "source": "facebook-public-profile",
       "status": "ok"
     },
     {
       "id": "x",
       "profile_url": "https://x.com/davidportodiaz",
-      "followers": null,
-      "observed_at": null,
-      "valid_until": null,
-      "source": null,
-      "status": "pending"
+      "followers": 365,
+      "observed_at": "2026-11-21T04:14:20Z",
+      "valid_until": "2026-11-23T04:14:20Z",
+      "source": "x-public-profile",
+      "status": "ok"
     }
   ],
   "totals": {
-    "follower_relationships": 12964,
-    "valid_until": "2026-11-22T22:14:48Z",
-    "coverage": 7,
+    "follower_relationships": 13342,
+    "valid_until": "2026-11-23T04:14:20Z",
+    "coverage": 8,
     "eligible": 8,
     "label": "Seguidores sumados en redes con datos vigentes (no personas únicas)"
   }
