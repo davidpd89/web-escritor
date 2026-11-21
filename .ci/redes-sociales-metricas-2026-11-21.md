@@ -17,3 +17,5 @@
 **Aviso**: las ventanas difieren (28–90 días) y Bluesky bajó de «+1.200» a 890 publicaciones porque la cifra anterior no coincidía con la API.
 
 **Pendiente**: automatizar la lectura (Bluesky/Mastodon por API; resto por Edge) en un JSON diario.
+
+**Tarjetas (22/11 ajuste)**: dos datos por red, el más llamativo: Instagram visualizaciones + visitas al perfil (3.060 en 90 días); X visualizaciones + interacciones. Bluesky y Mastodon no exponen visualizaciones (interacciones + publicaciones). Pinterest sin cambios.
