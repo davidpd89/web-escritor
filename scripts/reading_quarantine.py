@@ -313,6 +313,25 @@ _tildes_spec.loader.exec_module(tildes)
 PROSE_FIELDS = ('titulo', 'descripcion_breve', 'sinopsis_breve', 'sinopsis_completa', 'edad_recomendada')
 
 
+def restore_accents_as_published(text):
+    """`restore_accents` sobre el texto tal como lo verá la página, no como lo trae la fuente.
+
+    La página publica el texto sin gritos (strip_shouting) y entonces «historica» sale en minúscula y sin nombre propio
+    al lado; en el dato, «(NOVELA HISTORICA Y AVENTURAS)» sigue en mayúsculas y `restore_accents` lo tomaba por un nombre
+    («HISTORICA Y» = apellido seguido de mayúscula) y no lo reparaba. Origen: isbn-9791399183504 (21/11) quedó en
+    cuarentena por «historica». Toda palabra que la página señalaría se repara también en el dato."""
+    from reading_intake_core import strip_shouting
+    shown = set(tildes.flagged_words(*(strip_shouting(text),) * 2))
+
+    def fix(m):
+        low = m.group().lower()
+        if low in shown or not tildes.technical_occurrence(text, m):
+            return tildes._cased(m.group(), tildes.ACCENTED_FORM[low])
+        return m.group()
+
+    return tildes.WORD_RE.sub(fix, text)
+
+
 def repair_title_accents(books, root, today):
     """«"edicion" debería ser "edición"»: el texto de la fuente recupera las tildes que exige check-copy-tildes.
 
@@ -322,7 +341,7 @@ def repair_title_accents(books, root, today):
     for book in books:
         for field in PROSE_FIELDS:
             value = book.get(field)
-            if isinstance(value, str) and value != (repaired := tildes.restore_accents(value)):
+            if isinstance(value, str) and value != (repaired := restore_accents_as_published(value)):
                 book[field] = repaired
                 fixed += 1
     return fixed
