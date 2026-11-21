@@ -311,7 +311,11 @@ def _pedir_modelo(mensajes, modelo, token):
     req = urllib.request.Request(MODELOS_URL, data=cuerpo, method='POST', headers={
         'Authorization': f'Bearer {token}', 'Content-Type': 'application/json', 'Accept': 'application/json'})
     with urllib.request.urlopen(req, timeout=120) as r:  # noqa: S310 - URL fija de GitHub Models
-        return json.loads(r.read())['choices'][0]['message']['content']
+        crudo = r.read()
+    try:
+        return json.loads(crudo)['choices'][0]['message']['content']
+    except ValueError as e:  # 21/11: ambos modelos devolvían un cuerpo que no era JSON; sin verlo no se podía diagnosticar
+        raise ValueError(f'cuerpo no JSON ({e}): {crudo[:200]!r}') from e
 
 
 def propuestas(texto):
@@ -373,7 +377,7 @@ def experto(rol, dry=False):
             print(f'{modelo}: HTTP {e.code}')   # 429 = cuota diaria agotada: siguiente modelo
             continue
         except (urllib.error.URLError, TimeoutError, ValueError, KeyError, IndexError, TypeError) as e:
-            print(f'{modelo}: respuesta no válida ({type(e).__name__})')   # sin JSON de chat: siguiente modelo
+            print(f'{modelo}: respuesta no válida ({type(e).__name__}: {str(e)[:300]})')   # sin JSON de chat: siguiente modelo
             continue
         ruta_segura(DATOS / 'respuesta-modelo.json').write_text(texto, encoding='utf-8')
         creadas = publicar(propuestas(texto), rol, modelo, dry)
