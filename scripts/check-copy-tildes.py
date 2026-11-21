@@ -125,7 +125,11 @@ def html_visible_text(src: str) -> list[tuple[int, str, str]]:
 
 
 def js_strings(src: str) -> list[tuple[int, str, str]]:
+    """Literales de JS con frase. Lineal en el tamaño del fichero: `assets/page-order.generated.js` crece con cada
+    libro, y recontar las líneas desde el principio en cada literal colgó la CI a los 50 min (#1510, 21/11)."""
     out: list[tuple[int, str, str]] = []
+    lines = src.splitlines()
+    line_no, counted = 1, 0
     for m in JS_STRING_RE.finditer(src):
         text = m.group(2)
         # Una frase para el usuario tiene espacios; sin ellos es un identificador,
@@ -134,8 +138,8 @@ def js_strings(src: str) -> list[tuple[int, str, str]]:
             continue
         if text.startswith(("http", "/", "./", "../")) or "://" in text:
             continue
-        line_no = src[:m.start()].count("\n") + 1
-        lines = src.splitlines()
+        line_no += src.count("\n", counted, m.start())
+        counted = m.start()
         context = lines[line_no - 1] if line_no <= len(lines) else text
         out.append((line_no, text, context))
     return out
