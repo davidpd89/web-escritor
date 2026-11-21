@@ -76,7 +76,7 @@ assert.equal(fetchStats.slowRecovered,1);
 // Si la cuota no cede, devuelve el 429 tras los intentos del carril lento (no lanza ni se queda colgado).
 const always=await fetchWithBackoff(`${o}/always429`,{},{attempts:1,slowAttempts:2});
 assert.equal(always.status,429);
-assert.equal(hits['/always429'],3);
+assert.equal(hits['/always429'],7); // 1 intento + 3 rondas del carril lento × 2
 
 // En el carril lento las URL van de una en una.
 const lanes=await Promise.all(['/lane-a','/lane-b','/lane-c'].map(p=>fetchWithBackoff(`${o}${p}`,{},{attempts:1})));
