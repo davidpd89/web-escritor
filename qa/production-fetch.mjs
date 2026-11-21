@@ -29,7 +29,7 @@ export function auditUrl(route, origin) {
 export const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 export function isTransientStatus(status) {
-  return status === 429 || (status >= 500 && status <= 599);
+  return status === 408 || status === 429 || (status >= 500 && status <= 599);
 }
 
 async function waitTurn() {

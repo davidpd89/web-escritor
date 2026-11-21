@@ -411,6 +411,18 @@ class QuarantineTest(unittest.TestCase):
         self.assertEqual(books[3]['titulo'], 'Las versiones de Frances Burney')  # plural y nombre propio
         self.assertEqual(q.repair_title_accents(books, ROOT, '2026-11-08'), 0)  # idempotente
 
+    def test_shouted_title_is_repaired_as_the_page_shows_it(self):
+        """isbn-9791399183504 (21/11): «(NOVELA HISTORICA Y AVENTURAS)» en mayúsculas se tomaba por un apellido seguido
+        de mayúscula y no se reparaba; la página lo publica sin gritos como «historica» y la carga apartaba el libro."""
+        books = [{'titulo': 'LA BODA DEL ZORRO: Un compendio del folclore japonés (NOVELA HISTORICA Y AVENTURAS)',
+                  'descripcion_breve': 'LA BODA DEL ZORRO: Un compendio (NOVELA HISTORICA Y AVENTURAS), de Matthew Meyer.'},
+                 {'titulo': 'Una novela de FRANCES BURNEY', 'sinopsis_breve': 'Una novela de Frances Burney.'}]
+        self.assertEqual(q.repair_title_accents(books, ROOT, '2026-11-21'), 2)
+        self.assertIn('(NOVELA HISTÓRICA Y AVENTURAS)', books[0]['titulo'])
+        self.assertIn('(NOVELA HISTÓRICA Y AVENTURAS)', books[0]['descripcion_breve'])
+        self.assertEqual(books[1]['titulo'], 'Una novela de FRANCES BURNEY')  # nombre propio, también gritado
+        self.assertEqual(q.repair_title_accents(books, ROOT, '2026-11-21'), 0)
+
     def test_checker_reads_entities_as_the_reader_does(self):
         page = '<p>En mi Era Pistacho: Juliette&#x27;s version</p><p>Nueva edicion</p>'
         pieces = [text for _, text, _ in q.tildes.html_visible_text(page)]

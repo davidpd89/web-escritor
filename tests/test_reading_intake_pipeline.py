@@ -256,9 +256,8 @@ class ContractTests(unittest.TestCase):
         repeated = collections.Counter(titles.values())
         incumplen('título único', {i: f'título repetido: {t}' for i, t in titles.items() if repeated[t] > 1})
         incumplen('título de 75 caracteres como mucho', {i: f'{len(t)} caracteres: {t}' for i, t in titles.items() if len(t) > 75})
-        anonymous = {b['id']: f'sin autor en el título: {titles[b["id"]]}' for b in books if b['autores'][0] not in titles[b['id']]}
-        if len(anonymous) > 2:
-            incumplen('como mucho 2 títulos sin autor', anonymous)
+        anonymous = {b['id']: f'sin autor en el título: {titles[b["id"]]}' for b in books if not builder.author_in_title(b, titles[b['id']])}
+        incumplen('ningún título sin autor (ni abreviado)', anonymous)
 
     def test_partial_publication_never_gets_fake_day(self):
         self.record.update(precision_fecha='mes', fecha_publicacion_edicion='2026-10')

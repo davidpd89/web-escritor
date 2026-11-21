@@ -38,6 +38,7 @@ const o=`http://127.0.0.1:${srv.address().port}`;
 
 assert.equal(isTransientStatus(429),true);
 assert.equal(isTransientStatus(503),true);
+assert.equal(isTransientStatus(408),true);
 assert.equal(isTransientStatus(404),false);
 
 // Un 404 vuelve al primer intento, sin reintentos.

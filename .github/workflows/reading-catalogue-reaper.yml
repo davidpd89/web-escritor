@@ -1,0 +1,48 @@
+name: Reading catalogue reaper
+# Vigía de cargas muertas. Cuando el runner pierde la comunicación (20/11: «The hosted runner lost communication»)
+# o el job llega al límite, los pasos «Close the night turn» y «Retry a failed night batch» de la propia carga no
+# corren: el libro de la noche queda con la carga en curso y no se reintenta hasta el siguiente reloj, si lo hay.
+# `workflow_run` es un evento, no un cron: GitHub no lo descarta con carga. Solo actúa si el apunte de esa carga sigue en
+# curso (scripts/noche.py huerfana); una carga que falló «normal» ya decidió su reintento ella misma.
+on:
+  workflow_run:
+    workflows: ['Reading catalogue intake']
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  recoger:
+    # Solo ejecuciones en rojo de la carga real sobre main; las canceladas a mano o por el grupo no se reintentan.
+    if: github.event.workflow_run.conclusion == 'failure' && github.event.workflow_run.head_branch == 'main' && vars.READING_INTAKE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write   # libro de la noche en la rama catalogo-estado
+      actions: write    # despacho del reintento
+    concurrency:
+      group: reading-catalogue-reaper
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            scripts/noche.py
+            scripts/catalogo_estado.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Close a dead load and retry it
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MUERTA: ${{ github.event.workflow_run.id }}
+          INTENTO: ${{ github.event.workflow_run.run_attempt }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if python scripts/noche.py huerfana --run-muerto "$MUERTA" --intento-muerto "$INTENTO"; then
+            gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main -f motivo=reintento
+            echo "Carga muerta $MUERTA: reintento despachado." >> "$GITHUB_STEP_SUMMARY"
+          fi
