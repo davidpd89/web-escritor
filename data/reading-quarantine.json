@@ -29,7 +29,7 @@
         "formatos_amazon_buscados": "2026-11-11",
         "formatos_compra": [
           {
-            "fecha_verificacion": "2026-11-20",
+            "fecha_verificacion": "2026-11-21",
             "formato": "tapa-blanda",
             "fuente_url": "https://www.amazon.es/dp/B0HMJG72PC",
             "precio_centimos": 2000,
@@ -50,7 +50,7 @@
         "portada_fuente_url": "https://m.media-amazon.com/images/I/51OK-DtWM-L.jpg",
         "portada_local": "/assets/reading-covers/isbn-9791399005448.webp",
         "portada_sustituida": true,
-        "precios_amazon_revision": "2026-11-20",
+        "precios_amazon_revision": "2026-11-21",
         "resenas": [
           {
             "fecha_verificacion": "2026-11-10",
@@ -89,10 +89,10 @@
         "fecha_publicacion": "2026-10-10",
         "fecha_verificacion": "2026-11-15",
         "formato_edicion": "tapa-blanda",
-        "formatos_amazon_buscados": "2026-11-20",
+        "formatos_amazon_buscados": "2026-11-21",
         "formatos_compra": [
           {
-            "fecha_verificacion": "2026-11-20",
+            "fecha_verificacion": "2026-11-21",
             "formato": "tapa-blanda",
             "fuente_url": "https://www.amazon.es/dp/B0HMM9CD74",
             "precio_centimos": 2500,
@@ -113,7 +113,7 @@
         "portada_fuente_url": "https://m.media-amazon.com/images/I/31hL8W+auFL.jpg",
         "portada_local": "/assets/reading-covers/isbn-9791399293715.webp",
         "portada_sustituida": true,
-        "precios_amazon_revision": "2026-11-20",
+        "precios_amazon_revision": "2026-11-21",
         "resenas": [
           {
             "fecha_verificacion": "2026-11-15",
@@ -153,10 +153,10 @@
         "fecha_publicacion": "2027-01-21",
         "fecha_verificacion": "2026-11-15",
         "formato_edicion": "tapa-blanda",
-        "formatos_amazon_buscados": "2026-11-20",
+        "formatos_amazon_buscados": "2026-11-21",
         "formatos_compra": [
           {
-            "fecha_verificacion": "2026-11-20",
+            "fecha_verificacion": "2026-11-21",
             "formato": "tapa-blanda",
             "fuente_url": "https://www.amazon.es/dp/8430995277",
             "precio_centimos": 1230,
@@ -178,7 +178,7 @@
         "portada_fuente_url": "https://m.media-amazon.com/images/I/41El5XJwWqL.jpg",
         "portada_local": "/assets/reading-covers/isbn-9788430995271.webp",
         "portada_sustituida": true,
-        "precios_amazon_revision": "2026-11-20",
+        "precios_amazon_revision": "2026-11-21",
         "resenas": [
           {
             "fecha_verificacion": "2026-11-15",
@@ -317,6 +317,70 @@
         "titulo": "Martina mini. Las 1040 preguntas \"clave\" de la LPAC: Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común (Derecho - Práctica Jurídica)"
       },
       "motivo": "isbn-9788430995288: contrato de datos como mucho 2 títulos sin autor: sin autor en el título: Martina mini. Las 1040 preguntas \"clave\" de la LPAC: Ley… · 9788430995288",
+      "ultimo_intento": "2026-11-21"
+    },
+    {
+      "categorias": [
+        "aventuras",
+        "halloween",
+        "novela-historica",
+        "terror"
+      ],
+      "causa": "contrato de datos test_changed_pages_keep_their_accents: 'recomendaciones/libros/la-boda-del-zorro-un-compendio-del-folclore-japones-novela-historica-y-aven-<is",
+      "desde": "2026-11-21",
+      "fuente": "https://www.amazon.es/dp/B0HRL11PN7",
+      "intentos": 1,
+      "isbn": "9791399183504",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9791399183504&tag=davidporto-21",
+        "anio_publicacion": 2026,
+        "autores": [
+          "Matthew Meyer"
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "LA BODA DEL ZORRO: Un compendio del folclore japonés (NOVELA HISTORICA Y AVENTURAS), de Matthew Meyer. Edición de Quaterni en castellano, en tapa blanda. Consta de 232 páginas. La editorial la incluye en terror. Publicación editorial: 2026-11-12.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Tapa blanda · Quaterni",
+        "editorial": "Quaterni",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-21",
+        "fecha_publicacion": "2026-11-12",
+        "fecha_verificacion": "2026-11-21",
+        "formato_edicion": "tapa-blanda",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-21",
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/B0HRL11PN7",
+            "precio_centimos": 2495,
+            "url": "https://www.amazon.es/dp/B0HRL11PN7?tag=davidporto-21&linkCode=osi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/B0HRL11PN7",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/B0HRL11PN7",
+        "id": "isbn-9791399183504",
+        "idioma": "es",
+        "isbn13": "9791399183504",
+        "numero_paginas": 232,
+        "portada_alto": 500,
+        "portada_ancho": 349,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-21",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/41dVbzSzbPL.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9791399183504.webp",
+        "portada_sustituida": true,
+        "precios_amazon_revision": "2026-11-21",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-21",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9791399183504"
+          }
+        ],
+        "slug": "la-boda-del-zorro-un-compendio-del-folclore-japones-novela-historica-y-aven-9791399183504",
+        "titulo": "LA BODA DEL ZORRO: Un compendio del folclore japonés (NOVELA HISTORICA Y AVENTURAS)"
+      },
+      "motivo": "isbn-9791399183504: contrato de datos test_changed_pages_keep_their_accents: 'recomendaciones/libros/la-boda-del-zorro-un-compendio-del-folclore-japones-novela-historica-y-aven-9791399183504/index.html:185: «historica» sin tilde en isbn-9791399183504 — Un compendio del folclore japonés (novela historica y aventuras)",
       "ultimo_intento": "2026-11-21"
     }
   ],
