@@ -10,7 +10,9 @@
 - Facebook (Edge 9225): 28 días, 3.538 visualizaciones.
 - TikTok (Edge 9223): 60 días 16,3 K visualizaciones; 1.835 me gusta totales del perfil (interacciones).
 
-**Sin remedir (se mantienen)**: TikTok visualizaciones +49.000, Pinterest +16.000 (el perfil muestra 8 mil mensuales), X publicaciones, publicaciones de Threads/Instagram/TikTok/Facebook, interacciones de Facebook. X exige Premium para analytics.
+- X (Edge 9223): suma de 86 posts visibles del perfil: 13.558 visualizaciones, 179 me gusta, 28 reposts, 7 respuestas (cota inferior; el panel oficial exige Premium).
+
+**Sin remedir (se mantienen)**: TikTok visualizaciones +49.000, Pinterest +16.000 (el perfil muestra 8 mil mensuales), publicaciones de Threads/Instagram/TikTok/Facebook, interacciones de Facebook. Pinterest personal no tiene panel de analytics.
 
 **Aviso**: las ventanas difieren (28–90 días) y Bluesky bajó de «+1.200» a 890 publicaciones porque la cifra anterior no coincidía con la API.
 
