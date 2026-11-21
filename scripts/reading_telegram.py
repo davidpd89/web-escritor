@@ -211,6 +211,9 @@ DIGEST_MAX_ISBNS = 60
 DIGEST_MAX_TITLES = 40
 DIGEST_MAX_CHARS = 3400  # por mensaje: Telegram admite 4096 y el HTML de los enlaces no cuenta como texto visible
 SEND_AT = dtime(11, 30)  # Hora de Madrid a la que salen todos los envíos del día.
+# Fin de la ventana para los arranques programados: GitHub retrasa los crons de rescate horas (20/11: salieron
+# a las 22:05 y publicaron 16 mensajes). Pasada esta hora solo envía un lanzamiento manual.
+SEND_UNTIL = dtime(15, 0)
 WEEK_DAYS = 7
 MONTHS = (
     "enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre"

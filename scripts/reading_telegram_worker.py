@@ -34,6 +34,7 @@ from reading_planeta_source import planeta_edition
 from reading_ttl_source import HOST as TTL_HOST, ttl_edition
 from reading_telegram import (
     SEND_AT,
+    SEND_UNTIL,
     amazon_url,
     digest_candidate_keys,
     from_reading_catalogue,
@@ -300,7 +301,7 @@ def seconds_until_send(now: datetime, max_wait: int = 3 * 3600) -> float:
     return delta if 0 < delta <= max_wait else 0
 
 
-def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False):
+def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False, scheduled=False):
     root = root.resolve()
     now = datetime.now(ZoneInfo("Europe/Madrid"))
     if wait and not test_asin:
@@ -309,6 +310,11 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False
         if pause:
             time.sleep(pause)
             now = datetime.now(ZoneInfo("Europe/Madrid"))
+    if scheduled and not test_asin and now.time() >= SEND_UNTIL:
+        # Cron retrasado por GitHub: fuera de la ventana de envío no se publica nada (un dispatch manual sí puede).
+        report = {"at": now.isoformat(), "live": live, "status": "closed", "deliveries": []}
+        atomic_json(root / "last-run.json", report)
+        return report
     if not test_asin and now.time() < SEND_AT:
         # The day goes out at 11:30 Madrid; earlier cycles do no work at all.
         report = {"at": now.isoformat(), "live": live, "status": "waiting", "deliveries": []}
@@ -412,9 +418,10 @@ def main():
     parser.add_argument("--github-state", action="store_true")
     parser.add_argument("--test-asin")
     parser.add_argument("--wait-until-send", action="store_true")
+    parser.add_argument("--scheduled", action="store_true", help="Arranque de cron: no envía pasada SEND_UNTIL")
     args = parser.parse_args()
     try:
-        report = cycle(args.root, args.send, args.github_state, args.test_asin, args.wait_until_send)
+        report = cycle(args.root, args.send, args.github_state, args.test_asin, args.wait_until_send, args.scheduled)
         if report["status"] == "needs_attention":
             return 2
         return 0
