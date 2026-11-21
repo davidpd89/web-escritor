@@ -252,7 +252,7 @@ def validate(data, root, actual):
                 require(https(b[key]), f"{name}: {key} debe ser HTTPS")
         for key in ("fecha_verificacion", "portada_fecha_revision", "fecha_actualizacion"):
             day(b[key], name + "." + key)
-        if b.get("fecha_publicacion"):
+        if "fecha_publicacion" in b:  # presente pero null/vacía también se rechaza aquí, no al renderizar
             day(b["fecha_publicacion"], name + ".fecha_publicacion")
             require(https(b.get("fuente_publicacion_url")), f"{name}: publicación sin fuente")
         if b.get("edad_recomendada"):
@@ -341,9 +341,11 @@ def validate(data, root, actual):
     seen = set()
     for i, rel in enumerate(relations):
         # Una relación rota es de su libro si existe; si no, de la propia relación (la cuarentena la quita).
-        actual['libro'] = rel.get('libro_id') if isinstance(rel, dict) and rel.get('libro_id') in book_ids else None
         actual['relacion'] = i
-        require(isinstance(rel, dict) and set(rel) == {"libro_id", "categoria_id"}, "Relación mal formada")
+        owner = rel.get('libro_id') if isinstance(rel, dict) else None
+        actual['libro'] = owner if isinstance(owner, str) and owner in book_ids else None
+        require(isinstance(rel, dict) and set(rel) == {"libro_id", "categoria_id"}
+                and isinstance(rel["libro_id"], str) and isinstance(rel["categoria_id"], str), "Relación mal formada")
         pair = (rel["libro_id"], rel["categoria_id"])
         require(pair[0] in book_ids and pair[1] in ids and pair not in seen, "Relación duplicada o referencia inexistente")
         require(pair[1] not in excluded_by_book[pair[0]], f"{pair[0]}: categoría {pair[1]} asignada y excluida simultáneamente",
@@ -526,8 +528,11 @@ def load_own_texts(root):
     texts = {}
     for path in sorted((root / TEXTS_DIR).glob('*.json')):
         t = json.loads(path.read_text(encoding='utf-8'))
-        require(t.get('id') == path.stem, f'{path.name}: id distinto del nombre del fichero')
-        require(all(x.get('modulo') in MODULE_TITLES for x in t.get('bloques', [])), f'{path.name}: módulo desconocido')
+        # Un fichero de textos roto no tumba el lote: se salta con aviso (la puerta de scripts/reading-texts.py lo
+        # rechaza en su PR) y el libro conserva su descripción base.
+        if t.get('id') != path.stem or not all(isinstance(x, dict) and x.get('modulo') in MODULE_TITLES for x in t.get('bloques', [])):
+            print(f'::warning::{path.name}: textos propios ignorados (id distinto del fichero o módulo desconocido)', flush=True)
+            continue
         if t.get('bloques'):
             texts[t['id']] = t
     return texts

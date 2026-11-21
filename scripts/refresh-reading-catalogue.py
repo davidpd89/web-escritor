@@ -672,6 +672,14 @@ def drop_orphan_pages(quarantined):
         if slug and slug not in live and not subprocess.run(['git', 'cat-file', '-e', 'HEAD:' + page], cwd=ROOT).returncode == 0:
             subprocess.run(['git', 'rm', '-q', '--cached', '--ignore-unmatch', '--', page], cwd=ROOT, check=True)
             (ROOT / page).unlink(missing_ok=True)
+    # Las páginas derivadas (continuaciones del catálogo, autores, sellos) que el intento fallido generó y nunca se
+    # publicaron también sobran: el builder las rechaza como huérfanas y un solo libro apartado pararía el lote.
+    for folder in ('recomendaciones/pagina', 'recomendaciones/autores', 'recomendaciones/editoriales'):
+        for path in sorted((ROOT / folder).glob('*/index.html')):
+            rel = path.relative_to(ROOT).as_posix()
+            if subprocess.run(['git', 'cat-file', '-e', 'HEAD:' + rel], cwd=ROOT).returncode != 0:
+                subprocess.run(['git', 'rm', '-q', '--cached', '--ignore-unmatch', '--', rel], cwd=ROOT, check=True)
+                path.unlink(missing_ok=True)
 
 
 def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):

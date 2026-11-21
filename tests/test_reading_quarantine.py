@@ -438,6 +438,7 @@ MUTACIONES = {
     'título vacío': (2, lambda b: b.update(titulo='')),
     'fecha rota': (3, lambda b: b.update(fecha_publicacion='2026-13-45')),
     'campo desconocido': (4, lambda b: b.update(campo_inventado=1)),
+    'fecha de publicación nula': (5, lambda b: b.update(fecha_publicacion=None)),
 }
 
 
@@ -446,6 +447,18 @@ def mutado(n, cambio):
     roto = copy.deepcopy(DATA)
     cambio(roto['libros'][n])
     return data, roto, book
+
+
+class RelacionRotaTest(unittest.TestCase):
+    """CodeRabbit #1439: una relación con libro_id no hashable era un TypeError sin dueño que paraba el lote."""
+
+    def test_libro_id_no_cadena_es_validation_error(self):
+        for roto in ([], {}, None, 7):
+            with self.subTest(roto=roto):
+                data = copy.deepcopy(DATA)
+                data['libro_categorias'][0]['libro_id'] = roto
+                with self.assertRaises(q.build.ValidationError):
+                    q.build.validate(data, ROOT)
 
 
 class FallosEstructuradosTest(unittest.TestCase):
