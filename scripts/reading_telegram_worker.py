@@ -310,14 +310,11 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False
         if pause:
             time.sleep(pause)
             now = datetime.now(ZoneInfo("Europe/Madrid"))
-    if scheduled and not test_asin and now.time() >= SEND_UNTIL:
-        # Cron retrasado por GitHub: fuera de la ventana de envío no se publica nada (un dispatch manual sí puede).
-        report = {"at": now.isoformat(), "live": live, "status": "closed", "deliveries": []}
-        atomic_json(root / "last-run.json", report)
-        return report
-    if not test_asin and now.time() < SEND_AT:
-        # The day goes out at 11:30 Madrid; earlier cycles do no work at all.
-        report = {"at": now.isoformat(), "live": live, "status": "waiting", "deliveries": []}
+    closed = scheduled and not test_asin and now.time() >= SEND_UNTIL
+    if closed or (not test_asin and now.time() < SEND_AT):
+        # Fuera de la ventana 11:30-15:00 los arranques programados no hacen nada: antes de las 11:30 esperan;
+        # despues de las 15:00 (cron retrasado por GitHub) se cierran. Un dispatch manual si puede recuperar el dia.
+        report = {"at": now.isoformat(), "live": live, "status": "closed" if closed else "waiting", "deliveries": []}
         atomic_json(root / "last-run.json", report)
         return report
     # The scheduler serializes cycles, in addition to SQLite delivery claims.
