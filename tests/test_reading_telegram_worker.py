@@ -438,7 +438,7 @@ def test_publisher_crons_are_utc_and_cover_both_dst_offsets():
     assert any(c < 9 * 60 + 30 for c in crons)           # antes de las 11:30 de verano
     assert any(c > 10 * 60 + 30 for c in crons)          # rescate tras las 11:30 de invierno
     assert any(c > 12 * 60 for c in crons)               # rescate tardio
-    assert max(crons) + 60 < 15 * 60                     # ninguno pasa de SEND_UNTIL (15:00) ni con 1 h de retraso en invierno
+    assert max(crons) < 14 * 60                          # nominal dentro de SEND_UNTIL (15:00 Madrid = 14:00Z en invierno)
     assert "--scheduled" in text and "EVENT_NAME" in text
     assert "--wait-until-send" in text
 
