@@ -25,7 +25,7 @@ reintento que llegan sin su pendiente ya los cargó otro: no cargan.
   python scripts/noche.py juez           # reloj: imprime run=true|false
   python scripts/noche.py abrir --motivo cron|respaldo|manual   # intake: imprime cargar=true|false
   python scripts/noche.py cerrar --resultado success|failure|cancelled
-  python scripts/noche.py cadena --aceptados N [--guardadas M]   # código 0 si toca encadenar (y anota el pendiente)
+  python scripts/noche.py cadena --aceptados N [--guardadas M] [--consulta-pendiente 0|1]   # código 0 si toca encadenar (y anota el pendiente)
   python scripts/noche.py reintento               # código 0 si toca reintentar (y anota el pendiente)
 """
 from __future__ import annotations
@@ -106,12 +106,16 @@ def toca_reintento(libro: dict | None, now: datetime, run: int | None = None, in
     return True, f'{fallidos} cargas fallidas esta noche: se reintenta'
 
 
-def toca_cadena(libro: dict | None, now: datetime, aceptados: int, guardadas: int = 0) -> tuple[bool, str]:
+def toca_cadena(libro: dict | None, now: datetime, aceptados: int, guardadas: int = 0,
+                consulta_pendiente: bool = False) -> tuple[bool, str]:
     """Encadena si el lote trajo altas o si quedan ramas de datos guardadas (Fable R4-11, F8): una carga recuperada
-    o reanudada sin altas propias también sigue, en vez de esperar una noche por cada punto de control."""
+    o reanudada sin altas propias también sigue, en vez de esperar una noche por cada punto de control.
+
+    `consulta_pendiente`: el lote salió de datos guardados, no de las fuentes; la noche aún debe su consulta aunque
+    no trajera altas (21/11: un punto de guardado ya publicado gastó el turno y entraron 0 libros)."""
     if now.astimezone(MADRID).hour >= HORA_FIN:
         return False, 'ya no es de noche'
-    if aceptados <= 0 and guardadas <= 0:
+    if aceptados <= 0 and guardadas <= 0 and not consulta_pendiente:
         return False, 'el lote no trajo libros nuevos ni quedan ramas guardadas'
     if resumen(libro, now)['pendientes']:
         return False, 'ya hay otra carga despachada'
@@ -260,7 +264,7 @@ def _despacho(now, run, intento, args) -> int:
     try:
         libro = leer()
         if args.accion == 'cadena':
-            toca, porque = toca_cadena(libro, now, args.aceptados, args.guardadas)
+            toca, porque = toca_cadena(libro, now, args.aceptados, args.guardadas, args.consulta_pendiente)
         else:
             toca, porque = toca_reintento(libro, now, run, intento)
         if toca:
@@ -282,6 +286,7 @@ def main(argv=None) -> int:
     p.add_argument('--resultado', default='failure')
     p.add_argument('--aceptados', type=int, default=0)
     p.add_argument('--guardadas', type=int, default=0)
+    p.add_argument('--consulta-pendiente', type=int, default=0)
     args = p.parse_args(argv)
     run = int(os.environ.get('GITHUB_RUN_ID') or 0)
     intento = int(os.environ.get('GITHUB_RUN_ATTEMPT') or 1)
