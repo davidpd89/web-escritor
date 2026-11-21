@@ -1,20 +1,20 @@
 {
- "generado": "2026-11-20T19:27:34+00:00",
- "publicados": 6930,
+ "generado": "2026-11-21T06:35:31+00:00",
+ "publicados": 7177,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 860,
+   "total": 930,
    "proximos": 260,
    "por_mes": {
     "2027-08": 1,
-    "2027-05": 6,
+    "2027-05": 5,
     "2027-04": 1,
     "2027-03": 3,
     "2027-02": 82,
     "2027-01": 41,
-    "2026-12": 69,
-    "2026-11": 331,
-    "2026-10": 311,
+    "2026-12": 80,
+    "2026-11": 394,
+    "2026-10": 308,
     "2026-09": 11,
     "2026-08": 1,
     "2025-08": 1
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 187,
+   "total": 270,
    "muestra": [
     {
      "id": "isbn-9791388042324",
@@ -468,13 +468,6 @@
      "isbn13": "9791388042324",
      "editorial": "Duomo Ediciones",
      "fecha_publicacion": "2026-06-08"
-    },
-    {
-     "id": "isbn-9791388042027",
-     "titulo": "Indomables 1. El despertar de la magia",
-     "isbn13": "9791388042027",
-     "editorial": "Duomo Ediciones",
-     "fecha_publicacion": "2026-09-21"
     },
     {
      "id": "isbn-9788408322924",
@@ -636,12 +629,19 @@
      "isbn13": "9791399274523",
      "editorial": "Shiro Libros",
      "fecha_publicacion": "2026-11-11"
+    },
+    {
+     "id": "isbn-9788447234813",
+     "titulo": "Gustavo Adolfo Bécquer y su Obra: Bibliografia (1853-2025): 184 (Literatura)",
+     "isbn13": "9788447234813",
+     "editorial": "Editorial Universidad de Sevilla-secretariado de Publicaciones",
+     "fecha_publicacion": "2026-11-09"
     }
    ]
   },
   "sin_texto": {
-   "total": 3730,
-   "proximos": 534,
+   "total": 3977,
+   "proximos": 564,
    "por_mes": {
     "2028-01": 1,
     "2027-10": 1,
@@ -651,10 +651,10 @@
     "2027-03": 8,
     "2027-02": 48,
     "2027-01": 130,
-    "2026-12": 173,
-    "2026-11": 1090,
-    "2026-10": 1722,
-    "2026-09": 359
+    "2026-12": 196,
+    "2026-11": 1257,
+    "2026-10": 1723,
+    "2026-09": 363
    },
    "muestra": [
     {
@@ -840,10 +840,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": -86,
+  "portadas_tipograficas": 70,
   "formatos_sin_precio": 0,
-  "sin_formatos_de_compra": -78,
-  "sin_texto": -246,
+  "sin_formatos_de_compra": 83,
+  "sin_texto": 247,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -853,6 +853,13 @@
   "errores": {},
   "oportunidades": [],
   "sin_portada_en_amazon": [
+   {
+    "id": "isbn-9791399079395",
+    "titulo": "Reeducación química ―ou san Antón en la orilla―: 21 (Poéticas del desencuentro)",
+    "isbn13": "9791399079395",
+    "editorial": "Marciano Sonoro Ediciones",
+    "fecha_publicacion": "2026-11-21"
+   },
    {
     "id": "isbn-9791399294705",
     "titulo": "Plaza spñ8: Espacio cultural y social de la Fundación mutua madrileña",
@@ -894,6 +901,13 @@
     "isbn13": "9791399280920",
     "editorial": "Kilikids",
     "fecha_publicacion": "2026-11-20"
+   },
+   {
+    "id": "isbn-9788494726453",
+    "titulo": "El regreso de Hermes",
+    "isbn13": "9788494726453",
+    "editorial": "Cosmograma Ediciones",
+    "fecha_publicacion": "2026-11-22"
    },
    {
     "id": "isbn-9788496513723",
@@ -938,6 +952,34 @@
     "fecha_publicacion": "2026-11-20"
    },
    {
+    "id": "isbn-9788497445931",
+    "titulo": "Pasiones Oleícolas (Ne Pereant)",
+    "isbn13": "9788497445931",
+    "editorial": "Docecalles.com",
+    "fecha_publicacion": "2026-11-20"
+   },
+   {
+    "id": "isbn-9788497445603",
+    "titulo": "Cofradías en América durante la Edad Moderna: Investigaciones históricas y artísticas (Miscelánea)",
+    "isbn13": "9788497445603",
+    "editorial": "Docecalles.com",
+    "fecha_publicacion": "2026-11-20"
+   },
+   {
+    "id": "isbn-9788497445962",
+    "titulo": "Me gusta el cine: El cine bélico: La Segunda Guerra Mundial (1) El frente occidental (Fondo en Distribución: Museo del Cine)",
+    "isbn13": "9788497445962",
+    "editorial": "Docecalles.com",
+    "fecha_publicacion": "2026-11-20"
+   },
+   {
+    "id": "isbn-9791399284416",
+    "titulo": "Trazarte",
+    "isbn13": "9791399284416",
+    "editorial": "Editorial Letra Eterna S.l",
+    "fecha_publicacion": "2026-11-20"
+   },
+   {
     "id": "isbn-9791388003240",
     "titulo": "Los Padrinos. Érase una vez en Nueva York (Súper BD)",
     "isbn13": "9791388003240",
@@ -949,48 +991,6 @@
     "titulo": "Crónicas de la amnistía: De la conciencia republicana de España",
     "isbn13": "9788494545894",
     "editorial": "Movimiento Ciudadano Hacia la República Constitucional",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9788410251021",
-    "titulo": "José María Gil: 10 (Islas de Memoria)",
-    "isbn13": "9788410251021",
-    "editorial": "Fundación César Manrique",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9788496513730",
-    "titulo": "Huellas navarras en la historia de un reino",
-    "isbn13": "9788496513730",
-    "editorial": "Editorial Mintzoa",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9788419555649",
-    "titulo": "Verano perdido: 2 (Alterego)",
-    "isbn13": "9788419555649",
-    "editorial": "Experimenta",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9791399321807",
-    "titulo": "Hombres de frontera: Especial Gran Oeste: 0 (Colección Gran Oeste)",
-    "isbn13": "9791399321807",
-    "editorial": "Laramie Ediciones",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9791399262230",
-    "titulo": "Los ritos del adiós: 4 (Narrativa)",
-    "isbn13": "9791399262230",
-    "editorial": "Abril 26",
-    "fecha_publicacion": "2026-11-19"
-   },
-   {
-    "id": "isbn-9791399165630",
-    "titulo": "Casi rocanrol",
-    "isbn13": "9791399165630",
-    "editorial": "Esto No Es Berlín Ediciones",
     "fecha_publicacion": "2026-11-19"
    }
   ]
