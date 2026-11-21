@@ -308,8 +308,13 @@ def chain_report(accepted, consumed=None, **extra):
 
     Una carga recuperada o reanudada también encadena mientras queden datos guardados: con varios checkpoints, una
     noche sin altas nuevas los vaciaba de uno en uno solo con el cron (F8)."""
+    # Un lote recuperado o trasladado no consultó las fuentes: la noche aún debe su consulta, aunque el lote no
+    # trajera altas (21/11, carga 44843220015: un punto de guardado ya publicado gastó el turno y entraron 0 libros).
+    # Una carga reanudada no: su PR sigue abierta y encadenar repetiría la misma reanudación.
+    pending = int(bool(extra.get('recuperado_de') or extra.get('trasladada_de')))
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json',
-                     {**extra, 'stats': {'accepted': accepted, 'checkpoints_restantes': len(set(checkpoints()) - {consumed})}})
+                     {**extra, 'stats': {'accepted': accepted, 'checkpoints_restantes': len(set(checkpoints()) - {consumed}),
+                                         'consulta_pendiente': pending}})
 
 
 def refresh(*, publish=False):

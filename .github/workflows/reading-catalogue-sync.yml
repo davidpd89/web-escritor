@@ -221,10 +221,10 @@ jobs:
         run: |
           set -euo pipefail
           # Also while saved data branches remain (Fable F8): several checkpoints used to need several nights.
-          read -r accepted saved <<< "$(python -c "import json,pathlib;p=pathlib.Path('.ci/reading-intake/publisher-report.json');s=json.loads(p.read_text(encoding='utf-8')).get('stats',{}) if p.exists() else {};print(int(s.get('accepted',0)),int(s.get('checkpoints_restantes',0)))")"
-          if python scripts/noche.py cadena --aceptados "$accepted" --guardadas "$saved"; then
+          read -r accepted saved query <<< "$(python -c "import json,pathlib;p=pathlib.Path('.ci/reading-intake/publisher-report.json');s=json.loads(p.read_text(encoding='utf-8')).get('stats',{}) if p.exists() else {};print(int(s.get('accepted',0)),int(s.get('checkpoints_restantes',0)),int(s.get('consulta_pendiente',0)))")"
+          if python scripts/noche.py cadena --aceptados "$accepted" --guardadas "$saved" --consulta-pendiente "$query"; then
             gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main -f motivo=cadena
-            echo "Next night batch dispatched (accepted $accepted, saved $saved)." >> "$GITHUB_STEP_SUMMARY"
+            echo "Next night batch dispatched (accepted $accepted, saved $saved, query pending $query)." >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Retry a failed night batch
         # 2026-11-14: two batches failed after accepting 200 books each and the chain stopped until the

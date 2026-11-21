@@ -124,6 +124,9 @@ class ReglasTest(unittest.TestCase):
         self.assertFalse(noche.toca_reintento(None, dia)[0])
         self.assertFalse(noche.toca_cadena(None, self.T, 0)[0], 'sin altas no se encadena')
         self.assertTrue(noche.toca_cadena(None, self.T, 0, 2)[0], 'F8: ramas guardadas encadenan sin altas')
+        # 21/11 (carga 44843220015): un lote recuperado sin altas no consultó las fuentes; la noche sigue con la consulta.
+        self.assertTrue(noche.toca_cadena(None, self.T, 0, 0, True)[0], 'lote recuperado encadena la consulta')
+        self.assertFalse(noche.toca_cadena(None, dia, 0, 0, True)[0], 'de día tampoco con consulta pendiente')
 
     def test_juez_sin_libro_legible_carga(self):
         with unittest.mock.patch.object(noche, 'leer', side_effect=OSError('git')), \

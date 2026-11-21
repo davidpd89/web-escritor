@@ -49,7 +49,9 @@ class RatingWorkflowContract(unittest.TestCase):
         self.assertIn("gh workflow run reading-catalogue-sync.yml", yaml)
         # La noche (00-06 Madrid) y las altas las decide el libro de la noche (scripts/noche.py, R4-1); también
         # encadena mientras queden ramas de datos guardadas (F8): chain_report escribe ambas bajo "stats".
-        self.assertIn('python scripts/noche.py cadena --aceptados "$accepted" --guardadas "$saved"', yaml)
+        # Un lote recuperado o trasladado no consultó las fuentes: también encadena la consulta (21/11).
+        self.assertIn('python scripts/noche.py cadena --aceptados "$accepted" --guardadas "$saved" --consulta-pendiente "$query"', yaml)
+        self.assertIn("s.get('consulta_pendiente',0)", yaml)
         self.assertIn(".get('stats',{})", yaml)
         self.assertIn("s.get('accepted',0)", yaml)
         self.assertIn("s.get('checkpoints_restantes',0)", yaml)
