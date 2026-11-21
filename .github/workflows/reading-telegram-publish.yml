@@ -16,7 +16,6 @@ on:
     - cron: '12 11 * * *'
     - cron: '12 12 * * *'
     - cron: '12 13 * * *'
-    - cron: '12 14 * * *'
   workflow_dispatch:
     inputs:
       test_asin:
@@ -76,6 +75,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           READING_TELEGRAM_STATE_KEY: ${{ secrets.READING_TELEGRAM_STATE_KEY }}
           TEST_ASIN: ${{ inputs.test_asin }}
+          EVENT_NAME: ${{ github.event_name }}
         shell: python
         run: |
           import os, subprocess, sys
@@ -86,6 +86,8 @@ jobs:
               args += ['--test-asin', os.environ['TEST_ASIN']]
           else:
               args += ['--wait-until-send']
+              if os.environ.get('EVENT_NAME') == 'schedule':
+                  args += ['--scheduled']
           raise SystemExit(subprocess.call(args))
       - name: Aggregate operational result without private identifiers
         if: always()

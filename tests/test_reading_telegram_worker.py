@@ -408,6 +408,18 @@ class CoverResolverTests(unittest.TestCase):
             report = reading_telegram_worker.cycle(Path(tmp), live=True)
         self.assertEqual(report["status"], "waiting")
 
+    def test_scheduled_cycle_is_closed_after_window_but_manual_is_not(self):
+        import tempfile
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        late = datetime(2026, 11, 20, 22, 5, tzinfo=ZoneInfo("Europe/Madrid"))
+        with tempfile.TemporaryDirectory() as tmp,                 patch.object(reading_telegram_worker, "main_json", side_effect=AssertionError),                 patch.object(reading_telegram_worker, "datetime") as clock:
+            clock.now.return_value = late
+            report = reading_telegram_worker.cycle(Path(tmp), live=True, scheduled=True)
+            self.assertEqual(report["status"], "closed")
+            with self.assertRaises(AssertionError):  # manual: llega a leer el catalogo (no se cierra)
+                reading_telegram_worker.cycle(Path(tmp), live=True, scheduled=False)
+
 
 if __name__ == "__main__":
     unittest.main()
@@ -425,7 +437,9 @@ def test_publisher_crons_are_utc_and_cover_both_dst_offsets():
     assert min(crons) >= (9 * 60 + 30) - 180
     assert any(c < 9 * 60 + 30 for c in crons)           # antes de las 11:30 de verano
     assert any(c > 10 * 60 + 30 for c in crons)          # rescate tras las 11:30 de invierno
-    assert any(c > 13 * 60 for c in crons)               # rescate tardio
+    assert any(c > 12 * 60 for c in crons)               # rescate tardio
+    assert max(crons) + 60 < 15 * 60                     # ninguno pasa de SEND_UNTIL (15:00) ni con 1 h de retraso en invierno
+    assert "--scheduled" in text and "EVENT_NAME" in text
     assert "--wait-until-send" in text
 
 
