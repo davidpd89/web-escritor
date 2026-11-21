@@ -292,3 +292,42 @@ class AperturaPerdidaTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class CargaMuertaTest(unittest.TestCase):
+    """El runner murió con la carga en curso: ni el cierre ni el reintento del propio job corrieron."""
+
+    AHORA = datetime(2026, 11, 21, 2, 30, tzinfo=UTC)  # 03:30 Madrid
+
+    def libro_en_curso(self):
+        _, _, libro = noche.abrir(None, self.AHORA - timedelta(hours=2), 77, 1, 'sha', 'cron')
+        return ida_y_vuelta(libro)
+
+    def test_cierra_como_corte_y_reintenta(self):
+        libro, muerta = noche.huerfana(self.libro_en_curso(), self.AHORA, 77, 1)
+        self.assertTrue(muerta)
+        self.assertEqual(libro['intentos'][0]['resultado'], 'fallido')
+        self.assertEqual(libro['intentos'][0]['clase'], 'corte')
+        self.assertTrue(noche.toca_reintento(libro, self.AHORA, 77, 1)[0])
+
+    def test_un_fallo_normal_ya_cerrado_no_se_recoge(self):
+        libro = noche.cerrar(self.libro_en_curso(), self.AHORA, 77, 1, 'failure')
+        self.assertFalse(noche.huerfana(libro, self.AHORA, 77, 1)[1])
+
+    def test_otro_intento_u_otra_carga_no_se_toca(self):
+        libro = self.libro_en_curso()
+        self.assertFalse(noche.huerfana(libro, self.AHORA, 78, 1)[1])
+        self.assertFalse(noche.huerfana(libro, self.AHORA, 77, 2)[1])
+        self.assertFalse(noche.huerfana(None, self.AHORA, 77, 1)[1])
+
+    def test_el_tope_de_fallidas_corta_el_bucle(self):
+        libro = self.libro_en_curso()
+        libro['intentos'] += [{'run': n, 'intento': 1, 'resultado': 'fallido', 'inicio': noche.iso(self.AHORA), 'fin': noche.iso(self.AHORA)}
+                              for n in (1, 2)]
+        libro, _ = noche.huerfana(libro, self.AHORA, 77, 1)
+        self.assertFalse(noche.toca_reintento(libro, self.AHORA, 77, 1)[0])
+
+    def test_de_dia_no_reintenta(self):
+        tarde = datetime(2026, 11, 21, 10, 0, tzinfo=UTC)
+        libro, _ = noche.huerfana(self.libro_en_curso(), tarde, 77, 1)
+        self.assertFalse(noche.toca_reintento(libro, tarde, 77, 1)[0])

@@ -683,6 +683,22 @@ def short_titles(title):
     return out
 
 
+AUTHOR_STUB_MAX = 28
+
+
+def author_stub(name):
+    """Forma corta de un autor que no cabe entera en el título SEO: sus primeras palabras y «…». Cabe en 75 caracteres con
+    un título de al menos 12; los autores que ya caben no se abrevian."""
+    if len(name) <= AUTHOR_STUB_MAX:
+        return name
+    return name[:AUTHOR_STUB_MAX].rsplit(' ', 1)[0].rstrip(' -–—:.,') + '…'
+
+
+def author_in_title(b, title):
+    """El título nombra al primer autor, entero o en su forma corta."""
+    return b['autores'][0] in title or author_stub(b['autores'][0]) in title
+
+
 def book_title(b, books=()):
     """Título SEO de hasta 75 caracteres que conserva el autor; el ISBN solo entra si el título corto choca con otra ficha."""
     if isinstance(books, dict):
@@ -707,6 +723,12 @@ def book_title(b, books=()):
         cut = b['titulo'][:74-len(tail)].rsplit(' ', 1)[0].rstrip(' -–—:.,')
         if len(cut) >= 12 and not any(t.startswith(cut.casefold()) for t in clash):
             return cut + '…' + tail
+    # Firma institucional demasiado larga para cualquier cola (p. ej. «Grupo Andaluz de Trabajo en Endometriosis de la SAGO»):
+    # se abrevia en vez de perder el autor, que es lo que se busca (la carga apartaba estos libros por «sin autor en el título»).
+    stub = ' · ' + author_stub(b['autores'][0])
+    cut = b['titulo'][:74-len(stub)].rsplit(' ', 1)[0].rstrip(' -–—:.,')
+    if len(cut) >= 12 and not any(t.startswith(cut.casefold()) for t in clash):
+        return cut + '…' + stub
     suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
     tail = next((t for t in tails if len(t) <= 30), '')
     suffix = tail + suffix  # El autor es lo que se busca: se queda también junto al ISBN.
