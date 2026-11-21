@@ -1,80 +1,14 @@
 {
- "dia": "2026-11-20",
+ "dia": "2026-11-21",
  "intentos": [
   {
-   "run": 44645147714,
+   "run": 44843220015,
    "intento": 1,
-   "sha": "58fe3787d5a66fa364940fe6382a7f90d889888a",
+   "sha": "0a941045e96832c142eb9ca0919cc32b1f70e4bf",
    "motivo": "respaldo",
-   "inicio": "2026-11-20T00:21:27Z",
-   "fin": "2026-11-20T02:30:25Z",
-   "resultado": "fallido",
-   "clase": null,
-   "firma": null
-  },
-  {
-   "run": 44656498998,
-   "intento": 1,
-   "sha": "48b9c7a05b180b5ebb2e8ab78b419a28726d15ed",
-   "motivo": "reintento",
-   "inicio": "2026-11-20T02:30:54Z",
-   "fin": "2026-11-20T04:21:25Z",
-   "resultado": "fallido",
-   "clase": null,
-   "firma": null
-  },
-  {
-   "run": 44661295349,
-   "intento": 1,
-   "sha": "cabf3ee7994640f7675dce5a7d0ca66aaa1b9907",
-   "motivo": "reintento",
-   "inicio": "2026-11-20T04:21:55Z",
-   "fin": "2026-11-20T04:32:04Z",
-   "resultado": "fallido",
-   "clase": null,
-   "firma": null
-  },
-  {
-   "run": 44676004873,
-   "intento": 1,
-   "sha": "cabf3ee7994640f7675dce5a7d0ca66aaa1b9907",
-   "motivo": "manual",
-   "inicio": "2026-11-20T04:41:12Z",
-   "fin": "2026-11-20T04:55:33Z",
-   "resultado": "fallido",
-   "clase": null,
-   "firma": null
-  },
-  {
-   "run": 44682539904,
-   "intento": 1,
-   "sha": "190c2f7eb6a3b3f5fa5d700059a65b797c8da196",
-   "motivo": "manual",
-   "inicio": "2026-11-20T05:40:26Z",
-   "fin": "2026-11-20T06:55:01Z",
-   "resultado": "publicado",
-   "clase": null,
-   "firma": null
-  },
-  {
-   "run": 44767256039,
-   "intento": 1,
-   "sha": "b9b57008013e20d68a331fc0bc85e0f693e53909",
-   "motivo": "manual",
-   "inicio": "2026-11-20T15:54:48Z",
-   "fin": "2026-11-20T18:22:45Z",
-   "resultado": "fallido",
-   "clase": "corte",
-   "firma": null
-  },
-  {
-   "run": 44792117743,
-   "intento": 1,
-   "sha": "2f3306995c5df0d4bbddbbef9ae1fdf355ee23b3",
-   "motivo": "manual",
-   "inicio": "2026-11-20T18:22:45Z",
-   "fin": "2026-11-20T20:50:55Z",
-   "resultado": "fallido",
+   "inicio": "2026-11-21T00:21:34Z",
+   "fin": null,
+   "resultado": "en_curso",
    "clase": null,
    "firma": null
   }
