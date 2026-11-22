@@ -35,7 +35,7 @@ export function filtrar(libros, consulta, ctx = {}) {
   const formatDiscounts = b => (b.formatDiscounts || '').split(' ').filter(Boolean).map(x => x.split(':')).filter(([, , checked]) => offerCurrent(checked)).map(([formato, pct]) => ({formato, pct: Number(pct)}));
   const cats = b => b.categories.split(' ');
   const formatsOf = b => new Set([...(b.formats || '').split(' '), ...offersFor(b.bookId).map(o => o.formato)]);
-  const matchingOffers = b => [...offersFor(b.bookId), ...formatDiscounts(b)].filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || o.pct >= Number(v.descuento)));
+  const matchingOffers = b => [...offersFor(b.bookId), ...formatDiscounts(b)].filter(o => (!priceFormats().length || priceFormats().includes(o.formato)) && (!v.descuento || o.pct >= Number(v.descuento)));
   const released = lower => !lower || lower <= today;
   const ratingOk = b => { if (!v.valoracion) return true; const r = ratingFor(b.bookId); return r != null && (v.valoracion === 'menos-3' ? r < 3 : r >= Number(v.valoracion)); };
   const formatPrices = b => new Map((b.formatPrices || '').split(' ').filter(Boolean).map(x => x.split(':')).map(([f, c]) => [f, Number(c)]));
