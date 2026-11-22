@@ -570,260 +570,10 @@
     "editoriales saldo",
     "universidad catolica san pablo",
     "universidad granada",
-    "universidad militar nueva granada umng"
+    "universidad militar nueva granada umng",
+    "lectio"
   ],
   "cola": [
-    {
-      "consulta": "Gribaudo",
-      "nivel": 3,
-      "nodo": "902641031",
-      "ruta": [
-        "Infantil",
-        "Literatura y ficción",
-        "Ficción histórica"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 3,
-      "nodo": "13356129031",
-      "ruta": [
-        "Infantil",
-        "Literatura y ficción",
-        "Ficción religiosa"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 3,
-      "nodo": "13356134031",
-      "ruta": [
-        "Infantil",
-        "Literatura y ficción",
-        "Novelas ligeras"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 3,
-      "nodo": "13356121031",
-      "ruta": [
-        "Infantil",
-        "Literatura y ficción",
-        "Oeste americano"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 3,
-      "nodo": "5273764031",
-      "ruta": [
-        "Infantil",
-        "Literatura y ficción",
-        "Poesía"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 3,
-      "nodo": "13356130031",
-      "ruta": [
-        "Infantil",
-        "Literatura y ficción",
-        "Primeras lecturas y lectores"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 3,
-      "nodo": "16172034031",
-      "ruta": [
-        "Infantil",
-        "Literatura y ficción",
-        "Viajes"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 2,
-      "nodo": "5272187031",
-      "ruta": [
-        "Infantil",
-        "Lugares y culturas"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 2,
-      "nodo": "13356163031",
-      "ruta": [
-        "Infantil",
-        "Misterios y detectives"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 2,
-      "nodo": "5328472031",
-      "ruta": [
-        "Infantil",
-        "Ordenadores y tecnología"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 2,
-      "nodo": "5272188031",
-      "ruta": [
-        "Infantil",
-        "Religión"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 2,
-      "nodo": "13356180031",
-      "ruta": [
-        "Infantil",
-        "Vacaciones y celebraciones"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "902652031",
-      "ruta": [
-        "Informática, internet y medios digitales"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "12942013031",
-      "ruta": [
-        "Juvenil"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "902665031",
-      "ruta": [
-        "Lengua, lingüística y redacción"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "27198630031",
-      "ruta": [
-        "Libros LGBTQ+"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "902729031",
-      "ruta": [
-        "Libros y guías de viaje"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "902674031",
-      "ruta": [
-        "Literatura y ficción"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "902685031",
-      "ruta": [
-        "Policíaca, negra y suspense"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "902693031",
-      "ruta": [
-        "Política"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "902702031",
-      "ruta": [
-        "Religión"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "902686031",
-      "ruta": [
-        "Romántica"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "902716031",
-      "ruta": [
-        "Salud, familia y desarrollo personal"
-      ],
-      "sello": "Gribaudo"
-    },
-    {
-      "consulta": "Gribaudo",
-      "nivel": 1,
-      "nodo": "902721031",
-      "ruta": [
-        "Sociedad y ciencias sociales"
-      ],
-      "sello": "Gribaudo"
-    },
-    "Guadalmazán",
-    "Harpercollins",
-    "Harriet Ediciones",
-    "Herder Editorial",
-    "Hoaki",
-    "Iman Comunicacion Ag.hiperactiva",
-    "Istoría",
-    "J.m. Bosch Editor",
-    "Kaótica Libros",
-    "Kómikids",
-    "La Bella Varsovia",
-    "La Esfera de los Libros",
-    "La Galera",
-    "Lectio Ediciones",
-    "Libros Cúpula",
-    "Libros del Zorro Rojo",
     "Libros Disney",
     "Libsa",
     "Lóguez Ediciones",
@@ -1157,16 +907,13 @@
     "Universidad Católica San Pablo",
     "UNIVERSIDAD GRANADA",
     "Universidad Militar Nueva Granada - UMNG",
-    "Editorial Everest Ediciones-txt-"
+    "Editorial Everest Ediciones-txt-",
+    "Editorial Iman Comunicacion Ag.hiperactiva",
+    "Léctio"
   ],
   "dia": "2026-11-08",
   "errores": [],
-  "grupos": {
-    "gribaudo": {
-      "libros_es": 53,
-      "pendientes": 24
-    }
-  },
+  "grupos": {},
   "hijos": {
     "12942013031": [
       [
@@ -3698,7 +3445,7 @@
       ]
     ]
   },
-  "libros_es": 13709,
+  "libros_es": 14242,
   "origen": {
     "Editorial Akelarre Ediciones": "Akelarre Ediciones",
     "Editorial Asociacion HAY Soluciones para Todo": "Asociacion HAY Soluciones para Todo",
@@ -3708,6 +3455,7 @@
     "Editorial EDK bookverse": "EDK bookverse",
     "Editorial Everest Ediciones-txt-": "Everest Ediciones-txt-",
     "Editorial FOEM": "FOEM",
+    "Editorial Iman Comunicacion Ag.hiperactiva": "Iman Comunicacion Ag.hiperactiva",
     "Editorial Kiwi": "Kiwi",
     "Editorial La Magnifica": "Editorial La Magnífica",
     "Editorial Matchstories": "Matchstories",
@@ -3715,14 +3463,14 @@
     "Editorial Plomo Ediciones": "Plomo Ediciones",
     "Grupo Planeta Mexico": "Grupo Planeta México"
   },
-  "particiones": 1676,
-  "peticiones": 3136,
-  "reintentos": 8640,
-  "reintentos_dia": "2026-11-21",
-  "segundos": 134,
-  "sellos_leidos": 226,
-  "sellos_llenos": 219,
-  "sellos_nuevos": 102,
+  "particiones": 1707,
+  "peticiones": 3256,
+  "reintentos": 8898,
+  "reintentos_dia": "2026-11-22",
+  "segundos": 133,
+  "sellos_leidos": 242,
+  "sellos_llenos": 222,
+  "sellos_nuevos": 103,
   "sellos_saltados": 9,
   "variantes_probadas": [
     "matchstories|editorial matchstories",
@@ -3738,6 +3486,7 @@
     "asociacion hay soluciones para todo|editorial asociacion hay soluciones para todo",
     "benvil|editorial benvil",
     "c e adams ediciones valbuena|editorial c e adams ediciones valbuena",
-    "everest ediciones txt|editorial everest ediciones txt"
+    "everest ediciones txt|editorial everest ediciones txt",
+    "iman comunicacion ag hiperactiva|editorial iman comunicacion ag hiperactiva"
   ]
 }

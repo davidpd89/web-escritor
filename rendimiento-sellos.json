@@ -975,7 +975,11 @@
   "gribaudo": {
     "libros_es": 0,
     "nombre": "Gribaudo",
-    "ultima": "2026-11-21"
+    "particion": {
+      "libros_es": 78,
+      "ultima": "2026-11-22"
+    },
+    "ultima": "2026-11-22"
   },
   "grijalbo": {
     "libros_es": 82,
@@ -1007,9 +1011,9 @@
     "ultima": "2026-11-06"
   },
   "guadalmazan": {
-    "libros_es": 8,
+    "libros_es": 12,
     "nombre": "Guadalmazán",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "gustavo gili s l": {
     "libros_es": 10,
@@ -1028,9 +1032,13 @@
     "ultima": "2026-11-06"
   },
   "harpercollins": {
-    "libros_es": 1,
+    "libros_es": 0,
     "nombre": "Harpercollins",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 15,
+      "ultima": "2026-11-22"
+    },
+    "ultima": "2026-11-22"
   },
   "harpercollins iberica": {
     "consulta": "Editorial HarperCollins Ibérica",
@@ -1039,14 +1047,14 @@
     "ultima": "2026-11-08"
   },
   "harriet ediciones": {
-    "libros_es": 10,
+    "libros_es": 17,
     "nombre": "Harriet Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "herder editorial": {
-    "libros_es": 35,
+    "libros_es": 41,
     "nombre": "Herder Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "herder herder": {
     "libros_es": 1,
@@ -1064,9 +1072,9 @@
     "ultima": "2026-11-08"
   },
   "hoaki": {
-    "libros_es": 50,
+    "libros_es": 60,
     "nombre": "Hoaki",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "hoja de lata": {
     "libros_es": 10,
@@ -1104,9 +1112,9 @@
     "ultima": "2026-11-09"
   },
   "istoria": {
-    "libros_es": 5,
+    "libros_es": 7,
     "nombre": "Istoría",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "j c isla": {
     "libros_es": 0,
@@ -1115,9 +1123,9 @@
     "ultima": "2026-11-06"
   },
   "j m bosch editor": {
-    "libros_es": 10,
+    "libros_es": 15,
     "nombre": "J.m. Bosch Editor",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "jekyll jill": {
     "libros_es": 10,
@@ -1147,9 +1155,9 @@
     "ultima": "2026-11-12"
   },
   "kaotica libros": {
-    "libros_es": 9,
+    "libros_es": 17,
     "nombre": "Kaótica Libros",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "kaunan sl": {
     "libros_es": 9,
@@ -1162,9 +1170,9 @@
     "ultima": "2026-11-20"
   },
   "komikids": {
-    "libros_es": 20,
+    "libros_es": 30,
     "nombre": "Kómikids",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "l altra narrativa": {
     "libros_es": 10,
@@ -1177,9 +1185,9 @@
     "ultima": "2026-11-06"
   },
   "la bella varsovia": {
-    "libros_es": 9,
+    "libros_es": 19,
     "nombre": "La Bella Varsovia",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "la biblioteca de carfax": {
     "libros_es": 20,
@@ -1202,14 +1210,14 @@
     "ultima": "2026-11-09"
   },
   "la esfera de los libros": {
-    "libros_es": 42,
+    "libros_es": 58,
     "nombre": "La Esfera de los Libros",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "la galera": {
-    "libros_es": 40,
+    "libros_es": 43,
     "nombre": "La Galera",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "la huerta grande": {
     "libros_es": 2,
@@ -1243,9 +1251,9 @@
     "ultima": "2026-11-12"
   },
   "lectio ediciones": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Lectio Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "leidhy vergara": {
     "libros_es": 1,
@@ -1293,9 +1301,9 @@
     "ultima": "2026-11-06"
   },
   "libros cupula": {
-    "libros_es": 55,
+    "libros_es": 54,
     "nombre": "Libros Cúpula",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "libros de la letra azul": {
     "libros_es": 2,
@@ -1325,7 +1333,7 @@
   "libros del zorro rojo": {
     "libros_es": 30,
     "nombre": "Libros del Zorro Rojo",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "libros disney": {
     "libros_es": 47,
