@@ -8,6 +8,7 @@ import re
 import shutil
 import subprocess
 import tempfile
+import time
 import urllib.request
 import sys
 from datetime import datetime, timezone
@@ -42,6 +43,41 @@ SOURCE_PATHS = ('data/reading-catalogue.json', 'assets/reading-market.json', 'da
 
 def command(*args):
     subprocess.run(args, cwd=ROOT, check=True)
+
+
+PUSH_TIMEOUT = 900   # un push de ~2.000 ficheros tarda minutos; más de 15 es un push parado, no uno lento
+PUSH_ATTEMPTS = 3
+
+
+def push(*refspec, root=ROOT, timeout=PUSH_TIMEOUT, attempts=PUSH_ATTEMPTS):
+    """`git push` que nunca se queda colgado: 22/11 la carga 44966182798 estuvo ~1 h en un push sin límite y hubo que
+    cancelarla a mano. Corta la conexión si no avanza (LOW_SPEED), mata todo el grupo de procesos al agotar el tiempo
+    y repite: un push repetido de la misma referencia es idempotente, así que un intento que sí llegó no hace daño."""
+    env = {**os.environ, 'GIT_TERMINAL_PROMPT': '0', 'GIT_HTTP_LOW_SPEED_LIMIT': '1000', 'GIT_HTTP_LOW_SPEED_TIME': '120'}
+    last = None
+    for attempt in range(1, attempts + 1):
+        proc = subprocess.Popen(['git', 'push', '--quiet', 'origin', *refspec], cwd=root, env=env,
+                                stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=(os.name != 'nt'))
+        try:
+            out, err = proc.communicate(timeout=timeout)
+        except subprocess.TimeoutExpired:
+            if os.name != 'nt':
+                os.killpg(proc.pid, 9)
+            else:
+                proc.kill()
+            try:
+                proc.communicate(timeout=10)  # un hijo huérfano podría retener las tuberías
+            except subprocess.TimeoutExpired:
+                pass
+            last = f'sin terminar tras {timeout}s'
+        else:
+            if proc.returncode == 0:
+                return
+            last = (err or out).decode(errors='replace').strip()[-300:]
+        print(f'::warning::git push {refspec[0][:60]} intento {attempt}/{attempts} falló: {last}', flush=True)
+        if attempt < attempts:
+            time.sleep(15 * attempt)
+    raise RuntimeError(f'git push {refspec[0][:60]} falló tras {attempts} intentos: {last}')
 
 
 def git(*args, root=ROOT, data=None):
@@ -139,7 +175,7 @@ def save_checkpoint(day, root=ROOT):
     bot_identity(root)
     commit = git('commit-tree', tree, '-p', 'HEAD', '-m', 'Datos consultados de la carga ' + day, root=root).decode().strip()
     branch = publisher.publication.fresh_branch(CHECKPOINT_PREFIX + day + '-', cwd=root)
-    git('push', '--quiet', 'origin', f'{commit}:refs/heads/{branch}', root=root)
+    push(f'{commit}:refs/heads/{branch}', root=root)
     print('Datos guardados en ' + branch, flush=True)
     return branch
 
@@ -209,7 +245,7 @@ def reconcile_pending(pending, root=ROOT):
         git('fetch', '--quiet', 'origin', f'+refs/heads/{branch}:refs/remotes/origin/{branch}', root=root)
         day = re.search(r'\d{4}-\d{2}-\d{2}', branch).group(0)
         saved = publisher.publication.fresh_branch(CHECKPOINT_PREFIX + day + '-', cwd=root)
-        git('push', '--quiet', 'origin', f'refs/remotes/origin/{branch}:refs/heads/{saved}', root=root)
+        push(f'refs/remotes/origin/{branch}:refs/heads/{saved}', root=root)
         publisher.close_proposal(number, f'Había varias cargas abiertas: se queda la más nueva. Sus datos pasan a `{saved}` '
                                  f'y se publican sin nueva consulta en las siguientes ejecuciones. Se conserva la rama `{branch}`.')
     return newest
@@ -250,7 +286,7 @@ def keep_copy(source, root=ROOT):
     try:
         # La referencia remota puede no existir en este checkout si `carry` falló antes de descargarla.
         git('fetch', '--quiet', 'origin', f'+refs/heads/{source}:refs/remotes/origin/{source}', root=root)
-        git('push', '--quiet', 'origin', f'refs/remotes/origin/{source}:refs/heads/{keep}', root=root)
+        push(f'refs/remotes/origin/{source}:refs/heads/{keep}', root=root)
     except Exception as exc:  # noqa: BLE001
         print(f'::error::No se pudo copiar {source} a {keep} ({exc}); se conserva el original', flush=True)
         return None
@@ -753,7 +789,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     command('git', 'commit', '-m', 'Actualizar catálogo de lectura ' + day)
     # Las portadas nuevas deben estar en el almacén antes de que la PR pueda fusionarse (sin almacén activo: no-op).
     print(f'Portadas subidas al almacén: {cover_store.flush("Portadas de la carga " + day)}', flush=True)
-    command('git', 'push', 'origin', 'HEAD:refs/heads/' + branch)
+    push('HEAD:refs/heads/' + branch)
     if replaced:
         # Antes de abrir la nueva: nunca quedan dos cargas abiertas. Si algo falla después, las dos ramas siguen en origin.
         publisher.close_proposal(replaced, f'main avanzó durante su CI. Sus datos fuente (libros, pendientes, precios y cuarentena) '
