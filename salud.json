@@ -1,6 +1,6 @@
 {
- "generado": "2026-11-22T01:30:18+00:00",
- "publicados": 7422,
+ "generado": "2026-11-22T03:55:54+00:00",
+ "publicados": 7427,
  "secciones": {
   "portadas_tipograficas": {
    "total": 986,
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 291,
+   "total": 293,
    "muestra": [
     {
      "id": "isbn-9791388042324",
@@ -640,8 +640,8 @@
    ]
   },
   "sin_texto": {
-   "total": 4222,
-   "proximos": 599,
+   "total": 4227,
+   "proximos": 601,
    "por_mes": {
     "2028-01": 1,
     "2027-10": 1,
@@ -649,11 +649,11 @@
     "2027-05": 5,
     "2027-04": 3,
     "2027-03": 8,
-    "2027-02": 48,
+    "2027-02": 49,
     "2027-01": 130,
     "2026-12": 223,
-    "2026-11": 1355,
-    "2026-10": 1783,
+    "2026-11": 1358,
+    "2026-10": 1784,
     "2026-09": 363
    },
    "muestra": [
@@ -840,10 +840,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 56,
-  "formatos_sin_precio": -6,
-  "sin_formatos_de_compra": 21,
-  "sin_texto": 245,
+  "portadas_tipograficas": 0,
+  "formatos_sin_precio": 0,
+  "sin_formatos_de_compra": 2,
+  "sin_texto": 5,
   "portada_sin_fichero": 0
  },
  "amazon": {

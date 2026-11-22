@@ -1336,9 +1336,9 @@
     "ultima": "2026-11-22"
   },
   "libros disney": {
-    "libros_es": 47,
+    "libros_es": 59,
     "nombre": "Libros Disney",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "libros tobal": {
     "libros_es": 9,
@@ -1346,9 +1346,13 @@
     "ultima": "2026-11-06"
   },
   "libsa": {
-    "libros_es": 4,
+    "libros_es": 0,
     "nombre": "Libsa",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 157,
+      "ultima": "2026-11-22"
+    },
+    "ultima": "2026-11-22"
   },
   "linea z": {
     "libros_es": 1,
@@ -1361,9 +1365,9 @@
     "ultima": "2026-11-12"
   },
   "loguez ediciones": {
-    "libros_es": 10,
+    "libros_es": 20,
     "nombre": "Lóguez Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "lom ediciones": {
     "libros_es": 0,
@@ -1372,14 +1376,14 @@
     "ultima": "2026-11-06"
   },
   "los libros de la catarata": {
-    "libros_es": 18,
+    "libros_es": 12,
     "nombre": "Los Libros de la Catarata",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "los libros del lince": {
     "libros_es": 9,
     "nombre": "Los Libros del Lince",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "los libros del salvaje": {
     "libros_es": 11,
@@ -1414,7 +1418,7 @@
   "lunwerg editores": {
     "libros_es": 35,
     "nombre": "Lunwerg Editores",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "maeva": {
     "libros_es": 19,
@@ -1422,9 +1426,9 @@
     "ultima": "2026-11-08"
   },
   "maeva ediciones": {
-    "libros_es": 20,
+    "libros_es": 24,
     "nombre": "Maeva Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "magica narrativa": {
     "libros_es": 2,
@@ -1437,14 +1441,14 @@
     "ultima": "2026-11-12"
   },
   "marcial pons ediciones de historia": {
-    "libros_es": 7,
+    "libros_es": 17,
     "nombre": "Marcial Pons Ediciones de Historia",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "marcombo": {
     "libros_es": 30,
     "nombre": "Marcombo",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "maria aguilar garcia": {
     "libros_es": 1,
@@ -1452,9 +1456,9 @@
     "ultima": "2026-11-06"
   },
   "marmol izquierdo": {
-    "libros_es": 10,
+    "libros_es": 19,
     "nombre": "Mármol-izquierdo",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "martinez roca": {
     "libros_es": 29,
@@ -1484,7 +1488,7 @@
   "menoslobos taller editorial": {
     "libros_es": 10,
     "nombre": "Menoslobos Taller Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "mensajero": {
     "libros_es": 30,
@@ -1502,9 +1506,9 @@
     "ultima": "2026-11-10"
   },
   "milky way ediciones": {
-    "libros_es": 30,
+    "libros_es": 60,
     "nombre": "Milky Way Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "milmadres": {
     "libros_es": 9,
@@ -1536,19 +1540,27 @@
     "ultima": "2026-11-06"
   },
   "molino": {
-    "libros_es": 65,
+    "libros_es": 67,
     "nombre": "Molino",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 333,
+      "ultima": "2026-11-22"
+    },
+    "ultima": "2026-11-22"
   },
   "montena": {
-    "libros_es": 91,
+    "libros_es": 93,
     "nombre": "Montena",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 460,
+      "ultima": "2026-11-22"
+    },
+    "ultima": "2026-11-22"
   },
   "munyx editorial": {
-    "libros_es": 6,
+    "libros_es": 15,
     "nombre": "Munyx Editorial",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "narcea": {
     "libros_es": 3,
@@ -1556,9 +1568,9 @@
     "ultima": "2026-11-06"
   },
   "narcea ediciones": {
-    "libros_es": 3,
+    "libros_es": 5,
     "nombre": "Narcea Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "narrativa": {
     "libros_es": 15,
@@ -1586,9 +1598,9 @@
     "ultima": "2026-11-08"
   },
   "neko books": {
-    "libros_es": 5,
+    "libros_es": 16,
     "nombre": "Neko Books",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "newton compton editores duomo ediciones": {
     "libros_es": 0,
@@ -1619,7 +1631,11 @@
   "norma editorial": {
     "libros_es": 100,
     "nombre": "Norma Editorial",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 691,
+      "ultima": "2026-11-22"
+    },
+    "ultima": "2026-11-22"
   },
   "nova": {
     "libros_es": 0,
@@ -1636,9 +1652,9 @@
     "ultima": "2026-11-06"
   },
   "nube de tinta": {
-    "libros_es": 6,
+    "libros_es": 15,
     "nombre": "Nube de Tinta",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "nuevas ediciones debolsillo s l": {
     "libros_es": 1,
@@ -1726,7 +1742,7 @@
   "penguin bolsillo": {
     "libros_es": 100,
     "nombre": "Penguin Bolsillo",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-22"
   },
   "penguin clasicos": {
     "libros_es": 49,
