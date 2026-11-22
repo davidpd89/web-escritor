@@ -127,6 +127,7 @@
   const pick = x => Array.isArray(x) ? x : x ? [x] : [];
   let market = { offers: [], ratings: [], sales_ranks: [] };
   let currentPage = 1;
+  let pushNext = false;  // paginar crea entrada de historial (Atrás vuelve a la página anterior); filtrar la reemplaza
   const pageSize = 24;
   let offersIndex = new Map(), ratingsIndex = new Map(), ranksIndex = new Map();
   const stamp = s => typeof s === 'string' && /T.*(?:Z|[+-]\d\d:\d\d)$/.test(s) ? Date.parse(s) : NaN;
@@ -386,7 +387,7 @@
       if (refineCount) { const active = fields.filter(f => !['q', 'orden', 'estado'].includes(f.dataset.filter) && f.value && !f.disabled).length + boxes.filter(b => b.checked).length; refineCount.textContent = active ? '· ' + active + (active === 1 ? ' activo' : ' activos') : ''; }
       root.querySelector('[data-catalogue-count]').textContent = visible + (visible === 1 ? ' libro' : ' libros') + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
       renderActive(v);
-      if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); history.replaceState(null, '', location.pathname + location.search + (hash.size ? '#' + hash : '')); }
+      if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); const next = location.pathname + location.search + (hash.size ? '#' + hash : ''); if (pushNext && next !== location.pathname + location.search + location.hash) history.pushState(null, '', next); else history.replaceState(null, '', next); }
       else {
         // #pagina fuera de rango: se corrige sin historial ni hashchange.
         const hash = new URLSearchParams(location.hash.slice(1)), page = currentPage > 1 ? String(currentPage) : null;
@@ -470,7 +471,7 @@
       const button = document.createElement('button'); button.type = 'button';
       button.textContent = label; button.disabled = disabled;
       button.addEventListener('click', () => {
-        currentPage = page; apply();
+        currentPage = page; pushNext = true; apply(); pushNext = false;
         const heading = root.querySelector('.catalogue-results-head h2');
         heading.tabIndex = -1; heading.focus({preventScroll: true}); heading.scrollIntoView({block: 'start'});
       });
@@ -497,7 +498,7 @@
     jump.addEventListener('submit', event => {
       event.preventDefault();
       const raw = input.value.trim();
-      currentPage = /^\d+$/.test(raw) ? Math.max(1, Math.min(pages, Number(raw))) : currentPage; apply();
+      currentPage = /^\d+$/.test(raw) ? Math.max(1, Math.min(pages, Number(raw))) : currentPage; pushNext = true; apply(); pushNext = false;
       const heading = root.querySelector('.catalogue-results-head h2');
       heading.tabIndex = -1; heading.focus({preventScroll: true}); heading.scrollIntoView({block: 'start'});
     });
