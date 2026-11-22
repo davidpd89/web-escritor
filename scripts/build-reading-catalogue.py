@@ -67,6 +67,16 @@ PUBLIC_TYPES = ("genero", "edad")
 
 def public(cats):
     return [c for c in cats if c["tipo"] in PUBLIC_TYPES]
+NO_AGE = {"tipo": "edad", "id": "sin-edad", "nombre": "Sin edad indicada"}
+
+
+def facet_categories(cats):
+    """Categorías públicas para filtrar; los libros sin franja de edad entran en «Sin edad indicada» en vez de quedar
+    fuera del filtro (6 787 de 7 427 no la traen) o de contarse como «Adultos» sin saberlo."""
+    shown = public(cats)
+    return shown if any(c["tipo"] == "edad" for c in shown) else shown + [NO_AGE]
+
+
 PRICE_FIELDS = {'precio_centimos', 'precio_referencia_centimos'}
 # Una oferta solo se muestra si Amazon la confirmó hace como mucho estos días; después desaparece sola.
 OFFER_MAX_DAYS = 3
@@ -1213,7 +1223,7 @@ def facet_counts(data, books, anchor):
         if lower and anchor and lower > anchor:
             continue
         cats = categories(data, b, index)
-        keys = [('grupo', book_group(cats))] + [(c['tipo'], c['id']) for c in public(cats)]
+        keys = [('grupo', book_group(cats))] + [(c['tipo'], c['id']) for c in facet_categories(cats)]
         keys += [('formato', f) for f in {o['formato'] for o in purchase_formats(b)} | ({b['formato_edicion']} if b.get('formato_edicion') else set())]
         for key in keys:
             counts[key] = counts.get(key, 0) + 1
@@ -1240,7 +1250,7 @@ def render_filters(data, type_options, counts=None):
         choices = sorted((c for c in data['categorias'] if c['tipo'] == kind and c['activa'] and c['id'] in used), key=age_order if kind == 'edad' else lambda c: (c['orden'], c['id']))
         if not choices:
             continue
-        options = [(c['id'], c['nombre']) for c in choices]
+        options = [(c['id'], c['nombre']) for c in choices] + ([(NO_AGE['id'], NO_AGE['nombre'])] if kind == 'edad' else [])
         # Las ofertas de Amazon se filtran con «Ofertas» (descuento vigente), no como temporada.
         facets += facet_group(kind, label, options, counts=counts)
     facets += facet_group('formato', 'Formato', list(FORMATS.items()), counts=counts)
@@ -1361,7 +1371,7 @@ def render_hub(data, books, template, page_number=1):
         formats = ' '.join(sorted(set([o['formato'] for o in purchase_formats(b)] + ([b['formato_edicion']] if b.get('formato_edicion') else []))))
         published = b.get('fecha_publicacion', '')
         year = '' if published or b.get('fecha_publicacion_parcial') else b.get('anio_publicacion', '')
-        attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in public(cats)))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-isbn="{esc(b.get("isbn13", ""))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}" data-format-prices="{format_prices(b)}" data-format-discounts="{format_discounts(b, anchor)}"'
+        attrs = f'data-catalogue-book data-group="{group}" data-book-id="{esc(b["id"])}" data-categories="{esc(" ".join(c["id"] for c in facet_categories(cats)))}" data-title="{esc(b["titulo"])}" data-author="{esc(", ".join(b["autores"]))}" data-isbn="{esc(b.get("isbn13", ""))}" data-formats="{formats}" data-published="{esc(published)}" data-published-month="{esc(b.get("fecha_publicacion_parcial", ""))}" data-year="{esc(year)}" data-pages="{esc(b.get("numero_paginas", ""))}" data-format-prices="{format_prices(b)}" data-format-discounts="{format_discounts(b, anchor)}"'
         # Missing optional values have the same runtime meaning as empty ones.
         attrs = re.sub(r' data-(?:isbn|published|published-month|year|pages|format-prices|format-discounts)=""', '', attrs)
         affiliate_link = amazon_destination(b)
