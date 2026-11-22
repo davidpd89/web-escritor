@@ -35,6 +35,14 @@ class CatalogueNavigationUX(unittest.TestCase):
             self.assertLess(max(formats, buy), html.index('catalogue-own-text'), b['id'])
             self.assertLess(max(formats, buy), html.index('data-catalogue-description'), b['id'])
 
+    def test_genre_filter_ends_with_unknown_and_every_book_has_a_genre_value(self):
+        group = re.search(r'data-facet-group="genero".*?</details>', self.hub, re.S).group(0)
+        ids = re.findall(r'value="([^"]+)" data-facet="genero"', group)
+        self.assertEqual(ids[-1], 'sin-genero', '«Sin género indicado» va el último')
+        genres = {c['id'] for c in self.data['categorias'] if c['tipo'] == 'genero'} | {'sin-genero'}
+        for found in re.findall(r'data-categories="([^"]*)"', self.hub):
+            self.assertTrue(genres & set(found.split()), 'ficha sin ningún valor de género: ' + found)
+
     def test_age_filter_lists_adults_juvenile_then_ages_from_youngest(self):
         group = re.search(r'data-facet-group="edad".*?</details>', self.hub, re.S).group(0)
         ids = re.findall(r'value="([^"]+)" data-facet="edad"', group)
@@ -116,7 +124,7 @@ class CatalogueDealsAndFilters(unittest.TestCase):
         self.assertNotIn(builder.DEALS_SEASON, hub)
         shown = {c for found in re.findall(r'data-categories="([^"]*)"', hub) for c in found.split()}
         self.assertTrue(shown)
-        self.assertEqual({kinds.get(c) for c in shown if c != 'sin-edad'} - {'genero', 'edad'}, set(), 'data-categories solo con género y edad')
+        self.assertEqual({kinds.get(c) for c in shown if c not in ('sin-edad', 'sin-genero')} - {'genero', 'edad'}, set(), 'data-categories solo con género y edad')
         script = (ROOT / 'assets/reading-catalogue.js').read_text(encoding='utf-8')
         self.assertIn("const FACETS = ['grupo', 'genero', 'edad', 'formato'];", script)
         for key in ('temporada', 'tematica', 'valoracion'):
