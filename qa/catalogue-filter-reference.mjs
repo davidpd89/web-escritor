@@ -24,7 +24,7 @@ const pick = x => Array.isArray(x) ? x : x ? [x] : [];
 const isDay = s => /^\d{4}-\d{2}-\d{2}$/.test(s || '');
 
 export function filtrar(libros, consulta, ctx = {}) {
-  const v = consulta;
+  let v = consulta;
   const today = ctx.today;
   const offersFor = ctx.offersFor || (() => []);
   const ratingFor = ctx.ratingFor || (() => null);
@@ -87,13 +87,21 @@ export function filtrar(libros, consulta, ctx = {}) {
 
   const original = new Map(libros.map((b, i) => [b, i]));
   const found = [];
+  const perFormat = !v.precio_formato && Boolean(v.descuento || v.precio_min || v.precio_max);
   const counts = new Map(FACETS.map(k => [k, new Map()]));
   for (const b of libros) {
-    if (!baseMatch(b)) continue;
     const failing = FACETS.filter(k => !facetMatch(b, k));
+    // Formato: con ofertas/precio sin formato fijado, cada formato se cuenta con SU oferta/precio (por edición).
+    if (!failing.filter(k => k !== 'formato').length) {
+      for (const x of facetValues(b, 'formato')) {
+        const base = perFormat ? (() => { const old = v; v = {...v, formato: [x]}; try { return baseMatch(b); } finally { v = old; } })() : baseMatch(b);
+        if (base) { const c = counts.get('formato'); c.set(x, (c.get(x) || 0) + 1); }
+      }
+    }
+    if (!baseMatch(b)) continue;
     if (!failing.length) found.push(b);
-    if (failing.length > 1) continue;
-    for (const k of failing.length ? failing : FACETS) { const c = counts.get(k); for (const x of facetValues(b, k)) c.set(x, (c.get(x) || 0) + 1); }
+    if (failing.length > 1 || !facetMatch(b, 'formato')) continue;
+    for (const k of failing.length ? failing : FACETS.filter(f => f !== 'formato')) { const c = counts.get(k); for (const x of facetValues(b, k)) c.set(x, (c.get(x) || 0) + 1); }
   }
   found.sort((a, b) => compare(a, b) || original.get(a) - original.get(b));
   return {
