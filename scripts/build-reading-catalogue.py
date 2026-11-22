@@ -68,13 +68,16 @@ PUBLIC_TYPES = ("genero", "edad")
 def public(cats):
     return [c for c in cats if c["tipo"] in PUBLIC_TYPES]
 NO_AGE = {"tipo": "edad", "id": "sin-edad", "nombre": "Sin edad indicada"}
+NO_GENRE = {"tipo": "genero", "id": "sin-genero", "nombre": "Sin género indicado"}
+NO_VALUE = {"edad": NO_AGE, "genero": NO_GENRE}  # por faceta: valor de reserva para los libros que no traen ninguno
 
 
 def facet_categories(cats):
-    """Categorías públicas para filtrar; los libros sin franja de edad entran en «Sin edad indicada» en vez de quedar
-    fuera del filtro (6 787 de 7 427 no la traen) o de contarse como «Adultos» sin saberlo."""
+    """Categorías públicas para filtrar; un libro sin franja de edad o sin género entra en «Sin edad indicada» /
+    «Sin género indicado» en vez de quedar fuera del filtro (6 787 de 7 427 no traen edad; 23 no traen género) o de
+    contarse como «Adultos» sin saberlo. Vale también para los libros que traiga la carga nocturna."""
     shown = public(cats)
-    return shown if any(c["tipo"] == "edad" for c in shown) else shown + [NO_AGE]
+    return shown + [fallback for kind, fallback in NO_VALUE.items() if not any(c["tipo"] == kind for c in shown)]
 
 
 PRICE_FIELDS = {'precio_centimos', 'precio_referencia_centimos'}
@@ -1250,7 +1253,7 @@ def render_filters(data, type_options, counts=None):
         choices = sorted((c for c in data['categorias'] if c['tipo'] == kind and c['activa'] and c['id'] in used), key=age_order if kind == 'edad' else lambda c: (c['orden'], c['id']))
         if not choices:
             continue
-        options = [(c['id'], c['nombre']) for c in choices] + ([(NO_AGE['id'], NO_AGE['nombre'])] if kind == 'edad' else [])
+        options = [(c['id'], c['nombre']) for c in choices] + ([(NO_VALUE[kind]['id'], NO_VALUE[kind]['nombre'])] if kind in NO_VALUE else [])
         # Las ofertas de Amazon se filtran con «Ofertas» (descuento vigente), no como temporada.
         facets += facet_group(kind, label, options, counts=counts)
     facets += facet_group('formato', 'Formato', list(FORMATS.items()), counts=counts)
