@@ -1,12 +1,28 @@
 /* Static books and purchase links work without JS; optional market data expires. */
+'use strict';
+// Caja «Ir a la página» del paginador estático (todas las páginas del listado, también /pagina/N/ sin filtros).
+(() => {
+  for (const jump of document.querySelectorAll('form[data-catalogue-jump]')) {
+    jump.hidden = false;
+    jump.addEventListener('submit', event => {
+      event.preventDefault();
+      const input = jump.querySelector('input'), raw = input.value.trim();
+      const page = /^\d+$/.test(raw) ? Math.max(1, Math.min(Number(input.max) || 1, Number(raw))) : 1;
+      location.assign(page === 1 ? '/recomendaciones/' : `/recomendaciones/pagina/${page}/`);
+    });
+  }
+})();
 (async () => {
-  'use strict';
   const root = document.querySelector('[data-reading-catalogue]');
   if (!root) return;
   // Small, linked static pages remain usable without JS. Enhance the hub only
   // after every page of this exact catalogue snapshot has been loaded.
   const staticNav = root.querySelector('[data-catalogue-static-pagination]');
-  const continuation = [...(staticNav?.querySelectorAll('a[data-catalogue-page]') || [])];
+  // El paginador estático solo enlaza una ventana de páginas; el total va en data-catalogue-page-count.
+  const pageCount = Number.parseInt(staticNav?.dataset.cataloguePageCount || '', 10);
+  const continuation = pageCount > 1
+    ? Array.from({length: pageCount - 1}, (_, i) => ({href: `/recomendaciones/pagina/${i + 2}/`}))
+    : [...new Map([...(staticNav?.querySelectorAll('a[data-catalogue-page]') || [])].map(a => [a.href, a])).values()];
   // El catálogo completo (todas las páginas) se descarga e indexa al primer uso de filtros, buscador o test, o al
   // cargar con un estado en la URL (#…). Antes, la primera página ya lleva novedad, valoraciones y precios del día.
   const lazyCards = new WeakMap();
@@ -172,7 +188,7 @@
   // Insignias de oferta sin reconfirmar: fuera en la página inicial y en las fichas que trae la hidratación.
   const pruneOffers = (scope = root) => { for (const badge of scope.querySelectorAll('[data-offer-checked]')) if (!offerCurrent(badge.dataset.offerChecked)) badge.remove(); };
   pruneOffers();
-  const matchingOffers = (card, v) => [...offersFor(card.dataset.bookId).map(o => ({formato: o.formato, pct: discount(o)})), ...formatDiscounts(card)].filter(o => (!pick(v.formato).length || pick(v.formato).includes(o.formato)) && (!v.descuento || o.pct >= Number(v.descuento)));
+  const matchingOffers = (card, v) => [...offersFor(card.dataset.bookId).map(o => ({formato: o.formato, pct: discount(o)})), ...formatDiscounts(card)].filter(o => (!priceFormats(v).length || priceFormats(v).includes(o.formato)) && (!v.descuento || o.pct >= Number(v.descuento)));
   // Por defecto, solo publicados; los próximos se piden o se buscan.
   const released = (lower) => !lower || lower <= today();
   const ratingOk = (card, v) => { if (!v.valoracion) return true; const r = ratingFor(card.dataset.bookId)?.puntuacion; return r != null && (v.valoracion === 'menos-3' ? r < 3 : r >= Number(v.valoracion)); };
@@ -426,9 +442,10 @@
     currentPage = 1; apply();
     const heading = root.querySelector('.catalogue-results-head h2'); heading.tabIndex = -1; heading.focus({preventScroll: true});
   }
+  const pageFromHash = raw => /^\d+$/.test(raw || '') ? Math.max(1, Math.min(100000, Number(raw))) : 1;
   function restore() {
     const params = new URLSearchParams(location.hash.slice(1));
-    currentPage = Math.max(1, Math.min(100000, Number.parseInt(params.get('pagina'), 10) || 1));
+    currentPage = pageFromHash(params.get('pagina'));
     for (const f of fields) { const v = params.get(f.dataset.filter) || (f.dataset.filter === 'orden' ? 'editorial' : ''); f.value = f.tagName === 'SELECT' && ![...f.options].some(o => o.value === v) ? (f.dataset.filter === 'orden' ? 'editorial' : '') : v; }
     for (const box of boxes) box.checked = params.getAll(box.dataset.facet).includes(box.value);
     // Enlaces antiguos con #novedad=N: el filtro se quitó (09/11) y equivale a «Publicado desde» hace N días.
@@ -466,7 +483,21 @@
       numbers.append(number); last = page;
     }
     const position = document.createElement('span'); position.className = 'catalogue-pagination__position'; position.textContent = 'Página ' + currentPage + ' de ' + pages;
-    nav.append(move('← Anterior', currentPage - 1, currentPage === 1), numbers, move('Siguiente →', currentPage + 1, currentPage === pages), position);
+    // Caja «Ir a la página»: con cientos de páginas no se imprimen todos los números.
+    const jump = document.createElement('form'); jump.className = 'catalogue-pagination__jump';
+    const label = document.createElement('label'); label.textContent = 'Ir a la página ';
+    const input = document.createElement('input'); Object.assign(input, {type: 'number', min: 1, max: pages, value: currentPage, required: true});
+    input.inputMode = 'numeric'; label.append(input);
+    const go = document.createElement('button'); go.type = 'submit'; go.textContent = 'Ir';
+    jump.append(label, ' ', go);
+    jump.addEventListener('submit', event => {
+      event.preventDefault();
+      const raw = input.value.trim();
+      currentPage = /^\d+$/.test(raw) ? Math.max(1, Math.min(pages, Number(raw))) : currentPage; apply();
+      const heading = root.querySelector('.catalogue-results-head h2');
+      heading.tabIndex = -1; heading.focus({preventScroll: true}); heading.scrollIntoView({block: 'start'});
+    });
+    nav.append(move('← Anterior', currentPage - 1, currentPage === 1), numbers, move('Siguiente →', currentPage + 1, currentPage === pages), position, jump);
   }
   function setupQuiz() {
     if (!form || !cards.length) return;
@@ -569,6 +600,8 @@
       const events = ['pointerdown', 'focusin', 'keydown'], controls = 'input, select, textarea, button, summary, label';
       const go = event => {
         if (event.type !== 'hashchange' && !event.target.closest?.(controls)) return;
+        // La caja «Ir a la página» estática navega por sí sola: si hidratara, el paginador nuevo borraría lo tecleado.
+        if (event.target.closest?.('[data-catalogue-jump]')) return;
         events.forEach(type => root.removeEventListener(type, go, true));
         window.removeEventListener('hashchange', go);
         resolve();

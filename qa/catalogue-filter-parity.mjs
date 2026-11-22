@@ -33,7 +33,9 @@ const cardsOf = html => {
 const get = async path => { const r = await fetch(origin + path); assert.equal(r.status, 200, `${path}: HTTP ${r.status}`); return r.text(); };
 const first = await get('/recomendaciones/');
 const nav = first.slice(first.indexOf('data-catalogue-static-pagination'));
-const links = [...nav.matchAll(/<a [^>]*href="([^"]*)"[^>]*data-catalogue-page|<a [^>]*data-catalogue-page[^>]*href="([^"]*)"/g)].map(m => new URL(decode(m[1] || m[2]), origin + '/recomendaciones/').pathname);
+const pageCount = Number(nav.match(/data-catalogue-page-count="(\d+)"/)?.[1] || 0);
+assert.ok(pageCount > 1, 'el paginador estático debe declarar data-catalogue-page-count');
+const links = Array.from({ length: pageCount - 1 }, (_, i) => `/recomendaciones/pagina/${i + 2}/`);
 const libros = cardsOf(first);
 for (const path of links) libros.push(...cardsOf(await get(path)));
 const declared = Number(first.match(/data-catalogue-total="(\d+)"/)?.[1]);

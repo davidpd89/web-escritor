@@ -146,6 +146,11 @@ html.v1 .catalogue-pagination__pages button[aria-current="page"]{background:var(
 html.v1 .catalogue-pagination__position{flex-basis:100%;text-align:center;}
 html.v1 .catalogue-static-pagination a,html.v1 .catalogue-static-pagination [aria-current]{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.4rem .6rem;}
 html.v1 .catalogue-static-pagination [aria-current]{background:var(--catalogue-blue);color:#fff;border-radius:.25rem;}
+html.v1 .catalogue-pagination__gap{min-width:1.5rem;text-align:center;}
+html.v1 .catalogue-pagination__jump{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem;font:400 .85rem/1.5 var(--font-ui);}
+html.v1 .catalogue-pagination__jump[hidden]{display:none;}
+html.v1 .catalogue-pagination__jump input{width:5.5rem;min-height:44px;margin-inline-start:.35rem;}
+html.v1 .catalogue-pagination__jump button{min-width:44px;min-height:44px;}
 html.v1 .catalogue-quiz{margin-block:1.5rem 0;border:1px solid var(--catalogue-rule);border-top:3px solid var(--catalogue-blue);box-shadow:inset 0 2px 0 var(--catalogue-gold);background:var(--catalogue-pale);}
 html.v1 .catalogue-quiz>summary{padding:1.2rem 1.5rem;color:var(--catalogue-blue);font:600 1rem/1.5 var(--font-ui);min-height:56px;cursor:pointer;}
 html.v1 .catalogue-quiz__panel{padding:0 1.5rem 1.5rem;}
@@ -239,3 +244,4 @@ html.v1 .catalogue-facet>summary::-webkit-details-marker{display:none;}
 html.v1 .catalogue-facet>summary::after{content:"";margin-left:auto;width:.5rem;height:.5rem;border-right:2px solid var(--catalogue-blue);border-bottom:2px solid var(--catalogue-blue);transform:translateY(-25%) rotate(45deg);transition:transform .15s;}
 html.v1 .catalogue-facet[open]>summary::after{transform:translateY(25%) rotate(-135deg);}
 html.v1 .reading-catalogue .catalogue-facet__search{min-height:40px;margin:.2rem 0 .5rem;padding:.45rem .6rem;font-size:.9rem;}
+.catalogue-static-note{margin:0 0 1rem;padding:.7rem .9rem;border:1px solid #d9dee8;border-radius:8px;background:#f6f8fb;font-size:.95rem;}

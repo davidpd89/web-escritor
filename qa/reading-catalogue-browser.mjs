@@ -20,16 +20,37 @@ try {
   {
     const context = await browser.newContext({ javaScriptEnabled: false });
     const page = await context.newPage();
-    await page.goto(`${BASE}/recomendaciones/`);
-    const urls = await page.locator('a[data-catalogue-page]').evaluateAll(xs => xs.map(a => a.href));
+    // Sin JS se recorre el catálogo entero siguiendo «Siguiente» (el paginador solo muestra una ventana de números).
     const seen = [];
-    for (const url of [`${BASE}/recomendaciones/`, ...urls]) {
+    for (let url = `${BASE}/recomendaciones/`, hops = 0; url; hops++) {
+      assert(hops < 10000, 'cadena Siguiente sin fin');
       await page.goto(url);
       seen.push(...await page.locator('[data-catalogue-book]').evaluateAll(xs => xs.map(x => x.dataset.bookId)));
       assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'), 'https://davidportodiaz.com' + new URL(url).pathname);
+      assert(await page.locator('a[data-catalogue-page][aria-label]').count() <= 5);
+      assert(await page.locator('form[data-catalogue-jump]').isHidden());
+      const next = page.locator('a[data-catalogue-page][rel=next]');
+      url = await next.count() ? await next.getAttribute('href').then(h => new URL(h, url).href) : null;
     }
     assert.equal(seen.length, realCount);
     assert.equal(new Set(seen).size, realCount);
+    await context.close();
+  }
+  // Con JS, la caja «Ir a la página» lleva a /pagina/N/ y acota fuera de rango.
+  {
+    const context = await browser.newContext({ serviceWorkers: 'block' });
+    await context.addInitScript(() => { localStorage.setItem('nl-popup-ts', String(Date.now())); });
+    const page = await context.newPage();
+    const total = Math.ceil(realCount / 96);
+    if (total > 2) {
+      await page.goto(`${BASE}/recomendaciones/pagina/2/`);
+      const jump = page.locator('form[data-catalogue-jump]');
+      await jump.waitFor({ state: 'visible' });
+      await jump.locator('input').fill(String(total - 1));
+      await Promise.all([page.waitForURL(`**/recomendaciones/pagina/${total - 1}/`), jump.locator('button').click()]);
+      await page.evaluate(() => { const i = document.querySelector('form[data-catalogue-jump] input'); i.value = '999999'; i.form.dispatchEvent(new Event('submit', {cancelable: true})); });
+      await page.waitForURL(`**/recomendaciones/pagina/${total}/`);
+    }
     await context.close();
   }
   for (const fault of ['unavailable', 'stale']) {
