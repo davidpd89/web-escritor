@@ -506,7 +506,7 @@
     const panel = quiz.querySelector('.catalogue-quiz__panel');
     panel.replaceChildren();
     let criteria = {}, index = 0, history = [], started = false, done = false;
-    const optionsFrom = name => FACETS.includes(name) ? boxes.filter(b => b.dataset.facet === name).map(b => ({label: b.nextElementSibling.textContent, values: {[name]: b.value}})) : [...(fields.find(f => f.dataset.filter === name)?.options || [])].filter(o => o.value && !o.disabled).map(o => ({label: o.textContent, values: {[name]: o.value}}));
+    const optionsFrom = name => FACETS.includes(name) ? boxes.filter(b => b.dataset.facet === name && b.value !== 'sin-edad').map(b => ({label: b.nextElementSibling.textContent, values: {[name]: b.value}})) : [...(fields.find(f => f.dataset.filter === name)?.options || [])].filter(o => o.value && !o.disabled).map(o => ({label: o.textContent, values: {[name]: o.value}}));
     const steps = [
       {key: 'grupo', question: '¿Qué tipo de libro buscas?', options: () => optionsFrom('grupo')},
       {key: 'novedad', question: '¿Buscas algo recién publicado?', options: () => [
