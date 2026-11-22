@@ -276,12 +276,16 @@
     const typed = pick(v.grupo).length > 0;
     // Una ficha cuenta para la faceta k si cumple todo salvo, como mucho, la propia k.
     const totalsBy = new Map(FACETS.map(k => [k, new Set()])), countsBy = new Map(FACETS.map(k => [k, new Map()]));
+    // Descuento y precio se cumplen con una edición concreta: con «Ofertas 5 %» el Kindle solo cuenta los libros cuyo
+    // Kindle tiene esa oferta, no los que la tienen en papel. Se evalúa cada formato como si fuera el único elegido.
+    const perFormat = !v.precio_formato && Boolean(v.descuento || v.precio_min || v.precio_max), others = FACETS.filter(k => k !== 'formato');
+    const bump = (k, x) => { const counts = countsBy.get(k); counts.set(x, (counts.get(x) || 0) + 1); };
     for (const card of cards) {
       for (const k of FACETS) for (const x of facetValues(card, k)) totalsBy.get(k).add(x);
-      if (!baseMatch(card, v)) continue;
-      const failing = FACETS.filter(k => !facetMatch(card, v, k));
-      if (failing.length > 1) continue;
-      for (const k of failing.length ? failing : FACETS) { const counts = countsBy.get(k); for (const x of facetValues(card, k)) counts.set(x, (counts.get(x) || 0) + 1); }
+      const failing = others.filter(k => !facetMatch(card, v, k));
+      if (!failing.length) for (const x of facetValues(card, 'formato')) if (baseMatch(card, perFormat ? {...v, formato: [x]} : v)) bump('formato', x);
+      if (failing.length > 1 || !facetMatch(card, v, 'formato') || !baseMatch(card, v)) continue;
+      for (const k of failing.length ? failing : others) for (const x of facetValues(card, k)) bump(k, x);
     }
     for (const k of FACETS) {
       // El generador omite los grupos sin ninguna categoría con libros.
