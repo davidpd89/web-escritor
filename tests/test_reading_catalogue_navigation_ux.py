@@ -38,6 +38,8 @@ class CatalogueNavigationUX(unittest.TestCase):
     def test_age_filter_lists_adults_juvenile_then_ages_from_youngest(self):
         group = re.search(r'data-facet-group="edad".*?</details>', self.hub, re.S).group(0)
         ids = re.findall(r'value="([^"]+)" data-facet="edad"', group)
+        self.assertEqual(ids[-1], 'sin-edad', '«Sin edad indicada» va la última')
+        ids = ids[:-1]
         named = [i for i in ('adultos', 'juvenil') if i in ids]
         self.assertEqual(ids[:len(named)], named)
         ages = [[int(n) for n in re.findall(r'\d+', i)] for i in ids[len(named):]]
@@ -114,7 +116,7 @@ class CatalogueDealsAndFilters(unittest.TestCase):
         self.assertNotIn(builder.DEALS_SEASON, hub)
         shown = {c for found in re.findall(r'data-categories="([^"]*)"', hub) for c in found.split()}
         self.assertTrue(shown)
-        self.assertEqual({kinds.get(c) for c in shown} - {'genero', 'edad'}, set(), 'data-categories solo con género y edad')
+        self.assertEqual({kinds.get(c) for c in shown if c != 'sin-edad'} - {'genero', 'edad'}, set(), 'data-categories solo con género y edad')
         script = (ROOT / 'assets/reading-catalogue.js').read_text(encoding='utf-8')
         self.assertIn("const FACETS = ['grupo', 'genero', 'edad', 'formato'];", script)
         for key in ('temporada', 'tematica', 'valoracion'):
