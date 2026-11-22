@@ -197,7 +197,7 @@ class CheckpointLifetimeTests(unittest.TestCase):
    def run(branch):
     order.append('publish')
     if fail: raise RuntimeError('CI failed')
-   patches=[(refresh,'ROOT',root),(refresh,'command',lambda *a:None),(refresh,'bot_identity',lambda:None),
+   patches=[(refresh,'ROOT',root),(refresh,'command',lambda *a:None),(refresh,'push',lambda *a,**k:None),(refresh,'bot_identity',lambda:None),
     (refresh,'read_json',lambda p:{'rss_enabled':False}),(refresh,'quarantine_summary',lambda *a:''),
     (refresh,'data_contract_failures',lambda:[]),(refresh.reading_quarantine,'apply',lambda *a:[]),
     (refresh.materializar,'construir',lambda *a,**k:None),(refresh.materializar,'comprobar',lambda *a,**k:None),
@@ -224,7 +224,7 @@ class QuarantineRoundsTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as tmp,contextlib.ExitStack() as stack:
    published=[];pending=list(rounds)
    def failures():return [{'test':'contrato','libros':pending.pop(0)}] if pending else []
-   patches=[(refresh,'ROOT',Path(tmp)),(refresh,'command',lambda *a:None),(refresh,'bot_identity',lambda:None),
+   patches=[(refresh,'ROOT',Path(tmp)),(refresh,'command',lambda *a:None),(refresh,'push',lambda *a,**k:None),(refresh,'bot_identity',lambda:None),
     (refresh,'read_json',lambda p:{'rss_enabled':False}),(refresh,'quarantine_summary',lambda *a:''),
     (refresh,'data_contract_failures',failures),(refresh,'drop_orphan_pages',lambda q:None),
     (refresh.reading_quarantine,'flagged_books',lambda f,c:{b:'motivo' for b in f[0]['libros']}),
