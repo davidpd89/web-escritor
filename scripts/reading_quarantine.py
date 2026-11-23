@@ -426,6 +426,10 @@ def retired_pages(data, root):
     last = max(1, -(-len(published) // build.CATALOGUE_PAGE_SIZE))
     pages += [p.relative_to(root).as_posix() for p in (root / 'recomendaciones/pagina').glob('*/index.html')
               if p.parent.name.isdigit() and int(p.parent.name) > last]
+    shown = [a for a in build.author_records(root) if a['nombre'] in names and a['nombre'] not in build.COLLECTIVE_AUTHORS]
+    last_authors = max(1, -(-len(shown) // build.CATALOGUE_PAGE_SIZE))
+    pages += [p.relative_to(root).as_posix() for p in (root / 'recomendaciones/autores/pagina').glob('*/index.html')
+              if p.parent.name.isdigit() and int(p.parent.name) > last_authors]
     return [p for p in pages if (root / p).exists()]
 
 
