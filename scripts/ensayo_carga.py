@@ -67,7 +67,7 @@ MUTACIONES = {
     'sinopsis html': ('descripcion_breve', lambda b: '<p>' + b['descripcion_breve'] + '</p><script>x</script>'),
     'isbn invalido': ('isbn13', lambda b: '9788498382373'),
     'isbn corto': ('isbn13', lambda b: '12345'),
-    'isbn con guiones': ('isbn13', lambda b: '978-84-9838-237-2'),
+    'isbn con guiones': ('isbn13', lambda b: '{}-{}-{}-{}-{}'.format(b['isbn13'][:3], b['isbn13'][3:5], b['isbn13'][5:9], b['isbn13'][9:12], b['isbn13'][12:])),
     'isbn tipo': ('isbn13', lambda b: 9788498382372),
     'fecha invalida': ('fecha_publicacion', lambda b: '2026-13-45'),
     'fecha formato': ('fecha_publicacion', lambda b: '23/11/2026'),

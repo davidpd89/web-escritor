@@ -2,10 +2,14 @@
 import importlib.util
 import json
 import re
+import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'tests'))
+from contrato_libros import incumplen  # noqa: E402
+
 spec = importlib.util.spec_from_file_location('reading_card_contract', ROOT / 'scripts/build-reading-catalogue.py')
 m = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(m)
@@ -69,9 +73,10 @@ class CardContractTest(unittest.TestCase):
                  if b['estado'] == 'publicado']
         self.assertGreater(len(books), 100)
         known_authors = {a['nombre'] for a in m.author_records()}
+        fallos = {}
         for b in books:
-            page = (ROOT / 'recomendaciones/libros' / b['slug'] / 'index.html').read_text(encoding='utf-8')
-            with self.subTest(b['slug']):
+            try:
+                page = (ROOT / 'recomendaciones/libros' / b['slug'] / 'index.html').read_text(encoding='utf-8')
                 buy = re.search(r'<a class="catalogue-buy-link" href="([^"]+)"[^>]*rel="([^"]+)"[^>]*>([^<]*)', page)
                 self.assertRegex(buy.group(3), r'^Comprar en Amazon(\s|$)')
                 self.assertIn('sponsored', buy.group(2))
@@ -93,6 +98,9 @@ class CardContractTest(unittest.TestCase):
                     self.assertIn(f'href="{publisher}"', page)
                 else:
                     self.assertIn(m.esc(b['editorial']), page)
+            except (AssertionError, AttributeError, OSError, ValueError, StopIteration) as error:
+                fallos[b['id']] = f'{type(error).__name__}: {str(error)[:160]}'
+        incumplen('ficha publicada conforme al contrato de la tarjeta', fallos)
 
 
 if __name__ == '__main__':

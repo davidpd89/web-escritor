@@ -11,7 +11,9 @@ valida cada libro al construir; esto cubre lo que se ve entre páginas.
     python scripts/check-reading-data.py --fallos f.json   # además deja los fallos en JSON (la carga aparta sus libros)
 """
 import json
+import os
 import subprocess
+import tempfile
 import sys
 import time
 import unittest
@@ -62,14 +64,18 @@ def script_contracts(root=ROOT):
 def run_scripts(root=ROOT, names=None, workers=4):
     """Corre los contratos en script de 4 en 4; devuelve [{test, texto}] de los que fallan (vacío si pasan)."""
     def one(name):
-        try:
-            done = subprocess.run([sys.executable, str(root / 'tests' / name)], cwd=root, capture_output=True,
-                                  text=True, encoding='utf-8', errors='replace', timeout=SCRIPT_LIMITE)
-        except subprocess.TimeoutExpired:
-            return {'test': 'tests/' + name, 'texto': f'sin terminar en {SCRIPT_LIMITE} s'}
-        if done.returncode == 0:
-            return None
-        return {'test': 'tests/' + name, 'texto': (done.stdout + done.stderr)[-1500:]}
+        with tempfile.TemporaryDirectory() as tmp:
+            fichero = Path(tmp) / 'libros.json'
+            env = {**os.environ, 'CONTRATO_LIBROS_FICHERO': str(fichero)}
+            try:
+                done = subprocess.run([sys.executable, str(root / 'tests' / name)], cwd=root, capture_output=True,
+                                      text=True, encoding='utf-8', errors='replace', timeout=SCRIPT_LIMITE, env=env)
+            except subprocess.TimeoutExpired:
+                return {'test': 'tests/' + name, 'texto': f'sin terminar en {SCRIPT_LIMITE} s'}
+            if done.returncode == 0:
+                return None
+            libros = json.loads(fichero.read_text(encoding='utf-8')) if fichero.is_file() else {}
+            return {'test': 'tests/' + name, 'texto': (done.stdout + done.stderr)[-1500:], **libros}
     with ThreadPoolExecutor(workers) as pool:
         return [f for f in pool.map(one, script_contracts(root) if names is None else names) if f]
 

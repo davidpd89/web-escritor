@@ -10,6 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / 'recomendaciones/llms.txt'
 SITE = 'https://davidportodiaz.com'
 sys.path.insert(0, str(ROOT / 'scripts'))
+sys.path.insert(0, str(ROOT / 'tests'))
+from contrato_libros import incumplen  # noqa: E402
 spec = importlib.util.spec_from_file_location('reading_llms_builder', ROOT / 'scripts/build-reading-catalogue.py')
 brc = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(brc)
@@ -25,22 +27,34 @@ class ReadingLlmsIndexTest(unittest.TestCase):
     def test_every_published_book_has_one_entry_with_its_edition_data(self):
         self.assertEqual(len(self.entries), len(self.books))
         self.assertIn(f'## Libros ({len(self.books)})', self.text)
+        fallos = {}
         for b in self.books:
-            entry = self.entries[f"{SITE}/recomendaciones/libros/{b['slug']}/"]
+            entry = self.entries.get(f"{SITE}/recomendaciones/libros/{b['slug']}/")
+            if entry is None:
+                fallos[b['id']] = 'sin entrada en recomendaciones/llms.txt'
+                continue
             label = 'Sinopsis de la editorial: ' if b.get('sinopsis_breve') else 'Descripción: '
-            for value in (b['autores'][0], b['editorial'], 'ISBN ' + b['isbn13'], label):
-                self.assertIn(value, entry, b['id'])
+            falta = [v for v in (b['autores'][0], b['editorial'], 'ISBN ' + b['isbn13'], label) if v not in entry]
             # Todos los autores, o los que quepan seguidos de «y N más» (antologías).
-            if ', '.join(b['autores']) not in entry:
-                self.assertRegex(entry, r' y \d+ más\. ', b['id'])
-            self.assertTrue((ROOT / 'recomendaciones/libros' / b['slug'] / 'index.html').is_file(), b['id'])
+            if ', '.join(b['autores']) not in entry and not re.search(r' y \d+ más\. ', entry):
+                falta.append('autores completos o «y N más»')
+            if not (ROOT / 'recomendaciones/libros' / b['slug'] / 'index.html').is_file():
+                falta.append('ficha publicada')
+            if falta:
+                fallos[b['id']] = 'falta en la entrada: ' + ', '.join(falta)
+        incumplen('entrada del índice llms con los datos de la edición', fallos)
 
     def test_index_is_plain_attributed_text_without_tracking_links(self):
         self.assertTrue(self.text.startswith('# '))
         self.assertIn('no atribuirlas a David Porto Díaz', self.text)
         self.assertNotIn('amazon.', self.text)
         self.assertNotIn('<', self.text)
-        self.assertLess(max(len(line) for line in self.text.splitlines()), 700)
+        largas = {}
+        for line in self.text.splitlines():
+            if len(line) >= 700:
+                dueno = next((b['id'] for b in self.books if f"/libros/{b['slug']}/" in line), None)
+                largas[dueno or line[:60]] = f'línea de {len(line)} caracteres'
+        incumplen('línea del índice llms de menos de 700 caracteres', largas)
 
     def test_extreme_record_still_fits_one_line(self):
         # Lote 42436110753: una ficha desbordó la línea (1224 caracteres) y se revirtió toda la ingesta.

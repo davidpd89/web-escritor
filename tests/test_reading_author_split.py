@@ -7,6 +7,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+sys.path.insert(0, str(ROOT / "tests"))
+from contrato_libros import incumplen  # noqa: E402
 from reading_intake_core import split_authors  # noqa: E402
 
 
@@ -50,9 +52,10 @@ class AuthorSplitTest(unittest.TestCase):
         self.assertEqual(split_authors(split_authors(names)), split_authors(names))
 
     def test_published_catalogue_has_one_person_per_author(self):
-        result = subprocess.run([sys.executable, "scripts/normalize-reading-authors.py", "--check"], cwd=ROOT,
-                                capture_output=True, text=True, encoding="utf-8")
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        # Mismo criterio que `scripts/normalize-reading-authors.py --check`, pero nombrando los libros.
+        libros = json.loads((ROOT / "data/reading-catalogue.json").read_text(encoding="utf-8"))["libros"]
+        incumplen("una persona por autor", {b["id"]: f'{b["autores"]} -> {split_authors(b["autores"])}'
+                                            for b in libros if split_authors(b["autores"]) != b["autores"]})
 
     def test_retired_profiles_point_to_existing_heirs(self):
         # El control de enlaces acepta la baja de una ficha solo si sus herederas existen.
