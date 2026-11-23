@@ -395,33 +395,37 @@ def week_header(books: list[dict], days: list[str], monday: str, start: str, unt
 
 def week_day_message(books: list[dict], day: str, monday: str, tag: str) -> dict:
     """Un mensaje por fecha: el día arriba una sola vez y los libros agrupados por género, con el título en
-    mayúsculas. Si no cabe en un mensaje de Telegram, lo que sobra se omite (con el número de libros omitidos)."""
+    mayúsculas. Si no caben todos, entra primero un libro de cada género (de uno en uno, por rondas) para que
+    ningún género se quede a cero mientras otro ocupa diez huecos; lo que sobra se omite sin avisar."""
     d = date.fromisoformat(day)
-    group_count = {}
-    for b in books:
-        group_count[genre_name(b)] = group_count.get(genre_name(b), 0) + 1
     count = f"{len(books)} libro" + ("s" if len(books) != 1 else "")
-    lines = [f"{WEEK_RULE}", f"📅 <b>{WEEKDAYS[d.weekday()].upper()} {human_date(day).upper()}</b> · {count}", WEEK_RULE]
-    size, shown, titles, omitted = sum(len(x) + 1 for x in lines), None, 0, 0
+    lines = [WEEK_RULE, f"📅 <b>{WEEKDAYS[d.weekday()].upper()} {human_date(day).upper()}</b> · {count}", WEEK_RULE]
+    rows = {}
     for b in books:
         url = b.get("amazon_url") or (amazon_url(b["asin"], tag) if b.get("asin") else "")
         title = f"<b>{escape(shorten(b['title'], 140).upper())}</b>"
         if url:
             title = f'<a href="{escape(url, quote=True)}">{title}</a>'
-        line = f"📖 {title} — {escape(shorten(b['author'], 100))}"
-        header = genre_header(b, group_count[genre_name(b)]) if genre_name(b) != shown else ""
-        if omitted or titles >= DIGEST_MAX_TITLES or size + len(line) + len(header) > DIGEST_MAX_CHARS:
-            omitted += 1
-            continue
-        if header:
-            lines.append(header)
-            size += len(header) + 1
-            shown = genre_name(b)
-        lines.append(line)
-        titles += 1
-        size += len(line) + 1
-    if omitted:
-        lines += ["", f"➕ {omitted} más en davidportodiaz.com/recomendaciones/"]
+        rows.setdefault(genre_name(b), []).append((b, f"📖 {title} — {escape(shorten(b['author'], 100))}"))
+    order = list(rows)  # `books` llega ya ordenado por género
+    size, titles, taken = sum(len(x) + 1 for x in lines), 0, {g: 0 for g in order}
+    full = False
+    for rnd in range(max(len(v) for v in rows.values())):
+        for g in order:
+            if full or rnd >= len(rows[g]):
+                continue
+            line = rows[g][rnd][1]
+            need = len(line) + 1 + (len(genre_header(rows[g][0][0], 0)) + 1 if taken[g] == 0 else 0)
+            if titles >= DIGEST_MAX_TITLES or size + need > DIGEST_MAX_CHARS:
+                full = True  # el mensaje se acaba aquí: no se sigue rellenando con libros más cortos
+                continue
+            taken[g] += 1
+            titles += 1
+            size += need
+    for g in order:
+        if taken[g]:
+            lines.append(genre_header(rows[g][0][0], taken[g]))
+            lines += [line for _, line in rows[g][: taken[g]]]
     return {
         "asin": weekly_key(monday, day), "digest": True, "text": chr(10).join(lines),
         "release_date": monday, "members": [],

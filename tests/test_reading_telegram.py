@@ -503,9 +503,9 @@ class ReadingTelegramTests(unittest.TestCase):
         day = parts[1]["text"]
         self.assertIn("MIÉRCOLES 25 DE NOVIEMBRE", day)
         self.assertIn("Romance", day)
-        self.assertNotIn("Terror", day)  # el género que llega tarde en el orden es el que se omite
         self.assertLessEqual(len(day), 4096)
-        self.assertIn("más en davidportodiaz.com", day)
+        self.assertNotIn("davidportodiaz.com", day)  # lo omitido no se anuncia
+        self.assertIn("Terror", day)  # entra al menos un libro de cada género
         self.assertEqual(len({p["asin"] for p in parts}), 2)
 
     def test_weekly_channel_must_be_a_digest(self):
