@@ -21,6 +21,9 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import date, timedelta
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from site_clock import site_today  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 STATE = 'data/reading-author-links.json'
 # Igual que `--user-agent` y `--accept` de Lychee en .github/workflows/broken-links.yml.
@@ -68,7 +71,7 @@ def probe(url: str, timeout: int = 20):
 
 
 def check(root: Path = ROOT, everything: bool = False, today: date | None = None, fetch=probe) -> dict:
-    today = today or date.today()
+    today = today or site_today()
     state = load(root)
     limit = (today - timedelta(days=RECHECK_DAYS)).isoformat()
     wanted = urls(root)

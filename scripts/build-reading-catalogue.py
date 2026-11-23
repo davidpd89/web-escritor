@@ -2018,8 +2018,11 @@ def author_rows(authors, books, data, publishers, anchor):
         pairs = [(kind, cid) for kind in PUBLIC_TYPES for cid in shown.get(kind, {})] + [(kind, NO_VALUE[kind]['id']) for kind in NO_VALUE if kind not in shown]
         facet_values = [cid for _kind, cid in pairs]
         genres = sorted(shown.get('genero', {}).values(), key=lambda t: (-t[1], t[0]['nombre']))
-        dates = sorted({b['fecha_publicacion'] for b in bs if b.get('fecha_publicacion')})
-        released = [d for d in dates if d <= anchor]
+        spans = sorted(((s, b) for b in bs if (s := publication_bounds(b))), key=lambda t: (t[0], t[1]['id']))
+        dates = sorted({lo for (lo, _hi), _b in spans})
+        released = [(hi, b) for (lo, hi), b in spans if lo <= anchor]
+        latest = max(released, key=lambda t: t[0]) if released else None
+        coming = [b for (lo, _hi), b in spans if lo > anchor]
         imprints = {}
         for b in bs:
             if b.get('editorial'):
@@ -2028,7 +2031,8 @@ def author_rows(authors, books, data, publishers, anchor):
         extra = ([author_century(a)] if author_century(a) else []) + ['editorial-' + slugify(o) for o in owners]
         pairs += [('epoca' if v.startswith('siglo-') else 'editorial', v) for v in extra]
         rows.append({'a': a, 'books': _newest_first(bs), 'groups': sorted({book_group(cats[b['id']]) for b in bs}), 'categories': facet_values + extra, 'pairs': pairs,
-                     'genres': [g for g, _ in genres], 'dates': dates, 'latest': released[-1] if released else '', 'upcoming': [d for d in dates if d > anchor],
+                     'genres': [g for g, _ in genres], 'dates': dates, 'latest': latest[0] if latest else '', 'upcoming': [publication_bounds(b)[0] for b in coming],
+                     'latest_label': publication_date_label(latest[1]) if latest else '', 'upcoming_label': publication_date_label(coming[0]) if coming else '',
                      'imprint': max(imprints.items(), key=lambda kv: (kv[1], kv[0]))[0] if imprints else '', 'owners': owners,
                      'score': author_score(dates, anchor, len(bs))})
     # Orden de la vista por defecto (con libros publicados, el último más reciente arriba); los que solo tienen
@@ -2036,6 +2040,20 @@ def author_rows(authors, books, data, publishers, anchor):
     rows.sort(key=lambda r: (r['latest'] or '', r['a']['nombre'].casefold()), reverse=True)
     rows.sort(key=lambda r: bool(r['dates']) and not r['latest'])
     return rows
+
+
+def publication_bounds(b):
+    """(primer día, último día) posibles de la publicación, como `boundsOf` en las fichas de libro: un libro con solo
+    mes o año no se queda sin fecha (Codex, PR #1546: «Eva está dormida», 2026-04, sacaba a Francesca Melandri del
+    filtro «publicado desde» y del orden por fecha)."""
+    if exact := b.get('fecha_publicacion'):
+        return exact, exact
+    if month := b.get('fecha_publicacion_parcial'):
+        y, m = (int(p) for p in month.split('-'))
+        return month + '-01', (date(y + m // 12, m % 12 + 1, 1) - timedelta(days=1)).isoformat()
+    if year := b.get('anio_publicacion'):
+        return f'{year}-01-01', f'{year}-12-31'
+    return None
 
 
 def author_score(dates, anchor, count):
@@ -2058,9 +2076,9 @@ def author_card(r, lazy=True):
     destination = amazon_author_destination(a)
     amazon = f'href="{esc(destination)}" target="_blank" rel="sponsored nofollow noopener noreferrer"'
     if r['upcoming']:
-        when = 'Próximo libro · ' + life_date_label(r['upcoming'][0])
+        when = 'Próximo libro · ' + r['upcoming_label']
     elif r['latest']:
-        when = 'Último libro · ' + life_date_label(r['latest'])
+        when = 'Último libro · ' + r['latest_label']
     else:
         when = ''
     genres = r['genres'][:2] if len(r['genres']) <= 2 else []

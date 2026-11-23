@@ -60,6 +60,17 @@ class SimilarAuthorsTest(unittest.TestCase):
         self.assertNotIn('Straub', names)  # solo comparten la edad, que no cuenta
 
 
+class PublicationBoundsTest(unittest.TestCase):
+    def test_month_or_year_only_books_keep_bounds_like_book_cards(self):
+        # Codex, PR #1546: «Eva está dormida» (2026-04) dejaba a su autora sin fechas en la tarjeta.
+        self.assertEqual(builder.publication_bounds({'fecha_publicacion_parcial': '2026-04'}), ('2026-04-01', '2026-04-30'))
+        self.assertEqual(builder.publication_bounds({'fecha_publicacion_parcial': '2026-12'}), ('2026-12-01', '2026-12-31'))
+        self.assertEqual(builder.publication_bounds({'fecha_publicacion_parcial': '2024-02'}), ('2024-02-01', '2024-02-29'))
+        self.assertEqual(builder.publication_bounds({'anio_publicacion': 1998}), ('1998-01-01', '1998-12-31'))
+        self.assertEqual(builder.publication_bounds({'fecha_publicacion': '2026-03-05'}), ('2026-03-05', '2026-03-05'))
+        self.assertIsNone(builder.publication_bounds({}))
+
+
 class AuthorIndexPagesTest(unittest.TestCase):
     """Páginas /recomendaciones/autores/pagina/N/ generadas (revisión Codex de la PR #1546)."""
 

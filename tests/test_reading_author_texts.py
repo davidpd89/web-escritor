@@ -91,5 +91,37 @@ class BuilderTest(unittest.TestCase):
         self.assertIn('Revisado el 23 de noviembre de 2026', after)
 
 
+class LoopTest(unittest.TestCase):
+    def run_loop(self, saved, publish_every, fail_after=None):
+        from types import SimpleNamespace
+        from unittest import mock
+        authors = [{'slug': f'a{n}'} for n in range(saved)]
+        published = []
+        calls = {'n': 0}
+
+        def converse(*_a):
+            calls['n'] += 1
+            if fail_after is not None and calls['n'] > fail_after:
+                raise type('ChatGPTLoginRequired', (Exception,), {})('sesión caída')
+            return {}, []
+
+        def pending(_d, _b, _a, state):
+            return [a for a in authors if a['slug'] not in state]
+        proc = SimpleNamespace(wait=lambda: published.append('final') or 0, poll=lambda: 0)
+        args = SimpleNamespace(hours=1, max=99, slug=None, port=0, wait_min=0, publish_every=publish_every)
+        with mock.patch.multiple(rat, context=lambda: (None, None, None), pending=pending,
+                                 payload=lambda a, *_x: {'slug': a['slug'], 'libros_en_la_web': []}, converse=converse,
+                                 save=lambda p, _t, _e, state: state.setdefault(p['slug'], 1) or True,
+                                 write_json=lambda *_a: None, read_json=lambda *_a: {}),                 mock.patch.object(rat.rt, 'start_publish', lambda: proc), mock.patch.object(rat.rt, 'idle_seconds', lambda _e: 0):
+            code = rat.loop(args)
+        return code, published
+
+    def test_results_after_the_last_publication_are_published_on_exit(self):
+        # Codex, PR #1546: 3 autores con --publish-every 25 no se publicaban nunca.
+        self.assertEqual(self.run_loop(3, 25), (0, ['final']))
+        self.assertEqual(self.run_loop(3, 0), (0, []))                 # el bucle sin publicación sigue sin publicar
+        self.assertEqual(self.run_loop(3, 25, fail_after=2), (2, ['final']))   # sesión caída: lo guardado sale igual
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -326,7 +326,21 @@ def save(p, text, errors, state, out=OUT):
 
 def loop(args):
     state = read_json(STATE, {})
-    deadline, done, since, publishing = time.time() + args.hours * 3600, 0, 0, None
+    result = {'since': 0, 'publishing': None}
+    try:
+        return _loop(args, state, result)
+    finally:
+        # Lo guardado tras la última publicación se publica al salir (fin de pendientes, de tiempo o de --max, o
+        # sesión caída): si no, el siguiente arranque no lo ve como pendiente y nunca se publicaría (Codex, PR #1546).
+        if result['publishing'] is not None:
+            result['publishing'].wait()
+        if args.publish_every and result['since']:
+            print('Publicación final de', result['since'], 'textos', flush=True)
+            rt.start_publish().wait()
+
+
+def _loop(args, state, result):
+    deadline, done = time.time() + args.hours * 3600, 0
     while time.time() < deadline and done < args.max:
         data, books, authors = context()
         todo = [a for a in pending(data, books, authors, state) if not args.slug or a['slug'] in args.slug][:1]
@@ -347,14 +361,14 @@ def loop(args):
         ok = save(p, text, errors, state)
         write_json(STATE, state)
         done += 1
-        since += ok
+        result['since'] += ok
         print('  guardado' + (' (no identificado: no se publica)' if ok and not text.get('identificado') else '') if ok else '  rechazado: ' + '; '.join(errors), flush=True)
         # Una sola publicación a la vez: comparten el árbol .local/reading-texts/main, que cada una limpia al empezar.
-        if publishing is not None and publishing.poll() is not None:
-            publishing = None
-        if args.publish_every and since >= args.publish_every and publishing is None:
-            publishing = rt.start_publish()
-            since = 0
+        if result['publishing'] is not None and result['publishing'].poll() is not None:
+            result['publishing'] = None
+        if args.publish_every and result['since'] >= args.publish_every and result['publishing'] is None:
+            result['publishing'] = rt.start_publish()
+            result['since'] = 0
     return 0
 
 
