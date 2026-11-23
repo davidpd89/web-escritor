@@ -1,20 +1,20 @@
 {
- "generado": "2026-11-22T03:55:54+00:00",
- "publicados": 7427,
+ "generado": "2026-11-23T01:32:22+00:00",
+ "publicados": 7677,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 986,
-   "proximos": 272,
+   "total": 1058,
+   "proximos": 289,
    "por_mes": {
     "2027-08": 1,
     "2027-05": 5,
     "2027-04": 1,
     "2027-03": 3,
     "2027-02": 80,
-    "2027-01": 37,
-    "2026-12": 97,
-    "2026-11": 429,
-    "2026-10": 318,
+    "2027-01": 38,
+    "2026-12": 108,
+    "2026-11": 466,
+    "2026-10": 341,
     "2026-09": 11,
     "2026-08": 1,
     "2025-08": 1
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 293,
+   "total": 336,
    "muestra": [
     {
      "id": "isbn-9791388042324",
@@ -540,6 +540,13 @@
      "fecha_publicacion": "2026-09-09"
     },
     {
+     "id": "isbn-9788491459866",
+     "titulo": "Estado desde la sociedad, El. Espacios de poder en la España del siglo XIX. (ÁLBUMES ILUSTRADOS)",
+     "isbn13": "9788491459866",
+     "editorial": "Picarona",
+     "fecha_publicacion": "2026-11-23"
+    },
+    {
      "id": "isbn-9798890988430",
      "titulo": "Como Ningún Lugar En El Mundo / No Place on Earth",
      "isbn13": "9798890988430",
@@ -610,13 +617,6 @@
      "fecha_publicacion": "2026-11-11"
     },
     {
-     "id": "isbn-9788447234813",
-     "titulo": "Gustavo Adolfo Bécquer y su Obra: Bibliografia (1853-2025): 184 (Literatura)",
-     "isbn13": "9788447234813",
-     "editorial": "Editorial Universidad de Sevilla-secretariado de Publicaciones",
-     "fecha_publicacion": "2026-11-09"
-    },
-    {
      "id": "isbn-9791388613050",
      "titulo": "El vino filosófico: Cuida tu identidad, bebe en libertad",
      "isbn13": "9791388613050",
@@ -624,24 +624,24 @@
      "fecha_publicacion": "2026-10-31"
     },
     {
-     "id": "isbn-9791388508974",
-     "titulo": "Inextricable",
-     "isbn13": "9791388508974",
-     "editorial": "Diversidad Literaria SL",
-     "fecha_publicacion": "2026-11-03"
-    },
-    {
      "id": "isbn-9791399132458",
      "titulo": "CAESAR AVGVSTA: La fundación de la Zaragoza romana, siglo I a.C.: 22 (LA HISTORIA DE ARAGÓN EN NOVELA)",
      "isbn13": "9791399132458",
      "editorial": "Editorial Doce Robles",
      "fecha_publicacion": "2026-11-02"
+    },
+    {
+     "id": "isbn-9791388465116",
+     "titulo": "La esgrima de florete, espada y sable: 12 (Minor)",
+     "isbn13": "9791388465116",
+     "editorial": "Agea Editora",
+     "fecha_publicacion": "2026-10-31"
     }
    ]
   },
   "sin_texto": {
-   "total": 4227,
-   "proximos": 601,
+   "total": 4477,
+   "proximos": 630,
    "por_mes": {
     "2028-01": 1,
     "2027-10": 1,
@@ -650,10 +650,10 @@
     "2027-04": 3,
     "2027-03": 8,
     "2027-02": 49,
-    "2027-01": 130,
-    "2026-12": 223,
-    "2026-11": 1358,
-    "2026-10": 1784,
+    "2027-01": 131,
+    "2026-12": 242,
+    "2026-11": 1453,
+    "2026-10": 1857,
     "2026-09": 363
    },
    "muestra": [
@@ -840,10 +840,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 0,
+  "portadas_tipograficas": 72,
   "formatos_sin_precio": 0,
-  "sin_formatos_de_compra": 2,
-  "sin_texto": 5,
+  "sin_formatos_de_compra": 43,
+  "sin_texto": 250,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -853,13 +853,6 @@
   "errores": {},
   "oportunidades": [],
   "sin_portada_en_amazon": [
-   {
-    "id": "isbn-9788494726453",
-    "titulo": "El regreso de Hermes",
-    "isbn13": "9788494726453",
-    "editorial": "Cosmograma Ediciones",
-    "fecha_publicacion": "2026-11-22"
-   },
    {
     "id": "isbn-9791399188721",
     "titulo": "Tres escritores venezolanos en España.: Rafael María Baralt, Rufino Blanco Fombon y Teresa De La Parra: 35 (Libros singulares)",
@@ -903,13 +896,6 @@
     "fecha_publicacion": "2026-11-23"
    },
    {
-    "id": "isbn-9791399079395",
-    "titulo": "Reeducación química ―ou san Antón en la orilla―: 21 (Poéticas del desencuentro)",
-    "isbn13": "9791399079395",
-    "editorial": "Marciano Sonoro Ediciones",
-    "fecha_publicacion": "2026-11-21"
-   },
-   {
     "id": "isbn-9789877901320",
     "titulo": "De la duda (ZONA DE TRADUCCIONES)",
     "isbn13": "9789877901320",
@@ -922,13 +908,6 @@
     "isbn13": "9789877901399",
     "editorial": "Interzona",
     "fecha_publicacion": "2026-11-23"
-   },
-   {
-    "id": "isbn-9791399294705",
-    "titulo": "Plaza spñ8: Espacio cultural y social de la Fundación mutua madrileña",
-    "isbn13": "9791399294705",
-    "editorial": "Ediciones Ingobernables SL",
-    "fecha_publicacion": "2026-11-20"
    },
    {
     "id": "isbn-9788419120649",
@@ -945,53 +924,74 @@
     "fecha_publicacion": "2026-11-24"
    },
    {
-    "id": "isbn-9788429030402",
-    "titulo": "Personas sobresalientes en los programas de cine (Otium)",
-    "isbn13": "9788429030402",
-    "editorial": "Editorial Reus S.a.",
-    "fecha_publicacion": "2026-11-20"
+    "id": "isbn-9788494726453",
+    "titulo": "El regreso de Hermes",
+    "isbn13": "9788494726453",
+    "editorial": "Cosmograma Ediciones",
+    "fecha_publicacion": "2026-11-22"
    },
    {
-    "id": "isbn-9791388540042",
-    "titulo": "DEPRESIÓN: La enfermedad invisible",
-    "isbn13": "9791388540042",
+    "id": "isbn-9791388054303",
+    "titulo": "Obra completa III. Cuaderno blanco: Poemas (2009-2016) (Biblioteca de Clásicos Contemporaneos)",
+    "isbn13": "9791388054303",
+    "editorial": "Editorial Pre-Textos",
+    "fecha_publicacion": "2026-11-25"
+   },
+   {
+    "id": "isbn-9791388205866",
+    "titulo": "Pau Riba en 20 canciones (Sílex Música)",
+    "isbn13": "9791388205866",
+    "editorial": "Sílex Ediciones",
+    "fecha_publicacion": "2026-11-25"
+   },
+   {
+    "id": "isbn-9788494341410",
+    "titulo": "Los guardianes de lo efímero",
+    "isbn13": "9788494341410",
+    "editorial": "Pentaesencia Books",
+    "fecha_publicacion": "2026-11-25"
+   },
+   {
+    "id": "isbn-9791388540059",
+    "titulo": "LA CHISPA DE LEX: El viaje de los sueños",
+    "isbn13": "9791388540059",
     "editorial": "Livensoul",
-    "fecha_publicacion": "2026-11-20"
+    "fecha_publicacion": "2026-11-25"
    },
    {
-    "id": "isbn-9788494133183",
-    "titulo": "Viviendas de Vizcaya 1949-1991: Historia de una promotora de vivienda creada por la Diputación de Bizkaia",
-    "isbn13": "9788494133183",
-    "editorial": "Grupo Publicitario Cruzial, S.l.",
-    "fecha_publicacion": "2026-11-20"
+    "id": "isbn-9791399294200",
+    "titulo": "El `discurso de Oviedo´ de D. Julio Rey Pastor sobre las matemáticas en España. Contexto e implicaciones",
+    "isbn13": "9791399294200",
+    "editorial": "Real Instituto de Estudios Asturianos",
+    "fecha_publicacion": "2026-11-25"
    },
    {
-    "id": "isbn-9791399070293",
-    "titulo": "Soplar las heridas: Identidad y trauma: claves para acompañar en la vulnerabilidad",
-    "isbn13": "9791399070293",
-    "editorial": "Kabo&bero Ediciones",
-    "fecha_publicacion": "2026-11-20"
+    "id": "isbn-9791399216707",
+    "titulo": "Subir la dosis: 23 (Letra Caniche)",
+    "isbn13": "9791399216707",
+    "editorial": "Caniche Editorial",
+    "fecha_publicacion": "2026-11-25"
    },
    {
-    "id": "isbn-9791399280920",
-    "titulo": "El detective Carapatata. El misterio del lago: Misterio en el lago: 1",
-    "isbn13": "9791399280920",
-    "editorial": "Kilikids",
-    "fecha_publicacion": "2026-11-20"
+    "id": "isbn-9791388540066",
+    "titulo": "PISANDO FUERTE: Dejando huella sin permiso",
+    "isbn13": "9791388540066",
+    "editorial": "Livensoul",
+    "fecha_publicacion": "2026-11-25"
    },
    {
-    "id": "isbn-9788496513723",
-    "titulo": "NAVARROS EN ARGENTINA: Exilio y emigración",
-    "isbn13": "9788496513723",
-    "editorial": "Editorial Mintzoa",
-    "fecha_publicacion": "2026-11-20"
+    "id": "isbn-9791399079395",
+    "titulo": "Reeducación química ―ou san Antón en la orilla―: 21 (Poéticas del desencuentro)",
+    "isbn13": "9791399079395",
+    "editorial": "Marciano Sonoro Ediciones",
+    "fecha_publicacion": "2026-11-21"
    },
    {
-    "id": "isbn-9791399129885",
-    "titulo": "Libro de entrada de los señores abades y canónigos del sacro-monte desde la Fundación de la abadía",
-    "isbn13": "9791399129885",
-    "editorial": "Editorial Tleo",
-    "fecha_publicacion": "2026-11-20"
+    "id": "isbn-9791387960506",
+    "titulo": "Música de gasolinera. (Libros de autor)",
+    "isbn13": "9791387960506",
+    "editorial": "La Fábrica",
+    "fecha_publicacion": "2026-11-25"
    }
   ]
  }
