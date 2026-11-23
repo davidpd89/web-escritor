@@ -61,7 +61,7 @@ class NormalizarTest(unittest.TestCase):
         b = libro(isbn13='0743273566')  # dígito de control malo: no se inventa
         n.normalizar([b])
         self.assertEqual(b['isbn13'], '0743273566')
-        self.prueba('titulo', '﻿El​ principito‮', 'El principito')
+        self.prueba('titulo', '\ufeffEl\u200b principito\u202e', 'El principito')
 
     def test_sinopsis_gritada_html_y_larga(self):
         b = libro(descripcion_breve='<p>' + 'UNA NOVELA QUE LO CAMBIA TODO. ' * 4 + '</p>')

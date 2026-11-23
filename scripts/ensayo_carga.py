@@ -80,7 +80,7 @@ MUTACIONES = {
     'isbn corto': ('isbn13', lambda b: '12345'),
     'isbn con guiones': ('isbn13', lambda b: '{}-{}-{}-{}-{}'.format(b['isbn13'][:3], b['isbn13'][3:5], b['isbn13'][5:9], b['isbn13'][9:12], b['isbn13'][12:])),
     'isbn-10 equivalente': ('isbn13', lambda b: _isbn10(b['isbn13'])),
-    'titulo con caracteres invisibles': ('titulo', lambda b: '﻿' + b['titulo'][:3] + '​' + b['titulo'][3:] + '‮'),
+    'titulo con caracteres invisibles': ('titulo', lambda b: '\ufeff' + b['titulo'][:3] + '\u200b' + b['titulo'][3:] + '\u202e'),
     'isbn tipo': ('isbn13', lambda b: 9788498382372),
     'fecha invalida': ('fecha_publicacion', lambda b: '2026-13-45'),
     'fecha formato': ('fecha_publicacion', lambda b: '23/11/2026'),
