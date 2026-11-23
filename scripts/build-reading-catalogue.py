@@ -1692,14 +1692,16 @@ def similar_authors(a, data, books, all_authors, limit=6):
         for g in ids:
             df[g] = df.get(g, 0) + 1
     weight = {g: math.log(total / df[g]) for g in df}
-    norm_mine = math.sqrt(sum(weight[g] ** 2 for g in mine)) or 1
+    # Sumas en orden fijo y puntuación redondeada: iterar un set de cadenas cambia con PYTHONHASHSEED y los
+    # empates decididos por el último bit hacían que cada build reordenara «Si te gusta» (salida no determinista).
+    norm_mine = math.sqrt(sum(weight[g] ** 2 for g in sorted(mine))) or 1
     ranked = []
     for other in all_authors:
         theirs = by_author.get(other['nombre'], set())
         shared = mine & theirs
         if other['nombre'] == a['nombre'] or other['nombre'] in COLLECTIVE_AUTHORS or not shared:
             continue
-        score = sum(weight[g] ** 2 for g in shared) / (norm_mine * (math.sqrt(sum(weight[g] ** 2 for g in theirs)) or 1))
+        score = round(sum(weight[g] ** 2 for g in sorted(shared)) / (norm_mine * (math.sqrt(sum(weight[g] ** 2 for g in sorted(theirs))) or 1)), 9)
         if score >= 0.35:
             ranked.append((-score, other['nombre'], other))
     return [o for _, _, o in sorted(ranked, key=lambda t: (t[0], t[1]))[:limit]]
@@ -1828,7 +1830,7 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
     graph=[person,{'@type':'CollectionPage','@id':canonical,'url':canonical,'name':a['nombre']+' · Información y libros','dateModified':modified,'mainEntity':{'@id':canonical+'#person'},'hasPart':[{'@id':SITE+url(b)+'#book'} for b in selected]},_breadcrumb_schema(trail)]
     if own:
         graph.append({'@type':'ItemList','@id':canonical+'#obras','name':'Libros de '+a['nombre']+' en orden de publicación','itemListOrder':'https://schema.org/ItemListOrderAscending',
-                      'itemListElement':[{'@type':'ListItem','position':i,'item':{'@type':'Book','name':w['titulo'],'datePublished':str(w['anio']),'author':{'@id':canonical+'#person'}}} for i,w in enumerate(own['obras'],1)]})
+                      'itemListElement':[{'@type':'ListItem','position':i,'item':{'@type':'Book','name':w['titulo'],**({'datePublished':str(w['anio'])} if str(w['anio'])<=(anchor or data_anchor(books))[:4] else {}),'author':{'@id':canonical+'#person'}}} for i,w in enumerate(own['obras'],1)]})
     schema={'@context':'https://schema.org','@graph':graph}
     titles=', '.join(b['titulo'] for b in selected[:2])
     meta=a['nombre']+': '+(str(count)+(' libro recomendado' if count==1 else ' libros recomendados')+(' ('+titles+')' if titles else '')+', ' if count else '')+('biografía, géneros y editoriales.' if has_bio else 'géneros y editoriales.')
@@ -2130,7 +2132,7 @@ def render_authors_index(authors, books, template, data=None, page_number=1, pub
     crumbs = [('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Autores', AUTHORS_BASE)] + ([(f'Página {page_number}', authors_page_url(page_number))] if not first else [])
     nav = ''.join(f'<li><a href="{href}">{esc(label)}</a></li>' for label, href in crumbs[:-1]) + f'<li aria-current="page">{esc(crumbs[-1][0])}</li>'
     heading = 'Autores' if first else f'Autores: página {page_number}'
-    root_attrs = (f' data-reading-catalogue data-catalogue-total="{len(rows)}" data-catalogue-version="{version}"' if first else '') + f' data-catalogue-base="{AUTHORS_BASE}" data-noun-one="autor" data-noun-many="autores" data-catalogue-market="off"'
+    root_attrs = (f' data-reading-catalogue data-catalogue-total="{len(rows)}"' if first else '') + f' data-catalogue-version="{version}" data-catalogue-base="{AUTHORS_BASE}" data-noun-one="autor" data-noun-many="autores" data-catalogue-market="off"'
     main = (f'<main id="contenido" tabindex="-1" class="v1-main recommendations-hub reading-catalogue catalogue-authors-hub"{root_attrs} data-family="recomendaciones">'
             f'<nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol>{nav}</ol></nav>'
             f'<header class="recommendations-hero catalogue-hero"><p class="eyebrow">Catálogo · Autores</p><h1>{heading}</h1><p>Descubre a los autores de los libros recomendados: qué escriben, sus últimos y próximos libros, y dónde encontrarlos.</p></header>'
@@ -2225,7 +2227,7 @@ def retired_entries(previous, current):
             for e in previous if e['id'].startswith(RETIRABLE) and e['id'] not in live]
 
 
-def render_map(original, books, authors=(), publishers=()):
+def render_map(original, books, authors=(), publishers=(), author_pages=1):
     start, end = '<!-- reading-catalogue-map:start -->', '<!-- reading-catalogue-map:end -->'
     original = re.sub(re.escape(start) + r'[\s\S]*?' + re.escape(end) + r'\n?', '', original)
     if not books:
@@ -2236,6 +2238,7 @@ def render_map(original, books, authors=(), publishers=()):
     block = start + '<section class="directory-section"><h2>Libros recomendados</h2><p><a href="/recomendaciones/">Explorar el catálogo de lectura</a> · <a href="/recomendaciones/autores/">Autores</a> · <a href="/recomendaciones/editoriales/">Editoriales del catálogo</a></p><details class="directory-reading-books"><summary>Ver las fichas de lectura</summary><ul class="directory-list">' + links + '</ul></details></section>' + end + '\n'
     if author_links:
         block = block.replace('</section>', '<details class="directory-reading-books"><summary>Ver autores del catálogo</summary><ul class="directory-list">' + author_links + '</ul></details></section>')
+    continuation_links += ''.join(f'<li><a href="{authors_page_url(n)}">Autores: página {n}</a></li>' for n in range(2, author_pages + 1))
     if continuation_links:
         block = block.replace('<details', '<ul class="directory-list">' + continuation_links + '</ul><details', 1)
     publisher_links = ''.join(f'<li><a href="{publisher_url(p)}">{esc(p["nombre"])}</a></li>' for p in publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books))
@@ -2258,9 +2261,6 @@ def render_outputs(root, data):
     outputs = {'recomendaciones/index.html': render_hub(data, books, template)}
     for number in range(2, max(1, math.ceil(len(books) / CATALOGUE_PAGE_SIZE)) + 1):
         outputs[catalogue_page_url(number).lstrip('/') + 'index.html'] = render_hub(data, books, template, number)
-    map_path = root / 'mapa-del-sitio/index.html'
-    if map_path.exists():
-        outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors, publisher_records(root))
     for b in books:
         outputs[url(b).lstrip('/') + 'index.html'] = render_book(data, b, template)
     active_authors = [a for a in authors if any(a['nombre'] in b['autores'] for b in books)]
@@ -2271,6 +2271,9 @@ def render_outputs(root, data):
     author_pages = max(1, math.ceil(len(author_rows(active_authors, books, data, catalogue_publishers, data_anchor(books))) / CATALOGUE_PAGE_SIZE))
     for number in range(1, author_pages + 1):
         outputs[authors_page_url(number).lstrip('/') + 'index.html'] = render_authors_index(active_authors, books, template, data, number, catalogue_publishers)
+    map_path = root / 'mapa-del-sitio/index.html'
+    if map_path.exists():
+        outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors, catalogue_publishers, author_pages)
     active_publishers = [p for p in catalogue_publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books)]
     for p in active_publishers:
         outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template, {a['nombre'] for a in authors}, active_authors)

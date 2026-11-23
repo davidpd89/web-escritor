@@ -260,10 +260,11 @@ def main() -> int:
         except Exception as exc:  # un autor raro no tumba la pasada; se reintenta en la siguiente
             report.pop(author['slug'], None)
             print(f'  {author["slug"]}: error {type(exc).__name__}: {exc}')
-        if n % 25 == 0 or n == len(pending):
-            AUTHORS.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8', newline='')
-            REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8', newline='')
-            print(f'{n}/{len(pending)} {stats}', flush=True)
+        finally:  # también tras el `continue` de un autor sin casar: el punto de control nunca se salta
+            if n % 25 == 0 or n == len(pending):
+                AUTHORS.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8', newline='')
+                REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8', newline='')
+                print(f'{n}/{len(pending)} {stats}', flush=True)
     if args.subir and photos:
         print('Fotos subidas al almacén:', cover_store.flush('Fotos de autores (Wikimedia Commons)', ROOT))
     return 0

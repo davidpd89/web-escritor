@@ -731,7 +731,7 @@ class SemillasAutores(unittest.TestCase):
         class Flaky(self.Prov):
             def post(self, url, body, headers):
                 self.calls.append(body['author'])
-                raise RuntimeError(self.message)
+                raise (ca.AccessDenied if '401' in self.message else RuntimeError)(self.message)
         prov = Flaky({})
         prov.message = 'HTTP 500'
         with tempfile.TemporaryDirectory() as tmp:

@@ -49,7 +49,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
-from reading_amazon_market import (AMAZON_COVER_BASIS, BINDINGS, CreatorsPrices, NotFound,  # noqa: E402
+from reading_amazon_market import (AMAZON_COVER_BASIS, AccessDenied, BINDINGS, CreatorsPrices, NotFound,  # noqa: E402
                                    amazon_dict, amazon_list, api_cover_url, fetch_amazon_image,
                                    select_offers, store_prices)
 from reading_amazon_radar import BOOKS_NODE, SPANISH  # noqa: E402
@@ -495,7 +495,7 @@ def semillas_autores(prov, tag, day, known, authors, max_requests=100, pages=2, 
             except NotFound:
                 break
             except RuntimeError as exc:  # como en por_isbn: sin acceso se para la noche; un fallo suelto, el autor repite
-                if 'eligibility' in str(exc) or 'HTTP 401' in str(exc):
+                if isinstance(exc, AccessDenied):
                     raise
                 errors += 1
                 complete = False
@@ -547,7 +547,7 @@ def por_isbn(prov, tag, day, out, budget, only_dated=False):
         except NotFound:
             items, full = [], False
         except RuntimeError as exc:
-            if 'eligibility' in str(exc) or 'HTTP 401' in str(exc):
+            if isinstance(exc, AccessDenied):
                 raise
             failed += 1
             for isbn in batch:  # sin respuesta: no gasta reintentos, pero tras varios fallos va suelto y luego fuera
@@ -800,7 +800,7 @@ def descargar(prov, tag, day, max_requests=1500, max_depth=3, pages=10, root_nod
                     payload = {}  # 404 = página sin resultados: el nodo se acaba aquí
                 except RuntimeError as exc:
                     state['errores'].append({'nodo': node, 'pagina': page, 'error': str(exc)})
-                    if 'eligibility' in str(exc) or 'HTTP 401' in str(exc):
+                    if isinstance(exc, AccessDenied):
                         raise
                     filled = False
                     break
@@ -992,7 +992,7 @@ def por_sellos(prov, tag, day, max_requests=1500, pages=10, horizon_days=60, nam
                     state['errores'] = (state['errores'] + [{'sello': label, 'pagina': page, 'error': str(exc)}])[-50:]
                     state['errores_total'] = state.get('errores_total', 0) + 1
                     failed = True
-                    if 'eligibility' in str(exc) or 'HTTP 401' in str(exc):
+                    if isinstance(exc, AccessDenied):
                         raise
                     if label not in state.setdefault('reencolados', []):
                         state['reencolados'].append(label)

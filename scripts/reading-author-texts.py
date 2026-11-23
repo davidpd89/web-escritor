@@ -326,7 +326,7 @@ def save(p, text, errors, state, out=OUT):
 
 def loop(args):
     state = read_json(STATE, {})
-    deadline, done, since = time.time() + args.hours * 3600, 0, 0
+    deadline, done, since, publishing = time.time() + args.hours * 3600, 0, 0, None
     while time.time() < deadline and done < args.max:
         data, books, authors = context()
         todo = [a for a in pending(data, books, authors, state) if not args.slug or a['slug'] in args.slug][:1]
@@ -349,8 +349,11 @@ def loop(args):
         done += 1
         since += ok
         print('  guardado' + (' (no identificado: no se publica)' if ok and not text.get('identificado') else '') if ok else '  rechazado: ' + '; '.join(errors), flush=True)
-        if args.publish_every and since >= args.publish_every:
-            rt.start_publish()
+        # Una sola publicación a la vez: comparten el árbol .local/reading-texts/main, que cada una limpia al empezar.
+        if publishing is not None and publishing.poll() is not None:
+            publishing = None
+        if args.publish_every and since >= args.publish_every and publishing is None:
+            publishing = rt.start_publish()
             since = 0
     return 0
 

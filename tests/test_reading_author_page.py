@@ -50,5 +50,31 @@ class SimilarAuthorsTest(unittest.TestCase):
         self.assertNotIn('Straub', names)  # solo comparten la edad, que no cuenta
 
 
+class AuthorIndexPagesTest(unittest.TestCase):
+    """Páginas /recomendaciones/autores/pagina/N/ generadas (revisión Codex de la PR #1546)."""
+
+    def setUp(self):
+        import re
+        self.re = re
+        self.pages = sorted((ROOT / 'recomendaciones/autores/pagina').glob('*/index.html'))
+        if not self.pages:
+            self.skipTest('índice de autores en una sola página')
+
+    def test_every_page_carries_the_hub_version(self):
+        # hydrate() rechaza las continuaciones cuya versión no coincide con la del índice.
+        version = lambda path: self.re.search(r'data-catalogue-version="([^"]+)"', path.read_text(encoding='utf-8'))
+        hub = version(ROOT / 'recomendaciones/autores/index.html')
+        self.assertIsNotNone(hub)
+        for page in self.pages:
+            found = version(page)
+            self.assertIsNotNone(found, page)
+            self.assertEqual(found.group(1), hub.group(1), page)
+
+    def test_site_map_links_every_page(self):
+        site_map = (ROOT / 'mapa-del-sitio/index.html').read_text(encoding='utf-8')
+        for page in self.pages:
+            self.assertIn(f'href="/recomendaciones/autores/pagina/{page.parent.name}/"', site_map)
+
+
 if __name__ == '__main__':
     unittest.main()
