@@ -1800,11 +1800,11 @@ def main(argv=None):
             except (OSError, ValueError) as exc:  # sin sitemap hoy: la cola de días anteriores sigue valiendo
                 added = f'error: {str(exc)[:120]}'
         by_author = cfg.get('semillas_autores', {})
-        if backlog < 3 * limit and by_author.get('peticiones', 0):  # catálogo de los autores que ya tienen ficha
+        if backlog < 3 * limit and by_author.get('peticiones', 0) and budget > 0:  # catálogo de los autores con ficha
             authors = [a for a in read_json(ROOT / 'data/reading-authors.json', {}).get('autores', [])
                        if person(a.get('nombre') or '') not in {'Varios autores', 'Anónimo'}]
             report['semillas_autores'] = semillas_autores(provider(tag), tag, args.dia, known, authors,
-                                                          by_author['peticiones'], by_author.get('paginas', 2),
+                                                          min(by_author['peticiones'], max(budget, 0)), by_author.get('paginas', 2),
                                                           by_author.get('dias', 60))
             budget -= report['semillas_autores']['peticiones']
         with raw.open('a', encoding='utf-8') as out:

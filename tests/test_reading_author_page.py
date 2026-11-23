@@ -28,6 +28,16 @@ class EditionGroupingTest(unittest.TestCase):
     def test_different_works_stay_apart(self):
         self.assertNotEqual(builder.edition_key('El resplandor'), builder.edition_key('Doctor Sueño'))
 
+    def test_a_parenthesis_without_edition_words_distinguishes_works(self):
+        # Revisión Codex de la PR #1546: dos manuales distintos de Javier Rodrigo Agulló se fundían en uno.
+        base = 'MP 1782. Nivel básico de Prevención de riesgos laborales'
+        books = [{'id': '1', 'titulo': base + ' (Química)'}, {'id': '2', 'titulo': 'La ratonera (Biblioteca Agatha Christie)'},
+                 {'id': '3', 'titulo': base + ' (Hostelería y Turismo)'}, {'id': '4', 'titulo': 'La ratonera'},
+                 {'id': '5', 'titulo': base}, {'id': '6', 'titulo': 'It (Bolsillo)'}, {'id': '7', 'titulo': 'It'}]
+        groups = builder.group_editions(books)
+        # Dos materias distintas: dos obras (la sin paréntesis va con la primera). Una colección sola no separa.
+        self.assertEqual([(m['id'], [o['id'] for o in rest]) for m, rest in groups], [('1', ['5']), ('2', ['4']), ('3', []), ('6', ['7'])])
+
 
 class SimilarAuthorsTest(unittest.TestCase):
     def setUp(self):

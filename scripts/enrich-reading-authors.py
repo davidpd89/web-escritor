@@ -226,7 +226,13 @@ def main() -> int:
     photos = not args.sin_fotos and cover_store.store_dir() is not None
     if not args.sin_fotos and not photos:
         print(f'Aviso: sin {cover_store.STORE_DIR_ENV} no se guardan fotos (solo datos).')
-    pending = [a for a in payload['autores'] if a['nombre'] not in COLLECTIVE and (a['slug'] in only if only else a['slug'] not in report or (report[a['slug']].get('qid') and 'ids' not in report[a['slug']]))]
+    def unfinished(a):
+        entry = report.get(a['slug'])
+        if entry is None:
+            return True
+        # Casado pero sin identificadores, o sin la búsqueda de foto (pasada previa con --sin-fotos o sin almacén).
+        return bool(entry.get('qid')) and ('ids' not in entry or (photos and not a.get('foto') and not entry.get('fotos')))
+    pending = [a for a in payload['autores'] if a['nombre'] not in COLLECTIVE and (a['slug'] in only if only else unfinished(a))]
     if args.limite:
         pending = pending[:args.limite]
     stats = {'casados': 0, 'fotos': 0, 'amazon': 0, 'vida': 0, 'sin casar': 0}
@@ -257,6 +263,8 @@ def main() -> int:
             if photos and not author.get('foto') and (found_photo := photo(entity, author['slug'], ROOT)):
                 author['foto'] = found_photo
                 stats['fotos'] += 1
+            if photos:
+                report[author['slug']]['fotos'] = True
         except Exception as exc:  # un autor raro no tumba la pasada; se reintenta en la siguiente
             report.pop(author['slug'], None)
             print(f'  {author["slug"]}: error {type(exc).__name__}: {exc}')

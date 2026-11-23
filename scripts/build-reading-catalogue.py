@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from site_shell import inject_shell_auto
 from reading_intake_core import strip_shouting, decode_text_entities
 import reading_cover_store as cover_store
+import reading_author_links as third_party_links
 import site_clock
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -1657,22 +1658,47 @@ def author_faq(a, selected, genres, anchor):
     return out
 
 
+EDITION_WORDS = re.compile(r'edicion|ed\.|bolsillo|ilustrad[ao]|coleccionista|limitad[ao]|especial|exclusiva|aniversario|rustica|tapa (?:dura|blanda)|cartone|estuche|best ?seller|booket|debolsillo|movie tie|serie de netflix')
 EDITION_NOISE = re.compile(r'\([^)]*\)|\[[^\]]*\]|edicion (?:especial|limitada|de bolsillo|ilustrada|de coleccionista|exclusiva)[^.:]*|coleccion especial')
+BRACKETS = re.compile(r'\(([^)]*)\)|\[([^\]]*)\]')
+
+
+def _plain(title):
+    return unicodedata.normalize('NFKD', title).encode('ascii', 'ignore').decode().casefold()
 
 
 def edition_key(title):
-    """Misma obra en otra edición: título sin acentos ni marcas de edición («Edición especial», paréntesis)."""
-    t = unicodedata.normalize('NFKD', title).encode('ascii', 'ignore').decode().casefold()
-    t = EDITION_NOISE.sub(' ', t)
+    """Misma obra en otra edición: título sin acentos, sin marcas de edición ni paréntesis («(Bolsillo)»,
+    «(Biblioteca Agatha Christie)»). Los paréntesis que distinguen obras los separa `group_editions`."""
+    t = EDITION_NOISE.sub(' ', _plain(title))
     return re.sub(r'[^a-z0-9]+', ' ', t).strip() or title
 
 
+def edition_subject(title):
+    """Lo que dicen los paréntesis que no son marca de edición: «(Química)» → «quimica»; «(Bolsillo)» → ''."""
+    parts = [a or b for a, b in BRACKETS.findall(_plain(title))]
+    return ' '.join(re.sub(r'[^a-z0-9]+', ' ', p).strip() for p in parts if not EDITION_WORDS.search(p)).strip()
+
+
 def group_editions(selected):
-    """[(principal, [otras ediciones])] en el orden de `selected`; la principal es la primera (la más reciente)."""
+    """[(principal, [otras ediciones])] en el orden de `selected`; la principal es la primera (la más reciente).
+    Dentro de un mismo título, dos paréntesis distintos que no son de edición («(Química)», «(Hostelería y
+    Turismo)») son obras distintas; uno solo (una colección, una serie) no separa nada."""
     groups = {}
     for b in selected:
         groups.setdefault(edition_key(b['titulo']), []).append(b)
-    return [(g[0], g[1:]) for g in groups.values()]
+    out = []
+    for g in groups.values():
+        subjects = {edition_subject(b['titulo']) for b in g} - {''}
+        if len(subjects) < 2:
+            out.append((g[0], g[1:]))
+            continue
+        parts = {}
+        for b in g:  # el que no tiene paréntesis va con el primero que sí
+            parts.setdefault(edition_subject(b['titulo']) or next(edition_subject(x['titulo']) for x in g if edition_subject(x['titulo'])), []).append(b)
+        out.extend((p[0], p[1:]) for p in parts.values())
+    first = {id(b): i for i, b in enumerate(selected)}
+    return sorted(out, key=lambda pair: first[id(pair[0])])
 
 
 def similar_authors(a, data, books, all_authors, limit=6):
@@ -1739,7 +1765,8 @@ def author_text_sections(a, t, selected, related_by_name):
                    + '</section>')
     paragraphs = [p.strip() for p in t['biografia'].split('\n\n') if p.strip()]
     after = ('<section aria-labelledby="biografia"><h2 id="biografia">Biografía de ' + esc(name) + '</h2>' + ''.join('<p>' + esc(p) + '</p>' for p in paragraphs)
-             + '<p class="catalogue-source">Fuentes: ' + ' · '.join('<a href="' + esc(f['url']) + '" target="_blank" rel="noopener noreferrer">' + esc(f.get('titulo') or f['url']) + NEW_TAB + '</a>' for f in t['fuentes'])
+             + '<p class="catalogue-source">Fuentes: ' + ' · '.join(('<a href="' + esc(f['url']) + '" target="_blank" rel="noopener noreferrer">' + esc(f.get('titulo') or f['url']) + NEW_TAB + '</a>')
+                                                                  if third_party_links.alive(f['url']) else esc(f.get('titulo') or f['url']) for f in t['fuentes'])
              + ('. Revisado ' + esc(_on_date(life_date_label(t['fecha_revision']))) if t.get('fecha_revision') else '') + '.</p></section>')
     nav.append(('biografia', 'Biografía'))
     similar = [(related_by_name[x['nombre']], x['motivo']) for x in t.get('parecidos', []) if x.get('nombre') in related_by_name]
@@ -1800,7 +1827,7 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
         toc,before,after=author_text_sections(a,own,selected,related_pool)
         # Las del catálogo que el texto propio ya responde (nacimiento, géneros) ceden su sitio a las suyas.
         faq=[(x['pregunta'],x['respuesta']) for x in own['faq']]+[(q,r) for q,r in faq if not q.startswith(('¿Cuándo nació','¿Qué tipo de libros escribe'))]
-    shown_ids=[(AUTHOR_ID_LABELS[k],a['identificadores'][k]) for k in ('web','wikipedia') if k in a.get('identificadores',{})]
+    shown_ids=[(AUTHOR_ID_LABELS[k],a['identificadores'][k]) for k in ('web','wikipedia') if k in a.get('identificadores',{}) and (k!='web' or third_party_links.alive(a['identificadores'][k]))]
     links=('<p class="catalogue-source">Más sobre '+esc(a['nombre'])+': '+' · '.join('<a href="'+esc(h)+'" target="_blank" rel="noopener noreferrer">'+esc(t)+NEW_TAB+'</a>' for t,h in shown_ids)+'</p>') if shown_ids else ''
     faq_html=('<section aria-labelledby="author-faq" class="catalogue-faq"><h2 id="author-faq">Preguntas frecuentes sobre '+esc(a['nombre'])+'</h2>'+''.join('<details class="catalogue-details"><summary>'+esc(q)+'</summary><p>'+esc(r)+'</p></details>' for q,r in faq)+'</section>') if faq else ''
     trail=[('Inicio','/'),('Libros recomendados','/recomendaciones/'),('Autores',AUTHORS_BASE),(a['nombre'],author_url(a))]
@@ -1823,7 +1850,7 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
     same=[a['biografia_fuente_url']] if a.get('biografia_fuente_url') else ([source['url'] for source in a['fuentes']] if a.get('tipo') != 'bibliografico' else [])
     if a.get('wikidata'):
         same.append('https://www.wikidata.org/wiki/'+a['wikidata'])
-    same+=[a['identificadores'][k] for k in AUTHOR_ID_LABELS if k in a.get('identificadores',{})]
+    same+=[a['identificadores'][k] for k in AUTHOR_ID_LABELS if k in a.get('identificadores',{}) and (k!='web' or third_party_links.alive(a['identificadores'][k]))]
     if same:
         person['sameAs']=list(dict.fromkeys(same))
     modified=max(collection_modified(a,selected),(own or {}).get('fecha_revision',''))

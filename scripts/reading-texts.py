@@ -781,6 +781,10 @@ def _publish_once(out, publisher):
     # Fichas de autor (scripts/reading-author-texts.py): se revalidan con los datos de main antes de copiarlas.
     if any(authors_out.glob('*.json')):
         load_module('reading_author_texts', 'scripts/reading-author-texts.py').copy_valid(tree, authors_out)
+        # Webs y fuentes nuevas de esas fichas: se comprueban antes de construir (sin comprobar no se enlazan).
+        run_check = subprocess.run([sys.executable, 'scripts/reading_author_links.py', 'check'], cwd=tree, check=False)
+        if run_check.returncode:
+            print('Aviso: sin comprobar enlaces de autor; las fuentes nuevas salen como texto', flush=True)
     run = lambda *cmd: subprocess.run([sys.executable, *cmd], cwd=tree, check=True)
     for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         run('scripts/' + script)
@@ -838,6 +842,7 @@ def publish_due(args, now, last):
 
 def start_publish():
     """Publicación en segundo plano: el bucle sigue generando mientras corren las pruebas locales y el CI de la PR."""
+    (ROOT / '.local/reading-texts').mkdir(parents=True, exist_ok=True)  # el bucle de autores puede ir primero
     log = open(ROOT / '.local/reading-texts/publish.log', 'a', encoding='utf-8')
     log.write(f'--- {datetime.now(ZoneInfo("Europe/Madrid")):%Y-%m-%d %H:%M} publicación\n')
     log.flush()
