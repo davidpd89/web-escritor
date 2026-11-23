@@ -143,7 +143,8 @@ try {
     // Solo se ofrecen categorías con libros publicados: ninguna casilla muerta.
     const offered = await page.locator('input[data-facet="genero"]').evaluateAll(xs => xs.map(x => x.value));
     const counts = await page.locator('[data-catalogue-book]').evaluateAll(xs => xs.map(x => x.dataset.categories || '').join(' ').split(/\s+/));
-    assert.deepEqual(offered.filter(v => !counts.includes(v)), [], 'Categorías ofrecidas sin libros');
+    // «Sin género indicado» y «Sin edad indicada» son valores de reserva permanentes: existen aunque hoy no quede ningún libro sin esa faceta.
+    assert.deepEqual(offered.filter(v => !counts.includes(v) && !['sin-genero', 'sin-edad'].includes(v)), [], 'Categorías ofrecidas sin libros');
     // Romantasy (romance + fantasía) se deriva y aparece en cuanto hay libros de ambos géneros.
     assert.equal(await page.locator('input[data-facet="genero"][value="romantasy"]').count(), counts.includes('romantasy') ? 1 : 0);
     // Con un tipo de libro elegido, los géneros sin resultados bajan al final y quedan desactivados.
