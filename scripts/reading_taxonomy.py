@@ -315,13 +315,13 @@ FICTION_TOPICS = {'tema-amistad', 'tema-familia', 'tema-secretos', 'tema-amor-y-
 
 def last_resort_genre(book: dict, assigned: set) -> str | None:
     title = normalize_text(book.get('titulo') or '')
-    topic = next((g for g, (_n, _d, topics) in FALLBACK_GENRES.items() if assigned & set(topics)), None)
-    if topic and topic != 'narrativa':
-        return topic
     if CHILD_TITLE.search(title):
         return 'infantil'
     if ACTIVITY_TITLE.search(title):
         return 'ocio-y-aficiones'
+    topic = next((g for g, (_n, _d, topics) in FALLBACK_GENRES.items() if assigned & set(topics)), None)
+    if topic and topic != 'narrativa':
+        return topic
     if assigned & FICTION_TOPICS:
         return 'narrativa'
     return 'ensayo' if assigned else None

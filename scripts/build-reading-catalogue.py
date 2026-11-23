@@ -1254,7 +1254,11 @@ def render_filters(data, type_options, counts=None):
         choices = sorted((c for c in data['categorias'] if c['tipo'] == kind and c['activa'] and c['id'] in used), key=age_order if kind == 'edad' else lambda c: (c['orden'], c['id']))
         if not choices:
             continue
-        options = [(c['id'], c['nombre']) for c in choices] + ([(NO_VALUE[kind]['id'], NO_VALUE[kind]['nombre'])] if kind in NO_VALUE else [])
+        # La casilla «sin valor» solo existe si algún libro publicado se queda sin esa faceta (sin libros sería una casilla muerta).
+        kind_ids = {c['id'] for c in data['categorias'] if c['tipo'] == kind}
+        with_kind = {r['libro_id'] for r in data['libro_categorias'] if r['categoria_id'] in kind_ids}
+        has_bare = any(b.get('estado') == 'publicado' and b['id'] not in with_kind for b in data['libros'])
+        options = [(c['id'], c['nombre']) for c in choices] + ([(NO_VALUE[kind]['id'], NO_VALUE[kind]['nombre'])] if kind in NO_VALUE and has_bare else [])
         # Las ofertas de Amazon se filtran con «Ofertas» (descuento vigente), no como temporada.
         facets += facet_group(kind, label, options, counts=counts)
     facets += facet_group('formato', 'Formato', list(FORMATS.items()), counts=counts)
