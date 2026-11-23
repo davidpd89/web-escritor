@@ -167,6 +167,8 @@ def from_reading_catalogue(path: Path, channels_path: Path, groups: dict | None 
         excluded = set(book.get("categorias_excluidas") or [])
         excluded.update(REVIEWED_CATEGORY_EXCLUSIONS.get(str(book.get("isbn13") or ""), ()))
         assigned = [category for category in categories.get(book["id"], []) if category not in excluded]
+        # El público manda sobre el género: un libro infantil se anuncia como infantil aunque lleve otro género.
+        assigned.sort(key=lambda category: category != "infantil")
         books.append(
             {
                 "asin": asin,

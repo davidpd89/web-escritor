@@ -5,7 +5,9 @@ ficha oficial. Solo se añaden categorías; nunca se retira una asignada a mano.
 """
 from __future__ import annotations
 
+import json
 import re
+from pathlib import Path
 
 from reading_intake_core import normalize_text
 
@@ -43,9 +45,6 @@ RULES = (
     (r'\bvegetal|\bvegetarian|\bvegano', 'tema-cocina-vegetal', 'Cocina vegetal', 'tematica'),
     (r'\bnaturaleza\b|\banimales\b', 'tema-naturaleza', 'Naturaleza', 'tematica'),
     (r'\binfancia\b|\bninos?\b', 'tema-infancia', 'Infancia', 'tematica'),
-    (r'\bnavidad', 'navidad', 'Navidad', 'temporada'),
-    (r'\bhalloween\b', 'halloween', 'Halloween', 'temporada'),
-    (r'\bverano\b', 'verano', 'Verano', 'temporada'),
     (r'edad media|medieval', 'epoca-edad-media', 'Edad Media', 'epoca'),
     (r'siglo xix|decimononic', 'epoca-siglo-xix', 'Siglo XIX', 'epoca'),
     (r'siglo xx\b|guerra civil|posguerra|franquis', 'epoca-siglo-xx', 'Siglo XX', 'epoca'),
@@ -99,10 +98,7 @@ def rule_allowed(kind: str, pattern: str, subject_text: str, own_text: str) -> b
     """Una regla vale si la respalda la materia/palabra clave o, salvo los temas, el título o la colección.
 
     Un tema por el título solo es una palabra suelta («Una conspiración de monstruos encantadores» no es un libro de
-    política); una temporada, al revés, solo cuenta por el título o la colección (las palabras clave editoriales
-    incluyen reclamos de regalo como «Navidad» o «verano»)."""
-    if kind == 'temporada':
-        return bool(re.search(pattern, own_text))
+    política). No hay temporadas: la web no las tiene y no deben volver (David, 08/11 y 23/11)."""
     return bool(re.search(pattern, subject_text) or (kind != 'tematica' and re.search(pattern, own_text)))
 
 
@@ -126,25 +122,12 @@ def extra_categories(record: dict) -> list[tuple[str, str, str]]:
 DERIVED = (
     ('romantasy', 'Romantasy', 'genero', 'Fantasía con la historia de amor en el centro.',
      set(), None),
-    ('halloween', 'Halloween', 'temporada', 'Terror, fantasía oscura y lecturas de miedo para Halloween.',
-     {'terror', 'fantasia-oscura'}, r'\bbrujas?\b|\bfantasmas?\b|\bvampir|\bzombi|\bhalloween\b|\bmiedo\b'),
-    ('navidad', 'Navidad', 'temporada', 'Lecturas y regalos para Navidad.',
-     set(), r'\bnavid|\badviento\b|\breyes magos\b|\bpapa noel\b'),
-    ('san-valentin', 'San Valentín', 'temporada', 'Romance y romantasy para San Valentín.',
-     {'romance', 'romantasy', 'tema-amor-y-pareja'}, None),
-    ('dia-de-la-madre', 'Día de la Madre', 'temporada', 'Maternidad, crianza y libros para regalar a una madre.',
-     {'familia-y-crianza'}, r'\bmadres?\b|\bmama\b|\bmaternidad\b'),
-    ('dia-del-padre', 'Día del Padre', 'temporada', 'Paternidad, crianza y libros para regalar a un padre.',
-     {'familia-y-crianza'}, r'\bpadres?\b|\bpapa\b|\bpaternidad\b'),
     ('edicion-especial', 'Ediciones especiales', 'contenido',
      'Ediciones especiales, limitadas, de coleccionista, ilustradas o conmemorativas.',
      set(), r'\bedicion (especial|limitada|coleccionista|de coleccionista|ilustrada|conmemorativa|aniversario|de lujo)\b'
      r'|\bcantos (tintados|decorados)\b|\baniversario\b|\breedicion\b'),
 )
 FANTASY = {'fantasia', 'fantasia-juvenil', 'fantasia-oscura'}
-# Un libro de crianza vale para ambos días salvo que el título hable solo del otro progenitor.
-OTHER_PARENT = {'dia-de-la-madre': r'\bpadres?\b|\bpapa\b|\bpaternidad\b',
-                'dia-del-padre': r'\bmadres?\b|\bmama\b|\bmaternidad\b'}
 
 
 def derived_categories(assigned: set[str], title: str) -> list[str]:
@@ -156,10 +139,7 @@ def derived_categories(assigned: set[str], title: str) -> list[str]:
         if ident == 'romantasy':
             hit = 'romance' in current and bool(current & FANTASY)
         else:
-            own = bool(pattern and re.search(pattern, title))
-            hit = own or bool(current & triggers)
-            if ident in OTHER_PARENT and not own and re.search(OTHER_PARENT[ident], title):
-                hit = False
+            hit = bool(pattern and re.search(pattern, title)) or bool(current & triggers)
         if hit and ident not in current:
             out.append(ident)
             current.add(ident)
@@ -207,8 +187,8 @@ def reference_work(title, assigned):
 
 def category_priority(category):
     """El tipo de obra no desaparece detrás de sus temas al resumir dos etiquetas."""
-    kind = {'genero':0,'temporada':1,'tematica':2,'epoca':3,'contenido':4,'edad':5}
-    return (0 if category['id'] in {'comic-y-novela-grafica', REFERENCE_ID} else 1,
+    kind = {'genero':0,'tematica':2,'epoca':3,'contenido':4,'edad':5}
+    return (-1 if category['id'] == CHILD_ID else 0 if category['id'] in {'comic-y-novela-grafica', REFERENCE_ID} else 1,
             kind[category['tipo']], category['orden'], category['id'])
 
 
@@ -397,6 +377,101 @@ def repair_amazon_rules(catalogue: dict, by_book: dict, fallback: GenreFallback)
         catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
                                          if not (r['libro_id'] == book['id'] and r['categoria_id'] in drop)]
         by_book[book['id']] = assigned - drop
+        repaired.append(book['id'])
+    return repaired
+
+
+# Un libro para niños es, ante todo, infantil: el público manda sobre el género. Los nodos de Amazon y las palabras
+# sueltas («monstruos», «cuento de hadas») le ponían terror, romance o poesía como si fuera su género principal, y
+# el canal de Telegram lo anunciaba como libro de terror (23/11, «El lago de los monstruos (INFANTIL)»).
+CHILD_ID = 'infantil'
+OLDER_AUDIENCE = {'juvenil', 'narrativa-juvenil', 'fantasia-juvenil', 'tema-novelas-juveniles'}
+ADULT_FOR_CHILDREN = {'terror', 'romance', 'romantasy', 'tema-amor-y-pareja', 'tema-thriller-juvenil'}
+VERSE_TITLE = re.compile(r'\bpoesia\b|\bpoemas?\b|\bversos?\b|\brimas?\b|\bcoplas?\b|\bcanciones\b|\bnanas?\b')
+
+
+def children_drop(book: dict, assigned: set) -> set:
+    """Géneros de adultos que sobran en un libro infantil (no juvenil): terror, romance y poesía sin versos en el título."""
+    if CHILD_ID not in assigned or assigned & OLDER_AUDIENCE:
+        return set()
+    drop = assigned & ADULT_FOR_CHILDREN
+    if 'poesia' in assigned and not VERSE_TITLE.search(normalize_text(book.get('titulo') or '')):
+        drop.add('poesia')
+    return drop
+
+
+def repair_children_genres(catalogue: dict, by_book: dict) -> list:
+    """Quita de los libros infantiles los géneros de adultos; el género principal queda «Infantil y juvenil»."""
+    repaired = []
+    for book in catalogue['libros']:
+        assigned = by_book.get(book['id'], set())
+        drop = children_drop(book, assigned)
+        if not drop:
+            continue
+        catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
+                                         if not (r['libro_id'] == book['id'] and r['categoria_id'] in drop)]
+        by_book[book['id']] = assigned - drop
+        repaired.append(book['id'])
+    return repaired
+
+
+def drop_seasons(catalogue: dict, by_book: dict) -> list:
+    """No hay temporadas en la web (ni filtro ni etiqueta): se retiran las que quedaron en los datos y no vuelven."""
+    seasons = {c['id'] for c in catalogue['categorias'] if c.get('tipo') == 'temporada'}
+    if not seasons:
+        return []
+    touched = sorted({r['libro_id'] for r in catalogue['libro_categorias'] if r['categoria_id'] in seasons})
+    catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias'] if r['categoria_id'] not in seasons]
+    catalogue['categorias'] = [c for c in catalogue['categorias'] if c['id'] not in seasons]
+    for assigned in by_book.values():
+        assigned -= seasons
+    return touched
+
+
+# Segunda opinión de ChatGPT (reading-texts.py la guarda al escribir cada ficha). Género de la lista cerrada de GPT → id.
+GPT_GENRE_IDS = {'misterio y thriller': 'misterio-y-thriller', 'fantasia': 'fantasia', 'romance': 'romance',
+                 'ciencia ficcion': 'ciencia-ficcion', 'terror': 'terror', 'novela historica': 'novela-historica',
+                 'aventuras': 'aventuras', 'poesia': 'poesia', 'humor': 'humor', 'ensayo': 'ensayo',
+                 'comic y novela grafica': 'comic-y-novela-grafica', 'biografias y memorias': 'biografias-y-memorias',
+                 'cocina': 'cocina', 'desarrollo personal': 'desarrollo-personal',
+                 'narrativa contemporanea': 'narrativa', 'infantil': CHILD_ID}
+OPINIONS_FILE = Path(__file__).resolve().parents[1] / 'data' / 'reading-classification-gpt.json'
+
+
+def load_opinions(path: Path = OPINIONS_FILE) -> dict:
+    try:
+        data = json.loads(path.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def apply_second_opinion(catalogue: dict, by_book: dict, opinions: dict | None = None) -> list:
+    """Corrige con la segunda opinión de GPT lo que discrepa con motivo: el público infantil que no teníamos y el
+    género que falta. Un género nuestro que solo respaldaba el título se retira si GPT dice otro. Nunca quita un
+    género con materia propia: dos fuentes que discrepan se quedan las dos, y el público infantil manda en el orden."""
+    opinions = load_opinions() if opinions is None else opinions
+    known = {c['id'] for c in catalogue['categorias']}
+    repaired = []
+    for book in catalogue['libros']:
+        op = opinions.get(book['id'])
+        if not op or op.get('coincide') or not str(op.get('motivo') or '').strip():
+            continue
+        assigned = by_book.setdefault(book['id'], set())
+        gpt_genre = GPT_GENRE_IDS.get(normalize_text(op.get('genero_gpt') or ''))
+        add = set()
+        if normalize_text(op.get('publico_gpt') or '') == 'infantil' and CHILD_ID not in assigned and not assigned & OLDER_AUDIENCE:
+            add.add(CHILD_ID)
+        if gpt_genre and gpt_genre not in assigned:
+            add.add(gpt_genre)
+        add &= known
+        drop = {i for i in assigned & FICTION_GENRES if gpt_genre and i != gpt_genre and title_only(i, subject_text(book))}
+        if not add and not drop:
+            continue
+        catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
+                                         if not (r['libro_id'] == book['id'] and r['categoria_id'] in drop)]
+        catalogue['libro_categorias'] += [{'libro_id': book['id'], 'categoria_id': c} for c in sorted(add)]
+        by_book[book['id']] = (assigned - drop) | add
         repaired.append(book['id'])
     return repaired
 
@@ -626,9 +701,12 @@ def repair_classification(catalogue, today=None):
     fallback = GenreFallback(catalogue, by_book)
     # Género antes y después de quitar etiquetas: el tema de un nodo («tema-viajes») deja su género de respaldo
     # antes de irse, y un libro que pierde su género por nodo recibe otro. Una sola pasada basta (idempotente).
-    touched = set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
+    touched = set(drop_seasons(catalogue, by_book)) | set(apply_second_opinion(catalogue, by_book))
+    touched |= set(repair_children_genres(catalogue, by_book))
+    touched |= set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
     touched |= set(repair_amazon_rules(catalogue, by_book, fallback))
     touched |= set(repair_inherited_health(catalogue, by_book)) | set(repair_axis(catalogue, by_book))
+    touched |= set(repair_children_genres(catalogue, by_book))  # los repasos anteriores no devuelven lo de adultos
     # Quitar etiquetas de nodo puede dejar «narrativa-juvenil» sola con la no ficción: el público se repara otra vez.
     touched |= set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
     if today:

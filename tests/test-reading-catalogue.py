@@ -31,7 +31,7 @@ def fixture(root):
         'edad_recomendada': 'Desde 14 años', 'fuente_edad_url': 'https://fuente.invalid/edad',
         'isbn13': '9780140328721', 'resenas': [{'titulo': 'Referencia técnica externa', 'url': 'https://fuente.invalid/resena', 'fecha_verificacion': '2026-10-20'}]
     }]
-    data['libro_categorias'] = [{'libro_id': 'contrato-uno', 'categoria_id': c} for c in ('fantasia', 'romantasy', 'halloween', 'juvenil')]
+    data['libro_categorias'] = [{'libro_id': 'contrato-uno', 'categoria_id': c} for c in ('fantasia', 'romantasy', 'humor', 'juvenil')]
     folder = root / 'assets/reading-covers'
     folder.mkdir(parents=True)
     Image.new('RGB', (120, 180), 'navy').save(folder / 'contrato-uno.png')

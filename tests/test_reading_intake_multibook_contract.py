@@ -72,7 +72,7 @@ class MultiBookContractTests(unittest.TestCase):
             Image.new("RGB", (120, 180), (40 + i * 50, 80, 120)).save(
                 self.root / b["portada_local"].lstrip("/"))
             self.data["libros"].append(b)
-            cats = ["fantasia-juvenil", "halloween"] if i == 0 else (
+            cats = ["fantasia-juvenil", "humor"] if i == 0 else (
                 ["romantasy", "fantasia"] if i == 1 else ["terror", "misterio-y-thriller"]
             )
             self.data["libro_categorias"].extend(

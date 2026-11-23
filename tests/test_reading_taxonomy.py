@@ -19,9 +19,9 @@ class TaxonomyTests(unittest.TestCase):
         self.assertIn('tema-poder-y-politica', ids)
         self.assertIn('tema-familia', ids)
 
-    def test_gift_season_claims_do_not_create_seasonal_tags(self):
-        self.assertNotIn('navidad', self.ids(palabras_clave=['libros para regalar en navidad'], titulo='Los escalones'))
-        self.assertIn('navidad', self.ids(palabras_clave=[], titulo='Cuento de Navidad'))
+    def test_seasonal_words_never_create_seasonal_tags(self):
+        for ident in ('navidad', 'halloween', 'verano'):
+            self.assertNotIn(ident, self.ids(palabras_clave=['libros para regalar en navidad', 'halloween'], titulo='Cuento de Navidad en verano'))
 
     def test_plant_based_theme_needs_cooking_context(self):
         self.assertNotIn('tema-cocina-vegetal', self.ids(palabras_clave=['vegetal'], titulo='Poemas'))
