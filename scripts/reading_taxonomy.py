@@ -303,6 +303,29 @@ READER_TYPES = ('genero', 'tematica', 'epoca', 'edad')
 AUTHOR_MIN = 2  # género del autor: al menos dos títulos suyos con género propio
 PUBLISHER_SHARE, PUBLISHER_MIN = 0.6, 3  # género del sello: mayoría clara y no un solo título
 
+# Último recurso: un libro publicado nunca se queda sin género (23 sin él el 23/11). Solo cuando ninguna evidencia fuerte
+# lo dio: el tema aunque solo lo pusiera un nodo, un cuaderno de actividades/colorear/pegatinas, o la rama del tema.
+ACTIVITY_TITLE = re.compile(r'\bcolorea\w*|\bpint[ao]\w*|\bpegatinas?\b|\bstickers?\b|\bagendas?\b|\bcalendarios?\b|'
+                            r'\bcuadernos?\b|\bl[aá]minas\b|\bescape room\b|\bcaligraf[ií]a\b')
+CHILD_TITLE = re.compile(r'\bcuentos?\b|\bpintacuentos\b|\bpeppa\b|\bbluey\b|\bpaw patrol\b|\bsuperthings\b|\bmonstruos?\b|'
+                         r'\bclub cookies\b|\bperro apestoso\b')
+FICTION_TOPICS = {'tema-amistad', 'tema-familia', 'tema-secretos', 'tema-amor-y-pareja', 'tema-viajes', 'tema-memoria',
+                  'tema-infancia', 'tema-mujeres'}
+
+
+def last_resort_genre(book: dict, assigned: set) -> str | None:
+    title = normalize_text(book.get('titulo') or '')
+    topic = next((g for g, (_n, _d, topics) in FALLBACK_GENRES.items() if assigned & set(topics)), None)
+    if topic and topic != 'narrativa':
+        return topic
+    if CHILD_TITLE.search(title):
+        return 'infantil'
+    if ACTIVITY_TITLE.search(title):
+        return 'ocio-y-aficiones'
+    if assigned & FICTION_TOPICS:
+        return 'narrativa'
+    return 'ensayo' if assigned else None
+
 
 class GenreFallback:
     """Género de respaldo de un libro, igual en cada pasada para que la reparación sea idempotente."""
@@ -345,7 +368,7 @@ class GenreFallback:
             best = max(counts, key=counts.get, default=None)
             if best and counts[best] >= least and counts[best] >= PUBLISHER_SHARE * sum(counts.values()):
                 return None if best in excluded else best
-        return None
+        return None if (last := last_resort_genre(book, assigned)) in excluded else last
 
 
 def repair_amazon_rules(catalogue: dict, by_book: dict, fallback: GenreFallback) -> list:

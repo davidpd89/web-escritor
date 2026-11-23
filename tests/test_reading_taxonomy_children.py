@@ -64,6 +64,12 @@ class ChildrenGenreTests(unittest.TestCase):
         self.assertIn('infantil', cats_of(data, 'a'))
         self.assertNotIn('humor', cats_of(data, 'c'))
 
+    def test_last_resort_gives_a_genre(self):
+        self.assertEqual(tax.last_resort_genre({'titulo': 'Gatos cuquis para colorear'}, {'tema-naturaleza'}), 'ocio-y-aficiones')
+        self.assertEqual(tax.last_resort_genre({'titulo': 'Los tres cuentos'}, {'tema-amistad'}), 'infantil')
+        self.assertEqual(tax.last_resort_genre({'titulo': 'Forjando la Edad Media'}, {'epoca-edad-media'}), 'ensayo')
+        self.assertIsNone(tax.last_resort_genre({'titulo': 'X'}, set()))
+
     def test_published_catalogue_has_no_adult_genre_on_children_or_seasons(self):
         data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
         by_book = {}
@@ -73,6 +79,9 @@ class ChildrenGenreTests(unittest.TestCase):
                if tax.children_drop(b, by_book.get(b['id'], set()))]
         self.assertEqual(bad, [], 'Un libro infantil lleva género de adultos: ejecuta reading_taxonomy.repair_classification')
         self.assertFalse([c['id'] for c in data['categorias'] if c.get('tipo') == 'temporada'])
+        genres = {c['id'] for c in data['categorias'] if c.get('tipo') == 'genero'}
+        bare = [b['id'] for b in data['libros'] if b.get('estado') == 'publicado' and not by_book.get(b['id'], set()) & genres]
+        self.assertEqual(bare, [], 'Libros publicados sin género: ' + ' '.join(bare[:20]))
 
 
 if __name__ == '__main__':
