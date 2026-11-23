@@ -27,4 +27,9 @@ titles = [t for _, t in next(f for f in data["families"] if f["prefix"] == "/edi
 assert [m.sort_key(t) for t in titles] == sorted(m.sort_key(t) for t in titles)
 # El script de la página debe permitir el CSP de las fichas: scripts propios, sin fetch
 assert not re.search(r"fetch\(['\"]/assets/page-order", (ROOT / "assets/v1-editorial-interior-v4.js").read_text(encoding="utf-8"))
+# Clase de fallo: un título largo (ficha académica de 200+ caracteres) se acota en el rótulo, nunca tumba el gate
+largo = "Análisis de la percepción del profesorado sobre el uso de recursos digitales para la prevención de conductas disruptivas en un centro de educación especial en la etapa de educación básica obligatoria. " * 2
+corto = m.shorten(largo)
+assert len(corto) <= m.MAX_TITLE + 1 and corto.endswith("…") and " " + corto[-2] != "  ", corto
+assert m.shorten("Título corto") == "Título corto"
 print("PASS: page order")
