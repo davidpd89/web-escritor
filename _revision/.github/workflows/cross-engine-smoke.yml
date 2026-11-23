@@ -1,0 +1,146 @@
+name: Cross-engine smoke
+
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - 'script.js'
+      - 'qa/cross-engine-smoke.mjs'
+      - 'qa/books-index-cross-engine.mjs'
+      - 'qa/manecillas-cross-engine.mjs'
+      - 'qa/samuel-design-cross-engine.mjs'
+      - 'docs/compatibilidad-cross-browser.md'
+      - '.github/workflows/cross-engine-smoke.yml'
+      # Vía rápida: un PR solo de contenido generado (scripts/ci_content_lane.py CONTENT_GLOBS) no lo dispara; lo cubre weekly-full-audit.yml.
+      - '!assets/page-order.generated.js'
+      - '!assets/reading-market.json'
+      - '!assets/reading-covers/isbn-*.webp'
+      - '!assets/reading-audio/*.mp3'
+      - '!assets/pinterest/feeds/*.xml'
+      - '!data/reading-catalogue.json'
+      - '!data/reading-authors.json'
+      - '!data/reading-publishers.json'
+      - '!data/reading-intake-state.json'
+      - '!data/reading-covers-store.json'
+      - '!data/reading-amazon-audit.json'
+      - '!data/reading-pinterest-state.json'
+      - '!data/reading-quarantine.json'
+      - '!data/reading-texts/*.json'
+      - '!data/content-registry.json'
+      - '!recomendaciones/index.html'
+      - '!recomendaciones/autores/index.html'
+      - '!recomendaciones/editoriales/index.html'
+      - '!recomendaciones/libros/*/index.html'
+      - '!recomendaciones/pagina/*/index.html'
+      - '!recomendaciones/autores/*/index.html'
+      - '!recomendaciones/editoriales/*/index.html'
+      - '!recomendaciones/proximos-lanzamientos.ics'
+      - '!recomendaciones/llms.txt'
+      - '!recomendaciones/ofertas.json'
+      - '!editoriales/*/index.html'
+      - '!editoriales-sitemap.xml'
+      - '!editoriales/index.html'
+      - '!editoriales/editoriales-data.json'
+      - '!metodologia-editorial/index.html'
+      - '!mapa-del-sitio/index.html'
+      - '!sitemap.xml'
+      - '!pagefind/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # En una PR, un push nuevo cancela la CI del commit anterior; main y los programados no se cancelan.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          # The runner image is part of the key: WebKit links against its system ICU.
+          key: playwright-cross-engine-${{ env.ImageOS }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright browsers (Chromium + Firefox + WebKit, with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: bash scripts/ci/playwright-install-deps.sh full chromium firefox webkit
+
+      - name: Install Playwright OS deps only (browsers cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium firefox webkit
+
+      - name: Run cross-engine smoke (Chromium + Firefox + WebKit)
+        run: node qa/cross-engine-smoke.mjs
+
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
+      - name: Run Books index cross-engine design smoke
+        shell: bash
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/books-cross-engine-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid || true' EXIT
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/libros/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:4173/libros/ >/dev/null
+          node qa/books-index-cross-engine.mjs
+
+      - name: Run Manecillas cross-engine design smoke
+        shell: bash
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/manecillas-cross-engine-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid || true' EXIT
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/las-manecillas-del-recuerdo/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:4173/las-manecillas-del-recuerdo/ >/dev/null
+          node qa/manecillas-cross-engine.mjs
+
+      - name: Run Samuel cross-engine design smoke
+        shell: bash
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+        run: |
+          python -m http.server 4173 --bind 127.0.0.1 > /tmp/samuel-cross-engine-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid || true' EXIT
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/libros/samuel-entre-mundos/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:4173/libros/samuel-entre-mundos/ >/dev/null
+          node qa/samuel-design-cross-engine.mjs
