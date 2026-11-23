@@ -49,6 +49,16 @@ def clean(text: str) -> str:
     return re.sub(r"\s+", " ", html.unescape(TAG.sub(" ", text))).strip()
 
 
+MAX_TITLE = 160
+
+
+def shorten(title: str) -> str:
+    """Rótulo del pie: un título académico de 200+ caracteres se corta en palabra y lleva elipsis."""
+    if len(title) <= MAX_TITLE:
+        return title
+    return title[:MAX_TITLE].rsplit(" ", 1)[0].rstrip(" ,;:.-") + "…"
+
+
 def sort_key(title: str) -> str:
     plain = "".join(c for c in unicodedata.normalize("NFD", title.casefold()) if unicodedata.category(c) != "Mn")
     return re.sub(r"[^a-z0-9 ]+", "", plain).strip()
@@ -65,7 +75,7 @@ def family_pages(prefix: str, skip: tuple[str, ...]) -> dict[str, str]:
         match = H1.search(text)
         if NOINDEX.search(text) or not match or not clean(match.group(1)):
             continue
-        pages[f"{prefix}{folder.name}/"] = clean(match.group(1))
+        pages[f"{prefix}{folder.name}/"] = shorten(clean(match.group(1)))
     return pages
 
 
