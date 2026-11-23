@@ -56,6 +56,13 @@ class NormalizarTest(unittest.TestCase):
         self.prueba('fecha_publicacion', 20261123, '2026-11-23')
         self.prueba('portada_fuente_url', 'http://example.com/a.jpg', 'https://example.com/a.jpg')
 
+    def test_isbn10_y_caracteres_invisibles(self):
+        self.prueba('isbn13', '0-7432-7356-7', '9780743273565')
+        b = libro(isbn13='0743273566')  # dígito de control malo: no se inventa
+        n.normalizar([b])
+        self.assertEqual(b['isbn13'], '0743273566')
+        self.prueba('titulo', '﻿El​ principito‮', 'El principito')
+
     def test_sinopsis_gritada_html_y_larga(self):
         b = libro(descripcion_breve='<p>' + 'UNA NOVELA QUE LO CAMBIA TODO. ' * 4 + '</p>')
         n.normalizar([b])

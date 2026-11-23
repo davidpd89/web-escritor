@@ -17,6 +17,7 @@ import argparse
 import importlib.util
 import json
 import random
+import re
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -38,6 +39,16 @@ def mojibake(texto):
 
 def en_formatos(**cambios):
     return lambda b: [{**f, **cambios} for f in b.get('formatos_compra', [])]
+
+
+def _isbn10(isbn13):
+    """ISBN-10 equivalente de un ISBN-13 978…; los 979 no lo tienen y quedan igual."""
+    if not isbn13.startswith('978'):
+        return isbn13
+    base = isbn13[3:12]
+    resto = sum((10 - i) * int(c) for i, c in enumerate(base)) % 11
+    control = (11 - resto) % 11
+    return base + ('X' if control == 10 else str(control))
 
 
 MUTACIONES = {
@@ -68,6 +79,8 @@ MUTACIONES = {
     'isbn invalido': ('isbn13', lambda b: '9788498382373'),
     'isbn corto': ('isbn13', lambda b: '12345'),
     'isbn con guiones': ('isbn13', lambda b: '{}-{}-{}-{}-{}'.format(b['isbn13'][:3], b['isbn13'][3:5], b['isbn13'][5:9], b['isbn13'][9:12], b['isbn13'][12:])),
+    'isbn-10 equivalente': ('isbn13', lambda b: _isbn10(b['isbn13'])),
+    'titulo con caracteres invisibles': ('titulo', lambda b: '﻿' + b['titulo'][:3] + '​' + b['titulo'][3:] + '‮'),
     'isbn tipo': ('isbn13', lambda b: 9788498382372),
     'fecha invalida': ('fecha_publicacion', lambda b: '2026-13-45'),
     'fecha formato': ('fecha_publicacion', lambda b: '23/11/2026'),
@@ -78,7 +91,7 @@ MUTACIONES = {
     'editorial mayusculas': ('editorial', lambda b: (b.get('editorial') or 'X').upper()),
     'editorial slug inexistente': ('editorial_slug', lambda b: 'no-existe-xyz'),
     'portada inexistente': ('portada_local', lambda b: '/assets/reading-covers/no-existe.webp'),
-    'portada fuente http': ('portada_fuente_url', lambda b: 'http://example.com/x.jpg'),
+    'portada fuente http': ('portada_fuente_url', lambda b: 'http://example.com/x.jpg'),  # NOSONAR: dato hostil de prueba
     'portada fuente vacia': ('portada_fuente_url', lambda b: ''),
     'edad rara': ('edad_recomendada', lambda b: 'de 3 a 99 años!!'),
     'campo desconocido': ('campo_nuevo_xyz', lambda b: 'x'),
@@ -88,7 +101,7 @@ MUTACIONES = {
     'precio cero': ('formatos_compra', en_formatos(precio_centimos=0)),
     'precio como texto': ('formatos_compra', en_formatos(precio_centimos='12,50')),
     'precio enorme': ('formatos_compra', en_formatos(precio_centimos=99999999)),
-    'url amazon http': ('formatos_compra', en_formatos(url='http://www.amazon.es/dp/x')),
+    'url amazon http': ('formatos_compra', en_formatos(url='http://www.amazon.es/dp/x')),  # NOSONAR
     'formatos vacios': ('formatos_compra', lambda b: []),
     'None en titulo': ('titulo', lambda b: None),
     'None en autores': ('autores', lambda b: None),
@@ -140,11 +153,13 @@ def ensayo(muestra=40, semilla=1, por_mutacion=3):
     return casos
 
 
-def aplicar(raiz, semilla=1):
+def aplicar(nombre, semilla=1):
     """Carga hipotética real: una mutación por libro (los que pasan validate) escrita en el catálogo de `raiz`.
     Es destructivo: usar solo en un worktree desechable; luego build-reading-catalogue.py + check-reading-data.py.
     Devuelve {id: mutación}."""
-    ruta = Path(raiz) / 'data/reading-catalogue.json'
+    if not re.fullmatch(r'[A-Za-z0-9_-]{1,40}', nombre):
+        raise SystemExit('--aplicar: nombre de worktree inválido')
+    ruta = ROOT / '.worktrees' / nombre / 'data/reading-catalogue.json'
     data = json.loads(ruta.read_text(encoding='utf-8'))
     publicados = [b for b in data['libros'] if b.get('estado') == 'publicado' and b.get('formatos_compra')]
     elegidos = random.Random(semilla).sample(publicados, len(MUTACIONES))
@@ -161,7 +176,7 @@ def aplicar(raiz, semilla=1):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--aplicar', help='raíz de un worktree desechable donde escribir la carga hipotética')
+    ap.add_argument('--aplicar', help='nombre de un worktree desechable de .worktrees/ donde escribir la carga hipotética')
     ap.add_argument('--muestra', type=int, default=40)
     ap.add_argument('--semilla', type=int, default=1)
     ap.add_argument('--json')
@@ -178,7 +193,9 @@ def main():
         for nombre, causas in sorted(por[clase].items()):
             print(f'  {nombre} ×{len(causas)}' + (f'  → {causas[0]}' if causas[0] and clase != 'aparta' else ''))
     if args.json:
-        Path(args.json).write_text(json.dumps(casos, ensure_ascii=False, indent=1), encoding='utf-8')
+        if not re.fullmatch(r'[A-Za-z0-9_.-]{1,60}', args.json):
+            raise SystemExit('--json: solo un nombre de fichero, sin rutas')
+        (Path.cwd() / args.json).write_text(json.dumps(casos, ensure_ascii=False, indent=1), encoding='utf-8')
     return 1 if por['SIN DUEÑO'] else 0
 
 

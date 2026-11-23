@@ -32,6 +32,7 @@ def _set(book, key, value):
     return 0
 
 
+INVISIBLES = dict.fromkeys([0x200B, 0x2060, 0xFEFF, 0x00AD, *range(0x202A, 0x202F), *range(0x2066, 0x206A)])
 ENTIDAD = re.compile(r'&(?:#\d+|#x[0-9a-f]+|[a-z]+);', re.I)
 
 
@@ -42,7 +43,7 @@ def texto_plano(value, parrafos=False):
         value = html.unescape(TAG.sub(' ', SCRIPT.sub(' ', value)))
     elif ENTIDAD.search(value):
         value = html.unescape(value)
-    value = fix_mojibake(unicodedata.normalize('NFC', value.translate(LIGADURAS)))
+    value = fix_mojibake(unicodedata.normalize('NFC', value.translate(LIGADURAS).translate(INVISIBLES)))
     if parrafos:
         return '\n'.join(clean_title(linea) for linea in value.split('\n')).strip('\n ')
     return clean_title(value)
@@ -93,8 +94,16 @@ def normalizar_isbn(book):
         isbn = str(isbn)
     if not isinstance(isbn, str):
         return 0
-    limpio = re.sub(r'[\s\-–]', '', isbn)
+    limpio = re.sub(r'[\s\-–]', '', isbn).upper()
+    if re.fullmatch(r'\d{9}[\dX]', limpio) and isbn10_valido(limpio):  # ISBN-10 → ISBN-13 (prefijo 978)
+        base = '978' + limpio[:9]
+        limpio = base + str((10 - sum(int(c) * (1 if i % 2 == 0 else 3) for i, c in enumerate(base)) % 10) % 10)
     return _set(book, 'isbn13', limpio) if re.fullmatch(r'\d{13}', limpio) else 0
+
+
+def isbn10_valido(isbn):
+    total = sum((10 - i) * (10 if c == 'X' else int(c)) for i, c in enumerate(isbn))
+    return total % 11 == 0
 
 
 def normalizar_fechas(book):

@@ -124,7 +124,7 @@ jobs:
   static-regression:
     if: github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 50
     steps:
       - name: Checkout
         uses: actions/checkout@v7

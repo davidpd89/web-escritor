@@ -17,6 +17,11 @@ spec.loader.exec_module(m)
 CAT = lambda tipo, i: {'tipo': tipo, 'id': f'{tipo}-{i}', 'nombre': f'{tipo} {i}', 'orden': i}
 
 
+def exige(condicion, motivo):
+    if not condicion:
+        raise ValueError(motivo)
+
+
 class CardContractTest(unittest.TestCase):
     def test_badge_three_states_by_date(self):
         anchor = '2026-11-03'
@@ -78,27 +83,27 @@ class CardContractTest(unittest.TestCase):
             try:
                 page = (ROOT / 'recomendaciones/libros' / b['slug'] / 'index.html').read_text(encoding='utf-8')
                 buy = re.search(r'<a class="catalogue-buy-link" href="([^"]+)"[^>]*rel="([^"]+)"[^>]*>([^<]*)', page)
-                self.assertRegex(buy.group(3), r'^Comprar en Amazon(\s|$)')
-                self.assertIn('sponsored', buy.group(2))
+                exige(re.search(r'^Comprar en Amazon(\s|$)', buy.group(3)), 'enlace de compra')
+                exige('sponsored' in buy.group(2), 'rel sponsored')
                 href = m.html.unescape(buy.group(1))
-                self.assertIn('tag=davidporto-21', href)
+                exige('tag=davidporto-21' in href, 'tag de afiliado')
                 if '/dp/' not in href:
-                    self.assertIn('k=' + b['isbn13'], href)
+                    exige('k=' + b['isbn13'] in href, 'búsqueda por isbn')
                 cover = re.search(r'class="catalogue-cover-panel"><a href="([^"]+)"', page)
-                self.assertEqual(cover.group(1), buy.group(1), 'portada y botón comparten enlace')
+                exige(cover.group(1) == buy.group(1), 'portada y botón comparten enlace')
                 authors = re.search(r'<p class="catalogue-author">(.*?)</p>', page, re.S)
                 # El catálogo no crea fichas de autor ni de sello: sin ficha, el nombre va en texto plano.
-                self.assertEqual(authors.group(1).count('<a '), sum(n in known_authors for n in b['autores']))
+                exige(authors.group(1).count('<a ') == sum(n in known_authors for n in b['autores']), 'enlaces de autor')
                 ld = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', page, re.S).group(1))
-                self.assertEqual(next(x for x in ld['@graph'] if x['@type'] == 'Book')['isbn'], b['isbn13'])
-                self.assertNotIn('aggregateRating', json.dumps(ld))
+                exige(next(x for x in ld['@graph'] if x['@type'] == 'Book')['isbn'] == b['isbn13'], 'isbn del JSON-LD')
+                exige('aggregateRating' not in json.dumps(ld), 'sin aggregateRating')
                 if b.get('editorial_slug') or b.get('editorial_catalogo_slug'):
                     publisher = ('/editoriales/' + b['editorial_slug'] if b.get('editorial_slug')
                                  else '/recomendaciones/editoriales/' + b['editorial_catalogo_slug']) + '/'
-                    self.assertIn(f'href="{publisher}"', page)
+                    exige(f'href="{publisher}"' in page, 'enlace a la editorial')
                 else:
-                    self.assertIn(m.esc(b['editorial']), page)
-            except (AssertionError, AttributeError, OSError, ValueError, StopIteration) as error:
+                    exige(m.esc(b['editorial']) in page, 'editorial en texto')
+            except (ValueError, AttributeError, OSError, ValueError, StopIteration) as error:
                 fallos[b['id']] = f'{type(error).__name__}: {str(error)[:160]}'
         incumplen('ficha publicada conforme al contrato de la tarjeta', fallos)
 
