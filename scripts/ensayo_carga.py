@@ -4,6 +4,7 @@
 La carga nocturna falló semanas seguidas por datos que nadie había probado (títulos de 206 caracteres, mojibake,
 firmas institucionales...). Aquí se toma una muestra del catálogo real, se le aplican las mutaciones MUTACIONES (una
 por caso, sobre una copia) y se pasa por validate() y por los generadores de texto de ficha. Cada caso acaba en:
+  reparado   reading_normalizar lo reescribió bien y se publicaría corregido
   pasa       el libro mutado se publicaría tal cual
   aparta     validate lo rechaza nombrando el libro: la cuarentena lo apartaría (comportamiento correcto)
   SIN DUEÑO  el fallo no nombra al libro, o el código revienta con una excepción: pararía la carga entera (BUG)
@@ -25,6 +26,8 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 _spec = importlib.util.spec_from_file_location('rcb', ROOT / 'scripts/build-reading-catalogue.py')
 build = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(build)
+import reading_normalizar  # noqa: E402
+import reading_quarantine  # noqa: E402
 
 LARGO = ' '.join(['historia universal del pensamiento y de las ideas'] * 5)
 
@@ -129,7 +132,11 @@ def ensayo(muestra=40, semilla=1, por_mutacion=3):
                 destino[campo] = fn(destino)
             except (KeyError, TypeError, IndexError):  # la mutación no aplica a este libro
                 continue
-            casos.append((nombre, b['id'], *resultado(copia, b['id'])))
+            # Como la carga real: primero se reescribe lo reparable (reading_normalizar), luego se valida.
+            reparado = reading_normalizar.normalizar([destino])
+            reparado += reading_quarantine.repair_titles([destino], ROOT, '2026-11-23')
+            clase, causa = resultado(copia, b['id'])
+            casos.append((nombre, b['id'], 'reparado' if clase == 'pasa' and reparado else clase, causa))
     return casos
 
 
@@ -166,7 +173,7 @@ def main():
     por = defaultdict(lambda: defaultdict(list))
     for nombre, _libro, clase, causa in casos:
         por[clase][nombre].append(causa)
-    for clase in ('SIN DUEÑO', 'pasa', 'aparta'):
+    for clase in ('SIN DUEÑO', 'pasa', 'reparado', 'aparta'):
         print(f'\n== {clase}: {sum(len(v) for v in por[clase].values())} casos')
         for nombre, causas in sorted(por[clase].items()):
             print(f'  {nombre} ×{len(causas)}' + (f'  → {causas[0]}' if causas[0] and clase != 'aparta' else ''))

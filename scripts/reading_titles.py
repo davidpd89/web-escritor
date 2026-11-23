@@ -88,13 +88,25 @@ def proper_words(catalogue):
 MOJIBAKE = re.compile('[ÃÂ]|â€')
 
 
+def _a_bytes(text):
+    """cp1252 y, donde esta no define el byte (0x81, 0x8D, 0x8F, 0x90, 0x9D: «Á» = Ã + U+0081), latin-1: así se
+    leyó casi todo el mojibake real, y `encode('cp1252')` solo fallaba justo con las vocales mayúsculas acentuadas."""
+    out = bytearray()
+    for ch in text:
+        try:
+            out += ch.encode('cp1252')
+        except UnicodeEncodeError:
+            out += ch.encode('latin-1')
+    return bytes(out)
+
+
 def fix_mojibake(text):
     """UTF-8 leído como Windows-1252 («quÃ­mica», «â€•»): vuelve al texto original. Si no es
     reversible, se deja igual. Origen (19/11, isbn-9791399079395): la fuente lo trajo así y la tarjeta ya no
     empezaba por el título, con lo que la carga entera quedaba con la puerta en rojo."""
     if isinstance(text, str) and MOJIBAKE.search(text):
         try:
-            return text.encode('cp1252').decode('utf-8')
+            return _a_bytes(text).decode('utf-8')
         except (UnicodeEncodeError, UnicodeDecodeError):
             return text
     return text

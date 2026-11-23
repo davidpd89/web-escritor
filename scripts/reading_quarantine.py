@@ -406,7 +406,14 @@ def unprice(book):
         option.pop('precio_referencia_centimos', None)
 
 
-REPAIRS = (repair_catalogue_publishers, repair_titles, repair_title_accents, repair_retire_non_reading)
+def repair_normalizar(books, root, today):
+    """Reescribe lo que la fuente trajo sucio (autor en mayúsculas, mojibake, HTML, ISBN con guiones, fecha d/m/a, URL
+    http, sinopsis gritada o desmesurada) en vez de parar la carga o apartar el libro. Ver reading_normalizar.py."""
+    import reading_normalizar
+    return reading_normalizar.normalizar(books)
+
+
+REPAIRS = (repair_catalogue_publishers, repair_normalizar, repair_titles, repair_title_accents, repair_retire_non_reading)
 
 
 def retired_pages(data, root):
