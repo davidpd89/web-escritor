@@ -272,7 +272,7 @@ def fold(text):
 def compare_classification(p, c):
     """Segunda opinión de ChatGPT frente a la clasificación propia: (registro, None) o (None, motivo de rechazo).
 
-    No cambia ninguna categoría: solo deja constancia de si coinciden y de por qué no, para revisar las reglas."""
+    No cambia categorías aquí: la opinión se publica con los textos y reading_taxonomy.apply_second_opinion la aplica."""
     if not isinstance(c, dict):
         return None, 'sin clasificación'
     genre, public, reason = c.get('genero'), fold(c.get('publico', '')), str(c.get('motivo') or '').strip()
@@ -776,6 +776,12 @@ def _publish_once(out, publisher):
             blocks = publishable_blocks(payload(data, books[path.stem]), record)
             if blocks:
                 write_json(target / path.name, {**record, 'bloques': blocks})
+    # La segunda opinión de ChatGPT viaja con los textos: el clasificador la aplica en cada carga y corrige el género y
+    # el público (antes se quedaba en .local y no corregía nada). Solo de libros publicados; lo ya publicado se conserva.
+    published_opinions = tree / 'data/reading-classification-gpt.json'
+    merged = {**read_json(published_opinions, {}), **{i: o for i, o in read_json(CLASIFICACION, {}).items() if i in books}}
+    if merged != read_json(published_opinions, {}):
+        write_json(published_opinions, dict(sorted(merged.items())))
     run = lambda *cmd: subprocess.run([sys.executable, *cmd], cwd=tree, check=True)
     for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         run('scripts/' + script)
@@ -926,7 +932,7 @@ def main(argv=None):
                 print(row.get('id'), f'{len(blocks)} bloques', 'OK' if not errors else '; '.join(errors))
         return 1 if bad else 0
     elif args.cmd == 'discrepancias':
-        opinions = read_json(CLASIFICACION, {})
+        opinions = {**read_json(ROOT / 'data/reading-classification-gpt.json', {}), **read_json(CLASIFICACION, {})}
         different = {i: o for i, o in opinions.items() if not o['coincide']}
         print(f'{len(different)} discrepancias de {len(opinions)} opiniones')
         for i, o in different.items():

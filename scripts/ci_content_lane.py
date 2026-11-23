@@ -57,6 +57,7 @@ CONTENT_GLOBS = (
     'data/reading-intake-state.json',
     'data/reading-covers-store.json',
     'data/reading-amazon-audit.json',
+    'data/reading-classification-gpt.json',
     'data/reading-pinterest-state.json',
     'data/reading-quarantine.json',
     'data/reading-texts/*.json',
