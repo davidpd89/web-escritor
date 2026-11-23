@@ -8,6 +8,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT / "tests"))
+from contrato_libros import incumplen  # noqa: E402
 from reading_intake_core import clean_author, strip_shouting  # noqa: E402
 
 PLOT = "Tiene siete años y ya conoce el hambre. En la noche polar, su madre ablanda la cuerda."
@@ -99,8 +101,9 @@ class PublishedCatalogueTests(unittest.TestCase):
             self.assertIsNone(shout.match(card), (raw, tidy))
 
     def test_no_published_author_is_written_in_capitals(self):
-        names = {a for b in self.data["libros"] for a in b["autores"]}
-        self.assertEqual({a for a in names if clean_author(a) != a}, set())
+        # Nombra los libros (contrato_libros): la cuarentena aparta solo esos, no la carga entera.
+        incumplen('autor en mayúsculas', {b['id']: ', '.join(a for a in b['autores'] if clean_author(a) != a)
+                                          for b in self.data['libros'] if any(clean_author(a) != a for a in b['autores'])})
 
 
 if __name__ == "__main__":
