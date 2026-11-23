@@ -15,3 +15,11 @@ Claves de entrega: `weekly-<lunes>` (cabecera) y `weekly-<lunes>-<fecha>` (cada 
 - Telegram: 10/22 canales públicos (límite de 10 usernames por cuenta; 20 con Premium). infantil y ensayo ya públicos; los 12 restantes siguen por enlace privado.
 - Pendiente: decidir Premium/otra cuenta; alta en Disboard/top.gg/TGStat (requiere autorizar apps con la cuenta Discord/Telegram).
 - Pendiente: CI de PR #1544, leer comentarios, fusionar antes del lunes 30/11.
+
+## Altas en directorios (23/11, canales públicos `*_libros_dp`)
+- list.tg (Books): 10/10 recibidas, en revisión (`?ok=1`).
+- TGmetrix: 10/10 enviadas (`?ok=1`).
+- TG Inspector: todos y proximos aceptados; el resto topó con límite de envíos diario (reintentar mañana: novedades, thriller, romantica, fantasia, terror, cienciaficcion, infantil, ensayo).
+- telegramchannels.io (Education, español): 10 enviados; los 8 primeros sin mensaje de confirmación legible, infantil y ensayo respondieron «ya enviado/recibido». Sin comprobar.
+- TeleSeeker: 10 enviados, atascados en verificación Turnstile; sin confirmar (revisar a las 24 h).
+- Pendientes: tg.place (Turnstile + login), tgmania, telegramchannels.me, telegramgroups.co, TGStat (login Telegram), TGbox, y todos los directorios de Discord (OAuth + bot) con `https://discord.gg/3DNkNcyQsX`.
