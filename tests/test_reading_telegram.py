@@ -44,7 +44,7 @@ class ReadingTelegramTests(unittest.TestCase):
                     jobs = channel_jobs(channel, [own, other, old, future], today, "")
                     if name == "proximos":
                         self.assertEqual(jobs, [])
-                        self.assertEqual(len(channel_jobs(channel, [own, future], date(2026, 11, 9), "")), 1)
+                        self.assertEqual(len(channel_jobs(channel, [own, future], date(2026, 11, 9), "")), 3)  # cabecera + días 11 y 12
                     elif name == "todos":
                         self.assertEqual(len(jobs), 1)
                         self.assertTrue(jobs[0]["digest"])
@@ -471,15 +471,42 @@ class ReadingTelegramTests(unittest.TestCase):
         catalog = self.catalog()
         self.assertEqual(run(catalog, date(2026, 11, 3), self.root / "w.db"), [])
         result = run(catalog, date(2026, 11, 2), self.root / "w.db")
-        self.assertEqual(len(result), 1)
-        text = result[0]["text"]
-        self.assertIn("Próximos lanzamientos del 3 de noviembre al 9 de noviembre", text)
-        self.assertIn("8 de noviembre: <a ", text)
-        self.assertIn("<b>Libro b</b>", text)
-        self.assertIn("9 de noviembre", text)  # the range starts tomorrow: today is a novelty, not an upcoming release
-        self.assertNotIn("2 de noviembre:", text)
-        self.assertIn("2 libros", text)
+        # Cabecera + un mensaje por fecha (8 y 9 de noviembre); el 9 es el último día de la semana.
+        self.assertEqual(len(result), 3)
+        head, day8, day9 = (r["text"] for r in result)
+        self.assertIn("PRÓXIMOS LANZAMIENTOS", head)
+        self.assertIn("3 de noviembre → 9 de noviembre", head)
+        self.assertIn("2 libros en 2 días", head)
+        self.assertIn("#ProximosLanzamientos", head)
+        self.assertNotIn("<a ", head)  # la cabecera no lleva títulos
+        self.assertIn("DOMINGO 8 DE NOVIEMBRE", day8)
+        self.assertIn("<b>LIBRO B</b>", day8)
+        self.assertNotIn("#", day8)  # las etiquetas salen solo en la cabecera
+        self.assertNotIn("8 de noviembre:", day8)  # el día va arriba una vez, no delante de cada libro
+        self.assertIn("LUNES 9 DE NOVIEMBRE", day9)
+        self.assertNotIn("2 de noviembre", head + day8 + day9)  # hoy es novedad, no próximo
         self.assertEqual(run(catalog, date(2026, 11, 9), self.root / "w.db"), [])  # Monday 9th: 10th–16th is empty
+
+    def test_weekly_day_groups_by_genre_and_omits_what_does_not_fit(self):
+        from reading_telegram import DIGEST_MAX_CHARS, weekly_messages
+
+        books = [
+            {"asin": f"A{n:09d}", "title": f"Libro número {n} " + "x" * 120, "author": "Autora",
+             "isbn13": "9788498382372", "release_date": "2026-11-25",
+             "genres": ["Terror" if n % 2 else "Romance"], "genre_id": "terror" if n % 2 else "romance"}
+            for n in range(60)
+        ]
+        parts = weekly_messages(books, "2026-11-23", "", "2026-11-24", "2026-11-30")
+        self.assertEqual(len(parts), 2)  # cabecera + un único mensaje del 25: lo que no cabe se omite
+        self.assertIn("#Terror", parts[0]["text"])
+        self.assertIn("#Romance", parts[0]["text"])
+        day = parts[1]["text"]
+        self.assertIn("MIÉRCOLES 25 DE NOVIEMBRE", day)
+        self.assertIn("Romance", day)
+        self.assertNotIn("Terror", day)  # el género que llega tarde en el orden es el que se omite
+        self.assertLessEqual(len(day), 4096)
+        self.assertIn("más en davidportodiaz.com", day)
+        self.assertEqual(len({p["asin"] for p in parts}), 2)
 
     def test_weekly_channel_must_be_a_digest(self):
         self.config["channels"] = [{"chat_id": "@x", "token_env": "T", "period": "weekly"}]
