@@ -748,7 +748,8 @@ def book_title(b, books=()):
     if len(cut) >= 12 and not any(t.startswith(cut.casefold()) for t in clash):
         return cut + '…' + stub
     suffix = ' · ' + (b.get('isbn13') or hashlib.sha256(b['id'].encode()).hexdigest()[:8])
-    tail = next((t for t in tails if len(t) <= 30), '')
+    # Con hermanos de título casi idéntico y firma larga, la forma corta del autor acompaña al ISBN: nunca queda sin autor.
+    tail = next((t for t in [*tails, stub] if len(t) <= 31), '')
     suffix = tail + suffix  # El autor es lo que se busca: se queda también junto al ISBN.
     return b['titulo'][:74-len(suffix)].rsplit(' ', 1)[0] + '…' + suffix
 

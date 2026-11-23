@@ -242,6 +242,18 @@ class ContractTests(unittest.TestCase):
         self.assertIn('Virginia Maxwell y otros', title)
         self.assertLessEqual(len(title), 75)
 
+    def test_sibling_titles_with_long_author_keep_the_author(self):
+        # Clase: hermanos con el mismo prefijo de título y firma larga no pueden quedar sin autor (ni chocar entre sí).
+        autor = 'Vicente J. Valera Gómez de la Peña'
+        base = 'Martina mini. Las 1040 preguntas "clave" de la Constitución Española'
+        a = {**self.book, 'id': 'a', 'isbn13': '9788430995271', 'autores': [autor], 'titulo': base + ': Constitución Española (Derecho)'}
+        b = {**a, 'id': 'b', 'isbn13': '9788430995288', 'titulo': base + ': Ley de procedimiento (Derecho)'}
+        titles = [builder.book_title(x, [a, b]) for x in (a, b)]
+        self.assertEqual(len(set(titles)), 2, titles)
+        for x, t in zip((a, b), titles):
+            self.assertTrue(builder.author_in_title(x, t), t)
+            self.assertLessEqual(len(t), 75, t)
+
     def test_special_edition_title_never_collides_with_the_plain_edition(self):
         plain = {**self.book, 'id': 'a', 'titulo': 'La señora Dalloway', 'autores': ['Virginia Woolf']}
         special = {**plain, 'id': 'b', 'titulo': 'La señora Dalloway (edición especial limitada con cantos tintados)'}
