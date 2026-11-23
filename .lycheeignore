@@ -206,3 +206,5 @@ https?://(www\.)?altamarea\.es/.*
 # comprobado desde fuera. Solo estas URLs:
 ^https://www\.coruna\.gal/informacionxuvenil/gl/convocatorias/concursos-e-premios/detalle-concursos/xxi-certame-de-narrativa-curta-o-exame/suceso/1453918739931$
 ^https://www\.coruna\.gal/informacionjuvenil/es/convocatorias/concursos-y-premios\?argIdioma=es&argPag=2&categoriaID=1220003419689$
+# Fuente de la ficha de George Orwell (PR #1546, 23/11): 200 con navegador, 403 anti-bot a clientes automatizados.
+^https://orwellsociety\.com/bibliography/$

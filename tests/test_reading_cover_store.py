@@ -24,10 +24,12 @@ def tree(names, local=()):
 
 
 class CoverStoreTest(unittest.TestCase):
-    def test_the_committed_manifest_is_valid_and_empty_until_the_store_is_switched_on(self):
+    def test_the_committed_manifest_is_valid(self):
+        # Encendido en la PR #1546 con las fotos de autor: cada nombre, único y con su huella.
         data = store.load(ROOT)
         self.assertTrue(data['base_url'].startswith('https://'))
-        self.assertEqual(data['archivos'], [])
+        self.assertEqual(len(data['archivos']), len(set(data['archivos'])))
+        self.assertEqual(set(data['archivos']), set(data['sha256']))
 
     def test_a_stored_cover_resolves_to_the_store_and_the_rest_stays_on_the_site(self):
         d, root = tree(['isbn-9780000000001.webp'])
@@ -83,6 +85,13 @@ class CoverStoreTest(unittest.TestCase):
         (out / 'i.html').write_text(CSP + '<img src="/assets/reading-covers/a.webp">', encoding='utf-8')
         self.assertEqual(store.apply_to_dist(out, root), 0)
         self.assertNotIn('github.io', (out / 'i.html').read_text(encoding='utf-8'))
+
+
+    def test_the_link_check_sees_store_covers_as_the_deploy_publishes_them(self):
+        # Lychee lee el checkout, donde las fotos del almacén no existen: sin la reescritura daba «File not found».
+        steps = (ROOT / '.github/workflows/broken-links.yml').read_text(encoding='utf-8')
+        self.assertIn('python3 scripts/reading_cover_store.py apply .', steps)
+        self.assertLess(steps.index('reading_cover_store.py apply'), steps.index('lycheeverse/lychee-action'))
 
 
 class CoverStoreWriteTest(unittest.TestCase):
