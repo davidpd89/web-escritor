@@ -30,7 +30,7 @@ assert not bad, 'Llamadas a apt sin respaldo ante caídas del espejo:\n' + '\n'.
 bash = shutil.which('bash')
 if bash:
     def run(hosts: set[str], apt_ok: bool, mode: str, browser: str = 'chromium',
-            missing: str = '') -> tuple[int, str, str]:
+            missing: str = '', busy: str = '') -> tuple[int, str, str]:
         with tempfile.TemporaryDirectory() as tmp:
             tmp = Path(tmp)
             bin_dir, log, etc, browsers = tmp / 'bin', tmp / 'calls', tmp / 'apt', tmp / 'browsers'
@@ -54,6 +54,10 @@ if bash:
                        f'printf "\\t%s => not found\\n" "{missing}"; exit 0',
                 'apt-cache': '[ "$2" = libevent-2.1-7t64 ]',
                 'apt-get': f'echo "apt-get $*" >> "{log.as_posix()}"; touch "{installed.as_posix()}"',
+                # Un apt-get huérfano de install-deps sigue vivo en la primera consulta y termina en la segunda.
+                'pgrep': f'[ "$2" = apt-get ] || exit 1; [ -n "{busy}" ] && [ ! -e "{tmp.as_posix()}/idle" ] && '
+                         f'{{ echo "pgrep busy" >> "{log.as_posix()}"; touch "{tmp.as_posix()}/idle"; exit 0; }}; exit 1',
+                'sleep': 'exit 0',
             }
             for name, body in stubs.items():
                 stub = bin_dir / name
@@ -85,7 +89,11 @@ if bash:
     # 18/11: apt vivo pero install-deps sin terminar; WebKit sin libevent. Solo se instala ese paquete (t64).
     code, calls, _ = run(every, apt_ok=False, mode='deps', browser='webkit', missing='libevent-2.1.so.7')
     assert code == 0 and calls.splitlines()[-1] == (
-        'apt-get install -y --no-install-recommends libevent-2.1-7t64'), (code, calls)
+        'apt-get -o DPkg::Lock::Timeout=300 install -y --no-install-recommends libevent-2.1-7t64'), (code, calls)
+    # 23/11: el apt-get de install-deps sigue vivo tras el tope; se espera a que suelte dpkg antes del respaldo.
+    code, calls, _ = run(every, apt_ok=False, mode='deps', browser='webkit', missing='libevent-2.1.so.7', busy='1')
+    lines = calls.splitlines()
+    assert code == 0 and 'pgrep busy' in lines and lines.index('pgrep busy') < len(lines) - 1         and lines[-1].startswith('apt-get -o DPkg::Lock::Timeout='), (code, calls)
     # Sin red no se intenta apt aunque falten librerías.
     code, calls, _ = run(set(), apt_ok=False, mode='deps', browser='webkit', missing='libevent-2.1.so.7')
     assert code == 0 and 'apt-get' not in calls, (code, calls)
