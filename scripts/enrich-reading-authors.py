@@ -29,6 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
+import reading_author_links as third_party_links  # noqa: E402
 import reading_cover_store as cover_store  # noqa: E402
 
 AUTHORS = ROOT / 'data/reading-authors.json'
@@ -275,6 +276,8 @@ def main() -> int:
                 print(f'{n}/{len(pending)} {stats}', flush=True)
     if args.subir and photos:
         print('Fotos subidas al almacén:', cover_store.flush('Fotos de autores (Wikimedia Commons)', ROOT))
+    if pending:  # una web oficial nueva no se enlaza hasta comprobarla: se comprueba ya, no en la próxima publicación
+        print('Enlaces de terceros:', third_party_links.check(ROOT))
     return 0
 
 
