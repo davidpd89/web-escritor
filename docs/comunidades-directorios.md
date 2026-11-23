@@ -3,7 +3,7 @@
 Guía para dar a conocer el servidor «Club de lectura · David Porto» y los canales de Telegram. Lo hace David, porque añadir bots por OAuth y registrarse en cada web va con su cuenta. Tiempo: unos 30 min la primera vez y 1 min al día después.
 
 Enlaces que se usan en todas partes:
-- Discord: <https://discord.gg/g7dEWxj3F> (permanente, sin límite de usos).
+- Discord: <https://discord.gg/3DNkNcyQsX> (permanente, sin caducidad, creada el 23/11/2026 (la anterior caducaba)).
 - Telegram, todos los canales: <https://t.me/addlist/lja92v39DGE4YmM0> (carpeta «Libros DP»).
 - Web: <https://davidportodiaz.com/comunidad/>.
 
@@ -64,7 +64,7 @@ Lo que más ayuda ahora:
    - **TGStat** (<https://tgstat.com>): añadir los 10 canales públicos (`<tema>_libros_dp`) con «Añadir canal»; categoría Libros, idioma español. Para verificarlos pide publicar un código temporal en el canal o en su descripción: hacerlo en la descripción y quitarlo después.
    - **Telemetr** (<https://telemetr.io>): mismo proceso; útil para ver de dónde llegan suscriptores.
    - Los 7 canales privados (`t.me/+…`) no se listan en directorios: se llega a ellos por la carpeta.
-4. **Enlaces cruzados:** en la descripción de cada canal de Telegram, una línea «Charla y recomendaciones: discord.gg/g7dEWxj3F»; en #bienvenida de Discord ya está el enlace a /comunidad/, que lleva a la carpeta de Telegram.
+4. **Enlaces cruzados:** en la descripción de cada canal de Telegram, una línea «Charla y recomendaciones: discord.gg/3DNkNcyQsX»; en #bienvenida de Discord ya está el enlace a /comunidad/, que lleva a la carpeta de Telegram.
 5. **Silencio:** mantener un único envío diario por canal y que solo Novedades notifique con sonido; es lo que más reduce las bajas.
 
 ## Dónde anunciarse (pendiente: lo hace David con su cuenta)
