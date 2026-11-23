@@ -126,7 +126,9 @@ def main():
     start = time.monotonic()
     scripts = run_scripts()
     for f in scripts:
-        print(f"FALLA {f['test']}:\n{f['texto']}", flush=True)
+        # Un script que no termina a tiempo no es un fallo determinista: sin «FALLA» la puerta sí lo reintenta.
+        marca = 'TIEMPO' if f['texto'].startswith('sin terminar') else 'FALLA'
+        print(f"{marca} {f['test']}:\n{f['texto']}", flush=True)
     print(f'datos del catálogo: {len(script_contracts())} contratos en script en {time.monotonic() - start:.0f}s')
     if '--fallos' in sys.argv:
         path = Path(sys.argv[sys.argv.index('--fallos') + 1])

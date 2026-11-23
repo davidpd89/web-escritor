@@ -117,7 +117,7 @@ def normalizar_fechas(book):
             try:
                 cambios += _set(book, key, date(int(m[3]), int(m[2]), int(m[1])).isoformat())
             except ValueError:
-                pass
+                pass  # fecha imposible (31/02): no se inventa, la cuarentena la aparta
     return cambios
 
 

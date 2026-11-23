@@ -103,7 +103,7 @@ class CardContractTest(unittest.TestCase):
                     exige(f'href="{publisher}"' in page, 'enlace a la editorial')
                 else:
                     exige(m.esc(b['editorial']) in page, 'editorial en texto')
-            except (ValueError, AttributeError, OSError, ValueError, StopIteration) as error:
+            except (ValueError, AttributeError, KeyError, TypeError, OSError, ValueError, StopIteration) as error:
                 fallos[b['id']] = f'{type(error).__name__}: {str(error)[:160]}'
         incumplen('ficha publicada conforme al contrato de la tarjeta', fallos)
 

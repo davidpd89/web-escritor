@@ -33,7 +33,7 @@ class EnsayoCargaTest(unittest.TestCase):
         self.assertEqual(mal, [], f'semilla {self.semilla}')
 
     def test_se_ejecutan_todas_las_mutaciones(self):
-        self.assertGreater(len({m for m, *_ in self.casos}), 40)
+        self.assertEqual({m for m, *_ in self.casos}, set(ensayo_carga.MUTACIONES), f'semilla {self.semilla}')
 
 
 if __name__ == '__main__':

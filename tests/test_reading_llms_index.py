@@ -25,8 +25,6 @@ class ReadingLlmsIndexTest(unittest.TestCase):
         self.entries = dict(re.findall(r'^- \[(?:\\.|[^\]\\])+\]\((' + re.escape(SITE) + r'/recomendaciones/libros/[^)]+/)\): (.+)$', self.text, re.M))
 
     def test_every_published_book_has_one_entry_with_its_edition_data(self):
-        self.assertEqual(len(self.entries), len(self.books))
-        self.assertIn(f'## Libros ({len(self.books)})', self.text)
         fallos = {}
         for b in self.books:
             entry = self.entries.get(f"{SITE}/recomendaciones/libros/{b['slug']}/")
@@ -43,6 +41,9 @@ class ReadingLlmsIndexTest(unittest.TestCase):
             if falta:
                 fallos[b['id']] = 'falta en la entrada: ' + ', '.join(falta)
         incumplen('entrada del índice llms con los datos de la edición', fallos)
+        # Después de nombrar los libros sin entrada: aquí solo quedan las entradas de más y el total del encabezado.
+        self.assertEqual(len(self.entries), len(self.books))
+        self.assertIn(f'## Libros ({len(self.books)})', self.text)
 
     def test_index_is_plain_attributed_text_without_tracking_links(self):
         self.assertTrue(self.text.startswith('# '))
