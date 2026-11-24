@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
   # En una PR, un push nuevo cancela la CI del commit anterior; main y los programados no se cancelan.
@@ -21,10 +22,10 @@ jobs:
     name: Required merge gate
     runs-on: ubuntu-latest
     # 30 se quedaba corto con cargas de ~170 libros: dos cancelaciones seguidas el 06/11.
-    timeout-minutes: 45
+    timeout-minutes: 400
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -32,6 +33,17 @@ jobs:
             /*
             !/assets/no usadas/
           fetch-depth: 0
+
+      # Congelación de main: una PR ajena a la carga espera aquí (sin gastar CI) mientras haya una carga de libros o un
+      # refresco del radar en marcha. Falla abierta y con tope; exentas: automation/, revision/ y la etiqueta sin-congelar.
+      - name: Esperar a que acabe la carga
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          ETIQUETAS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: python3 scripts/congelar_main.py
 
       # A [skip ci] marker in any PR commit ends up in the squash commit and
       # silently prevents Deploy Pages on push to main.
@@ -44,12 +56,12 @@ jobs:
         run: python3 scripts/check-no-skip-ci-markers.py
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -187,7 +199,7 @@ jobs:
 
       - name: Upload release-readiness evidence
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: required-merge-gate-evidence
           path: |

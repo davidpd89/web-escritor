@@ -444,7 +444,7 @@ class AgenteSinEscritura(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             tmp = Path(tmp)
             git = lambda *a, env=None, cwd=tmp / 'wt': subprocess.run(['git', *a], cwd=cwd, capture_output=True, text=True,
-                                                                     env={**os.environ, **(env or {})})
+                                                                     env={**os.environ, **(env or {})}, check=False)  # el push del agente debe fallar
             git('init', '-q', '--bare', str(tmp / 'remoto.git'), cwd=tmp)
             git('clone', '-q', str(tmp / 'remoto.git'), str(tmp / 'wt'), cwd=tmp)
             (tmp / 'wt' / 'a.txt').write_text('x')
@@ -918,6 +918,21 @@ class IngestaEnMarchaTest(unittest.TestCase):
                 self.assertTrue(na.ingesta_en_marcha())
         with patch.object(na, 'gh_json', lambda *a: []):
             self.assertFalse(na.ingesta_en_marcha())
+
+
+class DeshacerVaciaElIndice(unittest.TestCase):
+    def test_fichero_en_stage_no_sobrevive(self):
+        with tempfile.TemporaryDirectory() as d:
+            def g(*a):
+                return subprocess.run(['git', *a], cwd=d, check=True, capture_output=True, text=True)
+
+            g('init', '-q'); g('config', 'user.email', 't@t'); g('config', 'user.name', 't')
+            (Path(d) / 'a.txt').write_text('a', encoding='utf-8'); g('add', '.'); g('commit', '-qm', 'a')
+            (Path(d) / 'a.txt').write_text('cambio', encoding='utf-8')
+            (Path(d) / 'AUTOREPAIR_NOFIX.md').write_text('x', encoding='utf-8'); g('add', 'AUTOREPAIR_NOFIX.md')
+            (Path(d) / 'suelto.txt').write_text('x', encoding='utf-8')
+            na.deshacer(Path(d))
+            self.assertEqual(g('status', '--porcelain').stdout, '')
 
 
 if __name__ == '__main__':

@@ -71,10 +71,61 @@ class QuarantineTest(unittest.TestCase):
 
     def test_too_many_books_is_a_rule_problem(self):
         data = copy.deepcopy(DATA)
-        for b in data['libros'][:q.MAX_BOOKS + 1]:
+        _, published_cap = q.limit(DATA, DATA)
+        for b in data['libros'][:published_cap + 1]:
             b['descripcion_breve'] = 'corta'
-        with self.assertRaises(q.build.ValidationError):
+        with self.assertRaisesRegex(q.build.ValidationError, 'publicados revertidos'):
             q.isolate(data, ROOT, DATA)
+
+    def test_q01_few_new_books_publish_the_valid_ones_with_alert(self):
+        """Q01: llegan 5 altas y 3 traen datos rotos: se publican las 2 buenas y salta la alerta."""
+        ids = {b['id'] for b in DATA['libros'][:5]}
+        before = copy.deepcopy(DATA)
+        before['libros'] = [b for b in before['libros'] if b['id'] not in ids]
+        before['libro_categorias'] = [r for r in before['libro_categorias'] if r['libro_id'] not in ids]
+        data = copy.deepcopy(DATA)
+        for b in data['libros'][:3]:
+            b['autores'] = []
+        clean, out = q.isolate(data, ROOT, before, today='2026-11-15')
+        self.assertEqual(len(out), 3)
+        self.assertEqual(len(ids & {b['id'] for b in clean['libros']}), 2)
+        self.assertTrue(q.rate_alert(out, data, before))
+        self.assertFalse(q.rate_alert(out[:1], data, before), 'una sola alta apartada no es alerta')
+
+    def test_q02_published_regression_stops_or_reverts(self):
+        """Q02: con 5.000 publicados, más del 1 % roto para la carga; por debajo, vuelven a HEAD y se publica."""
+        big = copy.deepcopy(DATA)
+        while len(big['libros']) < 5000:
+            big['libros'] += [dict(b, id=f"{b['id']}-x{len(big['libros'])}") for b in DATA['libros'][:5000 - len(big['libros'])]]
+        big['libros'] = big['libros'][:5000]
+        _, published_cap = q.limit(big, big)
+        self.assertEqual(published_cap, 50)
+        for broken, stops in ((80, True), (40, False)):
+            data = copy.deepcopy(DATA)
+            for b in data['libros'][:broken]:
+                b['descripcion_breve'] = 'corta'
+            # Mismos topes que con 5.000 publicados, validando sobre el catálogo real (los clones no pasarían validate).
+            original = q.limit
+            q.limit = lambda d, p: (q.MAX_BOOKS, published_cap)
+            try:
+                if stops:
+                    with self.assertRaisesRegex(q.build.ValidationError, 'Error global: más de 50 publicados revertidos'):
+                        q.isolate(data, ROOT, DATA)
+                else:
+                    clean, out = q.isolate(data, ROOT, DATA)
+                    self.assertEqual(len(out), broken)
+                    self.assertEqual(clean, DATA)
+            finally:
+                q.limit = original
+
+    def test_price_night_does_not_inflate_the_new_books_cap(self):
+        """Antes el tope salía de los libros «cambiados»: una noche de precios lo subía a ~2.500."""
+        data = copy.deepcopy(DATA)
+        for b in data['libros']:
+            b['precio_cambiado_test'] = 1
+        new_cap, published_cap = q.limit(data, DATA)
+        self.assertEqual(new_cap, q.MAX_BOOKS)
+        self.assertLessEqual(published_cap, max(q.MAX_BOOKS, -(-len(DATA['libros']) // 100)))
 
     def test_duplicate_cover_blames_the_changed_book(self):
         # Ingesta 42588397174: el tomo que cambió tomó la portada de otro ya publicado; se apartaba al publicado
@@ -175,6 +226,65 @@ class QuarantineTest(unittest.TestCase):
                 sys.path.remove(tmp)
             failures = json.loads(out.read_text(encoding='utf-8'))
         self.assertEqual(list(q.flagged_books(failures, DATA)), [book_id])
+
+    def test_declared_books_win_over_ids_quoted_in_the_text(self):
+        """R4-2b: «relacionado con X» citaba al vecino y el regex apartaba los dos; manda lo que declara el contrato."""
+        a, b = DATA['libros'][0]['id'], DATA['libros'][1]['id']
+        failures = [{'test': 'm.C.test_related', 'regla': 'relacionados', 'libros': {a: f'edad lejana: {b}'},
+                     'texto': f'Incumplen: relacionados (1 libros): {a}: edad lejana: {b}'}]
+        named = q.flagged_books(failures, DATA)
+        self.assertEqual(list(named), [a])
+        self.assertIn('relacionados: edad lejana', named[a])
+
+    def test_a_declared_book_outside_the_catalogue_is_a_broken_rule(self):
+        # el texto cita un libro real: una declaración inválida no cae a la ruta del regex
+        real = DATA['libros'][0]['id']
+        failures = [{'test': 'm.C.t', 'regla': 'r', 'libros': {'no-existe-este-libro': 'x'}, 'texto': real}]
+        self.assertIsNone(q.flagged_books(failures, DATA))
+        self.assertIsNone(q.flagged_books([{'test': 'm.C.t', 'regla': 'r', 'libros': {}, 'texto': real}], DATA))
+
+    def test_data_check_keeps_the_books_a_contract_declares(self):
+        """De punta a punta: un contrato con `incumplen` que cita a otro libro en el motivo; la puerta guarda los
+        pares y la carga aparta solo el declarado (también desde un subTest)."""
+        import importlib.util
+        from unittest import mock
+        spec = importlib.util.spec_from_file_location('check_reading_data', ROOT / 'scripts/check-reading-data.py')
+        check = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(check)
+        a, b, c, d, e, f = (x['id'] for x in DATA['libros'][:6])
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, 'contrato_declara.py').write_text('\n'.join([
+                'import unittest',
+                'from contrato_libros import incumplen',
+                'class T(unittest.TestCase):',
+                '    def test_x(self):',
+                f'        incumplen("regla x", {{{a!r}: "vecino " + {b!r}}})',
+                '    def test_y(self):',
+                '        with self.subTest(n=1):',
+                f'            incumplen("regla y", {{{c!r}: "malo"}})',
+                '    def test_z(self):  # dos subTests con el mismo id: cada uno conserva sus libros',
+                '        with self.subTest():',
+                f'            incumplen("regla z", {{{d!r}: "uno"}})',
+                '        with self.subTest():',
+                f'            incumplen("regla z", {{{e!r}: "otro"}})',
+                'class U(unittest.TestCase):',
+                '    @classmethod',
+                '    def setUpClass(cls):  # addError, no addFailure',
+                f'        incumplen("regla u", {{{f!r}: "fixture"}})',
+                '    def test_u(self):',
+                '        pass',
+                '']), encoding='utf-8')
+            out = Path(tmp) / 'fallos.json'
+            sys.path.insert(0, tmp)
+            try:
+                with mock.patch.object(check, 'contracts', lambda: ['contrato_declara']), \
+                        mock.patch.object(sys, 'argv', ['check', '--fallos', str(out)]):
+                    self.assertEqual(check.main(), 1)
+            finally:
+                sys.path.remove(tmp)
+            failures = json.loads(out.read_text(encoding='utf-8'))
+        self.assertEqual(sorted(x.get('regla') for x in failures), ['regla u', 'regla x', 'regla y', 'regla z', 'regla z'])
+        self.assertEqual(sorted(q.flagged_books(failures, DATA)), sorted([a, c, d, e, f]))
 
     def test_restore_cover_brings_back_the_published_file(self):
         import subprocess
@@ -301,6 +411,18 @@ class QuarantineTest(unittest.TestCase):
         self.assertEqual(books[3]['titulo'], 'Las versiones de Frances Burney')  # plural y nombre propio
         self.assertEqual(q.repair_title_accents(books, ROOT, '2026-11-08'), 0)  # idempotente
 
+    def test_shouted_title_is_repaired_as_the_page_shows_it(self):
+        """isbn-9791399183504 (21/11): «(NOVELA HISTORICA Y AVENTURAS)» en mayúsculas se tomaba por un apellido seguido
+        de mayúscula y no se reparaba; la página lo publica sin gritos como «historica» y la carga apartaba el libro."""
+        books = [{'titulo': 'LA BODA DEL ZORRO: Un compendio del folclore japonés (NOVELA HISTORICA Y AVENTURAS)',
+                  'descripcion_breve': 'LA BODA DEL ZORRO: Un compendio (NOVELA HISTORICA Y AVENTURAS), de Matthew Meyer.'},
+                 {'titulo': 'Una novela de FRANCES BURNEY', 'sinopsis_breve': 'Una novela de Frances Burney.'}]
+        self.assertEqual(q.repair_title_accents(books, ROOT, '2026-11-21'), 2)
+        self.assertIn('(NOVELA HISTÓRICA Y AVENTURAS)', books[0]['titulo'])
+        self.assertIn('(NOVELA HISTÓRICA Y AVENTURAS)', books[0]['descripcion_breve'])
+        self.assertEqual(books[1]['titulo'], 'Una novela de FRANCES BURNEY')  # nombre propio, también gritado
+        self.assertEqual(q.repair_title_accents(books, ROOT, '2026-11-21'), 0)
+
     def test_checker_reads_entities_as_the_reader_does(self):
         page = '<p>En mi Era Pistacho: Juliette&#x27;s version</p><p>Nueva edicion</p>'
         pieces = [text for _, text, _ in q.tildes.html_visible_text(page)]
@@ -316,6 +438,7 @@ MUTACIONES = {
     'título vacío': (2, lambda b: b.update(titulo='')),
     'fecha rota': (3, lambda b: b.update(fecha_publicacion='2026-13-45')),
     'campo desconocido': (4, lambda b: b.update(campo_inventado=1)),
+    'fecha de publicación nula': (5, lambda b: b.update(fecha_publicacion=None)),
 }
 
 
@@ -324,6 +447,18 @@ def mutado(n, cambio):
     roto = copy.deepcopy(DATA)
     cambio(roto['libros'][n])
     return data, roto, book
+
+
+class RelacionRotaTest(unittest.TestCase):
+    """CodeRabbit #1439: una relación con libro_id no hashable era un TypeError sin dueño que paraba el lote."""
+
+    def test_libro_id_no_cadena_es_validation_error(self):
+        for roto in ([], {}, None, 7):
+            with self.subTest(roto=roto):
+                data = copy.deepcopy(DATA)
+                data['libro_categorias'][0]['libro_id'] = roto
+                with self.assertRaises(q.build.ValidationError):
+                    q.build.validate(data, ROOT)
 
 
 class FallosEstructuradosTest(unittest.TestCase):

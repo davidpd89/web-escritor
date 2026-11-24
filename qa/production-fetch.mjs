@@ -29,7 +29,7 @@ export function auditUrl(route, origin) {
 export const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 export function isTransientStatus(status) {
-  return status === 429 || (status >= 500 && status <= 599);
+  return status === 408 || status === 429 || (status >= 500 && status <= 599);
 }
 
 async function waitTurn() {
@@ -70,6 +70,7 @@ process.on('exit', () => {
 //    enfriamiento común (uno por tormenta, no por URL) y esas URL se reintentan de una en una.
 //    El 11/11/2026 la auditoría semántica (≈4000 peticiones) falló así 6 veces en 3 días.
 const SLOW_COOLDOWN_MS = Number(process.env.QA_SLOW_COOLDOWN_MS) || 60000;
+const SLOW_ROUNDS = 3;
 let slowChain = Promise.resolve();
 let slowCooldownUntil = 0;
 fetchStats.slowLane = 0;
@@ -119,17 +120,22 @@ export async function fetchWithBackoff(url, init = {}, { attempts = 8, slowAttem
     pausedUntil = Math.max(pausedUntil, slowCooldownUntil);
     last = await serial(async () => {
       let r = last;
-      for (let i = 0; i < slowAttempts; i++) {
-        await waitTurn();
-        try {
-          r = await once(url, init, read, timeoutMs);
-          if (!isTransientStatus(r.status)) {
-            fetchStats.slowRecovered++;
-            return r;
+      // Hasta SLOW_ROUNDS rondas: si la cuota sigue agotada tras los intentos, otro enfriamiento común y vuelta a
+      // probar (21/11: 29/30 URL recuperadas y la última tumbaba la auditoría de 8.700 peticiones).
+      for (let round = 0; round < SLOW_ROUNDS; round++) {
+        if (round > 0) await sleep(SLOW_COOLDOWN_MS);
+        for (let i = 0; i < slowAttempts; i++) {
+          await waitTurn();
+          try {
+            r = await once(url, init, read, timeoutMs);
+            if (!isTransientStatus(r.status)) {
+              fetchStats.slowRecovered++;
+              return r;
+            }
+            if (r.status === 429) noteRateLimited(r.headers.get('retry-after'), attempts + i);
+          } catch (e) {
+            r = e;
           }
-          if (r.status === 429) noteRateLimited(r.headers.get('retry-after'), attempts + i);
-        } catch (e) {
-          r = e;
         }
       }
       return r;

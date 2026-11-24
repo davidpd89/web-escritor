@@ -62,6 +62,64 @@ class RecoveryTests(unittest.TestCase):
    state=json.loads((repo.work/'data/reading-intake-state.json').read_text())
    self.assertEqual(state['items']['isbn13:9780241838044'],item)
    self.assertEqual(state['items']['keep']['fuente'],'main')
+ def test_store_manifest_registrations_travel_with_recovered_books(self):
+  # CodeRabbit #1495: una alta cuya portada vive en el almacén externo conserva su registro; main gana en los suyos.
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-12-store'
+   store='data/reading-covers-store.json';base='https://example.github.io/portadas'
+   repo.git('switch','-q','-c',branch,'origin/main')
+   data=json.loads(books('a','b','c','d','e','f'));data['libros'].append({'id':'isbn-9780241838044','isbn13':'9780241838044','portada_local':'/assets/reading-covers/isbn-9780241838044.webp'})
+   item={'estado_ingesta':'publicado','libro_id':'isbn-9780241838044'}
+   repo.write({CATALOGUE:json.dumps(data),'data/reading-intake-state.json':json.dumps({'schema_version':1,'items':{'isbn13:9780241838044':item}}),
+               store:json.dumps({'base_url':base,'archivos':['isbn-9780241838044.webp','compartida.webp'],'sha256':{'isbn-9780241838044.webp':'1'*64,'compartida.webp':'2'*64}})})
+   repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
+   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book'),store:json.dumps({'base_url':base,'archivos':['compartida.webp','main.webp'],'sha256':{'compartida.webp':'3'*64,'main.webp':'4'*64}})})
+   self.assertEqual(refresh.carry(branch,root=repo.work),['isbn-9780241838044'])
+   manifest=json.loads((repo.work/store).read_text(encoding='utf-8'))
+   self.assertEqual(manifest['archivos'],['compartida.webp','isbn-9780241838044.webp','main.webp'])
+   self.assertEqual(manifest['sha256'],{'compartida.webp':'3'*64,'isbn-9780241838044.webp':'1'*64,'main.webp':'4'*64})
+ def test_a_legacy_manifest_without_digests_sets_its_books_aside_instead_of_failing(self):
+  # #1500: el punto de guardado de una carga cuyo runner murió registró nombres sin huella y sin bytes subidos.
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-atascado-2026-11-20-legacy'
+   store='data/reading-covers-store.json';base='https://example.github.io/portadas'
+   repo.git('switch','-q','-c',branch,'origin/main')
+   data=json.loads(books('a','b','c','d','e','f'))
+   data['libros']+=[{'id':'isbn-9780241838044','isbn13':'9780241838044','portada_local':'/assets/reading-covers/isbn-9780241838044.webp'},
+                    {'id':'isbn-9780241838051','isbn13':'9780241838051'}]
+   items={'isbn13:'+i[5:]:{'estado_ingesta':'publicado','libro_id':i} for i in ('isbn-9780241838044','isbn-9780241838051')}
+   repo.write({CATALOGUE:json.dumps(data),'data/reading-intake-state.json':json.dumps({'schema_version':1,'items':items}),
+               store:json.dumps({'base_url':base,'archivos':['isbn-9780241838044.webp','isbn-9780241838044-320.webp']})})
+   repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
+   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book')})
+   skipped=[]
+   self.assertEqual(refresh.carry(branch,root=repo.work,skipped=skipped),['isbn-9780241838051'])
+   self.assertEqual(skipped,['isbn-9780241838044'])
+   ids={b['id'] for b in json.loads((repo.work/CATALOGUE).read_text())['libros']}
+   self.assertIn('isbn-9780241838051',ids);self.assertNotIn('isbn-9780241838044',ids)
+   manifest=repo.work/store
+   self.assertTrue(not manifest.exists() or 'isbn-9780241838044.webp' not in json.loads(manifest.read_text(encoding='utf-8'))['archivos'])
+ def test_legacy_names_main_already_proved_and_null_covers_do_not_block_recovery(self):
+  # Codex #1501: un nombre que main registró con huella sí está probado; una portada null no rompe el apartado.
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-atascado-2026-11-20-proved'
+   store='data/reading-covers-store.json';base='https://example.github.io/portadas'
+   repo.git('switch','-q','-c',branch,'origin/main')
+   data=json.loads(books('a','b','c','d','e','f'))
+   data['libros']+=[{'id':'isbn-9780241838044','isbn13':'9780241838044','portada_local':'/assets/reading-covers/isbn-9780241838044.webp'},
+                    {'id':'isbn-9780241838051','isbn13':'9780241838051','portada_local':None},
+                    {'id':'isbn-9780241838068','isbn13':'9780241838068','portada_local':None}]
+   # CodeRabbit #1501: un alta con procedencia y sin portada (null) se traslada sin tumbar el lote.
+   items={'isbn13:9780241838044':{'estado_ingesta':'publicado','libro_id':'isbn-9780241838044'},
+          'isbn13:9780241838068':{'estado_ingesta':'publicado','libro_id':'isbn-9780241838068'}}
+   repo.write({CATALOGUE:json.dumps(data),'data/reading-intake-state.json':json.dumps({'schema_version':1,'items':items}),
+               store:json.dumps({'base_url':base,'archivos':['isbn-9780241838044.webp','isbn-9780241838044-320.webp']})})
+   repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
+   names=['isbn-9780241838044-320.webp','isbn-9780241838044.webp']
+   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book'),store:json.dumps({'base_url':base,'archivos':names,'sha256':{n:'5'*64 for n in names}})})
+   skipped=[]
+   self.assertEqual(refresh.carry(branch,root=repo.work,skipped=skipped),['isbn-9780241838044','isbn-9780241838068'])
+   self.assertEqual(skipped,['isbn-9780241838051'])
  def test_missing_provenance_fails_before_writing_a_conflicting_recovery(self):
   with tempfile.TemporaryDirectory() as tmp:
    repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-12-invalid'
@@ -139,7 +197,7 @@ class CheckpointLifetimeTests(unittest.TestCase):
    def run(branch):
     order.append('publish')
     if fail: raise RuntimeError('CI failed')
-   patches=[(refresh,'ROOT',root),(refresh,'command',lambda *a:None),(refresh,'bot_identity',lambda:None),
+   patches=[(refresh,'ROOT',root),(refresh,'command',lambda *a:None),(refresh,'push',lambda *a,**k:None),(refresh,'bot_identity',lambda:None),
     (refresh,'read_json',lambda p:{'rss_enabled':False}),(refresh,'quarantine_summary',lambda *a:''),
     (refresh,'data_contract_failures',lambda:[]),(refresh.reading_quarantine,'apply',lambda *a:[]),
     (refresh.materializar,'construir',lambda *a,**k:None),(refresh.materializar,'comprobar',lambda *a,**k:None),
@@ -166,7 +224,7 @@ class QuarantineRoundsTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as tmp,contextlib.ExitStack() as stack:
    published=[];pending=list(rounds)
    def failures():return [{'test':'contrato','libros':pending.pop(0)}] if pending else []
-   patches=[(refresh,'ROOT',Path(tmp)),(refresh,'command',lambda *a:None),(refresh,'bot_identity',lambda:None),
+   patches=[(refresh,'ROOT',Path(tmp)),(refresh,'command',lambda *a:None),(refresh,'push',lambda *a,**k:None),(refresh,'bot_identity',lambda:None),
     (refresh,'read_json',lambda p:{'rss_enabled':False}),(refresh,'quarantine_summary',lambda *a:''),
     (refresh,'data_contract_failures',failures),(refresh,'drop_orphan_pages',lambda q:None),
     (refresh.reading_quarantine,'flagged_books',lambda f,c:{b:'motivo' for b in f[0]['libros']}),

@@ -111,6 +111,21 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertEqual([x['modulo'] for x in blocks], ['encaje_documentado', 'para_quien', 'que_formato_elegir', 'lecturas_afines'])
         self.assertEqual(blocks[-1]['enlaces'], [self.payload['afines_ids'][self.affine]])
 
+    def test_absorb_keeps_the_second_opinion_across_repair_turns(self):
+        opinion = {'genero': 'Fantasía', 'publico': 'juvenil', 'motivo': ''}
+        by_id, fichas = {self.book['id']: self.payload}, {}
+        texts.absorb(by_id, fichas, [{'id': self.book['id'], 'clasificacion': opinion, 'bloques': [self.block]}])
+        texts.absorb(by_id, fichas, [{'id': self.book['id'], 'bloques': [self.block]}])
+        self.assertEqual(fichas[self.book['id']]['clasificacion'], opinion)
+
+    def test_the_block_cap_follows_the_modules_not_a_fixed_number(self):
+        """Una novela con todos sus módulos permitidos llegó a rechazarse entera por un tope fijo de 5 bloques."""
+        fake = [{'modulo': name, 'texto': 'x', 'evidencias': []} for name in texts.MODULES]
+        _, errors = texts.validate_text(self.payload, {'id': self.book['id'], 'bloques': fake})
+        self.assertNotIn('bloques: lista inválida', errors)
+        _, errors = texts.validate_text(self.payload, {'id': self.book['id'], 'bloques': fake + fake[:1]})
+        self.assertEqual(errors, ['bloques: lista inválida'])
+
     def test_affines_are_recognised_by_short_title_and_bring_their_names_and_numbers(self):
         p = {**self.payload, 'afines_ids': {'Diario de Greg 21 - Montando un pollo': 'greg', 'Alchemised (edición coleccionista limitada)': 'alc', 'Amor': 'amor'},
              'evidencias': {**self.payload['evidencias'], 'afines_catalogo': ['«Diario de Greg 21 - Montando un pollo», de Jeff Kinney: Greg vuelve al instituto.']}}
@@ -238,6 +253,37 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertEqual(errors, [])
         self.assertEqual(next(x for x in blocks if x['modulo'] == 'que_formato_elegir')['texto'], longer['texto'])
         self.assertNotIn('1987', ' '.join(x['texto'] for x in blocks))
+
+    def test_second_opinion_is_recorded_and_never_changes_the_text_or_its_hash(self):
+        import tempfile
+        mine = self.payload['clasificacion_actual']
+        before = texts.source_hash(self.payload)
+        self.assertEqual(before, texts.source_hash({**self.payload, 'clasificacion_actual': {'generos': ['Otro'], 'publico': 'infantil'}}))
+        prompt = texts.build_prompt([self.payload])
+        self.assertIn('clasificacion_actual', prompt)
+        self.assertNotIn('{{GENEROS}}', prompt)
+        agree = {'genero': mine['generos'][0] if mine['generos'] else 'Otro', 'publico': mine['publico'], 'motivo': ''}
+        record, why = texts.compare_classification(self.payload, agree)
+        self.assertIsNone(why)
+        self.assertEqual(record['coincide'], bool(mine['generos']) and mine['publico'] in texts.PUBLICOS)
+        other_public = next(x for x in texts.PUBLICOS if x != mine['publico'])
+        record, why = texts.compare_classification(self.payload, {**agree, 'publico': other_public})
+        self.assertEqual(why, 'no coincide y falta el motivo')
+        record, why = texts.compare_classification(
+            self.payload, {**agree, 'publico': other_public, 'motivo': 'La sinopsis habla de escenas explícitas y de adultos.'})
+        self.assertFalse(record['coincide'])
+        self.assertEqual(texts.compare_classification(self.payload, {'genero': 'Inventado', 'publico': 'adultos'})[1], 'género fuera de la lista')
+        self.assertEqual(texts.compare_classification(self.payload, {'genero': 'Fantasía', 'publico': 'veteranos'})[1], 'público fuera de la lista')
+        with tempfile.TemporaryDirectory() as tmp:
+            out, state = Path(tmp), {}
+            row = {**self.good, 'clasificacion': {**agree, 'publico': other_public, 'motivo': 'La sinopsis habla de escenas explícitas y de adultos.'}}
+            self.assertEqual(texts.save_results([self.payload], [row], state, out), (1, 0))
+            opinions = texts.read_json(out / 'clasificacion.opiniones')
+            self.assertFalse(opinions[self.book['id']]['coincide'])
+            self.assertEqual([f.name for f in out.glob('*.json')], [self.book['id'] + '.json'])
+            # Sin el campo, el texto se guarda igual y no se inventa una opinión.
+            self.assertEqual(texts.save_results([self.payload], [self.good], {}, Path(tmp) / 'otro') if (Path(tmp) / 'otro').mkdir() is None else None, (1, 0))
+            self.assertFalse((Path(tmp) / 'otro' / 'clasificacion.opiniones').exists())
 
     def test_rejection_reasons_go_back_into_the_next_prompt_and_worse_repairs_never_replace(self):
         import tempfile

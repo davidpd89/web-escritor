@@ -19,10 +19,14 @@ on:
       - '!data/reading-authors.json'
       - '!data/reading-publishers.json'
       - '!data/reading-intake-state.json'
+      - '!data/reading-covers-store.json'
+      - '!data/reading-author-links.json'
       - '!data/reading-amazon-audit.json'
+      - '!data/reading-classification-gpt.json'
       - '!data/reading-pinterest-state.json'
       - '!data/reading-quarantine.json'
       - '!data/reading-texts/*.json'
+      - '!data/reading-author-texts/*.json'
       - '!data/content-registry.json'
       - '!recomendaciones/index.html'
       - '!recomendaciones/autores/index.html'
@@ -30,6 +34,7 @@ on:
       - '!recomendaciones/libros/*/index.html'
       - '!recomendaciones/pagina/*/index.html'
       - '!recomendaciones/autores/*/index.html'
+      - '!recomendaciones/autores/pagina/*/index.html'
       - '!recomendaciones/editoriales/*/index.html'
       - '!recomendaciones/proximos-lanzamientos.ics'
       - '!recomendaciones/llms.txt'
@@ -60,14 +65,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /*
             !/assets/no usadas/
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Validate the audit with independent fixtures
@@ -82,7 +87,7 @@ jobs:
           fi
       - name: Preserve JSON and readable report
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: small-ui-audit
           path: .ci/small-ui-audit/

@@ -5,8 +5,10 @@ import importlib.util
 import json
 import os
 import re
+import shutil
 import subprocess
 import tempfile
+import time
 import urllib.request
 import sys
 from datetime import datetime, timezone
@@ -16,8 +18,10 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
 import git_estado
 import gh_listas
+import reading_cover_store as cover_store
 import reading_quarantine
 import catalogo_estado as estado
+import presupuesto_sitio as presupuesto
 import materializar_generados as materializar
 from reading_intake_pipeline import ingest
 from reading_intake_fetch import read_json, write_if_changed
@@ -35,11 +39,46 @@ spec.loader.exec_module(publisher)
 # Lo que la ingesta consulta fuera (fichas, pendientes, valoraciones, precios, portadas, audio). Todo lo demás
 # (fichas HTML, pagefind, mapas, registro) se reconstruye con el código actual y nunca se arrastra.
 SOURCE_PATHS = ('data/reading-catalogue.json', 'assets/reading-market.json', 'data/reading-authors.json',
-                'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-quarantine.json', 'assets/reading-covers', 'assets/reading-audio')
+                'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-quarantine.json', 'data/reading-covers-store.json', 'assets/reading-covers', 'assets/reading-audio')
 
 
 def command(*args):
     subprocess.run(args, cwd=ROOT, check=True)
+
+
+PUSH_TIMEOUT = 900   # un push de ~2.000 ficheros tarda minutos; más de 15 es un push parado, no uno lento
+PUSH_ATTEMPTS = 3
+
+
+def push(*refspec, root=ROOT, timeout=PUSH_TIMEOUT, attempts=PUSH_ATTEMPTS):
+    """`git push` que nunca se queda colgado: 22/11 la carga 44966182798 estuvo ~1 h en un push sin límite y hubo que
+    cancelarla a mano. Corta la conexión si no avanza (LOW_SPEED), mata todo el grupo de procesos al agotar el tiempo
+    y repite: un push repetido de la misma referencia es idempotente, así que un intento que sí llegó no hace daño."""
+    env = {**os.environ, 'GIT_TERMINAL_PROMPT': '0', 'GIT_HTTP_LOW_SPEED_LIMIT': '1000', 'GIT_HTTP_LOW_SPEED_TIME': '120'}
+    last = None
+    for attempt in range(1, attempts + 1):
+        proc = subprocess.Popen(['git', 'push', '--quiet', 'origin', *refspec], cwd=root, env=env,
+                                stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=(os.name != 'nt'))
+        try:
+            out, err = proc.communicate(timeout=timeout)
+        except subprocess.TimeoutExpired:
+            if os.name != 'nt':
+                os.killpg(proc.pid, 9)
+            else:
+                proc.kill()
+            try:
+                proc.communicate(timeout=10)  # un hijo huérfano podría retener las tuberías
+            except subprocess.TimeoutExpired:
+                pass
+            last = f'sin terminar tras {timeout}s'
+        else:
+            if proc.returncode == 0:
+                return
+            last = (err or out).decode(errors='replace').strip()[-300:]
+        print(f'::warning::git push {refspec[0][:60]} intento {attempt}/{attempts} falló: {last}', flush=True)
+        if attempt < attempts:
+            time.sleep(15 * attempt)
+    raise RuntimeError(f'git push {refspec[0][:60]} falló tras {attempts} intentos: {last}')
 
 
 def git(*args, root=ROOT, data=None):
@@ -120,6 +159,9 @@ def save_checkpoint(day, root=ROOT):
     Si algo falla después (una prueba, un generador, el límite de tiempo del job), la siguiente ejecución los
     publica con `carry` sin repetir la ingesta. Usa un índice temporal: ni HEAD ni el índice real cambian.
     """
+    # El punto de guardado registra portadas del almacén externo: sus bytes se suben antes, o una ejecución
+    # posterior podría publicar el catálogo con portadas que no existen (Codex #1495). Sin almacén: no-op.
+    cover_store.flush('Portadas de la carga ' + day, root)
     paths = [p for p in SOURCE_PATHS if (root / p).exists()]
     index = root / git('rev-parse', '--git-path', 'checkpoint-index', root=root).decode().strip()
     env = {**os.environ, 'GIT_INDEX_FILE': str(index)}
@@ -134,7 +176,7 @@ def save_checkpoint(day, root=ROOT):
     bot_identity(root)
     commit = git('commit-tree', tree, '-p', 'HEAD', '-m', 'Datos consultados de la carga ' + day, root=root).decode().strip()
     branch = publisher.publication.fresh_branch(CHECKPOINT_PREFIX + day + '-', cwd=root)
-    git('push', '--quiet', 'origin', f'{commit}:refs/heads/{branch}', root=root)
+    push(f'{commit}:refs/heads/{branch}', root=root)
     print('Datos guardados en ' + branch, flush=True)
     return branch
 
@@ -204,7 +246,7 @@ def reconcile_pending(pending, root=ROOT):
         git('fetch', '--quiet', 'origin', f'+refs/heads/{branch}:refs/remotes/origin/{branch}', root=root)
         day = re.search(r'\d{4}-\d{2}-\d{2}', branch).group(0)
         saved = publisher.publication.fresh_branch(CHECKPOINT_PREFIX + day + '-', cwd=root)
-        git('push', '--quiet', 'origin', f'refs/remotes/origin/{branch}:refs/heads/{saved}', root=root)
+        push(f'refs/remotes/origin/{branch}:refs/heads/{saved}', root=root)
         publisher.close_proposal(number, f'Había varias cargas abiertas: se queda la más nueva. Sus datos pasan a `{saved}` '
                                  f'y se publican sin nueva consulta en las siguientes ejecuciones. Se conserva la rama `{branch}`.')
     return newest
@@ -245,7 +287,7 @@ def keep_copy(source, root=ROOT):
     try:
         # La referencia remota puede no existir en este checkout si `carry` falló antes de descargarla.
         git('fetch', '--quiet', 'origin', f'+refs/heads/{source}:refs/remotes/origin/{source}', root=root)
-        git('push', '--quiet', 'origin', f'refs/remotes/origin/{source}:refs/heads/{keep}', root=root)
+        push(f'refs/remotes/origin/{source}:refs/heads/{keep}', root=root)
     except Exception as exc:  # noqa: BLE001
         print(f'::error::No se pudo copiar {source} a {keep} ({exc}); se conserva el original', flush=True)
         return None
@@ -303,8 +345,13 @@ def chain_report(accepted, consumed=None, **extra):
 
     Una carga recuperada o reanudada también encadena mientras queden datos guardados: con varios checkpoints, una
     noche sin altas nuevas los vaciaba de uno en uno solo con el cron (F8)."""
+    # Un lote recuperado o trasladado no consultó las fuentes: la noche aún debe su consulta, aunque el lote no
+    # trajera altas (21/11, carga 44843220015: un punto de guardado ya publicado gastó el turno y entraron 0 libros).
+    # Una carga reanudada no: su PR sigue abierta y encadenar repetiría la misma reanudación.
+    pending = int(bool(extra.get('recuperado_de') or extra.get('trasladada_de')))
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json',
-                     {**extra, 'stats': {'accepted': accepted, 'checkpoints_restantes': len(set(checkpoints()) - {consumed})}})
+                     {**extra, 'stats': {'accepted': accepted, 'checkpoints_restantes': len(set(checkpoints()) - {consumed}),
+                                         'consulta_pendiente': pending}})
 
 
 def refresh(*, publish=False):
@@ -451,12 +498,24 @@ def amazon_intake(config, publish):
     catalogue_path = ROOT / 'data/reading-catalogue.json'
     before = catalogue_ids(catalogue_path.read_bytes())
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
+    altas = int(settings.get('altas', 1000))
+    if publish:
+        # R5-1: Pages admite 1 GB. Sin sitio (o sin medida) no hay altas; precios y fechas siguen. No es un fallo:
+        # la noche acaba degradada y no despierta al reparador. `--altas 0` no sirve: catalogo_amazon lo toma por 1000.
+        libros_ahora = presupuesto.publicados(json.loads(catalogue_path.read_bytes()))
+        altas = min(altas, presupuesto.cupo_de_hoy(estado.WORK, day, libros_ahora))
+        if altas <= 0:
+            print('::warning::Sin presupuesto de sitio para altas esta noche (clase presupuesto); siguen precios y fechas',
+                  flush=True)
+            return {'new_books': [], 'updated_books': [], 'stats': {'accepted': 0, 'fuente': 'amazon_catalogo',
+                                                                   'degradada': 'presupuesto'}}
     # La prueba solo comprueba credenciales y fuentes con unas pocas peticiones: ni transforma ni gasta cuota.
     phase, requests = ('todo', int(settings.get('peticiones', 600))) if publish else ('descargar', 20)
     import catalogo_amazon
-    code = catalogo_amazon.main([phase, '--dia', day, '--peticiones', str(requests),
-                          '--altas', str(int(settings.get('altas', 1000)))])
+    code = catalogo_amazon.main([phase, '--dia', day, '--peticiones', str(requests), '--altas', str(altas)])
     new = sorted(catalogue_ids(catalogue_path.read_bytes()) - before)
+    if publish:
+        presupuesto.anotar(estado.WORK, day, len(new))
     summary = read_json(catalogo_amazon.WORK / f'informe-{day}.json', {})
     if code:
         # Libros vaciados o desaparecidos respecto a la foto anterior. No lo causa la ingesta (solo añade y enlaza);
@@ -573,6 +632,63 @@ def quarantine_summary(quarantined, released):
     return ''.join(lines) + ('\n' if lines else '')
 
 
+def quarantine_alert_note():
+    if not reading_quarantine.LAST['alert']:
+        return ''
+    return '**Alerta de cuarentena:** más del 5 % de las altas apartadas; se publica lo válido y queda una issue `fallo` por causa.\n\n'
+
+
+def quarantine_alert(report, quarantined):
+    """Muchas altas apartadas: se publica lo válido, pero la carga no se da por limpia y queda una issue por causa."""
+    if not reading_quarantine.LAST['alert']:
+        return
+    report['quarantine_rate_alert'] = True
+    # Se añade al informe guardado, no se sustituye: un lote recuperado guarda ahí stats.accepted y recuperado_de,
+    # y la cadena nocturna lee stats.accepted. Un fallo al escribirlo no tumba la publicación de lo válido.
+    path = ROOT / '.ci/reading-intake/publisher-report.json'
+    try:
+        saved = read_json(path) if path.exists() else {}
+        write_if_changed(path, {**report, **saved, 'quarantine_rate_alert': True})
+    except (OSError, ValueError) as exc:
+        print(f'::warning::No se pudo marcar la alerta en publisher-report.json: {exc}', flush=True)
+    groups = {}
+    for h in quarantined:
+        groups.setdefault(h.get('causa') or reading_quarantine.cause(h['motivo']), []).append(h['libro']['id'])
+    print(f'::warning::Cuarentena alta: {len(quarantined)} libros apartados en {len(groups)} causas; se publica lo válido', flush=True)
+    summary = os.getenv('GITHUB_STEP_SUMMARY')
+    if summary:
+        with open(summary, 'a', encoding='utf-8') as fh:
+            fh.write('**Carga con alerta de cuarentena** (no es una carga limpia):\n\n' + quarantine_summary(quarantined, set()))
+    if not os.getenv('GITHUB_ACTIONS') or os.getenv('DRY_RUN') == 'true':  # el ensayo no abre issues reales
+        return
+    for why, ids in groups.items():
+        open_issue('Cuarentena: ' + why[:120], f'{len(ids)} libros apartados en la carga del {datetime.now(ZoneInfo("Europe/Madrid")):%Y-%m-%d}: '
+                   + ', '.join(f'`{i}`' for i in ids[:30]) + (' …' if len(ids) > 30 else ''))
+
+
+def open_issue(title, body):
+    """Abre la issue `fallo` con ese título, o comenta en la abierta: una por causa, no una por noche.
+
+    Un fallo al crearla no tumba la carga (ya se publicó lo válido); queda el aviso en el log."""
+    def gh(*args):
+        return subprocess.run([shutil.which('gh') or 'gh', *args], cwd=ROOT, capture_output=True, text=True, encoding='utf-8', check=True).stdout
+    try:
+        gh('label', 'create', 'fallo', '--color', 'B60205', '--description', 'Fallo detectado por un empleado automático', '--force')
+        query = title.replace('"', ' ')  # unas comillas en la causa romperían la búsqueda literal
+        found = json.loads(gh('issue', 'list', '--state', 'open', '--label', 'fallo', '--limit', '200',
+                              '--search', f'"{query}" in:title', '--json', 'number,title'))
+        same = [i for i in found if i['title'] == title]
+        if same:
+            seen = json.loads(gh('issue', 'view', str(same[0]['number']), '--json', 'body,comments'))
+            # Un reintento de la misma carga (código 75) repite el mismo texto: no se comenta dos veces.
+            if body != seen.get('body') and all(c.get('body') != body for c in seen.get('comments', [])):
+                gh('issue', 'comment', str(same[0]['number']), '--body', body)
+        else:
+            gh('issue', 'create', '--title', title, '--label', 'fallo', '--body', body)
+    except (subprocess.CalledProcessError, OSError, ValueError) as exc:
+        print(f'::warning::No se pudo abrir la issue «{title}»: {exc}', flush=True)
+
+
 def data_contract_failures():
     """Corre los contratos de datos; devuelve sus fallos ([{test, texto}], vacío si pasan)."""
     with tempfile.TemporaryDirectory() as tmp:
@@ -593,6 +709,14 @@ def drop_orphan_pages(quarantined):
         if slug and slug not in live and not subprocess.run(['git', 'cat-file', '-e', 'HEAD:' + page], cwd=ROOT).returncode == 0:
             subprocess.run(['git', 'rm', '-q', '--cached', '--ignore-unmatch', '--', page], cwd=ROOT, check=True)
             (ROOT / page).unlink(missing_ok=True)
+    # Las páginas derivadas (continuaciones del catálogo, autores, sellos) que el intento fallido generó y nunca se
+    # publicaron también sobran: el builder las rechaza como huérfanas y un solo libro apartado pararía el lote.
+    for folder in ('recomendaciones/pagina', 'recomendaciones/autores', 'recomendaciones/autores/pagina', 'recomendaciones/editoriales'):
+        for path in sorted((ROOT / folder).glob('*/index.html')):
+            rel = path.relative_to(ROOT).as_posix()
+            if subprocess.run(['git', 'cat-file', '-e', 'HEAD:' + rel], cwd=ROOT).returncode != 0:
+                subprocess.run(['git', 'rm', '-q', '--cached', '--ignore-unmatch', '--', rel], cwd=ROOT, check=True)
+                path.unlink(missing_ok=True)
 
 
 def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
@@ -653,6 +777,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
                                + '; '.join(f['test'] for f in failures)[:600])
         released = held_before - {h['libro']['id'] for h in quarantined}
         drop_orphan_pages(quarantined)
+    quarantine_alert(report, quarantined)
     command('git', 'diff', '--check')
     paths = git_estado.rutas(ROOT)
     if not paths or any(not publisher.allowed_path(p) for p in paths):
@@ -663,7 +788,9 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     bot_identity()
     command('git', 'switch', '-c', branch)
     command('git', 'commit', '-m', 'Actualizar catálogo de lectura ' + day)
-    command('git', 'push', 'origin', 'HEAD:refs/heads/' + branch)
+    # Las portadas nuevas deben estar en el almacén antes de que la PR pueda fusionarse (sin almacén activo: no-op).
+    print(f'Portadas subidas al almacén: {cover_store.flush("Portadas de la carga " + day)}', flush=True)
+    push('HEAD:refs/heads/' + branch)
     if replaced:
         # Antes de abrir la nueva: nunca quedan dos cargas abiertas. Si algo falla después, las dos ramas siguen en origin.
         publisher.close_proposal(replaced, f'main avanzó durante su CI. Sus datos fuente (libros, pendientes, precios y cuarentena) '
@@ -674,6 +801,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
                      if replaced else '') + 'Incorpora ' + str(len(report['new_books'])) + ' ediciones verificadas en sus fichas editoriales oficiales.\n\n'
                     'Carga sin LLM ni API de pago; portadas optimizadas, ISBN comprobados, autores y enlaces internos generados. '
                     'No importa precios ni valoraciones sin un proveedor autorizado. Los candidatos incompletos quedan pendientes.\n\n'
+                    + quarantine_alert_note()
                     + quarantine_summary(quarantined, released) +
                     'Se ejecutan las pruebas reales del commit y las reglas de main antes de fusionar. Después se despliega y se comprueba producción.\n', encoding='utf-8')
     publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,

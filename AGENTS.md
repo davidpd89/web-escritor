@@ -18,3 +18,8 @@
 - Preferir correcciones por clase de fallo; señalar parches para un libro o una fecha concretos.
 - Señalar lecturas de logs o textos de error como mecanismo de control: son frágiles.
 - Seguir la skill `.claude/skills/revisar-carga/SKILL.md` antes de fusionar.
+
+## Mientras corre la carga nocturna de libros
+
+- Antes de fusionar cualquier PR: `python scripts/carga_en_curso.py` (código 1 = hay carga o PR de datos abierta). Cada avance de main durante la CI de la PR de datos repite ~75 min de CI y la carga sale con código 75; el 23/11 fueron tres cargas seguidas sin un libro nuevo. Se encola la fusión hasta que acabe.
+- Una PR de datos atascada o en conflicto no se parchea a mano: se lanza la carga (`gh workflow run reading-catalogue-sync.yml --ref main`), que traslada sus datos al main actual sin consultar de nuevo las fuentes. Regenerar fichas a mano dejó Pagefind desactualizado y el gate en rojo (#1540).

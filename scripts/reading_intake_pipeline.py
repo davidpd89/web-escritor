@@ -29,6 +29,7 @@ from reading_intake_fetch import read_json, write_if_changed
 from reading_intake_publishers import resolve_publishers
 import sinopsis_google_books
 from fecha_cercana import cercania  # una sola regla de «fechas cercanas primero»
+import reading_cover_store as cover_store
 from reading_taxonomy import apply_derived, extra_categories, non_reading_reason, reference_work, REFERENCE_ID
 from reading_catalogue_publishers import catalogue_publisher, PublisherError
 from reading_generic_source import generic_edition, generic_links, reviewed_hosts
@@ -672,7 +673,12 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
             source_dir = root / 'assets' / folder
             if source_dir.exists():
                 shutil.copytree(source_dir, validation_root / 'assets' / folder)
-        documents = read_candidates(queue, refresh_urls, http, limit, existing, known_urls, state, today)
+        # Las portadas ya en el almacén externo solo existen por su registro: sin él la validación del catálogo
+        # existente fallaba en cuanto la primera portada saliera del repo (Codex #1495).
+        if (root / cover_store.MANIFEST).is_file():
+            (validation_root / cover_store.MANIFEST).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(root / cover_store.MANIFEST, validation_root / cover_store.MANIFEST)
+        documents =read_candidates(queue, refresh_urls, http, limit, existing, known_urls, state, today)
         for url, source in by_date(queue, refresh_urls, documents, today):
             if len(new_books) >= limit or http.requests >= http.budget:
                 break
@@ -753,15 +759,15 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                         record['cover_use_basis'] = old_book.get('autorizacion_o_base_uso', record['cover_use_basis'])
                     if record['autores'] != old_book['autores'] or record['portada_fuente_url'] != old_book['portada_fuente_url']:
                         raise SourceError('Cambio de autoría o cubierta: requiere revisión editorial')
-                    image = (root / old_book['portada_local'].lstrip('/')).read_bytes()
-                    preview_path = root / old_book['portada_local'].lstrip('/').replace('.webp', '-320.webp')
-                    small = preview_path.read_bytes()
+                    image = cover_store.read_bytes(old_book['portada_local'], root)
+                    small = cover_store.read_bytes(old_book['portada_local'].replace('.webp', '-320.webp'), root)
                     dimensions = (old_book['portada_ancho'], old_book['portada_alto'])
                 elif source['provider'] == 'todostuslibros':
                     image, small, dimensions = typographic_cover(record)
                 else:
                     image, small, dimensions = cover_bytes(http.get(record['portada_fuente_url'], ttl=30 * 86400))
-                path = '/assets/reading-covers/isbn-' + isbn + '.webp'
+                # Un refresco conserva la ruta publicada: una portada sustituida en el almacén lleva nombre propio.
+                path = old_book['portada_local'] if refresh else '/assets/reading-covers/isbn-' + isbn + '.webp'
                 mini = path.replace('.webp', '-320.webp')
                 (validation_root / 'data').mkdir(parents=True, exist_ok=True)
                 (validation_root / 'data/reading-publishers.json').write_text(json.dumps(catalogue_publishers), encoding='utf-8')
@@ -847,10 +853,9 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
         write_if_changed(root / 'data/reading-publishers.json', catalogue_publishers)
         for relative, content in assets.items():
             target = root / relative.lstrip('/')
-            target.parent.mkdir(parents=True, exist_ok=True)
             if target.exists() and target.read_bytes() != content:
                 raise SourceError('La cubierta existente está fijada; no se sobrescribe')
-            target.write_bytes(content)
+            cover_store.put(root, relative, content)
         if config.get('generate_audio'):
             from reading_audio import narrate
             for book in new_books:

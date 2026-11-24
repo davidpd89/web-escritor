@@ -16,9 +16,15 @@ SHOUT_SHARE = 0.7
 
 
 def is_shouted(word):
-    """Palabra de dos o más letras escrita entera en mayúsculas («MICROBIOS», «II», «IA»)."""
+    """Palabra «a voces»: dos o más letras en mayúsculas y como mucho una en minúscula. Cubre las escritas
+    enteras en mayúsculas («MICROBIOS», «II», «IA») y las que traen la inicial caída de la fuente
+    («dERMATOLOGÍA»: un bloqueo de mayúsculas sin el shift inicial). La comprobación del catálogo publicado
+    (test_reading_editorial_shouting) las rechaza igual por su racha de 2+ mayúsculas seguidas, así que el
+    normalizador tiene que verlas igual o el título gritado llega a la ficha y tumba la carga (16/11,
+    isbn-9788478857500 «dERMATOLOGÍA GENERAL BÁSICA»)."""
     letters = [c for c in word if c.isalpha() and c not in 'ªº']
-    return len(letters) >= 2 and all(c.isupper() for c in letters)
+    uppers = sum(c.isupper() for c in letters)
+    return uppers >= 2 and len(letters) - uppers <= 1
 
 
 TRAILING_GROUP = re.compile(r'\s*\([^()]*\)\s*$')
@@ -79,12 +85,40 @@ def proper_words(catalogue):
     return ProperWords(found, names=set(found) - set(upper))
 
 
+MOJIBAKE = re.compile('[ÃÂ]|â€')
+
+
+def _a_bytes(text):
+    """cp1252 y, donde esta no define el byte (0x81, 0x8D, 0x8F, 0x90, 0x9D: «Á» = Ã + U+0081), latin-1: así se
+    leyó casi todo el mojibake real, y `encode('cp1252')` solo fallaba justo con las vocales mayúsculas acentuadas."""
+    out = bytearray()
+    for ch in text:
+        try:
+            out += ch.encode('cp1252')
+        except UnicodeEncodeError:
+            out += ch.encode('latin-1')
+    return bytes(out)
+
+
+def fix_mojibake(text):
+    """UTF-8 leído como Windows-1252 («quÃ­mica», «â€•»): vuelve al texto original. Si no es
+    reversible, se deja igual. Origen (19/11, isbn-9791399079395): la fuente lo trajo así y la tarjeta ya no
+    empezaba por el título, con lo que la carga entera quedaba con la puerta en rojo."""
+    if isinstance(text, str) and MOJIBAKE.search(text):
+        try:
+            return _a_bytes(text).decode('utf-8')
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            return text
+    return text
+
+
 def tidy_title(title, proper=None):
     """Título entero (o casi) en mayúsculas → mayúscula inicial (norma del español), con los nombres propios
     que el catálogo ya conoce y los numerales romanos; el artículo pospuesto de catálogo («MUNDO, EL») vuelve
     delante."""
     proper = proper or {}
     names = getattr(proper, 'names', set())
+    title = fix_mojibake(title).lstrip(' .,;:')  # un punto delante no es parte del título: la tarjeta lo recorta
     if is_shouting(title):
         words = []
         parts = title.split(' ')
@@ -94,7 +128,7 @@ def tidy_title(title, proper=None):
             return 0 <= i < len(cores) and cores[i] and key(cores[i]) in proper
 
         for i, (word, core) in enumerate(zip(parts, cores)):
-            if not core.isupper():
+            if not (core.isupper() or is_shouted(core)):
                 words.append(word)  # lo que ya viene en minúscula o mixto se respeta: «Vol.», «Nº», «(Andalucía)»
             elif core and ROMAN.match(core) and len(core) <= 4 and core.lower() not in {'mi', 'di', 'li', 'ci'}:
                 words.append(word)

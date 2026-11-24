@@ -27,6 +27,9 @@ from email.utils import format_datetime
 from pathlib import Path
 from urllib.parse import urlencode, urlsplit
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import reading_cover_store as cover_store  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = Path("data/reading-pinterest-boards.json")
 CATALOG = Path("data/reading-catalogue.json")
@@ -81,7 +84,7 @@ def suitable_books(root: Path, data: dict, board_config: dict, today: date,
             continue
         if ".." in Path(image).parts or Path(image).suffix.lower() not in ALLOWED_IMAGE_EXTENSIONS:
             continue
-        if not (root / image.lstrip("/")).is_file():
+        if not cover_store.exists(image, root):
             continue
         if not book.get("titulo") or not book.get("autores") or not book.get("descripcion_breve"):
             continue
@@ -177,7 +180,7 @@ def target_url(site: str, slug: str, book_id: str, board_slug: str) -> str:
 
 
 def build_feed(board: dict, entries: list[dict], state: dict,
-               today: date, site: str, cap: int) -> str:
+               today: date, site: str, cap: int, catalogue_root: Path = ROOT) -> str:
     root = ET.Element("rss", {"version": "2.0"})
     ch = ET.SubElement(root, "channel")
     for tag, value in (("title", board["name"]),
@@ -208,7 +211,7 @@ def build_feed(board: dict, entries: list[dict], state: dict,
         ET.SubElement(item, "pubDate").text = format_datetime(dt, usegmt=True)
         path = entry["image"]
         ET.SubElement(item, f"{{{MEDIA_NS}}}content", {
-            "url": site + path,
+            "url": cover_store.public_url(path, catalogue_root, site=site),
             "type": ALLOWED_IMAGE_EXTENSIONS[Path(path).suffix.lower()]
         })
     ET.indent(root, space="  ")
@@ -241,7 +244,7 @@ def expected_files(root: Path, config: dict, data: dict, state: dict,
         if not SLUG.fullmatch(slug):
             raise ValueError("Slug de tablero inválido")
         outputs[root / OUTPUT / (slug + ".xml")] = build_feed(
-            board, entries, state, today, site, cap)
+            board, entries, state, today, site, cap, root)
     return outputs, entries
 
 

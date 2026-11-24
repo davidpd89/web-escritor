@@ -138,6 +138,14 @@ def convert(snapshot, review, existing, root):
     # Orden estable: las relaciones ya publicadas conservan su posición (diffs mínimos).
     position = {(r['libro_id'], r['categoria_id']): i for i, r in enumerate(existing['libro_categorias'])}
     data['libro_categorias'].sort(key=lambda r: position.get((r['libro_id'], r['categoria_id']), len(position)))
+    # Lo que la clasificación ya retiró no vuelve por la hoja: sin temporadas y sin géneros de adultos en lo infantil.
+    sys.path.insert(0, str(ROOT / 'scripts'))
+    import reading_taxonomy as taxonomy
+    by_book = {}
+    for rel in data['libro_categorias']:
+        by_book.setdefault(rel['libro_id'], set()).add(rel['categoria_id'])
+    taxonomy.drop_seasons(data, by_book)
+    taxonomy.repair_children_genres(data, by_book)
     builder.validate(data, root)
     return data, report
 

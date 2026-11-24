@@ -26,7 +26,7 @@ jobs:
       issues: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
           filter: blob:none
@@ -51,7 +51,7 @@ jobs:
           cat latido.md >> "$GITHUB_STEP_SUMMARY"
       - name: Guardar informe
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: latido-empleados
           path: latido.md

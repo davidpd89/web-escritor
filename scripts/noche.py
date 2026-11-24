@@ -25,7 +25,7 @@ reintento que llegan sin su pendiente ya los cargó otro: no cargan.
   python scripts/noche.py juez           # reloj: imprime run=true|false
   python scripts/noche.py abrir --motivo cron|respaldo|manual   # intake: imprime cargar=true|false
   python scripts/noche.py cerrar --resultado success|failure|cancelled
-  python scripts/noche.py cadena --aceptados N [--guardadas M]   # código 0 si toca encadenar (y anota el pendiente)
+  python scripts/noche.py cadena --aceptados N [--guardadas M] [--consulta-pendiente 0|1]   # código 0 si toca encadenar (y anota el pendiente)
   python scripts/noche.py reintento               # código 0 si toca reintentar (y anota el pendiente)
 """
 from __future__ import annotations
@@ -106,12 +106,16 @@ def toca_reintento(libro: dict | None, now: datetime, run: int | None = None, in
     return True, f'{fallidos} cargas fallidas esta noche: se reintenta'
 
 
-def toca_cadena(libro: dict | None, now: datetime, aceptados: int, guardadas: int = 0) -> tuple[bool, str]:
+def toca_cadena(libro: dict | None, now: datetime, aceptados: int, guardadas: int = 0,
+                consulta_pendiente: bool = False) -> tuple[bool, str]:
     """Encadena si el lote trajo altas o si quedan ramas de datos guardadas (Fable R4-11, F8): una carga recuperada
-    o reanudada sin altas propias también sigue, en vez de esperar una noche por cada punto de control."""
+    o reanudada sin altas propias también sigue, en vez de esperar una noche por cada punto de control.
+
+    `consulta_pendiente`: el lote salió de datos guardados, no de las fuentes; la noche aún debe su consulta aunque
+    no trajera altas (21/11: un punto de guardado ya publicado gastó el turno y entraron 0 libros)."""
     if now.astimezone(MADRID).hour >= HORA_FIN:
         return False, 'ya no es de noche'
-    if aceptados <= 0 and guardadas <= 0:
+    if aceptados <= 0 and guardadas <= 0 and not consulta_pendiente:
         return False, 'el lote no trajo libros nuevos ni quedan ramas guardadas'
     if resumen(libro, now)['pendientes']:
         return False, 'ya hay otra carga despachada'
@@ -169,6 +173,19 @@ def cerrar(libro, now, run, intento, resultado, clase=None, firma=None, sha=None
             noche['intentos'].append({'run': run, 'intento': intento, 'sha': sha, 'motivo': None, 'inicio': iso(now),
                                       'fin': iso(now), 'resultado': final, 'clase': clase, 'firma': firma})
     return noche
+
+
+def huerfana(libro, now, run, intento):
+    """Una carga que murió sin cerrar su apunte (el runner perdió la comunicación, el job llegó al límite): sus pasos
+    de cierre y de reintento nunca corrieron. Si su apunte sigue en curso lo cierra como fallido de clase `corte` y
+    devuelve (libro, True); si ya estaba cerrado (fallo normal: el propio job decidió el reintento) devuelve (libro, False)."""
+    if not libro:
+        return libro, False
+    for entrada in libro.get('intentos', []):
+        if entrada.get('run') == run and entrada.get('intento') == intento and entrada.get('resultado') == 'en_curso':
+            entrada.update(fin=iso(now), resultado='fallido', clase='corte')
+            return libro, True
+    return libro, False
 
 
 def pendiente(libro, now, motivo):
@@ -260,7 +277,7 @@ def _despacho(now, run, intento, args) -> int:
     try:
         libro = leer()
         if args.accion == 'cadena':
-            toca, porque = toca_cadena(libro, now, args.aceptados, args.guardadas)
+            toca, porque = toca_cadena(libro, now, args.aceptados, args.guardadas, args.consulta_pendiente)
         else:
             toca, porque = toca_reintento(libro, now, run, intento)
         if toca:
@@ -272,7 +289,26 @@ def _despacho(now, run, intento, args) -> int:
     return 0 if toca else 1
 
 
-ACCIONES = {'juez': _juez, 'abrir': _abrir, 'cerrar': _cerrar, 'cadena': _despacho, 'reintento': _despacho}
+def _huerfana(now, _run, _intento, args) -> int:
+    """Lo lanza el vigía de cargas muertas (reading-catalogue-reaper.yml) con la carga que terminó en rojo: 0 si toca
+    despachar el reintento (ya apuntado como pendiente), 1 si no. Solo actúa sobre apuntes que quedaron en curso."""
+    try:
+        libro, huerfano = huerfana(leer(), now, args.run_muerto, args.intento_muerto)
+        if not huerfano:
+            _resumen_job(f'Carga {args.run_muerto}: su apunte ya estaba cerrado; no hay nada que recoger.')
+            return 1
+        toca, porque = toca_reintento(libro, now, args.run_muerto, args.intento_muerto)
+        # El cierre como fallida se guarda siempre (cuenta para MAX_FALLIDOS y para los relojes), se despache o no.
+        if toca:
+            libro = pendiente(libro, now, 'reintento')
+        escribir(libro, f'Noche {dia(now)}: {args.run_muerto} murió sin cerrar' + ('; reintento despachado' if toca else ''))
+    except Exception as exc:  # noqa: BLE001
+        toca, porque = False, f'libro de la noche no disponible ({type(exc).__name__}): no se despacha'
+    _resumen_job(f'Carga muerta {args.run_muerto}: {porque}.')
+    return 0 if toca else 1
+
+
+ACCIONES = {'juez': _juez, 'abrir': _abrir, 'cerrar': _cerrar, 'cadena': _despacho, 'reintento': _despacho, 'huerfana': _huerfana}
 
 
 def main(argv=None) -> int:
@@ -282,6 +318,9 @@ def main(argv=None) -> int:
     p.add_argument('--resultado', default='failure')
     p.add_argument('--aceptados', type=int, default=0)
     p.add_argument('--guardadas', type=int, default=0)
+    p.add_argument('--consulta-pendiente', type=int, default=0)
+    p.add_argument('--run-muerto', type=int, default=0)
+    p.add_argument('--intento-muerto', type=int, default=1)
     args = p.parse_args(argv)
     run = int(os.environ.get('GITHUB_RUN_ID') or 0)
     intento = int(os.environ.get('GITHUB_RUN_ATTEMPT') or 1)

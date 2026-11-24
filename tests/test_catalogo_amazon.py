@@ -126,6 +126,10 @@ class ToRecord(unittest.TestCase):
             'NI ORIENTE NI OCCIDENTE (Andalucía)': 'Ni oriente ni occidente (Andalucía)',
             'EL GUERRERO DEL ANTIFAZ Vol. 11': 'El guerrero del antifaz Vol. 11',
             'SIN CITY 07. IDA Y VUELTA': 'Sin city 07. Ida y vuelta',  # una letra sigue la norma
+            # Mayúscula rota de la fuente (bloqueo de mayúsculas sin el shift inicial): el título sigue gritando
+            # salvo la inicial y antes se colaba a la ficha; la comprobación del catálogo publicado lo tumbaba.
+            'dERMATOLOGÍA GENERAL BÁSICA': 'Dermatología general básica',
+            'EL hÉROE DISCRETO': 'El héroe discreto',
             # apellido suelto = palabra común; título en estilo inglés o traducción no dan nombres propios
             'LA SENCILLA RUTA A LA SANTIDAD': 'La sencilla ruta a la santidad',
             'IA Y TEOLOGÍA': 'IA y teología',
@@ -677,6 +681,66 @@ class Semillas(unittest.TestCase):
             self.assertEqual(res['en_cola'], 0)
             log = [json.loads(line) for line in ca.discarded_path().read_text(encoding='utf-8').splitlines()]
             self.assertEqual([(r['isbn13'], r['motivo'][:15]) for r in log], [(bad, 'error de Amazon')])
+
+
+class SemillasAutores(unittest.TestCase):
+    AUTHORS = [{'slug': 'benito-perez-galdos', 'nombre': 'Benito Pérez Galdós'}, {'slug': 'ana-ruiz', 'nombre': 'Ana Ruiz'}]
+
+    class Prov(FakeProvider):
+        def __init__(self, pages):
+            super().__init__()
+            self.pages = pages
+
+        def post(self, url, body, headers):
+            self.calls.append((body['author'], body['itemPage']))
+            return {'searchResult': {'items': self.pages.get((body['author'], body['itemPage']), [])}}
+
+    def test_only_paper_spanish_editions_by_that_author_and_not_known(self):
+        good, known, foreign_isbn = isbn('978841000001'), isbn('978841000002'), isbn('978030000003')
+        results = [item(ean=good), item(ean=known),
+                   item(ean=isbn('978841000004'), authors=(('Pérez Galdós, Benito', 'Traductor'),)),
+                   item(ean=isbn('978841000005'), authors=(('Galdós, Pedro', 'Autor'),)),
+                   item(ean=isbn('978841000006'), binding='Versión Kindle'),
+                   item(ean=isbn('978841000007'), lang='Inglés'),
+                   item(ean=foreign_isbn, lang=None), item(ean=isbn('978841000008'), lang=None)]
+        prov = self.Prov({('Benito Pérez Galdós', 1): results})
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            report = ca.semillas_autores(prov, 'tag-21', '2026-11-23', {known}, self.AUTHORS, max_requests=10)
+            state = json.loads((Path(tmp) / 'semillas.json').read_text(encoding='utf-8'))
+        self.assertEqual(sorted(state['cola']), sorted([good, isbn('978841000008')]))
+        self.assertEqual(state['cola'][good]['fuente'], 'autor')
+        self.assertEqual(state['cola'][good]['autor'], 'benito-perez-galdos')
+        self.assertEqual(report['nuevas'], 2)
+        self.assertEqual(state['autores'], {'benito-perez-galdos': '2026-11-23', 'ana-ruiz': '2026-11-23'})
+        self.assertEqual(prov.calls, [('Ana Ruiz', 1), ('Benito Pérez Galdós', 1)])  # página corta: no pide la 2
+
+    def test_takes_turns_and_an_author_cut_by_the_budget_repeats(self):
+        full = [item(ean=isbn('97884100%04d' % n), asin=str(n), authors=(('Ruiz, Ana', 'Autor'),)) for n in range(10)]
+        prov = self.Prov({('Ana Ruiz', 1): full})
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            first = ca.semillas_autores(prov, 'tag-21', '2026-11-23', set(), self.AUTHORS, max_requests=1, pages=2)
+            self.assertEqual((first['autores'], first['pendientes'], first['nuevas']), (0, 2, 10))  # sin cupo para la 2
+            second = ca.semillas_autores(prov, 'tag-21', '2026-11-24', set(), self.AUTHORS, max_requests=3, pages=2)
+            self.assertEqual((second['autores'], second['nuevas']), (2, 0))  # ya estaban en la cola
+            third = ca.semillas_autores(prov, 'tag-21', '2026-12-01', set(), self.AUTHORS, max_requests=3, days=60)
+        self.assertEqual(third['peticiones'], 0)  # nadie vence hasta pasados 60 días
+
+    def test_a_failing_request_leaves_the_author_for_tomorrow_and_lack_of_access_stops(self):
+        class Flaky(self.Prov):
+            def post(self, url, body, headers):
+                self.calls.append(body['author'])
+                raise (ca.AccessDenied if '401' in self.message else RuntimeError)(self.message)
+        prov = Flaky({})
+        prov.message = 'HTTP 500'
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            report = ca.semillas_autores(prov, 'tag-21', '2026-11-23', set(), self.AUTHORS)
+            self.assertEqual((report['errores'], report['autores'], report['pendientes']), (2, 0, 2))
+            prov.message = 'HTTP 401 eligibility'
+            with self.assertRaises(RuntimeError):
+                ca.semillas_autores(prov, 'tag-21', '2026-11-23', set(), self.AUTHORS)
 
 
 class SemillasFechas(unittest.TestCase):

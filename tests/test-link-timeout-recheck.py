@@ -120,6 +120,19 @@ with tempfile.TemporaryDirectory() as tmp:
     timeout = '| Errors | 0 |\n* [TIMEOUT] <https://example.org/slow>\n'
     assert run_report(timeout, [{'url': 'https://example.org/slow', 'ok': False, 'status': '404', 'exit': 22}]) == 1, \
         'a timeout that rechecks as 404 still fails'
+# Lychee's "Network error:" wording (2026-11-23): a reset is transport, a refused TLS handshake is the site's fault.
+net = ('| Errors | 2 |\n'
+       '* [ERROR] <https://hplovecraft.com/> (at 183:2167) | Network error: Connection reset by peer (os error 104)\n'
+       '* [ERROR] <https://www2.philosophy.su.se/wikforss/> (at 183:1597) | Network error: received fatal alert: HandshakeFailure\n')
+assert module.timeout_urls(net) == ['https://hplovecraft.com/', 'https://www2.philosophy.su.se/wikforss/']
+assert module.third_party_faults(net) == {'https://www2.philosophy.su.se/wikforss/': 'certificado TLS del sitio caducado o inválido'}
+for invalid in ['| Errors | 1 |\n* [ERROR] <https://example.org/> | Network error: dns error: failed to lookup address',
+                '| Errors | 1 |\n* [ERROR] <https://davidportodiaz.com/> | Network error: received fatal alert: HandshakeFailure']:
+    try:
+        module.timeout_urls(invalid)
+        raise AssertionError(f'DNS and own-domain TLS stay fatal: {invalid!r}')
+    except ValueError:
+        pass
 # Pre-existing links: on a PR, a down external host whose URL is already in the base tree only warns.
 import subprocess
 with tempfile.TemporaryDirectory() as tmp:
@@ -153,6 +166,28 @@ with tempfile.TemporaryDirectory() as tmp:
     gone = dict(ok, **{'https://www.umbrieleditores.com/': {'url': 'https://www.umbrieleditores.com/', 'ok': False,
                                                            'status': '404', 'exit': 22}})
     assert run_pr('base', gone) == 1, 'a pre-existing link that answers 404 is a gone page and fails'
+# Second pass: an external host the runner could not reach is checked once more before it counts (main, 18/11).
+with tempfile.TemporaryDirectory() as tmp:
+    tmp = Path(tmp)
+    report = '| Errors | 0 |\n* [TIMEOUT] <https://www.bibalex.org/>\n'
+    (tmp/'out.md').write_text(report, encoding='utf-8')
+    def run_seq(*answers):
+        calls = []
+        def fake(url):
+            calls.append(url)
+            return dict(answers[min(len(calls), len(answers)) - 1], url=url)
+        with patch.object(module, 'check_url', side_effect=fake), patch.object(module.time, 'sleep') as nap, \
+                patch.dict(os.environ, {'GITHUB_STEP_SUMMARY': str(tmp/'summary.md'), 'RECHECK_PAUSE': '120'}), \
+                redirect_stdout(io.StringIO()) as out:
+            code = module.run(tmp/'out.md', tmp/'res.json')
+        return code, len(calls), nap.call_args_list, out.getvalue()
+    down, up = {'ok': False, 'status': '000', 'exit': 28}, {'ok': True, 'status': '200', 'exit': 0}
+    code, calls, naps, out = run_seq(down, up)
+    assert (code, calls) == (0, 2) and naps[0].args == (120.0,), 'a blip of the runner network clears on the second pass'
+    assert 'primer intento HTTP 000' in out
+    assert run_seq(down, down)[:2] == (1, 2), 'a host still down after the pause stays fatal on main'
+    assert run_seq({'ok': False, 'status': '503', 'exit': 22}, up)[:2] == (0, 2), '5xx gets the second pass too'
+    assert run_seq({'ok': False, 'status': '404', 'exit': 22}, up)[:2] == (1, 1), 'a 404 is never retried'
 # The committed quarantine itself must be valid.
 module.load_quarantine(ROOT/'.linkcheck-quarantine.json', date.today())
 print('PASS link timeout recheck: only actual 2xx clears timeout/transport errors; HTTP errors, loops and unknown reports stay fatal; quarantine only excuses listed unreachable hosts until it expires')

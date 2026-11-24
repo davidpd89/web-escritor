@@ -6,11 +6,11 @@
     "postinstall:chromium": "playwright install --with-deps chromium"
   },
   "devDependencies": {
-    "@lhci/cli": "0.16.0",
+    "@lhci/cli": "0.16.1",
     "pa11y-ci": "5.0.0",
     "pagefind": "^1.5.2",
-    "pixelmatch": "7.2.0",
-    "playwright": "1.62.1",
+    "pixelmatch": "8.0.0",
+    "playwright": "1.65.1",
     "pngjs": "7.0.0"
   },
   "overrides": {

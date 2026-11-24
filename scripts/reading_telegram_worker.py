@@ -34,8 +34,9 @@ from reading_planeta_source import planeta_edition
 from reading_ttl_source import HOST as TTL_HOST, ttl_edition
 from reading_telegram import (
     SEND_AT,
+    SEND_UNTIL,
     amazon_url,
-    digest_key,
+    digest_candidate_keys,
     from_reading_catalogue,
     run,
     smoke,
@@ -120,6 +121,10 @@ def editorial_product(document, url, book, source, today=None):
 
 
 AMAZON_FRESH_DAYS = 2
+# Un libro cuya fuente ES su ficha de Amazon ya trae de ella el ASIN y la fecha. Si la carga nocturna falla
+# varias noches seguidas (19/11/2026: tres fallos y 105 libros del día descartados, el bot publicó 2), la
+# comprobación sigue valiendo unos días: cada noche se relee y una fecha movida se corrige en cuanto vuelve.
+AMAZON_SOURCE_FRESH_DAYS = 6
 
 
 def catalogue_print_asin(book, today):
@@ -144,7 +149,7 @@ def amazon_product(book, url, today):
         str(book.get("precios_amazon_revision") or ""),
         str(book.get("fecha_verificacion") or ""),
     )
-    if checked < (today - timedelta(days=AMAZON_FRESH_DAYS)).isoformat():
+    if checked < (today - timedelta(days=AMAZON_SOURCE_FRESH_DAYS)).isoformat():
         raise SourceError("Amazon product data not refreshed recently")
     published = book["fecha_publicacion"]
     date.fromisoformat(published)
@@ -296,7 +301,7 @@ def seconds_until_send(now: datetime, max_wait: int = 3 * 3600) -> float:
     return delta if 0 < delta <= max_wait else 0
 
 
-def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False):
+def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False, scheduled=False):
     root = root.resolve()
     now = datetime.now(ZoneInfo("Europe/Madrid"))
     if wait and not test_asin:
@@ -305,9 +310,11 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False
         if pause:
             time.sleep(pause)
             now = datetime.now(ZoneInfo("Europe/Madrid"))
-    if not test_asin and now.time() < SEND_AT:
-        # The day goes out at 11:30 Madrid; earlier cycles do no work at all.
-        report = {"at": now.isoformat(), "live": live, "status": "waiting", "deliveries": []}
+    closed = scheduled and not test_asin and now.time() >= SEND_UNTIL
+    if closed or (not test_asin and now.time() < SEND_AT):
+        # Fuera de la ventana 11:30-15:00 los arranques programados no hacen nada: antes de las 11:30 esperan;
+        # despues de las 15:00 (cron retrasado por GitHub) se cierran. Un dispatch manual si puede recuperar el dia.
+        report = {"at": now.isoformat(), "live": live, "status": "closed" if closed else "waiting", "deliveries": []}
         atomic_json(root / "last-run.json", report)
         return report
     # The scheduler serializes cycles, in addition to SQLite delivery claims.
@@ -347,10 +354,7 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False
     catalog = from_reading_catalogue(
         root / "catalogue.json", root / "channels.json", groups
     )
-    catalog["digests"] = [
-        digest_key(today.isoformat()),
-        weekly_key(today.isoformat()),
-    ]
+    catalog["digests"] = digest_candidate_keys(catalog, today)
     cover_fixes = []
     store = None
     if live:
@@ -411,9 +415,10 @@ def main():
     parser.add_argument("--github-state", action="store_true")
     parser.add_argument("--test-asin")
     parser.add_argument("--wait-until-send", action="store_true")
+    parser.add_argument("--scheduled", action="store_true", help="Arranque de cron: no envía pasada SEND_UNTIL")
     args = parser.parse_args()
     try:
-        report = cycle(args.root, args.send, args.github_state, args.test_asin, args.wait_until_send)
+        report = cycle(args.root, args.send, args.github_state, args.test_asin, args.wait_until_send, args.scheduled)
         if report["status"] == "needs_attention":
             return 2
         return 0

@@ -48,7 +48,7 @@ FORBIDDEN_KEY_PARTS = {
     "noa",
 }
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
-EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s.]+(?:\.[^@\s.]+)+$")  # sin backtracking super-lineal (Sonar)
 
 
 class ValidationError(Exception):

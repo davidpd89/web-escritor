@@ -13,10 +13,14 @@ on:
       - 'data/reading-authors.json'
       - 'data/reading-publishers.json'
       - 'data/reading-intake-state.json'
+      - 'data/reading-covers-store.json'
+      - 'data/reading-author-links.json'
       - 'data/reading-amazon-audit.json'
+      - 'data/reading-classification-gpt.json'
       - 'data/reading-pinterest-state.json'
       - 'data/reading-quarantine.json'
       - 'data/reading-texts/*.json'
+      - 'data/reading-author-texts/*.json'
       - 'data/content-registry.json'
       - 'recomendaciones/index.html'
       - 'recomendaciones/autores/index.html'
@@ -24,6 +28,7 @@ on:
       - 'recomendaciones/libros/*/index.html'
       - 'recomendaciones/pagina/*/index.html'
       - 'recomendaciones/autores/*/index.html'
+      - 'recomendaciones/autores/pagina/*/index.html'
       - 'recomendaciones/editoriales/*/index.html'
       - 'recomendaciones/proximos-lanzamientos.ics'
       - 'recomendaciones/llms.txt'
@@ -52,7 +57,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           filter: blob:none
           sparse-checkout-cone-mode: false
@@ -61,7 +66,7 @@ jobs:
             !/assets/no usadas/
 
       - name: Set up Node
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
 
@@ -70,7 +75,7 @@ jobs:
 
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
