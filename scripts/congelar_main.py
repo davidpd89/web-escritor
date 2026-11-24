@@ -18,6 +18,9 @@ import os
 import subprocess
 import sys
 import time
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
+import gh_listas  # noqa: E402
 
 FLUJOS = ('reading-catalogue-sync.yml', 'radar-clock-refresh.yml')
 ACTIVOS = ('in_progress', 'queued', 'waiting', 'pending', 'requested')
@@ -27,10 +30,13 @@ TOPE_MIN = 300
 CADA_S = 120
 
 
+def _gh(*args):
+    return subprocess.run(['gh', *args], capture_output=True, text=True, encoding='utf-8', check=True, timeout=120).stdout
+
+
 def gh_runs(flujo):
-    out = subprocess.run(['gh', 'run', 'list', '-w', flujo, '--limit', '20', '--json', 'databaseId,status,createdAt,event'],
-                         capture_output=True, text=True, encoding='utf-8', check=True, timeout=120).stdout
-    return json.loads(out)
+    # Una ventana a propósito: las 20 ejecuciones más recientes del flujo; una en curso siempre está entre ellas.
+    return gh_listas.ultimas(_gh, 'run', 'list', '-w', flujo, '--json', 'databaseId,status,createdAt,event', n=20)
 
 
 def activas(consulta=gh_runs, flujos=FLUJOS):

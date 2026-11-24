@@ -675,8 +675,8 @@ def open_issue(title, body):
     try:
         gh('label', 'create', 'fallo', '--color', 'B60205', '--description', 'Fallo detectado por un empleado automático', '--force')
         query = title.replace('"', ' ')  # unas comillas en la causa romperían la búsqueda literal
-        found = json.loads(gh('issue', 'list', '--state', 'open', '--label', 'fallo', '--limit', '200',
-                              '--search', f'"{query}" in:title', '--json', 'number,title'))
+        found = gh_listas.lista(gh, 'issue', 'list', '--state', 'open', '--label', 'fallo',
+                                '--search', f'"{query}" in:title', '--json', 'number,title', tope=1000)
         same = [i for i in found if i['title'] == title]
         if same:
             seen = json.loads(gh('issue', 'view', str(same[0]['number']), '--json', 'body,comments'))

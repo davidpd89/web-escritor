@@ -393,7 +393,7 @@ def fallo_determinista(repo, run_id):
     red o un runner caído no escriben esa línea, y esos sí se reintentan. Si no se pueden leer los registros, se
     reintenta como siempre."""
     try:
-        jobs = json.loads(gh('api', f'repos/{repo}/actions/runs/{run_id}/jobs?per_page=100'))['jobs']
+        jobs = gh_listas.rest_todas(lambda ruta: json.loads(gh('api', ruta)), f'repos/{repo}/actions/runs/{run_id}/jobs', 'jobs')
         for job in jobs:
             if job.get('conclusion') != 'failure':
                 continue

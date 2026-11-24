@@ -14,6 +14,8 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
+import gh_listas  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 MB = 1024 * 1024
@@ -88,9 +90,10 @@ def ultima_medida(runs=5):
 
     Cuenta también un despliegue fallido: el que no subió por pasar de 900 MB es justo la medida que frena las altas."""
     try:
-        ids = subprocess.run(['gh', 'run', 'list', '--workflow', 'deploy-pages.yml', '--status', 'completed',
-                              '--limit', str(runs), '--json', 'databaseId', '-q', '.[].databaseId'],
-                             cwd=ROOT, capture_output=True, text=True, check=True, timeout=60).stdout.split()
+        def gh(*args):
+            return subprocess.run(['gh', *args], cwd=ROOT, capture_output=True, text=True, check=True, timeout=60).stdout
+        ids = [str(r['databaseId']) for r in gh_listas.ultimas(  # ventana a propósito: los últimos `runs` despliegues
+            gh, 'run', 'list', '--workflow', 'deploy-pages.yml', '--status', 'completed', '--json', 'databaseId', n=runs)]
     except (OSError, subprocess.SubprocessError):
         return None
     for run in ids:

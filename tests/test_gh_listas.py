@@ -67,6 +67,10 @@ VENTANAS = {
         'solo pregunta si existe una issue con ese título: si hay alguna, la primera página la trae',
     ('.github/workflows/reading-coverage-check.yml', 'gh issue list --state open --search'):
         'solo pregunta si existe una issue con ese título: si hay alguna, la primera página la trae',
+    ('.github/workflows/radar-clock-refresh.yml', 'gh issue list --state open --search'):
+        'solo pregunta si existe una issue con ese título: si hay alguna, la primera página la trae',
+    ('.github/workflows/reading-growth-simulation.yml', 'gh issue list --state open --search'):
+        'solo pregunta si existe una issue con ese título: si hay alguna, la primera página la trae',
     ('.github/workflows/weekly-full-audit.yml', '--event workflow_dispatch --limit 1 '):
         'la ejecución más reciente, antes de lanzar: una ventana de 1 a propósito',
     ('.github/workflows/weekly-full-audit.yml', '--event workflow_dispatch --limit 5 '):
