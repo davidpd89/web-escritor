@@ -19,6 +19,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import materializar_generados as materializar  # noqa: E402
+import gh_listas  # noqa: E402
 
 STALE_EXIT_CODE = 75  # EX_TEMPFAIL: main avanzó durante la CI; regenerar desde main
 
@@ -88,13 +89,17 @@ def _retryable(args):
 
 
 def _existing_pr(args):
-    """URL de la PR que un `gh pr create` fallido pudo llegar a crear, para no duplicarla al repetir."""
+    """URL de la PR que un `gh pr create` fallido pudo llegar a crear, para no duplicarla al repetir.
+
+    Si no se puede saber (gh falla, lista truncada, JSON roto) se lanza: «no lo sé» nunca vale como «no hay», porque
+    el reintento crearía una PR duplicada (Fable R5-11, hallazgo 30)."""
     if args[:2] != ('pr', 'create') or '--head' not in args:
         return None
     head = args[args.index('--head') + 1]
-    found = subprocess.run(['gh', 'pr', 'list', '--head', head, '--state', 'open', '--json', 'url', '--jq', '.[0].url'],
-                           capture_output=True, text=True, encoding='utf-8', errors='replace')
-    return found.stdout.strip() or None if found.returncode == 0 else None
+    def crudo(*a):
+        return subprocess.run(['gh', *a], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace').stdout
+    found = gh_listas.lista(crudo, 'pr', 'list', '--head', head, '--state', 'open', '--json', 'url')
+    return found[0]['url'] if found else None
 
 
 APP_VARS = ('REPARADOR_APP_ID', 'REPARADOR_APP_INSTALLATION_ID', 'REPARADOR_APP_PRIVATE_KEY')
@@ -281,8 +286,9 @@ def ejecucion(repo, run_id, hasta=None, espera=180):
 
 def superseding_pages(repo, merged_sha, after_id):
     """Primer deploy de Pages posterior a `after_id` cuyo commit contiene `merged_sha` (cualquier evento)."""
-    runs = json.loads(gh('run', 'list', '--workflow', 'deploy-pages.yml', '--branch', 'main', '--limit', '50',
-                         '--json', 'databaseId,headSha,status,conclusion'))
+    # Ventana a propósito: un deploy posterior más reciente que contenga el merge vale igual.
+    runs = gh_listas.ultimas(gh, 'run', 'list', '--workflow', 'deploy-pages.yml', '--branch', 'main',
+                             '--json', 'databaseId,headSha,status,conclusion', n=50)
     for item in sorted((r for r in runs if r['databaseId'] > after_id), key=lambda r: r['databaseId']):
         if item['headSha'] == merged_sha or gh('api', f'repos/{repo}/compare/{merged_sha}...{item["headSha"]}',
                                                '--jq', '.status') in ('ahead', 'identical'):
@@ -346,8 +352,8 @@ def esperar_escritores(ceder_a, deadline, poll=60):
     propio = os.environ.get('GITHUB_RUN_ID', '')
     while True:
         activos = [f"{wf}#{item['databaseId']}" for wf in ceder_a
-                   for item in json.loads(gh('run', 'list', '--workflow', wf, '--status', 'in_progress',
-                                             '--limit', '20', '--json', 'databaseId') or '[]')
+                   for item in gh_listas.lista(gh, 'run', 'list', '--workflow', wf, '--status', 'in_progress',
+                                                     '--json', 'databaseId', tope=100)
                    if str(item['databaseId']) != propio]
         if not activos:
             return
@@ -381,17 +387,29 @@ def main_cambio_qa(repo, sha):
 DETERMINISTA = re.compile(r'^\S*\s*FALLA:? tests/\S+', re.M)
 
 
+def registro_job(repo, job_id):
+    """Registro de un job de Actions. Los registros llevan colores ANSI y `gh api` (>= 2.8x) se niega a sacarlos sin
+    `--allow-escape-sequences`: sin la opción, fallo_determinista daba siempre False y cada fallo determinista de la
+    puerta se repetía entero (~22 min, noche del 24/11). Un gh antiguo que no conozca la opción falla con ella: se lee
+    entonces sin ella, sin mirar el texto del error (cambia con la versión y el idioma); si también falla, sube."""
+    ruta = f'repos/{repo}/actions/jobs/{job_id}/logs'
+    try:
+        return gh('api', '--allow-escape-sequences', ruta)
+    except subprocess.CalledProcessError:
+        return gh('api', ruta)
+
+
 def fallo_determinista(repo, run_id):
     """True si la ejecución fallida trae un `FALLA: tests/...` (un test concreto que falló sobre los datos de la
     PR): repetir el mismo commit da el mismo fallo y cuesta otra puerta entera (~22 min). Un job cancelado, un corte de
     red o un runner caído no escriben esa línea, y esos sí se reintentan. Si no se pueden leer los registros, se
     reintenta como siempre."""
     try:
-        jobs = json.loads(gh('api', f'repos/{repo}/actions/runs/{run_id}/jobs?per_page=100'))['jobs']
+        jobs = gh_listas.rest_todas(lambda ruta: json.loads(gh('api', ruta)), f'repos/{repo}/actions/runs/{run_id}/jobs', 'jobs')
         for job in jobs:
             if job.get('conclusion') != 'failure':
                 continue
-            log = gh('api', f'repos/{repo}/actions/jobs/{job["id"]}/logs')
+            log = registro_job(repo, job['id'])
             if DETERMINISTA.search(log):
                 return True
     except Exception:  # noqa: BLE001 - sin registros legibles, el reintento de siempre
@@ -424,9 +442,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     if not paths or any(not allowed_path(item['filename']) or (item.get('previous_filename') and not allowed_path(item['previous_filename'])) for item in paths):
         raise ValueError('PR contains a path outside the generated-artifact policy')
     def runs_on_sha(workflow, event, exclude=frozenset()):
-        runs = json.loads(gh('run', 'list', '--workflow', workflow, '--branch', branch,
-                             '--event', event, '--limit', '100', '--json',
-                             'databaseId,headSha,status,conclusion'))
+        runs = gh_listas.lista(gh, 'run', 'list', '--workflow', workflow, '--branch', branch, '--commit', sha,
+                               '--event', event, '--json', 'databaseId,headSha,status,conclusion', tope=100)
         return [item for item in runs if item['databaseId'] not in exclude and item['headSha'] == sha]
 
     # A PR opened with a user token already starts its pull_request CI on this exact commit; dispatching the same

@@ -43,6 +43,7 @@ import yaml  # PyYAML, declarado en scripts/requirements.txt (antes un except lo
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import estado_local  # noqa: E402
 import ci_checks  # noqa: E402
+import gh_listas  # noqa: E402
 import turno_issues  # noqa: E402
 
 # El Programador de tareas ejecuta la copia de origin/main (ver night-autorepair.cmd); el repo vivo se indica aparte.
@@ -296,8 +297,8 @@ def flujos_locales(carpeta: Path | None = None) -> list[str]:
 def ultima_ejecucion(flujo):
     if es_local(flujo):
         return estado_local.leer(flujo.removeprefix(LOCAL))
-    runs = gh_json('run', 'list', '--workflow', flujo, '--branch', 'main', '--limit', '1',
-                   '--json', 'databaseId,status,conclusion,attempt,url,createdAt,event,headSha')
+    runs = gh_listas.ultimas(gh_json, 'run', 'list', '--workflow', flujo, '--branch', 'main',
+                            '--json', 'databaseId,status,conclusion,attempt,url,createdAt,event,headSha', n=1)
     return runs[0] if runs else None
 
 
@@ -338,8 +339,14 @@ def fallo_de_infraestructura(run_id) -> bool:
 
 
 def ingesta_en_marcha():
-    runs = gh_json('run', 'list', '--workflow', INGESTA, '--limit', '3', '--json', 'status')
-    return any(r['status'] in ('in_progress', 'queued', 'waiting', 'pending') for r in runs)
+    # Por estado y completa: una carga en curso más antigua que las 3 últimas también cuenta. Los estados van en el
+    # orden en que avanza una ejecución (requested -> ... -> in_progress): una que avanza entre dos consultas aparece
+    # en la siguiente. Un único listado sin --status no sirve: las completadas llenan cualquier tope.
+    return any(gh_listas.lista(gh_json, 'run', 'list', '--workflow', INGESTA, '--status', estado, '--json', 'status', tope=50)
+               for estado in ESTADOS_EN_MARCHA)
+
+
+ESTADOS_EN_MARCHA = ('requested', 'pending', 'waiting', 'queued', 'in_progress')
 
 
 CODIGO_CI = ('qa/', 'tests/', 'scripts/', '.github/', 'package.json', 'package-lock.json')
@@ -741,7 +748,7 @@ def instantanea(flujo) -> str:
     PR abierta (la de Amazon, con el mismo prefijo de rama). Con la lista de PR abiertas delante se veía a la primera."""
     partes = []
     try:
-        prs = gh_json('pr', 'list', '--state', 'open', '--limit', '40', '--json', 'number,headRefName,author,createdAt,title')
+        prs = gh_listas.lista(gh_json, 'pr', 'list', '--state', 'open', '--json', 'number,headRefName,author,createdAt,title')
         partes.append('PR abiertas (número, rama, autor, creada, título):\n' + ('\n'.join(
             f"#{p['number']} {p['headRefName']} {(p.get('author') or {}).get('login', '?')} {p['createdAt'][:16]} {p['title'][:90]}"
             for p in prs) or '(ninguna)'))
@@ -749,8 +756,8 @@ def instantanea(flujo) -> str:
         partes.append(f'PR abiertas: no disponibles ({exc})')
     if not es_local(flujo):
         try:
-            runs = gh_json('run', 'list', '--workflow', flujo, '--limit', '8',
-                           '--json', 'createdAt,event,headBranch,headSha,status,conclusion')
+            runs = gh_listas.ultimas(gh_json, 'run', 'list', '--workflow', flujo,
+                                   '--json', 'createdAt,event,headBranch,headSha,status,conclusion', n=8)
             partes.append(f'Últimas ejecuciones de {flujo} (fecha, evento, rama, commit, resultado):\n' + '\n'.join(
                 f"{r['createdAt'][:16]} {r['event']} {r['headBranch']} {r['headSha'][:10]} {r['conclusion'] or r['status']}"
                 for r in runs))

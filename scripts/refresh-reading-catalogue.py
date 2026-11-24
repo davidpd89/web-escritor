@@ -17,6 +17,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
 import git_estado
+import gh_listas
 import reading_cover_store as cover_store
 import reading_quarantine
 import resultado_carga
@@ -372,7 +373,7 @@ def refresh(*, publish=False):
             reconcile_deploy()
     # A failed previous batch stays inspectable; never pile up duplicate writers.
     with etapa('remoto'):
-        opened = json.loads(publisher.publication.gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName'))
+        opened = gh_listas.lista(publisher.publication.gh, 'pr', 'list', '--state', 'open', '--base', 'main', '--json', 'headRefName')
     pending = pending_batches(opened)
     if pending:
         with etapa('remoto'):
@@ -696,8 +697,8 @@ def open_issue(title, body):
     try:
         gh('label', 'create', 'fallo', '--color', 'B60205', '--description', 'Fallo detectado por un empleado automático', '--force')
         query = title.replace('"', ' ')  # unas comillas en la causa romperían la búsqueda literal
-        found = json.loads(gh('issue', 'list', '--state', 'open', '--label', 'fallo', '--limit', '200',
-                              '--search', f'"{query}" in:title', '--json', 'number,title'))
+        found = gh_listas.lista(gh, 'issue', 'list', '--state', 'open', '--label', 'fallo',
+                                '--search', f'"{query}" in:title', '--json', 'number,title', tope=1000)
         same = [i for i in found if i['title'] == title]
         if same:
             seen = json.loads(gh('issue', 'view', str(same[0]['number']), '--json', 'body,comments'))

@@ -14,6 +14,10 @@ import json
 import os
 import subprocess
 import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import gh_listas  # noqa: E402
 
 OK = {"success", "skipped", "neutral"}
 ETIQUETA = "bypass-usado"
@@ -85,8 +89,9 @@ def avisar(repo: str, sha: str, motivos: list[str], run_url: str) -> None:
     cuerpo = "\n".join([f"Push a main sin PR verde: `{sha}`", "", *[f"- {m}" for m in motivos], "",
                         f"Detectado por {run_url}", "", "R5-7c: el bypass del ruleset se usó o un check requerido no "
                         "estaba en verde. Revisar quién empujó y por qué; si fue legítimo, cerrar con el motivo."])
-    abiertas = gh_json("issue", "list", "--repo", repo, "--label", ETIQUETA, "--state", "open",
-                       "--json", "number", "--limit", "1")
+    # Una ventana de 1 a propósito: basta saber si hay alguna abierta para comentar en ella.
+    abiertas = gh_listas.ultimas(gh_json, "issue", "list", "--repo", repo, "--label", ETIQUETA, "--state", "open",
+                                 "--json", "number", n=1)
     if abiertas:
         gh("issue", "comment", str(abiertas[0]["number"]), "--repo", repo, "--body", cuerpo)
         return

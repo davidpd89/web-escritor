@@ -52,7 +52,9 @@ jobs:
         with:
           sparse-checkout: |
             scripts/ci_intake_backup.py
+            scripts/gh_listas.py
             scripts/noche.py
+            scripts/resultado_carga.py
             scripts/catalogo_estado.py
           sparse-checkout-cone-mode: false
       - id: madrid

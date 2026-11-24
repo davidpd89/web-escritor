@@ -30,6 +30,8 @@ jobs:
           sparse-checkout: |
             scripts/noche.py
             scripts/catalogo_estado.py
+            scripts/resultado_carga.py
+            scripts/gh_listas.py
           sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v7
         with:

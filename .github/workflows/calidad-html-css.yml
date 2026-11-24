@@ -40,6 +40,7 @@ jobs:
             /qa/htmlvalidate.json
             /qa/stylelint.json
             /scripts/issue_vivo.py
+            /scripts/gh_listas.py
       - name: Elegir la muestra de fichas
         id: muestra
         continue-on-error: true

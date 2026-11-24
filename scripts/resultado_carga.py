@@ -16,9 +16,13 @@ import hashlib
 import json
 import socket
 import subprocess
+import sys
 import urllib.error
 from contextlib import contextmanager
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
+import gh_listas  # noqa: E402
 
 FICHERO = Path('.ci/reading-intake/resultado.json')
 
@@ -165,8 +169,8 @@ def reportar(resultado: dict | None, gh, enlace: str) -> list[str]:
     """Abre una issue `fallo` por firma o comenta en la que ya está abierta. `gh(args) -> stdout`."""
     hechos = []
     for fallo in a_reportar(resultado):
-        abiertas = json.loads(gh(['issue', 'list', '--label', 'fallo', '--state', 'open', '--limit', '100',
-                                  '--search', f"\"firma {fallo['firma']}\" in:title", '--json', 'number,title']))
+        abiertas = gh_listas.lista(lambda *a: gh(list(a)), 'issue', 'list', '--label', 'fallo', '--state', 'open',
+                                   '--search', f"\"firma {fallo['firma']}\" in:title", '--json', 'number,title', tope=1000)
         numero = next((i['number'] for i in abiertas if f"[firma {fallo['firma']}]" in i['title']), None)
         cuerpo = (f"Ejecución: {enlace}\n\nPaso: `{fallo['paso']}` · clase: `{fallo['clase']}` · "
                   f"firma: `{fallo['firma']}`\n\n```\n{fallo['error']}\n```\n")
