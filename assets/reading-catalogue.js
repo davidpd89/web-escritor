@@ -8,20 +8,25 @@
       event.preventDefault();
       const input = jump.querySelector('input'), raw = input.value.trim();
       const page = /^\d+$/.test(raw) ? Math.max(1, Math.min(Number(input.max) || 1, Number(raw))) : 1;
-      location.assign(page === 1 ? '/recomendaciones/' : `/recomendaciones/pagina/${page}/`);
+      const base = jump.closest('[data-catalogue-base]')?.dataset.catalogueBase || jump.dataset.catalogueBase || '/recomendaciones/';
+      location.assign(page === 1 ? base : `${base.replace(/\/$/, '')}/pagina/${page}/`);
     });
   }
 })();
 (async () => {
   const root = document.querySelector('[data-reading-catalogue]');
   if (!root) return;
+  // Mismo motor para libros y autores: rutas, sustantivo y datos de mercado salen del HTML.
+  const BASE = /^\/[a-z0-9/-]*\/$/.test(root.dataset.catalogueBase || '') ? root.dataset.catalogueBase : '/recomendaciones/';
+  const NOUN = [root.dataset.nounOne || 'libro', root.dataset.nounMany || 'libros'];
+  const noun = n => n + ' ' + (n === 1 ? NOUN[0] : NOUN[1]);
   // Small, linked static pages remain usable without JS. Enhance the hub only
   // after every page of this exact catalogue snapshot has been loaded.
   const staticNav = root.querySelector('[data-catalogue-static-pagination]');
   // El paginador estático solo enlaza una ventana de páginas; el total va en data-catalogue-page-count.
   const pageCount = Number.parseInt(staticNav?.dataset.cataloguePageCount || '', 10);
   const continuation = pageCount > 1
-    ? Array.from({length: pageCount - 1}, (_, i) => ({href: `/recomendaciones/pagina/${i + 2}/`}))
+    ? Array.from({length: pageCount - 1}, (_, i) => ({href: `${BASE.slice(0, -1)}/pagina/${i + 2}/`}))
     : [...new Map([...(staticNav?.querySelectorAll('a[data-catalogue-page]') || [])].map(a => [a.href, a])).values()];
   // El catálogo completo (todas las páginas) se descarga e indexa al primer uso de filtros, buscador o test, o al
   // cargar con un estado en la URL (#…). Antes, la primera página ya lleva novedad, valoraciones y precios del día.
@@ -50,7 +55,7 @@
     };
     const readPage = async (link, attempt = 0) => {
       const url = new URL(link.href, location.href);
-      if (url.origin !== location.origin || !/^\/recomendaciones\/pagina\/[1-9]\d*\/$/.test(url.pathname) || url.search || url.hash) throw new Error('Invalid catalogue page');
+      if (url.origin !== location.origin || !(url.pathname.startsWith(BASE + 'pagina/') && /^[1-9]\d*\/$/.test(url.pathname.slice(BASE.length + 7))) || url.search || url.hash) throw new Error('Invalid catalogue page');
       try {
         const response = await fetch(url.href, { cache: 'no-cache', signal: AbortSignal.timeout(30000) });
         if (!response.ok || !response.headers.get('content-type')?.includes('text/html')) throw new Error('Catalogue unavailable');
@@ -121,8 +126,9 @@
   const fields = form ? [...form.elements].filter(f => f.dataset.filter) : [];
   // Filtros con varias opciones a la vez (OR dentro de cada uno, AND entre ellos), como casillas.
   // Solo filtros de fuente fiable (David, 08/11): temática, temporada y contenido eran reglas propias.
-  const FACETS = ['grupo', 'genero', 'edad', 'formato'];
   const boxes = form ? [...form.querySelectorAll('input[data-facet]')] : [];
+  const KNOWN_FACETS = ['grupo', 'genero', 'edad', 'formato'], pageFacets = new Set(boxes.map(b => b.dataset.facet));
+  const FACETS = [...KNOWN_FACETS.filter(k => pageFacets.has(k) || !boxes.length), ...[...pageFacets].filter(k => !KNOWN_FACETS.includes(k))];
   const FIXED_ORDER = ['grupo', 'edad', 'formato'];
   const pick = x => Array.isArray(x) ? x : x ? [x] : [];
   let market = { offers: [], ratings: [], sales_ranks: [] };
@@ -184,7 +190,12 @@
   // Caché por versión de mercado (renderMarket la invalida): recalcular en cada clic disparaba el INP.
   let memo = new Map();
   const memoFor = card => { let m = memo.get(card); if (!m) memo.set(card, m = {}); return m; };
-  const cardCategories = card => { const m = memoFor(card); return m.cats || (m.cats = card.dataset.categories.split(' ')); };
+  const cardCategories = card => { const m = memoFor(card); return m.cats || (m.cats = (card.dataset.categories || '').split(' ')); };
+  const cardGroups = card => { const m = memoFor(card); return m.groups || (m.groups = (card.dataset.group || '').split(' ')); };
+  // Autores: data-dates con las fechas de sus libros; «publicados» y «próximos» se deciden con la fecha de hoy.
+  const cardDates = card => { const m = memoFor(card); return m.dates || (m.dates = (card.dataset.dates || '').split(' ').filter(d => /^\d{4}-\d{2}-\d{2}$/.test(d)).sort()); };
+  const hasReleased = card => card.dataset.dates === undefined ? released(lowerOf(card)) : !cardDates(card).length || cardDates(card).some(d => d <= today());
+  const hasUpcoming = card => card.dataset.dates === undefined ? !released(lowerOf(card)) : cardDates(card).some(d => d > today());
   const cardFormats = card => { const m = memoFor(card); return m.formats || (m.formats = new Set([...(card.dataset.formats || '').split(' '), ...offersFor(card.dataset.bookId).map(o => o.formato)])); };
   // Insignias de oferta sin reconfirmar: fuera en la página inicial y en las fichas que trae la hidratación.
   const pruneOffers = (scope = root) => { for (const badge of scope.querySelectorAll('[data-offer-checked]')) if (!offerCurrent(badge.dataset.offerChecked)) badge.remove(); };
@@ -255,11 +266,11 @@
   const lowerOf = card => boundsOf(card).lower;
   const rangeOf = card => { const pages = Number(card.dataset.pages); return !pages ? '' : pages < 200 ? 'breve' : pages < 400 ? 'media' : pages < 600 ? 'larga' : 'muy-larga'; };
   // Condiciones que no son casillas: búsqueda, estado, extensión, fechas, nota, precio y descuento.
-  const baseMatch = (card, v) => searchIndex.get(card).includes(queryOf(v)) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? !released(lowerOf(card)) : released(lowerOf(card)))) && (!v.paginas || v.paginas === rangeOf(card)) && (!v.desde || (boundsOf(card).upper && boundsOf(card).upper >= v.desde)) && (!v.hasta || (lowerOf(card) && lowerOf(card) <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
+  const baseMatch = (card, v) => searchIndex.get(card).includes(queryOf(v)) && (v.estado === 'todos' || (!v.estado && v.q) || (v.estado === 'proximos' ? hasUpcoming(card) : hasReleased(card))) && (!v.paginas || v.paginas === rangeOf(card)) && (!v.desde || (boundsOf(card).upper && boundsOf(card).upper >= v.desde)) && (!v.hasta || (lowerOf(card) && lowerOf(card) <= v.hasta)) && ratingOk(card, v) && priceOk(card, v) && (!v.descuento || matchingOffers(card, v).length > 0);
   const facetMatch = (card, v, k) => {
     const chosen = pick(v[k]);
     if (!chosen.length) return true;
-    if (k === 'grupo') return chosen.includes(card.dataset.group);
+    if (k === 'grupo') return chosen.some(x => cardGroups(card).includes(x));
     if (k === 'formato') { const formats = cardFormats(card); return chosen.some(x => formats.has(x)); }
     const cats = cardCategories(card); return chosen.some(x => cats.includes(x));
   };
@@ -270,7 +281,7 @@
   function facetValues(card, k) {
     if (k === 'formato') return cardFormats(card);
     const m = memoFor(card), key = k === 'grupo' ? 'groupSet' : 'catSet';
-    return m[key] || (m[key] = new Set(k === 'grupo' ? [card.dataset.group] : cardCategories(card)));
+    return m[key] || (m[key] = new Set(k === 'grupo' ? cardGroups(card) : cardCategories(card)));
   }
   function renderFacets(v) {
     if (!form) return;
@@ -284,7 +295,7 @@
     for (const card of cards) {
       for (const k of FACETS) for (const x of facetValues(card, k)) totalsBy.get(k).add(x);
       const failing = others.filter(k => !facetMatch(card, v, k));
-      if (!failing.length) for (const x of facetValues(card, 'formato')) if (baseMatch(card, perFormat ? {...v, formato: [x]} : v)) bump('formato', x);
+      if (!failing.length && FACETS.includes('formato')) for (const x of facetValues(card, 'formato')) if (baseMatch(card, perFormat ? {...v, formato: [x]} : v)) bump('formato', x);
       if (failing.length > 1 || !facetMatch(card, v, 'formato') || !baseMatch(card, v)) continue;
       for (const k of failing.length ? failing : others) for (const x of facetValues(card, k)) bump(k, x);
     }
@@ -350,7 +361,8 @@
   function apply(save = true) {
     const v = values();
     const nullable = (x, y, desc = false) => x == null ? (y == null ? 0 : 1) : y == null ? -1 : desc ? y - x : x - y;
-    const dateOf = card => { const m = memoFor(card); if (m.date === undefined) m.date = card.dataset.published || card.dataset.publishedMonth || card.dataset.year ? Date.parse(card.dataset.published || (card.dataset.publishedMonth ? card.dataset.publishedMonth + '-01' : card.dataset.year + '-01-01')) : null; return m.date; };
+    const authorDate = card => { const d = cardDates(card), now = today(); const pick = v.estado === 'proximos' ? d.find(x => x > now) : d.filter(x => x <= now).pop(); return pick ? Date.parse(pick) : null; };
+    const dateOf = card => { if (card.dataset.dates !== undefined) return authorDate(card); const m = memoFor(card); if (m.date === undefined) m.date = card.dataset.published || card.dataset.publishedMonth || card.dataset.year ? Date.parse(card.dataset.published || (card.dataset.publishedMonth ? card.dataset.publishedMonth + '-01' : card.dataset.year + '-01-01')) : null; return m.date; };
     const rating = card => ratingFor(card.dataset.bookId)?.puntuacion ?? null;
     const compare = (a, b) => {
       // Orden por defecto adaptado: con un filtro de valoración, de menos a más estrellas (3, 3,5, 4…);
@@ -363,6 +375,10 @@
         case 'precio_tapa-dura': case 'precio_tapa-blanda': case 'precio_ebook': case 'precio_audiolibro': { const format = [v.orden.slice(7)]; return nullable(priceOf(a, format), priceOf(b, format)); }
         // Con puesto primero; el resto, por fecha.
         case 'ventas': return nullable(rankFor(a.dataset.bookId), rankFor(b.dataset.bookId)) || nullable(dateOf(a), dateOf(b), true);
+        case 'nombre': return (a.dataset.sortName || a.dataset.title || '').localeCompare(b.dataset.sortName || b.dataset.title || '', 'es', {sensitivity: 'base'});
+        case 'libros_desc': return nullable(Number(a.dataset.books) || null, Number(b.dataset.books) || null, true) || nullable(dateOf(a), dateOf(b), true);
+        case 'destacados': return (Number(b.dataset.score) || 0) - (Number(a.dataset.score) || 0) || nullable(dateOf(a), dateOf(b), true);
+        case 'nacimiento_asc': case 'nacimiento_desc': return nullable(Number(a.dataset.born) || null, Number(b.dataset.born) || null, v.orden === 'nacimiento_desc');
         case 'valoracion_desc': return nullable(ratingFor(a.dataset.bookId)?.puntuacion ?? null, ratingFor(b.dataset.bookId)?.puntuacion ?? null, true);
         default: return 0;
       }
@@ -385,7 +401,7 @@
       const refineCount = root.querySelector('[data-catalogue-refine-count]');
       const upcomingLink = root.querySelector('[data-catalogue-upcoming]'); if (upcomingLink) upcomingLink.hidden = v.estado === 'proximos' || v.estado === 'todos';
       if (refineCount) { const active = fields.filter(f => !['q', 'orden', 'estado'].includes(f.dataset.filter) && f.value && !f.disabled).length + boxes.filter(b => b.checked).length; refineCount.textContent = active ? '· ' + active + (active === 1 ? ' activo' : ' activos') : ''; }
-      root.querySelector('[data-catalogue-count]').textContent = visible + (visible === 1 ? ' libro' : ' libros') + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
+      root.querySelector('[data-catalogue-count]').textContent = noun(visible) + (pages > 1 ? ' · página ' + currentPage + ' de ' + pages : ''); root.querySelector('[data-catalogue-empty]').hidden = visible !== 0;
       renderActive(v);
       if (save) { const hash = new URLSearchParams(Object.entries(v).filter(([k, value]) => !FACETS.includes(k) && value && !(k === 'orden' && value === 'editorial'))); for (const k of FACETS) for (const x of v[k]) hash.append(k, x); if (currentPage > 1) hash.set('pagina', String(currentPage)); const next = location.pathname + location.search + (hash.size ? '#' + hash : ''); if (pushNext && next !== location.pathname + location.search + location.hash) history.pushState(null, '', next); else history.replaceState(null, '', next); }
       else {
@@ -519,6 +535,7 @@
         {label: 'Un próximo lanzamiento', values: {estado: 'proximos'}}]},
       {key: 'genero', question: '¿Qué género te apetece?', options: () => optionsFrom('genero')},
       {key: 'edad', question: '¿Para quién buscas el libro?', options: () => optionsFrom('edad')},
+      {key: 'epoca', question: '¿De qué época?', options: () => optionsFrom('epoca')},
       {key: 'paginas', question: '¿Cuánto te apetece leer?', options: () => optionsFrom('paginas')},
       {key: 'formato', question: '¿Tienes un formato en mente?', options: () => optionsFrom('formato')},
       // El presupuesto se aplica al formato elegido antes (si lo hay), nunca mezclando Kindle y papel en silencio.
@@ -551,8 +568,8 @@
       const choices = document.createElement('div'); choices.className = 'catalogue-quiz__choices';
       if (done) {
         // El test sigue abierto con los resultados aplicados.
-        status.textContent = 'Resultados del test aplicados · ' + cards.filter(card => matches(card, values())).length + ' libros';
-        heading.textContent = 'Estos son tus libros';
+        status.textContent = 'Resultados del test aplicados · ' + noun(cards.filter(card => matches(card, values())).length);
+        heading.textContent = 'Estos son tus ' + NOUN[1];
         choices.append(button('Restablecer filtros', () => { form.reset(); reset(); }));
       } else if (index < steps.length) {
         const question = steps[index].question;
@@ -563,13 +580,13 @@
           }));
         }
       } else {
-        status.textContent = count + (count === 1 ? ' libro encaja con tus respuestas' : ' libros encajan con tus respuestas');
+        status.textContent = noun(count) + (count === 1 ? ' encaja con tus respuestas' : ' encajan con tus respuestas');
         heading.textContent = count ? 'Tu próxima lectura te espera' : 'Los datos han cambiado. Prueba otra selección';
         if (count) choices.append(button('Ver mis resultados', showResults));
       }
       const actions = document.createElement('div'); actions.className = 'catalogue-filter-actions';
       // Desde la primera pregunta se puede saltar al catálogo con lo respondido hasta ahora.
-      if (!done && index < steps.length) { const now = button('Mostrar ya los resultados (' + count + (count === 1 ? ' libro)' : ' libros)'), showResults); now.className = 'catalogue-quiz__now'; actions.append(now); }
+      if (!done && index < steps.length) { const now = button('Mostrar ya los resultados (' + noun(count) + ')', showResults); now.className = 'catalogue-quiz__now'; actions.append(now); }
       if (history.length) actions.append(button('← Volver', () => { const previous = history.pop(); done = false; index = previous.index; criteria = previous.criteria; render(); }));
       actions.append(button('Empezar de nuevo', reset));
       status.hidden = !status.textContent;
@@ -591,7 +608,7 @@
   };
   const refresh = () => { renderNovelty(); renderMarket(); if (ready) apply(false); };
   window.addEventListener('pageshow', refresh); document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); }); setInterval(() => { if (!document.hidden) refresh(); }, 60000);
-  fetch('/assets/reading-market.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(p => { if (p?.schema_version === 1 && Array.isArray(p.offers) && Array.isArray(p.ratings)) { payload = p; adoptMarket(); renderMarket(); if (ready) restore(); } }).catch(() => { /* The static catalogue stays available. */ }); refresh();
+  if (root.dataset.catalogueMarket !== 'off') fetch('/assets/reading-market.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(p => { if (p?.schema_version === 1 && Array.isArray(p.offers) && Array.isArray(p.ratings)) { payload = p; adoptMarket(); renderMarket(); if (ready) restore(); } }).catch(() => { /* The static catalogue stays available. */ }); refresh();
   if (document.fonts) document.fonts.load('1em "CatalogueNovelty"').then(faces => { root.classList.add(faces.length ? 'catalogue-fonts-ready' : 'catalogue-fonts-failed'); }).catch(() => root.classList.add('catalogue-fonts-failed'));
   else root.classList.add('catalogue-fonts-failed');
   if (!hydrated) {

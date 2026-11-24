@@ -1,0 +1,193 @@
+{
+  "slug": "santiago-posteguillo",
+  "identificado": true,
+  "intro": "Santiago Posteguillo (Valencia, 1967) es un escritor español, filólogo y profesor universitario especializado en novela histórica. Es conocido por sus trilogías ambientadas en la antigua Roma, protagonizadas por Escipión el Africano y el emperador Trajano, y por sus novelas sobre Julia Domna y Julio César. Ganó el Premio Planeta en 2018 con Yo, Julia. También ha publicado libros de divulgación sobre historia de la literatura y compagina su actividad literaria con la docencia en la Universitat Jaume I de Castellón.",
+  "biografia": "Santiago Posteguillo Gómez nació en Valencia en 1967. Es filólogo, lingüista y doctor europeo por la Universidad de Valencia. Amplió su formación en literatura creativa en Estados Unidos y estudió lingüística, análisis del discurso y traducción en el Reino Unido. Es profesor titular de lengua y literatura inglesas en la Universitat Jaume I de Castellón, donde también ha desempeñado funciones de dirección académica.\n\nEn 2006 publicó Africanus: el hijo del cónsul, primera novela de una trilogía sobre Escipión el Africano que completó con Las legiones malditas (2008) y La traición de Roma (2009). Posteriormente escribió la trilogía de Trajano, formada por Los asesinos del emperador (2011), Circo máximo (2013) y La legión perdida (2016). En paralelo publicó tres libros sobre la historia de la literatura, iniciados con La noche en que Frankenstein leyó el Quijote (2012).\n\nRecibió el Premio de las Letras de la Generalitat Valenciana en 2010, el Premio Internacional de Novela Histórica Barcino en 2014 y el Premio Planeta en 2018 por Yo, Julia, cuya continuación publicó en 2020. En 2022 inició su serie sobre Julio César con Roma soy yo, seguida de Maldita Roma (2023) y Los tres mundos (2025), que cierra el primer ciclo de una serie más extensa. También participó como guionista y narrador en la serie documental El corazón del imperio, estrenada en Movistar Plus+ en 2021.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Roma soy yo: La verdadera historia de Julio César",
+      "motivo": "Es la primera novela de la serie dedicada a Julio César y comienza con su juventud y sus primeros enfrentamientos políticos. Permite seguir la historia del personaje desde sus orígenes sin necesidad de haber leído las anteriores sagas romanas del autor."
+    },
+    {
+      "titulo": "Africanus",
+      "motivo": "Es su primera novela, publicada originalmente como Africanus: el hijo del cónsul en 2006. Inicia la trilogía sobre Escipión el Africano y las guerras contra Cartago, por lo que sirve para conocer la narrativa histórica de Posteguillo desde sus comienzos."
+    },
+    {
+      "titulo": "Los asesinos del emperador. Edición especial con cantos decorados",
+      "motivo": "Es el primer volumen de la trilogía de Trajano. La trama combina las conspiraciones políticas contra el emperador Domiciano con los acontecimientos que precedieron al ascenso de Trajano al poder."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Africanus: el hijo del cónsul",
+      "anio": 2006,
+      "saga": "Trilogía Africanus"
+    },
+    {
+      "titulo": "Las legiones malditas",
+      "anio": 2008,
+      "saga": "Trilogía Africanus"
+    },
+    {
+      "titulo": "La traición de Roma",
+      "anio": 2009,
+      "saga": "Trilogía Africanus"
+    },
+    {
+      "titulo": "Los asesinos del emperador",
+      "anio": 2011,
+      "saga": "Trilogía de Trajano"
+    },
+    {
+      "titulo": "La noche en que Frankenstein leyó el Quijote",
+      "anio": 2012,
+      "saga": "Trilogía sobre la historia de la literatura"
+    },
+    {
+      "titulo": "Circo máximo",
+      "anio": 2013,
+      "saga": "Trilogía de Trajano"
+    },
+    {
+      "titulo": "La sangre de los libros",
+      "anio": 2014,
+      "saga": "Trilogía sobre la historia de la literatura"
+    },
+    {
+      "titulo": "La legión perdida",
+      "anio": 2016,
+      "saga": "Trilogía de Trajano"
+    },
+    {
+      "titulo": "El séptimo círculo del infierno",
+      "anio": 2017,
+      "saga": "Trilogía sobre la historia de la literatura"
+    },
+    {
+      "titulo": "Yo, Julia",
+      "anio": 2018,
+      "saga": "Bilogía de Julia Domna"
+    },
+    {
+      "titulo": "Y Julia retó a los dioses",
+      "anio": 2020,
+      "saga": "Bilogía de Julia Domna"
+    },
+    {
+      "titulo": "Roma soy yo: La verdadera historia de Julio César",
+      "anio": 2022,
+      "saga": "Serie Julio César"
+    },
+    {
+      "titulo": "Maldita Roma: La conquista del poder de Julio César",
+      "anio": 2023,
+      "saga": "Serie Julio César"
+    },
+    {
+      "titulo": "Los tres mundos",
+      "anio": 2025,
+      "saga": "Serie Julio César"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Trilogía Africanus",
+      "libros": [
+        "Africanus: el hijo del cónsul",
+        "Las legiones malditas",
+        "La traición de Roma"
+      ]
+    },
+    {
+      "nombre": "Trilogía de Trajano",
+      "libros": [
+        "Los asesinos del emperador",
+        "Circo máximo",
+        "La legión perdida"
+      ]
+    },
+    {
+      "nombre": "Trilogía sobre la historia de la literatura",
+      "libros": [
+        "La noche en que Frankenstein leyó el Quijote",
+        "La sangre de los libros",
+        "El séptimo círculo del infierno"
+      ]
+    },
+    {
+      "nombre": "Bilogía de Julia Domna",
+      "libros": [
+        "Yo, Julia",
+        "Y Julia retó a los dioses"
+      ]
+    },
+    {
+      "nombre": "Serie Julio César",
+      "libros": [
+        "Roma soy yo: La verdadera historia de Julio César",
+        "Maldita Roma: La conquista del poder de Julio César",
+        "Los tres mundos"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Alejandro Núñez Alonso",
+      "motivo": "Ambos escriben novela histórica ambientada en la antigua Roma, con conflictos de poder, conspiraciones políticas y reconstrucciones de la sociedad romana; Núñez Alonso lo hizo especialmente en su ciclo de Benasur de Judea."
+    },
+    {
+      "nombre": "Inma Aguilera",
+      "motivo": "Comparten la novela histórica centrada en conflictos personales, relaciones de poder y diferencias sociales, aunque Aguilera sitúa sus historias en otras épocas, como la Sevilla del siglo XIX."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿En qué orden se leen los libros de Julio César de Santiago Posteguillo?",
+      "respuesta": "El orden de lectura es Roma soy yo (2022), Maldita Roma (2023) y Los tres mundos (2025). Estos tres libros forman la Trilogía del Ascenso, el primer ciclo de una serie prevista de seis novelas sobre Julio César. Los tres mundos cierra ese primer ciclo, pero no toda la serie."
+    },
+    {
+      "pregunta": "¿Cuál es el orden de la trilogía Africanus?",
+      "respuesta": "La trilogía se lee en este orden: Africanus: el hijo del cónsul (2006), Las legiones malditas (2008) y La traición de Roma (2009). Las tres novelas siguen la vida del general romano Publio Cornelio Escipión y su enfrentamiento con Aníbal durante las guerras púnicas."
+    },
+    {
+      "pregunta": "¿En qué orden hay que leer la trilogía de Trajano?",
+      "respuesta": "Primero Los asesinos del emperador (2011), después Circo máximo (2013) y finalmente La legión perdida (2016). Es una trilogía completa que narra el ascenso, el gobierno y las campañas militares del emperador Trajano."
+    },
+    {
+      "pregunta": "¿Con qué libro ganó Santiago Posteguillo el Premio Planeta?",
+      "respuesta": "Ganó el Premio Planeta en 2018 con Yo, Julia, una novela histórica sobre Julia Domna y su ascenso al poder en el Imperio romano. La historia continúa y termina en Y Julia retó a los dioses, publicada en 2020."
+    },
+    {
+      "pregunta": "¿Cuál es el último libro de Santiago Posteguillo y sigue escribiendo?",
+      "respuesta": "Hasta noviembre de 2026, su última novela publicada es Los tres mundos, aparecida en octubre de 2025. Es la tercera entrega de la serie de Julio César. El autor continúa trabajando en esta serie y ha confirmado que prepara su cuarta novela."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Santiago Posteguillo - Biografía oficial del autor",
+      "url": "https://www.santiagoposteguillo.es/santiago-posteguillo-el-autor/"
+    },
+    {
+      "titulo": "Santiago Posteguillo - Agencia Literaria Carmen Balcells",
+      "url": "https://www.agenciabalcells.com/autores/autor/santiago-posteguillo/"
+    },
+    {
+      "titulo": "Santiago Posteguillo - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/175012-santiago-posteguillo"
+    },
+    {
+      "titulo": "Movistar Plus+ presenta El corazón del imperio",
+      "url": "https://www.movistarplus.es/comunicacion/email/movistar-presenta-el-corazon-del-imperio-en-el-museo-de-las-villas-romanas-de-valladolid/"
+    },
+    {
+      "titulo": "El lazo de púrpura, de Alejandro Núñez Alonso - PlanetadeLibros",
+      "url": "https://www.planetadelibros.com/libro-el-lazo-de-purpura/425165"
+    },
+    {
+      "titulo": "La dama de La Cartuja, de Inma Aguilera - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/novela-historica/341360-libro-la-dama-de-la-cartuja-la-cartuja-1-9788466678667"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

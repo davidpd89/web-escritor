@@ -101,12 +101,27 @@ class FeedTest(unittest.TestCase):
             {"qid": "Q11", "name": "Viva", "city": "B", "country_iso2": "ES", "place_type": "museum", "sitelinks": 5, "official_url": "https://viva.example/"},
         ]
         merged = feed.merge(old, fresh, "2026-10-28", {"keep_days": 30, "max_new_per_run": 1},
-                            url_ok=lambda url: url == "https://viva.example/")
+                            url_ok=lambda url: url in {"https://viva.example/", "https://vieja.example/"})
         places = {p["qid"]: p for p in merged["places"]}
         self.assertNotIn("Q10", places)                                     # no entra, y no gasta el cupo de altas
         self.assertEqual(places["Q11"]["first_seen"], "2026-10-28")
         self.assertEqual(places["Q1"]["official_url"], "https://vieja.example/")   # la web nueva no responde: se queda la vieja
         self.assertEqual(places["Q1"]["last_seen"], "2026-10-28")
+
+    def test_merge_stops_linking_a_published_website_that_died(self) -> None:
+        # 2026-11-23: una web ya publicada entró en bucle de 302 y tumbó broken-links al cambiar la página.
+        base = {"name": "Vista", "city": "A", "country_iso2": "GB", "place_type": "bookshop", "sitelinks": 9}
+        old = {"places": [{**base, "qid": "Q1", "official_url": "https://cayo.example/", "last_seen": "2026-11-22", "first_seen": "2026-11-01"},
+                          {**base, "qid": "Q2", "official_url": "https://vieja.example/", "last_seen": "2026-11-22", "first_seen": "2026-11-01"}]}
+        fresh = [{**base, "qid": "Q1", "official_url": "https://cayo.example/"},
+                 {**base, "qid": "Q2", "official_url": "https://muerta.example/"}]
+        dead = {"https://cayo.example/", "https://muerta.example/", "https://vieja.example/"}
+        places = {p["qid"]: p for p in feed.merge(old, fresh, "2026-11-23", {}, url_ok=lambda url: url not in dead)["places"]}
+        self.assertNotIn("official_url", places["Q1"])
+        self.assertNotIn("official_url", places["Q2"])          # ni la nueva ni la que se conservaba
+        self.assertEqual(places["Q1"]["first_seen"], "2026-11-01")
+        revived = feed.merge({"places": list(places.values())}, fresh, "2026-11-24", {}, url_ok=lambda _: True)
+        self.assertEqual({p["qid"]: p.get("official_url") for p in revived["places"]}["Q1"], "https://cayo.example/")
 
     def test_url_responds_follows_the_link_checker_rules(self) -> None:
         from unittest import mock

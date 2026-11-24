@@ -338,6 +338,11 @@ class NotFound(RuntimeError):
     """404 de Creators: la búsqueda no tiene resultados (no es una caída)."""
 
 
+class AccessDenied(RuntimeError):
+    """Sin acceso a Creators (cuenta no elegible o 401 tras renovar el token): la noche se para, no se reintenta.
+    Conserva el texto de RuntimeError para quien lo registra; las decisiones se toman por el tipo."""
+
+
 # Reintentos tomados de sergioteula/python-amazon-paapi (MIT, amazon_creatorsapi/core/retry.py):
 # 429 y 5xx con espera exponencial o la que pida Retry-After; un 401 renueva el token una vez.
 RETRY_STATUS = frozenset({429, 500, 502, 503, 504})
@@ -384,10 +389,10 @@ class CreatorsPrices:
                     time.sleep(wait)
                     continue
                 if exc.code==403 and ('eligib' in str(error.get('message','')).lower() or any(e.get('code')=='AssociateNotEligible' for e in error.get('errors',[]) if isinstance(e,dict))):
-                    raise RuntimeError('pending_amazon_eligibility') from exc
+                    raise AccessDenied('pending_amazon_eligibility') from exc
                 if exc.code==404:
                     raise NotFound('Amazon Creators HTTP 404') from exc
-                raise RuntimeError(f'Amazon Creators HTTP {exc.code}') from exc
+                raise (AccessDenied if exc.code==401 else RuntimeError)(f'Amazon Creators HTTP {exc.code}') from exc
             except (URLError,TimeoutError,ConnectionError) as exc:
                 if attempt<retries:
                     attempt+=1

@@ -61,6 +61,12 @@ jobs:
         id: scope
         run: python3 scripts/select-link-check-inputs.py
 
+      # Covers in the external store (data/reading-covers-store.json) are not in this repo: the deploy rewrites
+      # their logical /assets/reading-covers/ paths to the store URL. Do the same here so lychee checks the real
+      # hosted file instead of reporting a missing local one.
+      - name: Point store covers at the store, as the deploy does
+        run: python3 scripts/reading_cover_store.py apply .
+
       # Two flags about the CI runner, not about the links (2026-10-06): lychee's
       # own user agent gets challenged -- Blogspot URLs came back as six 302s
       # into google.com/sorry and Shopify answered 429 -- while the exact same

@@ -59,6 +59,35 @@ KNOWN_BAD = {
 
 QID_RE = re.compile(r"wikidata\.org/wiki/(Q\d+)")
 
+# Author pages (recomendaciones/autores/<slug>/) get their QID from
+# scripts/enrich-reading-authors.py, which only records one after checking the
+# entity is a human (P31=Q5), carries the author's exact name as a label/alias
+# and has a writing occupation (P106), refusing ambiguous homonyms. That is the
+# same verification this table asks a human to do, so an author QID is accepted
+# when it appears only on that author's own page and matches the report.
+AUTHOR_REPORT = ROOT / "data" / "reading-authors-wikidata.json"
+AUTHOR_VERIFIED = {"escritor", "escritor más conocido"}
+AUTHOR_PAGE_RE = re.compile(r"^recomendaciones/autores/([^/]+)/index\.html$")
+
+
+def verified_authors(path=AUTHOR_REPORT):
+    """slug -> QID that the enrichment verified (empty if there is no report)."""
+    try:
+        report = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return {}
+    return {slug: row["qid"] for slug, row in report.items()
+            if isinstance(row, dict) and row.get("qid") and row.get("motivo") in AUTHOR_VERIFIED}
+
+
+def author_verified(qid, locations, authors):
+    """True if every reference is on the own page of an author verified with this QID."""
+    for path, _line in locations:
+        match = AUTHOR_PAGE_RE.match(Path(path).as_posix())
+        if not match or authors.get(match.group(1)) != qid:
+            return False
+    return bool(locations)
+
 
 def git_tracked_html():
     result = arbol_publicado.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True, check=True)
@@ -107,6 +136,7 @@ def main() -> int:
     args = ap.parse_args()
 
     refs = find_references()
+    authors = verified_authors()
     errors = []
 
     print(f"Found {len(refs)} distinct Wikidata QID(s) referenced in tracked HTML.\n")
@@ -114,6 +144,9 @@ def main() -> int:
         where = ", ".join(f"{f}:{n}" for f, n in locations)
         if qid in KNOWN_BAD:
             errors.append(f"{qid} is KNOWN BAD ({KNOWN_BAD[qid]}) — still referenced at {where}")
+            continue
+        if qid not in KNOWN_GOOD and author_verified(qid, locations, authors):
+            print(f"  {qid}: OK (author verified by enrich-reading-authors) — {where}")
             continue
         if qid not in KNOWN_GOOD:
             errors.append(f"{qid} is not in KNOWN_GOOD — verify it manually against Wikidata and add it to scripts/check-wikidata-sameas.py, referenced at {where}")

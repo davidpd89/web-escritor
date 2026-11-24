@@ -13,7 +13,7 @@ spec = importlib.util.spec_from_file_location('publication', ROOT / 'scripts/pub
 publication = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(publication)
 
-EXACT = {'assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-classification-gpt.json', 'data/reading-authors.json', 'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-covers-store.json', 'data/reading-amazon-audit.json', 'data/reading-pinterest-state.json', 'data/reading-quarantine.json',
+EXACT = {'assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-classification-gpt.json', 'data/reading-authors.json', 'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-covers-store.json', 'data/reading-author-links.json', 'data/reading-amazon-audit.json', 'data/reading-pinterest-state.json', 'data/reading-quarantine.json',
          'data/content-registry.json', 'recomendaciones/index.html', 'recomendaciones/autores/index.html',
          'recomendaciones/editoriales/index.html', 'recomendaciones/proximos-lanzamientos.ics', 'recomendaciones/ofertas.json', 'recomendaciones/llms.txt', 'mapa-del-sitio/index.html',
          'sitemap.xml', 'editoriales-sitemap.xml', 'editoriales/index.html', 'editoriales/editoriales-data.json', 'metodologia-editorial/index.html'}
@@ -22,12 +22,13 @@ EXACT = {'assets/page-order.generated.js', 'assets/reading-market.json', 'data/r
 def allowed_path(path):
     return path in EXACT or bool(re.fullmatch(
         r'(?:recomendaciones/(?:libros|autores|editoriales)/[a-z0-9-]+/index\.html|'
-        r'recomendaciones/pagina/[0-9]+/index\.html|'
+        r'recomendaciones/(?:autores/)?pagina/[0-9]+/index\.html|'
         r'editoriales/[a-z0-9-]+/index\.html|'
         r'assets/reading-covers/isbn-97[89][0-9]{10}(?:-320)?\.webp|'
         r'assets/reading-audio/[a-z0-9-]+-[a-f0-9]{12}\.mp3|'
         r'assets/pinterest/feeds/[a-z0-9-]+\.xml|'
         r'data/reading-texts/(?:isbn-97[89][0-9]{10}|lib-[0-9]{4})\.json|'
+        r'data/reading-author-texts/[a-z0-9]+(?:-[a-z0-9]+)*\.json|'
         r'pagefind/[A-Za-z0-9_./-]+)', path)) and '..' not in path.split('/')
 
 
