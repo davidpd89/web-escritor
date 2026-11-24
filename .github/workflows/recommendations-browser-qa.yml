@@ -26,6 +26,7 @@ on:
       - 'qa/catalogue-filter-interaction-matrix.mjs'
       - 'qa/catalogue-filter-parity.mjs'
       - 'qa/catalogue-filter-reference.mjs'
+      - 'qa/catalogue-random-walk.mjs'
       - 'qa/reading-upcoming-browser.mjs'
       - 'qa/reading-intake-browser.mjs'
       - 'tests/test_reading_catalogue_isbn_search_smoke.py'
@@ -131,6 +132,7 @@ jobs:
           paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-matrix.mjs'
           paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-interaction-matrix.mjs'
           paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-filter-parity.mjs'
+          paso 'QA_ORIGIN=http://127.0.0.1:4173 node qa/catalogue-random-walk.mjs'
           paso 'node qa/reading-upcoming-browser.mjs'
           if ((${#fallos[@]})); then printf 'PASO FALLIDO: %s\n' "${fallos[@]}"; exit 1; fi
       - name: Use lockfile-pinned Lighthouse CI
