@@ -86,6 +86,10 @@ if bash:
     code, calls, _ = run(every, apt_ok=False, mode='deps', browser='webkit', missing='libevent-2.1.so.7')
     assert code == 0 and calls.splitlines()[-1] == (
         'apt-get install -y --no-install-recommends libevent-2.1-7t64'), (code, calls)
+    # 24/11: install-deps termina bien y aun así falta libevent (navegador en caché de otra imagen): se instala igual.
+    code, calls, _ = run(every, apt_ok=True, mode='deps', browser='webkit', missing='libevent-2.1.so.7')
+    assert code == 0 and calls.splitlines()[-1] == (
+        'apt-get install -y --no-install-recommends libevent-2.1-7t64'), (code, calls)
     # Sin red no se intenta apt aunque falten librerías.
     code, calls, _ = run(set(), apt_ok=False, mode='deps', browser='webkit', missing='libevent-2.1.so.7')
     assert code == 0 and 'apt-get' not in calls, (code, calls)
