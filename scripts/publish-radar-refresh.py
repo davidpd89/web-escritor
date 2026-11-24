@@ -378,6 +378,27 @@ def main_cambio_qa(repo, sha):
     return [item['filename'] for item in files if item['filename'].startswith(QA_CODE_PREFIXES)]
 
 
+DETERMINISTA = re.compile(r'^\S*\s*FALLA:? tests/\S+', re.M)
+
+
+def fallo_determinista(repo, run_id):
+    """True si la ejecución fallida trae un `FALLA: tests/...` (un test concreto que falló sobre los datos de la
+    PR): repetir el mismo commit da el mismo fallo y cuesta otra puerta entera (~22 min). Un job cancelado, un corte de
+    red o un runner caído no escriben esa línea, y esos sí se reintentan. Si no se pueden leer los registros, se
+    reintenta como siempre."""
+    try:
+        jobs = json.loads(gh('api', f'repos/{repo}/actions/runs/{run_id}/jobs?per_page=100'))['jobs']
+        for job in jobs:
+            if job.get('conclusion') != 'failure':
+                continue
+            log = gh('api', f'repos/{repo}/actions/jobs/{job["id"]}/logs')
+            if DETERMINISTA.search(log):
+                return True
+    except Exception:  # noqa: BLE001 - sin registros legibles, el reintento de siempre
+        return False
+    return False
+
+
 def cancelar_si_sigue(run_id):
     """Cancela una ejecución obsoleta; si terminó entre el listado y la cancelación, no es un error."""
     try:
@@ -503,6 +524,9 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                     return publish_generated(branch, allowed_path, workflows, timeout=int(remaining),
                                              deploy_before=deploy_before, pr_wait=pr_wait, ceder_a=ceder_a,
                                              qa_refreshes=qa_refreshes - 1)
+                if workflow not in retried and fallo_determinista(repo, result['databaseId']):
+                    retried.add(workflow)  # el reintento daría el mismo fallo: se para ya, sin gastar otra puerta
+                    print(f'SIN RETRY {workflow} ({result["databaseId"]}): fallo de un test concreto (FALLA: tests/...)', flush=True)
                 if workflow not in retried:
                     retried.add(workflow)
                     gh('run', 'rerun', str(result['databaseId']), '--failed')

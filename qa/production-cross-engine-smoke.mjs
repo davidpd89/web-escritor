@@ -26,6 +26,16 @@ async function blockNoise(page){
   await page.route(/(?:gc\.zgo\.at|goatcounter\.com|metricool\.com|clarity\.ms|c\.bing\.com)/,r=>r.abort());
 }
 
+// Un corte de red puntual (TLS reset, timeout) no es un fallo de la web: se reintenta la navegación; un 4xx/5xx sí falla.
+async function gotoWithRetry(page,url,attempts=3){
+  let last;
+  for(let i=1;i<=attempts;i++){
+    try{return await page.goto(url,{waitUntil:'domcontentloaded',timeout:25000});}
+    catch(error){last=error;if(i<attempts) await page.waitForTimeout(2000*i);}
+  }
+  throw last;
+}
+
 async function audit(engineName,browser,route){
   const context=await browser.newContext({viewport:{width:1280,height:800},reducedMotion:'reduce'});
   const page=await context.newPage();
@@ -34,7 +44,7 @@ async function audit(engineName,browser,route){
   await blockNoise(page);
   try{
     const u=`${O}${route}${route.includes('?')?'&':'?'}qa_prod_engine=${engineName}`;
-    const response=await page.goto(u,{waitUntil:'domcontentloaded',timeout:25000});
+    const response=await gotoWithRetry(page,u);
     assert.equal(response?.status(),200,`${engineName} ${route}: HTTP ${response?.status()}`);
     assert.ok((await page.locator('main').count())===1,`${engineName} ${route}: main landmark`);
     assert.ok((await page.locator('h1').first().innerText()).trim(),`${engineName} ${route}: empty h1`);

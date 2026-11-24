@@ -282,6 +282,14 @@ class ReadingTelegramTests(unittest.TestCase):
             self.root / "catalog.json", self.root / "channels.json"
         )
 
+    def test_children_book_is_announced_as_infantil_not_as_its_other_genre(self):
+        """23/11: «El lago de los monstruos (INFANTIL)» salió en novedades como libro de terror."""
+        self.source["categorias"] += [{"id": "terror", "nombre": "Terror", "tipo": "genero"},
+                                      {"id": "infantil", "nombre": "Infantil y juvenil", "tipo": "genero"}]
+        self.source["libro_categorias"] = [{"libro_id": "one", "categoria_id": c} for c in ("terror", "infantil")]
+        book = self.catalog()["books"][0]
+        self.assertEqual((book["genre_id"], book["genres"][0]), ("infantil", "Infantil y juvenil"))
+
     def test_native_links_categories_and_preview(self):
         catalog = self.catalog()
         db = self.root / "state.db"

@@ -243,6 +243,8 @@ def flagged_books(failures, data):
     ids = {b['id'] for b in data['libros']}
     # Hay contratos que citan el libro por su ISBN-13 («Título · 9788412345678») en vez de por su id.
     by_isbn = {b['isbn13']: b['id'] for b in data['libros'] if b.get('isbn13')}
+    # Y otros por la ruta de su ficha: el slug no siempre coincide con el id.
+    by_slug = {b['slug']: b['id'] for b in data['libros'] if b.get('slug') and b['slug'] not in ids}
     out = {}
     for failure in failures:
         rule = failure.get('regla') or failure['test'].split('.')[-1]
@@ -255,6 +257,7 @@ def flagged_books(failures, data):
             continue
         found = [t for t in re.findall(r'[a-z0-9]+(?:-[a-z0-9]+)+', failure['texto']) if t in ids]
         found += [by_isbn[t] for t in re.findall(r'(?<!\d)97[89]\d{10}(?!\d)', failure['texto']) if t in by_isbn]
+        found += [by_slug[t] for t in re.findall(r'[a-z0-9]+(?:-[a-z0-9]+)+', failure['texto']) if t in by_slug]
         named = list(dict.fromkeys(found))
         if not named:
             return None
@@ -406,7 +409,14 @@ def unprice(book):
         option.pop('precio_referencia_centimos', None)
 
 
-REPAIRS = (repair_catalogue_publishers, repair_titles, repair_title_accents, repair_retire_non_reading)
+def repair_normalizar(books, root, today):
+    """Reescribe lo que la fuente trajo sucio (autor en mayúsculas, mojibake, HTML, ISBN con guiones, fecha d/m/a, URL
+    http, sinopsis gritada o desmesurada) en vez de parar la carga o apartar el libro. Ver reading_normalizar.py."""
+    import reading_normalizar
+    return reading_normalizar.normalizar(books)
+
+
+REPAIRS = (repair_catalogue_publishers, repair_normalizar, repair_titles, repair_title_accents, repair_retire_non_reading)
 
 
 def retired_pages(data, root):

@@ -474,7 +474,7 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(result['libros'][0], manual)
             self.assertEqual(len(result['libros']), 3)
             # Editorial enrichment must survive the weekly metadata refresh.
-            result['libro_categorias'].append({'libro_id': result['libros'][1]['id'], 'categoria_id': 'halloween'})
+            result['libro_categorias'].append({'libro_id': result['libros'][1]['id'], 'categoria_id': 'humor'})
             # The nightly Amazon sweep owns these fields: a metadata refresh must keep them.
             result['libros'][1].update(precios_amazon_revision='2026-10-25', formatos_amazon_buscados='2026-10-26')
             (root / 'data/reading-catalogue.json').write_text(json.dumps(result), encoding='utf-8')
@@ -490,7 +490,7 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(refreshed['libros'][1]['fecha_publicacion'], '2026-10-10')
             self.assertEqual(refreshed['libros'][1]['precios_amazon_revision'], '2026-10-25')
             self.assertEqual(refreshed['libros'][1]['formatos_amazon_buscados'], '2026-10-26')
-            self.assertIn({'libro_id': result['libros'][1]['id'], 'categoria_id': 'halloween'}, refreshed['libro_categorias'])
+            self.assertIn({'libro_id': result['libros'][1]['id'], 'categoria_id': 'humor'}, refreshed['libro_categorias'])
             # A partial source response must never replace a real synopsis with
             # the generated bibliographic fallback on the next weekly refresh.
             complete = responses[URL]

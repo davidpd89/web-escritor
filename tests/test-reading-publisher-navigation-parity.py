@@ -4,6 +4,8 @@ import json
 from html.parser import HTMLParser
 from pathlib import Path
 
+from contrato_libros import incumplen
+
 ROOT = Path(__file__).resolve().parents[1]
 
 class PublisherLinks(HTMLParser):
@@ -19,6 +21,7 @@ class PublisherLinks(HTMLParser):
 
 catalogue = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
 errors = []
+malos = {}  # id del libro -> motivo
 checked = 0
 
 for book in catalogue['libros']:
@@ -33,17 +36,18 @@ for book in catalogue['libros']:
     relative = Path('recomendaciones/libros') / book['slug'] / 'index.html'
     path = ROOT / relative
     if not path.is_file():
-        errors.append(f'{relative}: ficha inexistente')
+        malos[book['id']] = 'ficha inexistente'
         continue
     parser = PublisherLinks()
     parser.feed(path.read_text(encoding='utf-8'))
     checked += 1
     if expected not in parser.links:
-        errors.append(f'{relative}: editorial esperada {expected}; enlaces {parser.links}')
+        malos[book['id']] = f'editorial esperada {expected}; enlaces {parser.links}'
     target = ROOT / expected.lstrip('/') / 'index.html'
     if not target.is_file():
-        errors.append(f'{relative}: destino editorial inexistente: {expected}')
+        malos[book['id']] = f'destino editorial inexistente: {expected}'
 
 assert checked > 0, 'No se encontraron libros publicados con editorial enlazada'
+incumplen('enlace a la editorial desde la ficha', malos)
 assert not errors, '\n'.join(errors[:60])
 print(f'PASS: {checked} enlaces editoriales verificados')
