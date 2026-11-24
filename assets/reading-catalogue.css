@@ -272,6 +272,8 @@ html.v1 .catalogue-author-toc p{margin:0 0 .35rem;font-weight:600;}
 html.v1 .catalogue-author-toc ul{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;list-style:none;margin:0;padding:0;}
 html.v1 .catalogue-author-toc a{display:inline-flex;align-items:center;min-height:24px;}
 html.v1 .catalogue-author-start a,html.v1 .catalogue-author-works a{display:inline-block;min-height:24px;line-height:24px;}
+/* Textos de autor: títulos y fuentes largos parten a 320 px con texto al 200 % (WCAG 1.4.10). */
+html.v1 .catalogue-author-text,html.v1 .catalogue-author-text a,html.v1 .catalogue-author-toc a{overflow-wrap:anywhere;max-width:100%;}
 html.v1 .catalogue-author-start{padding-left:1.25rem;}
 html.v1 .catalogue-author-start li{margin:0 0 .9rem;}
 html.v1 .catalogue-author-start p{margin:.25rem 0 0;}

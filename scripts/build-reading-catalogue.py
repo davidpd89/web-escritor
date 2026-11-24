@@ -1819,27 +1819,27 @@ def author_text_sections(a, t, selected, related_by_name):
         by_key.setdefault(edition_key(b['titulo']), b)
     link = lambda title: author_title_link(title, a, by_key)
     nav = [('empezar', 'Por dónde empezar'), ('obras', 'Libros en orden'), ('author-books', 'Ediciones en España')]
-    before = ('<section aria-labelledby="empezar"><h2 id="empezar">Por dónde empezar a leer a ' + esc(name) + '</h2><ol class="catalogue-author-start">'
+    before = ('<section class="catalogue-author-text" aria-labelledby="empezar"><h2 id="empezar">Por dónde empezar a leer a ' + esc(name) + '</h2><ol class="catalogue-author-start">'
               + ''.join('<li><strong>' + link(x['titulo']) + '</strong><p>' + esc(x['motivo']) + '</p></li>' for x in t['por_donde_empezar']) + '</ol></section>')
-    before += ('<section aria-labelledby="obras"><h2 id="obras">Libros de ' + esc(name) + ' en orden de publicación</h2>'
+    before += ('<section class="catalogue-author-text" aria-labelledby="obras"><h2 id="obras">Libros de ' + esc(name) + ' en orden de publicación</h2>'
                '<p>Año de la primera edición original.</p><ol class="catalogue-author-works">'
                + ''.join('<li><span class="catalogue-author-works__year">' + str(w['anio']) + '</span> ' + link(w['titulo'])
                          + (' <span class="catalogue-author-works__original">(' + esc(w['titulo_original']) + ')</span>' if w.get('titulo_original') else '')
                          + (' · <span>' + esc(w['saga']) + '</span>' if w.get('saga') else '') + '</li>' for w in t['obras']) + '</ol></section>')
     if t.get('sagas'):
         nav.insert(2, ('sagas', 'Sagas'))
-        before += ('<section aria-labelledby="sagas"><h2 id="sagas">Sagas de ' + esc(name) + ' y orden de lectura</h2>'
+        before += ('<section class="catalogue-author-text" aria-labelledby="sagas"><h2 id="sagas">Sagas de ' + esc(name) + ' y orden de lectura</h2>'
                    + ''.join('<h3>' + esc(s['nombre']) + '</h3><ol class="catalogue-author-works">' + ''.join('<li>' + link(x) + '</li>' for x in s['libros']) + '</ol>' for s in t['sagas'])
                    + '</section>')
     paragraphs = [p.strip() for p in t['biografia'].split('\n\n') if p.strip()]
-    after = ('<section aria-labelledby="biografia"><h2 id="biografia">Biografía de ' + esc(name) + '</h2>' + ''.join('<p>' + esc(p) + '</p>' for p in paragraphs)
+    after = ('<section class="catalogue-author-text" aria-labelledby="biografia"><h2 id="biografia">Biografía de ' + esc(name) + '</h2>' + ''.join('<p>' + esc(p) + '</p>' for p in paragraphs)
              + '<p class="catalogue-source">Fuentes: ' + ' · '.join(('<a href="' + esc(f['url']) + '" target="_blank" rel="noopener noreferrer">' + esc(f.get('titulo') or f['url']) + NEW_TAB + '</a>')
                                                                   if third_party_links.alive(f['url']) else esc(f.get('titulo') or f['url']) for f in t['fuentes'])
              + ('. Revisado ' + esc(_on_date(life_date_label(t['fecha_revision']))) if t.get('fecha_revision') else '') + '.</p></section>')
     nav.append(('biografia', 'Biografía'))
     similar = [(related_by_name[x['nombre']], x['motivo']) for x in t.get('parecidos', []) if x.get('nombre') in related_by_name]
     if similar:
-        after += ('<section aria-labelledby="parecidos"><h2 id="parecidos">Si te gusta ' + esc(name) + '</h2><ul class="catalogue-author-start">'
+        after += ('<section class="catalogue-author-text" aria-labelledby="parecidos"><h2 id="parecidos">Si te gusta ' + esc(name) + '</h2><ul class="catalogue-author-start">'
                   + ''.join('<li><strong><a href="' + esc(author_url(o)) + '">' + esc(o['nombre']) + '</a></strong><p>' + esc(m) + '</p></li>' for o, m in similar) + '</ul></section>')
         nav.append(('parecidos', 'Autores parecidos'))
     nav.append(('author-faq', 'Preguntas frecuentes'))
