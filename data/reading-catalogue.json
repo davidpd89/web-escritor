@@ -8760,14 +8760,6 @@
       "libro_id": "isbn-9788448872632"
     },
     {
-      "categoria_id": "tema-amistad",
-      "libro_id": "isbn-9788448872625"
-    },
-    {
-      "categoria_id": "nutricion-y-bienestar",
-      "libro_id": "isbn-9788448872625"
-    },
-    {
       "categoria_id": "relatos",
       "libro_id": "isbn-9788402432216"
     },
@@ -13173,10 +13165,6 @@
     },
     {
       "categoria_id": "comic-y-novela-grafica",
-      "libro_id": "isbn-9788415343806"
-    },
-    {
-      "categoria_id": "terror",
       "libro_id": "isbn-9788415343806"
     },
     {
@@ -29754,10 +29742,6 @@
     {
       "categoria_id": "arte-y-diseno",
       "libro_id": "isbn-9786073879293"
-    },
-    {
-      "categoria_id": "narrativa",
-      "libro_id": "isbn-9791388277719"
     },
     {
       "categoria_id": "ocio-y-aficiones",
@@ -61682,6 +61666,150 @@
     {
       "categoria_id": "ocio-y-aficiones",
       "libro_id": "isbn-9791399317527"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9786073877299"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448872632"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448872625"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788410318984"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791388277719"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448875374"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788410318977"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448876043"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448873851"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791387902360"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791387902339"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788408320524"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9798890989758"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448875343"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448875336"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448875329"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448875312"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788410318953"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788408329992"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791387901998"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791387901981"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788410362604"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9786073877374"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448875008"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788415343806"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788448875282"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788408320517"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788410318823"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788408320500"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791039583497"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788408317654"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788408320487"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788408320494"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791399214000"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9791039584197"
+    },
+    {
+      "categoria_id": "infantil",
+      "libro_id": "isbn-9788413618753"
     }
   ],
   "libros": [
@@ -117997,7 +118125,7 @@
       "edicion": "Tapa blanda · Alfaguara Infantil",
       "editorial": "Alfaguara Infantil",
       "estado": "borrador",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-03-23",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-blanda",
@@ -122180,7 +122308,7 @@
       "editorial": "Beascoa",
       "editorial_catalogo_slug": "beascoa",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-02-25",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -122233,7 +122361,7 @@
       "editorial": "Beascoa",
       "editorial_catalogo_slug": "beascoa",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-06",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-02-25",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -123897,7 +124025,7 @@
       "editorial": "Penguin Kids",
       "editorial_catalogo_slug": "penguin-kids",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-02-25",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -125027,7 +125155,7 @@
       "editorial": "Alfaguara",
       "editorial_slug": "alfaguara",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-02-18",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -128568,7 +128696,7 @@
       "editorial": "Beascoa",
       "editorial_catalogo_slug": "beascoa",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-06",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-02-11",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -130519,7 +130647,7 @@
       "editorial": "Penguin Kids",
       "editorial_catalogo_slug": "penguin-kids",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-02-11",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -131951,7 +132079,7 @@
       "editorial": "Beascoa",
       "editorial_catalogo_slug": "beascoa",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-02-04",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -132058,7 +132186,7 @@
       "editorial": "Beascoa",
       "editorial_catalogo_slug": "beascoa",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-02-04",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-blanda",
@@ -140721,7 +140849,7 @@
       "editorial": "Libros Disney",
       "editorial_catalogo_slug": "libros-disney",
       "estado": "borrador",
-      "fecha_actualizacion": "2026-11-14",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-20",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-blanda",
@@ -140772,7 +140900,7 @@
       "editorial": "Libros Disney",
       "editorial_catalogo_slug": "libros-disney",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-20",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -140879,7 +141007,7 @@
       "editorial": "Timun Mas Infantil",
       "editorial_catalogo_slug": "timun-mas-infantil",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-20",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -141416,7 +141544,7 @@
       "edicion": "Tapa blanda · Alfaguara Infantil",
       "editorial": "Alfaguara Infantil",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-19",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-blanda",
@@ -143921,7 +144049,7 @@
       "editorial": "Beascoa",
       "editorial_catalogo_slug": "beascoa",
       "estado": "borrador",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-14",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-blanda",
@@ -143973,7 +144101,7 @@
       "editorial": "Beascoa",
       "editorial_catalogo_slug": "beascoa",
       "estado": "borrador",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-14",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-blanda",
@@ -144025,7 +144153,7 @@
       "editorial": "Beascoa",
       "editorial_catalogo_slug": "beascoa",
       "estado": "borrador",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-14",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-blanda",
@@ -144077,7 +144205,7 @@
       "editorial": "Beascoa",
       "editorial_catalogo_slug": "beascoa",
       "estado": "borrador",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-14",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-blanda",
@@ -146158,7 +146286,7 @@
       "editorial": "Penguin Kids",
       "editorial_catalogo_slug": "penguin-kids",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-14",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -146887,7 +147015,7 @@
       "editorial": "Destino Infantil & Juvenil",
       "editorial_catalogo_slug": "destino-infantil-juvenil",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-13",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-blanda",
@@ -148578,7 +148706,7 @@
       "editorial": "Libros Disney",
       "editorial_catalogo_slug": "libros-disney",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-06",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-13",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -148632,7 +148760,7 @@
       "editorial": "Libros Disney",
       "editorial_catalogo_slug": "libros-disney",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-06",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-13",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -148686,7 +148814,7 @@
       "editorial": "Libros Disney",
       "editorial_catalogo_slug": "libros-disney",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-06",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2027-01-13",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -157935,7 +158063,7 @@
       "editorial": "Penguin Kids",
       "editorial_catalogo_slug": "penguin-kids",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-23",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-12-08",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-blanda",
@@ -158725,7 +158853,7 @@
       "editorial": "Beascoa",
       "editorial_catalogo_slug": "beascoa",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-12-03",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -159831,7 +159959,7 @@
       "editorial": "Libros Disney",
       "editorial_catalogo_slug": "libros-disney",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-23",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-12-02",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -162526,7 +162654,7 @@
       "editorial": "Beascoa",
       "editorial_catalogo_slug": "beascoa",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-23",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-11-26",
       "fecha_verificacion": "2026-11-06",
       "formato_edicion": "tapa-dura",
@@ -241570,7 +241698,7 @@
       "editorial": "Timun Mas Infantil",
       "editorial_catalogo_slug": "timun-mas-infantil",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-23",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-11-11",
       "fecha_verificacion": "2026-11-12",
       "formato_edicion": "tapa-dura",
@@ -263078,7 +263206,7 @@
       "editorial": "Penguin Kids",
       "editorial_catalogo_slug": "penguin-kids",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-11-26",
       "fecha_verificacion": "2026-11-13",
       "formato_edicion": "tapa-dura",
@@ -294416,7 +294544,7 @@
       "editorial": "Timun Mas Infantil",
       "editorial_catalogo_slug": "timun-mas-infantil",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-14",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-10-14",
       "fecha_verificacion": "2026-11-14",
       "formato_edicion": "tapa-dura",
@@ -347193,7 +347321,7 @@
       "edicion": "Tapa blanda · Auzou",
       "editorial": "Auzou",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-15",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-10-12",
       "fecha_verificacion": "2026-11-15",
       "formato_edicion": "tapa-blanda",
@@ -369770,7 +369898,7 @@
       "editorial": "Timun Mas Infantil",
       "editorial_catalogo_slug": "timun-mas-infantil",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-16",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-10-14",
       "fecha_verificacion": "2026-11-16",
       "formato_edicion": "tapa-dura",
@@ -393413,7 +393541,7 @@
       "editorial": "Timun Mas Infantil",
       "editorial_catalogo_slug": "timun-mas-infantil",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-16",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-10-14",
       "fecha_verificacion": "2026-11-16",
       "formato_edicion": "tapa-dura",
@@ -393987,7 +394115,7 @@
       "editorial": "Timun Mas Infantil",
       "editorial_catalogo_slug": "timun-mas-infantil",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-16",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-10-14",
       "fecha_verificacion": "2026-11-16",
       "formato_edicion": "tapa-dura",
@@ -421610,7 +421738,7 @@
       "edicion": "Tapa dura · Bayard Kids",
       "editorial": "Bayard Kids",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-19",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-10-28",
       "fecha_verificacion": "2026-11-19",
       "formato_edicion": "tapa-dura",
@@ -436805,7 +436933,7 @@
       "edicion": "Tapa blanda · Auzou",
       "editorial": "Auzou",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-19",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-10-05",
       "fecha_verificacion": "2026-11-19",
       "formato_edicion": "tapa-blanda",
@@ -453005,7 +453133,7 @@
       "edicion": "Tapa dura · Shackleton Kids",
       "editorial": "Shackleton Kids",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-19",
+      "fecha_actualizacion": "2026-11-24",
       "fecha_publicacion": "2026-10-26",
       "fecha_verificacion": "2026-11-19",
       "formato_edicion": "tapa-dura",
