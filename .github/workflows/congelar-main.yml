@@ -26,7 +26,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          sparse-checkout: scripts/congelar_main.py
+          sparse-checkout: |
+            scripts/congelar_main.py
+            scripts/gh_listas.py
           sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v7
         with:

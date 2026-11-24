@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
 import git_estado
 import ci_checks
+import gh_listas
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('publication', ROOT / 'scripts/publish-radar-refresh.py')
@@ -38,7 +39,7 @@ def command(*args):
 def refresh(*, publish=False):
     if publish and subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=all'], cwd=ROOT, text=True).strip():
         raise ValueError('La publicación automática exige un checkout limpio')
-    opened = json.loads(publication.gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName'))
+    opened = gh_listas.lista(publication.gh, 'pr', 'list', '--state', 'open', '--base', 'main', '--json', 'headRefName')
     pending = [p['headRefName'] for p in opened if BRANCH_RE.fullmatch(p['headRefName'])]
     for branch in pending:
         info = json.loads(publication.gh('pr', 'view', branch, '--json', 'number,mergeStateStatus,author,statusCheckRollup'))

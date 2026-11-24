@@ -12,6 +12,10 @@ import json
 import subprocess
 import sys
 from datetime import datetime, time as dtime
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import gh_listas  # noqa: E402
 
 WORKFLOW = "reading-telegram-publish.yml"
 REPO = "davidpd89/web-escritor"
@@ -54,7 +58,7 @@ def run() -> int:
     if now.time() < START_AFTER:
         print("demasiado pronto")
         return 0
-    runs = json.loads(gh("run", "list", "-R", REPO, "--workflow", WORKFLOW, "-L", "20", "--json", "status,conclusion,createdAt,updatedAt"))
+    runs = gh_listas.ultimas(gh, "run", "list", "-R", REPO, "--workflow", WORKFLOW, "--json", "status,conclusion,createdAt,updatedAt", n=20)
     if cycle_done_or_running(runs, now):
         print("ok: ciclo de hoy en marcha o terminado")
         return 0

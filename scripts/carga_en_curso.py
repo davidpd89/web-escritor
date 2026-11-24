@@ -11,6 +11,9 @@ con una carga activa casi nunca compensa: se encola hasta que acabe. Desde el 24
 import json
 import subprocess
 import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
+import gh_listas  # noqa: E402
 
 WORKFLOW = 'reading-catalogue-sync.yml'
 PREFIJO = 'automation/reading-catalogue-'
@@ -32,9 +35,9 @@ def motivos(ejecuciones, prs):
 
 def main():
     try:
-        ejecuciones = json.loads(gh('run', 'list', '-w', WORKFLOW, '--limit', '10', '--json', 'databaseId,status,createdAt'))
-        prs = json.loads(gh('pr', 'list', '--state', 'open', '--limit', '100', '--json', 'number,headRefName'))
-    except (subprocess.SubprocessError, OSError, ValueError) as exc:
+        ejecuciones = gh_listas.ultimas(gh, 'run', 'list', '-w', WORKFLOW, '--json', 'databaseId,status,createdAt', n=10)
+        prs = gh_listas.lista(gh, 'pr', 'list', '--state', 'open', '--json', 'number,headRefName', tope=1000)
+    except (subprocess.SubprocessError, OSError, ValueError, gh_listas.Truncada) as exc:
         print(f'No se pudo mirar la carga ({type(exc).__name__}): tratarla como en curso.', file=sys.stderr)
         return 2
     razones = motivos(ejecuciones, prs)

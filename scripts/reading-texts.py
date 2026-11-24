@@ -29,6 +29,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
 import git_estado
+import gh_listas
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / '.local/reading-texts/out'
@@ -760,8 +761,8 @@ def _publish_once(out, publisher):
     if not texts and not any(authors_out.glob('*.json')):
         print('Sin textos que publicar')
         return False
-    batch = catalogue_in_ci(json.loads(publisher.publication.gh(
-        'pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName,createdAt')))
+    batch = catalogue_in_ci(gh_listas.lista(
+        publisher.publication.gh, 'pr', 'list', '--state', 'open', '--base', 'main', '--json', 'headRefName,createdAt'))
     if batch:
         print(f'Carga del catálogo en CI ({batch}): los textos esperan a la siguiente publicación', flush=True)
         return False
@@ -817,7 +818,7 @@ def _publish_once(out, publisher):
     body.write_text(f'Añade texto propio validado a {count} fichas: por qué leerlo, para quién, tono, libros afines del catálogo y preguntas frecuentes.\n\n'
                     'Cada texto pasa el validador de scripts/reading-texts.py (sin copia de la sinopsis, sin cifras, nombres ni premios sin respaldo). '
                     'Se ejecutan las reglas de main antes de fusionar y después se despliega.\n', encoding='utf-8')
-    for old in json.loads(publisher.publication.gh('pr', 'list', '--state', 'open', '--json', 'number,headRefName')):
+    for old in gh_listas.lista(publisher.publication.gh, 'pr', 'list', '--state', 'open', '--json', 'number,headRefName'):
         if old['headRefName'].startswith('automation/reading-catalogue-textos-'):
             publisher.publication.gh('pr', 'close', str(old['number']), '--comment', 'Sustituida por una publicación de textos más reciente.')
     publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,

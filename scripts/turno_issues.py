@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import datetime as dt
 import re
+import gh_listas
 
 # Solo `fallo`: las propuestas `experto` no gastan Claude/Codex (David, 15/11: tokens solo para emergencias).
 # Las consume una sesión o una herramienta gratuita.
@@ -424,8 +425,8 @@ def pasada_issues(nar, estado: dict, ahora: dt.datetime | None = None, dry=False
         return
     issues = []
     for etiqueta in ETIQUETAS:
-        issues += nar.gh_json('issue', 'list', '--state', 'open', '--label', etiqueta, '--limit', '100',
-                              '--json', 'number,title,labels,author')
+        issues += gh_listas.lista(nar.gh_json, 'issue', 'list', '--state', 'open', '--label', etiqueta,
+                                  '--json', 'number,title,labels,author', tope=1000)
     issue = elegir(issues, estado)
     if not issue:
         return

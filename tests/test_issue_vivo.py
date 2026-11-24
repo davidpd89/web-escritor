@@ -14,7 +14,7 @@ def falso(abierto=''):
 
     def llamar(*args):
         llamadas.append(args)
-        salida = abierto if args[:2] == ('issue', 'list') else ''
+        salida = (f'[{{"number": {abierto}}}]' if abierto else '[]') if args[:2] == ('issue', 'list') else ''
         return subprocess.CompletedProcess(args, 0, stdout=salida, stderr='')
     return llamar, llamadas
 

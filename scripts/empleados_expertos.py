@@ -24,6 +24,8 @@ import urllib.robotparser
 from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
+import gh_listas  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
@@ -274,8 +276,9 @@ def datos_rol(rol, hoy=None):
     """Datos deterministas de los roles que no miran la web: el LLM nunca trabaja sin evidencia."""
     hoy = hoy or date.today()
     if rol == 'arquitecto':
-        fallos = _gh('issue', 'list', '--label', 'fallo', '--state', 'all', '--limit', '30',
-                     '--json', 'number,title,state', '-q', '.[]|"#\\(.number) [\\(.state)] \\(.title)"')
+        fallos = '\n'.join(f"#{i['number']} [{i['state']}] {i['title']}" for i in
+                           gh_listas.ultimas(_gh, 'issue', 'list', '--label', 'fallo', '--state', 'all',
+                                             '--json', 'number,title,state', n=30))
         cis = sorted((ROOT / '.ci').glob('*.md'), key=lambda f: f.stat().st_mtime)[-12:]
         return ('# Issues `fallo` recientes\n' + (fallos or '(ninguna)') + '\n\n# Informes .ci más recientes\n'
                 + '\n'.join(f'## {f.name}\n{f.read_text(encoding="utf-8", errors="replace")[:600]}' for f in cis))
@@ -288,10 +291,12 @@ def datos_rol(rol, hoy=None):
         desde = date.fromordinal(hoy.toordinal() - 30).isoformat()
         filas = []
         for tema in REPO_TEMAS:
-            filas += _gh('api', '-X', 'GET', 'search/repositories', '-f', f'q=topic:{tema} pushed:>={desde} stars:>=300',
-                         '-f', 'sort=stars', '-f', 'per_page=8', '-q',
-                         '.items[]|"- \\(.full_name) ★\\(.stargazers_count) [\\(.license.spdx_id // "sin licencia")] '
-                         '\\(.description // "" | .[0:140]) \\(.html_url)"').splitlines()
+            consulta = urllib.parse.quote(f'topic:{tema} pushed:>={desde} stars:>=300')
+            for r in gh_listas.rest_ultimas(lambda ruta: json.loads(_gh('api', '-X', 'GET', ruta) or '{}'),
+                                            f'search/repositories?q={consulta}&sort=stars', 'items', 8):
+                licencia = (r.get('license') or {}).get('spdx_id') or 'sin licencia'
+                filas.append(f"- {r['full_name']} ★{r['stargazers_count']} [{licencia}] "
+                             f"{(r.get('description') or '')[:140]} {r['html_url']}")
         return f'# Repositorios públicos activos (último push ≥ {desde}, ≥300 estrellas)\n' + '\n'.join(sorted(set(filas)))
     return ''
 
@@ -347,8 +352,8 @@ def cuerpo_issue(p, rol, modelo):
 
 def publicar(props, rol, modelo, dry=False):
     """Crea las issues que no tengan ya una abierta con el mismo título. Devuelve los títulos creados."""
-    abiertas = set(_gh('issue', 'list', '--state', 'open', '--label', 'experto', '--limit', '200',
-                       '--json', 'title', '-q', '.[].title').splitlines())
+    abiertas = {i['title'] for i in gh_listas.lista(_gh, 'issue', 'list', '--state', 'open', '--label', 'experto',
+                                                    '--json', 'title', tope=1000)}
     creadas = []
     for p in props:
         titulo = _sin_menciones(f"{rol}: {p['titulo']}")[:200]

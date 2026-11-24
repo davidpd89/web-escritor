@@ -35,6 +35,7 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             scripts/catalogo_duplicados.py
+            scripts/gh_listas.py
             scripts/issue_vivo.py
             tests/test_catalogo_duplicados.py
             data/reading-catalogue.json
