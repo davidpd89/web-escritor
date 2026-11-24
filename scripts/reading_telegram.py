@@ -217,6 +217,7 @@ SEND_AT = dtime(11, 30)  # Hora de Madrid a la que salen todos los envíos del d
 # a las 22:05 y publicaron 16 mensajes). Pasada esta hora solo envía un lanzamiento manual.
 SEND_UNTIL = dtime(15, 0)
 WEEK_DAYS = 7
+WEEKDAYS = "lunes martes miércoles jueves viernes sábado domingo".split()
 MONTHS = (
     "enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre"
 ).split()
@@ -237,8 +238,15 @@ def isbn_search_url(isbns: list[str], tag: str = "") -> str:
 # Etiquetas de cada mensaje, arriba y fuera de la línea del enlace de Amazon. Telegram vuelve
 # clicable (y buscable) cualquier #palabra sin espacios; #publicidad deja claro que hay enlace de afiliado.
 HASHTAGS_NOVEDAD = "#Novedades #publicidad"
-HASHTAGS_PROXIMOS = "#ProximosLanzamientos #publicidad"
-DIGEST_HEADS = ("📚 <b>Aquí tienes las publicaciones del día", "🗓️ <b>Próximos lanzamientos del")
+# Las etiquetas de la semana van solo en el mensaje de cabecera (las de búsqueda) y no se repiten en cada día.
+HASHTAGS_PROXIMOS = "#ProximosLanzamientos #NovedadesLibros #LibrosNuevos #Libros #Lectura #publicidad"
+WEEK_RULE = "━━━━━━━━━━━━━━━━━━"
+DIGEST_HEADS = (
+    "📚 <b>Aquí tienes las publicaciones del día",
+    "🗓️ <b>Próximos lanzamientos del",
+    "🗓️ <b>PRÓXIMOS LANZAMIENTOS",
+    "📅 <b>",
+)
 
 
 def is_digest_text(text: str) -> bool:
@@ -256,8 +264,9 @@ def member_key(day: str, asin: str) -> str:
     return f"in-{day}-{asin}"
 
 
-def weekly_key(monday: str) -> str:
-    return f"weekly-{monday}"
+def weekly_key(monday: str, day: str = "") -> str:
+    """Sin `day`, la cabecera de la semana; con él, el mensaje de ese día."""
+    return f"weekly-{monday}-{day}" if day else f"weekly-{monday}"
 
 
 def tag_from_books(books: list[dict]) -> str:
@@ -355,6 +364,87 @@ def genre_header(book: dict, count: int) -> str:
     return f"\n{genre_emoji(book)} <b>{escape(genre_name(book))}</b> · {count}"
 
 
+def genre_hashtag(name: str) -> str:
+    """#Fantasia, #CienciaFiccion…: sin tildes ni espacios, que es como se buscan en Telegram."""
+    words = re.sub(r"[^a-z0-9 ]", " ", _sort_text(name)).split()
+    return "#" + "".join(w.capitalize() for w in words) if words else ""
+
+
+def week_header(books: list[dict], days: list[str], monday: str, start: str, until: str) -> dict:
+    """Primer mensaje de la semana: un corte visible respecto a lo anterior, el rango de fechas, cuántos libros
+    hay y las etiquetas de búsqueda. Sin títulos: cada día llega en su propio mensaje."""
+    genres = []
+    for b in sort_by_genre(books):
+        tag = genre_hashtag(genre_name(b)) if b.get("genres") else ""
+        if tag and tag not in genres:
+            genres.append(tag)
+    count = f"{len(books)} libro" + ("s" if len(books) != 1 else "")
+    span = f"{human_date(start)} → {human_date(until)}"
+    lines = [
+        WEEK_RULE,
+        "🗓️✨🗓️✨🗓️",
+        "🗓️ <b>PRÓXIMOS LANZAMIENTOS</b>",
+        f"📆 <b>{span}</b>",
+        WEEK_RULE,
+        f"📚 {count} en {len(days)} {'día' if len(days) == 1 else 'días'}",
+        "👇 Un mensaje por día, ordenado por género",
+        "",
+        " ".join([HASHTAGS_PROXIMOS] + genres[:8]),
+    ]
+    text = chr(10).join(lines)
+    return {"asin": weekly_key(monday), "digest": True, "text": text, "release_date": monday, "members": []}
+
+
+def week_day_message(books: list[dict], day: str, monday: str, tag: str) -> dict:
+    """Un mensaje por fecha: el día arriba una sola vez y los libros agrupados por género, con el título en
+    mayúsculas. Si no caben todos, entra primero un libro de cada género (de uno en uno, por rondas) para que
+    ningún género se quede a cero mientras otro ocupa diez huecos; lo que sobra se omite sin avisar."""
+    d = date.fromisoformat(day)
+    count = f"{len(books)} libro" + ("s" if len(books) != 1 else "")
+    lines = [WEEK_RULE, f"📅 <b>{WEEKDAYS[d.weekday()].upper()} {human_date(day).upper()}</b> · {count}", WEEK_RULE]
+    rows = {}
+    for b in books:
+        url = b.get("amazon_url") or (amazon_url(b["asin"], tag) if b.get("asin") else "")
+        title = f"<b>{escape(shorten(b['title'], 140).upper())}</b>"
+        if url:
+            title = f'<a href="{escape(url, quote=True)}">{title}</a>'
+        rows.setdefault(genre_name(b), []).append((b, f"📖 {title} — {escape(shorten(b['author'], 100))}"))
+    order = list(rows)  # `books` llega ya ordenado por género
+    size, titles, taken = sum(len(x) + 1 for x in lines), 0, {g: 0 for g in order}
+    full = False
+    for rnd in range(max(len(v) for v in rows.values())):
+        for g in order:
+            if full or rnd >= len(rows[g]):
+                continue
+            line = rows[g][rnd][1]
+            need = len(line) + 1 + (len(genre_header(rows[g][0][0], 0)) + 1 if taken[g] == 0 else 0)
+            if titles >= DIGEST_MAX_TITLES or size + need > DIGEST_MAX_CHARS:
+                full = True  # el mensaje se acaba aquí: no se sigue rellenando con libros más cortos
+                continue
+            taken[g] += 1
+            titles += 1
+            size += need
+    for g in order:
+        if taken[g]:
+            lines.append(genre_header(rows[g][0][0], taken[g]))
+            lines += [line for _, line in rows[g][: taken[g]]]
+    return {
+        "asin": weekly_key(monday, day), "digest": True, "text": chr(10).join(lines),
+        "release_date": monday, "members": [],
+    }
+
+
+def weekly_messages(books: list[dict], day: str, tag: str, start: str, until: str) -> list[dict]:
+    """Próximos lanzamientos: un mensaje de cabecera y después uno por fecha (de la más cercana a la más lejana)."""
+    by_day = {}
+    for b in sort_by_genre(books):
+        by_day.setdefault(b["release_date"], []).append(b)
+    days = sorted(by_day)
+    return [week_header(books, days, day, start, until)] + [
+        week_day_message(by_day[d], d, day, tag) for d in days
+    ]
+
+
 def digest(
     books: list[dict],
     day: str,
@@ -368,13 +458,15 @@ def digest(
     Telegram se reparten en varios consecutivos («1/3», «2/3»…) en vez de dejar un «…y N más».
 
     Diario («Aquí tienes las publicaciones del día…», agrupado por género con un encabezado y una etiqueta
-    por género) o semanal si se da `until` («Próximos lanzamientos del … al …», con la fecha de cada libro;
+    por género) o semanal si se da `until` (cabecera + un mensaje por fecha, ver `weekly_messages`;
     `start` es el primer día)."""
     books = [b for b in books if b.get("isbn13") or b.get("amazon_url") or b.get("asin")]
     if not books:
         return []
     tag = tag or tag_from_books(books)
-    books = sorted(books, key=lambda b: (b["release_date"], b["title"])) if until else sort_by_genre(books)
+    if until:
+        return weekly_messages(books, day, tag, start or day, until)
+    books = sort_by_genre(books)
     group_count = {}
     for b in books:
         group_count[genre_name(b)] = group_count.get(genre_name(b), 0) + 1
@@ -384,14 +476,12 @@ def digest(
         title = f"<b>{escape(shorten(b['title'], 140))}</b>"
         if url:
             title = f'<a href="{escape(url, quote=True)}">{title}</a>'
-        line = (f"• {human_date(b['release_date'])}: " if until else "• ") + (
-            f"{title} — {escape(shorten(b['author'], 100))}"
-        )
-        header = genre_header(b, group_count[genre_name(b)]) if not until and genre_name(b) != shown else ""
+        line = f"• {title} — {escape(shorten(b['author'], 100))}"
+        header = genre_header(b, group_count[genre_name(b)]) if genre_name(b) != shown else ""
         if current and (titles >= DIGEST_MAX_TITLES or size + len(line) + len(header) > DIGEST_MAX_CHARS):
             chunks.append((current, members))
             current, size, shown, members, titles = [], 0, None, [], 0
-            header = genre_header(b, group_count[genre_name(b)]) if not until else ""
+            header = genre_header(b, group_count[genre_name(b)])
         if header:
             current.append(header)
             size += len(header) + 1
@@ -424,7 +514,7 @@ def digest(
                 "digest": True,
                 "text": text,
                 "release_date": day,
-                "members": [] if until else chunk_members,
+                "members": chunk_members,
             }
         )
     return parts
