@@ -1005,7 +1005,7 @@ LANGUAGES = {'es': 'Español', 'ca': 'Català', 'gl': 'Galego', 'eu': 'Euskara',
 
 
 # Aviso para lectores de pantalla en enlaces de texto que abren otra pestaña (WCAG G201).
-NEW_TAB='<span class="visually-hidden"> (otra pestaña)</span>'
+NEW_TAB='<span class="sr-only"> (otra pestaña)</span>'  # sr-only lives in v1-base.css, loaded on every page
 
 
 def release_line(b, upcoming=False):
