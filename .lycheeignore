@@ -125,7 +125,6 @@ https?://([^/]+\.)?davidportodiaz\.com/.*
 # Misma revisión: Cloudflare devuelve un managed challenge 403 a clientes
 # automáticos. La reproducción completa de las bases 2027 se recuperó mediante
 # búsqueda/lectura web; la ficha sigue PENDIENTE de contraste primario, sin ICS.
-^https://www\.finalescerrados\.com/p/cl-xxiii-concurso-prix-hemingway\.html$
 
 # CelebrArt supera los reintentos/timeout de CI; la URL existente se volvió a
 # comprobar con GET 200 y la convocatoria Letras correcta el 2026-10-19.
@@ -207,3 +206,7 @@ https?://(www\.)?altamarea\.es/.*
 # comprobado desde fuera. Solo estas URLs:
 ^https://www\.coruna\.gal/informacionxuvenil/gl/convocatorias/concursos-e-premios/detalle-concursos/xxi-certame-de-narrativa-curta-o-exame/suceso/1453918739931$
 ^https://www\.coruna\.gal/informacionjuvenil/es/convocatorias/concursos-y-premios\?argIdioma=es&argPag=2&categoriaID=1220003419689$
+# PR #1546 (23/11): 200 desde España con el agente de Lychee y 403 solo desde Actions (bloqueo de IP, no enlace roto).
+# Orwell Society: fuente de la ficha de George Orwell. London Library: atlas-literario, ya en main.
+^https://orwellsociety\.com/bibliography/$
+^https://www\.londonlibrary\.co\.uk/$

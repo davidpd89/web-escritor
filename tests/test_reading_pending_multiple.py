@@ -89,6 +89,16 @@ class MultiplePendingTests(unittest.TestCase):
         published = refresh.catalogue_ids(repo.git('show', 'origin/main:' + CATALOGUE))
         self.assertLessEqual({'g1', 'g2', 'g3', 'viejo'}, published)
 
+    def test_recovered_or_moved_batch_still_owes_the_night_query(self):
+        # 21/11 (carga 44843220015): un punto de guardado ya publicado gastó el turno con 0 altas y la noche no consultó.
+        reports = []
+        with patch.object(refresh, 'checkpoints', lambda root=None: []),                 patch.object(refresh, 'write_if_changed', lambda path, data: reports.append(data)):
+            refresh.chain_report(0, consumed='x', recuperado_de='x', new_books=[])
+            refresh.chain_report(0, trasladada_de='automation/y', new_books=[])
+            refresh.chain_report(0, reanudada='automation/z')
+            refresh.chain_report(3)
+        self.assertEqual([r['stats']['consulta_pendiente'] for r in reports], [1, 1, 0, 0])
+
     def test_a_single_pending_batch_is_not_touched(self):
         with patch.object(refresh.publisher.publication, 'gh', side_effect=AssertionError):
             self.assertEqual(refresh.reconcile_pending([NEW], root=self.repo.work), NEW)

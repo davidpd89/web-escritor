@@ -114,11 +114,17 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'workflow_run' }}
 
 
+# Reloj estricto (site_clock.clock_window): la auditoría del sitio publicado vigila la frescura exacta.
+# Las PR aceptan generados de hasta 2 días; esto no.
+env:
+  # Estricto (solo hoy) en push, cron y dispatch; en PR, la gracia de site_clock (unos generados de ayer no tumban la PR).
+  RELOJ_ESTRICTO: ${{ github.event_name == 'pull_request' && '0' || '1' }}
+
 jobs:
   static-regression:
     if: github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 50
     steps:
       - name: Checkout
         uses: actions/checkout@v7

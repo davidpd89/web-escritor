@@ -13,6 +13,7 @@ from urllib.parse import parse_qs, urlsplit
 from urllib.request import Request, urlopen
 
 from reading_ratings_refresh import isbn13, title_matches, author_matches, key
+import reading_cover_store as cover_store
 
 RESOURCES=['itemInfo.title','itemInfo.byLineInfo','itemInfo.externalIds',
            'itemInfo.classifications','offersV2.listings.price',
@@ -102,7 +103,10 @@ def reconcile_edition_binding(book):
     current=book.get('formato_edicion')
     if len(found)!=1 or current not in BINDING_LABELS or current in found:
         return False
-    fmt=found.pop()
+    return apply_edition_binding(book,found.pop())
+
+
+def apply_edition_binding(book,fmt):
     label,_,publisher=(book.get('edicion') or '').partition(' · ')
     book['formato_edicion']=fmt
     if publisher:
@@ -112,6 +116,18 @@ def reconcile_edition_binding(book):
     if book.get('encuadernacion'):
         book['encuadernacion']=BINDING_LABELS[fmt]
     return True
+
+
+def adopt_ean_binding(book,offers):
+    """Los ISBN 979 no tienen ISBN-10, así que reconcile_edition_binding no los corrige nunca. Si Amazon da precio con el
+    EAN exacto del libro en una encuadernación impresa distinta a la que dice el editor y la nuestra no tiene precio, es la
+    misma edición con otro nombre: «Atlas de islas remotas» (979) enseñaba «Tapa blanda: Ver precio» y su precio estaba en
+    la tapa dura (22/11)."""
+    current=book.get('formato_edicion')
+    if current not in BINDING_LABELS or any(o.get('formato')==current and o.get('precio_centimos') for o in book.get('formatos_compra') or []):
+        return False
+    found={o['formato'] for o in offers if o.get('ean_exacto') and o.get('formato') in BINDING_LABELS and o['formato']!=current}
+    return apply_edition_binding(book,found.pop()) if len(found)==1 else False
 
 
 def prune_foreign_editions(book):
@@ -307,7 +323,7 @@ def select_offers(book,payload,tag,now,mismatches=None):
             if cents is None or not PRICE_MIN_CENTS<=cents<=PRICE_MAX_CENTS:
                 continue
             offer={'libro_id':book['id'],'formato':fmt,'tipo':'compra','moneda':'EUR',
-                   'precio_centimos':cents,'url':offer_url(item,asin,tag),
+                   'precio_centimos':cents,'url':offer_url(item,asin,tag),'ean_exacto':bool(isbn_match),
                    'actualizado_en':now.isoformat(timespec='seconds').replace('+00:00','Z'),
                    'caduca_en':expires.isoformat(timespec='seconds').replace('+00:00','Z')}
             reference=money_cents(amazon_dict(price.get('savingBasis')).get('money'))
@@ -320,6 +336,11 @@ def select_offers(book,payload,tag,now,mismatches=None):
 
 class NotFound(RuntimeError):
     """404 de Creators: la búsqueda no tiene resultados (no es una caída)."""
+
+
+class AccessDenied(RuntimeError):
+    """Sin acceso a Creators (cuenta no elegible o 401 tras renovar el token): la noche se para, no se reintenta.
+    Conserva el texto de RuntimeError para quien lo registra; las decisiones se toman por el tipo."""
 
 
 # Reintentos tomados de sergioteula/python-amazon-paapi (MIT, amazon_creatorsapi/core/retry.py):
@@ -368,10 +389,10 @@ class CreatorsPrices:
                     time.sleep(wait)
                     continue
                 if exc.code==403 and ('eligib' in str(error.get('message','')).lower() or any(e.get('code')=='AssociateNotEligible' for e in error.get('errors',[]) if isinstance(e,dict))):
-                    raise RuntimeError('pending_amazon_eligibility') from exc
+                    raise AccessDenied('pending_amazon_eligibility') from exc
                 if exc.code==404:
                     raise NotFound('Amazon Creators HTTP 404') from exc
-                raise RuntimeError(f'Amazon Creators HTTP {exc.code}') from exc
+                raise (AccessDenied if exc.code==401 else RuntimeError)(f'Amazon Creators HTTP {exc.code}') from exc
             except (URLError,TimeoutError,ConnectionError) as exc:
                 if attempt<retries:
                     attempt+=1
@@ -429,7 +450,9 @@ class CreatorsPrices:
 
 def store_prices(book,offers,day):
     """Prices live in formatos_compra and stay on the page until a newer one arrives."""
+    offers=list(offers)
     reconcile_edition_binding(book)
+    adopt_ean_binding(book,offers)
     prune_foreign_editions(book)
     options=[dict(o) for o in book.get('formatos_compra',[])]
     by_format={o['formato']:o for o in options}
@@ -544,9 +567,16 @@ def swatch_formats(document,asin):
     return found
 
 
+def page_asin(book):
+    """ASIN de la ficha donde leer los formatos: uno ya verificado o, sin ninguno (la edición propia no tiene precio en
+    la API: agotada, importación...), el ISBN-10 de su ISBN. Exigir uno verificado dejaba sin hermanos a los libros sin
+    precio: «Enviado Especial» (978-607, agotado) tenía tapa dura, Kindle y audio en su ficha y nunca se leyó (22/11)."""
+    return next(iter(verified_formats(book)),None) or isbn10(isbn13(book.get('isbn13')) or '')
+
+
 def needs_page_formats(book,now):
     formats={o['formato'] for o in book.get('formatos_compra',[])}
-    if not verified_formats(book) or {'ebook','audiolibro'}<=formats:
+    if not page_asin(book) or {'ebook','audiolibro'}<=formats:
         return False
     searched=book.get('formatos_pagina_buscados')
     return not searched or now.date()-date.fromisoformat(searched)>=PAGE_REDISCOVER_AFTER
@@ -560,11 +590,16 @@ def discover_page_formats(catalogue,fetch,tag,now,limit=60):
     books.sort(key=lambda b:b.get('formatos_pagina_buscados',''))
     stats={'checked':0,'formats_added':0,'blocked':0,'errors':0}
     for book in books[:limit]:
-        asin=next(iter(verified_formats(book)))
+        asin=page_asin(book)
+        verified=bool(verified_formats(book))
         try:
             document=fetch(f'https://www.amazon.es/dp/{asin}')
         except (OSError,ValueError):
             stats['errors']+=1
+            continue
+        if not verified and 'tmm-grid-swatch' in document and not title_matches(re.sub(r'\s*[\(\[].*?[\)\]]','',page_title(document)),book.get('titulo','')):
+            book['formatos_pagina_buscados']=day  # El ISBN-10 llevó a otra obra: nada que añadir hasta la próxima ronda.
+            stats['other_work']=stats.get('other_work',0)+1
             continue
         if 'tmm-grid-swatch' not in document:
             stats['blocked']+=1
@@ -600,11 +635,27 @@ def generated_cover(book):
     return urlsplit(book.get('portada_fuente_url') or '').hostname in COVER_HOSTS or         (book.get('autorizacion_o_base_uso') or '').startswith(GENERATED_BASIS)
 
 
+def cover_image_id(url):
+    found=re.search(r'/images/I/([A-Za-z0-9+%-]+)',url) if isinstance(url,str) else None
+    return found.group(1) if found else None
+
+
+def cover_stale(book,url):
+    """Portada que tomamos de Amazon (o de otra fuente cuando Amazon no tenía) y que Amazon ya ha cambiado: la imagen que
+    da hoy su API para la edición no es la que guardamos. «El árbol de la buena muerte» (22/11) enseñaba la vieja tras
+    revisarse el 09/11; sin mirar de nuevo la sustituida, ninguna se actualizaba. Sin petición extra: la respuesta del
+    barrido de precios ya trae la imagen."""
+    mine=cover_image_id(book.get('portada_fuente_url'))
+    return bool(book.get('portada_sustituida') and url and mine and mine!=cover_image_id(url))
+
+
 def cover_taken(root,path,image):
     """¿Otra portada del catálogo ya tiene exactamente estos bytes? Amazon da a veces la misma imagen de serie a
     varios tomos (ingesta 42588397174: «La luna en una noche de lluvia» 1 y 9); publicarla dos veces rompe la
     validación «portada duplicada». Solo se comparan los ficheros del mismo tamaño."""
     folder=path.parent
+    if cover_store.owner_of_bytes(image,root,exclude='/'+path.relative_to(root).as_posix()):
+        return True
     if not folder.is_dir():
         return False
     for other in folder.iterdir():
@@ -620,8 +671,14 @@ def replace_cover(book,root,image,small,dimensions,source,day,basis=AMAZON_COVER
     if cover_taken(root,path,image):
         book['portadas_amazon_buscadas']=day
         return False
-    path.write_bytes(image)
-    path.with_name(path.name.replace('.webp','-320.webp')).write_bytes(small)
+    logical=book['portada_local']
+    if cover_store.goes_to_store(root,logical):
+        # El almacén es de solo añadir: la sustituta va con nombre nuevo y la vieja sigue intacta, así que revertir
+        # el JSON (mercado fallido, cuarentena) basta para volver a la imagen anterior (Codex #1495).
+        logical=cover_store.fresh_name(logical,image)
+    cover_store.put(root,logical,image)
+    cover_store.put(root,logical.replace('.webp','-320.webp'),small)
+    book['portada_local']=logical
     book.update(portada_fuente_url=source,portada_ancho=dimensions[0],portada_alto=dimensions[1],portada_fecha_revision=day,
                 portada_sustituida=True,autorizacion_o_base_uso=basis,portadas_amazon_buscadas=day)
     return True
@@ -1128,7 +1185,7 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
             book['precios_amazon_revision']=day
             stats['updated']+=1
             stats['prices']+=len(found[book['id']])
-            if cover and covers.get(book['id']) and generated_cover(book):
+            if cover and covers.get(book['id']) and (generated_cover(book) or cover_stale(book,covers[book['id']])):
                 stats['portadas_api']+=bool(cover(book,covers[book['id']]))
             if not book.get('formatos_compra'):
                 stats['sin_oferta'].append({'book_id':book['id'],'motivo':miss_reason(book,answers.get(book['id'],[]))})

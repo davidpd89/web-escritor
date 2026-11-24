@@ -149,13 +149,13 @@ class StuckDataTests(unittest.TestCase):
         self.assertNotIn(SAVED, after)
 
     def test_without_a_copy_the_checkpoint_is_never_deleted(self):
-        real_git = refresh.git
+        real_push = refresh.push
 
-        def git(*args, **kw):
-            if args[0] == 'push' and refresh.STUCK_PREFIX in args[-1]:
-                raise refresh.subprocess.CalledProcessError(1, 'git push')
-            return real_git(*args, **kw)
-        with patch.object(refresh, 'git', side_effect=git),                 patch.object(refresh.publisher.publication, 'gh', return_value=''):
+        def push(*refspec, **kw):
+            if refresh.STUCK_PREFIX in refspec[0]:
+                raise RuntimeError('git push falló')
+            return real_push(*refspec, **kw)
+        with patch.object(refresh, 'push', side_effect=push), patch.object(refresh.publisher.publication, 'gh', return_value=''):
             keep = refresh.report_stuck(SAVED, ValueError('roto'), root=self.repo.work)
         self.assertEqual(keep, SAVED)
         self.assertEqual(self.heads()[SAVED], self.saved_sha)

@@ -195,7 +195,7 @@ class ContextoDeGitHubEnLocal(unittest.TestCase):
         sin_valor = []
         for wf in (ROOT / '.github/workflows').glob('*.yml'):
             for k, v in re.findall(r'^\s+([A-Z_]+):\s*(\$\{\{.*?\}\})\s*$', wf.read_text(encoding='utf-8'), re.M):
-                if re.search(r'pull_request\.(base|head)\.sha|github\.(sha|event_name|head_ref)\b', v):
+                if re.search(r'pull_request\.(base|head)\.sha|github\.(sha|event_name|head_ref)\b', v) and not re.search(r"\|\|\s*''\s*\}\}\s*$", v):  # `|| ''` = vacío a propósito (p. ej. PUSH_BASE fuera de un push)
                     if not local_ci.plain_env({k: v}, {**self.CTX, 'github.event.pull_request.head.sha': 'h3ad',
                                                         'github.head_ref': 'r', 'github.ref_name': 'r'}):
                         sin_valor.append(f'{wf.name}: {k}')

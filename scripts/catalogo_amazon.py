@@ -49,12 +49,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
-from reading_amazon_market import (AMAZON_COVER_BASIS, BINDINGS, CreatorsPrices, NotFound,  # noqa: E402
+from reading_amazon_market import (AMAZON_COVER_BASIS, AccessDenied, BINDINGS, CreatorsPrices, NotFound,  # noqa: E402
                                    amazon_dict, amazon_list, api_cover_url, fetch_amazon_image,
                                    select_offers, store_prices)
 from reading_amazon_radar import BOOKS_NODE, SPANISH  # noqa: E402
 from reading_ratings_refresh import isbn13, key  # noqa: E402
 from reading_taxonomy import non_reading_reason  # noqa: E402
+import reading_cover_store as cover_store  # noqa: E402
 from reading_titles import proper_words, tidy_title  # noqa: E402,F401
 
 WORK = ROOT / '.local/catalogo'
@@ -443,6 +444,80 @@ def discard_seed(queue, isbn, day, motivo):
                               'intentos': row['intentos'], 'errores': row.get('errores', 0)}, ensure_ascii=False) + '\n')
 
 
+AUTHOR_SEED_SKIP = {'ebook', 'audiolibro'}
+
+
+def author_seed_isbns(item, wanted):
+    """ISBN de un resultado de «buscar por autor» que valen como semilla: el autor pedido figura como autor (no
+    traductor ni prologuista, ni otro con el mismo apellido), la edición es de papel y está en castellano. Sin
+    idioma en la ficha, solo los ISBN españoles (978-84, 979-13)."""
+    info = amazon_dict(amazon_dict(item).get('itemInfo'))
+    by = amazon_dict(info.get('byLineInfo'))
+    if not any(key(person(c.get('name') or '')) == wanted and key(c.get('role') or '') in AUTHOR_ROLES
+               for c in map(amazon_dict, amazon_list(by.get('contributors')))):
+        return set()
+    if BINDINGS.get(key(text(amazon_dict(info.get('classifications')).get('binding')))) in AUTHOR_SEED_SKIP:
+        return set()
+    isbns = item_isbns(item)
+    langs = languages(info)
+    if langs:
+        return isbns if any(spanish_language(lang) for lang in langs) else set()
+    return {i for i in isbns if i.startswith(('97884', '97913'))}
+
+
+def semillas_autores(prov, tag, day, known, authors, max_requests=100, pages=2, days=60):
+    """Libros en Amazon de los autores que ya tienen ficha → cola de semillas (`fuente: autor`). La ficha del autor
+    no crea nada: lo que falte entra por el camino normal (cuarentena, contrato) como cualquier otra semilla.
+    Por turnos: primero los nunca buscados, luego los buscados hace más de `days` días, del más antiguo al más
+    reciente; cada autor gasta hasta `pages` peticiones (orden de Amazon: relevancia, lo más vendido delante)."""
+    state = read_json(seeds_path(), {})
+    queue = state.setdefault('cola', {})
+    searched = state.setdefault('autores', {})
+    cutoff = (date.fromisoformat(day) - timedelta(days=days)).isoformat()
+    turn = sorted((searched.get(a['slug'], ''), a['slug'], a['nombre']) for a in authors
+                  if a.get('slug') and a.get('nombre') and searched.get(a['slug'], '') <= cutoff)
+    skip = known | set(queue) | discarded_isbns()
+    used = done = added = foreign = errors = 0
+    for _, slug, name in turn:
+        if used >= max_requests or errors >= 3:  # Amazon falla seguido: mañana más
+            break
+        wanted, complete = key(name), True
+        for page in range(1, pages + 1):
+            if used >= max_requests:  # cupo agotado a mitad: el autor repite turno mañana
+                complete = False
+                break
+            used += 1
+            try:
+                payload = prov.post(SEARCH, {'marketplace': 'www.amazon.es', 'partnerTag': tag, 'searchIndex': 'Books',
+                                             'author': name, 'itemCount': 10, 'itemPage': page,
+                                             'availability': 'IncludeOutOfStock', 'condition': 'New',
+                                             'currencyOfPreference': 'EUR', 'resources': RESOURCES}, prov.headers())
+            except NotFound:
+                break
+            except RuntimeError as exc:  # como en por_isbn: sin acceso se para la noche; un fallo suelto, el autor repite
+                if isinstance(exc, AccessDenied):
+                    raise
+                errors += 1
+                complete = False
+                break
+            items = amazon_list(amazon_dict(payload.get('searchResult')).get('items'))
+            for item in items:
+                isbns = author_seed_isbns(item, wanted)
+                foreign += not isbns
+                for isbn in isbns - skip:
+                    queue[isbn] = {'primera': day, 'intentos': 0, 'siguiente': day, 'fuente': 'autor', 'autor': slug}
+                    skip.add(isbn)
+                    added += 1
+            if len(items) < 10:
+                break
+        if complete:
+            searched[slug] = day
+            done += 1
+    state['autores'] = {s: d for s, d in searched.items() if s in {a.get('slug') for a in authors}}
+    write_json(seeds_path(), state)
+    return {'peticiones': used, 'autores': done, 'pendientes': len(turn) - done, 'nuevas': added, 'descartados': foreign, 'errores': errors}
+
+
 def por_isbn(prov, tag, day, out, budget, only_dated=False):
     """Semillas que tocan hoy, de 10 en 10 (getItems por ISBN-10 o búsqueda «isbn|isbn|…», ver `seed_batches`).
     Solo cuentan (y pasan al raw) los resultados cuyo ISBN se pidió: otra edición no da por encontrada la
@@ -472,7 +547,7 @@ def por_isbn(prov, tag, day, out, budget, only_dated=False):
         except NotFound:
             items, full = [], False
         except RuntimeError as exc:
-            if 'eligibility' in str(exc) or 'HTTP 401' in str(exc):
+            if isinstance(exc, AccessDenied):
                 raise
             failed += 1
             for isbn in batch:  # sin respuesta: no gasta reintentos, pero tras varios fallos va suelto y luego fuera
@@ -725,7 +800,7 @@ def descargar(prov, tag, day, max_requests=1500, max_depth=3, pages=10, root_nod
                     payload = {}  # 404 = página sin resultados: el nodo se acaba aquí
                 except RuntimeError as exc:
                     state['errores'].append({'nodo': node, 'pagina': page, 'error': str(exc)})
-                    if 'eligibility' in str(exc) or 'HTTP 401' in str(exc):
+                    if isinstance(exc, AccessDenied):
                         raise
                     filled = False
                     break
@@ -917,7 +992,7 @@ def por_sellos(prov, tag, day, max_requests=1500, pages=10, horizon_days=60, nam
                     state['errores'] = (state['errores'] + [{'sello': label, 'pagina': page, 'error': str(exc)}])[-50:]
                     state['errores_total'] = state.get('errores_total', 0) + 1
                     failed = True
-                    if 'eligibility' in str(exc) or 'HTTP 401' in str(exc):
+                    if isinstance(exc, AccessDenied):
                         raise
                     if label not in state.setdefault('reencolados', []):
                         state['reencolados'].append(label)
@@ -1533,10 +1608,8 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT, fetch_image=fet
     apply_derived(catalogue)
     for book_id, (path, image, small, _) in added.items():
         for relative, content in ((path, image), (path.replace('.webp', '-320.webp'), small)):
-            target = root / relative.lstrip('/')
-            target.parent.mkdir(parents=True, exist_ok=True)
-            if not target.exists():
-                target.write_bytes(content)
+            if not (root / relative.lstrip('/')).exists() and not cover_store.is_stored(relative, root):
+                cover_store.put(root, relative, content)
 
     def drop(book_id, reason):
         if book_id not in added:  # ya apartado: nunca toca libros publicados
@@ -1726,6 +1799,14 @@ def main(argv=None):
                 added = semillas_ttl(http_get, args.dia, known, cfg.get('semillas_sitemaps', 2))
             except (OSError, ValueError) as exc:  # sin sitemap hoy: la cola de días anteriores sigue valiendo
                 added = f'error: {str(exc)[:120]}'
+        by_author = cfg.get('semillas_autores', {})
+        if backlog < 3 * limit and by_author.get('peticiones', 0) and budget > 0:  # catálogo de los autores con ficha
+            authors = [a for a in read_json(ROOT / 'data/reading-authors.json', {}).get('autores', [])
+                       if person(a.get('nombre') or '') not in {'Varios autores', 'Anónimo'}]
+            report['semillas_autores'] = semillas_autores(provider(tag), tag, args.dia, known, authors,
+                                                          min(by_author['peticiones'], max(budget, 0)), by_author.get('paginas', 2),
+                                                          by_author.get('dias', 60))
+            budget -= report['semillas_autores']['peticiones']
         with raw.open('a', encoding='utf-8') as out:
             # Las semillas rinden ~98 %: van primero y a los sellos se les guarda solo una reserva. Con la cola de
             # aplazados llena, solo las fechadas: las novedades cercanas son la prioridad de la web.

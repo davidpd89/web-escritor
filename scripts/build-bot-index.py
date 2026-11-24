@@ -7,7 +7,11 @@ edad, precios por formato y enlaces. Uso: python scripts/build-bot-index.py
 import json
 import pathlib
 import re
+import sys
 from urllib.parse import quote
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import reading_cover_store as cover_store  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SRC = ROOT / "data" / "reading-catalogue.json"
@@ -49,7 +53,7 @@ def main():
             "formatos": formatos,
             "amazon": b.get("url_amazon_afiliada") or b.get("amazon_busqueda_isbn"),
             "web": f"{WEB}/lecturas/#q={quote(b['titulo'])}",
-            "portada": f"{WEB}/{b['portada_local'].lstrip('/')}" if b.get("portada_local") else None,
+            "portada": cover_store.public_url(b['portada_local'], site=WEB) if b.get("portada_local") else None,
             "fecha": b.get("fecha_publicacion"),
         })
     out = {"schema_version": 1, "categorias": nombres, "libros": libros}

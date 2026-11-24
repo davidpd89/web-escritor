@@ -459,6 +459,26 @@ SWATCH_PAGE=('<ul><li id="tmm-grid-swatch-KINDLE" class="a-column swatchElement 
              '<li id="tmm-grid-swatch-PAPERBACK" class="a-column swatchElement selected"><a href="javascript:void(0)">Tapa blanda</a></li></ul>')
 
 
+class EanBindingTests(unittest.TestCase):
+    def test_979_book_priced_in_another_binding_adopts_amazons_binding(self):
+        # Sin ISBN-10 (979) reconcile_edition_binding no actuaba: «Tapa blanda: Ver precio» con el precio en la tapa dura.
+        book={**BOOK,'isbn13':'9791387922429','formato_edicion':'tapa-blanda','edicion':'Tapa blanda · Acantilado','formatos_compra':[]}
+        payload=response()
+        item=payload['searchResult']['items'][0]
+        item['asin']='B0ABCDEFGH'
+        item['itemInfo']['externalIds']['eans']['displayValues']=['9791387922429']
+        item['itemInfo']['classifications']['binding']['displayValue']='Hardcover'
+        offers=select_offers(book,payload,'contrato-21',NOW)
+        store_prices(book,offers,'2026-10-21')
+        self.assertEqual(book['formato_edicion'],'tapa-dura')
+        self.assertEqual(book['edicion'],'Tapa dura · Acantilado')
+        self.assertEqual([(o['formato'],o['precio_centimos']) for o in book['formatos_compra']],[('tapa-dura',1135)])
+
+    def test_a_priced_own_format_is_not_replaced(self):
+        book={**BOOK,'isbn13':'9791387922429','formatos_compra':[{'formato':'tapa-blanda','url':'https://www.amazon.es/dp/B0AAAAAAAA','precio_centimos':900}]}
+        self.assertFalse(reading_amazon_market.adopt_ean_binding(book,[{'formato':'tapa-dura','ean_exacto':True}]))
+
+
 class AmazonPageFormatTests(unittest.TestCase):
     def test_swatches_map_to_formats_and_selected_is_own_asin(self):
         self.assertEqual(swatch_formats(SWATCH_PAGE,'8498382378'),
@@ -481,6 +501,25 @@ class AmazonPageFormatTests(unittest.TestCase):
                                     'davidporto-21',NOW)
         self.assertEqual((stats['blocked'],len(calls)),(1,1))
         self.assertNotIn('formatos_pagina_buscados',books[0])
+
+    def test_book_without_verified_asin_reads_its_isbn10_page(self):
+        # «Enviado Especial» (978-607, agotado en la API): sin precio no había ASIN verificado y su ficha, con tapa dura,
+        # Kindle y audio, nunca se leyó. Ahora se lee la ficha del ISBN-10 y salen los formatos.
+        book={**BOOK,'formatos_compra':[]}
+        urls=[]
+        page='<span id="productTitle"> %s </span>'%book['titulo']+SWATCH_PAGE
+        stats=discover_page_formats({'libros':[book]},lambda url:urls.append(url) or page,'davidporto-21',NOW)
+        self.assertEqual(urls,['https://www.amazon.es/dp/'+isbn10(book['isbn13'])])
+        self.assertEqual(stats['formats_added'],3)
+        self.assertEqual({o['formato'] for o in book['formatos_compra']},{'tapa-blanda','ebook','audiolibro'})
+
+    def test_isbn10_page_of_another_work_adds_nothing(self):
+        book={**BOOK,'formatos_compra':[]}
+        page='<span id="productTitle"> Un libro completamente distinto </span>'+SWATCH_PAGE
+        stats=discover_page_formats({'libros':[book]},lambda url:page,'davidporto-21',NOW)
+        self.assertEqual((stats['formats_added'],stats['other_work']),(0,1))
+        self.assertEqual(book['formatos_compra'],[])
+        self.assertEqual(book['formatos_pagina_buscados'],'2026-10-21')
 
 COVER_PAGE=('<img alt="x" src="https://m.media-amazon.com/images/I/51qFSR41gJL._SY342_.jpg" '
             'data-a-dynamic-image="{&quot;https://m.media-amazon.com/images/I/51qFSR41gJL._SY342_.jpg&quot;:[342,225]}" id="landingImage">')
@@ -722,6 +761,17 @@ class AmazonApiCoverTests(unittest.TestCase):
         self.assertEqual(swapped,[('lib-1','https://m.media-amazon.com/images/I/51qFSR41gJL.jpg')],
                          'solo la tipográfica; la cubierta editorial no se toca')
         self.assertEqual(stats['portadas_api'],1)
+
+    def test_sweep_replaces_an_amazon_cover_that_amazon_has_since_changed(self):
+        # «El árbol de la buena muerte» (22/11): revisada el 09/11, Amazon cambió la imagen y la web seguía con la vieja.
+        old={**copy.deepcopy(BOOK),'portada_sustituida':True,'portada_local':'/assets/a.webp',
+             'portada_fuente_url':'https://m.media-amazon.com/images/I/OLDOLDOLDOL.jpg','formatos_compra':[]}
+        same={**copy.deepcopy(BOOK),'id':'lib-2','portada_sustituida':True,'portada_local':'/assets/b.webp',
+              'portada_fuente_url':'https://m.media-amazon.com/images/I/51qFSR41gJL.jpg','formatos_compra':[]}
+        swapped=[]
+        _,stats=refresh_offers({'libros':[old,same]},{'offers':[]},lambda b:self.with_image(),'contrato-21',NOW,
+                               cover=lambda b,url:swapped.append(b['id']) or True)
+        self.assertEqual(swapped,['lib-1'],'solo la que Amazon ha cambiado; la idéntica no se descarga otra vez')
 
     def test_swap_cover_writes_files_or_keeps_the_typographic_one(self):
         with tempfile.TemporaryDirectory() as tmp:

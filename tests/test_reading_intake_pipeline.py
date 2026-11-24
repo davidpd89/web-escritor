@@ -242,6 +242,18 @@ class ContractTests(unittest.TestCase):
         self.assertIn('Virginia Maxwell y otros', title)
         self.assertLessEqual(len(title), 75)
 
+    def test_sibling_titles_with_long_author_keep_the_author(self):
+        # Clase: hermanos con el mismo prefijo de título y firma larga no pueden quedar sin autor (ni chocar entre sí).
+        autor = 'Vicente J. Valera Gómez de la Peña'
+        base = 'Martina mini. Las 1040 preguntas "clave" de la Constitución Española'
+        a = {**self.book, 'id': 'a', 'isbn13': '9788430995271', 'autores': [autor], 'titulo': base + ': Constitución Española (Derecho)'}
+        b = {**a, 'id': 'b', 'isbn13': '9788430995288', 'titulo': base + ': Ley de procedimiento (Derecho)'}
+        titles = [builder.book_title(x, [a, b]) for x in (a, b)]
+        self.assertEqual(len(set(titles)), 2, titles)
+        for x, t in zip((a, b), titles):
+            self.assertTrue(builder.author_in_title(x, t), t)
+            self.assertLessEqual(len(t), 75, t)
+
     def test_special_edition_title_never_collides_with_the_plain_edition(self):
         plain = {**self.book, 'id': 'a', 'titulo': 'La señora Dalloway', 'autores': ['Virginia Woolf']}
         special = {**plain, 'id': 'b', 'titulo': 'La señora Dalloway (edición especial limitada con cantos tintados)'}
@@ -256,9 +268,8 @@ class ContractTests(unittest.TestCase):
         repeated = collections.Counter(titles.values())
         incumplen('título único', {i: f'título repetido: {t}' for i, t in titles.items() if repeated[t] > 1})
         incumplen('título de 75 caracteres como mucho', {i: f'{len(t)} caracteres: {t}' for i, t in titles.items() if len(t) > 75})
-        anonymous = {b['id']: f'sin autor en el título: {titles[b["id"]]}' for b in books if b['autores'][0] not in titles[b['id']]}
-        if len(anonymous) > 2:
-            incumplen('como mucho 2 títulos sin autor', anonymous)
+        anonymous = {b['id']: f'sin autor en el título: {titles[b["id"]]}' for b in books if not builder.author_in_title(b, titles[b['id']])}
+        incumplen('ningún título sin autor (ni abreviado)', anonymous)
 
     def test_partial_publication_never_gets_fake_day(self):
         self.record.update(precision_fecha='mes', fecha_publicacion_edicion='2026-10')
@@ -463,7 +474,7 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(result['libros'][0], manual)
             self.assertEqual(len(result['libros']), 3)
             # Editorial enrichment must survive the weekly metadata refresh.
-            result['libro_categorias'].append({'libro_id': result['libros'][1]['id'], 'categoria_id': 'halloween'})
+            result['libro_categorias'].append({'libro_id': result['libros'][1]['id'], 'categoria_id': 'humor'})
             # The nightly Amazon sweep owns these fields: a metadata refresh must keep them.
             result['libros'][1].update(precios_amazon_revision='2026-10-25', formatos_amazon_buscados='2026-10-26')
             (root / 'data/reading-catalogue.json').write_text(json.dumps(result), encoding='utf-8')
@@ -479,7 +490,7 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(refreshed['libros'][1]['fecha_publicacion'], '2026-10-10')
             self.assertEqual(refreshed['libros'][1]['precios_amazon_revision'], '2026-10-25')
             self.assertEqual(refreshed['libros'][1]['formatos_amazon_buscados'], '2026-10-26')
-            self.assertIn({'libro_id': result['libros'][1]['id'], 'categoria_id': 'halloween'}, refreshed['libro_categorias'])
+            self.assertIn({'libro_id': result['libros'][1]['id'], 'categoria_id': 'humor'}, refreshed['libro_categorias'])
             # A partial source response must never replace a real synopsis with
             # the generated bibliographic fallback on the next weekly refresh.
             complete = responses[URL]

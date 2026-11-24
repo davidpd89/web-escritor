@@ -10,10 +10,13 @@ ignorarla. Con `jsonschema` instalado, se comprueba además que los dos validado
 """
 import json
 import re
+import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'tests'))
+from contrato_libros import incumplen  # noqa: E402
 SCHEMA = json.loads((ROOT / 'schemas/reading-catalogue/libro-v1.schema.json').read_text(encoding='utf-8'))
 KEYWORDS = {'$schema', '$id', 'title', 'description', 'type', 'required', 'properties', 'pattern', 'enum',
             'minLength', 'minItems', 'items'}
@@ -100,7 +103,7 @@ class PublishedBooksMatchSchemaTest(unittest.TestCase):
                 if found:
                     bad[book.get('id', '?')] = found
         # Un id por línea, al principio: así lo lee la cuarentena y el resto del lote sigue.
-        self.assertEqual(bad, {}, '\n' + '\n'.join(f'{book_id}: {"; ".join(e)}' for book_id, e in bad.items()))
+        incumplen('ficha conforme al esquema', {book_id: '; '.join(e) for book_id, e in bad.items()})
 
 
 if __name__ == '__main__':

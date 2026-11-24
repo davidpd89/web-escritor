@@ -1,0 +1,40 @@
+name: Main congelado durante la carga
+
+# Check de PR: una PR que no es de la carga espera aquí mientras haya una carga de libros o un refresco del radar en
+# marcha (scripts/congelar_main.py). Evita que un avance de main repita la CI de la carga (exit 75, StaleMerge) o deje
+# el radar sin regenerar. Emergencias: etiqueta `sin-congelar`. Falla abierto: si gh no responde o se agota el tope,
+# deja pasar con un aviso.
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: congelar-main-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  congelacion:
+    name: Main congelado por carga
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: scripts/congelar_main.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Esperar a que acabe la carga
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          ETIQUETAS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: python scripts/congelar_main.py

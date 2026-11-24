@@ -28,3 +28,7 @@ assert 32 * per_url / workers <= job_limit * 60 / 3, 'timeout retries alone woul
 assert 'recheck-link-timeouts.py' in wf and "steps.lychee.outcome == 'failure'" in wf, \
     'fewer lychee retries rely on the independent curl recheck step'
 print(f'PASS link check budget: {per_url}s per dead URL, recheck step present, job limit {job_limit} min')
+
+# 18/11: un push a main solo es fatal por los enlaces que trae; se compara con github.event.before.
+assert "github.event_name == 'push' && github.event.before" in wf, 'push a main sin base: hosts ajenos tumban la CI'
+assert 'git cat-file -e "$PUSH_BASE^{commit}"' in wf, 'la base del push debe existir antes de usarla'

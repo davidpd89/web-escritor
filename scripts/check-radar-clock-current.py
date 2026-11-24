@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"scripts"))
-from site_clock import site_today  # noqa: E402
+from site_clock import clock_window, site_today  # noqa: E402
 BUILDER_PATH=ROOT/"scripts"/"build-radar-opportunities.py"
 SOURCE_PATH=ROOT/"data"/"radar-opportunities.json"
 PUBLIC_PATH=ROOT/"convocatorias-escritores"/"opportunities.json"
@@ -23,10 +23,14 @@ def main()->int:
     # Madrid civil date, not the runner's UTC date: the daily refresh is generated
     # for Madrid's day, so between 00:00 and 02:00 Madrid (UTC still "yesterday")
     # an UTC default made every refresh PR fail its own merge gate.
-    ap.add_argument("--today",default=site_today().isoformat())
+    ap.add_argument("--today",default=None)
     args=ap.parse_args()
     builder=load_builder()
-    today=builder.iso_date(args.today,"today")
+    # Sin --today (la puerta de las PR) rige la gracia de site_clock: un plazo que vence a medianoche no pone roja
+    # a toda PR (ni a la carga nocturna) hasta que radar-clock-refresh regenere; el cron de refresco, la auditoría
+    # postdeploy (RELOJ_ESTRICTO=1) y el --today explícito siguen exigiendo solo hoy.
+    dias=clock_window() if args.today is None else [builder.iso_date(args.today,"today")]
+    today=dias[0]
     source=json.loads(SOURCE_PATH.read_text(encoding="utf-8"))
     public=json.loads(PUBLIC_PATH.read_text(encoding="utf-8"))
     items=source.get("items",[])
@@ -34,10 +38,16 @@ def main()->int:
     for item in items: builder.validate(item)
     for item in watchlist: builder.validate_watch(item)
     builder.ensure_disjoint_ids(items,watchlist)
-    expected_items=builder.active_items(items,today)
-    expected_watch=builder.watch_items(watchlist,today)
     current_items=public.get("items",[])
     current_watch=public.get("watchlist",[])
+    for dia in dias:
+        if current_items==builder.active_items(items,dia) and current_watch==builder.watch_items(watchlist,dia):
+            today=dia
+            break
+    else:
+        today=dias[0]
+    expected_items=builder.active_items(items,today)
+    expected_watch=builder.watch_items(watchlist,today)
     if current_items==expected_items and current_watch==expected_watch:
         print(f"RADAR CLOCK: CURRENT for {today.isoformat()} (active={len(expected_items)} watch={len(expected_watch)}; generated_for={public.get('generated_for')})")
         return 0

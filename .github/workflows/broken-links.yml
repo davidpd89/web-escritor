@@ -61,6 +61,12 @@ jobs:
         id: scope
         run: python3 scripts/select-link-check-inputs.py
 
+      # Covers in the external store (data/reading-covers-store.json) are not in this repo: the deploy rewrites
+      # their logical /assets/reading-covers/ paths to the store URL. Do the same here so lychee checks the real
+      # hosted file instead of reporting a missing local one.
+      - name: Point store covers at the store, as the deploy does
+        run: python3 scripts/reading_cover_store.py apply .
+
       # Two flags about the CI runner, not about the links (2026-10-06): lychee's
       # own user agent gets challenged -- Blogspot URLs came back as six 302s
       # into google.com/sorry and Shopify answered 429 -- while the exact same
@@ -114,7 +120,13 @@ jobs:
           # la regla de #1430: un host externo caído que ya estaba en main solo avisa. Fuera de main se compara con main.
           BASE_REF: ${{ github.base_ref || (github.ref_name != 'main' && 'main' || '') }}
           RECHECK_PAUSE: '120'  # segundo repaso de externos caídos: la red del runner falla a ratos
-        run: python3 scripts/recheck-link-timeouts.py --report lychee/out.md --output lychee/timeout-recheck.json --quarantine .linkcheck-quarantine.json ${BASE_REF:+--base-ref "origin/$BASE_REF"}
+          # 18/11: en push a main fallaba por hosts ajenos al push (000 aleatorio). Se compara con el commit anterior:
+          # solo un enlace que trae el propio push es fatal. El programado semanal sigue siendo estricto.
+          PUSH_BASE: ${{ github.event_name == 'push' && github.event.before || '' }}
+        run: |
+          base=${BASE_REF:+origin/$BASE_REF}
+          case "$PUSH_BASE" in ''|0000000000000000000000000000000000000000) ;; *) git cat-file -e "$PUSH_BASE^{commit}" 2>/dev/null && base=$PUSH_BASE ;; esac
+          python3 scripts/recheck-link-timeouts.py --report lychee/out.md --output lychee/timeout-recheck.json --quarantine .linkcheck-quarantine.json ${base:+--base-ref "$base"}
 
       - name: Upload report
         uses: actions/upload-artifact@v7

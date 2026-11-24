@@ -121,7 +121,7 @@ async function runCase(width,mode){
       await page.waitForFunction(n=>document.querySelectorAll('[data-catalogue-book]:not([hidden])').length===Math.min(24,n),books.length);
       assert.equal(new URL(page.url()).hash,'','Reset remains available after transport failure');
       if(books.length>24){
-        await page.locator('.catalogue-pagination button').last().click();
+        await page.locator('.catalogue-pagination button',{hasText:'Siguiente'}).click();
         assert.equal(new URLSearchParams(new URL(page.url()).hash.slice(1)).get('pagina'),'2','Pagination remains available after transport failure');
       }
     }

@@ -24,7 +24,9 @@ UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 OWN_HOSTS = ('davidportodiaz.com',)
 # Lychee's wording for a certificate the site itself must renew or fix ("SSL certificate expired. Site needs to
 # renew certificate"). A generic "TLS handshake failed" is not included: it stays fatal like DNS errors.
-CERTIFICATE = re.compile(r'\|\s*SSL certificate\b', re.I)
+# A bad certificate, or a TLS handshake the site refuses to lychee's rustls (old ciphers; su.se on
+# 2026-11-23): the other server's fault, rechecked with curl and only a warning if it persists.
+CERTIFICATE = re.compile(r'\|\s*(?:SSL certificate\b|Network error: received fatal alert: HandshakeFailure\b)', re.I)
 
 
 def report_lines(report: str) -> list[tuple[str, str, str]]:
@@ -63,7 +65,8 @@ def timeout_urls(report: str) -> list[str]:
     # the recheck still demands a real 2xx, so a host that stays down keeps
     # failing. Other [ERROR]s (DNS, TLS handshake, invalid URL) are not retried;
     # third_party_faults() above lets external 403s and certificate errors through.
-    transport = re.compile(r'\|\s*(?:Connection (?:refused|reset|closed|failed)\b|Error \(cached\)\s*$)', re.I)
+    # Newer lychee prefixes them with "Network error: " (hplovecraft.com reset on 2026-11-23).
+    transport = re.compile(r'\|\s*(?:Network error:\s*)?(?:Connection (?:refused|reset|closed|failed)\b|Error \(cached\)\s*$)', re.I)
     failures = [(status, url) for status, url, _ in lines]
     if not lines or any(
         not url.startswith(('https://', 'http://'))
@@ -143,8 +146,9 @@ def quarantined(result: dict, active: dict[str, dict]) -> dict | None:
 # whole load unpublished. A host that is down says nothing about a PR that did
 # not add the link, so on a PR an unreachable/5xx external URL that already
 # exists in the base tree is a warning. Links the PR introduces, our own
-# domain, 404s and DNS/TLS errors stay fatal, and push/schedule scans of main
-# (no base ref) keep failing, so a host that stays down is still caught there.
+# domain, 404s and DNS/TLS errors stay fatal. A push to main compares with the
+# previous commit (18/11: random 000s on hosts the push never touched), and the
+# weekly schedule (no base ref) keeps failing, so a host that stays down is caught.
 def in_base(url: str, base: str) -> bool:
     for needle in dict.fromkeys((url, escape(url, quote=False))):
         found = subprocess.run(['git', 'grep', '-q', '-F', '-e', needle, base, '--'],
