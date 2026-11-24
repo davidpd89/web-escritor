@@ -217,13 +217,50 @@ def files():
             yield rel.as_posix(), path
 
 
+AUTHOR_PAGE = re.compile(r"(?:^|/)recomendaciones/autores/([^/]+)/index\.html$")
+
+
+def own_title_words(rel: str) -> set[str]:
+    """Palabras de los títulos de obra del texto propio de una ficha de autor.
+
+    24/11: la ficha cita obras con su título original («L'ultimo giorno di Roma», «Linea nigra», «Biografia del
+    foc»); en italiano o catalán no llevan tilde y no son faltas. Vale para cualquier campo `titulo*` del JSON
+    publicado en data/reading-author-texts/, no para una lista de palabras.
+    """
+    match = AUTHOR_PAGE.search(rel.replace("\\", "/"))
+    if not match:
+        return set()
+    path = ROOT / "data/reading-author-texts" / f"{match.group(1)}.json"
+    if not path.is_file():
+        return set()
+    import json
+
+    words: set[str] = set()
+
+    def walk(node, key=""):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                walk(v, k)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v, key)
+        elif isinstance(node, str) and key.startswith("titulo"):
+            words.update(w.lower() for w in re.findall(r"\w+", node))
+
+    walk(json.loads(path.read_text(encoding="utf-8")))
+    return words
+
+
 def scan(rel: str, path: Path) -> list[tuple[str, int, str, str]]:
     """(ruta, línea, palabra sin tilde, texto) de un fichero; lo usa también el contrato previo a la PR de la carga."""
     src = path.read_text(encoding="utf-8", errors="replace")
     pieces = html_visible_text(src) if path.suffix == ".html" else js_strings(src)
+    titles = own_title_words(rel)
     out = []
     for line, text, context in pieces:
         for word in flagged_words(text, context):
+            if word in titles:
+                continue
             out.append((rel, line, word, re.sub(r"\s+", " ", text).strip()))
     return out
 

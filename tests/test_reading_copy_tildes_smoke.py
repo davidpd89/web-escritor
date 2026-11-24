@@ -141,9 +141,12 @@ def html_culprits(rel, src, books):
     found = marks(cleaned, by_slug)
     page = BOOK_PAGE.search(rel)
     own = by_slug.get(page.group(1)) if page else None
+    titles = tildes.own_title_words(rel)
     out = []
     for pos, line, text in chunks:
         for word in tildes.flagged_words(text, text):
+            if word in titles:
+                continue
             owner = owner_at(found, pos) or own
             if owner in by_id and mentions(by_id[owner], word):
                 ids = [owner]
