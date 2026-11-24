@@ -191,7 +191,7 @@
       "id": "catalogo",
       "nombre": "Catálogo y validación de datos",
       "mision": "Que la carga nocturna entre entera, aparte el libro defectuoso y no rompa las fichas.",
-      "workflows": ["atlas-catalogue-qa", "atlas-contract", "atlas-directory-sync", "catalogo-duplicados", "reading-catalogue-reaper", "reading-catalogue-sync", "reading-coverage-check", "reading-failure-resilience", "reading-general-catalogue-ux-qa", "reading-intake-qa", "recommendations-browser-qa"],
+      "workflows": ["atlas-catalogue-qa", "atlas-contract", "atlas-directory-sync", "catalogo-duplicados", "congelar-main", "reading-catalogue-reaper", "reading-catalogue-sync", "reading-coverage-check", "reading-failure-resilience", "reading-general-catalogue-ux-qa", "reading-intake-qa", "recommendations-browser-qa"],
       "pendientes": [
         {"herramienta": "JSON Schema del catálogo", "motivo": "schemas/ solo cubre el atlas; un esquema de data/reading-catalogue.json validaría cada libro antes de construir páginas."}
       ],
