@@ -1,0 +1,102 @@
+name: Runtime scoping QA
+
+on:
+  pull_request:
+    # Vía rápida: un PR solo de contenido generado (scripts/ci_content_lane.py CONTENT_GLOBS) no lo dispara; lo cubre weekly-full-audit.yml.
+    paths-ignore:
+      - 'assets/page-order.generated.js'
+      - 'assets/reading-market.json'
+      - 'assets/reading-covers/isbn-*.webp'
+      - 'assets/reading-audio/*.mp3'
+      - 'assets/pinterest/feeds/*.xml'
+      - 'data/reading-catalogue.json'
+      - 'data/reading-authors.json'
+      - 'data/reading-publishers.json'
+      - 'data/reading-intake-state.json'
+      - 'data/reading-covers-store.json'
+      - 'data/reading-author-links.json'
+      - 'data/reading-amazon-audit.json'
+      - 'data/reading-classification-gpt.json'
+      - 'data/reading-pinterest-state.json'
+      - 'data/reading-quarantine.json'
+      - 'data/reading-texts/*.json'
+      - 'data/reading-author-texts/*.json'
+      - 'data/content-registry.json'
+      - 'recomendaciones/index.html'
+      - 'recomendaciones/autores/index.html'
+      - 'recomendaciones/editoriales/index.html'
+      - 'recomendaciones/libros/*/index.html'
+      - 'recomendaciones/pagina/*/index.html'
+      - 'recomendaciones/autores/*/index.html'
+      - 'recomendaciones/autores/pagina/*/index.html'
+      - 'recomendaciones/editoriales/*/index.html'
+      - 'recomendaciones/proximos-lanzamientos.ics'
+      - 'recomendaciones/llms.txt'
+      - 'recomendaciones/ofertas.json'
+      - 'editoriales/*/index.html'
+      - 'editoriales-sitemap.xml'
+      - 'editoriales/index.html'
+      - 'editoriales/editoriales-data.json'
+      - 'metodologia-editorial/index.html'
+      - 'mapa-del-sitio/index.html'
+      - 'sitemap.xml'
+      - 'pagefind/**'
+  push:
+    branches:
+      - pendiente-h-gpt-lineas-1-200
+  workflow_dispatch:
+
+concurrency:
+  # En una PR, un push nuevo cancela la CI del commit anterior; main y los programados no se cancelan.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+# R5-8: el token por defecto del repo es de escritura; en pull_request basta con leer.
+permissions:
+  contents: read
+
+jobs:
+  runtime-scoping:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+
+      - name: Check static runtime scoping contract
+        run: python scripts/check-runtime-scoping.py
+
+      - name: Test static runtime checker
+        run: python tests/test-check-runtime-scoping.py
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium
+
+      - name: Run runtime scoping browser QA
+        run: node qa/runtime-scoping-browser.mjs
