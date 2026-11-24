@@ -381,6 +381,19 @@ def main_cambio_qa(repo, sha):
 DETERMINISTA = re.compile(r'^\S*\s*FALLA:? tests/\S+', re.M)
 
 
+def registro_job(repo, job_id):
+    """Registro de un job de Actions. Los registros llevan colores ANSI y `gh api` (>= 2.8x) se niega a sacarlos sin
+    `--allow-escape-sequences`: sin la opción, fallo_determinista daba siempre False y cada fallo determinista de la
+    puerta se repetía entero (~22 min, noche del 24/11). Un gh antiguo que no conozca la opción lee sin ella."""
+    ruta = f'repos/{repo}/actions/jobs/{job_id}/logs'
+    try:
+        return gh('api', '--allow-escape-sequences', ruta)
+    except subprocess.CalledProcessError as exc:
+        if 'allow-escape-sequences' not in (exc.stderr or '') or 'unknown flag' not in (exc.stderr or ''):
+            raise
+        return gh('api', ruta)
+
+
 def fallo_determinista(repo, run_id):
     """True si la ejecución fallida trae un `FALLA: tests/...` (un test concreto que falló sobre los datos de la
     PR): repetir el mismo commit da el mismo fallo y cuesta otra puerta entera (~22 min). Un job cancelado, un corte de
@@ -391,7 +404,7 @@ def fallo_determinista(repo, run_id):
         for job in jobs:
             if job.get('conclusion') != 'failure':
                 continue
-            log = gh('api', f'repos/{repo}/actions/jobs/{job["id"]}/logs')
+            log = registro_job(repo, job['id'])
             if DETERMINISTA.search(log):
                 return True
     except Exception:  # noqa: BLE001 - sin registros legibles, el reintento de siempre
