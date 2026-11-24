@@ -22,4 +22,33 @@ Claves de entrega: `weekly-<lunes>` (cabecera) y `weekly-<lunes>-<fecha>` (cada 
 - TG Inspector: todos y proximos aceptados; el resto topó con límite de envíos diario (reintentar mañana: novedades, thriller, romantica, fantasia, terror, cienciaficcion, infantil, ensayo).
 - telegramchannels.io (Education, español): 10 enviados; los 8 primeros sin mensaje de confirmación legible, infantil y ensayo respondieron «ya enviado/recibido». Sin comprobar.
 - TeleSeeker: 10 enviados, atascados en verificación Turnstile; sin confirmar (revisar a las 24 h).
-- Pendientes: tg.place (Turnstile + login), tgmania, telegramchannels.me, telegramgroups.co, TGStat (login Telegram), TGbox, y todos los directorios de Discord (OAuth + bot) con `https://discord.gg/3DNkNcyQsX`.
+- TGStat: David dice que envió los 10 (sin verificar).
+- Discord (invitación permanente `https://discord.gg/3DNkNcyQsX`, Edge 9250 limpio sin extensiones para pasar Cloudflare): Discadia (`dcd.gg/club-de-lectura-david-porto`), Disboard (`/bump` cada 2 h), discord.me (publicado), discordservers.com (100 %, vanity disc.gg/club-lectura) publicados; top.gg en revisión (1-2 semanas). Roles de los bots recortados a cero permisos (Discadia, Disboard, DiscordServers x2); top.gg solo Crear invitación.
+- Pendientes Telegram: tg.place, tgmania, telegramchannels.me, telegramgroups.co, TGbox; reintentar TG Inspector.
+- Pendientes Discord: discordplace.com, discordbotlist.com, discolisting.com, discordfinder.net, serverdrop.gg, disradar.com (mín. 10 miembros), discords.com, discordservers.io, thediscordlist.com, discordhome.com (dclist.gg: ruta /add da 404, buscar la correcta).
+- Pendiente: PR #1544 (CI, comentarios, fusionar antes del lunes 30/11 11:30).
+
+## Actualización 24/11 (Discord)
+- Publicados: DiscordPlace (bump 2 h), ServerDrop (`serverdrop.gg/server/club`, bump 6 h, bot con 3 permisos mínimos), discords.com (pública, tags Community/Learning, desc. ES, invitación automática), discordservers.io (`/server/99590-club-de-lectura-david-porto`, bot DSL recortado a cero).
+- En revisión: DiscoListing, top.gg. Descartados: discordfinder.net (caído), dclist.gg (/add 404).
+- Roles de bots (DiscordServers ×2, Place, DSL) recortados; DS.ME solo «Crear invitación».
+- Pendiente Discord: thediscordlist.com, discordhome.com, discordbotlist.com, disradar.com (mín. 10 miembros; hay 9), bumps periódicos.
+- Pendiente Telegram: TG Inspector (8 canales con límite diario), comprobar TeleSeeker/telegramchannels.io/TGStat, telegramchannels.me, tg.place, etc.
+- Edge 9250 (mío) sigue abierto; cerrar al terminar. 9232/9240 son de David.
+- 24/11 tarde: thediscordlist.com enviado a revisión (sin bot, invitación permanente; tags books/reading/spanish; categorías Community+Books). discordhome.com publicado (listing 58193, bump manual cada 2 h, rol DH Bump a cero; invitación del bot discord.gg/6HXM3Pct5q). Pendiente: discordbotlist.com, disradar.com (≥10 miembros).
+
+- discordbotlist.com (24/11): formulario enviado 2 veces, sigue "not listed" (probable exigencia de bot en el servidor); descartado.
+- Pendiente: disradar.com (≥10 miembros), TG Inspector (límite diario), TeleSeeker/TGStat verificación, telegramchannels.me y otros directorios TG, bumps periódicos (Disboard/Place/Home 2 h, ServerDrop 6 h, Discadia 1/día), PR #1544 fusionar antes del 30/11 11:30.
+
+## Actualización 24/11 (automatización)
+- Disradar listado (bot con solo «Crear invitación»; servidor ya >=10 con bots). discordbotlist descartado.
+- Automatización en `C:\GIT\RRSS_DavidPorto\SISTEMA_PROMO_COMUNIDAD\` (ver README): tareas «RRSS Promo Discord bumps» (30 min), «RRSS Promo Telegram altas» (diaria 10:15), «RRSS Promo avisos ntfy» (1 h). Pestaña «comunidad» en el panel RRSS (#com) para lo manual (voto Discords.com); panel reiniciado.
+- Altas TG: tginspector 5/10 (límite diario, sigue mañana), tgplace 3/10 (límite), tgmania 10/10, telegramchannels.io en curso; list.tg y TGmetrix 10/10; TeleSeeker verifica solo.
+- Cloudflare: fallaba por extensiones en 9232 y por no esperar al token Turnstile; en 9250 limpio + espera funciona.
+- PR #1544: Pagefind obsoleto por deriva de main → merge de main (conflicto en recomendaciones/index.html resuelto con la versión de main + invitación permanente) y push; auto-merge squash activado. Comprobar tras CI y tras el 30/11 11:30.
+- Pendiente: top.gg/DiscoListing/thediscordlist en revisión; TGStat (/add 404, necesita cuenta); ampliar directorios.
+
+## Actualización 24/11 (tarde)
+- Voto discords.com automatizado (votos_web.py, 6 h). Consulta a GPT: nuevos sitios en RRSS/SISTEMA_PROMO_COMUNIDAD/gpt_sitios_2026-11-24.md.
+- Añadidos TeleNavo (comprobado: "en cola de revisión"; limita por ritmo) y search-t.me (envío sin error, sin confirmación visible). Altas TG cada 2 h.
+- Pendiente: PR #1544 (CI) antes del 30/11 11:30; login de directorios Discord nuevos (Dizord, Discords.ai, DiscordBase…).
