@@ -1,0 +1,221 @@
+{
+  "slug": "ana-huang",
+  "identificado": true,
+  "intro": "Ana Huang (Estados Unidos, 1991) es una escritora estadounidense de ascendencia china especializada en novela romántica contemporánea y new adult. Se dio a conocer internacionalmente con la serie Twisted, difundida a través de BookTok, y es también autora de Pecados y Dioses del juego. Sus historias combinan relaciones sentimentales, tensión sexual, conflictos familiares y personajes vinculados a entornos de poder o al deporte profesional. Sus libros se han traducido a más de treinta idiomas.",
+  "biografia": "Ana Huang nació el 7 de marzo de 1991 en Estados Unidos, en una familia de inmigrantes chinos. Durante su infancia, su madre la animó a escribir relatos para practicar inglés. A los quince años escribió su primera novela y posteriormente compartió historias en Wattpad. Estudió Relaciones Internacionales, realizó un intercambio académico en Shanghái y trabajó en relaciones públicas para una consultora especializada en asuntos geopolíticos.\n\nPublicó All I've Never Wanted en 2013 y desarrolló su carrera como autora de romántica contemporánea mediante la autopublicación. En 2020 apareció la serie If Love y en 2021 comenzó Twisted. La difusión de esta última en TikTok contribuyó a su reconocimiento internacional y a su posterior reedición por Bloom Books en 2022. Después publicó Pecados, centrada en romances relacionados con los siete pecados capitales, y Dioses del juego, ambientada en el fútbol profesional. Sus novelas han encabezado las listas de ventas de The New York Times y USA Today. En 2026, el audiolibro de Rey de la envidia ganó el premio Audie en la categoría de romance.\n\nSu obra se ha traducido a 34 idiomas y ha superado los 25 millones de ejemplares vendidos en todo el mundo. Entre sus proyectos audiovisuales figuran una adaptación televisiva de Twisted para Netflix y una trilogía cinematográfica basada en Dioses del juego para Amazon MGM Studios. Ambas producciones continuaban en desarrollo en 2026.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Twisted Love",
+      "motivo": "Es su novela más conocida y la primera entrega de Twisted, la serie que impulsó su popularidad internacional. Presenta una historia de romance contemporáneo con secretos familiares, tensión y personajes moralmente ambiguos."
+    },
+    {
+      "titulo": "Rey de la IRA / King of Wrath: 1",
+      "motivo": "Es la primera novela de Pecados, una serie inspirada en los siete pecados capitales. Su trama gira en torno a un matrimonio de conveniencia entre Dante Russo y Vivian Lau, y permite conocer la serie desde el principio."
+    },
+    {
+      "titulo": "The Striker",
+      "motivo": "Abre Dioses del juego, su serie de romance deportivo ambientada en el fútbol profesional inglés. Es una alternativa para quienes prefieren historias románticas relacionadas con deportistas de élite."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "All I've Never Wanted",
+      "anio": 2013
+    },
+    {
+      "titulo": "If Love Had a Price",
+      "anio": 2020,
+      "saga": "If Love"
+    },
+    {
+      "titulo": "If the Sun Never Sets",
+      "anio": 2020,
+      "saga": "If Love"
+    },
+    {
+      "titulo": "If We Ever Meet Again",
+      "anio": 2020,
+      "saga": "If Love"
+    },
+    {
+      "titulo": "If We Were Perfect",
+      "anio": 2020,
+      "saga": "If Love"
+    },
+    {
+      "titulo": "Twisted Games",
+      "anio": 2021,
+      "saga": "Twisted"
+    },
+    {
+      "titulo": "Twisted Love",
+      "anio": 2021,
+      "saga": "Twisted"
+    },
+    {
+      "titulo": "Rey de la ira",
+      "anio": 2022,
+      "titulo_original": "King of Wrath",
+      "saga": "Pecados"
+    },
+    {
+      "titulo": "Twisted Hate",
+      "anio": 2022,
+      "saga": "Twisted"
+    },
+    {
+      "titulo": "Twisted Lies",
+      "anio": 2022,
+      "saga": "Twisted"
+    },
+    {
+      "titulo": "Rey de la codicia",
+      "anio": 2023,
+      "titulo_original": "King of Greed",
+      "saga": "Pecados"
+    },
+    {
+      "titulo": "Rey de la soberbia",
+      "anio": 2023,
+      "titulo_original": "King of Pride",
+      "saga": "Pecados"
+    },
+    {
+      "titulo": "Rey de la desidia",
+      "anio": 2024,
+      "titulo_original": "King of Sloth",
+      "saga": "Pecados"
+    },
+    {
+      "titulo": "The Striker",
+      "anio": 2024,
+      "saga": "Dioses del juego"
+    },
+    {
+      "titulo": "Rey de la envidia",
+      "anio": 2025,
+      "titulo_original": "King of Envy",
+      "saga": "Pecados"
+    },
+    {
+      "titulo": "The Defender",
+      "anio": 2025,
+      "saga": "Dioses del juego"
+    },
+    {
+      "titulo": "Rey de la gula",
+      "anio": 2026,
+      "titulo_original": "King of Gluttony",
+      "saga": "Pecados"
+    },
+    {
+      "titulo": "The Keeper",
+      "anio": 2026,
+      "saga": "Dioses del juego"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "If Love",
+      "libros": [
+        "If We Ever Meet Again",
+        "If the Sun Never Sets",
+        "If Love Had a Price",
+        "If We Were Perfect"
+      ]
+    },
+    {
+      "nombre": "Twisted",
+      "libros": [
+        "Twisted Love",
+        "Twisted Games",
+        "Twisted Hate",
+        "Twisted Lies"
+      ]
+    },
+    {
+      "nombre": "Pecados (Kings of Sin)",
+      "libros": [
+        "Rey de la ira",
+        "Rey de la soberbia",
+        "Rey de la codicia",
+        "Rey de la desidia",
+        "Rey de la envidia",
+        "Rey de la gula",
+        "King of Lust (previsto para 2027)"
+      ]
+    },
+    {
+      "nombre": "Dioses del juego (Gods of the Game)",
+      "libros": [
+        "The Striker",
+        "The Defender",
+        "The Keeper"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Hannah Grace",
+      "motivo": "Ambas escriben romance contemporáneo para adultos jóvenes y desarrollan relaciones sentimentales vinculadas al deporte, como ocurre en Dioses del juego y Maple Hills."
+    },
+    {
+      "nombre": "Megan Maxwell",
+      "motivo": "Comparten el interés por la novela romántica adulta con contenido erótico, relaciones intensas y conflictos entre deseo y compromiso."
+    },
+    {
+      "nombre": "María Martínez",
+      "motivo": "Ambas cultivan el romance contemporáneo y construyen sus historias alrededor de relaciones sentimentales, conflictos familiares y evolución personal."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Cuál es el libro más famoso de Ana Huang?",
+      "respuesta": "Twisted Love, publicado originalmente en 2021, es su novela más conocida. Es la primera entrega de Twisted, la serie que alcanzó difusión internacional a través de BookTok."
+    },
+    {
+      "pregunta": "¿En qué orden se lee la saga Twisted de Ana Huang?",
+      "respuesta": "El orden es Twisted Love, Twisted Games, Twisted Hate y Twisted Lies. Cada novela se centra en una pareja diferente, pero conviene seguir la secuencia para evitar revelaciones sobre las historias anteriores."
+    },
+    {
+      "pregunta": "¿Cuántos libros tiene la saga Pecados de Ana Huang y en qué orden se leen?",
+      "respuesta": "Pecados, titulada Kings of Sin en inglés, está planteada como una serie de siete novelas: Rey de la ira, Rey de la soberbia, Rey de la codicia, Rey de la desidia, Rey de la envidia, Rey de la gula y King of Lust. Las seis primeras estaban publicadas en noviembre de 2026 y la séptima tenía prevista su publicación original para el 27 de abril de 2027."
+    },
+    {
+      "pregunta": "¿Hay que leer todas las sagas de Ana Huang en orden?",
+      "respuesta": "No es necesario leer las distintas sagas consecutivamente. Todos sus libros comparten universo, pero cada serie puede leerse por separado. La excepción interna más importante es la pareja de novelas If We Ever Meet Again e If the Sun Never Sets, que cuentan una historia continuada."
+    },
+    {
+      "pregunta": "¿Qué libros de Ana Huang se están adaptando al cine o la televisión?",
+      "respuesta": "Netflix desarrolla una serie de televisión basada en Twisted. Amazon MGM Studios prepara una trilogía cinematográfica de Dioses del juego. En noviembre de 2026, ambos proyectos estaban en fase de desarrollo y no tenían fecha de estreno confirmada."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Ana Huang - Suggested Reading Order",
+      "url": "https://anahuang.com/reading-order/"
+    },
+    {
+      "titulo": "Ana Huang - About",
+      "url": "https://anahuang.com/about/"
+    },
+    {
+      "titulo": "Ana Huang - Media Kit",
+      "url": "https://anahuang.com/media-kit/"
+    },
+    {
+      "titulo": "Ana Huang - Wikipedia en inglés",
+      "url": "https://en.wikipedia.org/wiki/Ana_Huang"
+    },
+    {
+      "titulo": "Ana Huang - Wikipedia en español",
+      "url": "https://es.wikipedia.org/wiki/Ana_Huang"
+    },
+    {
+      "titulo": "Ana Huang - Gods of the Game, adaptación cinematográfica",
+      "url": "https://people.com/ana-huang-gods-of-the-game-3-film-adaptation-11946801"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

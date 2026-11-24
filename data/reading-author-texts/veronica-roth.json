@@ -1,0 +1,212 @@
+{
+  "slug": "veronica-roth",
+  "identificado": true,
+  "intro": "Veronica Roth es una escritora estadounidense nacida en 1988, conocida principalmente por la trilogía juvenil de ciencia ficción distópica Divergente, adaptada al cine. Su obra combina sociedades organizadas mediante sistemas de control, conflictos políticos, relaciones personales y decisiones morales. También ha publicado fantasía, relatos y novelas para adultos, como Fuimos elegidos y Poster Girl. En 2026 regresó al universo de Divergente con La sexta facción, una nueva duología que plantea una historia alternativa para sus protagonistas.",
+  "biografia": "Veronica Anne Roth nació el 19 de agosto de 1988 en Nueva York y creció principalmente en Barrington, Illinois. Estudió inicialmente en Carleton College y después se trasladó a la Universidad Northwestern, donde se graduó en 2010 con formación en Literatura Inglesa y Escritura Creativa. Durante sus estudios escribió Divergente, publicada en 2011. La novela inició una trilogía distópica juvenil que continuó con Insurgente (2012) y Leal (2013). Divergente recibió el Goodreads Choice Award al libro favorito de 2011 y Leal obtuvo el premio de ciencia ficción y fantasía de Goodreads en 2013. La trilogía dio lugar a tres películas estrenadas entre 2014 y 2016, protagonizadas por Shailene Woodley y Theo James. La cuarta adaptación cinematográfica prevista fue cancelada.\n\nDespués de Divergente publicó la duología de ciencia ficción Las marcas de la muerte, formada por los libros de 2017 y 2018. También escribió la colección de relatos El fin y otros inicios (2019), la novela de fantasía para adultos Fuimos elegidos (2020) y la distopía Poster Girl (2022). Amplió su producción con Arch-Conspirator (2023), una reinterpretación de Antígona, y Vivir entre cuervos (2024), vinculada al folclore eslavo y continuada por To Clutch a Razor (2025). En 2026 publicó Seek the Traitor's Son y regresó al universo de Divergente con La sexta facción, una historia alternativa centrada en Tris Prior. Su continuación, El último testimonio, tiene prevista su publicación en febrero de 2027. Roth reside en Chicago.",
+  "por_donde_empezar": [
+    {
+      "titulo": "La sexta facción 1 - La sexta facción",
+      "motivo": "Es el inicio de su nueva duología ambientada en el universo de Divergente, publicada en 2026. Presenta una versión alternativa de la historia de Tris Prior y permite explorar ese mundo desde una decisión diferente."
+    },
+    {
+      "titulo": "Divergente",
+      "motivo": "Es su primera novela y la obra por la que se dio a conocer. Introduce el sistema de facciones de Chicago y comienza la trilogía original, por lo que conviene leerla antes de Insurgente y Leal."
+    },
+    {
+      "titulo": "Vivir entre cuervos",
+      "motivo": "Es una novela corta de fantasía urbana basada en el folclore eslavo. Permite conocer otra vertiente de su escritura sin empezar una trilogía extensa, aunque también tiene una continuación."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Divergente",
+      "anio": 2011,
+      "titulo_original": "Divergent",
+      "saga": "Divergente"
+    },
+    {
+      "titulo": "Insurgente",
+      "anio": 2012,
+      "titulo_original": "Insurgent",
+      "saga": "Divergente"
+    },
+    {
+      "titulo": "Leal",
+      "anio": 2013,
+      "titulo_original": "Allegiant",
+      "saga": "Divergente"
+    },
+    {
+      "titulo": "Cuatro: una historia de la saga Divergente",
+      "anio": 2014,
+      "titulo_original": "Four: A Divergent Collection",
+      "saga": "Divergente"
+    },
+    {
+      "titulo": "Las marcas de la muerte",
+      "anio": 2017,
+      "titulo_original": "Carve the Mark",
+      "saga": "Las marcas de la muerte"
+    },
+    {
+      "titulo": "Destinos divididos",
+      "anio": 2018,
+      "titulo_original": "The Fates Divide",
+      "saga": "Las marcas de la muerte"
+    },
+    {
+      "titulo": "El fin y otros inicios",
+      "anio": 2019,
+      "titulo_original": "The End and Other Beginnings: Stories from the Future"
+    },
+    {
+      "titulo": "Fuimos elegidos",
+      "anio": 2020,
+      "titulo_original": "Chosen Ones"
+    },
+    {
+      "titulo": "Poster Girl",
+      "anio": 2022
+    },
+    {
+      "titulo": "Arch-Conspirator",
+      "anio": 2023
+    },
+    {
+      "titulo": "Vivir entre cuervos",
+      "anio": 2024,
+      "titulo_original": "When Among Crows",
+      "saga": "El portador de la maldición"
+    },
+    {
+      "titulo": "To Clutch a Razor",
+      "anio": 2025,
+      "saga": "El portador de la maldición"
+    },
+    {
+      "titulo": "La sexta facción 1 - La sexta facción",
+      "anio": 2026,
+      "titulo_original": "The Sixth Faction",
+      "saga": "La sexta facción"
+    },
+    {
+      "titulo": "Seek the Traitor's Son",
+      "anio": 2026,
+      "saga": "The Burning Empire"
+    },
+    {
+      "titulo": "Curse the Left Hand",
+      "anio": 2027,
+      "saga": "The Burning Empire"
+    },
+    {
+      "titulo": "La sexta facción 2 - El último testimonio",
+      "anio": 2027,
+      "titulo_original": "The Last Testimony",
+      "saga": "La sexta facción"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Divergente",
+      "libros": [
+        "Divergente",
+        "Insurgente",
+        "Leal",
+        "Cuatro: una historia de la saga Divergente"
+      ]
+    },
+    {
+      "nombre": "Las marcas de la muerte",
+      "libros": [
+        "Las marcas de la muerte",
+        "Destinos divididos"
+      ]
+    },
+    {
+      "nombre": "El portador de la maldición",
+      "libros": [
+        "Vivir entre cuervos",
+        "To Clutch a Razor"
+      ]
+    },
+    {
+      "nombre": "The Burning Empire",
+      "libros": [
+        "Seek the Traitor's Son",
+        "Curse the Left Hand"
+      ]
+    },
+    {
+      "nombre": "La sexta facción",
+      "libros": [
+        "La sexta facción 1 - La sexta facción",
+        "La sexta facción 2 - El último testimonio"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Neal Shusterman",
+      "motivo": "Ambos escriben ciencia ficción juvenil distópica sobre sociedades que regulan la vida individual y personajes que cuestionan sus sistemas de control."
+    },
+    {
+      "nombre": "Pierce Brown",
+      "motivo": "Comparten el interés por las jerarquías sociales, las rebeliones contra órdenes políticos establecidos y los conflictos de lealtad en escenarios de ciencia ficción."
+    },
+    {
+      "nombre": "William Gibson",
+      "motivo": "Coinciden en explorar las consecuencias sociales de la tecnología, especialmente los mecanismos de vigilancia y control presentes en novelas como Poster Girl."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿En qué orden se leen los libros de Divergente?",
+      "respuesta": "La trilogía principal se lee en este orden: Divergente (2011), Insurgente (2012) y Leal (2013). Después puede leerse Cuatro (2014), una colección de relatos que amplía la historia desde la perspectiva de Tobias Eaton."
+    },
+    {
+      "pregunta": "¿La sexta facción es una continuación de Divergente?",
+      "respuesta": "No es una continuación directa del desenlace de Leal. Es una historia alternativa ambientada en el mismo universo que explora qué habría ocurrido si la elección de Beatrice Prior hubiera cambiado. Forma una duología independiente con El último testimonio."
+    },
+    {
+      "pregunta": "¿Cuándo se publica La sexta facción 2 - El último testimonio?",
+      "respuesta": "La edición española de Molino tiene previsto publicarse el 4 de febrero de 2027. Es la segunda y última entrega de La sexta facción, iniciada en octubre de 2026."
+    },
+    {
+      "pregunta": "¿Cuántas películas de Divergente se hicieron?",
+      "respuesta": "Se estrenaron tres películas: Divergente (2014), Insurgente (2015) y Leal (2016). La cuarta película prevista, Ascendant, fue cancelada, por lo que las adaptaciones cinematográficas no completaron el desenlace inicialmente planeado."
+    },
+    {
+      "pregunta": "¿Veronica Roth sigue escribiendo libros?",
+      "respuesta": "Sí. En 2026 publicó Seek the Traitor's Son y La sexta facción. Para 2027 están anunciados The Last Testimony, publicado en España como El último testimonio, y Curse the Left Hand, continuación de Seek the Traitor's Son."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Veronica Roth - Web oficial y bibliografía",
+      "url": "https://veronicarothbooks.com/books/"
+    },
+    {
+      "titulo": "Veronica Roth - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/178465-veronica-roth"
+    },
+    {
+      "titulo": "La sexta facción 1 - La sexta facción - Casa del Libro",
+      "url": "https://www.casadellibro.com/libro-la-sexta-faccion-1---la-sexta-faccion/9788427257672/18244474"
+    },
+    {
+      "titulo": "La sexta facción 2 - El último testimonio - Casa del Libro",
+      "url": "https://www.casadellibro.com/libro-la-sexta-faccion-2---el-ultimo-testimonio/9788427257634/19050839"
+    },
+    {
+      "titulo": "Veronica Roth - Illinois Center for the Book",
+      "url": "https://www.illinoisauthors.org/php/getSpecificAuthor.php?uid=7394"
+    },
+    {
+      "titulo": "Veronica Roth Books in Order - FictionDB",
+      "url": "https://www.fictiondb.com/author/veronica-roth~66082.htm"
+    }
+  ],
+  "fecha_revision": "2026-11-24",
+  "origen": "chatgpt-web-high"
+}

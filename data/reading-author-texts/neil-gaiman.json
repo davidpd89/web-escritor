@@ -1,0 +1,263 @@
+{
+  "slug": "neil-gaiman",
+  "identificado": true,
+  "intro": "Neil Gaiman es un escritor y guionista británico nacido en Portchester, Inglaterra, en 1960. Su obra abarca la fantasía, el terror, la ciencia ficción, el cómic y la literatura infantil y juvenil. Es conocido por la serie de novelas gráficas The Sandman y por libros como Coraline, American Gods, Buenos presagios y El libro del cementerio. Sus historias suelen incorporar elementos de la mitología, el folclore y los cuentos tradicionales en escenarios contemporáneos.",
+  "biografia": "Neil Richard Gaiman nació el 10 de noviembre de 1960 en Portchester, Hampshire, Inglaterra, y creció en Sussex. Desde niño mostró interés por la lectura, especialmente por la fantasía, los cuentos tradicionales y los cómics. Tras sus estudios escolares, comenzó a trabajar como periodista, crítico y entrevistador en publicaciones británicas. Durante los años ochenta escribió una biografía del grupo Duran Duran y un libro sobre Douglas Adams. Su colaboración con el dibujante Dave McKean dio lugar a Casos violentos y Orquídea negra, dos de sus primeros trabajos en el cómic.\n\nEn 1989 comenzó a publicar The Sandman para DC Comics, una serie centrada en Morfeo y los Eternos que se prolongó hasta 1996. Paralelamente desarrolló su carrera como novelista. Escribió Buenos presagios junto a Terry Pratchett y después publicó Neverwhere, Stardust, American Gods y Los hijos de Anansi. También se dirigió a lectores más jóvenes con Coraline y El libro del cementerio. Esta última obra obtuvo las medallas Newbery y Carnegie, mientras que American Gods recibió los premios Hugo y Nebula.\n\nSu producción incluye relatos breves, libros ilustrados, adaptaciones mitológicas y guiones audiovisuales. Entre las adaptaciones de sus obras figuran las películas Stardust y Coraline, y las series de televisión American Gods, Buenos presagios y The Sandman. También ha escrito episodios de Doctor Who y participado en proyectos de cine, radio y teatro.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Coraline",
+      "motivo": "Novela breve de fantasía oscura publicada en 2002 y adaptada al cine de animación en 2009. Puede leerse de forma independiente y permite conocer su narrativa dirigida al público infantil y juvenil."
+    },
+    {
+      "titulo": "American Gods",
+      "motivo": "Una de sus novelas más conocidas para adultos, ganadora de los premios Hugo y Nebula. Enfrenta a las divinidades de distintas mitologías con los nuevos dioses de la sociedad estadounidense contemporánea."
+    },
+    {
+      "titulo": "The Sandman: Preludios y nocturnos",
+      "motivo": "Primer volumen de la serie de cómics The Sandman. Presenta a Morfeo, señor de los sueños, y establece los personajes y conflictos que se desarrollan durante la colección."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Casos violentos",
+      "anio": 1987,
+      "titulo_original": "Violent Cases"
+    },
+    {
+      "titulo": "Orquídea negra",
+      "anio": 1988,
+      "titulo_original": "Black Orchid"
+    },
+    {
+      "titulo": "The Sandman",
+      "anio": 1989,
+      "saga": "The Sandman"
+    },
+    {
+      "titulo": "Buenos presagios",
+      "anio": 1990,
+      "titulo_original": "Good Omens"
+    },
+    {
+      "titulo": "Neverwhere",
+      "anio": 1996
+    },
+    {
+      "titulo": "Humo y espejos",
+      "anio": 1998,
+      "titulo_original": "Smoke and Mirrors"
+    },
+    {
+      "titulo": "Sandman: Los cazadores de sueños",
+      "anio": 1999,
+      "titulo_original": "The Sandman: The Dream Hunters",
+      "saga": "The Sandman"
+    },
+    {
+      "titulo": "Stardust",
+      "anio": 1999
+    },
+    {
+      "titulo": "American Gods",
+      "anio": 2001
+    },
+    {
+      "titulo": "Coraline",
+      "anio": 2002
+    },
+    {
+      "titulo": "1602",
+      "anio": 2003
+    },
+    {
+      "titulo": "Los lobos de la pared",
+      "anio": 2003,
+      "titulo_original": "The Wolves in the Walls"
+    },
+    {
+      "titulo": "Sandman: Noches eternas",
+      "anio": 2003,
+      "titulo_original": "The Sandman: Endless Nights",
+      "saga": "The Sandman"
+    },
+    {
+      "titulo": "Los hijos de Anansi",
+      "anio": 2005,
+      "titulo_original": "Anansi Boys"
+    },
+    {
+      "titulo": "Objetos frágiles",
+      "anio": 2006,
+      "titulo_original": "Fragile Things"
+    },
+    {
+      "titulo": "El cementerio sin lápidas y otras historias negras",
+      "anio": 2007,
+      "titulo_original": "M Is for Magic"
+    },
+    {
+      "titulo": "InterWorld",
+      "anio": 2007,
+      "saga": "InterWorld"
+    },
+    {
+      "titulo": "El libro del cementerio",
+      "anio": 2008,
+      "titulo_original": "The Graveyard Book"
+    },
+    {
+      "titulo": "Odd y los gigantes de escarcha",
+      "anio": 2008,
+      "titulo_original": "Odd and the Frost Giants"
+    },
+    {
+      "titulo": "El galáctico, pirático y alienígena viaje de mi padre",
+      "anio": 2013,
+      "titulo_original": "Fortunately, the Milk"
+    },
+    {
+      "titulo": "El océano al final del camino",
+      "anio": 2013,
+      "titulo_original": "The Ocean at the End of the Lane"
+    },
+    {
+      "titulo": "El sueño de plata",
+      "anio": 2013,
+      "titulo_original": "The Silver Dream",
+      "saga": "InterWorld"
+    },
+    {
+      "titulo": "Sandman: Obertura",
+      "anio": 2013,
+      "titulo_original": "The Sandman: Overture",
+      "saga": "The Sandman"
+    },
+    {
+      "titulo": "Hansel y Gretel",
+      "anio": 2014,
+      "titulo_original": "Hansel and Gretel"
+    },
+    {
+      "titulo": "La joven durmiente y el huso",
+      "anio": 2014,
+      "titulo_original": "The Sleeper and the Spindle"
+    },
+    {
+      "titulo": "Eternity's Wheel",
+      "anio": 2015,
+      "saga": "InterWorld"
+    },
+    {
+      "titulo": "Material sensible",
+      "anio": 2015,
+      "titulo_original": "Trigger Warning"
+    },
+    {
+      "titulo": "Mitos nórdicos",
+      "anio": 2017,
+      "titulo_original": "Norse Mythology"
+    },
+    {
+      "titulo": "El arte importa",
+      "anio": 2018,
+      "titulo_original": "Art Matters"
+    },
+    {
+      "titulo": "Aquello que nos da calor",
+      "anio": 2023,
+      "titulo_original": "What You Need to Be Warm"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "The Sandman",
+      "libros": [
+        "The Sandman: Preludios y nocturnos",
+        "The Sandman: La casa de muñecas",
+        "The Sandman: País de sueños",
+        "The Sandman: Estación de nieblas",
+        "The Sandman: Juego a ser tú",
+        "The Sandman: Fábulas y reflejos",
+        "The Sandman: Vidas breves",
+        "The Sandman: El fin de los mundos",
+        "The Sandman: Las benévolas",
+        "The Sandman: El velatorio",
+        "Sandman: Los cazadores de sueños",
+        "Sandman: Noches eternas",
+        "Sandman: Obertura"
+      ]
+    },
+    {
+      "nombre": "InterWorld",
+      "libros": [
+        "InterWorld",
+        "El sueño de plata",
+        "Eternity's Wheel"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Stephen King",
+      "motivo": "Ambos escriben fantasía y terror sobrenatural, con personajes enfrentados a amenazas ocultas bajo la apariencia de la vida cotidiana."
+    },
+    {
+      "nombre": "Peter Straub",
+      "motivo": "Comparte con Gaiman el empleo de elementos sobrenaturales, el terror psicológico y las historias en las que el pasado influye sobre el presente."
+    },
+    {
+      "nombre": "Patricia García-Rojo",
+      "motivo": "Coinciden en la fantasía dirigida al público infantil y juvenil y en la incorporación de elementos mágicos a escenarios reconocibles."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Cuál es el libro más conocido de Neil Gaiman?",
+      "respuesta": "Coraline, American Gods y Buenos presagios figuran entre sus novelas más conocidas. En el cómic destaca The Sandman, una serie de fantasía publicada originalmente entre 1989 y 1996."
+    },
+    {
+      "pregunta": "¿En qué orden se debe leer The Sandman?",
+      "respuesta": "El orden recomendado comienza con Preludios y nocturnos y continúa con los diez volúmenes principales hasta El velatorio. Después pueden leerse Los cazadores de sueños, Noches eternas y Obertura, una precuela publicada posteriormente que explica acontecimientos anteriores al inicio de la serie."
+    },
+    {
+      "pregunta": "¿American Gods y Los hijos de Anansi forman una saga?",
+      "respuesta": "Son novelas independientes ambientadas en un universo mitológico compartido. Los hijos de Anansi recupera al personaje de Anansi, presente en American Gods, pero cuenta otra historia y puede leerse sin conocer la primera novela."
+    },
+    {
+      "pregunta": "¿Qué libros de Neil Gaiman se han adaptado al cine y la televisión?",
+      "respuesta": "Coraline se convirtió en una película de animación dirigida por Henry Selick en 2009 y Stardust tuvo una adaptación cinematográfica en 2007. American Gods, Buenos presagios y The Sandman también han sido adaptadas como series de televisión."
+    },
+    {
+      "pregunta": "¿Neil Gaiman escribe solo literatura infantil?",
+      "respuesta": "No. Su bibliografía incluye novelas para adultos como American Gods, Neverwhere y El océano al final del camino, literatura infantil y juvenil como Coraline y El libro del cementerio, además de cómics, relatos y libros ilustrados. También ha trabajado como guionista."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Neil Gaiman - Biografía oficial",
+      "url": "https://www.neilgaiman.com/About_Neil/Biography/"
+    },
+    {
+      "titulo": "Neil Gaiman - Bibliografía oficial",
+      "url": "https://www.neilgaiman.com/works/Books/"
+    },
+    {
+      "titulo": "Neil Gaiman bibliography - Wikipedia en inglés",
+      "url": "https://en.wikipedia.org/wiki/Neil_Gaiman_bibliography"
+    },
+    {
+      "titulo": "Neil Gaiman - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/4625-neil-gaiman"
+    },
+    {
+      "titulo": "The Sandman - Wikipedia en español",
+      "url": "https://es.wikipedia.org/wiki/The_Sandman"
+    },
+    {
+      "titulo": "Neil Gaiman - Museum of Pop Culture, Science Fiction and Fantasy Hall of Fame",
+      "url": "https://www.mopop.org/sffhof/neil-gaiman"
+    }
+  ],
+  "fecha_revision": "2026-11-24",
+  "origen": "chatgpt-web-high"
+}

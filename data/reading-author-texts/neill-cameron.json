@@ -1,0 +1,229 @@
+{
+  "slug": "neill-cameron",
+  "identificado": true,
+  "intro": "Neill Cameron (Oxford, 1977) es un dibujante, guionista de cómics y escritor británico especializado en literatura infantil y juvenil. Es conocido por las series Mega Robo Bros, protagonizada por dos hermanos robots con superpoderes, y Superdónuts, una colección de historietas de humor protagonizadas por dónuts. También ha escrito novelas infantiles ilustradas y manuales para aprender a crear cómics. Colabora habitualmente con la revista británica The Phoenix y participa en actividades de formación artística para niños.",
+  "biografia": "Neill Cameron nació en Oxford, Inglaterra, en 1977. Desarrolló su carrera como dibujante y guionista de historietas, con especial dedicación al cómic infantil. Entre sus primeros trabajos figuran la adaptación gráfica de Henry V, publicada en 2007 con guion de John McDonald, y Mo-Bot High, aparecida en la revista The DFC y recopilada en 2010. Desde 2011 colabora con la publicación semanal The Phoenix. En 2014 publicó How to Make Awesome Comics, un manual para enseñar a los niños a crear historietas. También colaboró con Daniel Hartwell en The Pirates of Pangaea y con la dibujante Kate Brown en las aventuras de Tamsin.\n\nEn 2016 comenzó a publicar Mega Robo Bros, una serie sobre dos hermanos robots que combina acción, ciencia ficción y relaciones familiares. La obra recibió el Excelsior Award Jr en 2017 y fue seleccionada por la Biblioteca Pública de Nueva York entre sus lecturas infantiles destacadas de 2018. Cameron también escribió las novelas ilustradas de The Awesome Robot Chronicles. En 2025 apareció Donut Squad, publicada en España como Superdónuts, cuya primera entrega fue finalista del Waterstones Book of the Year de ese año. La serie alcanzó su tercer volumen en 2026. Además de publicar, Cameron ha sido artista residente en The Story Museum de Oxford, donde ha desarrollado instalaciones de cómic y actividades educativas. También imparte talleres en colegios, bibliotecas y festivales.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Superdónuts 1 - ¡Dominar el mundo!",
+      "motivo": "Es la primera entrega de la serie publicada en España por Beascoa. Presenta a los personajes y su humor absurdo mediante historietas a todo color, por lo que permite comenzar la colección sin conocer las aventuras posteriores."
+    },
+    {
+      "titulo": "Mega Robo Bros 1: Power Up",
+      "motivo": "Inicia su serie de ciencia ficción protagonizada por Alex y Freddy, dos hermanos robots que compaginan el colegio con sus poderes. Es la entrada adecuada para seguir la historia principal en orden."
+    },
+    {
+      "titulo": "How to Make Awesome Comics",
+      "motivo": "Es un manual publicado originalmente en 2014 que explica cómo crear personajes, desarrollar historias y dibujar historietas. Permite conocer su trabajo como divulgador del cómic infantil sin empezar una saga."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Henry V: The Graphic Novel",
+      "anio": 2007
+    },
+    {
+      "titulo": "Mo-Bot High",
+      "anio": 2010
+    },
+    {
+      "titulo": "How to Make Awesome Comics",
+      "anio": 2014
+    },
+    {
+      "titulo": "The Pirates of Pangaea",
+      "anio": 2015
+    },
+    {
+      "titulo": "Mega Robo Bros 1: Power Up",
+      "anio": 2016,
+      "titulo_original": "Mega Robo Bros",
+      "saga": "Mega Robo Bros"
+    },
+    {
+      "titulo": "Tamsin and the Deep",
+      "anio": 2016,
+      "saga": "Tamsin"
+    },
+    {
+      "titulo": "Mega Robo Bros 2: Double Threat",
+      "anio": 2017,
+      "titulo_original": "Mega Robo Rumble",
+      "saga": "Mega Robo Bros"
+    },
+    {
+      "titulo": "Tamsin and the Dark",
+      "anio": 2018,
+      "saga": "Tamsin"
+    },
+    {
+      "titulo": "Freddy and the New Kid",
+      "anio": 2021,
+      "saga": "The Awesome Robot Chronicles"
+    },
+    {
+      "titulo": "Freddy vs School",
+      "anio": 2021,
+      "saga": "The Awesome Robot Chronicles"
+    },
+    {
+      "titulo": "Freddy the Superstar",
+      "anio": 2022,
+      "saga": "The Awesome Robot Chronicles"
+    },
+    {
+      "titulo": "Mega Robo Bros 3: Robot Revenge",
+      "anio": 2022,
+      "saga": "Mega Robo Bros"
+    },
+    {
+      "titulo": "Mega Robo Bros 4: Meltdown",
+      "anio": 2022,
+      "saga": "Mega Robo Bros"
+    },
+    {
+      "titulo": "Mega Robo Bros 5: Next Level",
+      "anio": 2023,
+      "saga": "Mega Robo Bros"
+    },
+    {
+      "titulo": "Mega Robo Bros 6: Carnival Crisis",
+      "anio": 2023,
+      "saga": "Mega Robo Bros"
+    },
+    {
+      "titulo": "X365",
+      "anio": 2023
+    },
+    {
+      "titulo": "Mega Robo Bros 7: Nemesis",
+      "anio": 2024,
+      "saga": "Mega Robo Bros"
+    },
+    {
+      "titulo": "Mega Robo Bros 8: Final Form",
+      "anio": 2025,
+      "saga": "Mega Robo Bros"
+    },
+    {
+      "titulo": "Superdónuts 1 - ¡Dominar el mundo!",
+      "anio": 2025,
+      "titulo_original": "Donut Squad: Take Over the World!",
+      "saga": "Superdónuts"
+    },
+    {
+      "titulo": "Superdónuts 2 - ¡Vaya liada!",
+      "anio": 2026,
+      "titulo_original": "Donut Squad: Make a Mess!",
+      "saga": "Superdónuts"
+    },
+    {
+      "titulo": "Superdónuts 3 - El destino de los dónuts",
+      "anio": 2026,
+      "titulo_original": "Donut Squad: Destiny of the Donuts",
+      "saga": "Superdónuts"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Superdónuts",
+      "libros": [
+        "Superdónuts 1 - ¡Dominar el mundo!",
+        "Superdónuts 2 - ¡Vaya liada!",
+        "Superdónuts 3 - El destino de los dónuts"
+      ]
+    },
+    {
+      "nombre": "Mega Robo Bros",
+      "libros": [
+        "Mega Robo Bros 1: Power Up",
+        "Mega Robo Bros 2: Double Threat",
+        "Mega Robo Bros 3: Robot Revenge",
+        "Mega Robo Bros 4: Meltdown",
+        "Mega Robo Bros 5: Next Level",
+        "Mega Robo Bros 6: Carnival Crisis",
+        "Mega Robo Bros 7: Nemesis",
+        "Mega Robo Bros 8: Final Form"
+      ]
+    },
+    {
+      "nombre": "The Awesome Robot Chronicles",
+      "libros": [
+        "Freddy vs School",
+        "Freddy and the New Kid",
+        "Freddy the Superstar"
+      ]
+    },
+    {
+      "nombre": "Tamsin",
+      "libros": [
+        "Tamsin and the Deep",
+        "Tamsin and the Dark"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Artur Laperla",
+      "motivo": "Ambos crean cómics infantiles de humor y aventuras protagonizados por personajes poco habituales, como los dónuts de Superdónuts y el superhéroe de Superpatata."
+    },
+    {
+      "nombre": "Francisco Ibáñez",
+      "motivo": "Comparten el uso del humor visual, los personajes caricaturescos y las situaciones disparatadas en historietas de aventuras y acción."
+    },
+    {
+      "nombre": "Geronimo Stilton",
+      "motivo": "Sus obras se dirigen a lectores infantiles y combinan aventuras humorísticas con abundantes recursos visuales, aunque Cameron trabaja principalmente en formato cómic."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿En qué orden se leen los libros de Superdónuts?",
+      "respuesta": "El orden es Superdónuts 1 - ¡Dominar el mundo!, Superdónuts 2 - ¡Vaya liada! y Superdónuts 3 - El destino de los dónuts. Las tres entregas están publicadas en España por Beascoa y corresponden a la serie británica Donut Squad."
+    },
+    {
+      "pregunta": "¿Cuántos libros tiene la serie Mega Robo Bros?",
+      "respuesta": "La serie principal consta de ocho volúmenes en su edición actual. Comienza con Power Up y Double Threat y termina con Final Form, publicado en 2025. Las primeras aventuras también aparecieron con otros títulos antes de su reedición."
+    },
+    {
+      "pregunta": "¿Qué premios ha ganado Neill Cameron?",
+      "respuesta": "Mega Robo Bros ganó el Excelsior Award Jr en 2017. En 2016, Mega Robo Bros y Tamsin and the Deep fueron finalistas de los British Comic Awards. La primera entrega de Donut Squad también fue finalista del Waterstones Book of the Year de 2025."
+    },
+    {
+      "pregunta": "¿Quién es Neill Cameron y de dónde es?",
+      "respuesta": "Neill Cameron es un historietista y escritor británico nacido en Oxford en 1977. Trabaja principalmente en cómics y libros ilustrados infantiles y colabora con la revista británica The Phoenix."
+    },
+    {
+      "pregunta": "¿Qué relación tienen Mega Robo Bros y Freddy vs School?",
+      "respuesta": "Ambas series están ambientadas en el universo de los hermanos robots Alex y Freddy. Mega Robo Bros cuenta sus aventuras en formato cómic, mientras que Freddy vs School inicia una serie de tres novelas ilustradas centradas en Freddy y su vida escolar."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Neill Cameron - About Me",
+      "url": "https://www.neillcameron.com/about-me"
+    },
+    {
+      "titulo": "Neill Cameron - Mega Robo Bros",
+      "url": "https://www.neillcameron.com/mega-robo-bros"
+    },
+    {
+      "titulo": "Neill Cameron - Wikipedia en inglés",
+      "url": "https://en.wikipedia.org/wiki/Neill_Cameron"
+    },
+    {
+      "titulo": "Superdónuts 1 - ¡Dominar el mundo! - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/409819-libro-superdonuts-1-dominar-el-mundo-9788448872960/fragmento"
+    },
+    {
+      "titulo": "Superdónuts 3 - El destino de los dónuts - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/libros-ninos-7-anos/634649-libro-superdonuts-3-el-destino-de-los-donuts-9788448873479"
+    },
+    {
+      "titulo": "Donut Squad series by Neill Cameron - The Phoenix Shop",
+      "url": "https://thephoenixcomic.shop/collections/donut-squad-series"
+    }
+  ],
+  "fecha_revision": "2026-11-24",
+  "origen": "chatgpt-web-high"
+}

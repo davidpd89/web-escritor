@@ -1,0 +1,179 @@
+{
+  "slug": "yuval-noah-harari",
+  "identificado": true,
+  "intro": "Yuval Noah Harari (1976) es un historiador, filósofo y escritor israelí especializado en historia global, evolución humana y relaciones entre tecnología y sociedad. Es conocido por Sapiens. De animales a dioses, un ensayo que recorre la historia de la humanidad desde sus orígenes. También ha publicado Homo Deus, 21 lecciones para el siglo XXI y Nexus. Su bibliografía incluye estudios de historia militar, una adaptación gráfica de Sapiens y la colección infantil Imparables.",
+  "biografia": "Yuval Noah Harari nació en Israel el 24 de febrero de 1976. Estudió Historia y se especializó inicialmente en historia medieval y militar. En 2002 obtuvo el doctorado en la Universidad de Oxford y posteriormente desarrolló su carrera académica en la Universidad Hebrea de Jerusalén. Sus primeras publicaciones fueron investigaciones sobre las memorias militares del Renacimiento, las operaciones militares medievales y la experiencia de la guerra. En 2011 publicó en hebreo Sapiens, que alcanzó difusión internacional tras su traducción al inglés en 2014. El ensayo examina la evolución de Homo sapiens y la formación de las sociedades humanas.\n\nSu trayectoria editorial continuó con Homo Deus, publicado originalmente en 2015, sobre los posibles futuros de la humanidad, y 21 lecciones para el siglo XXI, aparecido en 2018. En 2019, Sapiens recibió el reconocimiento de libro académico del año en los Academic Book Trade Awards del Reino Unido. Ese mismo año fundó junto a Itzik Yahav la organización Sapienship, dedicada a proyectos educativos y de comunicación. Desde 2020 colabora con David Vandermeulen y Daniel Casanave en la adaptación gráfica de Sapiens, cuyo cuarto volumen apareció originalmente en Francia en 2025. También creó la colección infantil Imparables, ilustrada por Ricard Zaplana Ruiz. En 2024 publicó Nexus, centrado en la historia de las redes de información y sus implicaciones políticas y tecnológicas.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Sapiens. De animales a dioses",
+      "motivo": "Es su libro más conocido y el punto de partida para conocer sus planteamientos sobre la evolución humana, las sociedades y las creencias colectivas. Se puede leer de forma independiente."
+    },
+    {
+      "titulo": "Sapiens. Una historia gráfica - Edición estuche con los 4 volúmenes: El nacimiento de la humanidad | Los pilares de la civilización | Los amos de la historia | La era de las revoluciones",
+      "motivo": "Reúne los cuatro volúmenes de la adaptación gráfica de Sapiens, realizada con David Vandermeulen y Daniel Casanave. Permite seguir el recorrido histórico completo mediante ilustraciones, personajes y recursos narrativos."
+    },
+    {
+      "titulo": "Nexus. Una breve historia de las redes de información desde la Edad de Piedra hasta la IA",
+      "motivo": "Es una entrada alternativa para quienes buscan sus reflexiones sobre información, poder e inteligencia artificial. Publicado en 2024, puede leerse sin conocer sus ensayos anteriores."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Renaissance Military Memoirs: War, History, and Identity, 1450-1600",
+      "anio": 2004
+    },
+    {
+      "titulo": "Special Operations in the Age of Chivalry, 1100-1550",
+      "anio": 2007
+    },
+    {
+      "titulo": "The Ultimate Experience: Battlefield Revelations and the Making of Modern War Culture, 1450-2000",
+      "anio": 2008
+    },
+    {
+      "titulo": "Sapiens. De animales a dioses",
+      "anio": 2011,
+      "titulo_original": "קיצור תולדות האנושות"
+    },
+    {
+      "titulo": "Homo Deus. Breve historia del mañana",
+      "anio": 2015,
+      "titulo_original": "ההיסטוריה של המחר"
+    },
+    {
+      "titulo": "21 lecciones para el siglo XXI",
+      "anio": 2018,
+      "titulo_original": "21 Lessons for the 21st Century"
+    },
+    {
+      "titulo": "Sapiens. Una historia gráfica 1 - El nacimiento de la humanidad",
+      "anio": 2020,
+      "titulo_original": "Sapiens: A Graphic History, Volume 1: The Birth of Humankind",
+      "saga": "Sapiens. Una historia gráfica"
+    },
+    {
+      "titulo": "Sapiens. Una historia gráfica 2 - Los pilares de la civilización",
+      "anio": 2021,
+      "titulo_original": "Sapiens: A Graphic History, Volume 2: The Pillars of Civilization",
+      "saga": "Sapiens. Una historia gráfica"
+    },
+    {
+      "titulo": "Imparables. Diario de cómo conquistamos la Tierra",
+      "anio": 2022,
+      "titulo_original": "Unstoppable Us, Volume 1: How Humans Took Over the World",
+      "saga": "Imparables"
+    },
+    {
+      "titulo": "Imparables 2 - Por qué el mundo es injusto",
+      "anio": 2023,
+      "titulo_original": "Unstoppable Us, Volume 2: Why the World Isn't Fair",
+      "saga": "Imparables"
+    },
+    {
+      "titulo": "Sapiens. Una historia gráfica 3 - Los amos de la historia",
+      "anio": 2023,
+      "titulo_original": "Sapiens, tome 3: Les maîtres de l'histoire",
+      "saga": "Sapiens. Una historia gráfica"
+    },
+    {
+      "titulo": "Imparables 3 - Cómo pasamos de enemigos a amigos",
+      "anio": 2024,
+      "titulo_original": "Unstoppable Us, Volume 3: How Enemies Become Friends",
+      "saga": "Imparables"
+    },
+    {
+      "titulo": "Nexus. Una breve historia de las redes de información desde la Edad de Piedra hasta la IA",
+      "anio": 2024,
+      "titulo_original": "Nexus: A Brief History of Information Networks from the Stone Age to AI"
+    },
+    {
+      "titulo": "Sapiens. Una historia gráfica 4 - La era de las revoluciones",
+      "anio": 2025,
+      "titulo_original": "Sapiens, tome 4: L'ère des révolutions",
+      "saga": "Sapiens. Una historia gráfica"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Sapiens. Una historia gráfica",
+      "libros": [
+        "Sapiens. Una historia gráfica 1 - El nacimiento de la humanidad",
+        "Sapiens. Una historia gráfica 2 - Los pilares de la civilización",
+        "Sapiens. Una historia gráfica 3 - Los amos de la historia",
+        "Sapiens. Una historia gráfica 4 - La era de las revoluciones"
+      ]
+    },
+    {
+      "nombre": "Imparables",
+      "libros": [
+        "Imparables. Diario de cómo conquistamos la Tierra",
+        "Imparables 2 - Por qué el mundo es injusto",
+        "Imparables 3 - Cómo pasamos de enemigos a amigos"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "José María Bermúdez de Castro",
+      "motivo": "Ambos escriben sobre los orígenes y la evolución de la especie humana, aunque Bermúdez de Castro aborda estas cuestiones principalmente desde la paleoantropología."
+    },
+    {
+      "nombre": "Juan Eslava Galán",
+      "motivo": "Comparten la divulgación histórica dirigida a lectores no especializados y el interés por explicar procesos sociales y culturales de distintas épocas."
+    },
+    {
+      "nombre": "David Vandermeulen",
+      "motivo": "Es colaborador de Harari en Sapiens. Una historia gráfica y comparte su interés por presentar acontecimientos y procesos históricos mediante recursos narrativos e ilustrados."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Cuál es el libro más famoso de Yuval Noah Harari?",
+      "respuesta": "Sapiens. De animales a dioses es su obra más conocida. Se publicó originalmente en hebreo en 2011 y alcanzó difusión internacional con su edición inglesa de 2014. Examina la historia de la humanidad desde sus orígenes hasta la sociedad contemporánea."
+    },
+    {
+      "pregunta": "¿En qué orden se deben leer los libros de Yuval Noah Harari?",
+      "respuesta": "Sus ensayos principales pueden leerse de forma independiente. Un orden cronológico es Sapiens, Homo Deus, 21 lecciones para el siglo XXI y Nexus. Los dos primeros se centran principalmente en el pasado y el futuro de la humanidad, mientras que los siguientes analizan problemas contemporáneos y las redes de información."
+    },
+    {
+      "pregunta": "¿En qué orden se lee Sapiens. Una historia gráfica?",
+      "respuesta": "El orden es El nacimiento de la humanidad, Los pilares de la civilización, Los amos de la historia y La era de las revoluciones. Son cuatro volúmenes de una adaptación de Sapiens realizada con David Vandermeulen y Daniel Casanave. El estuche de Debate reúne las cuatro entregas."
+    },
+    {
+      "pregunta": "¿Qué diferencia hay entre Sapiens e Imparables?",
+      "respuesta": "Sapiens es un ensayo de historia global dirigido al público adulto y cuenta con una adaptación gráfica en cuatro volúmenes. Imparables es una colección de divulgación histórica para lectores infantiles, ilustrada por Ricard Zaplana Ruiz. Ambas explican aspectos de la evolución y el desarrollo de las sociedades humanas."
+    },
+    {
+      "pregunta": "¿Yuval Noah Harari sigue escribiendo libros?",
+      "respuesta": "Sí. Después de Nexus, publicado en 2024, ha continuado sus colecciones gráficas e infantiles. Su editorial anunció The Laws of History, un nuevo ensayo sobre los procesos históricos, con publicación internacional prevista para el 21 de septiembre de 2027."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Yuval Noah Harari - Biografía oficial",
+      "url": "https://www.ynharari.com/es/acerca-de-2/"
+    },
+    {
+      "titulo": "Penguin Random House - Yuval Noah Harari, autor y bibliografía",
+      "url": "https://www.penguinrandomhouse.com/authors/2138691/yuval-noah-harari/"
+    },
+    {
+      "titulo": "Penguin Libros - Imparables 3: Cómo pasamos de enemigos a amigos",
+      "url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/352101-libro-imparables-3-como-pasamos-de-enemigos-a-amigos-9788410298248/fragmento"
+    },
+    {
+      "titulo": "Éditions Albin Michel - Sapiens, tomo 3",
+      "url": "https://www.albin-michel.fr/sapiens-tome-3-bd-9782226477620"
+    },
+    {
+      "titulo": "Éditions Albin Michel - Sapiens, tomo 4",
+      "url": "https://www.albin-michel.fr/sapiens-tome-4-bd-9782226493668"
+    },
+    {
+      "titulo": "Penguin Random House - Anuncio de The Laws of History",
+      "url": "https://global.penguinrandomhouse.com/announcements/prh-to-publish-major-new-work-from-1-internationally-bestselling-author-of-sapiens-yuval-noah-harari/"
+    }
+  ],
+  "fecha_revision": "2026-11-24",
+  "origen": "chatgpt-web-high"
+}

@@ -1,0 +1,297 @@
+{
+  "slug": "john-grisham",
+  "identificado": true,
+  "intro": "John Grisham es un escritor estadounidense nacido en Arkansas en 1955, conocido por sus novelas de suspense judicial. Antes de dedicarse a la literatura trabajó como abogado y fue representante en la Cámara de Misisipi. Alcanzó el reconocimiento internacional con La tapadera, publicada en 1991. Sus historias suelen abordar delitos, corrupción, juicios y conflictos éticos dentro del sistema legal estadounidense. También ha escrito novelas juveniles, relatos de espionaje y libros de no ficción sobre errores judiciales.",
+  "biografia": "John Ray Grisham nació el 8 de febrero de 1955 en Jonesboro, Arkansas, y creció en Misisipi. Se graduó en Contabilidad por la Universidad Estatal de Misisipi en 1977 y obtuvo el título de Derecho por la Universidad de Misisipi en 1981. Ejerció como abogado, principalmente en asuntos penales y de responsabilidad civil, y ocupó un escaño en la Cámara de Representantes de Misisipi entre 1983 y 1990. Su experiencia profesional influyó directamente en los escenarios y conflictos de sus novelas.\n\nSu primera obra, Tiempo de matar, apareció en 1989, inspirada por un juicio al que había asistido. Dos años después publicó La tapadera, cuyo éxito comercial le permitió abandonar la abogacía y dedicarse a escribir. Durante los años noventa publicó El informe pelícano, El cliente, Legítima defensa y El jurado. Varias de estas novelas llegaron al cine. La adaptación de La tapadera, protagonizada por Tom Cruise, se estrenó en 1993.\n\nSu trayectoria incluye dos premios Harper Lee de ficción legal, concedidos en 2011 y 2014, y un reconocimiento de la Biblioteca del Congreso estadounidense en 2009. También participa en organizaciones dedicadas a revisar condenas injustas. Ha desarrollado varias series narrativas, entre ellas Jake Brigance, Theodore Boone y Camino Island. En 2025 publicó La viuda y en 2026 La trama francesa, con la que se adentró en el espionaje internacional.",
+  "por_donde_empezar": [
+    {
+      "titulo": "La tapadera",
+      "motivo": "Es la novela que consolidó su carrera internacional y presenta a Mitch McDeere, un joven abogado que averigua que el bufete donde trabaja está vinculado a actividades criminales. Puede leerse de forma independiente, aunque tiene una secuela publicada en 2023."
+    },
+    {
+      "titulo": "El jurado / The Runaway Jury",
+      "motivo": "Publicada originalmente en 1996, permite conocer su forma de construir el suspense alrededor de un juicio. La historia gira en torno a la manipulación de un jurado y no requiere haber leído ninguna otra novela."
+    },
+    {
+      "titulo": "La trama francesa",
+      "motivo": "Publicada en 2026, es una alternativa para quienes prefieren el espionaje internacional a los procedimientos judiciales. Parte del secuestro de una pareja durante su luna de miel en Francia y desarrolla una trama de operaciones secretas."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Tiempo de matar",
+      "anio": 1989,
+      "titulo_original": "A Time to Kill",
+      "saga": "Jake Brigance"
+    },
+    {
+      "titulo": "La tapadera",
+      "anio": 1991,
+      "titulo_original": "The Firm",
+      "saga": "La tapadera"
+    },
+    {
+      "titulo": "El informe pelícano",
+      "anio": 1992,
+      "titulo_original": "The Pelican Brief"
+    },
+    {
+      "titulo": "El cliente",
+      "anio": 1993,
+      "titulo_original": "The Client"
+    },
+    {
+      "titulo": "Cámara de gas",
+      "anio": 1994,
+      "titulo_original": "The Chamber"
+    },
+    {
+      "titulo": "Legítima defensa",
+      "anio": 1995,
+      "titulo_original": "The Rainmaker"
+    },
+    {
+      "titulo": "El jurado",
+      "anio": 1996,
+      "titulo_original": "The Runaway Jury"
+    },
+    {
+      "titulo": "El socio",
+      "anio": 1997,
+      "titulo_original": "The Partner"
+    },
+    {
+      "titulo": "Causa justa",
+      "anio": 1998,
+      "titulo_original": "The Street Lawyer"
+    },
+    {
+      "titulo": "El testamento",
+      "anio": 1999,
+      "titulo_original": "The Testament"
+    },
+    {
+      "titulo": "La hermandad",
+      "anio": 2000,
+      "titulo_original": "The Brethren"
+    },
+    {
+      "titulo": "El inocente",
+      "anio": 2006,
+      "titulo_original": "The Innocent Man: Murder and Injustice in a Small Town"
+    },
+    {
+      "titulo": "Joven abogado",
+      "anio": 2010,
+      "titulo_original": "Theodore Boone: Kid Lawyer",
+      "saga": "Theodore Boone"
+    },
+    {
+      "titulo": "El secuestro",
+      "anio": 2011,
+      "titulo_original": "Theodore Boone: The Abduction",
+      "saga": "Theodore Boone"
+    },
+    {
+      "titulo": "El acusado",
+      "anio": 2012,
+      "titulo_original": "Theodore Boone: The Accused",
+      "saga": "Theodore Boone"
+    },
+    {
+      "titulo": "El activista",
+      "anio": 2013,
+      "titulo_original": "Theodore Boone: The Activist",
+      "saga": "Theodore Boone"
+    },
+    {
+      "titulo": "La herencia",
+      "anio": 2013,
+      "titulo_original": "Sycamore Row",
+      "saga": "Jake Brigance"
+    },
+    {
+      "titulo": "El fugitivo",
+      "anio": 2015,
+      "titulo_original": "Theodore Boone: The Fugitive",
+      "saga": "Theodore Boone"
+    },
+    {
+      "titulo": "El escándalo",
+      "anio": 2016,
+      "titulo_original": "Theodore Boone: The Scandal",
+      "saga": "Theodore Boone"
+    },
+    {
+      "titulo": "El soborno",
+      "anio": 2016,
+      "titulo_original": "The Whistler",
+      "saga": "Lacy Stoltz"
+    },
+    {
+      "titulo": "El caso Fitzgerald",
+      "anio": 2017,
+      "titulo_original": "Camino Island",
+      "saga": "Camino Island"
+    },
+    {
+      "titulo": "El cómplice",
+      "anio": 2019,
+      "titulo_original": "Theodore Boone: The Accomplice",
+      "saga": "Theodore Boone"
+    },
+    {
+      "titulo": "Los guardianes",
+      "anio": 2019,
+      "titulo_original": "The Guardians"
+    },
+    {
+      "titulo": "El manuscrito",
+      "anio": 2020,
+      "titulo_original": "Camino Winds",
+      "saga": "Camino Island"
+    },
+    {
+      "titulo": "Tiempo de perdón",
+      "anio": 2020,
+      "titulo_original": "A Time for Mercy",
+      "saga": "Jake Brigance"
+    },
+    {
+      "titulo": "La lista del juez",
+      "anio": 2021,
+      "titulo_original": "The Judge's List",
+      "saga": "Lacy Stoltz"
+    },
+    {
+      "titulo": "El intercambio",
+      "anio": 2023,
+      "titulo_original": "The Exchange: After the Firm",
+      "saga": "La tapadera"
+    },
+    {
+      "titulo": "Isla maldita",
+      "anio": 2024,
+      "titulo_original": "Camino Ghosts",
+      "saga": "Camino Island"
+    },
+    {
+      "titulo": "La viuda",
+      "anio": 2025,
+      "titulo_original": "The Widow"
+    },
+    {
+      "titulo": "La trama francesa",
+      "anio": 2026,
+      "titulo_original": "The French Illusion"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Jake Brigance",
+      "libros": [
+        "Tiempo de matar",
+        "La herencia",
+        "Tiempo de perdón"
+      ]
+    },
+    {
+      "nombre": "La tapadera",
+      "libros": [
+        "La tapadera",
+        "El intercambio"
+      ]
+    },
+    {
+      "nombre": "Theodore Boone",
+      "libros": [
+        "Joven abogado",
+        "El secuestro",
+        "El acusado",
+        "El activista",
+        "El fugitivo",
+        "El escándalo",
+        "El cómplice"
+      ]
+    },
+    {
+      "nombre": "Lacy Stoltz",
+      "libros": [
+        "El soborno",
+        "La lista del juez"
+      ]
+    },
+    {
+      "nombre": "Camino Island",
+      "libros": [
+        "El caso Fitzgerald",
+        "El manuscrito",
+        "Isla maldita"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Javier Castillo",
+      "motivo": "Ambos escriben novelas de suspense construidas alrededor de investigaciones, secretos y acontecimientos criminales que alteran la vida de sus protagonistas."
+    },
+    {
+      "nombre": "Freida McFadden",
+      "motivo": "Comparte con Grisham el uso de personajes envueltos en delitos, información oculta y giros argumentales, aunque McFadden se centra más en el thriller psicológico."
+    },
+    {
+      "nombre": "Guillermo Martínez",
+      "motivo": "Sus novelas policiales también presentan crímenes e investigaciones en las que las pruebas, las deducciones y la interpretación de los hechos determinan el desenlace."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Cuál es el libro más famoso de John Grisham?",
+      "respuesta": "La tapadera, publicada originalmente como The Firm en 1991, es una de sus obras más conocidas y la que consolidó su carrera internacional. Fue adaptada al cine en 1993 con Tom Cruise como protagonista."
+    },
+    {
+      "pregunta": "¿Hay que leer los libros de John Grisham en orden?",
+      "respuesta": "La mayoría de sus novelas son independientes y pueden leerse en cualquier orden. Conviene seguir la secuencia de publicación en las series protagonizadas por Jake Brigance, Mitch McDeere, Lacy Stoltz y Theodore Boone, así como en Camino Island."
+    },
+    {
+      "pregunta": "¿Cuál es el orden de los libros de Jake Brigance?",
+      "respuesta": "Las tres novelas principales son Tiempo de matar, publicada en 1989; La herencia, de 2013; y Tiempo de perdón, de 2020. El personaje también aparece en el relato Homecoming, incluido en Los adversarios, de 2022."
+    },
+    {
+      "pregunta": "¿Qué películas están basadas en novelas de John Grisham?",
+      "respuesta": "Entre las adaptaciones cinematográficas se encuentran La tapadera, El informe pelícano, El cliente, Tiempo de matar, Legítima defensa y El jurado. Sus estrenos se produjeron principalmente durante los años noventa y comienzos de los dos mil."
+    },
+    {
+      "pregunta": "¿Cuál es el libro más reciente de John Grisham y sigue escribiendo?",
+      "respuesta": "En noviembre de 2026, su novela más reciente es La trama francesa, publicada originalmente en septiembre de ese año. Grisham continúa escribiendo y ha anunciado The Verdicts, una nueva historia protagonizada por Simon Latch, el abogado de La viuda."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "John Grisham - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/4592-john-grisham"
+    },
+    {
+      "titulo": "John Grisham - Wikipedia en español",
+      "url": "https://es.wikipedia.org/wiki/John_Grisham"
+    },
+    {
+      "titulo": "John Grisham - Wikipedia en inglés",
+      "url": "https://en.wikipedia.org/wiki/John_Grisham"
+    },
+    {
+      "titulo": "The Writer - Mississippi State University Libraries",
+      "url": "https://www.library.msstate.edu/grisham/writer"
+    },
+    {
+      "titulo": "Jake Brigance Series - Penguin Random House",
+      "url": "https://www.penguinrandomhouse.com/series/JB2/jake-brigance/"
+    },
+    {
+      "titulo": "Note to Readers - November 2026 - John Grisham",
+      "url": "https://jgrisham.com/note-to-readers-11-2026"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

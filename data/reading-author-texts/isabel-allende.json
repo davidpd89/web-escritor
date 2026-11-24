@@ -1,0 +1,244 @@
+{
+  "slug": "isabel-allende",
+  "identificado": true,
+  "intro": "Isabel Allende (Lima, 1942) es una escritora y periodista chilena-estadounidense, conocida por sus novelas históricas, sagas familiares y relatos que combinan realidad y elementos del realismo mágico. Alcanzó reconocimiento internacional con La casa de los espíritus (1982), su primera novela. Su obra aborda la memoria, el exilio, las relaciones familiares y la situación de las mujeres en distintas épocas. También ha publicado libros autobiográficos, literatura juvenil y cuentos infantiles. Recibió el Premio Nacional de Literatura de Chile en 2010 y el Premio Planeta en 2026.",
+  "biografia": "Isabel Allende Llona nació el 2 de agosto de 1942 en Lima, Perú, donde su padre trabajaba como diplomático chileno. Creció vinculada a Chile y pasó parte de su infancia y juventud en Bolivia y Líbano, antes de regresar a Santiago para terminar sus estudios. Comenzó su trayectoria profesional en organismos internacionales y posteriormente trabajó como periodista en la revista Paula. Tras el golpe de Estado de 1973 y la instauración de la dictadura de Augusto Pinochet, abandonó Chile en 1975 y se instaló en Venezuela.\n\nDurante su exilio escribió La casa de los espíritus, publicada en 1982. La novela, que sigue a varias generaciones de una familia chilena, inició su carrera literaria internacional. Después aparecieron De amor y de sombra, Eva Luna y El plan infinito. En 1988 se trasladó a Estados Unidos. La muerte de su hija Paula inspiró el libro autobiográfico homónimo, publicado en 1994. También desarrolló novelas históricas como Hija de la fortuna, Inés del alma mía y Largo pétalo de mar, además de la trilogía juvenil Memorias del Águila y del Jaguar.\n\nRecibió el Premio Nacional de Literatura de Chile en 2010, la Medalla Presidencial de la Libertad de Estados Unidos en 2014 y un reconocimiento honorífico de la National Book Foundation en 2018. La casa de los espíritus fue adaptada al cine en 1993 y a una serie televisiva estrenada en 2026. Ese mismo año ganó el Premio Planeta con La hora antes del alba, continuación directa de su primera novela.",
+  "por_donde_empezar": [
+    {
+      "titulo": "La casa de los espíritus",
+      "motivo": "Su primera novela y la obra con la que alcanzó reconocimiento internacional. Presenta a la familia Trueba y permite conocer su combinación de historia política, conflictos familiares y realismo mágico. También es el punto de partida recomendado para leer su saga familiar por orden de publicación."
+    },
+    {
+      "titulo": "Mi nombre es Emilia del Valle",
+      "motivo": "Una novela histórica publicada en 2025, protagonizada por una periodista que viaja a Chile durante la guerra civil de 1891. Se puede leer de forma independiente, aunque comparte universo familiar con La casa de los espíritus."
+    },
+    {
+      "titulo": "Violeta",
+      "motivo": "Una novela independiente que recorre un siglo de historia a través de la vida de una mujer nacida durante la pandemia de gripe de 1918. Permite acercarse a los temas habituales de Allende sin seguir una serie ni conocer personajes anteriores."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "La casa de los espíritus",
+      "anio": 1982,
+      "saga": "Universo de La casa de los espíritus"
+    },
+    {
+      "titulo": "De amor y de sombra",
+      "anio": 1984
+    },
+    {
+      "titulo": "Eva Luna",
+      "anio": 1987
+    },
+    {
+      "titulo": "Cuentos de Eva Luna",
+      "anio": 1989
+    },
+    {
+      "titulo": "El plan infinito",
+      "anio": 1991
+    },
+    {
+      "titulo": "Paula",
+      "anio": 1994
+    },
+    {
+      "titulo": "Afrodita",
+      "anio": 1997
+    },
+    {
+      "titulo": "Hija de la fortuna",
+      "anio": 1999,
+      "saga": "Universo de La casa de los espíritus"
+    },
+    {
+      "titulo": "Retrato en sepia",
+      "anio": 2000,
+      "saga": "Universo de La casa de los espíritus"
+    },
+    {
+      "titulo": "La ciudad de las bestias",
+      "anio": 2002,
+      "saga": "Memorias del Águila y del Jaguar"
+    },
+    {
+      "titulo": "El reino del dragón de oro",
+      "anio": 2003,
+      "saga": "Memorias del Águila y del Jaguar"
+    },
+    {
+      "titulo": "Mi país inventado",
+      "anio": 2003
+    },
+    {
+      "titulo": "El bosque de los pigmeos",
+      "anio": 2004,
+      "saga": "Memorias del Águila y del Jaguar"
+    },
+    {
+      "titulo": "Zorro",
+      "anio": 2005
+    },
+    {
+      "titulo": "Inés del alma mía",
+      "anio": 2006
+    },
+    {
+      "titulo": "La suma de los días",
+      "anio": 2007
+    },
+    {
+      "titulo": "La isla bajo el mar",
+      "anio": 2009
+    },
+    {
+      "titulo": "El cuaderno de Maya",
+      "anio": 2011
+    },
+    {
+      "titulo": "El juego de Ripper",
+      "anio": 2014
+    },
+    {
+      "titulo": "El amante japonés",
+      "anio": 2015
+    },
+    {
+      "titulo": "Más allá del invierno",
+      "anio": 2017
+    },
+    {
+      "titulo": "Largo pétalo de mar",
+      "anio": 2019
+    },
+    {
+      "titulo": "Mujeres del alma mía",
+      "anio": 2020
+    },
+    {
+      "titulo": "Violeta",
+      "anio": 2022
+    },
+    {
+      "titulo": "El viento conoce mi nombre",
+      "anio": 2023
+    },
+    {
+      "titulo": "Perla, la súper perrita",
+      "anio": 2024,
+      "saga": "Perla, la súper perrita"
+    },
+    {
+      "titulo": "Mi nombre es Emilia del Valle",
+      "anio": 2025,
+      "saga": "Universo de La casa de los espíritus"
+    },
+    {
+      "titulo": "Perla y el pirata",
+      "anio": 2025,
+      "saga": "Perla, la súper perrita"
+    },
+    {
+      "titulo": "La hora antes del alba",
+      "anio": 2026,
+      "saga": "Universo de La casa de los espíritus"
+    },
+    {
+      "titulo": "La palabra mágica",
+      "anio": 2026
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Universo de La casa de los espíritus",
+      "libros": [
+        "La casa de los espíritus",
+        "Hija de la fortuna",
+        "Retrato en sepia",
+        "Mi nombre es Emilia del Valle",
+        "La hora antes del alba"
+      ]
+    },
+    {
+      "nombre": "Memorias del Águila y del Jaguar",
+      "libros": [
+        "La ciudad de las bestias",
+        "El reino del dragón de oro",
+        "El bosque de los pigmeos"
+      ]
+    },
+    {
+      "nombre": "Perla, la súper perrita",
+      "libros": [
+        "Perla, la súper perrita",
+        "Perla y el pirata",
+        "Perla y la princesa"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Rosa Montero",
+      "motivo": "Comparten el interés por la memoria personal, el duelo, la identidad femenina y la combinación de experiencias autobiográficas con literatura."
+    },
+    {
+      "nombre": "Inma Aguilera",
+      "motivo": "Ambas escriben novelas históricas protagonizadas por mujeres que buscan autonomía frente a las restricciones sociales de su época, con relaciones sentimentales integradas en la trama."
+    },
+    {
+      "nombre": "Colm Tóibín",
+      "motivo": "Coinciden en explorar las relaciones familiares, la emigración, la identidad y las consecuencias que los acontecimientos históricos tienen sobre la vida privada."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Cuál es el libro más conocido de Isabel Allende?",
+      "respuesta": "La casa de los espíritus, publicada en 1982, es su primera novela y la obra que la dio a conocer internacionalmente. Narra la historia de varias generaciones de la familia Trueba y mezcla conflictos familiares, política chilena y realismo mágico."
+    },
+    {
+      "pregunta": "¿En qué orden se leen los libros relacionados con La casa de los espíritus?",
+      "respuesta": "Por orden de publicación: La casa de los espíritus (1982), Hija de la fortuna (1999), Retrato en sepia (2000), Mi nombre es Emilia del Valle (2025) y La hora antes del alba (2026). También pueden leerse siguiendo la cronología interna de la familia: Hija de la fortuna, Retrato en sepia, Mi nombre es Emilia del Valle, La casa de los espíritus y La hora antes del alba. Las novelas comparten personajes o vínculos familiares, pero La hora antes del alba es la continuación directa de La casa de los espíritus."
+    },
+    {
+      "pregunta": "¿Qué libros forman la trilogía juvenil de Isabel Allende?",
+      "respuesta": "Memorias del Águila y del Jaguar está compuesta por La ciudad de las bestias (2002), El reino del dragón de oro (2003) y El bosque de los pigmeos (2004). Son aventuras juveniles protagonizadas por Alexander Cold y Nadia Santos, y deben leerse en ese orden."
+    },
+    {
+      "pregunta": "¿Isabel Allende es chilena o peruana?",
+      "respuesta": "Nació en Lima, Perú, el 2 de agosto de 1942, hija de padres chilenos, y creció principalmente en Chile. Es una escritora chilena que también posee la nacionalidad estadounidense desde 1993."
+    },
+    {
+      "pregunta": "¿Qué adaptaciones tiene La casa de los espíritus?",
+      "respuesta": "Fue llevada al cine en 1993 por el director Bille August, con Meryl Streep, Jeremy Irons, Glenn Close y Winona Ryder, entre otros intérpretes. En 2026 se estrenó una nueva adaptación televisiva en español producida para Prime Video y rodada en Chile."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Isabel Allende - Bibliografía oficial",
+      "url": "https://www.isabelallende.com/es/books"
+    },
+    {
+      "titulo": "Isabel Allende - Cronología biográfica oficial",
+      "url": "https://www.isabelallende.com/es/timeline"
+    },
+    {
+      "titulo": "Isabel Allende - Memoria Chilena, Biblioteca Nacional de Chile",
+      "url": "https://www.memoriachilena.gob.cl/602/w3-article-100654.html"
+    },
+    {
+      "titulo": "El universo de La casa de los espíritus: orden de lectura - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/recomendaciones/grandes-selecciones/isabel-allende-la-casa-de-los-espiritus-orden-lectura"
+    },
+    {
+      "titulo": "Isabel Allende, Premio Planeta 2026, y Sergio Hernández, finalista - PlanetadeLibros",
+      "url": "https://www.planetadelibros.com/blog/noticias/articulo-isabel-allende-ganadora-premio-planeta-2026-sergio-hernandez-finalista"
+    },
+    {
+      "titulo": "La casa de los espíritus, una nueva adaptación de Isabel Allende - El País",
+      "url": "https://elpais.com/chile/2026-04-29/la-casa-de-los-espiritus-una-nueva-adaptacion-de-isabel-allende-que-toma-un-linaje-herido-y-refleja-un-pais-entero.html"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

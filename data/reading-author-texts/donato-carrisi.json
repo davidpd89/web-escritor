@@ -1,0 +1,208 @@
+{
+  "slug": "donato-carrisi",
+  "identificado": true,
+  "intro": "Donato Carrisi (Martina Franca, Italia, 1973) es un escritor, guionista y director de cine italiano especializado en novela negra y suspense psicológico. Estudió Derecho y criminología, y trasladó su interés por la investigación criminal a historias de desapariciones, identidades ocultas y memoria. Se dio a conocer con El susurrador, publicado originalmente en 2009, inicio de la serie de Mila Vasquez. También es autor de las series de Marcus y Sandra y Pietro Gerber, además de novelas independientes como La chica en la niebla.",
+  "biografia": "Donato Carrisi nació el 25 de marzo de 1973 en Martina Franca, en la región italiana de Apulia. Estudió Derecho en la Universidad de Bari, donde realizó una tesis sobre el asesino Luigi Chiatti, y posteriormente se especializó en Criminología y Ciencias de la Conducta. Comenzó escribiendo teatro y desarrolló parte de su carrera como guionista de televisión. También ha colaborado con el periódico Corriere della Sera y ha trabajado en producciones televisivas italianas.\n\nEn 2009 publicó Il suggeritore, conocido en España primero como Lobos y posteriormente como El susurrador. La novela recibió el Premio Bancarella e inició la serie de Mila Vasquez. Después desarrolló la trilogía de Marcus y Sandra, ambientada en investigaciones relacionadas con los secretos de Roma, y la serie de Pietro Gerber, centrada en un psicólogo especializado en hipnosis infantil. Entre sus novelas independientes figuran La chica en la niebla, Yo soy el abismo y La educación de las mariposas.\n\nTambién ha dirigido adaptaciones cinematográficas de sus propias novelas. Debutó como director con La chica en la niebla en 2017 y recibió el David de Donatello al mejor director novel en 2018. Posteriormente dirigió El hombre del laberinto en 2019 y Yo soy el abismo en 2022. En 2025 publicó La bugia dell'orchidea, editada en España como La mentira de la orquídea en 2026. Ese mismo año publicó en Italia La casa dei respiri, quinta entrega de Pietro Gerber.",
+  "por_donde_empezar": [
+    {
+      "titulo": "La mentira de la orquídea",
+      "motivo": "Es una novela independiente publicada originalmente en 2025 y editada en España por Duomo en 2026. Parte de una tragedia familiar en una casa de campo y de una investigación cuya explicación inicial empieza a desmoronarse."
+    },
+    {
+      "titulo": "El susurrador",
+      "motivo": "Es su primera novela, publicada originalmente como Il suggeritore en 2009, y el comienzo de la serie de Mila Vasquez. Permite conocer a la investigadora y seguir sus casos desde el principio."
+    },
+    {
+      "titulo": "La casa de las voces",
+      "motivo": "Inicia la serie protagonizada por Pietro Gerber, un psicólogo especializado en hipnosis infantil. Es una entrada para quienes prefieren los misterios relacionados con la memoria y los recuerdos de la infancia."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "El susurrador",
+      "anio": 2009,
+      "titulo_original": "Il suggeritore",
+      "saga": "Mila Vasquez"
+    },
+    {
+      "titulo": "El tribunal de las almas",
+      "anio": 2011,
+      "titulo_original": "Il tribunale delle anime",
+      "saga": "Marcus y Sandra"
+    },
+    {
+      "titulo": "La mujer de las flores de papel",
+      "anio": 2012,
+      "titulo_original": "La donna dei fiori di carta"
+    },
+    {
+      "titulo": "La hipótesis del mal",
+      "anio": 2013,
+      "titulo_original": "L'ipotesi del male",
+      "saga": "Mila Vasquez"
+    },
+    {
+      "titulo": "El cazador de la oscuridad",
+      "anio": 2014,
+      "titulo_original": "Il cacciatore del buio",
+      "saga": "Marcus y Sandra"
+    },
+    {
+      "titulo": "La chica en la niebla",
+      "anio": 2015,
+      "titulo_original": "La ragazza nella nebbia"
+    },
+    {
+      "titulo": "El maestro de las sombras",
+      "anio": 2016,
+      "titulo_original": "Il maestro delle ombre",
+      "saga": "Marcus y Sandra"
+    },
+    {
+      "titulo": "El hombre del laberinto",
+      "anio": 2017,
+      "titulo_original": "L'uomo del labirinto",
+      "saga": "Mila Vasquez"
+    },
+    {
+      "titulo": "El juego del susurrador",
+      "anio": 2018,
+      "titulo_original": "Il gioco del suggeritore",
+      "saga": "Mila Vasquez"
+    },
+    {
+      "titulo": "La casa de las voces",
+      "anio": 2019,
+      "titulo_original": "La casa delle voci",
+      "saga": "Pietro Gerber"
+    },
+    {
+      "titulo": "Yo soy el abismo",
+      "anio": 2020,
+      "titulo_original": "Io sono l'abisso"
+    },
+    {
+      "titulo": "La casa senza ricordi",
+      "anio": 2021,
+      "saga": "Pietro Gerber"
+    },
+    {
+      "titulo": "Eva e la sedia vuota",
+      "anio": 2022
+    },
+    {
+      "titulo": "La casa delle luci",
+      "anio": 2022,
+      "saga": "Pietro Gerber"
+    },
+    {
+      "titulo": "La educación de las mariposas",
+      "anio": 2023,
+      "titulo_original": "L'educazione delle farfalle"
+    },
+    {
+      "titulo": "La casa dei silenzi",
+      "anio": 2024,
+      "saga": "Pietro Gerber"
+    },
+    {
+      "titulo": "La mentira de la orquídea",
+      "anio": 2025,
+      "titulo_original": "La bugia dell'orchidea"
+    },
+    {
+      "titulo": "La casa dei respiri",
+      "anio": 2026,
+      "saga": "Pietro Gerber"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Mila Vasquez",
+      "libros": [
+        "El susurrador",
+        "La hipótesis del mal",
+        "El hombre del laberinto",
+        "El juego del susurrador"
+      ]
+    },
+    {
+      "nombre": "Marcus y Sandra",
+      "libros": [
+        "El tribunal de las almas",
+        "El cazador de la oscuridad",
+        "El maestro de las sombras"
+      ]
+    },
+    {
+      "nombre": "Pietro Gerber",
+      "libros": [
+        "La casa de las voces",
+        "La casa senza ricordi",
+        "La casa delle luci",
+        "La casa dei silenzi",
+        "La casa dei respiri"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Anders Lustgarten",
+      "motivo": "Ambos utilizan tramas criminales para explorar la violencia y la responsabilidad individual, aunque Lustgarten incorpora más sátira y crítica política."
+    },
+    {
+      "nombre": "Carlota Gurt",
+      "motivo": "Comparten el uso de la tensión psicológica y la percepción subjetiva de los personajes, especialmente en Sola, aunque Gurt se sitúa fuera de la novela policial."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Cuál es el primer libro de Donato Carrisi?",
+      "respuesta": "Su primera novela es Il suggeritore, publicada en Italia en 2009 y galardonada con el Premio Bancarella. En España apareció inicialmente como Lobos y después se publicó con el título El susurrador."
+    },
+    {
+      "pregunta": "¿En qué orden hay que leer los libros de Mila Vasquez?",
+      "respuesta": "El orden de publicación es El susurrador, La hipótesis del mal, El hombre del laberinto y El juego del susurrador. El hombre del laberinto desarrolla una historia propia, pero mantiene conexiones con el universo de Mila Vasquez."
+    },
+    {
+      "pregunta": "¿La mentira de la orquídea pertenece a alguna saga?",
+      "respuesta": "No. Es una novela independiente publicada originalmente en Italia en 2025 con el título La bugia dell'orchidea. Duomo la editó en España el 2 de noviembre de 2026."
+    },
+    {
+      "pregunta": "¿Qué novelas de Donato Carrisi se han adaptado al cine?",
+      "respuesta": "El propio Carrisi dirigió las adaptaciones de La chica en la niebla en 2017, El hombre del laberinto en 2019 y Yo soy el abismo en 2022. Por la primera recibió el David de Donatello al mejor director novel en 2018."
+    },
+    {
+      "pregunta": "¿Cuál es el libro más reciente de Donato Carrisi?",
+      "respuesta": "A noviembre de 2026, su novela más reciente es La casa dei respiri, publicada originalmente en Italia el 3 de noviembre de 2026 por Longanesi. Es la quinta entrega de la serie de Pietro Gerber. Su lanzamiento más reciente en España es La mentira de la orquídea, publicada por Duomo en noviembre de 2026."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Donato Carrisi - Duomo Ediciones",
+      "url": "https://www.duomoediciones.com/autor/donato-carrisi/"
+    },
+    {
+      "titulo": "La mentira de la orquídea - Duomo Ediciones",
+      "url": "https://www.duomoediciones.com/libro/la-mentira-de-la-orquidea/"
+    },
+    {
+      "titulo": "Donato Carrisi - Wikipedia en italiano",
+      "url": "https://it.wikipedia.org/wiki/Donato_Carrisi"
+    },
+    {
+      "titulo": "Donato Carrisi - Andrew Nurnberg Associates",
+      "url": "https://www.andrewnurnberg.com/authors/donato-carrisi/"
+    },
+    {
+      "titulo": "Carrisi, Donato - Enciclopedia Treccani",
+      "url": "https://www.treccani.it/enciclopedia/donato-carrisi/"
+    },
+    {
+      "titulo": "El Tribunal de las Almas - PlanetadeLibros",
+      "url": "https://www.planetadelibros.com/libro-el-tribunal-de-las-almas/67931"
+    }
+  ],
+  "fecha_revision": "2026-11-24",
+  "origen": "chatgpt-web-high"
+}

@@ -1,0 +1,208 @@
+{
+  "slug": "liz-marsham",
+  "identificado": true,
+  "intro": "Liz Marsham es una escritora y editora estadounidense especializada en literatura infantil, cómics y libros sobre universos de ficción. Comenzó su carrera editorial en DC Comics y Disney Publishing. Ha escrito historias de personajes de Marvel y DC, novelas de la serie Mysticons y libros relacionados con el juego de rol Critical Role. Entre sus publicaciones figuran The World of Critical Role y Marvel Studios desde dentro, una guía ilustrada sobre las localizaciones, vehículos y tecnologías del Universo Cinematográfico de Marvel.",
+  "biografia": "Liz Marsham es una autora y editora estadounidense que ha desarrollado su carrera en el sector editorial y el entretenimiento. Estudió Psicología en la Universidad de Harvard, donde se graduó en 1999. Trabajó como editora en DC Comics y posteriormente en Disney Publishing Worldwide, antes de dedicarse a la escritura independiente. Reside en Los Ángeles. Su trayectoria está vinculada principalmente a la adaptación y ampliación de universos narrativos creados para el cine, la televisión, los cómics y los videojuegos.\n\nSus primeras publicaciones incluyen Paperman (2014) y Feast (2014), adaptaciones literarias de cortometrajes de Disney. Después escribió libros infantiles protagonizados por personajes como Harley Quinn, Wonder Woman, Batgirl, Spider-Man y Doctor Strange. Entre 2018 y 2019 publicó tres novelas de aventuras pertenecientes al universo Mysticons. En 2020 apareció The World of Critical Role, un libro sobre el desarrollo del programa de rol que alcanzó la lista de los más vendidos de The New York Times. En 2023 participó en Exquisite Exandria, un recetario ambientado en ese mismo universo.\n\nSu producción posterior incluye Marvel Studios Cross-Sections (2025), publicado en España como Marvel Studios desde dentro (2026), y una adaptación a novela gráfica de Long Live the Pumpkin Queen (2025), basada en la obra de Shea Ernshaw. En 2026 participó también en From Endgame to Doomsday, una guía visual del universo cinematográfico de Marvel escrita junto con Amy Ratcliffe y Melanie Scott.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Marvel Studios desde dentro",
+      "motivo": "Es una entrada para lectores interesados en el Universo Cinematográfico de Marvel. Reúne ilustraciones en sección y explicaciones sobre escenarios, vehículos y objetos de las películas. Se publicó originalmente en 2025 y llegó a España en 2026."
+    },
+    {
+      "titulo": "The World of Critical Role",
+      "motivo": "Es uno de sus trabajos de no ficción más conocidos y figuró en la lista de libros más vendidos de The New York Times. Explica la historia de Critical Role mediante entrevistas, fotografías e información sobre sus campañas de rol."
+    },
+    {
+      "titulo": "Mysticons: The Secret of the Fifth Mysticon",
+      "motivo": "Es la primera de las tres novelas originales de Mysticons escritas por Marsham. Permite comenzar una serie de aventuras de fantasía juvenil basada en la producción animada."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Feast",
+      "anio": 2014
+    },
+    {
+      "titulo": "Paperman",
+      "anio": 2014
+    },
+    {
+      "titulo": "Inside Out: Storybook Deluxe",
+      "anio": 2015
+    },
+    {
+      "titulo": "Doctor Strange: Attack of the Doubt Demons",
+      "anio": 2016
+    },
+    {
+      "titulo": "Harley Quinn: Wild Card",
+      "anio": 2016
+    },
+    {
+      "titulo": "Ariel Is Fearless",
+      "anio": 2017
+    },
+    {
+      "titulo": "Ariel Makes Waves",
+      "anio": 2017
+    },
+    {
+      "titulo": "Marvel's Spider-Man: The Ultimate Spider-Man",
+      "anio": 2017
+    },
+    {
+      "titulo": "Marvel Super Hero Adventures: Dino-Mite Danger!",
+      "anio": 2017
+    },
+    {
+      "titulo": "Wonder Woman Classic: A Hero for All",
+      "anio": 2017
+    },
+    {
+      "titulo": "Wonder Woman Classic: Maze of Magic",
+      "anio": 2017
+    },
+    {
+      "titulo": "Wonder Woman: Warrior for Justice!",
+      "anio": 2017
+    },
+    {
+      "titulo": "Bad Guy Blizzard",
+      "anio": 2018
+    },
+    {
+      "titulo": "Batgirl Classic: On the Case!",
+      "anio": 2018
+    },
+    {
+      "titulo": "DC Comics: Absolutely Everything You Need to Know",
+      "anio": 2018
+    },
+    {
+      "titulo": "Disney Pixar Incredibles 2: Heroes at Home",
+      "anio": 2018
+    },
+    {
+      "titulo": "Mysticons: The Secret of the Fifth Mysticon",
+      "anio": 2018,
+      "saga": "Mysticons"
+    },
+    {
+      "titulo": "Mysticons: The Stolen Magic",
+      "anio": 2018,
+      "saga": "Mysticons"
+    },
+    {
+      "titulo": "The Official Justice League Training Manual",
+      "anio": 2018
+    },
+    {
+      "titulo": "Disney Princess: Ariel and the Sea Wolf",
+      "anio": 2019
+    },
+    {
+      "titulo": "Mysticons: The Diamond Curse",
+      "anio": 2019,
+      "saga": "Mysticons"
+    },
+    {
+      "titulo": "Sleeper Shift",
+      "anio": 2020
+    },
+    {
+      "titulo": "The World of Critical Role",
+      "anio": 2020
+    },
+    {
+      "titulo": "Critical Role Mad Libs",
+      "anio": 2022
+    },
+    {
+      "titulo": "Exquisite Exandria: The Official Cookbook of Critical Role",
+      "anio": 2023
+    },
+    {
+      "titulo": "Long Live the Pumpkin Queen: Tim Burton's The Nightmare Before Christmas - The Graphic Novel",
+      "anio": 2025
+    },
+    {
+      "titulo": "Marvel Studios desde dentro",
+      "anio": 2025,
+      "titulo_original": "Marvel Studios Cross-Sections"
+    },
+    {
+      "titulo": "From Endgame to Doomsday: A Marvel Studios Visual Dictionary: Avengers, Allies, and Foes",
+      "anio": 2026
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Mysticons",
+      "libros": [
+        "Mysticons: The Secret of the Fifth Mysticon",
+        "Mysticons: The Stolen Magic",
+        "Mysticons: The Diamond Curse"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Cavan Scott",
+      "motivo": "Ambos escriben historias y publicaciones vinculadas a franquicias de entretenimiento, especialmente Marvel, DC y universos de fantasía y ciencia ficción."
+    },
+    {
+      "nombre": "Aser Queipo",
+      "motivo": "Ambos han publicado libros ilustrados de divulgación relacionados con la cultura popular y el entretenimiento, aunque Queipo se centra especialmente en la historia del cine doméstico y sus objetos."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Quién es Liz Marsham y cuál es su nacionalidad?",
+      "respuesta": "Es una escritora y editora estadounidense especializada en literatura infantil, cómics y libros derivados de franquicias de entretenimiento. Ha trabajado para DC Comics y Disney Publishing y reside en Los Ángeles."
+    },
+    {
+      "pregunta": "¿Qué libro de Liz Marsham está publicado en España?",
+      "respuesta": "Entre sus publicaciones en castellano figura Marvel Studios desde dentro, editado por DK en 2026. Es la traducción de Marvel Studios Cross-Sections, publicado originalmente en 2025, y presenta ilustraciones técnicas de localizaciones, vehículos y objetos del Universo Cinematográfico de Marvel."
+    },
+    {
+      "pregunta": "¿En qué orden se leen los libros de Mysticons de Liz Marsham?",
+      "respuesta": "El orden de publicación de sus tres novelas es The Secret of the Fifth Mysticon (2018), The Stolen Magic (2018) y The Diamond Curse (2019). Son aventuras originales ambientadas en el universo de la serie animada."
+    },
+    {
+      "pregunta": "¿Qué libros ha escrito Liz Marsham sobre Critical Role?",
+      "respuesta": "Es autora de The World of Critical Role (2020), un libro sobre la historia del programa y sus campañas. También participó en Critical Role Mad Libs (2022) y Exquisite Exandria: The Official Cookbook of Critical Role (2023). No constituyen una saga narrativa que deba leerse en orden."
+    },
+    {
+      "pregunta": "¿Ha escrito Liz Marsham cómics de Disney, Marvel y DC?",
+      "respuesta": "Sí. Su bibliografía incluye adaptaciones ilustradas, historias infantiles y guías sobre personajes de las tres compañías. En 2025 escribió la adaptación a novela gráfica de Long Live the Pumpkin Queen, basada en la novela de Shea Ernshaw y ambientada en el universo de Pesadilla antes de Navidad."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Liz Marsham - About Liz",
+      "url": "https://www.lizmarsham.com/aboutliz"
+    },
+    {
+      "titulo": "Liz Marsham - All Work Gallery",
+      "url": "https://www.lizmarsham.com/all/"
+    },
+    {
+      "titulo": "Penguin Random House - Liz Marsham",
+      "url": "https://www.penguinrandomhouse.com/authors/2146986/liz-marsham/"
+    },
+    {
+      "titulo": "Penguin Random House - Marvel Studios Cross-Sections",
+      "url": "https://www.penguinrandomhouse.com/books/787698/marvel-studios-cross-sections-by-liz-marsham/"
+    },
+    {
+      "titulo": "Simon & Schuster - Long Live the Pumpkin Queen",
+      "url": "https://www.simonandschuster.net/books/Long-Live-the-Pumpkin-Queen-Tim-Burtons-The-Nightmare-Before-Christmas-GN/Liz-Marsham/9781524126018"
+    },
+    {
+      "titulo": "Casa del Libro - Marvel Studios desde dentro",
+      "url": "https://www.casadellibro.com/libro-marvel-studios-desde-dentro/9780241838051/18285780"
+    }
+  ],
+  "fecha_revision": "2026-11-24",
+  "origen": "chatgpt-web-high"
+}

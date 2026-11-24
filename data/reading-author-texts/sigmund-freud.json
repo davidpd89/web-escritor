@@ -1,0 +1,233 @@
+{
+  "slug": "sigmund-freud",
+  "identificado": true,
+  "intro": "Sigmund Freud (1856-1939) fue un médico y neurólogo austriaco, fundador del psicoanálisis. Sus ensayos y estudios clínicos examinan el inconsciente, los sueños, la sexualidad, la represión y los conflictos psicológicos. Es conocido por desarrollar conceptos como el complejo de Edipo, los mecanismos de defensa y la división de la personalidad en ello, yo y superyó. Entre sus obras más conocidas figuran La interpretación de los sueños, Psicopatología de la vida cotidiana y El malestar en la cultura.",
+  "biografia": "Sigmund Freud nació el 6 de mayo de 1856 en Freiberg, Moravia, territorio entonces perteneciente al Imperio austríaco y situado actualmente en la República Checa. Su familia se trasladó a Viena durante su infancia. Estudió Medicina en la Universidad de Viena y se especializó en neurología. En 1885 viajó a París para estudiar con Jean-Martin Charcot, cuyas investigaciones sobre la histeria y la hipnosis influyeron en su trayectoria. Posteriormente colaboró con Josef Breuer, con quien publicó Estudios sobre la histeria en 1895.\n\nA partir de su trabajo clínico desarrolló el psicoanálisis, basado en el estudio de los procesos inconscientes y el uso terapéutico de la palabra. En La interpretación de los sueños (1900) formuló su teoría de los sueños y el cumplimiento de deseos. Después publicó Psicopatología de la vida cotidiana (1901), Tres ensayos sobre teoría sexual (1905) y Tótem y tabú (1913). Sus investigaciones posteriores abordaron el narcisismo, las pulsiones, la estructura de la personalidad, la ansiedad y las relaciones entre individuo y sociedad.\n\nEn 1930 recibió el Premio Goethe de la ciudad de Fráncfort. Tras la anexión de Austria por la Alemania nazi, se exilió en Londres en 1938. Falleció allí el 23 de septiembre de 1939. Su vida y sus primeras investigaciones inspiraron la película biográfica Freud (1962), dirigida por John Huston y protagonizada por Montgomery Clift.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Dos casos clínicos",
+      "motivo": "Reúne los estudios sobre Catalina e Isabel de R. en una edición breve. Permite conocer el trabajo clínico de Freud y sus primeras investigaciones sobre la histeria sin comenzar por sus tratados teóricos más extensos."
+    },
+    {
+      "titulo": "Psicopatología de la vida cotidiana",
+      "motivo": "Es una entrada a sus ideas sobre el inconsciente a través de olvidos, equivocaciones y actos fallidos. Utiliza ejemplos cotidianos para explicar conceptos de su teoría."
+    },
+    {
+      "titulo": "Tótem y tabú: 21",
+      "motivo": "Permite conocer la aplicación del psicoanálisis a la cultura, la religión y las relaciones sociales. Es una opción para quienes buscan sus reflexiones más allá del tratamiento de pacientes."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Estudios sobre la histeria",
+      "anio": 1895,
+      "titulo_original": "Studien über Hysterie"
+    },
+    {
+      "titulo": "La interpretación de los sueños",
+      "anio": 1900,
+      "titulo_original": "Die Traumdeutung"
+    },
+    {
+      "titulo": "Psicopatología de la vida cotidiana",
+      "anio": 1901,
+      "titulo_original": "Zur Psychopathologie des Alltagslebens"
+    },
+    {
+      "titulo": "El chiste y su relación con lo inconsciente",
+      "anio": 1905,
+      "titulo_original": "Der Witz und seine Beziehung zum Unbewußten"
+    },
+    {
+      "titulo": "Fragmento de análisis de un caso de histeria (caso Dora)",
+      "anio": 1905,
+      "titulo_original": "Bruchstück einer Hysterie-Analyse"
+    },
+    {
+      "titulo": "Tres ensayos sobre teoría sexual",
+      "anio": 1905,
+      "titulo_original": "Drei Abhandlungen zur Sexualtheorie"
+    },
+    {
+      "titulo": "El delirio y los sueños en la Gradiva de W. Jensen",
+      "anio": 1907,
+      "titulo_original": "Der Wahn und die Träume in W. Jensens Gradiva"
+    },
+    {
+      "titulo": "A propósito de un caso de neurosis obsesiva (caso del hombre de las ratas)",
+      "anio": 1909,
+      "titulo_original": "Bemerkungen über einen Fall von Zwangsneurose"
+    },
+    {
+      "titulo": "Análisis de la fobia de un niño de cinco años (caso del pequeño Hans)",
+      "anio": 1909,
+      "titulo_original": "Analyse der Phobie eines fünfjährigen Knaben"
+    },
+    {
+      "titulo": "Cinco conferencias sobre psicoanálisis",
+      "anio": 1910,
+      "titulo_original": "Über Psychoanalyse"
+    },
+    {
+      "titulo": "Un recuerdo infantil de Leonardo da Vinci",
+      "anio": 1910,
+      "titulo_original": "Eine Kindheitserinnerung des Leonardo da Vinci"
+    },
+    {
+      "titulo": "Sobre un caso de paranoia descrito autobiográficamente (caso Schreber)",
+      "anio": 1911,
+      "titulo_original": "Psychoanalytische Bemerkungen über einen autobiographisch beschriebenen Fall von Paranoia"
+    },
+    {
+      "titulo": "Tótem y tabú",
+      "anio": 1913,
+      "titulo_original": "Totem und Tabu"
+    },
+    {
+      "titulo": "Contribución a la historia del movimiento psicoanalítico",
+      "anio": 1914,
+      "titulo_original": "Zur Geschichte der psychoanalytischen Bewegung"
+    },
+    {
+      "titulo": "Introducción al narcisismo",
+      "anio": 1914,
+      "titulo_original": "Zur Einführung des Narzißmus"
+    },
+    {
+      "titulo": "Lo inconsciente",
+      "anio": 1915,
+      "titulo_original": "Das Unbewusste"
+    },
+    {
+      "titulo": "Conferencias de introducción al psicoanálisis",
+      "anio": 1917,
+      "titulo_original": "Vorlesungen zur Einführung in die Psychoanalyse"
+    },
+    {
+      "titulo": "Duelo y melancolía",
+      "anio": 1917,
+      "titulo_original": "Trauer und Melancholie"
+    },
+    {
+      "titulo": "De la historia de una neurosis infantil (caso del hombre de los lobos)",
+      "anio": 1918,
+      "titulo_original": "Aus der Geschichte einer infantilen Neurose"
+    },
+    {
+      "titulo": "Lo siniestro",
+      "anio": 1919,
+      "titulo_original": "Das Unheimliche"
+    },
+    {
+      "titulo": "Más allá del principio de placer",
+      "anio": 1920,
+      "titulo_original": "Jenseits des Lustprinzips"
+    },
+    {
+      "titulo": "Psicología de las masas y análisis del yo",
+      "anio": 1921,
+      "titulo_original": "Massenpsychologie und Ich-Analyse"
+    },
+    {
+      "titulo": "El yo y el ello",
+      "anio": 1923,
+      "titulo_original": "Das Ich und das Es"
+    },
+    {
+      "titulo": "Presentación autobiográfica",
+      "anio": 1925,
+      "titulo_original": "Selbstdarstellung"
+    },
+    {
+      "titulo": "Inhibición, síntoma y angustia",
+      "anio": 1926,
+      "titulo_original": "Hemmung, Symptom und Angst"
+    },
+    {
+      "titulo": "El porvenir de una ilusión",
+      "anio": 1927,
+      "titulo_original": "Die Zukunft einer Illusion"
+    },
+    {
+      "titulo": "El malestar en la cultura",
+      "anio": 1930,
+      "titulo_original": "Das Unbehagen in der Kultur"
+    },
+    {
+      "titulo": "Nuevas conferencias de introducción al psicoanálisis",
+      "anio": 1933,
+      "titulo_original": "Neue Folge der Vorlesungen zur Einführung in die Psychoanalyse"
+    },
+    {
+      "titulo": "Moisés y la religión monoteísta",
+      "anio": 1939,
+      "titulo_original": "Der Mann Moses und die monotheistische Religion"
+    },
+    {
+      "titulo": "Esquema del psicoanálisis",
+      "anio": 1940,
+      "titulo_original": "Abriß der Psychoanalyse"
+    }
+  ],
+  "sagas": [],
+  "parecidos": [
+    {
+      "nombre": "Giorgio Nardone",
+      "motivo": "Comparte el interés por las fobias, las obsesiones y el tratamiento de los trastornos psicológicos, aunque desarrolla un modelo de psicoterapia breve estratégica distinto del psicoanálisis."
+    },
+    {
+      "nombre": "Stefano Bartoli",
+      "motivo": "Coincide en el estudio de los problemas psicológicos y sus posibilidades de tratamiento, desde un enfoque contemporáneo de terapia estratégica diferente del freudiano."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Cuál es el libro más conocido de Sigmund Freud?",
+      "respuesta": "La interpretación de los sueños, publicado con fecha de 1900, es una de sus obras más conocidas. En él desarrolla su teoría sobre el contenido manifiesto y latente de los sueños y su relación con los deseos inconscientes."
+    },
+    {
+      "pregunta": "¿En qué orden se deben leer los libros de Sigmund Freud?",
+      "respuesta": "No existe un orden obligatorio porque sus libros no forman una saga. Para comenzar se puede leer Psicopatología de la vida cotidiana y continuar con La interpretación de los sueños, Tres ensayos sobre teoría sexual y El yo y el ello. El orden cronológico permite seguir la evolución de sus teorías."
+    },
+    {
+      "pregunta": "¿Qué contiene Dos casos clínicos de Sigmund Freud?",
+      "respuesta": "La edición de Nórdica Libros de 2026 reúne los estudios sobre Catalina e Isabel de R., procedentes de sus primeras investigaciones clínicas sobre la histeria. Incluye ilustraciones de Carmen Bueno y traducción de Luis López-Ballesteros."
+    },
+    {
+      "pregunta": "¿En qué libro explica Freud el ello, el yo y el superyó?",
+      "respuesta": "En El yo y el ello, publicado en 1923, Freud desarrolla su modelo estructural del aparato psíquico. Distingue entre el ello, relacionado con las pulsiones; el yo, que interviene en la relación con la realidad; y el superyó, asociado a las exigencias y prohibiciones interiorizadas."
+    },
+    {
+      "pregunta": "¿Por qué Sigmund Freud abandonó Viena y dónde murió?",
+      "respuesta": "Freud abandonó Viena en 1938, después de la anexión de Austria por la Alemania nazi y la persecución antisemita. Se instaló en Londres, donde murió el 23 de septiembre de 1939, a los 83 años."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Sigmund Freud - British Psychoanalytical Society",
+      "url": "https://psychoanalysis.org.uk/freud"
+    },
+    {
+      "titulo": "Who was Sigmund Freud? - Freud Museum London",
+      "url": "https://www.freud.org.uk/schools/resources/who-was-sigmund-freud/"
+    },
+    {
+      "titulo": "Dos casos clínicos - Nórdica Libros",
+      "url": "https://nordicalibros.com/product/dos-casos-clinicos/"
+    },
+    {
+      "titulo": "Obras completas de Sigmund Freud - Wikipedia en español",
+      "url": "https://es.wikipedia.org/wiki/Obras_completas_de_Sigmund_Freud"
+    },
+    {
+      "titulo": "Sigmund Freud bibliography - Wikipedia en inglés",
+      "url": "https://en.wikipedia.org/wiki/Sigmund_Freud_bibliography"
+    },
+    {
+      "titulo": "Freud (1962) - American Film Institute Catalog",
+      "url": "https://catalog.afi.com/Catalog/MovieDetails/19833"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

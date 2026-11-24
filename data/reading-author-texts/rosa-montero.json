@@ -1,0 +1,228 @@
+{
+  "slug": "rosa-montero",
+  "identificado": true,
+  "intro": "Rosa Montero (Madrid, 1951) es una escritora y periodista española, conocida por sus novelas, ensayos y artículos en El País. Su obra abarca la narrativa contemporánea, la novela histórica, la fantasía y la ciencia ficción, con temas como la identidad, la muerte, la memoria y las relaciones humanas. Entre sus títulos figuran La ridícula idea de no volver a verte, Historia del Rey Transparente y la serie de Bruna Husky. Recibió el Premio Nacional de las Letras Españolas en 2017.",
+  "biografia": "Rosa Montero Gayo nació en Madrid el 3 de enero de 1951. Estudió Periodismo en la Escuela Superior de Periodismo de Madrid y cursó estudios de Psicología en la Universidad Complutense. Durante su formación participó en grupos de teatro independiente, entre ellos Tábano. En 1976 comenzó a trabajar en El País, donde desarrolló buena parte de su trayectoria como periodista, entrevistadora y columnista. Su primera novela, Crónica del desamor, apareció en 1979 y abordaba la experiencia de las mujeres durante la Transición española.\n\nSu carrera literaria continuó con novelas como Te trataré como a una reina, Temblor y Bella y oscura. En 1997 recibió el Premio Primavera de Novela por La hija del caníbal, adaptada al cine en 2003 por Antonio Serrano. Posteriormente publicó La loca de la casa, Historia del Rey Transparente y La ridícula idea de no volver a verte, obra que combina la reflexión autobiográfica con la figura de Marie Curie y obtuvo el Premio de la Crítica de Madrid en 2014.\n\nEn 2011 inició la serie de ciencia ficción Bruna Husky, concluida con Animales difíciles en 2025. También ha escrito libros infantiles, relatos, ensayos biográficos y recopilaciones periodísticas. En 2017 recibió el Premio Nacional de las Letras Españolas por el conjunto de su trayectoria. En 2026 publicó Un día en la vida de Clarita, una novela sobre la humillación, las relaciones de poder y la transformación personal.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Historia del Rey Transparente",
+      "motivo": "Novela independiente de aventuras ambientada en la Edad Media, protagonizada por una campesina que adopta la identidad de un caballero. Es una entrada para lectores de narrativa histórica con elementos fantásticos y recibió el Premio Mandarache."
+    },
+    {
+      "titulo": "Un día en la vida de Clarita",
+      "motivo": "Novela breve publicada en 2026, centrada en una mujer que comienza a cuestionar su situación personal y laboral. Permite conocer la narrativa contemporánea de Montero sin seguir una serie."
+    },
+    {
+      "titulo": "Lágrimas en la lluvia",
+      "motivo": "Primera entrega de la serie de ciencia ficción protagonizada por la detective tecnohumana Bruna Husky. Es el punto de partida para leer sus cuatro novelas en orden."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Crónica del desamor",
+      "anio": 1979
+    },
+    {
+      "titulo": "La función Delta",
+      "anio": 1981
+    },
+    {
+      "titulo": "Te trataré como a una reina",
+      "anio": 1983
+    },
+    {
+      "titulo": "Amado amo",
+      "anio": 1988
+    },
+    {
+      "titulo": "Temblor",
+      "anio": 1990
+    },
+    {
+      "titulo": "Bella y oscura",
+      "anio": 1993
+    },
+    {
+      "titulo": "La vida desnuda",
+      "anio": 1994
+    },
+    {
+      "titulo": "Historias de mujeres",
+      "anio": 1995
+    },
+    {
+      "titulo": "Las barbaridades de Bárbara",
+      "anio": 1996,
+      "saga": "Bárbara"
+    },
+    {
+      "titulo": "El viaje fantástico de Bárbara",
+      "anio": 1997,
+      "saga": "Bárbara"
+    },
+    {
+      "titulo": "La hija del caníbal",
+      "anio": 1997
+    },
+    {
+      "titulo": "Amantes y enemigos",
+      "anio": 1998
+    },
+    {
+      "titulo": "Bárbara contra el doctor Colmillos",
+      "anio": 1998,
+      "saga": "Bárbara"
+    },
+    {
+      "titulo": "Pasiones",
+      "anio": 1999
+    },
+    {
+      "titulo": "El corazón del Tártaro",
+      "anio": 2001
+    },
+    {
+      "titulo": "La loca de la casa",
+      "anio": 2003
+    },
+    {
+      "titulo": "Historia del Rey Transparente",
+      "anio": 2005
+    },
+    {
+      "titulo": "Instrucciones para salvar el mundo",
+      "anio": 2008
+    },
+    {
+      "titulo": "Lágrimas en la lluvia",
+      "anio": 2011,
+      "saga": "Bruna Husky"
+    },
+    {
+      "titulo": "La ridícula idea de no volver a verte",
+      "anio": 2013
+    },
+    {
+      "titulo": "El peso del corazón",
+      "anio": 2015,
+      "saga": "Bruna Husky"
+    },
+    {
+      "titulo": "La carne",
+      "anio": 2016
+    },
+    {
+      "titulo": "Los tiempos del odio",
+      "anio": 2018,
+      "saga": "Bruna Husky"
+    },
+    {
+      "titulo": "El arte de la entrevista. 40 años de preguntas y respuestas",
+      "anio": 2019
+    },
+    {
+      "titulo": "La buena suerte",
+      "anio": 2020
+    },
+    {
+      "titulo": "El peligro de estar cuerda",
+      "anio": 2022
+    },
+    {
+      "titulo": "La desconocida",
+      "anio": 2023
+    },
+    {
+      "titulo": "Cuentos verdaderos",
+      "anio": 2024
+    },
+    {
+      "titulo": "Animales difíciles",
+      "anio": 2025,
+      "saga": "Bruna Husky"
+    },
+    {
+      "titulo": "Un día en la vida de Clarita",
+      "anio": 2026
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Bruna Husky",
+      "libros": [
+        "Lágrimas en la lluvia",
+        "El peso del corazón",
+        "Los tiempos del odio",
+        "Animales difíciles"
+      ]
+    },
+    {
+      "nombre": "Bárbara",
+      "libros": [
+        "Las barbaridades de Bárbara",
+        "El viaje fantástico de Bárbara",
+        "Bárbara contra el doctor Colmillos"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Isabel Allende",
+      "motivo": "Ambas combinan conflictos personales, personajes femeninos y elementos históricos o fantásticos en novelas sobre la identidad, la memoria y las relaciones humanas."
+    },
+    {
+      "nombre": "Victor Dixen",
+      "motivo": "Comparten el uso de escenarios históricos alternativos o futuros especulativos para desarrollar aventuras y conflictos relacionados con el poder, la identidad y la supervivencia."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿En qué orden se leen los libros de Bruna Husky?",
+      "respuesta": "El orden de lectura es Lágrimas en la lluvia (2011), El peso del corazón (2015), Los tiempos del odio (2018) y Animales difíciles (2025). La cuarta novela cierra la serie protagonizada por la detective tecnohumana."
+    },
+    {
+      "pregunta": "¿Historia del Rey Transparente pertenece a una saga?",
+      "respuesta": "No. Historia del Rey Transparente es una novela independiente publicada originalmente en 2005. Está ambientada en la Edad Media y sigue las aventuras de Leola, una campesina que se hace pasar por caballero."
+    },
+    {
+      "pregunta": "¿Cuál es el último libro de Rosa Montero?",
+      "respuesta": "Hasta noviembre de 2026, su libro más reciente es Un día en la vida de Clarita, publicado por Alfaguara en septiembre de 2026. Su anterior novela fue Animales difíciles, aparecida en 2025."
+    },
+    {
+      "pregunta": "¿Qué libros de Rosa Montero se han adaptado al cine?",
+      "respuesta": "La hija del caníbal fue adaptada en 2003 en una película dirigida por Antonio Serrano y protagonizada por Cecilia Roth. También existen adaptaciones teatrales de varias obras de la autora."
+    },
+    {
+      "pregunta": "¿Qué premios ha ganado Rosa Montero?",
+      "respuesta": "Entre sus reconocimientos figuran el Premio Primavera de Novela de 1997 por La hija del caníbal, el Premio Mandarache de 2007 por Historia del Rey Transparente y el Premio Nacional de las Letras Españolas de 2017. También recibió el Premio de la Crítica de Madrid de 2014 por La ridícula idea de no volver a verte."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Rosa Montero - Biografía ampliada, página oficial",
+      "url": "https://www.rosamontero.es/biografia-ampliada-rosa-montero.html"
+    },
+    {
+      "titulo": "Rosa Montero - Obra literaria, página oficial",
+      "url": "https://www.rosamontero.es/obra-rosa-montero.html"
+    },
+    {
+      "titulo": "Un día en la vida de Clarita - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/literatura-contemporanea/631444-libro-un-dia-en-la-vida-de-clarita-9791387975340"
+    },
+    {
+      "titulo": "Rosa Montero cierra con Animales difíciles la serie de la detective Husky - RTVE",
+      "url": "https://www.rtve.es/noticias/20250114/rosa-montero-cierra-con-animales-dificiles-serie-detective-husky-bruna-alterego-total/16405816.shtml"
+    },
+    {
+      "titulo": "La hija del caníbal - Rosa Montero, página oficial",
+      "url": "https://www.rosamontero.es/novela-la-hija-del-canibal.html"
+    },
+    {
+      "titulo": "Bárbara Series by Rosa Montero - Goodreads",
+      "url": "https://www.goodreads.com/series/160923-b-rbara"
+    }
+  ],
+  "fecha_revision": "2026-11-24",
+  "origen": "chatgpt-web-high"
+}

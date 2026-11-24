@@ -1,0 +1,168 @@
+{
+  "slug": "pedro-feijoo",
+  "identificado": true,
+  "intro": "Pedro Feijoo Barreiro es un escritor y músico español nacido en Vigo en 1975. Licenciado en Filología Gallega, escribe novela negra, suspense y ficción que relaciona crímenes, historia y tradiciones de Galicia. Se dio a conocer con Los hijos del mar y continuó las aventuras de sus protagonistas en Los hijos del fuego. También es autor de la serie policial iniciada con Un fuego azul y de Nadie contará la verdad, galardonada con el Premio Xerais de Novela 2023.",
+  "biografia": "Pedro Feijoo Barreiro nació el 23 de noviembre de 1975 en Vigo, Pontevedra. Estudió Filología Gallega en la Universidad de Santiago de Compostela. Antes de dedicarse profesionalmente a la narrativa trabajó como músico, compositor y productor, y formó parte de grupos como Los Feliz y Lamatumbá. Su primer libro fue el ensayo Cousas do Galicia, por Castelao, publicado en 1997. Después escribió Viva o Fu Remol!, una crónica sobre el panorama musical gallego. También ha publicado obras dedicadas a la historia de Vigo.\n\nSu debut como novelista llegó en 2012 con Os fillos do mar, publicada en castellano como Los hijos del mar. La obra fue finalista del Premio Xerais de 2011 y recibió los premios Arzobispo San Clemente y Frei Martín Sarmiento. Le siguieron La memoria de la lluvia, relacionada con la figura de Rosalía de Castro, y Morena, peligrosa y románica, una comedia criminal. En 2017 recuperó a los protagonistas de su primera novela en Los hijos del fuego.\n\nCon Un fuego azul inició una serie de investigaciones policiales protagonizadas por Mateo Romano que continuó con Donde nacen las bestias y La buena muerte. En paralelo publicó Nadie contará la verdad, ganadora del Premio Xerais de Novela 2023. Donde nacen las bestias obtuvo el Premio de Novela Cartagena Negra 2026. Su novela más reciente, La buena muerte, apareció en octubre de 2026 y está ambientada en la Ribeira Sacra, alrededor de la tradición de las acabadoras del Sil.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Un fuego azul",
+      "motivo": "Es la primera entrega de la trilogía protagonizada por el inspector Mateo Romano. Presenta una investigación de asesinatos en Vigo y permite seguir la evolución de los personajes en las dos novelas posteriores."
+    },
+    {
+      "titulo": "Los hijos del mar",
+      "motivo": "Es su primera novela y el comienzo de las aventuras de Simón Varela y Mariña Dafonte. Combina intriga, historia de Galicia y una investigación que continúa en Los hijos del fuego."
+    },
+    {
+      "titulo": "Nadie contará la verdad",
+      "motivo": "Ganó el Premio Xerais de Novela 2023 y puede leerse de forma independiente. Su trama aborda la corrupción política y las relaciones de poder en Galicia."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Cousas do Galicia, por Castelao",
+      "anio": 1997
+    },
+    {
+      "titulo": "Viva o Fu Remol!",
+      "anio": 2005
+    },
+    {
+      "titulo": "Los hijos del mar",
+      "anio": 2012,
+      "titulo_original": "Os fillos do mar",
+      "saga": "Los hijos del mar"
+    },
+    {
+      "titulo": "La memoria de la lluvia",
+      "anio": 2013,
+      "titulo_original": "A memoria da choiva"
+    },
+    {
+      "titulo": "Morena, peligrosa y románica",
+      "anio": 2015,
+      "titulo_original": "Morena, perigosa e románica"
+    },
+    {
+      "titulo": "Los hijos del fuego",
+      "anio": 2017,
+      "titulo_original": "Os fillos do lume",
+      "saga": "Los hijos del mar"
+    },
+    {
+      "titulo": "Camiñar o Vigo vello",
+      "anio": 2018
+    },
+    {
+      "titulo": "Sen piedade",
+      "anio": 2018
+    },
+    {
+      "titulo": "Un fuego azul",
+      "anio": 2019,
+      "titulo_original": "Un lume azul",
+      "saga": "Trilogía de Mateo Romano"
+    },
+    {
+      "titulo": "Pequena historia de Vigo",
+      "anio": 2022
+    },
+    {
+      "titulo": "Nadie contará la verdad",
+      "anio": 2023,
+      "titulo_original": "Ninguén contará a verdade"
+    },
+    {
+      "titulo": "Donde nacen las bestias",
+      "anio": 2025,
+      "titulo_original": "Onde nacen as bestas",
+      "saga": "Trilogía de Mateo Romano"
+    },
+    {
+      "titulo": "La buena muerte",
+      "anio": 2026,
+      "titulo_original": "A boa morte",
+      "saga": "Trilogía de Mateo Romano"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Los hijos del mar",
+      "libros": [
+        "Los hijos del mar",
+        "Los hijos del fuego"
+      ]
+    },
+    {
+      "nombre": "Trilogía de Mateo Romano",
+      "libros": [
+        "Un fuego azul",
+        "Donde nacen las bestias",
+        "La buena muerte"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Jo Nesbo",
+      "motivo": "Ambos escriben novela negra protagonizada por investigadores policiales que afrontan crímenes violentos y conflictos personales a lo largo de varias entregas."
+    },
+    {
+      "nombre": "Javier Castillo",
+      "motivo": "Comparten el uso del suspense, los secretos del pasado y las investigaciones criminales con giros que modifican la interpretación de los hechos."
+    },
+    {
+      "nombre": "Guillermo Martínez",
+      "motivo": "Ambos construyen novelas de misterio mediante investigaciones que conectan asesinatos, acontecimientos anteriores y revelaciones progresivas."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿En qué orden se lee la trilogía de Mateo Romano?",
+      "respuesta": "El orden es Un fuego azul, Donde nacen las bestias y La buena muerte. Las tres novelas comparten al inspector Mateo Romano y forman una trilogía de novela negra ambientada en Galicia. La tercera entrega se publicó en 2026."
+    },
+    {
+      "pregunta": "¿Qué relación tienen Los hijos del mar y Los hijos del fuego?",
+      "respuesta": "Los hijos del fuego continúa las aventuras de Simón Varela y Mariña Dafonte, protagonistas de Los hijos del mar. Conviene leer primero Los hijos del mar, publicada originalmente en 2012, y después Los hijos del fuego, de 2017."
+    },
+    {
+      "pregunta": "¿Cuál es el libro más conocido de Pedro Feijoo?",
+      "respuesta": "Los hijos del mar fue la novela con la que se dio a conocer. El propio autor ha señalado Un fuego azul como una obra decisiva para su trayectoria posterior. Entre sus títulos premiados también figuran Nadie contará la verdad y Donde nacen las bestias."
+    },
+    {
+      "pregunta": "¿Pedro Feijoo escribe en gallego o en castellano?",
+      "respuesta": "Pedro Feijoo ha publicado buena parte de sus novelas originalmente en gallego, con ediciones posteriores o simultáneas en castellano. Por ejemplo, Un lume azul apareció en 2019 y su edición castellana, Un fuego azul, en 2020."
+    },
+    {
+      "pregunta": "¿Cuál es el último libro de Pedro Feijoo?",
+      "respuesta": "Hasta noviembre de 2026, su novela más reciente es La buena muerte, publicada el 29 de octubre de 2026. Cierra la trilogía de Mateo Romano y sitúa la investigación en la Ribeira Sacra, alrededor de las leyendas sobre las mujeres conocidas como acabadoras."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Pedro Feijoo - Edicións Xerais",
+      "url": "https://www.xerais.gal/autor/pedro-feijoo/"
+    },
+    {
+      "titulo": "Pedro Feijoo - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/4109-pedro-feijoo"
+    },
+    {
+      "titulo": "Pedro Feijoo - Negrasteiz Beltz Festival",
+      "url": "https://www.negrasteiz.eus/pedro-feijoo"
+    },
+    {
+      "titulo": "Entrevista a Pedro Feijoo, autor de Los hijos del fuego - Todoliteratura",
+      "url": "https://www.todoliteratura.es/noticia/12801/entrevistas/entrevista-a-pedro-feijoo-autor-de-los-hijos-del-fuego.html"
+    },
+    {
+      "titulo": "Pedro Feijoo presenta La buena muerte - Europa Press",
+      "url": "https://www.europapress.es/castilla-y-leon/noticia-escritor-gallego-pedro-feijoo-presentara-novela-buena-muerte-viernes-valladolid-20261119105347.html"
+    },
+    {
+      "titulo": "Pedro Feijoo - Wikipedia en español",
+      "url": "https://es.wikipedia.org/wiki/Pedro_Feijoo"
+    }
+  ],
+  "fecha_revision": "2026-11-24",
+  "origen": "chatgpt-web-high"
+}

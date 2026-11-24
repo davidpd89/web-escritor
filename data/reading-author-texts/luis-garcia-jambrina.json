@@ -1,0 +1,200 @@
+{
+  "slug": "luis-garcia-jambrina",
+  "identificado": true,
+  "intro": "Luis García Jambrina (Zamora, 1960) es un escritor, filólogo y profesor universitario español especializado en novela histórica, intriga criminal y literatura española. Es conocido por la serie Los manuscritos del pesquisidor Fernando de Rojas, que convierte al autor de La Celestina en investigador de crímenes durante el reinado de los Reyes Católicos. También ha escrito novelas protagonizadas por Miguel de Unamuno, relatos, ensayos literarios y obras teatrales. Su narrativa combina personajes históricos, investigación policial y referencias literarias.",
+  "biografia": "Luis Miguel García Jambrina nació en Zamora en 1960. Se doctoró en Filología Hispánica por la Universidad de Salamanca, donde ejerce como profesor titular de Literatura Española. También cursó estudios de guion de ficción para televisión y cine en la Universidad Pontificia de Salamanca. Ha trabajado como crítico literario, dirige la revista Cuadernos de la Cátedra Miguel de Unamuno y está al frente de los Encuentros de Escritores y Críticos de las Letras Españolas en Verines desde 1999, año en que recibió el Premio Fray Luis de León de Ensayo.\n\nComenzó su trayectoria narrativa con los libros de relatos Oposiciones a la morgue y otros ajustes de cuentas (1995) y Muertos S.A. (2005). Su primera novela, El manuscrito de piedra (2008), recibió el Premio Internacional de Novela Histórica Ciudad de Zaragoza en 2009 y abrió una serie de siete entregas protagonizadas por Fernando de Rojas. Fuera de este ciclo publicó En tierra de lobos, La sombra de otro y La corte de los engaños, entre otras novelas históricas y de intriga.\n\nSu investigación sobre Miguel de Unamuno dio lugar al ensayo La doble muerte de Unamuno (2021), escrito con el cineasta Manuel Menchón, y posteriormente a las novelas El primer caso de Unamuno (2024) y El último caso de Unamuno (2026). También ha escrito teatro, incluida La última escena, estrenada en 2018 y publicada en 2021. Su novela La memoria velada, prevista para enero de 2027, traslada la investigación criminal a la Barcelona de 1963 y convierte al escritor Francisco González Ledesma en protagonista.",
+  "por_donde_empezar": [
+    {
+      "titulo": "La memoria velada",
+      "motivo": "Novela independiente ambientada en la Barcelona de 1963, con el escritor Francisco González Ledesma investigando un crimen relacionado con secretos de la Guerra Civil. Permite acercarse a la vertiente de novela negra del autor sin conocer sus series anteriores. Su publicación está prevista para enero de 2027."
+    },
+    {
+      "titulo": "El manuscrito de piedra",
+      "motivo": "Primera entrega de la serie protagonizada por Fernando de Rojas y ganadora del Premio Internacional de Novela Histórica Ciudad de Zaragoza. Presenta al personaje investigador y la Salamanca de finales del siglo XV, donde transcurren sus primeras pesquisas."
+    },
+    {
+      "titulo": "El primer caso de Unamuno",
+      "motivo": "Inicia la serie que convierte a Miguel de Unamuno en investigador de un crimen en la Salamanca de comienzos del siglo XX. Es una entrada independiente de las aventuras de Fernando de Rojas y combina misterio, historia y reflexión literaria."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Oposiciones a la morgue y otros ajustes de cuentas",
+      "anio": 1995
+    },
+    {
+      "titulo": "Muertos S.A.",
+      "anio": 2005
+    },
+    {
+      "titulo": "El manuscrito de piedra",
+      "anio": 2008,
+      "saga": "Los manuscritos del pesquisidor Fernando de Rojas"
+    },
+    {
+      "titulo": "El manuscrito de nieve",
+      "anio": 2010,
+      "saga": "Los manuscritos del pesquisidor Fernando de Rojas"
+    },
+    {
+      "titulo": "En tierra de lobos",
+      "anio": 2013
+    },
+    {
+      "titulo": "La sombra de otro",
+      "anio": 2014
+    },
+    {
+      "titulo": "Bienvenida, Frau Merkel",
+      "anio": 2015
+    },
+    {
+      "titulo": "La corte de los engaños",
+      "anio": 2016
+    },
+    {
+      "titulo": "El manuscrito de fuego",
+      "anio": 2018,
+      "saga": "Los manuscritos del pesquisidor Fernando de Rojas"
+    },
+    {
+      "titulo": "El manuscrito de aire",
+      "anio": 2019,
+      "saga": "Los manuscritos del pesquisidor Fernando de Rojas"
+    },
+    {
+      "titulo": "El manuscrito de barro",
+      "anio": 2021,
+      "saga": "Los manuscritos del pesquisidor Fernando de Rojas"
+    },
+    {
+      "titulo": "La doble muerte de Unamuno",
+      "anio": 2021
+    },
+    {
+      "titulo": "La última escena",
+      "anio": 2021
+    },
+    {
+      "titulo": "El manuscrito de niebla",
+      "anio": 2022,
+      "saga": "Los manuscritos del pesquisidor Fernando de Rojas"
+    },
+    {
+      "titulo": "Una noche en la picota",
+      "anio": 2022
+    },
+    {
+      "titulo": "Así en la guerra como en la paz",
+      "anio": 2023
+    },
+    {
+      "titulo": "Noche oscura del alma",
+      "anio": 2023
+    },
+    {
+      "titulo": "El primer caso de Unamuno",
+      "anio": 2024,
+      "saga": "Los casos de Unamuno"
+    },
+    {
+      "titulo": "El manuscrito de sangre",
+      "anio": 2025,
+      "saga": "Los manuscritos del pesquisidor Fernando de Rojas"
+    },
+    {
+      "titulo": "El último caso de Unamuno",
+      "anio": 2026,
+      "saga": "Los casos de Unamuno"
+    },
+    {
+      "titulo": "La memoria velada",
+      "anio": 2027
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Los manuscritos del pesquisidor Fernando de Rojas",
+      "libros": [
+        "El manuscrito de piedra",
+        "El manuscrito de nieve",
+        "El manuscrito de fuego",
+        "El manuscrito de aire",
+        "El manuscrito de barro",
+        "El manuscrito de niebla",
+        "El manuscrito de sangre"
+      ]
+    },
+    {
+      "nombre": "Los casos de Unamuno",
+      "libros": [
+        "El primer caso de Unamuno",
+        "El último caso de Unamuno"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Guillermo Martínez",
+      "motivo": "Ambos relacionan el misterio criminal con la literatura, los ambientes intelectuales y las investigaciones que requieren interpretar pistas y documentos."
+    },
+    {
+      "nombre": "Javier Castillo",
+      "motivo": "Comparten el uso de investigaciones criminales, secretos del pasado y revelaciones progresivas como motores de sus tramas de intriga."
+    },
+    {
+      "nombre": "Jo Nesbo",
+      "motivo": "Coinciden en la construcción de novelas alrededor de investigadores que deben resolver asesinatos y enfrentarse a redes de intereses ocultos, aunque García Jambrina suele recurrir a escenarios históricos."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿En qué orden se leen los manuscritos de Luis García Jambrina?",
+      "respuesta": "El orden de publicación es El manuscrito de piedra, El manuscrito de nieve, El manuscrito de fuego, El manuscrito de aire, El manuscrito de barro, El manuscrito de niebla y El manuscrito de sangre. Las siete novelas comparten a Fernando de Rojas como protagonista, aunque presentan investigaciones que pueden leerse de forma independiente."
+    },
+    {
+      "pregunta": "¿Cuál es el libro más conocido de Luis García Jambrina?",
+      "respuesta": "El manuscrito de piedra, publicado en 2008, es la novela con la que se dio a conocer y la primera de su serie sobre Fernando de Rojas. Recibió el Premio Internacional de Novela Histórica Ciudad de Zaragoza en 2009 y ha tenido numerosas reediciones y traducciones."
+    },
+    {
+      "pregunta": "¿Cuántos libros tiene la serie de Miguel de Unamuno?",
+      "respuesta": "Consta de dos novelas publicadas: El primer caso de Unamuno (2024) y El último caso de Unamuno (2026). Ambas convierten al escritor y filósofo en personaje de ficción dentro de investigaciones relacionadas con la historia de Salamanca."
+    },
+    {
+      "pregunta": "¿De qué trata La memoria velada y cuándo se publica?",
+      "respuesta": "Es una novela negra ambientada en Barcelona durante el verano de 1963. Su protagonista es Francisco González Ledesma, abogado y escritor que publicó novelas populares bajo el seudónimo Silver Kane. Espasa tiene prevista su publicación para el 20 de enero de 2027."
+    },
+    {
+      "pregunta": "¿Luis García Jambrina es profesor de la Universidad de Salamanca?",
+      "respuesta": "Sí. Es doctor en Filología Hispánica y profesor titular de Literatura Española en la Universidad de Salamanca. También ha desarrollado trabajos académicos sobre poesía española y Miguel de Unamuno."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Luis García Jambrina - Wikipedia en español",
+      "url": "https://es.wikipedia.org/wiki/Luis_Garc%C3%ADa_Jambrina"
+    },
+    {
+      "titulo": "Luis García Jambrina - PlanetadeLibros",
+      "url": "https://www.planetadelibros.com/autor/luis-garcia-jambrina/000046009"
+    },
+    {
+      "titulo": "La memoria velada - Espasa, PlanetadeLibros",
+      "url": "https://www.planetadelibros.com/libro-la-memoria-velada/465325"
+    },
+    {
+      "titulo": "El último caso de Unamuno - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/438362-libro-el-ultimo-caso-de-unamuno-9788410496897"
+    },
+    {
+      "titulo": "Profesorado del Máster en Creación Literaria - Universidad de Salamanca",
+      "url": "https://diarium.usal.es/creacionliteraria/docencia/profesorado/"
+    },
+    {
+      "titulo": "Luis García Jambrina - Reino de Cordelia",
+      "url": "https://www.reinodecordelia.es/autor/luis-garcia-jambrina/"
+    }
+  ],
+  "fecha_revision": "2026-11-24",
+  "origen": "chatgpt-web-high"
+}

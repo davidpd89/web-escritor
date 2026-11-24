@@ -1,0 +1,223 @@
+{
+  "slug": "peter-straub",
+  "identificado": true,
+  "intro": "Peter Straub (Milwaukee, 1943-Nueva York, 2022) fue un novelista, cuentista y poeta estadounidense especializado en terror, suspense psicológico y ficción sobrenatural. Se dio a conocer con Fantasmas (1979) y escribió novelas como Koko, La garganta y Mister X. También colaboró con Stephen King en El Talismán y Casa Negra, las dos primeras entregas de una trilogía completada en 2026 con Otros mundos. Recibió premios Bram Stoker, World Fantasy e International Horror Guild.",
+  "biografia": "Peter Francis Straub nació el 2 de marzo de 1943 en Milwaukee, Wisconsin. Estudió Literatura Inglesa en la Universidad de Wisconsin-Madison y obtuvo un máster en la Universidad de Columbia. Trabajó como profesor antes de trasladarse a Dublín para continuar su formación. Durante su estancia en Irlanda escribió Marriages, su primera novela, publicada en 1973. Posteriormente vivió en Londres, donde comenzó a orientar su carrera hacia la literatura de terror con Julia y Si pudieras verme ahora.\n\nSu reconocimiento llegó con Fantasmas (1979), adaptada al cine en 1981 en una película protagonizada por Fred Astaire. Después publicó La tierra de las sombras y Dragón. En 1984 escribió junto a Stephen King El Talismán, una novela de fantasía oscura sobre un niño que viaja entre mundos paralelos. Ambos retomaron la historia en Casa Negra (2001). Straub también desarrolló la trilogía Rosa Azul, integrada por Koko, Misterio y La garganta, donde combinó investigación criminal, violencia y consecuencias del pasado.\n\nA lo largo de su carrera recibió varios premios Bram Stoker, World Fantasy e International Horror Guild. Koko obtuvo el World Fantasy Award a la mejor novela, mientras que La garganta y Perdidos fueron reconocidas con premios Bram Stoker. También escribió relatos, poesía y ensayos, y editó recopilaciones de literatura fantástica. Falleció el 4 de septiembre de 2022 en Nueva York. En 2026 apareció Otros mundos, conclusión de El Talismán, redactada por Stephen King a partir de una idea que Straub había dejado antes de morir.",
+  "por_donde_empezar": [
+    {
+      "titulo": "El Talismán: 1",
+      "motivo": "Es la primera novela de la saga escrita junto a Stephen King y permite conocer a Jack Sawyer y los Territorios desde el principio. Combina aventura fantástica, mundos paralelos y terror sobrenatural."
+    },
+    {
+      "titulo": "Fantasmas",
+      "motivo": "Publicada en 1979, fue la novela que consolidó su trayectoria como escritor de terror. Es una obra independiente centrada en una comunidad marcada por acontecimientos sobrenaturales y secretos del pasado."
+    },
+    {
+      "titulo": "Koko",
+      "motivo": "Abre la trilogía Rosa Azul y recibió el World Fantasy Award a la mejor novela. Es una entrada a su vertiente de suspense criminal, con una investigación relacionada con la guerra de Vietnam."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Marriages",
+      "anio": 1973
+    },
+    {
+      "titulo": "La obsesión de Julia",
+      "anio": 1975,
+      "titulo_original": "Julia"
+    },
+    {
+      "titulo": "Si pudieras verme ahora",
+      "anio": 1977,
+      "titulo_original": "If You Could See Me Now"
+    },
+    {
+      "titulo": "Fantasmas",
+      "anio": 1979,
+      "titulo_original": "Ghost Story"
+    },
+    {
+      "titulo": "La tierra de las sombras",
+      "anio": 1980,
+      "titulo_original": "Shadowland"
+    },
+    {
+      "titulo": "Dragón",
+      "anio": 1982,
+      "titulo_original": "Floating Dragon"
+    },
+    {
+      "titulo": "Bajo Venus",
+      "anio": 1984,
+      "titulo_original": "Under Venus"
+    },
+    {
+      "titulo": "El Talismán: 1",
+      "anio": 1984,
+      "titulo_original": "The Talisman",
+      "saga": "El Talismán"
+    },
+    {
+      "titulo": "Koko",
+      "anio": 1988,
+      "saga": "Rosa Azul"
+    },
+    {
+      "titulo": "Casas sin puertas",
+      "anio": 1990,
+      "titulo_original": "Houses Without Doors"
+    },
+    {
+      "titulo": "Misterio",
+      "anio": 1990,
+      "titulo_original": "Mystery",
+      "saga": "Rosa Azul"
+    },
+    {
+      "titulo": "La garganta",
+      "anio": 1993,
+      "titulo_original": "The Throat",
+      "saga": "Rosa Azul"
+    },
+    {
+      "titulo": "Círculo diabólico",
+      "anio": 1995,
+      "titulo_original": "The Hellfire Club"
+    },
+    {
+      "titulo": "Mister X",
+      "anio": 1999,
+      "titulo_original": "Mr. X"
+    },
+    {
+      "titulo": "Magic Terror",
+      "anio": 2000
+    },
+    {
+      "titulo": "Casa Negra",
+      "anio": 2001,
+      "titulo_original": "Black House",
+      "saga": "El Talismán"
+    },
+    {
+      "titulo": "Perdidos",
+      "anio": 2003,
+      "titulo_original": "Lost Boy, Lost Girl",
+      "saga": "Tim Underhill"
+    },
+    {
+      "titulo": "La cámara oscura",
+      "anio": 2004,
+      "titulo_original": "In the Night Room",
+      "saga": "Tim Underhill"
+    },
+    {
+      "titulo": "5 Stories",
+      "anio": 2007
+    },
+    {
+      "titulo": "A Dark Matter",
+      "anio": 2010
+    },
+    {
+      "titulo": "Interior Darkness",
+      "anio": 2016
+    },
+    {
+      "titulo": "Otros mundos",
+      "anio": 2026,
+      "titulo_original": "Other Worlds Than These",
+      "saga": "El Talismán"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "El Talismán",
+      "libros": [
+        "El Talismán: 1",
+        "Casa Negra",
+        "Otros mundos"
+      ]
+    },
+    {
+      "nombre": "Rosa Azul",
+      "libros": [
+        "Koko",
+        "Misterio",
+        "La garganta"
+      ]
+    },
+    {
+      "nombre": "Tim Underhill",
+      "libros": [
+        "Perdidos",
+        "La cámara oscura"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Stephen King",
+      "motivo": "Comparten el terror sobrenatural, las historias ambientadas en comunidades estadounidenses y la fantasía oscura; además, escribieron juntos El Talismán y Casa Negra."
+    },
+    {
+      "nombre": "Per Jacobsen",
+      "motivo": "Ambos escriben thrillers que incorporan elementos sobrenaturales, situaciones de amenaza y personajes enfrentados a acontecimientos difíciles de explicar."
+    },
+    {
+      "nombre": "Ibon Martín",
+      "motivo": "Coinciden en el suspense criminal, los secretos del pasado y las investigaciones que vinculan distintos acontecimientos, especialmente en la trilogía Rosa Azul de Straub."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿En qué orden se lee la trilogía El Talismán de Peter Straub y Stephen King?",
+      "respuesta": "El orden es El Talismán: 1 (1984), Casa Negra (2001) y Otros mundos (2026). Las tres novelas siguen a Jack Sawyer en distintas etapas de su vida y desarrollan la relación entre nuestro mundo y los Territorios."
+    },
+    {
+      "pregunta": "¿Peter Straub escribió Otros mundos antes de morir?",
+      "respuesta": "No llegó a escribir la novela completa. Stephen King la redactó después de la muerte de Straub, utilizando una idea que este le había transmitido. Publicada en 2026, la obra acredita a ambos escritores y cierra la trilogía El Talismán."
+    },
+    {
+      "pregunta": "¿Cuál es el libro más conocido de Peter Straub?",
+      "respuesta": "Fantasmas, publicada originalmente en 1979 como Ghost Story, es una de sus novelas individuales más reconocidas y fue adaptada al cine. También destaca El Talismán, publicada en 1984 junto a Stephen King."
+    },
+    {
+      "pregunta": "¿Qué libros forman la trilogía Rosa Azul de Peter Straub?",
+      "respuesta": "La trilogía está formada por Koko (1988), Misterio (1990) y La garganta (1993). Son novelas conectadas por personajes, crímenes y acontecimientos del pasado, y conviene leerlas en orden de publicación."
+    },
+    {
+      "pregunta": "¿Qué libros de Peter Straub se han adaptado al cine?",
+      "respuesta": "Su novela Fantasmas, publicada originalmente como Ghost Story en 1979, fue llevada al cine en 1981 bajo la dirección de John Irvin. La película contó con Fred Astaire, Melvyn Douglas, Douglas Fairbanks Jr. y John Houseman."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Peter Straub - Novels",
+      "url": "https://www.peterstraub.net/works/novels/"
+    },
+    {
+      "titulo": "Peter Straub Papers - New York University",
+      "url": "https://findingaids.library.nyu.edu/fales/mss_185/all/"
+    },
+    {
+      "titulo": "Peter Straub - The Encyclopedia of Science Fiction",
+      "url": "https://sf-encyclopedia.com/entry/straub_peter"
+    },
+    {
+      "titulo": "Peter Straub - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/173296-peter-straub"
+    },
+    {
+      "titulo": "Libros de Peter Straub - Casa del Libro",
+      "url": "https://www.casadellibro.com/libros-ebooks/peter-straub/2368"
+    },
+    {
+      "titulo": "Stephen King and Peter Straub's The Talisman 3 - Esquire, 9 de febrero de 2026",
+      "url": "https://www.esquire.com/entertainment/books/a70269081/stephen-king-peter-straub-the-talisman-other-worlds-than-these-excerpt-2026/"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

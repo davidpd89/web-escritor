@@ -1,0 +1,231 @@
+{
+  "slug": "jamie-oliver",
+  "identificado": true,
+  "intro": "Jamie Oliver (Clavering, Essex, 1975) es un cocinero, presentador de televisión y escritor británico especializado en libros de recetas y divulgación gastronómica. Alcanzó la fama en 1999 con el programa The Naked Chef y su libro homónimo. Su obra se centra en la cocina doméstica, las recetas rápidas, la alimentación saludable y el aprovechamiento de ingredientes cotidianos. También ha publicado novelas infantiles de fantasía protagonizadas por Billy y ha impulsado campañas para mejorar la alimentación escolar.",
+  "biografia": "James Trevor Oliver nació el 27 de mayo de 1975 en Clavering, Essex, Inglaterra. Creció en una familia dedicada a la hostelería y comenzó a cocinar en The Cricketers, el pub y restaurante de sus padres. Tras estudiar cocina, trabajó en Londres en el restaurante Neal Street, donde conoció al cocinero italiano Gennaro Contaldo. Posteriormente se incorporó a The River Café, donde llamó la atención de una productora de televisión.\n\nEn 1999 comenzó a presentar The Naked Chef en la BBC. El programa dio origen a su primer libro de cocina y a una carrera editorial centrada en acercar las técnicas culinarias a los hogares. En 2002 puso en marcha Fifteen, un proyecto de restauración y formación profesional para jóvenes. En 2005 impulsó una campaña para mejorar la alimentación en los colegios británicos. Fue nombrado miembro de la Orden del Imperio Británico en 2003 y recibió el premio TED en 2010. Su programa The Naked Chef obtuvo un BAFTA en 2001.\n\nEntre sus publicaciones figuran 5 Ingredientes, Jamie cocina en Italia, Comer juntos y Come sano. Muchos de sus recetarios están vinculados a programas televisivos. En 2023 debutó en la narrativa infantil con Billy y la aventura gigante, ilustrado por Mónica Armiño, al que siguió Billy and the Epic Escape en 2024. Este segundo libro fue retirado de la venta por su editorial ese mismo año. En 2026 publicó los recetarios Barbacoa y 20 minutos ¡y listo!.",
+  "por_donde_empezar": [
+    {
+      "titulo": "20 minutos ¡y listo!",
+      "motivo": "Publicado originalmente en 2026, reúne 120 recetas diseñadas para prepararse en 20 minutos o menos. Es una entrada directa a su propuesta de cocina rápida para el día a día."
+    },
+    {
+      "titulo": "5 Ingredientes",
+      "motivo": "Publicado en 2017, reúne 130 recetas que utilizan cinco ingredientes principales. Permite conocer su método de simplificar las preparaciones y reducir las listas de ingredientes."
+    },
+    {
+      "titulo": "Barbacoa",
+      "motivo": "Su libro de 2026 dedicado a cocinar a la parrilla incluye 90 recetas y explicaciones sobre preparación del equipo, control del calor y temperaturas de cocción. Está orientado tanto a principiantes como a quienes ya utilizan la barbacoa."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "The Naked Chef",
+      "anio": 1999
+    },
+    {
+      "titulo": "The Return of the Naked Chef",
+      "anio": 2000
+    },
+    {
+      "titulo": "Happy Days with the Naked Chef",
+      "anio": 2001
+    },
+    {
+      "titulo": "Jamie's Kitchen",
+      "anio": 2002
+    },
+    {
+      "titulo": "Jamie's Dinners",
+      "anio": 2004
+    },
+    {
+      "titulo": "Jamie's Italy",
+      "anio": 2005
+    },
+    {
+      "titulo": "Cook with Jamie",
+      "anio": 2006
+    },
+    {
+      "titulo": "Jamie at Home",
+      "anio": 2007
+    },
+    {
+      "titulo": "Jamie's Ministry of Food",
+      "anio": 2008
+    },
+    {
+      "titulo": "Jamie's 30-Minute Meals",
+      "anio": 2010
+    },
+    {
+      "titulo": "Jamie's 15-Minute Meals",
+      "anio": 2012
+    },
+    {
+      "titulo": "Save with Jamie",
+      "anio": 2013
+    },
+    {
+      "titulo": "Comfort food",
+      "anio": 2014,
+      "titulo_original": "Jamie's Comfort Food"
+    },
+    {
+      "titulo": "Everyday Super Food",
+      "anio": 2015
+    },
+    {
+      "titulo": "Jamie Oliver's Christmas Cookbook",
+      "anio": 2016
+    },
+    {
+      "titulo": "Super Food Family Classics",
+      "anio": 2016
+    },
+    {
+      "titulo": "5 Ingredientes",
+      "anio": 2017,
+      "titulo_original": "5 Ingredients: Quick & Easy Food"
+    },
+    {
+      "titulo": "Jamie cocina en Italia",
+      "anio": 2018,
+      "titulo_original": "Jamie Cooks Italy"
+    },
+    {
+      "titulo": "VEG. Recetas fáciles y deliciosas con verduras",
+      "anio": 2019,
+      "titulo_original": "Veg: Easy & Delicious Meals for Everyone"
+    },
+    {
+      "titulo": "7 ideas. Recetas fáciles y deliciosas para cada día de la semana",
+      "anio": 2020,
+      "titulo_original": "7 Ways"
+    },
+    {
+      "titulo": "Comer juntos",
+      "anio": 2021,
+      "titulo_original": "Together"
+    },
+    {
+      "titulo": "Uno. Un recipiente. Recetas fáciles",
+      "anio": 2022,
+      "titulo_original": "One: Simple One-Pan Wonders"
+    },
+    {
+      "titulo": "5 ingredientes mediterráneos",
+      "anio": 2023,
+      "titulo_original": "5 Ingredients Mediterranean"
+    },
+    {
+      "titulo": "Billy y la aventura gigante",
+      "anio": 2023,
+      "titulo_original": "Billy and the Giant Adventure",
+      "saga": "Billy"
+    },
+    {
+      "titulo": "Billy and the Epic Escape",
+      "anio": 2024,
+      "saga": "Billy"
+    },
+    {
+      "titulo": "Simplemente Jamie",
+      "anio": 2024,
+      "titulo_original": "Simply Jamie"
+    },
+    {
+      "titulo": "Air fryer fácil. Platos deliciosos y atrevidos",
+      "anio": 2025,
+      "titulo_original": "Easy Air Fryer"
+    },
+    {
+      "titulo": "Come sano",
+      "anio": 2025,
+      "titulo_original": "Eat Yourself Healthy"
+    },
+    {
+      "titulo": "20 minutos ¡y listo!",
+      "anio": 2026,
+      "titulo_original": "20 Minute Meals"
+    },
+    {
+      "titulo": "Barbacoa",
+      "anio": 2026,
+      "titulo_original": "BBQ"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Billy",
+      "libros": [
+        "Billy y la aventura gigante",
+        "Billy and the Epic Escape"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Dani García",
+      "motivo": "Ambos son cocineros y autores de recetarios que trasladan técnicas profesionales a preparaciones domésticas y cuentan con una trayectoria vinculada a la televisión gastronómica."
+    },
+    {
+      "nombre": "David de Jorge",
+      "motivo": "Comparten una trayectoria como presentadores de programas de cocina y autores de libros centrados en recetas caseras, ingredientes cotidianos y preparaciones accesibles."
+    },
+    {
+      "nombre": "Claudia Roden",
+      "motivo": "Coinciden en la divulgación de la cocina mediterránea y en el uso de recetarios para acercar al lector las tradiciones culinarias de distintos países."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Qué libro hizo famoso a Jamie Oliver?",
+      "respuesta": "The Naked Chef, publicado en 1999 junto al programa de televisión del mismo nombre. El libro recoge su propuesta de simplificar la cocina de restaurante para prepararla en casa."
+    },
+    {
+      "pregunta": "¿Hay que leer los libros de cocina de Jamie Oliver en orden?",
+      "respuesta": "No. Sus recetarios son independientes y pueden consultarse según el tipo de cocina que interese. 5 Ingredientes se centra en preparaciones con pocos ingredientes, mientras que 20 minutos ¡y listo! propone recetas rápidas y Barbacoa se dedica a la parrilla."
+    },
+    {
+      "pregunta": "¿Jamie Oliver también escribe novelas de fantasía?",
+      "respuesta": "Sí. En 2023 publicó Billy y la aventura gigante, una novela infantil de fantasía y aventuras ilustrada por Mónica Armiño. En 2024 apareció su continuación, Billy and the Epic Escape."
+    },
+    {
+      "pregunta": "¿En qué orden se leen los libros de Billy de Jamie Oliver?",
+      "respuesta": "Primero Billy y la aventura gigante, publicado originalmente en 2023, y después Billy and the Epic Escape, de 2024. A diferencia de sus recetarios, estas novelas comparten personajes y un mismo mundo narrativo."
+    },
+    {
+      "pregunta": "¿Por qué se retiró Billy and the Epic Escape?",
+      "respuesta": "Jamie Oliver y Penguin Random House retiraron el libro de la venta en noviembre de 2024 después de recibir críticas por la representación de personajes indígenas australianos. El autor pidió disculpas y reconoció el daño causado."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Jamie Oliver - Biografía oficial",
+      "url": "https://www.jamieoliver.com/jamies-world/about-jamie/"
+    },
+    {
+      "titulo": "Jamie Oliver - Penguin Libros España",
+      "url": "https://www.penguinlibros.com/es/6043-jamie-oliver"
+    },
+    {
+      "titulo": "The ultimate guide to Jamie Oliver's cookbooks - The Happy Foodie",
+      "url": "https://thehappyfoodie.co.uk/articles/best-jamie-oliver-cookbooks/"
+    },
+    {
+      "titulo": "Billy y la aventura gigante - Grupo Océano",
+      "url": "https://oceano.com/catalogo/billy-y-la-aventura-gigante-9788412725926"
+    },
+    {
+      "titulo": "Jamie Oliver's Billy books in order - Fantastic Fiction",
+      "url": "https://www.fantasticfiction.com/o/jamie-oliver/billy/"
+    },
+    {
+      "titulo": "Children's book by chef Jamie Oliver is withdrawn after criticism from Indigenous Australians - Associated Press",
+      "url": "https://apnews.com/article/oliver-britain-australia-first-nation-book-f44a87778a262ff9b2806123bae8ae6e"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

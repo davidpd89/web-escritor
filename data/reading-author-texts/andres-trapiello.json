@@ -1,0 +1,244 @@
+{
+  "slug": "andres-trapiello",
+  "identificado": true,
+  "intro": "Andrés Trapiello (Manzaneda de Torío, León, 1953) es un escritor, poeta, ensayista y editor español. Su obra abarca novelas, poesía, diarios literarios y ensayos sobre la historia y la literatura españolas. Es conocido por Salón de pasos perdidos, una serie de diarios iniciada en 1990, y por novelas como Los amigos del crimen perfecto, ganadora del Premio Nadal de 2003, y Al morir don Quijote. También ha escrito sobre la Guerra Civil, Cervantes y Madrid.",
+  "biografia": "Andrés García Trapiello nació el 10 de junio de 1953 en La Vega de Manzaneda, León. Creció en un entorno familiar vinculado a la lectura y comenzó estudios de Filosofía y Letras en la Universidad de Valladolid. En 1975 se instaló en Madrid, donde trabajó como redactor de una revista de arte y, posteriormente, en el programa literario Encuentros con las letras, de Televisión Española. Entre 1981 y 1987 dirigió la editorial Trieste junto con Valentín Zapatero. En 1989 fundó la colección literaria La Veleta, integrada en la editorial Comares.\n\nPublicó su primer poemario, Junto al agua, en 1980, y su primera novela, La tinta simpática, en 1988. En 1990 inició Salón de pasos perdidos, una serie de diarios literarios que combina experiencias personales, lecturas y reflexiones sobre la vida cultural española. Su producción incluye también ensayos como Las vidas de Miguel de Cervantes (1993), Las armas y las letras (1994) y Madrid (2020), además de novelas como Al morir don Quijote (2004) y Ayer no más (2012).\n\nHa recibido el Premio de la Crítica de poesía castellana por Acaso una verdad (1993), el Premio Nadal por Los amigos del crimen perfecto (2003) y el Premio Fundación José Manuel Lara por Al morir don Quijote (2005). En 2015 publicó una versión del Quijote en castellano actual. Su actividad literaria continúa en 2026 con el poemario El buen suceso, el libro A las mil maravillas y De todo tiene, vigesimoquinta entrega de sus diarios.",
+  "por_donde_empezar": [
+    {
+      "titulo": "La Fuente del Encanto",
+      "motivo": "Reúne una selección de poemas de distintas etapas y recuerdos autobiográficos en prosa. La edición ampliada de 2026 permite recorrer su trayectoria poética sin empezar por sus primeros libros."
+    },
+    {
+      "titulo": "A las mil maravillas",
+      "motivo": "Recopila textos breves sobre libros, pintura, cine y ciudades, acompañados de ilustraciones de Patricia Bolinches. Es una entrada a su escritura periodística y a sus intereses culturales."
+    },
+    {
+      "titulo": "Los amigos del crimen perfecto",
+      "motivo": "Ganó el Premio Nadal en 2003 y es una de sus novelas más conocidas. Permite acercarse a su narrativa de ficción mediante una historia relacionada con los lectores de novelas policíacas."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Junto al agua",
+      "anio": 1980
+    },
+    {
+      "titulo": "Las tradiciones",
+      "anio": 1982
+    },
+    {
+      "titulo": "La tinta simpática",
+      "anio": 1988
+    },
+    {
+      "titulo": "El gato encerrado",
+      "anio": 1990,
+      "saga": "Salón de pasos perdidos"
+    },
+    {
+      "titulo": "El buque fantasma",
+      "anio": 1992
+    },
+    {
+      "titulo": "Locuras sin fundamento",
+      "anio": 1992,
+      "saga": "Salón de pasos perdidos"
+    },
+    {
+      "titulo": "Acaso una verdad",
+      "anio": 1993
+    },
+    {
+      "titulo": "Las vidas de Miguel de Cervantes",
+      "anio": 1993
+    },
+    {
+      "titulo": "Las armas y las letras",
+      "anio": 1994
+    },
+    {
+      "titulo": "La malandanza",
+      "anio": 1996
+    },
+    {
+      "titulo": "Los nietos del Cid",
+      "anio": 1997
+    },
+    {
+      "titulo": "Días y noches",
+      "anio": 2000
+    },
+    {
+      "titulo": "La noche de los Cuatro Caminos",
+      "anio": 2001
+    },
+    {
+      "titulo": "Los amigos del crimen perfecto",
+      "anio": 2003
+    },
+    {
+      "titulo": "Al morir don Quijote",
+      "anio": 2004,
+      "saga": "Continuación del Quijote"
+    },
+    {
+      "titulo": "Los confines",
+      "anio": 2009
+    },
+    {
+      "titulo": "Ayer no más",
+      "anio": 2012
+    },
+    {
+      "titulo": "El final de Sancho Panza y otras suertes",
+      "anio": 2014,
+      "saga": "Continuación del Quijote"
+    },
+    {
+      "titulo": "El Rastro",
+      "anio": 2018
+    },
+    {
+      "titulo": "Y",
+      "anio": 2018
+    },
+    {
+      "titulo": "Madrid",
+      "anio": 2020
+    },
+    {
+      "titulo": "La Fuente del Encanto",
+      "anio": 2021
+    },
+    {
+      "titulo": "Quasi una fantasia",
+      "anio": 2021,
+      "saga": "Salón de pasos perdidos"
+    },
+    {
+      "titulo": "Éramos otros",
+      "anio": 2023,
+      "saga": "Salón de pasos perdidos"
+    },
+    {
+      "titulo": "Fractal",
+      "anio": 2024
+    },
+    {
+      "titulo": "Me piden que regrese",
+      "anio": 2024
+    },
+    {
+      "titulo": "Próspero viento",
+      "anio": 2025
+    },
+    {
+      "titulo": "A las mil maravillas",
+      "anio": 2026
+    },
+    {
+      "titulo": "De todo tiene",
+      "anio": 2026,
+      "saga": "Salón de pasos perdidos"
+    },
+    {
+      "titulo": "El buen suceso",
+      "anio": 2026
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Salón de pasos perdidos",
+      "libros": [
+        "El gato encerrado",
+        "Locuras sin fundamento",
+        "El tejado de vidrio",
+        "Las nubes por dentro",
+        "Los caballeros del punto fijo",
+        "Las cosas más extrañas",
+        "Una caña que piensa",
+        "Los hemisferios de Magdeburgo",
+        "Do fuir",
+        "Las inclemencias del tiempo",
+        "El fanal hialino",
+        "Siete moderno",
+        "El jardín de la pólvora",
+        "La cosa en sí",
+        "La manía",
+        "Troppo vero",
+        "Apenas sensitivo",
+        "Miseria y compañía",
+        "Seré duda",
+        "Sólo hechos",
+        "Mundo es",
+        "Diligencias",
+        "Quasi una fantasia",
+        "Éramos otros",
+        "De todo tiene"
+      ]
+    },
+    {
+      "nombre": "Continuación del Quijote",
+      "libros": [
+        "Al morir don Quijote",
+        "El final de Sancho Panza y otras suertes"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Ben Lerner",
+      "motivo": "Ambos combinan poesía, novela y ensayo, y emplean elementos autobiográficos y reflexiones sobre la escritura en parte de su narrativa."
+    },
+    {
+      "nombre": "Alberto Santamaría",
+      "motivo": "Comparten la dedicación a la poesía y al ensayo, así como el interés por las relaciones entre literatura, cultura y pensamiento contemporáneo."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Cuál es el libro más conocido de Andrés Trapiello?",
+      "respuesta": "Entre sus títulos más conocidos figuran Los amigos del crimen perfecto, ganador del Premio Nadal de 2003, Al morir don Quijote y Las armas y las letras. También se le identifica especialmente con Salón de pasos perdidos, su extensa serie de diarios literarios."
+    },
+    {
+      "pregunta": "¿En qué orden se leen los libros de Salón de pasos perdidos?",
+      "respuesta": "El orden de publicación comienza con El gato encerrado (1990), continúa con Locuras sin fundamento (1992) y El tejado de vidrio (1994), y alcanza su vigesimoquinta entrega con De todo tiene (2026). Son diarios literarios que pueden leerse por separado, aunque el orden de publicación permite seguir la evolución del proyecto. Fractal (2024) reúne una selección de las primeras veinte entregas."
+    },
+    {
+      "pregunta": "¿Al morir don Quijote tiene una segunda parte?",
+      "respuesta": "Sí. El final de Sancho Panza y otras suertes, publicada en 2014, continúa la historia iniciada en Al morir don Quijote (2004). Ambas novelas prolongan las vidas de los personajes cervantinos después de la muerte de Alonso Quijano y conviene leerlas en ese orden."
+    },
+    {
+      "pregunta": "¿Qué es La Fuente del Encanto de Andrés Trapiello?",
+      "respuesta": "Es una selección de su poesía acompañada de recuerdos autobiográficos en prosa, publicada originalmente en 2021. La edición corregida y aumentada de 2026 reúne más de noventa poemas escogidos por el propio autor y amplía el recorrido de su trayectoria hasta ese año."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Andrés Trapiello - Bibliografía completa, web oficial",
+      "url": "https://andrestrapiello.com/bibliografia-completa-2/"
+    },
+    {
+      "titulo": "Andrés Trapiello - Biografía, web oficial",
+      "url": "https://andrestrapiello.com/"
+    },
+    {
+      "titulo": "Andrés Trapiello - Premios y distinciones, web oficial",
+      "url": "https://andrestrapiello.com/premios-y-distinciones/"
+    },
+    {
+      "titulo": "El buen suceso - Editorial Pre-Textos",
+      "url": "https://pre-textos.com/producto/el-buen-suceso/"
+    },
+    {
+      "titulo": "Andrés Trapiello - PlanetadeLibros",
+      "url": "https://www.planetadelibros.com/autor/andres-trapiello/000000259"
+    },
+    {
+      "titulo": "A las mil maravillas - Casa del Libro",
+      "url": "https://www.casadellibro.com/libro-a-las-mil-maravillas/9788410944138/18856992"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

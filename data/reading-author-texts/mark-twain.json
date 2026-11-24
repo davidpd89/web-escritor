@@ -1,0 +1,205 @@
+{
+  "slug": "mark-twain",
+  "identificado": true,
+  "intro": "Mark Twain (1835-1910), seudónimo de Samuel Langhorne Clemens, fue un escritor, periodista, humorista y conferenciante estadounidense. Es conocido principalmente por Las aventuras de Tom Sawyer y Las aventuras de Huckleberry Finn, novelas ambientadas en el entorno del río Misisipi. Su obra comprende narrativa de aventuras, sátira social, ficción histórica, relatos humorísticos y libros de viajes. Utilizó el lenguaje coloquial y la ironía para retratar la sociedad estadounidense del siglo XIX y abordar cuestiones como la esclavitud, la desigualdad y la corrupción.",
+  "biografia": "Mark Twain nació el 30 de noviembre de 1835 en Florida, Misuri, con el nombre de Samuel Langhorne Clemens. Creció en Hannibal, una localidad situada junto al río Misisipi que posteriormente sirvió de inspiración para sus novelas. Tras la muerte de su padre, abandonó la educación formal y comenzó a trabajar como aprendiz de impresor. También ejerció como piloto de barcos de vapor, periodista y corresponsal. Adoptó el seudónimo Mark Twain en 1863, durante su etapa periodística en Nevada. Su reconocimiento como escritor comenzó con el relato La célebre rana saltadora del distrito de Calaveras, publicado en 1865. Sus experiencias como viajero dieron lugar a Los inocentes en el extranjero (1869) y Pasando fatigas (1872).\n\nEn las décadas siguientes publicó Las aventuras de Tom Sawyer (1876), El príncipe y el mendigo (1881), Las aventuras de Huckleberry Finn (1884) y Un yanqui en la corte del rey Arturo (1889). También escribió novelas históricas, sátiras y textos autobiográficos. En 1902 recibió un doctorado honoris causa de la Universidad de Misuri y en 1907 otro de la Universidad de Oxford. Sus obras tuvieron numerosas adaptaciones cinematográficas, entre ellas El príncipe y el mendigo (1937) y Las aventuras de Tom Sawyer (1938). Falleció el 21 de abril de 1910 en Redding, Connecticut. Parte de sus manuscritos y escritos autobiográficos se publicó después de su muerte.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Las aventuras de Tom Sawyer",
+      "motivo": "Es una de sus novelas más conocidas y presenta a Tom Sawyer y Huckleberry Finn. También es el punto de partida de las cuatro aventuras protagonizadas por estos personajes."
+    },
+    {
+      "titulo": "El príncipe y el mendigo: 89",
+      "motivo": "Es una novela independiente ambientada en la Inglaterra del siglo XVI. El intercambio de identidades entre dos niños permite conocer la vertiente histórica y la crítica social del autor sin seguir ninguna saga."
+    },
+    {
+      "titulo": "Las aventuras de Huckleberry Finn",
+      "motivo": "Continúa el universo de Tom Sawyer, aunque puede leerse de forma independiente. Narrada en primera persona, aborda la esclavitud, los prejuicios sociales y la libertad individual mediante la huida de Huck y Jim por el Misisipi."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "La célebre rana saltadora del distrito de Calaveras y otros relatos",
+      "anio": 1867,
+      "titulo_original": "The Celebrated Jumping Frog of Calaveras County, and Other Sketches"
+    },
+    {
+      "titulo": "Los inocentes en el extranjero",
+      "anio": 1869,
+      "titulo_original": "The Innocents Abroad"
+    },
+    {
+      "titulo": "Pasando fatigas",
+      "anio": 1872,
+      "titulo_original": "Roughing It"
+    },
+    {
+      "titulo": "La edad dorada",
+      "anio": 1873,
+      "titulo_original": "The Gilded Age: A Tale of Today"
+    },
+    {
+      "titulo": "Las aventuras de Tom Sawyer",
+      "anio": 1876,
+      "titulo_original": "The Adventures of Tom Sawyer",
+      "saga": "Aventuras de Tom Sawyer y Huckleberry Finn"
+    },
+    {
+      "titulo": "Un vagabundo en el extranjero",
+      "anio": 1880,
+      "titulo_original": "A Tramp Abroad"
+    },
+    {
+      "titulo": "El príncipe y el mendigo",
+      "anio": 1881,
+      "titulo_original": "The Prince and the Pauper"
+    },
+    {
+      "titulo": "Vida en el Misisipi",
+      "anio": 1883,
+      "titulo_original": "Life on the Mississippi"
+    },
+    {
+      "titulo": "Las aventuras de Huckleberry Finn",
+      "anio": 1884,
+      "titulo_original": "Adventures of Huckleberry Finn",
+      "saga": "Aventuras de Tom Sawyer y Huckleberry Finn"
+    },
+    {
+      "titulo": "Un yanqui en la corte del rey Arturo",
+      "anio": 1889,
+      "titulo_original": "A Connecticut Yankee in King Arthur's Court"
+    },
+    {
+      "titulo": "El pretendiente americano",
+      "anio": 1892,
+      "titulo_original": "The American Claimant"
+    },
+    {
+      "titulo": "El billete de un millón de libras esterlinas",
+      "anio": 1893,
+      "titulo_original": "The £1,000,000 Bank-Note and Other New Stories"
+    },
+    {
+      "titulo": "El bobo Wilson",
+      "anio": 1894,
+      "titulo_original": "The Tragedy of Pudd'nhead Wilson"
+    },
+    {
+      "titulo": "Tom Sawyer en el extranjero",
+      "anio": 1894,
+      "titulo_original": "Tom Sawyer Abroad",
+      "saga": "Aventuras de Tom Sawyer y Huckleberry Finn"
+    },
+    {
+      "titulo": "Recuerdos personales de Juana de Arco",
+      "anio": 1896,
+      "titulo_original": "Personal Recollections of Joan of Arc"
+    },
+    {
+      "titulo": "Tom Sawyer, detective",
+      "anio": 1896,
+      "saga": "Aventuras de Tom Sawyer y Huckleberry Finn"
+    },
+    {
+      "titulo": "Siguiendo el ecuador",
+      "anio": 1897,
+      "titulo_original": "Following the Equator"
+    },
+    {
+      "titulo": "El hombre que corrompió a Hadleyburg y otros relatos",
+      "anio": 1900,
+      "titulo_original": "The Man That Corrupted Hadleyburg and Other Stories and Essays"
+    },
+    {
+      "titulo": "Un legado de 30.000 dólares",
+      "anio": 1906,
+      "titulo_original": "The $30,000 Bequest and Other Stories"
+    },
+    {
+      "titulo": "La historia de un caballo",
+      "anio": 1907,
+      "titulo_original": "A Horse's Tale"
+    },
+    {
+      "titulo": "El forastero misterioso",
+      "anio": 1916,
+      "titulo_original": "The Mysterious Stranger"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Aventuras de Tom Sawyer y Huckleberry Finn",
+      "libros": [
+        "Las aventuras de Tom Sawyer",
+        "Las aventuras de Huckleberry Finn",
+        "Tom Sawyer en el extranjero",
+        "Tom Sawyer, detective"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "George Orwell",
+      "motivo": "Ambos utilizaron la sátira y la ficción para cuestionar las estructuras de poder, las desigualdades sociales y las contradicciones políticas."
+    },
+    {
+      "nombre": "Arturo Pérez-Reverte",
+      "motivo": "Comparten el uso de la aventura, los escenarios históricos y la ironía para narrar conflictos relacionados con la sociedad y el comportamiento humano."
+    },
+    {
+      "nombre": "Manuel Chaves Nogales",
+      "motivo": "Ambos combinaron el periodismo con la literatura y recurrieron a experiencias, viajes y observaciones directas para retratar las sociedades de su tiempo."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Cuál era el verdadero nombre de Mark Twain?",
+      "respuesta": "Se llamaba Samuel Langhorne Clemens. Adoptó el seudónimo Mark Twain en 1863, inspirado en una expresión utilizada por los marineros del Misisipi para indicar una profundidad de dos brazas."
+    },
+    {
+      "pregunta": "¿En qué orden se leen los libros de Tom Sawyer y Huckleberry Finn?",
+      "respuesta": "El orden de publicación es Las aventuras de Tom Sawyer (1876), Las aventuras de Huckleberry Finn (1884), Tom Sawyer en el extranjero (1894) y Tom Sawyer, detective (1896). Las dos primeras novelas pueden leerse por separado, pero comparten personajes y continuidad narrativa."
+    },
+    {
+      "pregunta": "¿Cuál es el libro más famoso de Mark Twain?",
+      "respuesta": "Las aventuras de Tom Sawyer y Las aventuras de Huckleberry Finn son sus novelas más conocidas. La primera sigue las peripecias infantiles de Tom Sawyer, mientras que la segunda narra la huida de Huck Finn y Jim por el río Misisipi."
+    },
+    {
+      "pregunta": "¿Por qué Las aventuras de Huckleberry Finn aparece publicada en 1884 y 1885?",
+      "respuesta": "La novela se publicó por primera vez en Inglaterra en diciembre de 1884. Su edición estadounidense apareció en febrero de 1885, por lo que algunas bibliografías utilizan este segundo año."
+    },
+    {
+      "pregunta": "¿Qué libros de Mark Twain se han adaptado al cine?",
+      "respuesta": "Entre las adaptaciones figuran El príncipe y el mendigo (1937), dirigida por William Keighley, y Las aventuras de Tom Sawyer (1938), dirigida por Norman Taurog. También existen otras versiones cinematográficas y televisivas de las historias de Tom Sawyer y Huckleberry Finn."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Mark Twain - Wikipedia en español",
+      "url": "https://es.wikipedia.org/wiki/Mark_Twain"
+    },
+    {
+      "titulo": "Twain's Publishing Career - Mark Twain Boyhood Home & Museum",
+      "url": "https://marktwainmuseum.org/learn-with-us/twains-publishing-career/"
+    },
+    {
+      "titulo": "Autobiographical Writings - Penguin Random House",
+      "url": "https://penguinrandomhouselibrary.com/book/?isbn=9780143106678"
+    },
+    {
+      "titulo": "Twain, Mark - Portal digital de Historia de la traducción en España",
+      "url": "https://phte.upf.edu/dhte/ingles/twain-mark/"
+    },
+    {
+      "titulo": "Adventures of Tom and Huck Series - Goodreads",
+      "url": "https://www.goodreads.com/series/295971-adventures-of-tom-and-huck"
+    },
+    {
+      "titulo": "The Prince and the Pauper (1937) - AFI Catalog",
+      "url": "https://catalog.afi.com/Film/5921-THE-PRINCE-AND-THE-PAUPER"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

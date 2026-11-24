@@ -1,0 +1,207 @@
+{
+  "slug": "sergio-pitol",
+  "identificado": true,
+  "intro": "Sergio Pitol (Puebla, 1933-Xalapa, 2018) fue un escritor, traductor y diplomático mexicano, ganador del Premio Cervantes 2005. Cultivó la novela, el cuento, el ensayo y la literatura autobiográfica. Su narrativa combina ironía, conflictos psicológicos y personajes sometidos a situaciones absurdas. Entre sus obras figuran El desfile del amor, Domar a la divina garza y El arte de la fuga. También destacó por sus traducciones de escritores europeos y por la Trilogía de la memoria, donde reunió experiencias personales, viajes y reflexiones literarias.",
+  "biografia": "Sergio Pitol Demeneghi nació el 18 de marzo de 1933 en Puebla, México. Pasó parte de su infancia en Veracruz y estudió Derecho en la Universidad Nacional Autónoma de México. Desde joven se interesó por la literatura europea, especialmente por la narrativa rusa, inglesa y centroeuropea. Publicó su primer libro de cuentos, Tiempo cercado, en 1959. Durante las décadas siguientes vivió en distintas ciudades de Europa y Asia, donde trabajó como traductor, profesor y diplomático. Fue embajador de México en Checoslovaquia y tradujo al español obras de Jane Austen, Henry James, Joseph Conrad, Antón Chéjov y Witold Gombrowicz.\n\nSu producción literaria incluye las novelas El tañido de una flauta, El desfile del amor, Domar a la divina garza y La vida conyugal. Las tres últimas forman el Tríptico del carnaval, un conjunto de novelas independientes vinculadas por la ironía y la crítica de las convenciones sociales. En la Trilogía de la memoria, formada por El arte de la fuga, El viaje y El mago de Viena, combinó autobiografía, diarios, ensayo y crónica de viajes.\n\nRecibió el Premio Xavier Villaurrutia por Nocturno de Bujara, el Premio Herralde de Novela en 1984, el Premio Juan Rulfo en 1999 y el Premio Cervantes en 2005. Su novela La vida conyugal fue adaptada al cine por Carlos Carrera en 1993. Murió el 12 de abril de 2018 en Xalapa, Veracruz. En 2026 se publicó póstumamente Diarios: 1968-1980, el primer volumen de sus diarios personales.",
+  "por_donde_empezar": [
+    {
+      "titulo": "El desfile del amor",
+      "motivo": "Ganó el Premio Herralde de Novela en 1984 y abre el Tríptico del carnaval. Su investigación sobre un asesinato permite conocer el humor, las contradicciones de los personajes y los juegos narrativos de Pitol."
+    },
+    {
+      "titulo": "El arte de la fuga: seguido del Discurso de aceptación del Premio Cervantes",
+      "motivo": "Es el primer libro de la Trilogía de la memoria. Combina recuerdos, viajes, diarios y reflexiones sobre otros escritores, por lo que sirve para conocer su vertiente autobiográfica y ensayística."
+    },
+    {
+      "titulo": "Vals de Mefisto",
+      "motivo": "Reúne cuatro relatos publicados originalmente bajo el título Nocturno de Bujara, libro reconocido con el Premio Xavier Villaurrutia. Es una entrada más breve a su narrativa de ficción, centrada en la memoria, la identidad y las percepciones de sus personajes."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Tiempo cercado",
+      "anio": 1959
+    },
+    {
+      "titulo": "Infierno de todos",
+      "anio": 1964
+    },
+    {
+      "titulo": "Los climas",
+      "anio": 1966
+    },
+    {
+      "titulo": "No hay tal lugar",
+      "anio": 1967
+    },
+    {
+      "titulo": "Del encuentro nupcial",
+      "anio": 1970
+    },
+    {
+      "titulo": "El tañido de una flauta",
+      "anio": 1972
+    },
+    {
+      "titulo": "De Jane Austen a Virginia Woolf: seis novelistas en sus textos",
+      "anio": 1975
+    },
+    {
+      "titulo": "Vals de Mefisto",
+      "anio": 1981,
+      "titulo_original": "Nocturno de Bujara"
+    },
+    {
+      "titulo": "Cementerio de tordos",
+      "anio": 1982
+    },
+    {
+      "titulo": "Juegos florales",
+      "anio": 1982
+    },
+    {
+      "titulo": "El desfile del amor",
+      "anio": 1984,
+      "saga": "Tríptico del carnaval"
+    },
+    {
+      "titulo": "Domar a la divina garza",
+      "anio": 1988,
+      "saga": "Tríptico del carnaval"
+    },
+    {
+      "titulo": "La casa de la tribu",
+      "anio": 1989
+    },
+    {
+      "titulo": "Cuerpo presente",
+      "anio": 1990
+    },
+    {
+      "titulo": "La vida conyugal",
+      "anio": 1990,
+      "saga": "Tríptico del carnaval"
+    },
+    {
+      "titulo": "El arte de la fuga",
+      "anio": 1996,
+      "saga": "Trilogía de la memoria"
+    },
+    {
+      "titulo": "Pasión por la trama",
+      "anio": 1998
+    },
+    {
+      "titulo": "Una adicción a la novela inglesa",
+      "anio": 1999
+    },
+    {
+      "titulo": "El viaje",
+      "anio": 2000,
+      "saga": "Trilogía de la memoria"
+    },
+    {
+      "titulo": "Adicción a los ingleses: vida y obra de diez novelistas",
+      "anio": 2002
+    },
+    {
+      "titulo": "De la realidad a la literatura",
+      "anio": 2003
+    },
+    {
+      "titulo": "El mago de Viena",
+      "anio": 2005,
+      "saga": "Trilogía de la memoria"
+    },
+    {
+      "titulo": "Una autobiografía soterrada",
+      "anio": 2010
+    },
+    {
+      "titulo": "El tercer personaje",
+      "anio": 2013
+    },
+    {
+      "titulo": "Diarios: 1968-1980",
+      "anio": 2026
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Tríptico del carnaval",
+      "libros": [
+        "El desfile del amor",
+        "Domar a la divina garza",
+        "La vida conyugal"
+      ]
+    },
+    {
+      "nombre": "Trilogía de la memoria",
+      "libros": [
+        "El arte de la fuga",
+        "El viaje",
+        "El mago de Viena"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "María Moreno",
+      "motivo": "Ambos combinan memoria personal, crónica, ensayo y referencias literarias, con una escritura que atraviesa las fronteras entre los géneros."
+    },
+    {
+      "nombre": "Fiódor M. Dostoievski",
+      "motivo": "Comparten el interés por las contradicciones psicológicas, las obsesiones y los comportamientos extremos de personajes enfrentados a conflictos personales y sociales."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Cuál es el libro más conocido de Sergio Pitol?",
+      "respuesta": "El desfile del amor y El arte de la fuga figuran entre sus obras más reconocidas. El primero ganó el Premio Herralde de Novela en 1984 y el segundo inició la Trilogía de la memoria, publicada originalmente entre 1996 y 2005."
+    },
+    {
+      "pregunta": "¿En qué orden se lee la Trilogía de la memoria de Sergio Pitol?",
+      "respuesta": "El orden de publicación es El arte de la fuga (1996), El viaje (2000) y El mago de Viena (2005). Son tres libros que combinan recuerdos autobiográficos, viajes, diarios y reflexiones sobre literatura."
+    },
+    {
+      "pregunta": "¿Qué libros forman el Tríptico del carnaval?",
+      "respuesta": "Lo forman El desfile del amor (1984), Domar a la divina garza (1988) y La vida conyugal (1990). Las tres novelas pueden leerse de manera independiente, aunque el orden de publicación permite seguir la evolución de su narrativa."
+    },
+    {
+      "pregunta": "¿Qué premios ganó Sergio Pitol?",
+      "respuesta": "Entre sus principales reconocimientos están el Premio Xavier Villaurrutia por Nocturno de Bujara, el Premio Herralde de Novela de 1984 por El desfile del amor, el Premio Juan Rulfo de 1999 y el Premio Cervantes de 2005."
+    },
+    {
+      "pregunta": "¿Cuándo murió Sergio Pitol y por qué se publican libros suyos en 2026?",
+      "respuesta": "Sergio Pitol murió el 12 de abril de 2018, a los 85 años. En septiembre de 2026 Anagrama publicó póstumamente Diarios: 1968-1980, que reúne escritos personales de sus años de viajes y actividad diplomática. También se han publicado nuevas ediciones de obras anteriores."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Sergio Pitol - Editorial Anagrama",
+      "url": "https://www.anagrama-ed.es/autor/pitol-sergio-858"
+    },
+    {
+      "titulo": "Obra publicada de Sergio Pitol - Enciclopedia de la Literatura en México",
+      "url": "https://www.elem.mx/autor/obra/directa/862/genero/"
+    },
+    {
+      "titulo": "Trilogía de la memoria - Sergio Pitol Escritor",
+      "url": "https://www.sergiopitol.com/product-page/trilog%C3%ADa-de-la-memoria"
+    },
+    {
+      "titulo": "Sergio Pitol - Wikipedia en inglés",
+      "url": "https://en.wikipedia.org/wiki/Sergio_Pitol"
+    },
+    {
+      "titulo": "La vida conyugal (1993) - FilmAffinity",
+      "url": "https://www.filmaffinity.com/es/film613827.html"
+    },
+    {
+      "titulo": "María Moreno: El periodismo se muere de posverdad y pésima escritura - El País",
+      "url": "https://elpais.com/cultura/2017/12/21/actualidad/1513874844_470170.html"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

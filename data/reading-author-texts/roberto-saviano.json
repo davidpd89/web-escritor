@@ -1,0 +1,189 @@
+{
+  "slug": "roberto-saviano",
+  "identificado": true,
+  "intro": "Roberto Saviano (Nápoles, 1979) es un escritor, periodista y guionista italiano conocido por sus investigaciones sobre la Camorra y el crimen organizado. Alcanzó reconocimiento internacional con Gomorra (2006), un libro que documenta el funcionamiento económico y criminal de los clanes napolitanos y que provocó amenazas contra su vida. Su obra combina periodismo de investigación, ensayo y narrativa basada en hechos reales. También ha escrito sobre el narcotráfico internacional, las bandas juveniles y las víctimas de la mafia italiana.",
+  "biografia": "Roberto Saviano nació el 22 de septiembre de 1979 en Nápoles, Italia, y creció entre esta ciudad y Caserta. Estudió Filosofía en la Universidad Federico II de Nápoles, donde recibió formación del historiador Francesco Barbagallo. Comenzó su trayectoria periodística en 2002, colaborando con publicaciones como Il manifesto y Nazione Indiana. En 2006 publicó Gomorra, una investigación narrativa sobre las actividades económicas, las estructuras de poder y la violencia de la Camorra. El libro recibió el Premio Viareggio Opera Prima y, tras las amenazas de muerte de los clanes criminales, Saviano pasó a vivir bajo protección policial.\n\nContinuó investigando el crimen organizado en CeroCeroCero (2013), dedicado al comercio internacional de cocaína, y abordó las bandas juveniles napolitanas en La banda de los niños (2016) y Beso feroz (2017). También escribió Los valientes están solos (2022), sobre el juez antimafia Giovanni Falcone, y Mi amor no muere, publicada originalmente en Italia en 2025, sobre Rossella Casini y la 'Ndrangheta.\n\nSu obra ha tenido varias adaptaciones audiovisuales. Gomorra dio lugar a la película de Matteo Garrone de 2008, galardonada con el Gran Premio del Jurado en Cannes, y a una serie televisiva estrenada en 2014. La banda de los niños fue adaptada al cine en 2019, y su guion, escrito por Saviano y Claudio Giovannesi, recibió el Oso de Plata en el Festival de Berlín. También participó en la creación de la serie ZeroZeroZero.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Gomorra: Un viaje al imperio económico y al sueño de poder de la Camorra",
+      "motivo": "Es su primer libro y el que le dio reconocimiento internacional. Permite conocer su periodismo narrativo y su investigación sobre las conexiones entre la Camorra, la economía y la sociedad italiana."
+    },
+    {
+      "titulo": "Mi amor no muere",
+      "motivo": "Es una entrada a su narrativa basada en hechos reales. Reconstruye la historia de Rossella Casini, una joven florentina cuya relación sentimental la enfrenta a la mafia calabresa."
+    },
+    {
+      "titulo": "La banda de los niños",
+      "motivo": "Es su novela de 2016 sobre adolescentes que buscan hacerse con el control del narcotráfico en Nápoles. También es el primer libro de una historia que continúa en Beso feroz."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Gomorra: Un viaje al imperio económico y al sueño de poder de la Camorra",
+      "anio": 2006,
+      "titulo_original": "Gomorra. Viaggio nell'impero economico e nel sogno di dominio della camorra"
+    },
+    {
+      "titulo": "Lo contrario de la muerte",
+      "anio": 2007,
+      "titulo_original": "Il contrario della morte"
+    },
+    {
+      "titulo": "La belleza y el infierno",
+      "anio": 2009,
+      "titulo_original": "La bellezza e l'inferno"
+    },
+    {
+      "titulo": "Vente conmigo",
+      "anio": 2011,
+      "titulo_original": "Vieni via con me"
+    },
+    {
+      "titulo": "CeroCeroCero",
+      "anio": 2013,
+      "titulo_original": "ZeroZeroZero"
+    },
+    {
+      "titulo": "La banda de los niños",
+      "anio": 2016,
+      "titulo_original": "La paranza dei bambini",
+      "saga": "La banda de los niños"
+    },
+    {
+      "titulo": "Beso feroz",
+      "anio": 2017,
+      "titulo_original": "Bacio feroce",
+      "saga": "La banda de los niños"
+    },
+    {
+      "titulo": "In mare non esistono taxi",
+      "anio": 2019
+    },
+    {
+      "titulo": "Grita",
+      "anio": 2020,
+      "titulo_original": "Gridalo"
+    },
+    {
+      "titulo": "I teschi dei ladri",
+      "anio": 2021,
+      "saga": "Le storie della Paranza"
+    },
+    {
+      "titulo": "Todavía estoy vivo",
+      "anio": 2021,
+      "titulo_original": "Sono ancora vivo"
+    },
+    {
+      "titulo": "Cosplayer",
+      "anio": 2022,
+      "saga": "Le storie della Paranza"
+    },
+    {
+      "titulo": "Cuore puro",
+      "anio": 2022
+    },
+    {
+      "titulo": "La memoria delle ossa",
+      "anio": 2022,
+      "saga": "Le storie della Paranza"
+    },
+    {
+      "titulo": "Los valientes están solos",
+      "anio": 2022,
+      "titulo_original": "Solo è il coraggio. Giovanni Falcone, il romanzo"
+    },
+    {
+      "titulo": "Ultima corsa",
+      "anio": 2022,
+      "saga": "Le storie della Paranza"
+    },
+    {
+      "titulo": "Noi due ci apparteniamo",
+      "anio": 2024
+    },
+    {
+      "titulo": "Mi amor no muere",
+      "anio": 2025,
+      "titulo_original": "L'amore mio non muore"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "La banda de los niños",
+      "libros": [
+        "La banda de los niños",
+        "Beso feroz"
+      ]
+    },
+    {
+      "nombre": "Le storie della Paranza",
+      "libros": [
+        "I teschi dei ladri",
+        "Cosplayer",
+        "Ultima corsa",
+        "La memoria delle ossa"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Carles Porta",
+      "motivo": "Ambos practican el periodismo narrativo sobre crímenes reales, reconstruyen investigaciones y analizan las circunstancias sociales que rodean la violencia."
+    },
+    {
+      "nombre": "Javier Cercas",
+      "motivo": "Comparten el uso de la investigación documental y los recursos de la novela para reconstruir hechos históricos y examinar cuestiones políticas, sociales y morales."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿Cuál es el libro más conocido de Roberto Saviano?",
+      "respuesta": "Gomorra, publicado originalmente en 2006. Investiga el funcionamiento de la Camorra napolitana y sus conexiones con la economía legal e ilegal. Fue adaptado al cine en 2008 y dio origen a una serie de televisión."
+    },
+    {
+      "pregunta": "¿Por qué Roberto Saviano vive con escolta?",
+      "respuesta": "Desde octubre de 2006 vive bajo protección policial debido a las amenazas de muerte recibidas de miembros de la Camorra tras publicar Gomorra. Sus investigaciones expusieron las actividades y los intereses económicos de varios clanes criminales."
+    },
+    {
+      "pregunta": "¿En qué orden se leen La banda de los niños y Beso feroz?",
+      "respuesta": "Primero La banda de los niños, publicada en 2016, y después Beso feroz, de 2017. Ambas novelas siguen la historia de Nicolas Fiorillo y su grupo de jóvenes delincuentes napolitanos. Existen además cuatro cómics relacionados, publicados bajo el nombre Le storie della Paranza."
+    },
+    {
+      "pregunta": "¿Qué películas y series están basadas en libros de Roberto Saviano?",
+      "respuesta": "Gomorra fue adaptada al cine por Matteo Garrone en 2008 y dio lugar a una serie televisiva estrenada en 2014. La banda de los niños llegó al cine en 2019, y CeroCeroCero fue adaptada como serie de televisión en 2020."
+    },
+    {
+      "pregunta": "¿De qué trata Mi amor no muere y cuándo se publicó?",
+      "respuesta": "Reconstruye la historia real de Rossella Casini, una joven florentina que desapareció en 1981 tras verse implicada en el entorno de la mafia calabresa por su relación sentimental. Se publicó en italiano en 2025 con el título L'amore mio non muore y llegó a España en octubre de 2026, editada por Alfaguara."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Treccani - Roberto Saviano",
+      "url": "https://www.treccani.it/enciclopedia/roberto-saviano/"
+    },
+    {
+      "titulo": "Editorial Anagrama - Roberto Saviano",
+      "url": "https://www.anagrama-ed.es/autor/1282"
+    },
+    {
+      "titulo": "Penguin Libros - Mi amor no muere",
+      "url": "https://www.penguinlibros.com/es/libro-de-biografias/634618-libro-mi-amor-no-muere-9791387846794"
+    },
+    {
+      "titulo": "Wikipedia en italiano - Roberto Saviano",
+      "url": "https://it.wikipedia.org/wiki/Roberto_Saviano"
+    },
+    {
+      "titulo": "Feltrinelli - Le storie della Paranza",
+      "url": "https://www.lafeltrinelli.it/serie/le-storie-della-paranza"
+    },
+    {
+      "titulo": "El Cultural - Quién asesinó a Rossella Casini: Roberto Saviano narra una historia real de amor y muerte en la mafia calabresa",
+      "url": "https://www.elespanol.com/el-cultural/letras/20261028/asesino-rossella-casini-roberto-saviano-narra-historia-real-amor-muerte-mafia-calabresa/1003744436551_0.html"
+    }
+  ],
+  "fecha_revision": "2026-11-24",
+  "origen": "chatgpt-web-high"
+}

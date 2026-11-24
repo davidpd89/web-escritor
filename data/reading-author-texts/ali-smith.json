@@ -1,0 +1,205 @@
+{
+  "slug": "ali-smith",
+  "identificado": true,
+  "intro": "Ali Smith (Inverness, Escocia, 1962) es una escritora, dramaturga y periodista británica conocida por sus novelas de ficción contemporánea y sus relatos de estructura experimental. Su narrativa combina juegos de lenguaje, referencias artísticas, humor y cuestiones sociales y políticas. Entre sus obras destacan Hotel World, How to Be Both y el Cuarteto estacional, formado por Otoño, Invierno, Primavera y Verano. Ha recibido el Women's Prize for Fiction, el Goldsmiths Prize y el Premio Orwell, entre otros reconocimientos.",
+  "biografia": "Ali Smith nació el 24 de agosto de 1962 en Inverness, Escocia. Estudió Lengua y Literatura Inglesas en la Universidad de Aberdeen y comenzó estudios de doctorado en Newnham College, perteneciente a la Universidad de Cambridge. También trabajó como profesora en la Universidad de Strathclyde y como crítica literaria. Su trayectoria editorial comenzó en 1995 con Amor libre, una colección de relatos que recibió el Saltire First Book of the Year Award. En 1997 publicó su primera novela, Like. Posteriormente llegaron Hotel World (2001) y Accidental (2005), ambas finalistas del Premio Booker. Esta última obtuvo el Premio Whitbread de novela.\n\nEn 2014 publicó How to Be Both, una novela construida mediante dos relatos cuyo orden de lectura puede variar según la edición. La obra ganó el Goldsmiths Prize, el Costa Novel Award y el Women's Prize for Fiction. Entre 2016 y 2020 escribió el Cuarteto estacional, que relaciona las experiencias de sus personajes con acontecimientos contemporáneos, entre ellos el Brexit. Verano recibió el Premio Orwell en 2021. En 2022 apareció Fragua, una novela vinculada temáticamente al ciclo estacional.\n\nSu producción posterior incluye Gliff (2024), ganadora del Dublin Literary Award en 2026, y Glifo (2026), dos novelas conectadas que también admiten lecturas independientes. En 2026 se publicó en España Una Woolf propia, basada en una conferencia que Smith pronunció en Newnham College en 2023 sobre la obra de Virginia Woolf. Es miembro de la Royal Society of Literature desde 2007 y fue nombrada comendadora de la Orden del Imperio Británico en 2015. Reside en Cambridge.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Una Woolf propia",
+      "motivo": "Es un ensayo breve de 64 páginas que permite conocer su relación con la literatura y su forma de jugar con el lenguaje. Parte de una conferencia sobre Virginia Woolf y aborda la escritura, la identidad y la libertad de expresión."
+    },
+    {
+      "titulo": "Otoño",
+      "motivo": "Es la primera novela del Cuarteto estacional y una entrada a su narrativa de ficción. Fue finalista del Premio Booker de 2017 y combina relaciones personales, arte y acontecimientos políticos contemporáneos."
+    },
+    {
+      "titulo": "Glifo",
+      "motivo": "Publicada originalmente en 2026, explora la memoria familiar, los vínculos entre hermanas y el poder de las historias. Puede leerse de forma independiente, aunque está vinculada a Gliff, publicada en 2024, por lo que leer esta última primero permite reconocer mejor sus conexiones."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Amor libre",
+      "anio": 1995,
+      "titulo_original": "Free Love and Other Stories"
+    },
+    {
+      "titulo": "Like",
+      "anio": 1997
+    },
+    {
+      "titulo": "Other Stories and Other Stories",
+      "anio": 1999
+    },
+    {
+      "titulo": "Hotel World",
+      "anio": 2001
+    },
+    {
+      "titulo": "La historia universal",
+      "anio": 2003,
+      "titulo_original": "The Whole Story and Other Stories"
+    },
+    {
+      "titulo": "Accidental",
+      "anio": 2005,
+      "titulo_original": "The Accidental"
+    },
+    {
+      "titulo": "Chica conoce chico",
+      "anio": 2007,
+      "titulo_original": "Girl Meets Boy"
+    },
+    {
+      "titulo": "The First Person and Other Stories",
+      "anio": 2008
+    },
+    {
+      "titulo": "There But For The",
+      "anio": 2011
+    },
+    {
+      "titulo": "Artful",
+      "anio": 2012
+    },
+    {
+      "titulo": "Shire",
+      "anio": 2013
+    },
+    {
+      "titulo": "How to Be Both",
+      "anio": 2014
+    },
+    {
+      "titulo": "Biblioteca pública",
+      "anio": 2015,
+      "titulo_original": "Public Library and Other Stories"
+    },
+    {
+      "titulo": "Otoño",
+      "anio": 2016,
+      "titulo_original": "Autumn",
+      "saga": "Cuarteto estacional"
+    },
+    {
+      "titulo": "Invierno",
+      "anio": 2017,
+      "titulo_original": "Winter",
+      "saga": "Cuarteto estacional"
+    },
+    {
+      "titulo": "Primavera",
+      "anio": 2019,
+      "titulo_original": "Spring",
+      "saga": "Cuarteto estacional"
+    },
+    {
+      "titulo": "Verano",
+      "anio": 2020,
+      "titulo_original": "Summer",
+      "saga": "Cuarteto estacional"
+    },
+    {
+      "titulo": "Fragua",
+      "anio": 2022,
+      "titulo_original": "Companion Piece"
+    },
+    {
+      "titulo": "Gliff",
+      "anio": 2024,
+      "saga": "Gliff y Glifo"
+    },
+    {
+      "titulo": "Glifo",
+      "anio": 2026,
+      "titulo_original": "Glyph",
+      "saga": "Gliff y Glifo"
+    },
+    {
+      "titulo": "Una Woolf propia",
+      "anio": 2026
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Cuarteto estacional",
+      "libros": [
+        "Otoño",
+        "Invierno",
+        "Primavera",
+        "Verano"
+      ]
+    },
+    {
+      "nombre": "Gliff y Glifo",
+      "libros": [
+        "Gliff",
+        "Glifo"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Alice Walker",
+      "motivo": "Ambas escriben ficción y ensayo sobre la identidad, las experiencias de las mujeres y las relaciones entre la vida individual y las estructuras sociales."
+    },
+    {
+      "nombre": "Alaa al Aswani",
+      "motivo": "Comparten el interés por representar conflictos políticos y sociales a través de personajes cuyas vidas están condicionadas por su contexto histórico."
+    },
+    {
+      "nombre": "Anders Lustgarten",
+      "motivo": "Ambos cultivan la narrativa y el teatro y utilizan la ficción para abordar desigualdades sociales, mecanismos de poder y conflictos políticos contemporáneos."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿En qué orden se lee el Cuarteto estacional de Ali Smith?",
+      "respuesta": "El orden de publicación y lectura es Otoño (2016), Invierno (2017), Primavera (2019) y Verano (2020). Son cuatro novelas con historias diferenciadas, relacionadas por sus temas, referencias y atención a la actualidad política."
+    },
+    {
+      "pregunta": "¿Hay que leer Gliff antes que Glifo?",
+      "respuesta": "No es obligatorio, porque ambas novelas pueden leerse de forma independiente. Sin embargo, Gliff (2024) es la primera del díptico y Glifo (2026) desarrolla una historia conectada con ella, por lo que se recomienda seguir ese orden."
+    },
+    {
+      "pregunta": "¿Cuál es el libro más premiado de Ali Smith?",
+      "respuesta": "How to Be Both, publicado en 2014, figura entre sus novelas más reconocidas. Ganó el Goldsmiths Prize y el Costa Novel Award en 2014, además del Women's Prize for Fiction en 2015, y fue finalista del Premio Booker."
+    },
+    {
+      "pregunta": "¿Una Woolf propia es un libro de Virginia Woolf?",
+      "respuesta": "No. Es un texto de Ali Smith basado en una conferencia que pronunció en 2023 en Newnham College, Cambridge. Reflexiona sobre Una habitación propia, de Virginia Woolf, y sobre la escritura, las mujeres y la libertad de crear. Nórdica Libros lo publicó en español en marzo de 2026."
+    },
+    {
+      "pregunta": "¿Fragua es el quinto libro del Cuarteto estacional?",
+      "respuesta": "Fragua, cuyo título original es Companion Piece (2022), funciona como una obra complementaria al Cuarteto estacional. Comparte preocupaciones sobre el tiempo, la sociedad y las relaciones humanas, pero no forma parte de las cuatro entregas que componen el ciclo."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Ali Smith - Nórdica Libros",
+      "url": "https://nordicalibros.com/autor/smith-ali/"
+    },
+    {
+      "titulo": "Glifo - Nórdica Libros",
+      "url": "https://nordicalibros.com/product/glifo/"
+    },
+    {
+      "titulo": "Una Woolf propia - Nórdica Libros",
+      "url": "https://nordicalibros.com/product/una-woolf-propia/"
+    },
+    {
+      "titulo": "Glyph - Penguin Books Australia",
+      "url": "https://www.penguin.com.au/books/glyph-9781405971140"
+    },
+    {
+      "titulo": "Accidental - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/novela-negra-misterio-y-thriller/7396-libro-accidental-9788420471488"
+    },
+    {
+      "titulo": "Ali Smith - Wikipedia en inglés",
+      "url": "https://en.wikipedia.org/wiki/Ali_Smith"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}
