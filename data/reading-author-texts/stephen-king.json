@@ -1,0 +1,292 @@
+{
+  "slug": "stephen-king",
+  "identificado": true,
+  "intro": "Stephen King (Portland, Maine, 1947) es un escritor estadounidense conocido por sus novelas de terror, suspense, fantasía y ciencia ficción. Su obra combina elementos sobrenaturales con conflictos familiares, violencia, aislamiento y personajes de pequeñas comunidades estadounidenses. Entre sus títulos más conocidos están Carrie, El resplandor, It, Misery y La milla verde. También es autor de la saga de fantasía La Torre Oscura y de novelas policíacas protagonizadas por Bill Hodges y Holly Gibney. Numerosas obras suyas han sido adaptadas al cine y la televisión.",
+  "biografia": "Stephen Edwin King nació el 21 de septiembre de 1947 en Portland, Maine, Estados Unidos. Pasó parte de su infancia en Indiana y Connecticut antes de regresar a Maine. Estudió Lengua y Literatura Inglesas en la Universidad de Maine, donde se graduó en 1970 y conoció a Tabitha Spruce, con quien se casó en 1971. Antes de dedicarse profesionalmente a la escritura trabajó en una lavandería industrial y ejerció como profesor de inglés en Hampden Academy. Su primera venta profesional de un relato llegó en 1967. En 1974 publicó Carrie, su primera novela.\n\nDurante las décadas siguientes publicó El misterio de Salem's Lot, El resplandor, Apocalipsis, It y Misery. También desarrolló La Torre Oscura, una serie que mezcla fantasía, terror y elementos del wéstern. Utilizó el seudónimo Richard Bachman para publicar varias novelas y escribió con Peter Straub El Talismán, Casa Negra y Otros mundos. En su trayectoria posterior incorporó la novela policíaca mediante personajes como Bill Hodges y Holly Gibney.\n\nSu obra cuenta con numerosas adaptaciones cinematográficas y televisivas, entre ellas Carrie, El resplandor, Misery, Cadena perpetua, La milla verde e It. En 2003 recibió la Medalla por la Contribución Distinguida a las Letras Estadounidenses de la National Book Foundation. En 2014 obtuvo la Medalla Nacional de las Artes de Estados Unidos y en 2018 el PEN American Literary Service Award. Continúa publicando narrativa, con títulos recientes como No tengas miedo y Otros mundos.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Carrie",
+      "motivo": "Fue su primera novela publicada, en 1974. Es una historia autoconclusiva y relativamente breve que introduce temas recurrentes en su obra, como el acoso, la violencia y los poderes sobrenaturales."
+    },
+    {
+      "titulo": "It",
+      "motivo": "Es una de sus novelas más conocidas y transcurre en Derry, una localidad ficticia de Maine. Permite conocer su forma de combinar terror sobrenatural, infancia y conflictos de una comunidad, aunque es una lectura extensa."
+    },
+    {
+      "titulo": "El pistolero",
+      "motivo": "Es el primer volumen de La Torre Oscura. Conviene empezar por él si se prefiere la fantasía oscura y se quiere seguir la historia de Roland Deschain en el orden de la saga."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Carrie",
+      "anio": 1974
+    },
+    {
+      "titulo": "El misterio de Salem's Lot",
+      "anio": 1975,
+      "titulo_original": "'Salem's Lot"
+    },
+    {
+      "titulo": "El resplandor",
+      "anio": 1977,
+      "titulo_original": "The Shining"
+    },
+    {
+      "titulo": "Apocalipsis",
+      "anio": 1978,
+      "titulo_original": "The Stand"
+    },
+    {
+      "titulo": "La zona muerta",
+      "anio": 1979,
+      "titulo_original": "The Dead Zone"
+    },
+    {
+      "titulo": "El pistolero",
+      "anio": 1982,
+      "titulo_original": "The Gunslinger",
+      "saga": "La Torre Oscura"
+    },
+    {
+      "titulo": "Cementerio de animales",
+      "anio": 1983,
+      "titulo_original": "Pet Sematary"
+    },
+    {
+      "titulo": "El Talismán",
+      "anio": 1984,
+      "titulo_original": "The Talisman",
+      "saga": "El Talismán"
+    },
+    {
+      "titulo": "It",
+      "anio": 1986
+    },
+    {
+      "titulo": "La llegada de los tres",
+      "anio": 1987,
+      "titulo_original": "The Drawing of the Three",
+      "saga": "La Torre Oscura"
+    },
+    {
+      "titulo": "Misery",
+      "anio": 1987
+    },
+    {
+      "titulo": "Las tierras baldías",
+      "anio": 1991,
+      "titulo_original": "The Waste Lands",
+      "saga": "La Torre Oscura"
+    },
+    {
+      "titulo": "La milla verde",
+      "anio": 1996,
+      "titulo_original": "The Green Mile"
+    },
+    {
+      "titulo": "Mago y cristal",
+      "anio": 1997,
+      "titulo_original": "Wizard and Glass",
+      "saga": "La Torre Oscura"
+    },
+    {
+      "titulo": "Casa Negra",
+      "anio": 2001,
+      "titulo_original": "Black House",
+      "saga": "El Talismán"
+    },
+    {
+      "titulo": "Lobos del Calla",
+      "anio": 2003,
+      "titulo_original": "Wolves of the Calla",
+      "saga": "La Torre Oscura"
+    },
+    {
+      "titulo": "Canción de Susannah",
+      "anio": 2004,
+      "titulo_original": "Song of Susannah",
+      "saga": "La Torre Oscura"
+    },
+    {
+      "titulo": "La Torre Oscura",
+      "anio": 2004,
+      "titulo_original": "The Dark Tower",
+      "saga": "La Torre Oscura"
+    },
+    {
+      "titulo": "22/11/63",
+      "anio": 2011,
+      "titulo_original": "11/22/63"
+    },
+    {
+      "titulo": "El viento por la cerradura",
+      "anio": 2012,
+      "titulo_original": "The Wind Through the Keyhole",
+      "saga": "La Torre Oscura"
+    },
+    {
+      "titulo": "Doctor Sueño",
+      "anio": 2013,
+      "titulo_original": "Doctor Sleep"
+    },
+    {
+      "titulo": "Mr. Mercedes",
+      "anio": 2014,
+      "saga": "Bill Hodges"
+    },
+    {
+      "titulo": "Quien pierde paga",
+      "anio": 2015,
+      "titulo_original": "Finders Keepers",
+      "saga": "Bill Hodges"
+    },
+    {
+      "titulo": "Fin de guardia",
+      "anio": 2016,
+      "titulo_original": "End of Watch",
+      "saga": "Bill Hodges"
+    },
+    {
+      "titulo": "El visitante",
+      "anio": 2018,
+      "titulo_original": "The Outsider",
+      "saga": "Holly Gibney"
+    },
+    {
+      "titulo": "El instituto",
+      "anio": 2019,
+      "titulo_original": "The Institute"
+    },
+    {
+      "titulo": "La sangre manda",
+      "anio": 2020,
+      "titulo_original": "If It Bleeds",
+      "saga": "Holly Gibney"
+    },
+    {
+      "titulo": "Holly",
+      "anio": 2023,
+      "saga": "Holly Gibney"
+    },
+    {
+      "titulo": "No tengas miedo",
+      "anio": 2025,
+      "titulo_original": "Never Flinch",
+      "saga": "Holly Gibney"
+    },
+    {
+      "titulo": "Otros mundos",
+      "anio": 2026,
+      "titulo_original": "Other Worlds Than These",
+      "saga": "El Talismán"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "La Torre Oscura",
+      "libros": [
+        "El pistolero",
+        "La llegada de los tres",
+        "Las tierras baldías",
+        "Mago y cristal",
+        "El viento por la cerradura",
+        "Lobos del Calla",
+        "Canción de Susannah",
+        "La Torre Oscura"
+      ]
+    },
+    {
+      "nombre": "El Talismán",
+      "libros": [
+        "El Talismán",
+        "Casa Negra",
+        "Otros mundos"
+      ]
+    },
+    {
+      "nombre": "Bill Hodges",
+      "libros": [
+        "Mr. Mercedes",
+        "Quien pierde paga",
+        "Fin de guardia"
+      ]
+    },
+    {
+      "nombre": "Holly Gibney",
+      "libros": [
+        "Mr. Mercedes",
+        "Quien pierde paga",
+        "Fin de guardia",
+        "El visitante",
+        "La sangre manda",
+        "Holly",
+        "No tengas miedo"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Peter Straub",
+      "motivo": "Ambos escriben terror sobrenatural y fantasía oscura, y colaboraron en las tres novelas de la serie El Talismán."
+    },
+    {
+      "nombre": "Bram Stoker",
+      "motivo": "Comparten el uso del vampirismo, las amenazas sobrenaturales y el terror ligado a comunidades humanas, especialmente en Drácula y El misterio de Salem's Lot."
+    },
+    {
+      "nombre": "Mary Shelley",
+      "motivo": "Ambos utilizan elementos de terror y ciencia ficción para explorar las consecuencias de transgredir los límites de la vida, la muerte y el conocimiento humano."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿En qué orden se leen los libros de La Torre Oscura?",
+      "respuesta": "La serie principal comienza con El pistolero y continúa con La llegada de los tres, Las tierras baldías, Mago y cristal, Lobos del Calla, Canción de Susannah y La Torre Oscura. El viento por la cerradura se publicó después, en 2012, pero su historia transcurre entre el cuarto y el quinto volumen, por lo que puede leerse en esa posición o al terminar la serie principal."
+    },
+    {
+      "pregunta": "¿Cuántos libros tiene la saga El Talismán y en qué orden se leen?",
+      "respuesta": "La trilogía escrita por Stephen King y Peter Straub está formada por El Talismán (1984), Casa Negra (2001) y Otros mundos (2026). Las tres novelas siguen la historia de Jack Sawyer y conectan con el universo de La Torre Oscura."
+    },
+    {
+      "pregunta": "¿Quién es Richard Bachman y qué relación tiene con Stephen King?",
+      "respuesta": "Richard Bachman es el seudónimo que Stephen King utilizó para publicar novelas como La larga marcha, El fugitivo, Carretera maldita y Maleficio. No se trata de otro escritor, sino de una identidad literaria utilizada por el propio King."
+    },
+    {
+      "pregunta": "¿Almuerzo en el café Gotham es una novela de Stephen King?",
+      "respuesta": "No. Es un relato publicado originalmente en 1995 dentro de la antología Dark Love. Nórdica Libros lo ha editado en España como libro independiente ilustrado por Javier Olivares, con una edición de 2026."
+    },
+    {
+      "pregunta": "¿Stephen King sigue escribiendo y publicando libros?",
+      "respuesta": "Sí. En 2025 publicó No tengas miedo, una novela protagonizada por Holly Gibney, y en 2026 apareció Otros mundos, escrita junto a Peter Straub y presentada como el cierre de la trilogía El Talismán. También ha continuado desarrollando historias de terror, fantasía y suspense."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Stephen King - The Author - Web oficial",
+      "url": "https://stephenking.com/the-author/"
+    },
+    {
+      "titulo": "Stephen King - Novels & Novellas - Bibliografía oficial",
+      "url": "https://stephenking.com/works/novel/index.html"
+    },
+    {
+      "titulo": "The Dark Tower - Books - Web oficial de Stephen King",
+      "url": "https://stephenking.com/thedarktower/book/"
+    },
+    {
+      "titulo": "Otros mundos (El Talismán 3) - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/libros-de-fantasia/635029-libro-otros-mundos-el-talisman-3-9788401039560"
+    },
+    {
+      "titulo": "Almuerzo en el café Gotham - Nórdica Libros",
+      "url": "https://nordicalibros.com/product/almuerzo-en-el-cafe-gotham/"
+    },
+    {
+      "titulo": "Stephen King - Wikipedia en español",
+      "url": "https://es.wikipedia.org/wiki/Stephen_King"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

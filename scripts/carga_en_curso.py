@@ -3,7 +3,8 @@
 
 Cada avance de main mientras la PR de datos está en CI repite su ciclo (~75 min) y la ingesta sale con código 75.
 23/11: #1535 y #1537 se fusionaron durante la carga y fueron tres cargas seguidas sin entrar un libro. Fusionar
-con una carga activa es posible (no hay candado), pero casi nunca compensa: se encola hasta que acabe.
+con una carga activa casi nunca compensa: se encola hasta que acabe. Desde el 24/11 lo hace cumplir el check de PR
+«Main congelado por carga» (.github/workflows/congelar-main.yml, scripts/congelar_main.py), que espera en la PR.
 
     python scripts/carga_en_curso.py     # código 0 = libre, 1 = carga en curso (dice por qué), 2 = no se pudo mirar
 """

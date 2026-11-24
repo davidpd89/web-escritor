@@ -206,3 +206,7 @@ https?://(www\.)?altamarea\.es/.*
 # comprobado desde fuera. Solo estas URLs:
 ^https://www\.coruna\.gal/informacionxuvenil/gl/convocatorias/concursos-e-premios/detalle-concursos/xxi-certame-de-narrativa-curta-o-exame/suceso/1453918739931$
 ^https://www\.coruna\.gal/informacionjuvenil/es/convocatorias/concursos-y-premios\?argIdioma=es&argPag=2&categoriaID=1220003419689$
+# PR #1546 (23/11): 200 desde España con el agente de Lychee y 403 solo desde Actions (bloqueo de IP, no enlace roto).
+# Orwell Society: fuente de la ficha de George Orwell. London Library: atlas-literario, ya en main.
+^https://orwellsociety\.com/bibliography/$
+^https://www\.londonlibrary\.co\.uk/$

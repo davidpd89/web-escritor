@@ -1,0 +1,270 @@
+{
+  "slug": "j-k-rowling",
+  "identificado": true,
+  "intro": "J.K. Rowling es una escritora y guionista británica nacida en 1965, conocida por crear la saga de fantasía juvenil Harry Potter. Su obra incluye siete novelas sobre el joven mago, libros complementarios del universo de Hogwarts, cuentos infantiles y ficción para adultos. También escribe novela policíaca bajo el seudónimo Robert Galbraith, con la serie protagonizada por los detectives Cormoran Strike y Robin Ellacott. Sus historias han sido adaptadas al cine, la televisión y el teatro.",
+  "biografia": "Joanne Rowling nació el 31 de julio de 1965 en Yate, cerca de Bristol, y creció entre Inglaterra y Gales. Estudió Francés y Estudios Clásicos en la Universidad de Exeter, con una estancia académica en París. Después trabajó en Londres, entre otros empleos, como investigadora para Amnistía Internacional. En 1990 concibió la historia de Harry Potter durante un viaje en tren. Vivió posteriormente en Portugal, donde trabajó como profesora de inglés, y se trasladó a Edimburgo. Allí terminó su primera novela, Harry Potter y la piedra filosofal, publicada en Reino Unido en 1997.\n\nLa saga quedó completada en 2007 con Harry Potter y las reliquias de la muerte. Sus siete novelas dieron lugar a ocho películas y a una continuación teatral, Harry Potter y el legado maldito, desarrollada con Jack Thorne y John Tiffany. Rowling también escribió los guiones cinematográficos de Animales fantásticos, el tercero en colaboración con Steve Kloves. Entre sus reconocimientos figuran el Premio Príncipe de Asturias y el Premio Hans Christian Andersen.\n\nEn 2012 publicó Una vacante imprevista, su primera novela para adultos. Al año siguiente inició, bajo el seudónimo Robert Galbraith, la serie policíaca Cormoran Strike, adaptada para televisión. También ha escrito los cuentos infantiles El Ickabog y El cerdito de Navidad. Parte de su actividad filantrópica se desarrolla a través de las organizaciones Lumos y Volant.",
+  "por_donde_empezar": [
+    {
+      "titulo": "Harry Potter y la piedra filosofal:",
+      "motivo": "Es la primera novela de Harry Potter, publicada originalmente en 1997. Presenta Hogwarts, sus personajes y las reglas del mundo mágico sin exigir lecturas anteriores."
+    },
+    {
+      "titulo": "Los cuentos de Beedle el bardo",
+      "motivo": "Reúne cinco relatos ambientados en el mundo mágico de Harry Potter. Es una lectura breve que permite conocer sus cuentos y tradiciones, aunque algunas referencias se comprenden mejor después de leer la saga."
+    },
+    {
+      "titulo": "El canto del cuco",
+      "motivo": "Es la primera novela de Cormoran Strike, publicada bajo el seudónimo Robert Galbraith. Permite conocer la faceta policíaca de Rowling sin relación argumental con Harry Potter."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "Harry Potter y la piedra filosofal",
+      "anio": 1997,
+      "titulo_original": "Harry Potter and the Philosopher's Stone",
+      "saga": "Harry Potter"
+    },
+    {
+      "titulo": "Harry Potter y la cámara secreta",
+      "anio": 1998,
+      "titulo_original": "Harry Potter and the Chamber of Secrets",
+      "saga": "Harry Potter"
+    },
+    {
+      "titulo": "Harry Potter y el prisionero de Azkaban",
+      "anio": 1999,
+      "titulo_original": "Harry Potter and the Prisoner of Azkaban",
+      "saga": "Harry Potter"
+    },
+    {
+      "titulo": "Harry Potter y el cáliz de fuego",
+      "anio": 2000,
+      "titulo_original": "Harry Potter and the Goblet of Fire",
+      "saga": "Harry Potter"
+    },
+    {
+      "titulo": "Animales fantásticos y dónde encontrarlos",
+      "anio": 2001,
+      "titulo_original": "Fantastic Beasts and Where to Find Them"
+    },
+    {
+      "titulo": "Quidditch a través de los tiempos",
+      "anio": 2001,
+      "titulo_original": "Quidditch Through the Ages"
+    },
+    {
+      "titulo": "Harry Potter y la Orden del Fénix",
+      "anio": 2003,
+      "titulo_original": "Harry Potter and the Order of the Phoenix",
+      "saga": "Harry Potter"
+    },
+    {
+      "titulo": "Harry Potter y el misterio del príncipe",
+      "anio": 2005,
+      "titulo_original": "Harry Potter and the Half-Blood Prince",
+      "saga": "Harry Potter"
+    },
+    {
+      "titulo": "Harry Potter y las reliquias de la muerte",
+      "anio": 2007,
+      "titulo_original": "Harry Potter and the Deathly Hallows",
+      "saga": "Harry Potter"
+    },
+    {
+      "titulo": "Los cuentos de Beedle el bardo",
+      "anio": 2008,
+      "titulo_original": "The Tales of Beedle the Bard"
+    },
+    {
+      "titulo": "Una vacante imprevista",
+      "anio": 2012,
+      "titulo_original": "The Casual Vacancy"
+    },
+    {
+      "titulo": "El canto del cuco",
+      "anio": 2013,
+      "titulo_original": "The Cuckoo's Calling",
+      "saga": "Cormoran Strike"
+    },
+    {
+      "titulo": "El gusano de seda",
+      "anio": 2014,
+      "titulo_original": "The Silkworm",
+      "saga": "Cormoran Strike"
+    },
+    {
+      "titulo": "El oficio del mal",
+      "anio": 2015,
+      "titulo_original": "Career of Evil",
+      "saga": "Cormoran Strike"
+    },
+    {
+      "titulo": "Vivir bien la vida",
+      "anio": 2015,
+      "titulo_original": "Very Good Lives: The Fringe Benefits of Failure and the Importance of Imagination"
+    },
+    {
+      "titulo": "Animales fantásticos y dónde encontrarlos: Guion original de la película",
+      "anio": 2016,
+      "titulo_original": "Fantastic Beasts and Where to Find Them: The Original Screenplay",
+      "saga": "Animales fantásticos"
+    },
+    {
+      "titulo": "Harry Potter y el legado maldito",
+      "anio": 2016,
+      "titulo_original": "Harry Potter and the Cursed Child",
+      "saga": "Harry Potter"
+    },
+    {
+      "titulo": "Blanco letal",
+      "anio": 2018,
+      "titulo_original": "Lethal White",
+      "saga": "Cormoran Strike"
+    },
+    {
+      "titulo": "Los crímenes de Grindelwald",
+      "anio": 2018,
+      "titulo_original": "Fantastic Beasts: The Crimes of Grindelwald",
+      "saga": "Animales fantásticos"
+    },
+    {
+      "titulo": "El Ickabog",
+      "anio": 2020,
+      "titulo_original": "The Ickabog"
+    },
+    {
+      "titulo": "Sangre turbia",
+      "anio": 2020,
+      "titulo_original": "Troubled Blood",
+      "saga": "Cormoran Strike"
+    },
+    {
+      "titulo": "El cerdito de Navidad",
+      "anio": 2021,
+      "titulo_original": "The Christmas Pig"
+    },
+    {
+      "titulo": "Los secretos de Dumbledore",
+      "anio": 2022,
+      "titulo_original": "Fantastic Beasts: The Secrets of Dumbledore",
+      "saga": "Animales fantásticos"
+    },
+    {
+      "titulo": "Un corazón tan negro",
+      "anio": 2022,
+      "titulo_original": "The Ink Black Heart",
+      "saga": "Cormoran Strike"
+    },
+    {
+      "titulo": "La tumba veloz",
+      "anio": 2023,
+      "titulo_original": "The Running Grave",
+      "saga": "Cormoran Strike"
+    },
+    {
+      "titulo": "The Hallmarked Man",
+      "anio": 2025,
+      "saga": "Cormoran Strike"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Harry Potter",
+      "libros": [
+        "Harry Potter y la piedra filosofal",
+        "Harry Potter y la cámara secreta",
+        "Harry Potter y el prisionero de Azkaban",
+        "Harry Potter y el cáliz de fuego",
+        "Harry Potter y la Orden del Fénix",
+        "Harry Potter y el misterio del príncipe",
+        "Harry Potter y las reliquias de la muerte",
+        "Harry Potter y el legado maldito"
+      ]
+    },
+    {
+      "nombre": "Cormoran Strike",
+      "libros": [
+        "El canto del cuco",
+        "El gusano de seda",
+        "El oficio del mal",
+        "Blanco letal",
+        "Sangre turbia",
+        "Un corazón tan negro",
+        "La tumba veloz",
+        "The Hallmarked Man"
+      ]
+    },
+    {
+      "nombre": "Animales fantásticos",
+      "libros": [
+        "Animales fantásticos y dónde encontrarlos: Guion original de la película",
+        "Los crímenes de Grindelwald",
+        "Los secretos de Dumbledore"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Ledicia Costas",
+      "motivo": "Ambas escriben fantasía infantil y juvenil con elementos sobrenaturales, humor y personajes jóvenes que afrontan situaciones extraordinarias."
+    },
+    {
+      "nombre": "Tim Collins",
+      "motivo": "Comparten el público infantil y juvenil y el uso de personajes sobrenaturales en historias que combinan aventuras y humor."
+    },
+    {
+      "nombre": "Annabelle Oh",
+      "motivo": "Ambas utilizan mundos imaginarios y elementos fantásticos en aventuras dirigidas a lectores infantiles y juveniles."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿En qué orden se deben leer los libros de Harry Potter?",
+      "respuesta": "El orden recomendado es el de publicación: La piedra filosofal, La cámara secreta, El prisionero de Azkaban, El cáliz de fuego, La Orden del Fénix, El misterio del príncipe y Las reliquias de la muerte. Después puede leerse El legado maldito, que continúa la historia en formato teatral."
+    },
+    {
+      "pregunta": "¿Harry Potter tiene siete u ocho libros?",
+      "respuesta": "La saga principal consta de siete novelas publicadas entre 1997 y 2007. Harry Potter y el legado maldito, publicado en 2016, se presenta como la octava historia, pero es el guion de una obra teatral escrita por Jack Thorne a partir de una historia creada con J.K. Rowling y John Tiffany."
+    },
+    {
+      "pregunta": "¿Por qué J.K. Rowling publica libros como Robert Galbraith?",
+      "respuesta": "Robert Galbraith es el seudónimo que utiliza para sus novelas policíacas de Cormoran Strike. Comenzó a publicar con ese nombre en 2013 para desarrollar una trayectoria diferenciada de sus libros de fantasía."
+    },
+    {
+      "pregunta": "¿Animales fantásticos y dónde encontrarlos es una novela o un guion?",
+      "respuesta": "Existen dos obras distintas con ese título. La publicada en 2001 es una guía ficticia de criaturas mágicas del universo Harry Potter; la publicada en 2016 recoge el guion de la primera película de Animales fantásticos."
+    },
+    {
+      "pregunta": "¿J.K. Rowling sigue escribiendo libros?",
+      "respuesta": "Sí. En 2025 publicó The Hallmarked Man, octava novela de Cormoran Strike, bajo el seudónimo Robert Galbraith. En febrero de 2026 anunció una novena entrega titulada Sleep Tight, Evangeline, todavía sin fecha de publicación confirmada."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "J.K. Rowling - About",
+      "url": "https://www.jkrowling.com/about/"
+    },
+    {
+      "titulo": "J.K. Rowling - Books",
+      "url": "https://www.jkrowling.com/writing/"
+    },
+    {
+      "titulo": "J.K. Rowling - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/9926-jk-rowling"
+    },
+    {
+      "titulo": "Robert Galbraith - Penguin Libros",
+      "url": "https://www.penguinlibros.com/es/5573-robert-galbraith"
+    },
+    {
+      "titulo": "Robert Galbraith - The Cormoran Strike Books in Order",
+      "url": "https://robert-galbraith.com/strike-books/"
+    },
+    {
+      "titulo": "The Harry Potter Stories - J.K. Rowling",
+      "url": "https://stories.jkrowling.com/harrypotter/the-harry-potter-stories/"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}
