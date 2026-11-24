@@ -8,6 +8,8 @@
 # librerías de Chromium ya vienen en la imagen fijada ubuntu-24.04 (trae Chrome) y la prueba real decide.
 # 18/11/2026: con apt vivo pero lento, install-deps (125 MB) agotó el tope y la QA siguió «con la imagen», que trae las
 # librerías de Chromium pero no las de WebKit (libevent-2.1.so.7): Cross-engine, Post-deploy y Nightly cayeron.
+# 24/11/2026: install-deps terminó bien y WebKit siguió sin libevent (navegador en caché de otra imagen): la comprobación
+# de ldd se hace también tras un install-deps correcto.
 # Si install-deps no termina, se instalan solo los paquetes de las librerías que ldd marca como ausentes.
 set -u
 shopt -s nullglob
@@ -76,9 +78,9 @@ apt_ok=0
 if bash "$here/apt-ready.sh"; then
   apt_ok=1
   if [ "$mode" = full ]; then
-    timeout "$limit" npx playwright install --with-deps "$@" && exit 0
+    timeout "$limit" npx playwright install --with-deps "$@" && { install_missing "$@"; exit 0; }
   else
-    timeout "$limit" npx playwright install-deps "$@" && exit 0
+    timeout "$limit" npx playwright install-deps "$@" && { install_missing "$@"; exit 0; }
   fi
 fi
 

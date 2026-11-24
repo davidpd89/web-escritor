@@ -94,6 +94,10 @@ if bash:
     code, calls, _ = run(every, apt_ok=False, mode='deps', browser='webkit', missing='libevent-2.1.so.7', busy='1')
     lines = calls.splitlines()
     assert code == 0 and 'pgrep busy' in lines and lines.index('pgrep busy') < len(lines) - 1         and lines[-1].startswith('apt-get -o DPkg::Lock::Timeout='), (code, calls)
+    # 24/11: install-deps termina bien y aun así falta libevent (navegador en caché de otra imagen): se instala igual.
+    code, calls, _ = run(every, apt_ok=True, mode='deps', browser='webkit', missing='libevent-2.1.so.7')
+    assert code == 0 and calls.splitlines()[-1] == (
+        'apt-get -o DPkg::Lock::Timeout=300 install -y --no-install-recommends libevent-2.1-7t64'), (code, calls)
     # Sin red no se intenta apt aunque falten librerías.
     code, calls, _ = run(set(), apt_ok=False, mode='deps', browser='webkit', missing='libevent-2.1.so.7')
     assert code == 0 and 'apt-get' not in calls, (code, calls)
