@@ -126,8 +126,8 @@ def _firmas(intento: dict) -> set:
 
 
 def toca_cadena(libro: dict | None, now: datetime, aceptados: int, guardadas: int = 0,
-                run: int | None = None, intento: int | None = None,
-                consulta_pendiente: bool = False) -> tuple[bool, str]:
+                consulta_pendiente: bool = False, run: int | None = None,
+                intento: int | None = None) -> tuple[bool, str]:
     """Encadena si el lote trajo altas o si quedan ramas de datos guardadas (Fable R4-11, F8): una carga recuperada
     o reanudada sin altas propias también sigue, en vez de esperar una noche por cada punto de control.
 
@@ -321,8 +321,8 @@ def _despacho(now, run, intento, args) -> int:
     try:
         libro = leer()
         if args.accion == 'cadena':
-            toca, porque = toca_cadena(libro, now, args.aceptados, args.guardadas, run, intento,
-                                    consulta_pendiente=args.consulta_pendiente)
+            toca, porque = toca_cadena(libro, now, args.aceptados, args.guardadas,
+                                    args.consulta_pendiente, run=run, intento=intento)
         else:
             toca, porque = toca_reintento(libro, now, run, intento)
         if toca:

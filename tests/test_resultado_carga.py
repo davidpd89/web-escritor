@@ -286,7 +286,7 @@ class IssueTest(unittest.TestCase):
 class WorkflowTest(unittest.TestCase):
     def test_issue_tras_cerrar_el_turno_y_antes_de_la_cadena(self):
         wf = yaml.safe_load((ROOT / '.github/workflows/reading-catalogue-sync.yml').read_text(encoding='utf-8'))
-        self.assertEqual(wf['permissions'].get('issues'), 'write')
+        self.assertEqual(wf['jobs']['intake']['permissions'].get('issues'), 'write')
         pasos = wf['jobs']['intake']['steps']
         nombres = [p.get('name', '') for p in pasos]
         issue = nombres.index('Report the failure as a `fallo` issue')
