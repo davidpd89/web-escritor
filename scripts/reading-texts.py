@@ -33,6 +33,7 @@ import git_estado
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / '.local/reading-texts/out'
 STATE = ROOT / '.local/reading-texts/state.json'
+AUTHOR_OUT = ROOT / '.local/reading-author-texts/out'  # fichas de autor: scripts/reading-author-texts.py
 CLASIFICACION = ROOT / '.local/reading-texts/clasificacion.json'  # segunda opinión de ChatGPT sobre género y público
 PROMPT = ROOT / 'scripts/templates/reading-texts-prompt.md'
 RRSS_TOOLS = Path(os.environ.get('RRSS_TOOLS', r'C:\GIT\RRSS_DavidPorto\tools'))
@@ -755,7 +756,8 @@ def publishable_blocks(p, record):
 def _publish_once(out, publisher):
     """Copia los textos a un árbol limpio de origin/main y publica con el flujo protegido del barrido."""
     texts = sorted(out.glob('*.json'))
-    if not texts:
+    authors_out = AUTHOR_OUT if out == OUT else out.parent / 'author-texts-none'
+    if not texts and not any(authors_out.glob('*.json')):
         print('Sin textos que publicar')
         return False
     batch = catalogue_in_ci(json.loads(publisher.publication.gh(
@@ -782,6 +784,13 @@ def _publish_once(out, publisher):
     merged = {**read_json(published_opinions, {}), **{i: o for i, o in read_json(CLASIFICACION, {}).items() if i in books}}
     if merged != read_json(published_opinions, {}):
         write_json(published_opinions, dict(sorted(merged.items())))
+    # Fichas de autor (scripts/reading-author-texts.py): se revalidan con los datos de main antes de copiarlas.
+    if any(authors_out.glob('*.json')):
+        load_module('reading_author_texts', 'scripts/reading-author-texts.py').copy_valid(tree, authors_out)
+        # Webs y fuentes nuevas de esas fichas: se comprueban antes de construir (sin comprobar no se enlazan).
+        run_check = subprocess.run([sys.executable, 'scripts/reading_author_links.py', 'check'], cwd=tree, check=False)
+        if run_check.returncode:
+            print('Aviso: sin comprobar enlaces de autor; las fuentes nuevas salen como texto', flush=True)
     run = lambda *cmd: subprocess.run([sys.executable, *cmd], cwd=tree, check=True)
     for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         run('scripts/' + script)
@@ -798,9 +807,11 @@ def _publish_once(out, publisher):
     now = datetime.now(ZoneInfo('Europe/Madrid'))
     branch = 'automation/reading-catalogue-textos-' + now.strftime('%Y-%m-%d-%H%M%S')
     count = len([p for p in paths if p.startswith('data/reading-texts/')])
+    authors_count = len([p for p in paths if p.startswith('data/reading-author-texts/')])
+    title = f'Orientación propia en {count} fichas de lectura' + (f' y {authors_count} de autor' if authors_count else '')
     git('switch', '-q', '-c', branch, cwd=tree)
     git_add(paths, cwd=tree)
-    git('commit', '-q', '-m', f'Orientación propia en {count} fichas de lectura', cwd=tree)
+    git('commit', '-q', '-m', title, cwd=tree)
     git('push', '-q', 'origin', 'HEAD:refs/heads/' + branch, cwd=tree)
     body = tree.parent / 'pr-body.md'
     body.write_text(f'Añade texto propio validado a {count} fichas: por qué leerlo, para quién, tono, libros afines del catálogo y preguntas frecuentes.\n\n'
@@ -810,7 +821,7 @@ def _publish_once(out, publisher):
         if old['headRefName'].startswith('automation/reading-catalogue-textos-'):
             publisher.publication.gh('pr', 'close', str(old['number']), '--comment', 'Sustituida por una publicación de textos más reciente.')
     publisher.publication.gh('pr', 'create', '--base', 'main', '--head', branch,
-                             '--title', f'Orientación propia en {count} fichas de lectura', '--body-file', str(body))
+                             '--title', title, '--body-file', str(body))
     git('switch', '-q', '--detach', cwd=tree)
     publisher.run(branch)
     return True
@@ -837,6 +848,7 @@ def publish_due(args, now, last):
 
 def start_publish():
     """Publicación en segundo plano: el bucle sigue generando mientras corren las pruebas locales y el CI de la PR."""
+    (ROOT / '.local/reading-texts').mkdir(parents=True, exist_ok=True)  # el bucle de autores puede ir primero
     log = open(ROOT / '.local/reading-texts/publish.log', 'a', encoding='utf-8')
     log.write(f'--- {datetime.now(ZoneInfo("Europe/Madrid")):%Y-%m-%d %H:%M} publicación\n')
     log.flush()
