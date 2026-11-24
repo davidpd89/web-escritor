@@ -438,6 +438,29 @@ def repair_children_genres(catalogue: dict, by_book: dict) -> list:
     return repaired
 
 
+# Series y sellos que solo publican para niños: el público se deduce de la marca aunque el nodo de Amazon no lo diga.
+CHILD_BRAND = re.compile(r'\bprimeras lecturas|\bprimeros lectores|\bmi libro para llevar|\bpequeflores|\bgeronimo stilton|\bbluey\b|\bpeppa\b|\bpaw patrol\b|\bpatrulla canina\b|\bbarbie\b|\bpocoyo\b|\bsuperthings\b|\blibro de carton|\blibro juguete|\bbusca y encuentra')
+CHILD_IMPRINT = re.compile(r'\bkids\b|\blibros disney\b|(?<!juvenil )\binfantil\b(?!( &| y)? juvenil)')
+ADULT_EDITION = re.compile(r'\bcreacion de una obra|\berase una vez disney|\bhistoria del cine|\bestudio\b|\bensayo\b|\bbiografia\b')
+
+
+def repair_children_brands(catalogue: dict, by_book: dict) -> list:
+    """Marca como infantil el libro de una serie o sello infantil que no tiene público mayor ni es un ensayo sobre la marca."""
+    repaired = []
+    for book in catalogue['libros']:
+        assigned = by_book.get(book['id'], set())
+        if CHILD_ID in assigned or assigned & OLDER_AUDIENCE or 'ensayo' in assigned:
+            continue
+        title = normalize_text(book.get('titulo') or '')
+        imprint = normalize_text(book.get('editorial') or '')
+        if ADULT_EDITION.search(title) or not (CHILD_BRAND.search(title) or CHILD_IMPRINT.search(imprint)):
+            continue
+        catalogue['libro_categorias'].append({'libro_id': book['id'], 'categoria_id': CHILD_ID})
+        by_book[book['id']] = assigned | {CHILD_ID}
+        repaired.append(book['id'])
+    return repaired
+
+
 def drop_seasons(catalogue: dict, by_book: dict) -> list:
     """No hay temporadas en la web (ni filtro ni etiqueta): se retiran las que quedaron en los datos y no vuelven."""
     seasons = {c['id'] for c in catalogue['categorias'] if c.get('tipo') == 'temporada'}
@@ -725,7 +748,7 @@ def repair_classification(catalogue, today=None):
     # Género antes y después de quitar etiquetas: el tema de un nodo («tema-viajes») deja su género de respaldo
     # antes de irse, y un libro que pierde su género por nodo recibe otro. Una sola pasada basta (idempotente).
     touched = set(drop_seasons(catalogue, by_book)) | set(apply_second_opinion(catalogue, by_book))
-    touched |= set(repair_children_genres(catalogue, by_book))
+    touched |= set(repair_children_brands(catalogue, by_book)) | set(repair_children_genres(catalogue, by_book))
     touched |= set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
     touched |= set(repair_amazon_rules(catalogue, by_book, fallback))
     touched |= set(repair_inherited_health(catalogue, by_book)) | set(repair_axis(catalogue, by_book))

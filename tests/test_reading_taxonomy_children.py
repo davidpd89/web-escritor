@@ -70,6 +70,18 @@ class ChildrenGenreTests(unittest.TestCase):
         self.assertEqual(tax.last_resort_genre({'titulo': 'Forjando la Edad Media'}, {'epoca-edad-media'}), 'ensayo')
         self.assertIsNone(tax.last_resort_genre({'titulo': 'X'}, set()))
 
+    def test_children_brands_become_children_books(self):
+        data = {'categorias': [], 'libro_categorias': [], 'libros': [
+            {'id': 'a', 'titulo': 'Stitch. Mi libro para llevar', 'editorial': 'Libros Disney'},
+            {'id': 'b', 'titulo': 'El libro de la selva: Walt Disney. La creación de una obra maestra', 'editorial': 'X'},
+            {'id': 'c', 'titulo': 'Boni vs. Mono 9', 'editorial': 'Destino Infantil & Juvenil'},
+            {'id': 'd', 'titulo': 'Brianna se supera', 'editorial': 'Alfaguara Infantil'},
+            {'id': 'e', 'titulo': 'Bluey. Pack', 'editorial': 'Beascoa'}]}
+        by_book = {'a': {'aventuras'}, 'b': {'aventuras'}, 'c': {'aventuras'}, 'd': set(), 'e': {'juvenil'}}
+        self.assertEqual(tax.repair_children_brands(data, by_book), ['a', 'd'])
+        self.assertIn('infantil', by_book['a'])
+        self.assertNotIn('infantil', by_book['b'])
+
     def test_published_catalogue_has_no_adult_genre_on_children_or_seasons(self):
         data = json.loads((ROOT / 'data/reading-catalogue.json').read_text(encoding='utf-8'))
         by_book = {}
@@ -78,6 +90,8 @@ class ChildrenGenreTests(unittest.TestCase):
         bad = [(b['id'], sorted(tax.children_drop(b, by_book.get(b['id'], set())))) for b in data['libros']
                if tax.children_drop(b, by_book.get(b['id'], set()))]
         self.assertEqual(bad, [], 'Un libro infantil lleva género de adultos: ejecuta reading_taxonomy.repair_classification')
+        self.assertEqual(tax.repair_children_brands(json.loads(json.dumps(data)), {k: set(v) for k, v in by_book.items()}), [],
+                         'Libro de marca infantil sin etiqueta infantil: ejecuta reading_taxonomy.repair_classification')
         self.assertFalse([c['id'] for c in data['categorias'] if c.get('tipo') == 'temporada'])
         genres = {c['id'] for c in data['categorias'] if c.get('tipo') == 'genero'}
         bare = [b['id'] for b in data['libros'] if b.get('estado') == 'publicado' and not by_book.get(b['id'], set()) & genres]
