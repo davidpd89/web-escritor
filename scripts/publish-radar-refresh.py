@@ -384,13 +384,12 @@ DETERMINISTA = re.compile(r'^\S*\s*FALLA:? tests/\S+', re.M)
 def registro_job(repo, job_id):
     """Registro de un job de Actions. Los registros llevan colores ANSI y `gh api` (>= 2.8x) se niega a sacarlos sin
     `--allow-escape-sequences`: sin la opción, fallo_determinista daba siempre False y cada fallo determinista de la
-    puerta se repetía entero (~22 min, noche del 24/11). Un gh antiguo que no conozca la opción lee sin ella."""
+    puerta se repetía entero (~22 min, noche del 24/11). Un gh antiguo que no conozca la opción falla con ella: se lee
+    entonces sin ella, sin mirar el texto del error (cambia con la versión y el idioma); si también falla, sube."""
     ruta = f'repos/{repo}/actions/jobs/{job_id}/logs'
     try:
         return gh('api', '--allow-escape-sequences', ruta)
-    except subprocess.CalledProcessError as exc:
-        if 'allow-escape-sequences' not in (exc.stderr or '') or 'unknown flag' not in (exc.stderr or ''):
-            raise
+    except subprocess.CalledProcessError:
         return gh('api', ruta)
 
 
