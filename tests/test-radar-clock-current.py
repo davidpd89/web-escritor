@@ -47,3 +47,14 @@ assert aviso==0 or generated_for<probe-timedelta(days=2),"la gracia debe aceptar
 assert estricto==1,"con reloj estricto, un plazo vencido exige refresco"
 assert lejos==1,"pasada la gracia exige refresco"
 print("PASS radar clock-current grace window")
+
+# De extremo a extremo (CATALOGO_HOY fija el día del sitio): lo generado hoy sigue sirviendo a la puerta de las PR los
+# dos días siguientes (un plazo que vence a medianoche no tumba cargas) y deja de servir al tercero.
+def en_dia(dia, estricto=False):
+    env={**os.environ,"CATALOGO_HOY":dia.isoformat(),"RELOJ_ESTRICTO":"1" if estricto else "0"}
+    return subprocess.run([sys.executable,str(CHECKER)],cwd=ROOT,text=True,capture_output=True,env=env).returncode
+if deadlines and deadlines[0]<=generated_for+timedelta(days=3):
+    assert en_dia(generated_for)==0
+    assert en_dia(generated_for+timedelta(days=1))==0 and en_dia(generated_for+timedelta(days=2))==0,"la gracia de 2 días debe valer en la puerta"
+    assert en_dia(generated_for+timedelta(days=3))==1,"pasada la gracia exige refresco"
+print("PASS radar clock-current grace end to end")
