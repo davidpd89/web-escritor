@@ -25,7 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          sparse-checkout: scripts/bypass_usado.py
+          sparse-checkout: |
+            scripts/bypass_usado.py
+            scripts/gh_listas.py
           sparse-checkout-cone-mode: false
       - name: Push from a green PR
         env:

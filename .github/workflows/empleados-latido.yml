@@ -34,6 +34,7 @@ jobs:
           sparse-checkout: |
             data/expertos.json
             scripts/empleados_latido.py
+            scripts/gh_listas.py
             scripts/issue_vivo.py
             tests/test_empleados_registro.py
             .github/workflows

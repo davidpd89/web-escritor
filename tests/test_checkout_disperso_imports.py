@@ -76,17 +76,17 @@ class CheckoutDisperso(unittest.TestCase):
     def test_una_ruta_amplia_ajena_a_scripts_no_tapa_un_import_perdido(self):
         def caso(*rutas):
             return faltan('\n'.join(rutas))[0]
-        self.assertEqual(caso('scripts/ci_intake_backup.py', 'tests/'), ['scripts/gh_listas.py'])
-        self.assertEqual(caso('scripts/ci_intake_backup.py', 'docs/*'), ['scripts/gh_listas.py'])
-        self.assertEqual(caso('scripts/ci_intake_backup.py', 'scripts/gh_listas.py'), [])
-        self.assertEqual(caso('scripts/ci_intake_backup.py', 'scripts/'), [])
-        self.assertEqual(caso('scripts/ci_intake_backup.py', 'scripts/*'), [])
+        self.assertEqual(caso('scripts/congelar_main.py', 'tests/'), ['scripts/gh_listas.py'])
+        self.assertEqual(caso('scripts/congelar_main.py', 'docs/*'), ['scripts/gh_listas.py'])
+        self.assertEqual(caso('scripts/congelar_main.py', 'scripts/gh_listas.py'), [])
+        self.assertEqual(caso('scripts/congelar_main.py', 'scripts/'), [])
+        self.assertEqual(caso('scripts/congelar_main.py', 'scripts/*'), [])
         self.assertEqual(caso('/*', '!/assets/no usadas/'), [])
-        # Un directorio trae ci_intake_backup.py aunque no se nombre; una exclusión con ? o [] sí quita gh_listas.
+        # Un directorio trae congelar_main.py aunque no se nombre; una exclusión con ? o [] sí quita gh_listas.
         self.assertEqual(caso('scripts/', '!/scripts/gh_listas.py'), ['scripts/gh_listas.py'])
-        self.assertEqual(caso('scripts/ci_intake_backup.py', 'scripts/gh_listas.py', '!/scripts/gh_lista?.py'),
+        self.assertEqual(caso('scripts/congelar_main.py', 'scripts/gh_listas.py', '!/scripts/gh_lista?.py'),
                          ['scripts/gh_listas.py'])
-        self.assertEqual(caso('scripts/ci_intake_backup.py', 'scripts/gh_listas.py', '!/scripts/gh_[l]istas.py'),
+        self.assertEqual(caso('scripts/congelar_main.py', 'scripts/gh_listas.py', '!/scripts/gh_[l]istas.py'),
                          ['scripts/gh_listas.py'])
 
 
