@@ -120,6 +120,19 @@ with tempfile.TemporaryDirectory() as tmp:
     timeout = '| Errors | 0 |\n* [TIMEOUT] <https://example.org/slow>\n'
     assert run_report(timeout, [{'url': 'https://example.org/slow', 'ok': False, 'status': '404', 'exit': 22}]) == 1, \
         'a timeout that rechecks as 404 still fails'
+# Lychee's "Network error:" wording (2026-11-23): a reset is transport, a refused TLS handshake is the site's fault.
+net = ('| Errors | 2 |\n'
+       '* [ERROR] <https://hplovecraft.com/> (at 183:2167) | Network error: Connection reset by peer (os error 104)\n'
+       '* [ERROR] <https://www2.philosophy.su.se/wikforss/> (at 183:1597) | Network error: received fatal alert: HandshakeFailure\n')
+assert module.timeout_urls(net) == ['https://hplovecraft.com/', 'https://www2.philosophy.su.se/wikforss/']
+assert module.third_party_faults(net) == {'https://www2.philosophy.su.se/wikforss/': 'certificado TLS del sitio caducado o inválido'}
+for invalid in ['| Errors | 1 |\n* [ERROR] <https://example.org/> | Network error: dns error: failed to lookup address',
+                '| Errors | 1 |\n* [ERROR] <https://davidportodiaz.com/> | Network error: received fatal alert: HandshakeFailure']:
+    try:
+        module.timeout_urls(invalid)
+        raise AssertionError(f'DNS and own-domain TLS stay fatal: {invalid!r}')
+    except ValueError:
+        pass
 # Pre-existing links: on a PR, a down external host whose URL is already in the base tree only warns.
 import subprocess
 with tempfile.TemporaryDirectory() as tmp:

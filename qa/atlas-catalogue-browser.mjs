@@ -76,12 +76,17 @@ try {
     await page.goto(`${BASE}/atlas-literario/`);
     await page.waitForSelector('[data-atlas-filters] fieldset:not([disabled])');
     const total = await page.locator('[data-atlas-card]').count();
-    assert.ok(total > 24 && total <= 48, `${width}: el catálogo real cabe en dos tandas (${total})`);
-    await page.locator('[data-atlas-more]').focus();
-    await page.keyboard.press('Enter');
-    let info = await focusInfo(page);
-    assert.equal(info.tag, 'A', `${width}: última tanda, foco en un enlace (${info.tag})`);
-    assert.equal(info.cardIndex, 24, `${width}: última tanda, foco en la primera entrada nueva`);
+    // El catálogo real crece: se recorren todas las tandas de 24, sea cual sea el total.
+    assert.ok(total > 24, `${width}: el catálogo real necesita más de una tanda (${total})`);
+    const batches = Math.ceil(total / 24);
+    let info;
+    for (let batch = 1; batch < batches; batch += 1) {
+      await page.locator('[data-atlas-more]').focus();
+      await page.keyboard.press('Enter');
+      info = await focusInfo(page);
+      assert.equal(info.tag, 'A', `${width}: tanda ${batch + 1}, foco en un enlace (${info.tag})`);
+      assert.equal(info.cardIndex, batch * 24, `${width}: tanda ${batch + 1}, foco en la primera entrada nueva`);
+    }
     assert.ok(info.visible && !info.buttonVisible, `${width}: destino visible y botón retirado`);
     assert.match(info.status, /se muestran todos/, `${width}: anuncio de la ampliación`);
     await page.keyboard.press('Tab');

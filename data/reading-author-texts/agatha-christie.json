@@ -1,0 +1,347 @@
+{
+  "slug": "agatha-christie",
+  "identificado": true,
+  "intro": "Agatha Christie (1890-1976) fue una escritora y dramaturga británica, conocida por sus novelas de misterio y sus personajes Hércules Poirot y Miss Marple. Publicó 66 novelas policíacas, colecciones de relatos y obras teatrales. Sus historias se caracterizan por las investigaciones de asesinatos, los sospechosos con secretos y la resolución de enigmas mediante pistas. Entre sus títulos más conocidos figuran El asesinato de Roger Ackroyd, Asesinato en el Orient Express, Y no quedó ninguno y La ratonera.",
+  "biografia": "Agatha Mary Clarissa Miller nació el 15 de septiembre de 1890 en Torquay, Devon, Inglaterra. Creció en una familia acomodada y recibió buena parte de su educación en casa. Durante su adolescencia estudió en París, donde se formó en música y canto. En 1914 se casó con Archibald Christie, cuyo apellido conservaría como escritora. Durante la Primera Guerra Mundial trabajó como enfermera y en una farmacia hospitalaria. Sus conocimientos sobre medicamentos y sustancias tóxicas influyeron en los métodos criminales de sus novelas. En 1920 publicó El misterioso caso de Styles, su primera novela, que presentó al detective belga Hércules Poirot. El asesinato de Roger Ackroyd, aparecida en 1926, contribuyó a consolidar su carrera.\n\nEn 1930 se casó con el arqueólogo Max Mallowan y comenzó a acompañarlo en expediciones por Oriente Próximo. Aquellas experiencias inspiraron escenarios de novelas como Asesinato en Mesopotamia y Muerte en el Nilo. Ese mismo año publicó Muerte en la vicaría, primera novela protagonizada por Miss Marple. También escribió relatos, novelas románticas bajo el seudónimo de Mary Westmacott y obras teatrales. La ratonera se estrenó en Londres en 1952 y mantiene una larga trayectoria de representaciones. En 1971 recibió el título de Dama Comendadora de la Orden del Imperio Británico. Sus historias han sido adaptadas al cine, la televisión y el teatro, entre ellas Asesinato en el Orient Express y Testigo de cargo. Falleció el 12 de enero de 1976 en Oxfordshire.",
+  "por_donde_empezar": [
+    {
+      "titulo": "El asesinato de Roger Ackroyd",
+      "motivo": "Publicada en 1926, fue la novela que consolidó la popularidad de Christie. Presenta un caso de Hércules Poirot que puede leerse sin conocer sus investigaciones anteriores y destaca por su construcción del misterio."
+    },
+    {
+      "titulo": "Se anuncia un asesinato: Edición limitada a precio especial",
+      "motivo": "Una entrada a las investigaciones de Miss Marple. La historia comienza con un anuncio en el periódico que anticipa un asesinato y permite conocer el método de observación y deducción de la detective."
+    },
+    {
+      "titulo": "Noche eterna",
+      "motivo": "Novela independiente de 1967 que no pertenece a las series de Poirot ni de Miss Marple. Combina suspense psicológico, relaciones personales y una narración centrada en la perspectiva de su protagonista."
+    }
+  ],
+  "obras": [
+    {
+      "titulo": "El misterioso caso de Styles",
+      "anio": 1920,
+      "titulo_original": "The Mysterious Affair at Styles",
+      "saga": "Hércules Poirot"
+    },
+    {
+      "titulo": "El misterioso señor Brown",
+      "anio": 1922,
+      "titulo_original": "The Secret Adversary",
+      "saga": "Tommy y Tuppence"
+    },
+    {
+      "titulo": "El hombre del traje marrón",
+      "anio": 1924,
+      "titulo_original": "The Man in the Brown Suit",
+      "saga": "Coronel Race"
+    },
+    {
+      "titulo": "El secreto de Chimneys",
+      "anio": 1925,
+      "titulo_original": "The Secret of Chimneys",
+      "saga": "Superintendente Battle"
+    },
+    {
+      "titulo": "El asesinato de Roger Ackroyd",
+      "anio": 1926,
+      "titulo_original": "The Murder of Roger Ackroyd",
+      "saga": "Hércules Poirot"
+    },
+    {
+      "titulo": "El misterio de las siete esferas",
+      "anio": 1929,
+      "titulo_original": "The Seven Dials Mystery",
+      "saga": "Superintendente Battle"
+    },
+    {
+      "titulo": "Matrimonio de sabuesos",
+      "anio": 1929,
+      "titulo_original": "Partners in Crime",
+      "saga": "Tommy y Tuppence"
+    },
+    {
+      "titulo": "El enigmático míster Quin",
+      "anio": 1930,
+      "titulo_original": "The Mysterious Mr Quin"
+    },
+    {
+      "titulo": "Muerte en la vicaría",
+      "anio": 1930,
+      "titulo_original": "The Murder at the Vicarage",
+      "saga": "Miss Marple"
+    },
+    {
+      "titulo": "Asesinato en el Orient Express",
+      "anio": 1934,
+      "titulo_original": "Murder on the Orient Express",
+      "saga": "Hércules Poirot"
+    },
+    {
+      "titulo": "Cartas sobre la mesa",
+      "anio": 1936,
+      "titulo_original": "Cards on the Table",
+      "saga": "Hércules Poirot"
+    },
+    {
+      "titulo": "El misterio de la guía de ferrocarriles",
+      "anio": 1936,
+      "titulo_original": "The A.B.C. Murders",
+      "saga": "Hércules Poirot"
+    },
+    {
+      "titulo": "Muerte en el Nilo",
+      "anio": 1937,
+      "titulo_original": "Death on the Nile",
+      "saga": "Hércules Poirot"
+    },
+    {
+      "titulo": "Y no quedó ninguno",
+      "anio": 1939,
+      "titulo_original": "And Then There Were None"
+    },
+    {
+      "titulo": "El misterio de Sans Souci",
+      "anio": 1941,
+      "titulo_original": "N or M?",
+      "saga": "Tommy y Tuppence"
+    },
+    {
+      "titulo": "Muerte bajo el sol",
+      "anio": 1941,
+      "titulo_original": "Evil Under the Sun",
+      "saga": "Hércules Poirot"
+    },
+    {
+      "titulo": "Cinco cerditos",
+      "anio": 1942,
+      "titulo_original": "Five Little Pigs",
+      "saga": "Hércules Poirot"
+    },
+    {
+      "titulo": "Un cadáver en la biblioteca",
+      "anio": 1942,
+      "titulo_original": "The Body in the Library",
+      "saga": "Miss Marple"
+    },
+    {
+      "titulo": "Hacia cero",
+      "anio": 1944,
+      "titulo_original": "Towards Zero",
+      "saga": "Superintendente Battle"
+    },
+    {
+      "titulo": "Los trabajos de Hércules",
+      "anio": 1947,
+      "titulo_original": "The Labours of Hercules",
+      "saga": "Hércules Poirot"
+    },
+    {
+      "titulo": "La casa torcida",
+      "anio": 1949,
+      "titulo_original": "Crooked House"
+    },
+    {
+      "titulo": "Se anuncia un asesinato",
+      "anio": 1950,
+      "titulo_original": "A Murder Is Announced",
+      "saga": "Miss Marple"
+    },
+    {
+      "titulo": "La ratonera",
+      "anio": 1952,
+      "titulo_original": "The Mousetrap"
+    },
+    {
+      "titulo": "El tren de las 4:50",
+      "anio": 1957,
+      "titulo_original": "4.50 from Paddington",
+      "saga": "Miss Marple"
+    },
+    {
+      "titulo": "Noche eterna",
+      "anio": 1967,
+      "titulo_original": "Endless Night"
+    },
+    {
+      "titulo": "El cuadro",
+      "anio": 1968,
+      "titulo_original": "By the Pricking of My Thumbs",
+      "saga": "Tommy y Tuppence"
+    },
+    {
+      "titulo": "Némesis",
+      "anio": 1971,
+      "saga": "Miss Marple"
+    },
+    {
+      "titulo": "La puerta del destino",
+      "anio": 1973,
+      "titulo_original": "Postern of Fate",
+      "saga": "Tommy y Tuppence"
+    },
+    {
+      "titulo": "Telón",
+      "anio": 1975,
+      "titulo_original": "Curtain",
+      "saga": "Hércules Poirot"
+    },
+    {
+      "titulo": "Un crimen dormido",
+      "anio": 1976,
+      "titulo_original": "Sleeping Murder",
+      "saga": "Miss Marple"
+    }
+  ],
+  "sagas": [
+    {
+      "nombre": "Hércules Poirot",
+      "libros": [
+        "El misterioso caso de Styles",
+        "Asesinato en el campo de golf",
+        "Poirot investiga",
+        "El asesinato de Roger Ackroyd",
+        "Los cuatro grandes",
+        "El misterio del tren azul",
+        "Peligro inminente",
+        "La muerte de lord Edgware",
+        "Asesinato en el Orient Express",
+        "Tragedia en tres actos",
+        "Muerte en las nubes",
+        "El misterio de la guía de ferrocarriles",
+        "Asesinato en Mesopotamia",
+        "Cartas sobre la mesa",
+        "El testigo mudo",
+        "Muerte en el Nilo",
+        "Cita con la muerte",
+        "Navidades trágicas",
+        "Un triste ciprés",
+        "La muerte visita al dentista",
+        "Muerte bajo el sol",
+        "Cinco cerditos",
+        "Sangre en la piscina",
+        "Los trabajos de Hércules",
+        "Pleamares de la vida",
+        "La señora McGinty ha muerto",
+        "Después del funeral",
+        "Asesinato en la calle Hickory",
+        "El templete de Nasse-House",
+        "Un gato en el palomar",
+        "Los relojes",
+        "La tercera muchacha",
+        "Las manzanas",
+        "Los elefantes pueden recordar",
+        "Primeros casos de Poirot",
+        "Telón"
+      ]
+    },
+    {
+      "nombre": "Miss Marple",
+      "libros": [
+        "Muerte en la vicaría",
+        "Miss Marple y trece problemas",
+        "Un cadáver en la biblioteca",
+        "El caso de los anónimos",
+        "Se anuncia un asesinato",
+        "El truco de los espejos",
+        "Un puñado de centeno",
+        "El tren de las 4:50",
+        "El espejo se rajó de lado a lado",
+        "Misterio en el Caribe",
+        "En el hotel Bertram",
+        "Némesis",
+        "Un crimen dormido",
+        "Últimos casos de Miss Marple y otras dos historias"
+      ]
+    },
+    {
+      "nombre": "Tommy y Tuppence",
+      "libros": [
+        "El misterioso señor Brown",
+        "Matrimonio de sabuesos",
+        "El misterio de Sans Souci",
+        "El cuadro",
+        "La puerta del destino"
+      ]
+    },
+    {
+      "nombre": "Superintendente Battle",
+      "libros": [
+        "El secreto de Chimneys",
+        "El misterio de las siete esferas",
+        "Cartas sobre la mesa",
+        "Matar es fácil",
+        "Hacia cero"
+      ]
+    },
+    {
+      "nombre": "Coronel Race",
+      "libros": [
+        "El hombre del traje marrón",
+        "Cartas sobre la mesa",
+        "Muerte en el Nilo",
+        "Cianuro espumoso"
+      ]
+    }
+  ],
+  "parecidos": [
+    {
+      "nombre": "Ragnar Jónasson",
+      "motivo": "Escribe novelas de misterio centradas en investigaciones y secretos ocultos; tradujo catorce novelas de Agatha Christie al islandés y reconoce su influencia literaria."
+    },
+    {
+      "nombre": "Katherine Black",
+      "motivo": "Cultiva el misterio de detectives aficionados, con personajes excéntricos, humor y enigmas criminales próximos a la tradición del cozy mystery."
+    }
+  ],
+  "faq": [
+    {
+      "pregunta": "¿En qué orden hay que leer los libros de Hércules Poirot?",
+      "respuesta": "El orden de publicación comienza con El misterioso caso de Styles, de 1920, y termina con Telón, de 1975. La mayoría de las investigaciones son independientes y pueden leerse por separado, aunque conviene reservar Telón para el final porque cierra la historia del detective."
+    },
+    {
+      "pregunta": "¿Cuál es el primer libro de Miss Marple?",
+      "respuesta": "Muerte en la vicaría, publicada en 1930, es la primera novela protagonizada por Miss Marple. El personaje había aparecido previamente en relatos breves. Su última novela publicada fue Un crimen dormido, en 1976."
+    },
+    {
+      "pregunta": "¿Cuántas novelas escribió Agatha Christie?",
+      "respuesta": "Escribió 66 novelas policíacas, de las cuales 33 están protagonizadas por Hércules Poirot y 12 por Miss Marple. También publicó seis novelas de ficción sentimental con el seudónimo de Mary Westmacott, además de relatos y obras teatrales."
+    },
+    {
+      "pregunta": "¿La ratonera de Agatha Christie es una novela o una obra de teatro?",
+      "respuesta": "La ratonera es una obra de teatro estrenada en Londres en 1952. Procede de una historia que Christie había desarrollado anteriormente para la radio con el título Tres ratones ciegos. Se convirtió en una de las producciones teatrales de mayor duración de la historia."
+    },
+    {
+      "pregunta": "¿Qué películas están basadas en libros de Agatha Christie?",
+      "respuesta": "Entre las adaptaciones cinematográficas figuran Testigo de cargo, dirigida por Billy Wilder en 1957; Asesinato en el Orient Express, dirigida por Sidney Lumet en 1974; y Muerte en el Nilo. Sus personajes Poirot y Miss Marple también han protagonizado numerosas adaptaciones televisivas."
+    }
+  ],
+  "fuentes": [
+    {
+      "titulo": "Agatha Christie - Biografía oficial",
+      "url": "https://www.agathachristie.com/en/about-christie"
+    },
+    {
+      "titulo": "The Complete Agatha Christie Reading List - Cronología oficial",
+      "url": "https://agathachristie.imgix.net/image-store/ACL_TheCompleteChristieReadingList.pdf"
+    },
+    {
+      "titulo": "Anexo:Bibliografía de Agatha Christie - Wikipedia",
+      "url": "https://es.wikipedia.org/wiki/Anexo:Bibliograf%C3%ADa_de_Agatha_Christie"
+    },
+    {
+      "titulo": "Agatha Christie - Bibliografía y ediciones españolas - PlanetadeLibros",
+      "url": "https://www.planetadelibros.com/autor/agatha-christie/000028916"
+    },
+    {
+      "titulo": "Ragnar Jónasson - Icelandic Literature Center",
+      "url": "https://islit.is/en/hofundar/ragnar-jonasson/"
+    },
+    {
+      "titulo": "Katherine Black - The Crime Writers' Association",
+      "url": "https://thecwa.co.uk/find-an-author/futers-katherine/"
+    }
+  ],
+  "fecha_revision": "2026-11-23",
+  "origen": "chatgpt-web-high"
+}

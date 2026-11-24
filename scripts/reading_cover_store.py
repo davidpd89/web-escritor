@@ -279,3 +279,13 @@ def flush(message: str = 'Portadas de la carga', root: Path = ROOT) -> int:
         if published is not None:
             return published
     raise RuntimeError('Almacén de portadas: no se pudo subir tras 3 intentos')
+
+
+if __name__ == '__main__':
+    import sys
+    # `python3 scripts/reading_cover_store.py apply <dir>`: la misma reescritura que el despliegue, para las
+    # comprobaciones que leen el checkout (enlaces): así verifican la URL real del almacén, no un fichero que no
+    # está en el repo.
+    if len(sys.argv) != 3 or sys.argv[1] != 'apply':
+        raise SystemExit('uso: reading_cover_store.py apply <directorio>')
+    print(f'Almacén de portadas: {apply_to_dist(Path(sys.argv[2]))} ficheros reescritos')

@@ -202,7 +202,8 @@ def url_responds(url: str, timeout: int = 30) -> bool:
 def merge(previous: dict, fresh: list[dict], today: str, config: dict, url_ok=url_responds) -> dict:
     """Conserva lo anterior: tope de altas por ejecución y baja solo tras `keep_days` sin verse.
 
-    Una web nueva (alta o cambio de `official_url`) solo entra si responde: el 2026-11-09 seis webs muertas de
+    Una web nueva (alta o cambio de `official_url`) solo entra si responde, y una ya publicada se vuelve a
+    comprobar en cada pasada: el 2026-11-09 seis webs muertas de
     Wikidata tumbaron broken-links y la PR del atlas entera. Si no responde, se queda lo anterior (o nada) y se
     reintenta en la siguiente ejecución.
     """
@@ -218,10 +219,15 @@ def merge(previous: dict, fresh: list[dict], today: str, config: dict, url_ok=ur
                 continue
             added += 1
             entry = {**entry, "first_seen": today}
-        elif entry.get("official_url") != known.get("official_url") and not url_ok(entry.get("official_url", "")):
-            entry = {**known}
         else:
-            entry = {**entry, "first_seen": known.get("first_seen", today)}
+            if entry.get("official_url") != known.get("official_url") and not url_ok(entry.get("official_url", "")):
+                entry = {**known}
+            else:
+                entry = {**entry, "first_seen": known.get("first_seen", today)}
+            if entry.get("official_url") and not url_ok(entry["official_url"]):
+                # Una web que ya publicábamos y luego cae (2026-11-23: bucle de 302 en nationaltrustcollections)
+                # tumbaría broken-links en cuanto cambie la página: deja de enlazarse y vuelve sola si revive.
+                entry.pop("official_url")
         merged[entry["qid"]] = {**entry, "last_seen": today}
     for qid, known in old.items():
         if qid in merged:

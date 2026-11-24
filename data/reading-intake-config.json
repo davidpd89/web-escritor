@@ -265,6 +265,12 @@
       "adelante": 30,
       "atras": 60,
       "notes": "Listados por fecha de todostuslibros, por rondas de cercanía a hoy (hoy y mañana antes que nada). El futuro (hoy+30) ya está cubierto; atras=60 rellena el pasado con el cupo que sobra. Coincide con la ventana de resolución (−60/+183)."
+    },
+    "semillas_autores": {
+      "peticiones": 100,
+      "paginas": 2,
+      "dias": 60,
+      "notes": "Libros en Amazon de los autores con ficha (búsqueda por autor, lo más vendido delante): solo papel, en castellano y con el autor como autor. Entran como semillas normales (cuarentena incluida); la ficha del autor no crea nada. ~50 autores por noche; cada autor se repite a los 60 días."
     }
   }
 }

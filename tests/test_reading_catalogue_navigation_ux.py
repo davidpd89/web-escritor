@@ -126,7 +126,8 @@ class CatalogueDealsAndFilters(unittest.TestCase):
         self.assertTrue(shown)
         self.assertEqual({kinds.get(c) for c in shown if c not in ('sin-edad', 'sin-genero')} - {'genero', 'edad'}, set(), 'data-categories solo con género y edad')
         script = (ROOT / 'assets/reading-catalogue.js').read_text(encoding='utf-8')
-        self.assertIn("const FACETS = ['grupo', 'genero', 'edad', 'formato'];", script)
+        # Libros y autores comparten motor: las facetas conocidas son fijas y el resto sale del HTML de cada página.
+        self.assertIn("const KNOWN_FACETS = ['grupo', 'genero', 'edad', 'formato']", script)
         for key in ('temporada', 'tematica', 'valoracion'):
             self.assertNotIn("{key: '" + key + "'", script)
 
