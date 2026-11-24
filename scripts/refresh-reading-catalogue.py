@@ -710,7 +710,7 @@ def drop_orphan_pages(quarantined):
             (ROOT / page).unlink(missing_ok=True)
     # Las páginas derivadas (continuaciones del catálogo, autores, sellos) que el intento fallido generó y nunca se
     # publicaron también sobran: el builder las rechaza como huérfanas y un solo libro apartado pararía el lote.
-    for folder in ('recomendaciones/pagina', 'recomendaciones/autores', 'recomendaciones/editoriales'):
+    for folder in ('recomendaciones/pagina', 'recomendaciones/autores', 'recomendaciones/autores/pagina', 'recomendaciones/editoriales'):
         for path in sorted((ROOT / folder).glob('*/index.html')):
             rel = path.relative_to(ROOT).as_posix()
             if subprocess.run(['git', 'cat-file', '-e', 'HEAD:' + rel], cwd=ROOT).returncode != 0:
