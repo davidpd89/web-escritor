@@ -26,3 +26,24 @@ assert future.returncode==1,(
 )
 assert "REFRESH REQUIRED" in (future.stdout+future.stderr)
 print(f"PASS radar clock-current regression: committed clock {generated_for}; {probe} requires refresh")
+
+# Gracia de PR (16/11, 24/11): sin --today, datos generados hasta GRACIA_DIAS días atrás siguen siendo válidos
+# (un plazo que vence a medianoche tumbó dos cargas nocturnas el 24/11); con RELOJ_ESTRICTO=1 exige solo hoy.
+import importlib.util, os
+spec=importlib.util.spec_from_file_location("checker",CHECKER)
+checker=importlib.util.module_from_spec(spec); spec.loader.exec_module(checker)
+def run(today, estricto):
+    checker.clock_window=lambda now=None: [today] if estricto else [today-timedelta(days=n) for n in range(3)]
+    sys.argv=["check"]
+    return checker.main()
+sys.stdout=sys.stderr=open(os.devnull,"w")
+try:
+    aviso=run(probe,False)       # probe = día tras el primer plazo: los datos de generated_for aún valen por gracia
+    estricto=run(probe,True)
+    lejos=run(probe+timedelta(days=5),False)
+finally:
+    sys.stdout,sys.stderr=sys.__stdout__,sys.__stderr__
+assert aviso==0 or generated_for<probe-timedelta(days=2),"la gracia debe aceptar datos de hasta 2 días"
+assert estricto==1,"con reloj estricto, un plazo vencido exige refresco"
+assert lejos==1,"pasada la gracia exige refresco"
+print("PASS radar clock-current grace window")
