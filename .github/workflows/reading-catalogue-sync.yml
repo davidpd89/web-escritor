@@ -52,7 +52,9 @@ jobs:
         with:
           sparse-checkout: |
             scripts/ci_intake_backup.py
+            scripts/gh_listas.py
             scripts/noche.py
+            scripts/resultado_carga.py
             scripts/catalogo_estado.py
           sparse-checkout-cone-mode: false
       - id: madrid
@@ -209,6 +211,14 @@ jobs:
           RESULTADO="$CARGA"
           if [ -z "$RESULTADO" ] || [ "$RESULTADO" = 'skipped' ]; then RESULTADO="$JOB"; fi
           python scripts/noche.py cerrar --resultado "$RESULTADO"
+      - name: Report the failure as a `fallo` issue
+        # R4-5 (D2): una carga degradada (publicó, pero descartó altas o precios) o fallida por código abre una issue
+        # `fallo` por firma (o comenta en la abierta). Nadie arregla código de noche: se arregla de día.
+        if: ${{ always() && !inputs.dry_run && steps.libro.outputs.cargar == 'true' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/resultado_carga.py issue
       - name: Chain the next night batch
         # GitHub drops most hourly crons under load (2026-11-04: one scheduled run all night), so a
         # batch that published new books dispatches the next one itself. Night only (00-06 Madrid, the

@@ -41,6 +41,7 @@ from zoneinfo import ZoneInfo
 MADRID = ZoneInfo('Europe/Madrid')
 FICHERO = 'noche.json'
 HORA_FIN = 6                 # la noche de carga acaba a las 06:00 de Madrid (después Actions es del código)
+SIN_REINTENTO = ('codigo', 'dato')  # mismo lote y mismo código dan el mismo fallo: va a la issue `fallo`
 MAX_FALLIDOS = 3             # cargas fallidas por noche: con 3, ni relojes ni reintentos vuelven a cargar
 DESPACHADOS = ('cadena', 'reintento')  # cargan si su pendiente sigue en el libro; manual carga siempre
 
@@ -93,6 +94,7 @@ def toca_reintento(libro: dict | None, now: datetime, run: int | None = None, in
     if now.astimezone(MADRID).hour >= HORA_FIN:
         return False, 'ya no es de noche'
     r = resumen(libro, now)
+    propio = None
     if run is not None:
         propio = next((i for i in de_hoy(libro, now)['intentos']
                        if i.get('run') == run and i.get('intento') == intento), None)
@@ -103,11 +105,29 @@ def toca_reintento(libro: dict | None, now: datetime, run: int | None = None, in
     fallidos = r['fallidos']
     if fallidos >= MAX_FALLIDOS:
         return False, f'{fallidos} cargas fallidas esta noche'
+    if propio is not None:
+        # D2 (R4-5): un fallo de código da lo mismo sobre el mismo código; espera al arreglo de día (issue `fallo`).
+        if propio.get('clase') in SIN_REINTENTO:
+            return False, (f"fallo de {propio['clase'].replace('codigo', 'código')} (firma {propio.get('firma')}): "
+                           "sin reintento, va a la issue `fallo`")
+        # La guarda no es «main avanzó» (cualquier commit de un bot lo mueve): es «ya se intentó esta noche con la
+        # misma firma sobre el mismo código».
+        repetido = next((i for i in de_hoy(libro, now)['intentos'] if i is not propio and i.get('firma')
+                         and i.get('firma') == propio.get('firma') and i.get('sha') == propio.get('sha')), None)
+        if repetido:
+            return False, (f"la ejecución {repetido.get('run')} ya falló esta noche con la firma "
+                           f"{propio.get('firma')} sobre el mismo código")
     return True, f'{fallidos} cargas fallidas esta noche: se reintenta'
 
 
+def _firmas(intento: dict) -> set:
+    f = intento.get('firma')
+    return set(f) if isinstance(f, list) else {f} if f else set()
+
+
 def toca_cadena(libro: dict | None, now: datetime, aceptados: int, guardadas: int = 0,
-                consulta_pendiente: bool = False) -> tuple[bool, str]:
+                consulta_pendiente: bool = False, run: int | None = None,
+                intento: int | None = None) -> tuple[bool, str]:
     """Encadena si el lote trajo altas o si quedan ramas de datos guardadas (Fable R4-11, F8): una carga recuperada
     o reanudada sin altas propias también sigue, en vez de esperar una noche por cada punto de control.
 
@@ -119,6 +139,16 @@ def toca_cadena(libro: dict | None, now: datetime, aceptados: int, guardadas: in
         return False, 'el lote no trajo libros nuevos ni quedan ramas guardadas'
     if resumen(libro, now)['pendientes']:
         return False, 'ya hay otra carga despachada'
+    # Tope por firma también para las degradadas (R5-12, hallazgo 6): si otra carga de esta noche ya se degradó con
+    # el mismo paso roto sobre el mismo código, encadenar repite el descarte; se para y lo arregla el día.
+    noche = de_hoy(libro, now)['intentos']
+    propio = next((i for i in noche if run is not None and i.get('run') == run and i.get('intento') == intento), None)
+    if propio is not None and propio.get('resultado') == 'degradado':
+        repetido = next((i for i in noche if i is not propio and i.get('resultado') == 'degradado'
+                         and i.get('sha') == propio.get('sha') and _firmas(i) & _firmas(propio)), None)
+        if repetido:
+            return False, (f"la ejecución {repetido.get('run')} ya se degradó esta noche con la firma "
+                           f"{', '.join(sorted(_firmas(repetido) & _firmas(propio)))} sobre el mismo código")
     return True, f'{aceptados} altas y {guardadas} ramas guardadas: se encadena el siguiente lote'
 
 
@@ -260,11 +290,25 @@ def _abrir(now, run, intento, args) -> int:
     return 0
 
 
+def resultado_de_la_carga(resultado, informe):
+    """(resultado, clase, firma) del cierre: el del job, afinado con lo que escribió la carga (R4-5). Un job en
+    verde con pasos descartados es `degradado`; uno en rojo toma la clase y la firma del fallo."""
+    informe = informe or {}
+    if resultado == 'success' and informe.get('resultado') == 'degradado':
+        return 'degradado', None, [p['firma'] for p in informe.get('degradado', [])]  # lista, no texto (hallazgo 9)
+    if resultado == 'failure' and informe.get('resultado') == 'fallido':
+        return resultado, informe.get('clase'), informe.get('firma')
+    return resultado, None, None
+
+
 def _cerrar(now, run, intento, args) -> int:
     # El cierre nunca cambia el resultado de la carga (ni la rama success()/failure() de la cadena): si no se
     # escribe, el intento queda en_curso y el siguiente turno lo cierra como corte.
     try:
-        noche = cerrar(leer(), now, run, intento, args.resultado, sha=_head())
+        import resultado_carga
+        from pathlib import Path
+        final, clase, firma = resultado_de_la_carga(args.resultado, resultado_carga.leer(Path.cwd()))
+        noche = cerrar(leer(), now, run, intento, final, clase, firma, sha=_head())
         escribir(noche, f'Noche {noche["dia"]}: {run} {args.resultado}')
     except Exception as exc:  # noqa: BLE001
         _resumen_job(f'Libro de la noche sin cerrar ({type(exc).__name__}): lo cerrará el siguiente turno.')
@@ -277,7 +321,8 @@ def _despacho(now, run, intento, args) -> int:
     try:
         libro = leer()
         if args.accion == 'cadena':
-            toca, porque = toca_cadena(libro, now, args.aceptados, args.guardadas, args.consulta_pendiente)
+            toca, porque = toca_cadena(libro, now, args.aceptados, args.guardadas,
+                                    args.consulta_pendiente, run=run, intento=intento)
         else:
             toca, porque = toca_reintento(libro, now, run, intento)
         if toca:
