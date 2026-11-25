@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_CONTRACTS = (
     'test_reading_affiliate_card_ux', 'test_reading_card_contract', 'test_reading_catalogue_geo',
     'test_reading_catalogue_navigation_ux', 'test_reading_collection_lastmod', 'test_reading_editorial_shouting',
-    'test_reading_formats', 'test_reading_text_encoding', 'test_reading_full_synopsis_taxonomy', 'test_reading_itemlist_detail_title_parity',
+    'test_reading_formats', 'test_reading_text_encoding', 'test_reading_title_only_fiction.PublishedCatalogueTests', 'test_reading_full_synopsis_taxonomy', 'test_reading_itemlist_detail_title_parity',
     'test_reading_llms_index', 'test_reading_multibook_ics_page_parity', 'test_reading_open_graph_book',
     'test_reading_pvp_coherence', 'test_reading_related_books', 'test_reading_taxonomy_derived',
     'test_reading_intake_pipeline.ContractTests.test_catalogue_titles_are_bounded_distinct_and_name_the_author',

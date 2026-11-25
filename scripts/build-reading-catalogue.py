@@ -90,6 +90,8 @@ BOOK_FIELDS = set("id slug titulo autores descripcion_breve estado portada_local
 FORMATS = {"tapa-blanda": "Tapa blanda", "tapa-dura": "Tapa dura", "ebook": "Kindle", "audiolibro": "Audiolibro"}
 BOOK_FIELDS.update({'editorial_slug', 'formato_edicion', 'amazon_busqueda_isbn', 'fecha_publicacion_parcial', 'precios_amazon_revision', 'formatos_amazon_buscados', 'formatos_pagina_buscados', 'portadas_amazon_buscadas', 'portada_sustituida'})
 BOOK_FIELDS.update({'sinopsis_breve', 'sinopsis_fuente_url', 'sinopsis_tipo', 'categorias_excluidas', 'sinopsis_completa'})
+# Público según la mayoría de ramas de Amazon de la edición impresa (barrido de precios; reading_taxonomy.node_audience).
+BOOK_FIELDS.add('publico_amazon')
 
 
 class ValidationError(ValueError):
@@ -256,6 +258,7 @@ def validate(data, root, actual):
         require(isinstance(b.get("autores"), list) and b["autores"] and all(isinstance(a, str) and a.strip() for a in b["autores"]), f"{name}: autores debe ser una lista")
         work = (b['titulo'].strip().casefold(), tuple(sorted(a.strip().casefold() for a in b['autores'])))
         unico(work_owner, work, name, 'obra duplicada; reunir las ediciones en una ficha')
+        require(b.get('publico_amazon') in (None, 'infantil'), f"{name}: publico_amazon inválido")
         if b.get("isbn13"):
             require(valid_isbn(b["isbn13"]), f"{name}: ISBN inválido")
             unico(isbn_owner, b['isbn13'], name, 'ISBN duplicado')
