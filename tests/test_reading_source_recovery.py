@@ -90,11 +90,14 @@ class RecoveryTests(unittest.TestCase):
                store:json.dumps({'base_url':base,'archivos':['isbn-9780241838044.webp','vieja.webp'],'sha256':{'isbn-9780241838044.webp':'1'*64,'vieja.webp':'2'*64},
                                  'almacenes':[second],'almacen':{'isbn-9780241838044.webp':1}})})
    repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
-   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book'),store:json.dumps({'base_url':base,'archivos':['vieja.webp'],'sha256':{'vieja.webp':'2'*64}})})
+   # main ya abrió otro almacén antes (CodeRabbit #1586): el número se recalcula en la lista de main, no se copia.
+   third=base+'-3'
+   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book'),store:json.dumps({'base_url':base,'archivos':['vieja.webp','main3.webp'],'sha256':{'vieja.webp':'2'*64,'main3.webp':'5'*64},
+                                                                                      'almacenes':[third],'almacen':{'main3.webp':1}})})
    self.assertEqual(refresh.carry(branch,root=repo.work),['isbn-9780241838044'])
    manifest=json.loads((repo.work/store).read_text(encoding='utf-8'))
-   self.assertEqual(manifest['almacenes'],[second])
-   self.assertEqual(manifest['almacen'],{'isbn-9780241838044.webp':1})
+   self.assertEqual(manifest['almacenes'],[third,second])
+   self.assertEqual(manifest['almacen'],{'main3.webp':1,'isbn-9780241838044.webp':2})
  def test_a_legacy_manifest_without_digests_sets_its_books_aside_instead_of_failing(self):
   # #1500: el punto de guardado de una carga cuyo runner murió registró nombres sin huella y sin bytes subidos.
   with tempfile.TemporaryDirectory() as tmp:

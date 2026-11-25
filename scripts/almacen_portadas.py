@@ -2,7 +2,7 @@
 """Gestión de los almacenes de portadas (repositorios de Pages aparte, 1 GB cada uno).
 
   cupo KB                 estado del almacén activo según su tamaño en KB (lo usa la carga): ok, aviso o lleno
-  migrar DIR              copia las portadas locales al almacén clonado en DIR, las registra y las sube
+  migrar DIR URL          copia las portadas locales al almacén clonado en DIR, las registra y las sube
   verificar [--borrar]    comprueba que cada portada migrada responde en Pages y, con --borrar, quita la copia local
   nuevo N                 crea el almacén web-escritor-portadas-N con Pages, deploy key, secreto y variable
 
@@ -45,9 +45,14 @@ def pendientes(root: Path) -> list[Path]:
     return sorted(p for p in folder.iterdir() if p.is_file() and store.NAME.fullmatch(p.name) and p.name not in known) if folder.is_dir() else []
 
 
-def migrar(root: Path, directory: Path) -> int:
-    """Copia y registra en el almacén activo; no borra nada (eso lo hace verificar cuando Pages ya las sirve)."""
+def migrar(root: Path, directory: Path, url: str) -> int:
+    """Copia y registra en el almacén clonado en `directory`, cuya URL de Pages es `url`; no borra nada (eso lo hace
+    verificar cuando Pages ya las sirve). La URL es obligatoria: sin ella las altas apuntarían al primer almacén
+    aunque los ficheros se subieran a otro (404 en la web)."""
+    if not store._https(url.rstrip('/')):
+        raise ValueError(f'migrar necesita la URL https del almacén de destino, no {url!r}')
     os.environ[store.STORE_DIR_ENV] = str(directory)
+    os.environ[store.STORE_URL_ENV] = url.rstrip('/')
     moved = 0
     for path in pendientes(root):
         content = path.read_bytes()
@@ -57,24 +62,25 @@ def migrar(root: Path, directory: Path) -> int:
         shutil.copyfile(path, target)
         store.register(root, path.name, store.digest(content))
         moved += 1
-    if moved:
-        store.flush(f'Migración de {moved} portadas desde web-escritor', root=root)
+    # Siempre: si un flush anterior falló tras registrar, repetir migrar sin pendientes debe volver a subir.
+    store.flush(f'Migración de {moved} portadas desde web-escritor', root=root)
     return moved
 
 
-def _head(url: str) -> bool:
+def _get(url: str, sha: str) -> bool:
+    """Pages sirve esos mismos bytes (un 200 con otro contenido no autoriza a borrar la copia local)."""
     try:
-        req = urllib.request.Request(url, method='HEAD', headers={'User-Agent': 'web-escritor-almacen'})
+        req = urllib.request.Request(url, headers={'User-Agent': 'web-escritor-almacen'})
         with urllib.request.urlopen(req, timeout=30) as res:
-            return res.status == 200
+            return res.status == 200 and store.digest(res.read()) == sha
     except Exception:
         return False
 
 
-def _responde(url: str, *, intentos: int = 3, head=_head, espera=time.sleep) -> bool:
-    """Pages corta a veces miles de HEAD seguidos: un fallo suelto no es una portada ausente."""
+def _responde(url: str, sha: str, *, intentos: int = 3, get=_get, espera=time.sleep) -> bool:
+    """Pages corta a veces miles de peticiones seguidas: un fallo suelto no es una portada ausente."""
     for i in range(intentos):
-        if head(url):
+        if get(url, sha):
             return True
         if i + 1 < intentos:
             espera(2 * (i + 1))
@@ -82,12 +88,13 @@ def _responde(url: str, *, intentos: int = 3, head=_head, espera=time.sleep) -> 
 
 
 def verificar(root: Path, *, borrar: bool = False, probe=_responde, workers: int = 16) -> tuple[int, list[str]]:
-    """Devuelve (borradas, fallidas). Solo se borra la copia local cuyo almacén ya sirve esos mismos bytes registrados."""
+    """Devuelve (borradas, fallidas). Solo se borra la copia local cuyo almacén ya sirve los bytes registrados y que
+    sigue siendo esos mismos bytes."""
     data = store.load(root)
     folder = root / LOCAL
     local = [n for n in data['archivos'] if (folder / n).is_file()]
     with ThreadPoolExecutor(workers) as pool:
-        ok = list(pool.map(lambda n: probe(f'{store.url_of(data, n)}/{n}'), local))
+        ok = list(pool.map(lambda n: probe(f'{store.url_of(data, n)}/{n}', data['sha256'][n]), local))
     failed = [n for n, good in zip(local, ok) if not good]
     removed = 0
     if borrar:
@@ -126,14 +133,16 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest='cmd', required=True)
     sub.add_parser('cupo').add_argument('kb', nargs='?', default='')
-    sub.add_parser('migrar').add_argument('dir', type=Path)
+    m = sub.add_parser('migrar')
+    m.add_argument('dir', type=Path)
+    m.add_argument('url', help='URL de Pages del almacén clonado en DIR')
     sub.add_parser('verificar').add_argument('--borrar', action='store_true')
     sub.add_parser('nuevo').add_argument('n', type=int)
     args = parser.parse_args(argv)
     if args.cmd == 'cupo':
         print(cupo(int(args.kb) if str(args.kb).strip().isdigit() else None))
     elif args.cmd == 'migrar':
-        print(f'migradas: {migrar(store.ROOT, args.dir)}')
+        print(f'migradas: {migrar(store.ROOT, args.dir, args.url)}')
     elif args.cmd == 'verificar':
         removed, failed = verificar(store.ROOT, borrar=args.borrar)
         print(f'borradas: {removed}; sin responder: {len(failed)}')

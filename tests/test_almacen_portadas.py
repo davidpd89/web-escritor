@@ -49,34 +49,66 @@ class AlmacenPortadasTest(unittest.TestCase):
         self.assertLess(almacen.LLENO_KB, 1024 * 1024)  # por debajo del GB de Pages
 
     def test_migrar_sube_y_registra_sin_borrar_y_verificar_solo_borra_lo_que_pages_sirve(self):
-        self.assertEqual(almacen.migrar(self.root, self.clone), 2)
+        self.assertEqual(almacen.migrar(self.root, self.clone, BASE), 2)
         subidas = git('ls-tree', '--name-only', 'main', cwd=self.remote).split()
         self.assertEqual(sorted(subidas), ['autor.webp', 'isbn-1.webp', 'isbn-2.webp'])
         self.assertEqual(store.names(self.root), {'autor.webp', 'isbn-1.webp', 'isbn-2.webp'})
         self.assertTrue((self.root / almacen.LOCAL / 'isbn-1.webp').is_file())  # migrar no borra
-        self.assertEqual(almacen.migrar(self.root, self.clone), 0)  # repetirla no hace nada
+        self.assertEqual(almacen.migrar(self.root, self.clone, BASE), 0)  # repetirla no hace nada
         # Pages aún no sirve isbn-2: esa copia local se queda
         servidas = {f'{BASE}/isbn-1.webp'}
-        borradas, fallidas = almacen.verificar(self.root, borrar=True, probe=lambda url: url in servidas)
+        borradas, fallidas = almacen.verificar(self.root, borrar=True, probe=lambda url, sha: url in servidas)
         self.assertEqual((borradas, fallidas), (1, ['isbn-2.webp']))
         self.assertFalse((self.root / almacen.LOCAL / 'isbn-1.webp').exists())
         self.assertTrue((self.root / almacen.LOCAL / 'isbn-2.webp').is_file())
 
     def test_un_fallo_suelto_de_pages_no_cuenta_como_ausente(self):
         respuestas = iter([False, False, True])
-        self.assertTrue(almacen._responde('u', head=lambda u: next(respuestas), espera=lambda s: None))
-        self.assertFalse(almacen._responde('u', head=lambda u: False, espera=lambda s: None))
+        self.assertTrue(almacen._responde('u', 'h', get=lambda u, h: next(respuestas), espera=lambda s: None))
+        self.assertFalse(almacen._responde('u', 'h', get=lambda u, h: False, espera=lambda s: None))
+
+    def test_un_200_con_otros_bytes_no_autoriza_a_borrar(self):
+        class Res:
+            status = 200
+            def __enter__(self): return self
+            def __exit__(self, *a): return False
+            def read(self): return b'otra cosa'
+        from unittest import mock
+        with mock.patch.object(almacen.urllib.request, 'urlopen', return_value=Res()):
+            self.assertFalse(almacen._get('https://x/isbn-1.webp', store.digest(b'uno')))
+            self.assertTrue(almacen._get('https://x/isbn-1.webp', store.digest(b'otra cosa')))
+
+    def test_migrar_exige_la_url_del_almacen_de_destino(self):
+        with self.assertRaisesRegex(ValueError, 'URL https'):
+            almacen.migrar(self.root, self.clone, '')
+        self.assertFalse((self.clone / 'isbn-1.webp').exists())  # nada copiado
+        segundo = BASE + '-2'
+        almacen.migrar(self.root, self.clone, segundo)
+        data = store.load(self.root)
+        self.assertEqual(store.url_of(data, 'isbn-1.webp'), segundo)
+        self.assertEqual(store.url_of(data, 'autor.webp'), BASE)
+
+    def test_repetir_migrar_vuelve_a_subir_lo_registrado_aunque_no_haya_pendientes(self):
+        from unittest import mock
+        real = store.flush
+        with mock.patch.object(store, 'flush', side_effect=RuntimeError('red')):
+            with self.assertRaises(RuntimeError):
+                almacen.migrar(self.root, self.clone, BASE)
+        self.assertEqual(almacen.migrar(self.root, self.clone, BASE), 0)  # sin pendientes, pero sube
+        subidas = git('ls-tree', '--name-only', 'main', cwd=self.remote).split()
+        self.assertIn('isbn-1.webp', subidas)
+        self.assertIs(store.flush, real)
 
     def test_una_copia_local_cambiada_despues_de_migrar_no_se_borra(self):
-        almacen.migrar(self.root, self.clone)
+        almacen.migrar(self.root, self.clone, BASE)
         (self.root / almacen.LOCAL / 'isbn-1.webp').write_bytes(b'otra')
-        self.assertEqual(almacen.verificar(self.root, borrar=True, probe=lambda url: True), (1, []))  # solo isbn-2
+        self.assertEqual(almacen.verificar(self.root, borrar=True, probe=lambda url, sha: True), (1, []))  # solo isbn-2
         self.assertTrue((self.root / almacen.LOCAL / 'isbn-1.webp').is_file())
 
     def test_un_nombre_ocupado_en_el_almacen_con_otros_bytes_para_la_migracion(self):
         (self.clone / 'isbn-1.webp').write_bytes(b'distinto')
         with self.assertRaisesRegex(ValueError, 'isbn-1.webp'):
-            almacen.migrar(self.root, self.clone)
+            almacen.migrar(self.root, self.clone, BASE)
 
     def test_nuevo_abre_el_repo_con_pages_y_deja_la_variable_para_el_final(self):
         calls = []
