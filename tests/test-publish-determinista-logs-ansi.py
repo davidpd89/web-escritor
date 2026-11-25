@@ -32,13 +32,13 @@ def fake(responder):
 
 
 def gh_actual(args):
-    if args[-1].endswith('/jobs?per_page=100'):
+    if '/jobs?per_page=100' in args[-1]:  # con o sin &page=N (listas paginadas, #1395)
         return 0, JOBS, ''
     return (0, LOG, '') if '--allow-escape-sequences' in args else (1, '', ESCAPES)
 
 
 def gh_antiguo(args):
-    if args[-1].endswith('/jobs?per_page=100'):
+    if '/jobs?per_page=100' in args[-1]:  # con o sin &page=N (listas paginadas, #1395)
         return 0, JOBS, ''
     return (1, '', VIEJO) if '--allow-escape-sequences' in args else (0, LOG, '')
 
