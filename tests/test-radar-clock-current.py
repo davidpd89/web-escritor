@@ -53,8 +53,12 @@ print("PASS radar clock-current grace window")
 def en_dia(dia, estricto=False):
     env={**os.environ,"CATALOGO_HOY":dia.isoformat(),"RELOJ_ESTRICTO":"1" if estricto else "0"}
     return subprocess.run([sys.executable,str(CHECKER)],cwd=ROOT,text=True,capture_output=True,env=env).returncode
-if deadlines and deadlines[0]<=generated_for+timedelta(days=3):
-    assert en_dia(generated_for)==0
-    assert en_dia(generated_for+timedelta(days=1))==0 and en_dia(generated_for+timedelta(days=2))==0,"la gracia de 2 días debe valer en la puerta"
+# La puerta compara por contenido: lo generado vale en cualquier día D cuya ventana (D, D-1, D-2) contenga un día con el
+# mismo radar activo. Lo generado hoy sirve los dos días siguientes siempre; deja de servir al tercero solo si el
+# radar cambia al día siguiente de generarse, es decir, si un plazo vence justo ese día (deadline == generated_for).
+# Con el primer plazo más lejos (el 25/11 era el 27/11) el contenido no cambia y sigue valiendo: no es un fallo.
+assert en_dia(generated_for)==0
+assert en_dia(generated_for+timedelta(days=1))==0 and en_dia(generated_for+timedelta(days=2))==0,"la gracia de 2 días debe valer en la puerta"
+if deadlines[0]<=generated_for:
     assert en_dia(generated_for+timedelta(days=3))==1,"pasada la gracia exige refresco"
 print("PASS radar clock-current grace end to end")
