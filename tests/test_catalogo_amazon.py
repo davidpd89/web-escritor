@@ -1172,6 +1172,66 @@ class Client(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, '^Amazon Creators HTTP 500$'):
                 client.post(ca.SEARCH, {})
 
+    def test_creators_down_stops_calling_after_a_few_and_probes_now_and_then(self):
+        """Caso 10 (25/11): con Creators caído cada petición agotaba sus reintentos y el presupuesto de la noche
+        pasaba de los 240 min del job. Tras CORTE caídas seguidas no se llama; cada SONDEO se prueba una."""
+        market = self.market
+        client = market.CreatorsPrices('id', 'secret', 'tag-21')
+        calls = []
+
+        def down(request, timeout):
+            calls.append(1)
+            raise self.error(503)
+
+        with self.patch.object(market, 'urlopen', side_effect=down):
+            for _ in range(market.CORTE + 3 * market.SONDEO):
+                with self.assertRaises(market.Unavailable):
+                    client.post(ca.SEARCH, {})
+        # 4 llamadas (1 + 3 reintentos) por cada una antes del corte y por cada sondeo
+        self.assertEqual(len(calls), 4 * (market.CORTE + 3))
+        with self.patch.object(market, 'urlopen', side_effect=[self.ok({'searchResult': {}})]):
+            for _ in range(market.SONDEO - 1):
+                with self.assertRaises(market.Unavailable):
+                    client.post(ca.SEARCH, {})
+            self.assertEqual(client.post(ca.SEARCH, {}), {'searchResult': {}})  # el sondeo vuelve: se reabre
+        self.assertFalse(client.caido)
+
+    def test_a_bad_request_is_not_an_outage(self):
+        client = self.market.CreatorsPrices('id', 'secret', 'tag-21')
+        with self.patch.object(self.market, 'urlopen', side_effect=lambda *a, **k: (_ for _ in ()).throw(self.error(400))):
+            for _ in range(self.market.CORTE + 1):
+                with self.assertRaises(RuntimeError) as caught:
+                    client.post(ca.SEARCH, {})
+                self.assertNotIsInstance(caught.exception, self.market.Unavailable)
+        self.assertFalse(client.caido)
+
+    def test_seeds_do_not_spend_errors_while_creators_is_down(self):
+        """Una caída de toda la noche no puede descartar semillas ni comerse el tiempo del job."""
+        market = self.market
+        seeds = [isbn('978841111%03d' % n) for n in range(60)]
+        calls = []
+
+        def down(request, timeout):
+            calls.append(1)
+            if b'client_credentials' in request.data:
+                return self.ok({'access_token': 'T', 'expires_in': 3600})
+            raise self.error(503)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            queue = {b: {'primera': '2026-11-01', 'intentos': 0, 'siguiente': '2026-11-06',
+                         'errores': ca.DROP_AFTER - 1} for b in seeds}
+            ca.write_json(ca.seeds_path(), {'cola': queue})
+            with self.patch.object(market, 'urlopen', side_effect=down), \
+                    (Path(tmp) / 'raw.jsonl').open('w', encoding='utf-8') as out:
+                res = ca.por_isbn(market.CreatorsPrices('id', 'secret', 'tag-21'), 'tag', '2026-11-06', out, 50)
+            state = json.loads(ca.seeds_path().read_text(encoding='utf-8'))
+        # con errores previos van sueltas (SPLIT_AFTER): 50 peticiones, solo las de antes del corte y los sondeos llaman
+        self.assertEqual(res['lotes_fallidos'], 50)
+        self.assertLessEqual(len(calls), 1 + 4 * (market.CORTE + 50 // market.SONDEO))
+        self.assertLessEqual(len(seeds) - len(state['cola']), market.CORTE - 1, 'solo cuentan las de antes del corte')
+        self.assertGreaterEqual(len(state['cola']), 10)
+
     def test_not_found_is_an_empty_page_for_the_walk(self):
         client = self.market.CreatorsPrices('id', 'secret', 'tag-21')
         with self.patch.object(self.market, 'urlopen', side_effect=self.error(404)):

@@ -550,6 +550,8 @@ def por_isbn(prov, tag, day, out, budget, only_dated=False):
             if isinstance(exc, AccessDenied):
                 raise
             failed += 1
+            if getattr(prov, 'caido', False):  # Creators caído, no este lote: vuelve mañana sin gastar errores
+                continue
             for isbn in batch:  # sin respuesta: no gasta reintentos, pero tras varios fallos va suelto y luego fuera
                 queue[isbn]['errores'] = queue[isbn].get('errores', 0) + 1
                 if queue[isbn]['errores'] >= DROP_AFTER:
