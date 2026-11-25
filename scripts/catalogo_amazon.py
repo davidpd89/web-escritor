@@ -54,7 +54,7 @@ from reading_amazon_market import (AMAZON_COVER_BASIS, AccessDenied, BINDINGS, C
                                    select_offers, store_prices)
 from reading_amazon_radar import BOOKS_NODE, SPANISH  # noqa: E402
 from reading_ratings_refresh import isbn13, key  # noqa: E402
-from reading_taxonomy import non_reading_reason  # noqa: E402
+from reading_taxonomy import node_audience, node_root, non_reading_reason  # noqa: E402
 import reading_cover_store as cover_store  # noqa: E402
 from reading_titles import proper_words, tidy_title  # noqa: E402,F401
 
@@ -1199,6 +1199,29 @@ def subjects(item, path):
     return out
 
 
+ADULT_TOPICS = {'Familia y crianza', 'Autoayuda', 'Salud', 'Psicología', 'Economía', 'Derecho'}
+AUDIENCE_SUBJECTS = ('Infantil', 'Novela juvenil', 'Juvenil')
+
+
+def record_subjects(item, materias):
+    """Las tres materias de género y, aparte, las de público, que no entran en el corte: «Infantil» es el nodo más
+    general y el corte a tres lo dejaba fuera (Narnia como terror, 25/11). «Infantil» sigue a la mayoría de ramas
+    (reading_taxonomy.node_audience): se añade si dominan las infantiles y se quita si dominan las de adultos."""
+    audience = node_audience(item)
+    ordered = sorted(materias, key=lambda m: m not in ('Cómic y novela gráfica', 'Guías y referencia'))
+    kept, genres = [], 0
+    for m in ordered:  # el orden se conserva: las de público no cuentan en el corte, pero no saltan delante
+        if m in AUDIENCE_SUBJECTS:
+            if not (m == 'Infantil' and audience == 'otro'):
+                kept.append(m)
+        elif genres < 3:
+            kept.append(m)
+            genres += 1
+    if audience == 'infantil' and 'Infantil' not in kept:
+        kept.insert(0, 'Infantil')
+    return kept
+
+
 def node_subjects(item):
     """Materias del mapa cerrado por rama de nodos, de lo concreto a lo general. En cada nivel cuenta antes el
     nombre sin contexto («Novelas románticas y paranormales para jóvenes»), que no es ambiguo, que el visible
@@ -1206,10 +1229,15 @@ def node_subjects(item):
     found = []
     for node in amazon_list(amazon_dict(item.get('browseNodeInfo')).get('browseNodes')):
         current, level = amazon_dict(node), 0
+        # «Vida familiar» o «Emociones y sentimientos» dentro de «Infantil» son temas de un cuento, no un libro de
+        # crianza ni de autoayuda (35 libros infantiles con «Desarrollo personal», 25/11).
+        skip = ADULT_TOPICS if node_root(node) == 'infantil' else set()
         while current:
             for name in (current.get('contextFreeName'), current.get('displayName')):
                 name = ' '.join(str(name or '').split())
                 subject = SUBJECT_OF_NODE.get(key(NODE_ALIASES.get(key(name), name)))
+                if subject in skip:
+                    break
                 if subject:
                     found.append((level, subject))
                     break
@@ -1310,7 +1338,7 @@ def to_record(entry, day, proper=None):
     record = {
         'isbn13': isbn, 'asin': asin, 'titulo': title, 'autores': authors, 'editorial': publisher,
         'encuadernacion': binding_text[:1].upper() + binding_text[1:], 'formato_edicion': fmt,
-        'materias': sorted(materias, key=lambda m: m not in ('Cómic y novela gráfica', 'Guías y referencia'))[:3], 'palabras_clave': [], 'nodos': nodes[:12],
+        'materias': record_subjects(item, materias), 'palabras_clave': [], 'nodos': nodes[:12],
         'fecha_publicacion_edicion': published[:10], 'precision_fecha': 'dia',
         'numero_paginas': pages if isinstance(pages, int) and 0 < pages < 10000 else None,
         'portada_fuente_url': f'https://www.amazon.es/dp/{asin}', 'cover_use_basis': COVER_BASIS,
