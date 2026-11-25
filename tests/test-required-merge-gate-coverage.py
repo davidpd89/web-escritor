@@ -9,6 +9,8 @@ workflow = (ROOT / ".github" / "workflows" / "required-merge-gate.yml").read_tex
 for modo in ("guion", "subrayado"):
     assert f"bash scripts/run-python-contracts.sh {modo}" in workflow, f"La puerta ya no corre los contratos ({modo})"
 workflow += (ROOT / "scripts" / "run-python-contracts.sh").read_text(encoding="utf-8")
+assert "bash scripts/run-node-contracts.sh" in workflow, "La puerta ya no corre los contratos Node"
+workflow += (ROOT / "scripts" / "run-node-contracts.sh").read_text(encoding="utf-8")
 
 required_fragments = [
     "name: Required merge gate",

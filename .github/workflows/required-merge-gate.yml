@@ -92,16 +92,8 @@ jobs:
 
       - name: Run universal Node engine contracts
         shell: bash
-        run: |
-          set -e
-          failed="$RUNNER_TEMP/node-failed"; : > "$failed"
-          for f in tests/*.mjs; do
-            [ -e "$f" ] || continue
-            echo "::group::$f"
-            node "$f" || echo "$f" >> "$failed"
-            echo "::endgroup::"
-          done
-          python scripts/confirmar_fallos.py --modo node "$failed"
+        # El mismo script corre en main tras cada fusión (main-contratos.yml).
+        run: bash scripts/run-node-contracts.sh
 
       - name: Validate release smoke syntax
         run: node --check tests/test-staging-smoke.mjs

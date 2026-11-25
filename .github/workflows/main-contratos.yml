@@ -5,7 +5,7 @@ name: Contratos en main tras fusionar
 # #1395 entraron con una hora de diferencia, el test de una no reconocía la paginación de la otra y nadie lo vio hasta
 # que las cargas de la noche cayeron una tras otra en la puerta (45517390273, 45528652551).
 #
-# Aquí corren los mismos contratos Python que la puerta (scripts/run-python-contracts.sh) sobre main tras cada fusión
+# Aquí corren los mismos contratos Python y Node que la puerta (scripts/run-*-contracts.sh) sobre main tras cada fusión
 # de código. scripts/night-autorepair.py vigila este flujo: si sale rojo lo relanza y, si repite, lo repara con IA, de
 # modo que un main roto por la tarde llega arreglado a la carga de la 01:17.
 
@@ -58,3 +58,7 @@ jobs:
         if: success() || failure()
         shell: bash
         run: bash scripts/run-python-contracts.sh subrayado
+      - name: Run universal Node engine contracts
+        if: success() || failure()
+        shell: bash
+        run: bash scripts/run-node-contracts.sh
