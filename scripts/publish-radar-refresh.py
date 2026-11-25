@@ -444,6 +444,44 @@ def fallo_determinista(repo, run_id):
     return bool(firmas_deterministas(repo, run_id))
 
 
+# La API de ficheros de una PR devuelve como mucho 3000 (documentado) sin avisar, y una carga del catálogo cambia
+# ~11 000 (10 954 en #1567-#1578): la guarda de rutas permitidas solo veía la primera cuarta parte (caso 22 de la
+# ronda 2 GPT, 25/11). Con el tope alcanzado, la lista sale de git, que no corta.
+TOPE_FICHEROS_PR = 3000
+
+
+def _git_salida(*args, cwd=None):
+    return subprocess.run(['git', *args], cwd=cwd, check=True, capture_output=True, text=True, encoding='utf-8',
+                          errors='replace', timeout=600).stdout
+
+
+def ficheros_pr(repo, pr, *, gh_=None, git=_git_salida, tope=TOPE_FICHEROS_PR):
+    """Ficheros de la PR como los da la API ({'filename', 'previous_filename'?}), completos aunque pasen del tope.
+
+    Por encima del tope compara en local la cabeza de la PR con su base común con main (lo mismo que enseña la PR).
+    Si git no puede, falla: una lista incompleta no sirve para decidir que todo está permitido."""
+    pages = json.loads((gh_ or gh)('api', '--paginate', '--slurp', f'repos/{repo}/pulls/{pr["number"]}/files?per_page=100'))
+    items = [item for page in pages for item in page]
+    if len(items) < tope:
+        return items
+    head = pr['headRefOid']
+    git('fetch', '--quiet', '--no-tags', 'origin', 'main', head)
+    base = git('merge-base', 'origin/main', head).strip()
+    campos = git('diff', '--name-status', '-z', '--no-color', '-M', base, head).split('\0')
+    completos, i = [], 0
+    while i < len(campos) and campos[i]:
+        estado = campos[i]
+        if estado[:1] in 'RC':
+            completos.append({'filename': campos[i + 2], 'previous_filename': campos[i + 1]})
+            i += 3
+        else:
+            completos.append({'filename': campos[i + 1]})
+            i += 2
+    if len(completos) < len(items):
+        raise ValueError(f'git ve {len(completos)} ficheros y la API {len(items)}: la lista de la PR no cuadra')
+    return completos
+
+
 def cancelar_si_sigue(run_id):
     """Cancela una ejecución obsoleta; si terminó entre el listado y la cancelación, no es un error."""
     try:
@@ -464,8 +502,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     if pr['baseRefName'] != 'main' or pr['state'] != 'OPEN':
         raise ValueError('Expected an open PR targeting main')
     sha = pr['headRefOid']
-    pages = json.loads(gh('api', '--paginate', '--slurp', f'repos/{repo}/pulls/{pr["number"]}/files?per_page=100'))
-    paths = [item for page in pages for item in page]
+    paths = ficheros_pr(repo, pr)
     if not paths or any(not allowed_path(item['filename']) or (item.get('previous_filename') and not allowed_path(item['previous_filename'])) for item in paths):
         raise ValueError('PR contains a path outside the generated-artifact policy')
     def runs_on_sha(workflow, event, exclude=frozenset()):

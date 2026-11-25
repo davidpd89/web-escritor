@@ -27,6 +27,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import confirmar_fallos  # noqa: E402
+import gh_listas  # noqa: E402
 
 FLUJO = 'main-contratos.yml'
 ACTIVOS = ('in_progress', 'queued', 'waiting', 'pending', 'requested')
@@ -40,9 +41,9 @@ def _gh(*args):
 
 
 def gh_runs():
-    salida = _gh('run', 'list', '--workflow', FLUJO, '--branch', 'main', '--limit', '20',
-                 '--json', 'databaseId,status,conclusion,headSha,createdAt')
-    return json.loads(salida or '[]')
+    # Una ventana a propósito: solo importa la última ejecución de main-contratos.
+    return gh_listas.ultimas(_gh, 'run', 'list', '--workflow', FLUJO, '--branch', 'main',
+                             '--json', 'databaseId,status,conclusion,headSha,createdAt', n=20)
 
 
 def gh_firmas(run_id):
