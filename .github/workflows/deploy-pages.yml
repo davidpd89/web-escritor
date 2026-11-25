@@ -115,11 +115,16 @@ jobs:
             python scripts/indexnow.py empty --output "$out"
             exit 0
           fi
-          [[ "$BEFORE_SHA" =~ ^[0-9a-f]{40}$ ]]
-          git merge-base --is-ancestor "$BEFORE_SHA" HEAD
-
           before_root="$RUNNER_TEMP/indexnow-before-src"
           before_dist="$RUNNER_TEMP/indexnow-before-dist"
+          # IndexNow no puede impedir el despliegue (caso 23 de la revisión GPT, 25/11): si no se puede reconstruir
+          # la web anterior (BEFORE_SHA que no es ancestro, build antiguo roto, disco), se publica igual con la lista
+          # de cambios vacía y un aviso. El subshell conserva `set -e` (en un `if !` bash lo ignoraría).
+          set +e
+          (
+          set -euo pipefail
+          [[ "$BEFORE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          git merge-base --is-ancestor "$BEFORE_SHA" HEAD
           git worktree add --detach "$before_root" "$BEFORE_SHA"
           # Tras el corte, el árbol «antes» no trae lo generado: se materializa igual que el actual (antes del
           # corte, --asegurar no hace nada; un commit anterior a --asegurar trae lo generado versionado).
@@ -133,7 +138,14 @@ jobs:
             --after-dist .preview-dist \
             --after-registry data/content-registry.json \
             --output "$out"
-          git worktree remove --force "$before_root"
+          )
+          rc=$?
+          set -e
+          git worktree remove --force "$before_root" 2>/dev/null || true
+          if [ "$rc" -ne 0 ]; then
+            echo "::warning title=IndexNow sin derivar::No se pudo comparar con $BEFORE_SHA (rc $rc): se despliega sin avisar a IndexNow."
+            python scripts/indexnow.py empty --output "$out"
+          fi
 
       - name: Upload IndexNow change set
         uses: actions/upload-artifact@v7
