@@ -101,5 +101,102 @@ class CongelarMainTest(unittest.TestCase):
         self.assertEqual(c.activas(consulta_de({'reading-catalogue-sync.yml': 'completed'})), [])
 
 
+class GhFalso:
+    """gh con las PR abiertas en memoria: `pr list` las lista, `pr edit` y `pr ready` las cambian."""
+
+    def __init__(self, prs, rompe=()):
+        self.prs = {p['number']: dict(p, labels=[{'name': n} for n in p.get('labels', [])]) for p in prs}
+        self.rompe = set(rompe)
+        self.llamadas = []
+
+    def __call__(self, *args):
+        import json
+        self.llamadas.append(args)
+        if args[:2] == ('pr', 'list'):
+            return json.dumps(list(self.prs.values()))
+        numero = int(args[2])
+        if numero in self.rompe:
+            raise subprocess.CalledProcessError(1, 'gh')
+        pr = self.prs[numero]
+        if args[1] == 'ready':
+            pr['isDraft'] = '--undo' in args
+        elif '--add-label' in args:
+            pr['labels'].append({'name': args[-1]})
+        elif '--remove-label' in args:
+            pr['labels'] = [e for e in pr['labels'] if e['name'] != args[-1]]
+        return ''
+
+    def estado(self):
+        return {n: (p['isDraft'], c.ETIQUETA_CARGA in [e['name'] for e in p['labels']]) for n, p in self.prs.items()}
+
+
+def libre(flujo):
+    return [{'databaseId': 1, 'status': 'completed', 'createdAt': 'x', 'event': 'schedule'}]
+
+
+def ocupada(flujo):
+    return [{'databaseId': 2, 'status': 'queued', 'createdAt': 'x', 'event': 'workflow_dispatch'}]
+
+
+class CongelarPrAbiertasTest(unittest.TestCase):
+    """Caso 6 de la revisión GPT (25/11): el check solo corre al abrir o actualizar la PR, así que una PR verde de
+    antes de la carga se fusionaba en mitad de ella. La carga las pasa a borrador y el segador las devuelve."""
+
+    PRS = [
+        {'number': 1, 'headRefName': 'fix/algo', 'isDraft': False},
+        {'number': 2, 'headRefName': 'feat/borrador-del-autor', 'isDraft': True},
+        {'number': 3, 'headRefName': 'automation/reading-catalogue-2026-11-25', 'isDraft': False},
+        {'number': 4, 'headRefName': 'fix/urgente', 'isDraft': False, 'labels': ['sin-congelar']},
+        {'number': 5, 'headRefName': 'revision/paquete-07', 'isDraft': False},
+    ]
+
+    def test_una_pr_verde_de_antes_queda_sin_poder_fusionarse_y_vuelve_al_acabar(self):
+        gh = GhFalso(self.PRS)
+        self.assertEqual(c.congelar(gh, imprimir=lambda *_: None), [1])
+        self.assertEqual(gh.estado()[1], (True, True), 'borrador y marcada')
+        self.assertEqual({n: e for n, e in gh.estado().items() if n != 1},
+                         {2: (True, False), 3: (False, False), 4: (False, False), 5: (False, False)},
+                         'ni el borrador del autor, ni la carga, ni las exentas')
+        self.assertEqual(c.descongelar(gh, libre, imprimir=lambda *_: None), [1])
+        self.assertEqual(gh.estado()[1], (False, False))
+        self.assertEqual(gh.estado()[2], (True, False), 'el borrador del autor sigue siéndolo')
+
+    def test_con_otra_carga_en_cola_siguen_congeladas(self):
+        gh = GhFalso(self.PRS)
+        c.congelar(gh, imprimir=lambda *_: None)
+        self.assertEqual(c.descongelar(gh, ocupada, imprimir=lambda *_: None), [])
+        self.assertEqual(gh.estado()[1], (True, True))
+
+    def test_falla_abierto(self):
+        gh = GhFalso(self.PRS + [{'number': 6, 'headRefName': 'fix/otra', 'isDraft': False}], rompe={1})
+        salida = []
+        self.assertEqual(c.congelar(gh, imprimir=salida.append), [6], 'una PR que falla no para las demás')
+        self.assertIn('#1 sin congelar', '\n'.join(salida))
+
+        def roto(*args):
+            raise subprocess.CalledProcessError(1, 'gh')
+        self.assertEqual(c.congelar(roto, imprimir=lambda *_: None), [])
+        self.assertEqual(c.descongelar(roto, libre, imprimir=lambda *_: None), [])
+
+    def test_si_falla_el_borrador_la_etiqueta_la_devuelve_igual(self):
+        """Etiqueta antes que borrador: descongelar quita la etiqueta aunque la PR no llegara a borrador."""
+        gh = GhFalso([{'number': 1, 'headRefName': 'fix/algo', 'isDraft': False, 'labels': [c.ETIQUETA_CARGA]}])
+        self.assertEqual(c.descongelar(gh, libre, imprimir=lambda *_: None), [1])
+        self.assertEqual(gh.estado()[1], (False, False))
+        self.assertNotIn(('pr', 'ready', '1'), gh.llamadas, 'no la marca lista si no era borrador')
+
+    def test_workflows_cableados(self):
+        sync = (ROOT / '.github/workflows/reading-catalogue-sync.yml').read_text(encoding='utf-8')
+        segador = (ROOT / '.github/workflows/reading-catalogue-reaper.yml').read_text(encoding='utf-8')
+        espera = (ROOT / '.github/workflows/congelar-main.yml').read_text(encoding='utf-8')
+        self.assertIn('scripts/congelar_main.py congelar', sync)
+        self.assertLess(sync.index('noche.py abrir'), sync.index('congelar_main.py congelar'))
+        tras = segador.split('descongelar:', 1)[1]
+        self.assertIn('scripts/congelar_main.py descongelar', tras)
+        self.assertNotIn('conclusion', tras.split('steps:', 1)[0], 'como acabe la carga, no solo en rojo')
+        self.assertIn('pull-requests: write', tras)
+        self.assertIn(c.ETIQUETA_CARGA, espera, 'su etiqueta no relanza la espera')
+
+
 if __name__ == '__main__':
     unittest.main()

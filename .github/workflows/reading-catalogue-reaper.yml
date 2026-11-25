@@ -46,3 +46,29 @@ jobs:
             gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main -f motivo=reintento
             echo "Carga muerta $MUERTA: reintento despachado." >> "$GITHUB_STEP_SUMMARY"
           fi
+
+  descongelar:
+    # Tras cualquier carga terminada, como acabe: las PR que pasó a borrador vuelven si no queda otra en marcha ni en
+    # cola (scripts/congelar_main.py). Aquí y no en la carga: también corre si el runner murió o se agotó el tiempo.
+    if: github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            scripts/congelar_main.py
+            scripts/gh_listas.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Unfreeze pull requests
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: python scripts/congelar_main.py descongelar

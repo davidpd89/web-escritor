@@ -21,6 +21,8 @@ concurrency:
 jobs:
   congelacion:
     name: Main congelado por carga
+    # La etiqueta que pone y quita la propia carga (scripts/congelar_main.py congelar) no relanza la espera.
+    if: github.event.label.name != 'congelada-por-carga'
     runs-on: ubuntu-latest
     timeout-minutes: 330
     steps:

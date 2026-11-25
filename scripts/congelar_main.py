@@ -12,6 +12,15 @@ mirar (abre en vez de cerrar: un fallo de gh no debe parar el repositorio). Pasa
 observada tarda ~4 h) también abre, avisando.
 
     python scripts/congelar_main.py            # lee HEAD_REF y ETIQUETAS del entorno (las pone el workflow)
+    python scripts/congelar_main.py congelar   # al empezar una carga: las PR abiertas ajenas pasan a borrador
+    python scripts/congelar_main.py descongelar  # al acabar una carga (segador): vuelven, si no queda otra
+
+El check solo corre al abrir o actualizar la PR: una PR que ya estaba verde antes de la carga se podía fusionar en
+mitad de ella (caso 6 de la revisión GPT, 25/11; el 23/11 se fusionaron dos con una carga en marcha). Al empezar,
+la carga pasa a borrador las PR abiertas que no son de la carga, con la etiqueta ETIQUETA_CARGA (un borrador no
+se fusiona, ni a mano ni con auto-merge, y no gasta runners esperando); al acabar la última carga de la cola
+vuelven a «lista para revisar» solo las que llevan esa etiqueta (los borradores del autor siguen siéndolo). Pasar a
+borrador y volver no dispara la CI (los flujos no escuchan converted_to_draft ni ready_for_review).
 """
 import json
 import os
@@ -28,6 +37,8 @@ EXENTAS = ('automation/', 'revision/')  # la carga y su refresco publican por aq
 ETIQUETA = 'sin-congelar'
 TOPE_MIN = 300
 CADA_S = 120
+ETIQUETA_CARGA = 'congelada-por-carga'
+CARGA = 'reading-catalogue-sync.yml'
 ERRORES = 3  # consultas fallidas seguidas antes de abrir: un 502 suelto de gh no abre main en plena carga
 
 
@@ -85,7 +96,70 @@ def esperar(head_ref='', etiquetas='', consulta=gh_runs, dormir=time.sleep, ahor
         dormir(cada_s)
 
 
-def main():
+def _abiertas(gh=_gh):
+    return gh_listas.lista(gh, 'pr', 'list', '--base', 'main', '--state', 'open',
+                           '--json', 'number,headRefName,isDraft,labels')
+
+
+def _nombres(pr):
+    return [e.get('name', '') for e in pr.get('labels') or []]
+
+
+def congelar(gh=_gh, imprimir=print):
+    """Pasa a borrador las PR abiertas ajenas a la carga. Falla abierto: un error deja la PR como estaba."""
+    hechas = []
+    try:
+        prs = _abiertas(gh)
+    except (subprocess.SubprocessError, OSError, ValueError, gh_listas.Truncada) as exc:
+        imprimir(f'::warning::No se pudieron listar las PR para congelarlas ({type(exc).__name__}).')
+        return hechas
+    for pr in prs:
+        if pr.get('isDraft') or exenta(pr.get('headRefName', ''), ','.join(_nombres(pr))):
+            continue
+        numero = str(pr['number'])
+        try:  # la etiqueta primero: si falla el borrador, descongelar la vuelve a dejar como estaba
+            gh('pr', 'edit', numero, '--add-label', ETIQUETA_CARGA)
+            gh('pr', 'ready', numero, '--undo')
+            hechas.append(pr['number'])
+        except (subprocess.SubprocessError, OSError) as exc:
+            imprimir(f'::warning::PR #{numero} sin congelar ({type(exc).__name__}).')
+    imprimir(f'Congeladas durante la carga: {hechas or "ninguna"}.')
+    return hechas
+
+
+def descongelar(gh=_gh, consulta=gh_runs, imprimir=print):
+    """Devuelve a «lista para revisar» las PR que congeló la carga, si no queda ninguna carga activa ni en cola."""
+    try:
+        quedan = activas(consulta, (CARGA,))
+        prs = [pr for pr in _abiertas(gh) if ETIQUETA_CARGA in _nombres(pr)]
+    except (subprocess.SubprocessError, OSError, ValueError, gh_listas.Truncada) as exc:
+        imprimir(f'::warning::No se pudo descongelar ({type(exc).__name__}); lo hará el final de la próxima carga.')
+        return []
+    if quedan:
+        imprimir(f'Queda carga activa ({[q[1] for q in quedan]}): siguen congeladas {[p["number"] for p in prs]}.')
+        return []
+    hechas = []
+    for pr in prs:
+        numero = str(pr['number'])
+        try:
+            if pr.get('isDraft'):
+                gh('pr', 'ready', numero)
+            gh('pr', 'edit', numero, '--remove-label', ETIQUETA_CARGA)
+            hechas.append(pr['number'])
+        except (subprocess.SubprocessError, OSError) as exc:
+            imprimir(f'::warning::PR #{numero} sigue congelada ({type(exc).__name__}).')
+    imprimir(f'Descongeladas: {hechas or "ninguna"}.')
+    return hechas
+
+
+def main(argv=None):
+    accion = (argv if argv is not None else sys.argv[1:])[:1]
+    if accion == ['congelar']:
+        congelar()
+        return 0
+    if accion == ['descongelar']:
+        descongelar()
+        return 0
     return esperar(os.environ.get('HEAD_REF', ''), os.environ.get('ETIQUETAS', ''))
 
 
