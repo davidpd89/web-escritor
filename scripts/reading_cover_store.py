@@ -137,6 +137,16 @@ def public_url(path: str, root: Path = ROOT, *, site: str = '') -> str:
     return site + path
 
 
+def stored_file(target: Path, root: Path = ROOT) -> bool:
+    """`target` es la ruta en disco de una portada dada de alta en el almacén: no tiene por qué estar en el checkout
+    (el despliegue la reescribe a la URL del almacén). Para comprobadores que resuelven URLs a ficheros."""
+    try:
+        rel = Path(target).resolve().relative_to(Path(root).resolve()).as_posix()
+    except ValueError:
+        return False
+    return is_stored('/' + rel, root)
+
+
 def exists(path: str, root: Path = ROOT) -> bool:
     """La portada existe en disco o está dada de alta en el almacén."""
     return (root / path.lstrip('/')).is_file() or is_stored(path, root)
