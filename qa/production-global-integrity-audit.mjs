@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {expectedPublished} from './lib/cover-store-view.mjs';
 import fs from 'node:fs';
 import { auditUrl, fetchWithBackoff } from './production-fetch.mjs';
 
@@ -85,7 +86,7 @@ for(const [route,file] of [
 ]){
   const r=await get(route);
   assert.equal(r.status,200,route+' status');
-  assert.equal(norm(r.body),norm(read(file)),route+' differs from repository release');
+  assert.equal(norm(r.body),norm(expectedPublished(read(file),{html:/\.html$/.test(file)})),route+' differs from repository release');
 }
 
 const prodSitemap=await get('/sitemap.xml');

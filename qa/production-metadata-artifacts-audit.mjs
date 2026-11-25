@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {expectedPublished} from './lib/cover-store-view.mjs';
 import fs from 'node:fs';
 import { auditUrl, fetchWithBackoff } from './production-fetch.mjs';
 
@@ -141,7 +142,7 @@ for(const a of artifacts){
   assert.doesNotMatch(ct,/text\/html/,`${a.route}: artifact served as HTML`);
   if(a.type) assert.match(ct,a.type,`${a.route}: unexpected content-type ${ct}`);
   a.validate(r.body);
-  assert.equal(norm(r.body),norm(read(a.file)),`${a.route}: production artifact differs from release`);
+  assert.equal(norm(r.body),norm(expectedPublished(read(a.file),{html:/\.html$/.test(a.file)})),`${a.route}: production artifact differs from release`);
 }
 
 const maxThrottled=Math.max(5,Math.ceil(socialImages.size*0.02));
