@@ -54,7 +54,10 @@ HORA_FIN = 6                 # la noche de carga acaba a las 06:00 de Madrid (de
 MAX_FALLIDOS = 3             # cargas fallidas por noche: con 3, ni relojes ni reintentos vuelven a cargar
 DESPACHADOS = ('cadena', 'reintento')  # cargan si su pendiente sigue en el libro; manual carga siempre
 DETERMINISTA = 'determinista'  # clase de un fallo que se repite igual con el mismo código (un test concreto)
-CODIGO = ('scripts', 'tests', 'qa', '.github', 'package.json', 'package-lock.json')  # lo que decide si falla
+# Lo que decide si una carga falla es todo lo que la carga lee de main: código, pero también datos, esquemas y
+# configuración (caso 7 de la ronda 2 GPT, 25/11: con solo el código, un arreglo de datos en main no desbloqueaba la
+# noche). Fuera queda solo lo que cambia de noche sin decidir nada: informes, métricas de redes, el índice generado.
+RUIDO = ('.ci', 'redes-sociales', 'pagefind', 'docs')
 FALLO = 'carga-fallo.json'     # en $RUNNER_TEMP; lo escribe el publicador (publish-radar-refresh.anotar_fallo)
 
 
@@ -275,13 +278,15 @@ def _head():
 
 
 def _codigo():
-    """Huella del código que decide si la carga falla (no el commit: un commit de datos o de redes no cambia el
-    resultado de un test). None si git no responde: sin huella no se bloquea nada."""
+    """Huella de lo que decide si la carga falla: el árbol de main sin RUIDO (no el commit: las métricas de redes o
+    un informe no cambian el resultado de un test; un arreglo de datos sí). None si git no responde: sin huella no se
+    bloquea nada."""
     try:
-        arbol = subprocess.run(['git', 'ls-tree', 'HEAD', '--', *CODIGO], capture_output=True, text=True, check=True,
+        arbol = subprocess.run(['git', 'ls-tree', 'HEAD'], capture_output=True, text=True, check=True,
                                timeout=30).stdout
     except (OSError, subprocess.SubprocessError):
         return None
+    arbol = ''.join(l + '\n' for l in arbol.splitlines() if l.split('\t', 1)[-1] not in RUIDO)
     return hashlib.sha1(arbol.encode()).hexdigest() if arbol.strip() else None
 
 
