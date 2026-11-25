@@ -94,17 +94,14 @@ jobs:
         shell: bash
         run: |
           set -e
-          fail=0
+          failed="$RUNNER_TEMP/node-failed"; : > "$failed"
           for f in tests/*.mjs; do
             [ -e "$f" ] || continue
             echo "::group::$f"
-            if ! node "$f"; then
-              echo "FALLA: $f"
-              fail=1
-            fi
+            node "$f" || echo "$f" >> "$failed"
             echo "::endgroup::"
           done
-          exit $fail
+          python scripts/confirmar_fallos.py --modo node "$failed"
 
       - name: Validate release smoke syntax
         run: node --check tests/test-staging-smoke.mjs
