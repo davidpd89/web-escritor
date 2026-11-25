@@ -1,0 +1,162 @@
+name: Professional resources QA
+
+on:
+  pull_request:
+    paths:
+      - 'data/editoriales.json'
+      - 'data/radar-opportunities.json'
+      - 'data/radar-sources.json'
+      - 'editoriales/**'
+      - 'convocatorias-escritores/**'
+      - 'assets/editoriales.css'
+      - 'assets/editoriales.js'
+      - 'assets/radar-convocatorias.css'
+      - 'assets/radar-convocatorias.js'
+      - 'scripts/build-editoriales.py'
+      - 'scripts/build-radar-opportunities.py'
+      - 'scripts/check-professional-resources.py'
+      - 'tests/test-editoriales-builder-parity-v1.py'
+      - 'tests/test-editorial-date-consistency.py'
+      - 'scripts/check-radar-clock-current.py'
+      - 'tests/test-radar-clock-current.py'
+      - 'scripts/site_clock.py'
+      - 'tests/test-site-clock.py'
+      - 'tests/test-radar-refresh-schedule.py'
+      - '.github/workflows/radar-clock-refresh.yml'
+      - 'tests/test-radar-dates.mjs'
+      - 'qa/radar-live-clock-contract.mjs'
+      - 'qa/pro-resources-browser.mjs'
+      - 'lighthouserc-pro-resources.json'
+      - '.github/workflows/pro-resources-qa.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/editoriales.json'
+      - 'data/radar-opportunities.json'
+      - 'data/radar-sources.json'
+      - 'editoriales/**'
+      - 'convocatorias-escritores/**'
+      - 'assets/editoriales.css'
+      - 'assets/editoriales.js'
+      - 'assets/radar-convocatorias.css'
+      - 'assets/radar-convocatorias.js'
+      - 'scripts/build-editoriales.py'
+      - 'scripts/build-radar-opportunities.py'
+      - 'scripts/check-professional-resources.py'
+      - 'tests/test-editoriales-builder-parity-v1.py'
+      - 'tests/test-editorial-date-consistency.py'
+      - 'scripts/check-radar-clock-current.py'
+      - 'tests/test-radar-clock-current.py'
+      - 'scripts/site_clock.py'
+      - 'tests/test-site-clock.py'
+      - 'tests/test-radar-refresh-schedule.py'
+      - '.github/workflows/radar-clock-refresh.yml'
+      - 'tests/test-radar-dates.mjs'
+      - 'qa/radar-live-clock-contract.mjs'
+      - 'qa/pro-resources-browser.mjs'
+      - 'lighthouserc-pro-resources.json'
+      - '.github/workflows/pro-resources-qa.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  # En una PR, un push nuevo cancela la CI del commit anterior; main y los programados no se cancelan.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  data-and-browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+      - uses: actions/setup-python@v7
+        with: {python-version: '3.13'}
+      - name: Validate publisher source
+        run: python3 scripts/build-editoriales.py --data data/editoriales.json --output . --check
+      - name: Validate opportunity source
+        run: python3 scripts/build-radar-opportunities.py --data data/radar-opportunities.json --out convocatorias-escritores --check
+      - name: Check source/output/ICS parity
+        run: python3 scripts/check-professional-resources.py
+      - name: Editorial pages do not depend on the build date
+        run: python3 tests/test-editoriales-builder-parity-v1.py
+      - name: Check editorial date consistency mutations
+        run: python3 tests/test-editorial-date-consistency.py
+      - name: Check radar civil-clock drift regression
+        run: python3 tests/test-radar-clock-current.py
+      - name: Check Europe/Madrid civil-date boundaries
+        run: python3 tests/test-site-clock.py
+
+      - name: Check radar refresh coverage around Madrid midnight
+        run: python3 tests/test-radar-refresh-schedule.py
+      - uses: actions/setup-node@v7
+        with: {node-version: '22'}
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+      - name: Check radar client civil date across timezone boundaries
+        run: node tests/test-radar-dates.mjs
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
+      - name: Start local static server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/pro-resources-server.log 2>&1 &
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/editoriales/ > /dev/null && curl --fail --silent http://127.0.0.1:4173/convocatorias-escritores/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/pro-resources-server.log
+          exit 1
+      - name: Run browser QA
+        env: {QA_ORIGIN: 'http://127.0.0.1:4173', QA_OUT: 'qa-artifacts/browser'}
+        run: node qa/pro-resources-browser.mjs
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with: {name: pro-resources-browser-qa, path: 'qa-artifacts/browser/', if-no-files-found: error, retention-days: 14}
+  lighthouse:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+      - uses: actions/setup-node@v7
+        with: {node-version: '22'}
+      - name: Install lockfile-pinned Lighthouse CI
+        run: npm ci
+      - name: Use lockfile-pinned Lighthouse CI
+        run: echo "$PWD/node_modules/.bin" >> "$GITHUB_PATH"
+      - name: Collect Lighthouse reports
+        run: lhci collect --config=./lighthouserc-pro-resources.json
+      - name: Assert Lighthouse budgets
+        run: lhci assert --config=./lighthouserc-pro-resources.json
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with: {name: pro-resources-lighthouse, path: '.lighthouseci/', include-hidden-files: true, if-no-files-found: warn, retention-days: 14}
