@@ -30,11 +30,36 @@ DIGEST = re.compile(r'[0-9a-f]{64}')
 IMG_SRC = re.compile(r"(img-src[^;\"]*?)(?=;|\"|$)")
 
 
-def load(root: Path = ROOT) -> dict:
+_LEIDOS: dict = {}  # ruta del manifiesto -> (firma del fichero, manifiesto validado, nombres)
+
+
+def _leer(root: Path = ROOT) -> tuple[dict, frozenset]:
+    """Manifiesto validado y sus nombres, leído una vez por versión del fichero (ruta, mtime_ns, tamaño, inodo).
+
+    La validación del catálogo lo consulta una vez por libro y la cuarentena repite la validación por cada libro que
+    aparta: releerlo y recorrerlo cada vez hacía el coste cuadrático (42 s por validación con 7.900 libros, caso 11 de
+    la revisión GPT, 25/11). Cualquier escritura cambia la firma y se vuelve a leer. Solo para consultas: quien vaya a
+    cambiarlo usa load(), que devuelve una copia."""
     path = root / MANIFEST
-    if not path.is_file():
-        return {'base_url': '', 'archivos': [], 'sha256': {}}
-    data = json.loads(path.read_text(encoding='utf-8'))
+    try:
+        st = path.stat()
+    except OSError:
+        return {'base_url': '', 'archivos': [], 'sha256': {}}, frozenset()
+    clave, firma = str(path), (st.st_mtime_ns, st.st_size, st.st_ino)
+    hecho = _LEIDOS.get(clave)
+    if hecho and hecho[0] == firma:
+        return hecho[1], hecho[2]
+    data = _validar(json.loads(path.read_text(encoding='utf-8')))
+    _LEIDOS[clave] = (firma, data, frozenset(data['archivos']))
+    return data, _LEIDOS[clave][2]
+
+
+def load(root: Path = ROOT) -> dict:
+    data = _leer(root)[0]
+    return {'base_url': data['base_url'], 'archivos': list(data['archivos']), 'sha256': dict(data['sha256'])}
+
+
+def _validar(data: dict) -> dict:
     base = str(data.get('base_url', '')).rstrip('/')
     names = data.get('archivos', [])
     digests = data.get('sha256', {})
@@ -52,7 +77,7 @@ def load(root: Path = ROOT) -> dict:
 
 
 def names(root: Path = ROOT) -> set[str]:
-    return set(load(root)['archivos'])
+    return set(_leer(root)[1])
 
 
 def _name(path: str) -> str | None:
@@ -63,14 +88,14 @@ def _name(path: str) -> str | None:
 
 def is_stored(path: str, root: Path = ROOT) -> bool:
     name = _name(path)
-    return bool(name) and name in names(root)
+    return bool(name) and name in _leer(root)[1]
 
 
 def public_url(path: str, root: Path = ROOT, *, site: str = '') -> str:
     """URL pública de una portada: la del almacén si está allí; si no, la ruta del sitio (con `site` delante)."""
-    data = load(root)
+    data, nombres = _leer(root)
     name = _name(path)
-    if name and name in data['archivos']:
+    if name and name in nombres:
         return f"{data['base_url']}/{name}"
     return site + path
 
@@ -158,13 +183,13 @@ def digest(content: bytes) -> str:
 def stored_digest(path: str, root: Path = ROOT) -> str | None:
     """Huella registrada de una portada del almacén (None si no está en el almacén)."""
     name = _name(path)
-    return load(root)['sha256'].get(name) if name else None
+    return _leer(root)[0]['sha256'].get(name) if name else None
 
 
 def owner_of_bytes(content: bytes, root: Path = ROOT, *, exclude: str = '') -> str | None:
     """Nombre de una portada principal del almacén con exactamente estos bytes (las -320 no cuentan)."""
     wanted, skip = digest(content), _name(exclude)
-    for name, value in load(root)['sha256'].items():
+    for name, value in _leer(root)[0]['sha256'].items():
         if value == wanted and name != skip and not name.endswith('-320.webp'):
             return name
     return None
