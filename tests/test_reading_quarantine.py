@@ -14,6 +14,10 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 import reading_quarantine as q  # noqa: E402
 
 DATA = json.loads((ROOT / q.CATALOGUE).read_text(encoding='utf-8'))
+# Los casos toman «los N primeros libros» como publicados. Un borrador entre ellos no se valida y el caso deja de
+# probar lo que dice; el catálogo crece cada noche y el corte acaba llegando a uno (25/11: tope 78 -> 81 alcanzó
+# isbn-9791387526863, borrador, y la puerta de la carga cayó). Publicados primero, en orden estable.
+DATA['libros'].sort(key=lambda b: b.get('estado') != 'publicado')
 
 
 def without(n):
