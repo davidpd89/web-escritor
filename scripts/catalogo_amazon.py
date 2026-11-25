@@ -181,12 +181,21 @@ def load_env():
                 os.environ[match.group(1)] = match.group(2).strip().strip('"').strip("'")
 
 
+# Un cliente por tag para toda la ejecución (caso 5 de la ronda 2 GPT, 25/11): cada fase creaba el suyo y el
+# cortacircuitos volvía a cero, así que con Creators caído cada fase repetía sus CORTE caídas con reintentos.
+# Compartirlo también reutiliza el token y el ritmo de 1,1 s entre peticiones.
+_CLIENTES = {}
+
+
 def provider(tag):
     load_env()
     client, secret = (os.getenv(k, '').strip() for k in ('AMAZON_CREATORS_CLIENT_ID', 'AMAZON_CREATORS_CLIENT_SECRET'))
     if not client or not secret:
         raise SystemExit('Faltan AMAZON_CREATORS_CLIENT_ID / AMAZON_CREATORS_CLIENT_SECRET en el entorno o en .env.local')
-    return CreatorsPrices(client, secret, tag)
+    clave = (client, secret, tag)
+    if clave not in _CLIENTES:
+        _CLIENTES[clave] = CreatorsPrices(client, secret, tag)
+    return _CLIENTES[clave]
 
 
 def read_json(path, default=None):

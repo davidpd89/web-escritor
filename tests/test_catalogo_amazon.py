@@ -1196,6 +1196,21 @@ class Client(unittest.TestCase):
             self.assertEqual(client.post(ca.SEARCH, {}), {'searchResult': {}})  # el sondeo vuelve: se reabre
         self.assertFalse(client.caido)
 
+    def test_every_phase_shares_one_client_so_the_breaker_survives(self):
+        """Caso 5 de la ronda 2: cada fase pedía un cliente nuevo y el corte volvía a cero en cada una."""
+        env = {'AMAZON_CREATORS_CLIENT_ID': 'id', 'AMAZON_CREATORS_CLIENT_SECRET': 'secret'}
+        with self.patch.dict(ca.os.environ, env), self.patch.object(ca, '_CLIENTES', {}):
+            first = ca.provider('tag-21')
+            first.caidas = self.market.CORTE
+            self.assertIs(ca.provider('tag-21'), first)
+            self.assertTrue(ca.provider('tag-21').caido, 'la fase siguiente sabe que Creators está caído')
+            self.assertIsNot(ca.provider('otro-21'), first)
+
+    def test_main_only_builds_clients_through_provider(self):
+        import inspect
+        fuente = inspect.getsource(ca)
+        self.assertEqual(fuente.count('CreatorsPrices('), 1, 'un cliente nuevo fuera de provider() pierde el corte')
+
     def test_a_bad_request_is_not_an_outage(self):
         client = self.market.CreatorsPrices('id', 'secret', 'tag-21')
         with self.patch.object(self.market, 'urlopen', side_effect=lambda *a, **k: (_ for _ in ()).throw(self.error(400))):
