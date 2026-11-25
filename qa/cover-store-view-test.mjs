@@ -11,6 +11,11 @@ const out = expectedPublished(html, { html: true, store });
 assert.ok(out.includes("img-src 'self' data: https://almacen.example"), out);
 assert.equal(out.split('https://almacen.example/portadas/autor-a.webp').length - 1, 2, out);
 assert.ok(out.includes('src="/assets/reading-covers/local.webp"'), out);
+// Varios almacenes: cada portada sale por el suyo y la CSP admite los dos hosts.
+const two = { base: 'https://almacen.example/portadas', stored: new Set(['autor-a.webp', 'nueva.webp']), extra: ['https://otro.example/portadas-2'], where: { 'nueva.webp': 1 } };
+const both = expectedPublished(`${csp}<img src="/assets/reading-covers/autor-a.webp"><img src="/assets/reading-covers/nueva.webp">`, { html: true, store: two });
+assert.ok(both.includes('https://almacen.example/portadas/autor-a.webp') && both.includes('https://otro.example/portadas-2/nueva.webp'), both);
+assert.ok(both.includes("img-src 'self' data: https://almacen.example https://otro.example"), both);
 // Un JSON no recibe CSP.
 assert.equal(expectedPublished('{"u":"/assets/reading-covers/otra.webp"}', { store }), '{"u":"/assets/reading-covers/otra.webp"}');
 // Sobre el prensa.html real, la vista esperada coincide con lo que sirve producción cuando está disponible.

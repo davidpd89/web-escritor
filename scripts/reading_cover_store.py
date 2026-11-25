@@ -9,6 +9,11 @@ Un único lugar sabe qué portadas están fuera (`data/reading-covers-store.json
   y después el almacén.
 
 Con el manifiesto vacío todo es un no-op: activar el almacén es dar de alta nombres en el manifiesto.
+
+Varios almacenes: un repositorio de Pages admite 1 GB, así que cuando el activo se llena se abre otro
+(`scripts/almacen_portadas.py nuevo`) y las portadas siguientes van allí. El manifiesto guarda dónde vive cada una:
+`base_url` es el primero; `almacenes` lista los siguientes y `almacen` da, solo para los nombres que no están en el
+primero, su número (1 = `almacenes[0]`). Ninguna portada se mueve de almacén: son de solo añadir.
 """
 from __future__ import annotations
 
@@ -44,7 +49,7 @@ def _leer(root: Path = ROOT) -> tuple[dict, frozenset]:
     try:
         st = path.stat()
     except OSError:
-        return {'base_url': '', 'archivos': [], 'sha256': {}}, frozenset()
+        return _vacio(), frozenset()
     clave, firma = str(path), (st.st_mtime_ns, st.st_size, st.st_ino)
     hecho = _LEIDOS.get(clave)
     if hecho and hecho[0] == firma:
@@ -54,9 +59,18 @@ def _leer(root: Path = ROOT) -> tuple[dict, frozenset]:
     return data, _LEIDOS[clave][2]
 
 
+def _vacio() -> dict:
+    return {'base_url': '', 'archivos': [], 'sha256': {}, 'almacenes': [], 'almacen': {}}
+
+
 def load(root: Path = ROOT) -> dict:
     data = _leer(root)[0]
-    return {'base_url': data['base_url'], 'archivos': list(data['archivos']), 'sha256': dict(data['sha256'])}
+    return {'base_url': data['base_url'], 'archivos': list(data['archivos']), 'sha256': dict(data['sha256']),
+            'almacenes': list(data['almacenes']), 'almacen': dict(data['almacen'])}
+
+
+def _https(url: str) -> bool:
+    return urlparse(url).scheme == 'https' and bool(urlparse(url).netloc)
 
 
 def _validar(data: dict) -> dict:
@@ -72,8 +86,31 @@ def _validar(data: dict) -> dict:
     # ni que el fichero publicado sea el que se validó al darlo de alta.
     if not isinstance(digests, dict) or any(not isinstance(digests.get(n), str) or not DIGEST.fullmatch(digests[n]) for n in names):
         raise ValueError(f'{MANIFEST}: cada archivo necesita su sha256')
+    extra = [str(u).rstrip('/') for u in data.get('almacenes') or []]
+    if any(not _https(u) for u in extra) or len(set(extra)) != len(extra) or (extra and base in extra):
+        raise ValueError(f'{MANIFEST}: almacenes debe ser una lista de URLs https distintas del primero')
+    where = data.get('almacen') or {}
+    if not isinstance(where, dict) or any(type(k) is not int or not 1 <= k <= len(extra) for k in where.values()):
+        raise ValueError(f'{MANIFEST}: almacen debe dar a cada nombre el número de uno de sus almacenes')
     unique = sorted(set(names))
-    return {'base_url': base, 'archivos': unique, 'sha256': {n: digests[n] for n in unique}}
+    return {'base_url': base, 'archivos': unique, 'sha256': {n: digests[n] for n in unique},
+            'almacenes': extra, 'almacen': {n: where[n] for n in unique if n in where}}
+
+
+def url_of(data: dict, name: str) -> str:
+    """URL base del almacén donde vive `name` (el primero si el manifiesto no dice otro)."""
+    k = (data.get('almacen') or {}).get(name)
+    return data['almacenes'][k - 1] if k else data['base_url']
+
+
+def hosts(data: dict) -> list[str]:
+    """Orígenes https de todos los almacenes, sin repetir (las páginas de un mismo usuario comparten host)."""
+    out = []
+    for url in [data['base_url'], *(data.get('almacenes') or [])]:
+        host = urlparse(url).scheme + '://' + urlparse(url).netloc
+        if host.startswith('https://') and host not in out:
+            out.append(host)
+    return out
 
 
 def names(root: Path = ROOT) -> set[str]:
@@ -96,7 +133,7 @@ def public_url(path: str, root: Path = ROOT, *, site: str = '') -> str:
     data, nombres = _leer(root)
     name = _name(path)
     if name and name in nombres:
-        return f"{data['base_url']}/{name}"
+        return f"{url_of(data, name)}/{name}"
     return site + path
 
 
@@ -107,8 +144,8 @@ def exists(path: str, root: Path = ROOT) -> bool:
 
 def read_bytes(path: str, root: Path = ROOT, *, get=None) -> bytes:
     """Bytes de una portada: del disco, o descargados del almacén con `get(url) -> bytes`."""
-    local = root / path.lstrip('/')
-    if local.is_file():
+    local = local_file(path, root)  # el repo o la copia del almacén clonada por la carga: sin red
+    if local:
         return local.read_bytes()
     if not is_stored(path, root):
         raise FileNotFoundError(path)
@@ -122,22 +159,22 @@ def read_bytes(path: str, root: Path = ROOT, *, get=None) -> bytes:
 
 def rewrite_text(text: str, data: dict) -> str:
     """Sustituye en un texto cada referencia (ruta del sitio o URL completa) a una portada del almacén."""
-    base, stored = data['base_url'], set(data['archivos'])
+    stored = set(data['archivos'])
     if not stored:
         return text
     pattern = re.compile(r'(?:' + re.escape(SITE) + r')?' + re.escape(LOGICAL_PREFIX) + r'([a-z0-9][a-z0-9-]*\.(?:webp|jpg|jpeg|png))')
-    return pattern.sub(lambda m: f'{base}/{m.group(1)}' if m.group(1) in stored else m.group(0), text)
+    return pattern.sub(lambda m: f'{url_of(data, m.group(1))}/{m.group(1)}' if m.group(1) in stored else m.group(0), text)
 
 
 def allow_img_host(text: str, data: dict) -> str:
-    """Añade el host del almacén a las directivas img-src de las políticas CSP incrustadas."""
-    host = urlparse(data['base_url']).scheme + '://' + urlparse(data['base_url']).netloc
-    if not data['archivos'] or not host.startswith('https://'):
+    """Añade el host de cada almacén a las directivas img-src de las políticas CSP incrustadas."""
+    wanted = hosts(data)
+    if not data['archivos'] or not wanted:
         return text
 
     def widen(match):
         directive = match.group(1)
-        return directive if host in directive else directive + ' ' + host
+        return directive + ''.join(' ' + h for h in wanted if h not in directive)
     return IMG_SRC.sub(widen, text)
 
 
@@ -168,6 +205,21 @@ def apply_to_dist(out_dir: Path, root: Path = ROOT) -> int:
 
 # --- Escritura: la carga deja las portadas nuevas en una copia del repositorio del almacén y la sube con `flush`.
 STORE_DIR_ENV = 'READING_COVERS_STORE_DIR'
+STORE_URL_ENV = 'READING_COVERS_STORE_URL'  # URL de Pages del almacén clonado (el activo); sin ella, el primero
+
+
+def active_url(root: Path = ROOT) -> str:
+    """URL base del almacén en el que escribe esta carga."""
+    value = os.environ.get(STORE_URL_ENV, '').strip().rstrip('/')
+    if value and not _https(value):
+        raise ValueError(f'{STORE_URL_ENV} debe ser una URL https: {value!r}')
+    return value or _leer(root)[0]['base_url']
+
+
+def active_names(root: Path = ROOT) -> set[str]:
+    """Nombres del manifiesto que viven en el almacén activo (los de los almacenes llenos no se tocan)."""
+    data, active = _leer(root)[0], active_url(root)
+    return {n for n in data['archivos'] if url_of(data, n) == active}
 
 
 def store_dir() -> Path | None:
@@ -211,8 +263,27 @@ def register(root: Path, name: str, sha256: str) -> None:
     data = load(root)
     if data['sha256'].get(name) == sha256:
         return
+    active = active_url(root)
+    if name not in data['archivos'] and active and active != data['base_url']:
+        if not data['base_url']:
+            data['base_url'] = active
+        else:
+            if active not in data['almacenes']:
+                data['almacenes'].append(active)
+            data['almacen'][name] = data['almacenes'].index(active) + 1
+    elif not data['base_url']:
+        data['base_url'] = active
     data['archivos'] = sorted({*data['archivos'], name})
     data['sha256'][name] = sha256
+    write_manifest(root, data)
+
+
+def write_manifest(root: Path, data: dict) -> None:
+    """Escribe el manifiesto validado; los campos de varios almacenes solo aparecen cuando hay más de uno."""
+    data = _validar(data)
+    if not data['almacenes']:
+        data.pop('almacenes'), data.pop('almacen')
+    path = root / MANIFEST
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + chr(10), encoding='utf-8', newline='')
 
@@ -264,7 +335,7 @@ def _store_git(directory: Path):
 def _commit_registered(git, directory: Path, root: Path, message: str) -> None:
     """Commit con las portadas del manifiesto que estén en la copia local (los huérfanos se quedan fuera)."""
     from git_estado import preparar  # rutas por stdin y literales: la regla de todos los publicadores
-    preparar(directory, sorted(n for n in names(root) if (directory / n).is_file()))
+    preparar(directory, sorted(n for n in active_names(root) if (directory / n).is_file()))
     if git('diff', '--cached', '--quiet', check=False).returncode:
         git('-c', 'user.name=github-actions[bot]', '-c', 'user.email=41898282+github-actions[bot]@users.noreply.github.com',
             'commit', '-q', '-m', message)
@@ -313,7 +384,7 @@ def _check_published(remote: set[str], root: Path) -> None:
     """Caso 9 de la ronda 2 GPT (25/11): el manifiesto es lo que decide la URL pública, y `_commit_registered` deja
     fuera los nombres sin fichero en la copia local. Un nombre dado de alta que no está en origin sería una portada
     404 en la web: se para aquí, antes de que la rama de datos con ese manifiesto se suba."""
-    missing = sorted(names(root) - remote)
+    missing = sorted(active_names(root) - remote)  # las de otros almacenes viven en otro repo
     if missing:
         raise RuntimeError(f'Almacén de portadas: {len(missing)} portadas del manifiesto no están en origin '
                            f'(darían 404): {", ".join(missing[:10])}')
