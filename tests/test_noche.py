@@ -237,7 +237,7 @@ class R59Test(unittest.TestCase):
         import catalogo_estado
         guardado = {}
 
-        def escribe(_f, data, _m):
+        def escribe(_f, data, _m, **_k):
             guardado.update(json.loads(data))
 
         with unittest.mock.patch.object(noche, 'leer', return_value=None), \

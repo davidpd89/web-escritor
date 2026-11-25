@@ -99,7 +99,7 @@ class CliTest(unittest.TestCase):
         argumentos = SimpleNamespace(motivo=motivo, resultado=resultado)
         salida, errores = io.StringIO(), io.StringIO()
         with mock.patch.object(noche, 'leer', return_value=libro), \
-             mock.patch.object(noche, 'escribir', side_effect=lambda n, m: self.guardado.update(libro=n)), \
+             mock.patch.object(noche, 'escribir', side_effect=lambda n, m, *_: self.guardado.update(libro=n)), \
              mock.patch.object(noche, '_codigo', return_value=codigo), \
              mock.patch.object(noche, '_head', return_value='sha'), \
              mock.patch.dict(os.environ, {'RUNNER_TEMP': self.tmp.name, 'GITHUB_STEP_SUMMARY': ''}), \

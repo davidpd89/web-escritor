@@ -63,10 +63,15 @@ def leer(name):
     return shown.stdout if shown.returncode == 0 else None
 
 
-def _commit(entries, message, keep_parent):
+def _commit(entries, message, keep_parent, rehacer=None):
     """Commit encima de la cabeza de la rama con `entries` (nombre -> bytes). Con `keep_parent` se parte del árbol
     anterior y solo se sustituyen esos nombres; sin él, el árbol es exactamente `entries` más los ficheros AJENOS
-    del anterior (los escribe otro proceso y no se pueden perder). Reintenta si otro movió la rama."""
+    del anterior (los escribe otro proceso y no se pueden perder). Reintenta si otro movió la rama.
+
+    `rehacer` (nombre -> función(bytes|None) -> bytes) recalcula ese fichero sobre su contenido en la cabeza de cada
+    intento: sin él, un reintento volvía a subir bytes calculados sobre una lectura vieja y pisaba lo que el otro
+    proceso acababa de escribir (caso 13 de la revisión GPT, 25/11: el segador y el abrir de la siguiente carga)."""
+    rehacer = rehacer or {}
     for attempt in range(3):
         parent = remote_head()
         if parent:
@@ -81,6 +86,9 @@ def _commit(entries, message, keep_parent):
                         line = git('ls-tree', parent, '--', name).stdout.decode().split()
                         if line:
                             git('update-index', '--add', '--cacheinfo', f'100644,{line[2]},{name}', env=env)
+            for name, cambio in rehacer.items():
+                anterior = git('show', f'{parent}:{name}', check=False) if parent else None
+                entries[name] = cambio(anterior.stdout if anterior is not None and anterior.returncode == 0 else None)
             for name, data in entries.items():
                 blob = git('hash-object', '-w', '--stdin', data=data).stdout.decode().strip()
                 git('update-index', '--add', '--cacheinfo', f'100644,{blob},{name}', env=env)
@@ -100,9 +108,10 @@ def _commit(entries, message, keep_parent):
     raise RuntimeError('No se pudo guardar el estado en ' + BRANCH)
 
 
-def escribir(name, data, message):
-    """Sustituye un solo fichero de la rama y conserva el resto (el libro de la noche, scripts/noche.py)."""
-    return _commit({name: data}, message, keep_parent=True)
+def escribir(name, data, message, rehacer=None):
+    """Sustituye un solo fichero de la rama y conserva el resto (el libro de la noche, scripts/noche.py). Con
+    `rehacer`, `data` se recalcula sobre el contenido remoto en cada intento (compare-and-swap)."""
+    return _commit({name: data}, message, keep_parent=True, rehacer={name: rehacer} if rehacer else None)
 
 
 def latest_photo():
