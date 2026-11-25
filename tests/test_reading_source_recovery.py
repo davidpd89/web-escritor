@@ -262,4 +262,14 @@ class QuarantineRoundsTests(unittest.TestCase):
   with self.assertRaisesRegex(RuntimeError,'no se resuelven apartando libros'):
    self.run_rounds([['a'],['a']],apply=lambda *a,**k:[{'libro':{'id':'otro-libro-en-cuarentena'},'motivo':'x'}])
 
+ def test_a_repeated_book_already_held_the_same_way_is_not_progress(self):
+  # R3-08 GPT (25/11): el repetido ya estaba apartado igual en la vuelta anterior; que siga en la lista de la
+  # cuarentena no es avance y, sin parar, la vuelta se repetiría idéntica hasta el timeout del job.
+  # apply() suma un intento en cada llamada: el contador no cuenta como cambio.
+  vueltas=[]
+  def apply(*a,**k):
+   vueltas.append(None);return [{'libro':{'id':'a'},'motivo':'x','intentos':len(vueltas),'ultimo_intento':'2026-11-25'}]
+  with self.assertRaisesRegex(RuntimeError,'no se resuelven apartando libros'):
+   self.run_rounds([['a'],['a'],['a']],apply=apply)
+
 if __name__=='__main__':unittest.main()

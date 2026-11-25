@@ -702,6 +702,15 @@ def data_contract_failures():
     return failures
 
 
+def entradas(quarantined, ids):
+    """Lo que la cuarentena dice de esos libros, comparable entre vueltas del bucle de assemble().
+
+    Sin los contadores: apply() suma un intento cada vez que la llama, también dentro de la misma noche."""
+    ids, contadores = set(ids), {'intentos', 'ultimo_intento'}
+    return sorted(json.dumps({k: v for k, v in h.items() if k not in contadores}, sort_keys=True, ensure_ascii=False,
+                             default=str) for h in quarantined if h['libro']['id'] in ids)
+
+
 def drop_orphan_pages(quarantined):
     """La página de un libro nuevo apartado ya se generó y registró: el builder no borra, así que se quita aquí."""
     live = {b['slug'] for b in read_json(ROOT / reading_quarantine.CATALOGUE)['libros']}
@@ -771,10 +780,13 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
                                + '; '.join(f['test'] for f in failures)[:600])
         repeated = set(named) <= set(flagged)
         flagged.update(named)
+        antes = entradas(quarantined, named)
         quarantined = reading_quarantine.apply(ROOT, flagged=flagged)
         # No basta con que la cuarentena mueva algo: puede estar moviendo libros de noches anteriores sin
-        # relación con los que se repiten aquí. Solo cuenta como avance si toca a los propios repetidos.
-        if repeated and not ({h['libro']['id'] for h in quarantined} & set(named)):
+        # relación con los que se repiten aquí. Ni basta con que los repetidos estén en ella: si ya lo estaban
+        # igual en la vuelta anterior, nada cambió y la siguiente vuelta sería idéntica hasta el timeout del job
+        # (R3-08 GPT, 25/11). Solo es avance que cambie la entrada de algún repetido (revertido → retirado, 16/11).
+        if repeated and entradas(quarantined, named) == antes:
             raise RuntimeError('check-reading-data falló en contratos que no se resuelven apartando libros: '
                                + '; '.join(f['test'] for f in failures)[:600])
         released = held_before - {h['libro']['id'] for h in quarantined}
