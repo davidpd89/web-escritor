@@ -75,6 +75,9 @@ class StaleMerge(RuntimeError):
 TRANSIENT_GH = ('Something went wrong', 'HTTP 500', 'HTTP 502', 'HTTP 503', 'HTTP 504', 'Bad Gateway',
                 'Service Unavailable', 'Gateway Timeout', 'timed out', 'connection reset', 'TLS handshake timeout')
 GH_ATTEMPTS = 4
+# Cuota de GitHub (25/11, caso 17 de la revisión GPT): un 429 o «secondary rate limit» se pasa esperando, no en 5 s.
+RATE_LIMIT_GH = ('rate limit', 'HTTP 429', 'abuse detection')
+GH_TIMEOUT_S = 600  # un gh colgado (red) no se come el job de 240 min: se trata como un fallo transitorio
 # Lecturas y `pr create` (que antes de repetir busca la PR) se repiten tal cual. Las escrituras solo con una
 # comprobación previa (_comprobacion_escritura): repetir a ciegas un `workflow run` o un `pr merge` que sí llegó a
 # GitHub duplicaría ejecuciones o fallaría tras haber funcionado.
@@ -204,19 +207,23 @@ def gh(*args: str):
     for attempt in range(1, GH_ATTEMPTS + 1):
         try:
             result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace',
-                                    env=env)
+                                    env=env, timeout=GH_TIMEOUT_S)
             return result.stdout.strip()
-        except subprocess.CalledProcessError as exc:
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as exc:
             # capture_output hides gh's own explanation; surface it in the job log.
-            stderr = (exc.stderr or '').strip()
+            if isinstance(exc, subprocess.TimeoutExpired):
+                stderr = f'gh timed out after {GH_TIMEOUT_S} s'
+            else:
+                stderr = (exc.stderr or '').strip()
             print(f'gh {" ".join(args[:3])} failed: {stderr}', file=sys.stderr, flush=True)
             repetible = _retryable(args) or comprobacion is not None
-            if not repetible or not any(m.lower() in stderr.lower() for m in TRANSIENT_GH):
+            cuota = any(m.lower() in stderr.lower() for m in RATE_LIMIT_GH)
+            if not repetible or not (cuota or any(m.lower() in stderr.lower() for m in TRANSIENT_GH)):
                 raise
             # Tras el último intento solo se espera si hay un efecto que comprobar; una lectura se rinde ya.
             if attempt == GH_ATTEMPTS and efecto is None and tuple(args[:2]) != ('pr', 'create'):
                 raise
-            time.sleep(5 * attempt)
+            time.sleep((60 if cuota else 5) * attempt)
             # El efecto se comprueba también tras el último intento: un merge que llegó con 502 no es un fallo.
             created = _existing_pr(args)
             if created:

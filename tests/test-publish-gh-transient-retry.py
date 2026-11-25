@@ -224,4 +224,30 @@ with mock.patch.object(mod.time, 'sleep', lambda s: None):
             except subprocess.CalledProcessError:
                 pass
         assert len(calls) == 1, (args, calls)
+
+# Caso 17/18 de la revisión GPT (25/11): la cuota de GitHub espera más y un gh colgado no se come el job.
+pausas = []
+with mock.patch.object(mod.time, 'sleep', pausas.append):
+    run, calls = fake(lambda a, n: (1, '', 'HTTP 403: You have exceeded a secondary rate limit') if n < 3 else (0, 'ok', ''))
+    with mock.patch.object(mod.subprocess, 'run', run):
+        assert mod.gh('api', 'repos/o/r/actions/runs/1/jobs') == 'ok'
+    assert pausas == [60, 120], pausas
+    pausas.clear()
+    run, calls = fake(lambda a, n: (1, '', 'HTTP 403: Resource not accessible by integration'))
+    with mock.patch.object(mod.subprocess, 'run', run):
+        try:
+            mod.gh('api', 'x'); raise SystemExit('should raise')
+        except subprocess.CalledProcessError:
+            pass
+    assert len(calls) == 1 and not pausas, (calls, pausas)  # un 403 de permisos no es transitorio
+
+    vistos = []
+    def colgado(cmd, **kw):
+        vistos.append(kw.get('timeout'))
+        if len(vistos) == 1:
+            raise subprocess.TimeoutExpired(cmd, kw['timeout'])
+        return subprocess.CompletedProcess(cmd, 0, stdout='ok', stderr='')
+    with mock.patch.object(mod.subprocess, 'run', colgado):
+        assert mod.gh('run', 'view', '1') == 'ok'
+    assert vistos == [mod.GH_TIMEOUT_S] * 2, vistos
 print('ok gh transient retry')
