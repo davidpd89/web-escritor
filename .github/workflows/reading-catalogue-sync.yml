@@ -32,6 +32,10 @@ on:
         description: 'Quién lanza la carga: manual, cadena o reintento (lo anotan la cadena y el reintento; scripts/noche.py)'
         type: string
         default: manual
+      almacen_portadas:
+        description: 'Solo con dry_run: ensaya el almacén externo de portadas sin activar READING_COVERS_STORE (un ensayo no sube nada)'
+        type: boolean
+        default: false
 
 # Escritura solo en el job que carga (Sonar S8233); clock solo lee las ejecuciones de la noche.
 permissions:
@@ -139,10 +143,10 @@ jobs:
           path: .ci/reading-editorial-cache
           key: reading-editorial-v1-${{ github.run_id }}
           restore-keys: reading-editorial-v1-
-      - name: Open the cover store (only when READING_COVERS_STORE=true)
+      - name: Open the cover store (READING_COVERS_STORE=true, or a dry run with almacen_portadas)
         # Las portadas nuevas se suben al repositorio del almacén con una deploy key (GITHUB_TOKEN no escribe en otro repo).
         # Sin la variable no se hace nada y las portadas se siguen guardando en este repositorio.
-        if: ${{ (inputs.dry_run || steps.libro.outputs.cargar == 'true') && vars.READING_COVERS_STORE == 'true' }}
+        if: ${{ (inputs.dry_run || steps.libro.outputs.cargar == 'true') && (vars.READING_COVERS_STORE == 'true' || (inputs.dry_run && inputs.almacen_portadas)) }}
         env:
           COVERS_KEY: ${{ secrets.COVERS_STORE_DEPLOY_KEY }}
         shell: bash
