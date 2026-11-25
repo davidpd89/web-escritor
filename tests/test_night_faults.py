@@ -117,6 +117,26 @@ class ErrorDeRedSuelto(unittest.TestCase):
         self.assertEqual(fallos, {'fetch': 0, 'ls-remote': 0})
         self.assertTrue(len(esperas) == 4 and all(s > 0 for s in esperas), esperas)
 
+    def test_el_nombre_del_checkpoint_sobrevive_a_un_502(self):
+        """S01 (ronda 5): save_checkpoint() pide el nombre con fresh_branch(), que hace su propio ls-remote."""
+        import subprocess
+        real, fallos, esperas = subprocess.check_output, [2], []
+
+        def check_output(cmd, *a, **kw):
+            if cmd[:2] == ['git', 'ls-remote'] and fallos[0]:
+                fallos[0] -= 1
+                raise subprocess.CalledProcessError(128, cmd, '', 'fatal: The requested URL returned error: 502')
+            return real(cmd, *a, **kw)
+        from test_reading_branch_retry import Repo
+        publication = refresh.publisher.publication
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Repo(tmp)
+            with patch.object(publication.subprocess, 'check_output', side_effect=check_output),                     patch.object(publication.time, 'sleep', side_effect=esperas.append):
+                nombre = publication.fresh_branch(refresh.CHECKPOINT_PREFIX + '2026-11-25-', cwd=repo.work)
+        self.assertTrue(nombre.startswith(refresh.CHECKPOINT_PREFIX + '2026-11-25-'), nombre)
+        self.assertEqual(fallos, [0])
+        self.assertTrue(len(esperas) == 2 and all(s > 0 for s in esperas), esperas)
+
     def test_un_error_local_no_se_repite(self):
         import subprocess
         with tempfile.TemporaryDirectory() as tmp, patch.object(refresh.time, 'sleep') as dormir:

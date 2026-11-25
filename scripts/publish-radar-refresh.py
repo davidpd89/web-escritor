@@ -24,6 +24,26 @@ import gh_listas  # noqa: E402
 STALE_EXIT_CODE = 75  # EX_TEMPFAIL: main avanzó durante la CI; regenerar desde main
 
 
+RED_INTENTOS = 4
+
+
+def remote_heads(pattern, cwd=None, intentos=RED_INTENTOS):
+    """`git ls-remote --heads origin <pattern>` repetido con espera ante un error de red (502, corte).
+
+    save_checkpoint() pide aquí el nombre del punto de guardado tras ~80 min de ingesta: un 502 suelto tiraba
+    todo lo consultado sin guardarlo (S01, ronda 5 de la revisión GPT, 25/11)."""
+    for intento in range(1, intentos + 1):
+        try:
+            return subprocess.check_output(['git', 'ls-remote', '--heads', 'origin', pattern], cwd=cwd, text=True,
+                                           stderr=subprocess.PIPE)
+        except subprocess.CalledProcessError as exc:
+            if intento == intentos:
+                raise
+            print(f'::warning::git ls-remote falló (intento {intento}/{intentos}): {(exc.stderr or "")[-200:]}',
+                  flush=True)
+            time.sleep(10 * intento)
+
+
 def fresh_branch(prefix, cwd=None):
     """Nombre de rama que no existe ni en local ni en origin.
 
@@ -36,7 +56,7 @@ def fresh_branch(prefix, cwd=None):
     out = lambda *a: subprocess.check_output(['git', *a], cwd=cwd, text=True)
     taken = set(out('for-each-ref', '--format=%(refname:short)', 'refs/heads/').split())
     taken |= {line.split('refs/heads/', 1)[1] for line in
-              out('ls-remote', '--heads', 'origin', prefix + '*').splitlines() if 'refs/heads/' in line}
+              remote_heads(prefix + '*', cwd).splitlines() if 'refs/heads/' in line}
     name, n = base, 2
     while name in taken:
         name, n = f'{base}-r{n}', n + 1
