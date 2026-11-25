@@ -951,6 +951,6 @@ class EstadoAislado(unittest.TestCase):
             texto = f.read_text(encoding='utf-8')
             # El uso real (cargar el script o el módulo), no la palabra: un nombre de test como
             # test_restaurar_borra_el_estado_local_… (catalogo_estado) no toca el estado del autorepair.
-            if 'night-autorepair' in texto or re.search(r'import estado_local|estado_local\.', texto):
+            if 'night-autorepair' in texto or re.search(r'\bimport estado_local\b|\bestado_local\.', texto):
                 with self.subTest(f.name):
                     self.assertIn("os.environ['AUTOREPAIR_ESTADO_DIR']", texto)
