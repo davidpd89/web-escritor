@@ -84,9 +84,10 @@ def anotar(firmas, entorno):
 
 
 def comprobar(consulta=gh_runs, firmas=gh_firmas, ejecutar=confirmar_fallos.ejecutar, dormir=time.sleep,
-              reloj=time.monotonic, imprimir=print, entorno=None):
+              reloj=time.monotonic, imprimir=print, entorno=None, existe=None):
     """0 si la carga puede seguir; 1 si main falla de verdad en su HEAD (con la firma anotada)."""
     entorno = os.environ if entorno is None else entorno
+    existe = existe or (lambda f: Path(f).is_file())
     limite = reloj() + ESPERA_MIN * 60
     while True:
         try:
@@ -111,6 +112,15 @@ def comprobar(consulta=gh_runs, firmas=gh_firmas, ejecutar=confirmar_fallos.ejec
     if not fallidos:
         imprimir(f'::warning::{FLUJO} en rojo (run {run["databaseId"]}) sin `FALLA: tests/...` legible: la carga sigue.')
         return 0
+    # Caso 8 de la ronda 2 GPT (25/11): un contrato rojo renombrado o borrado después no existe en este HEAD; repetirlo
+    # daba «No such file» (script, node) y paraba la carga con un main correcto. No se puede repetir aquí: aviso y
+    # fuera; la puerta de la PR de datos pasa los contratos reales.
+    desaparecidos = [f for f in fallidos if not existe(f)]
+    if desaparecidos:
+        imprimir(f'::warning::Contratos rojos que ya no existen en este HEAD: {", ".join(desaparecidos)}; no se repiten.')
+        fallidos = [f for f in fallidos if f not in desaparecidos]
+        if not fallidos:
+            return 0
     imprimir(f'{FLUJO} en rojo (run {run["databaseId"]}, {run.get("headSha", "")[:10]}): repito {len(fallidos)} '
              'contrato(s) sobre este HEAD.')
     siguen = []

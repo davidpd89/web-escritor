@@ -32,7 +32,7 @@ class Reloj:
 
 
 class MainVerdeTest(unittest.TestCase):
-    def comprobar(self, secuencia, firmas=(), rcs=None, entorno=None):
+    def comprobar(self, secuencia, firmas=(), rcs=None, entorno=None, existen=None):
         reloj, salida, llamadas = Reloj(), [], []
         estados = iter(secuencia)
         ultimo = [None]
@@ -45,7 +45,8 @@ class MainVerdeTest(unittest.TestCase):
             llamadas.append(cmd)
             return (rcs or {}).get(Path(cmd[-1]).name, 1), 'traza'
         rc = mv.comprobar(consulta, lambda _id: list(firmas), ejecutar, reloj.dormir, reloj, salida.append,
-                          entorno if entorno is not None else {})
+                          entorno if entorno is not None else {},
+                          existe=(lambda f: f in existen) if existen is not None else (lambda f: True))
         return rc, '\n'.join(salida), llamadas, reloj.t
 
     def test_main_rojo_de_verdad_para_la_carga_y_lo_anota_para_el_libro(self):
@@ -60,6 +61,21 @@ class MainVerdeTest(unittest.TestCase):
             self.assertIn('tests/test_roto.py', anotado['firma'])
             self.assertNotIn('test-inestable', anotado['firma'])
             self.assertIn('Main en rojo', salida)
+
+    def test_un_contrato_renombrado_no_para_la_carga(self):
+        """Caso 8 de la ronda 2: el rojo era de tests/test-viejo.py, que en este HEAD ya no existe."""
+        rc, salida, llamadas, _ = self.comprobar([[run(2, conclusion='failure')]], firmas=['tests/test-viejo.py'],
+                                                 existen=set())
+        self.assertEqual(rc, 0)
+        self.assertEqual(llamadas, [], 'no se ejecuta un fichero que no está')
+        self.assertIn('ya no existen', salida)
+
+    def test_el_que_sigue_existiendo_se_repite(self):
+        rc, _, llamadas, _ = self.comprobar([[run(2, conclusion='failure')]],
+                                            firmas=['tests/test-viejo.py', 'tests/test_roto.py'],
+                                            existen={'tests/test_roto.py'})
+        self.assertEqual(rc, 1)
+        self.assertEqual(len(llamadas), 1)
 
     def test_si_ya_pasa_sobre_este_head_sigue(self):
         rc, salida, _, _ = self.comprobar([[run(2, conclusion='failure')]], firmas=['tests/test_roto.py'],
