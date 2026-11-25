@@ -96,5 +96,38 @@ class EstadoTest(unittest.TestCase):
             self.assertEqual(estado.leer('semillas.json'), b'{"cola": []}')
             self.assertIsNone(estado.leer('no-existe.json'))
 
+    def test_un_error_de_red_suelto_no_tumba_la_carga(self):
+        """R5 (25/11): un 502 de GitHub en ls-remote, fetch o push tumbaba restaurar() al empezar y guardar() justo
+        después del checkpoint; y los 3 intentos del push iban seguidos, sin espera, así que un corte de unos
+        segundos los gastaba todos. Las órdenes de red se repiten con espera; un error que no es de red, no."""
+        a = self.repos[0]
+        real = estado.git
+        for orden in ('ls-remote', 'fetch', 'push'):
+            with self.subTest(orden=orden):
+                fallos, esperas = [2], []
+
+                def git(*args, **kw):
+                    if args[0] == orden and fallos[0]:
+                        fallos[0] -= 1
+                        proc = subprocess.CompletedProcess(['git', *args], 128, b'', b'fatal: unable to access: The '
+                                                           b'requested URL returned error: 502')
+                        if kw.get('check', True):
+                            raise subprocess.CalledProcessError(128, proc.args, proc.stdout, proc.stderr)
+                        return proc
+                    return real(*args, **kw)
+                with self.use(a), patch.object(estado, 'git', side_effect=git), \
+                        patch.object(estado.time, 'sleep', side_effect=esperas.append):
+                    (a / '.local/catalogo').mkdir(parents=True, exist_ok=True)
+                    (a / '.local/catalogo/semillas.json').write_text('{"cola": ["%s"]}' % orden, encoding='utf-8')
+                    self.assertTrue(estado.guardar('estado ' + orden))
+                    self.assertEqual(estado.restaurar(), 1)
+                self.assertEqual(fallos, [0])
+                self.assertTrue(esperas and all(s > 0 for s in esperas), 'repite con espera, no seguido')
+        with self.use(a), patch.object(estado.time, 'sleep') as dormir:
+            with self.assertRaises(subprocess.CalledProcessError):
+                estado.git('show', 'no-existe:nada')
+            dormir.assert_not_called()
+
+
 if __name__ == '__main__':
     unittest.main()
