@@ -470,7 +470,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         raise ValueError('PR contains a path outside the generated-artifact policy')
     def runs_on_sha(workflow, event, exclude=frozenset()):
         runs = gh_listas.lista(gh, 'run', 'list', '--workflow', workflow, '--branch', branch, '--commit', sha,
-                               '--event', event, '--json', 'databaseId,headSha,status,conclusion', tope=100)
+                               '--event', event, '--json', 'databaseId,headSha,status,conclusion,attempt', tope=100)
         return [item for item in runs if item['databaseId'] not in exclude and item['headSha'] == sha]
 
     # A PR opened with a user token already starts its pull_request CI on this exact commit; dispatching the same
@@ -507,6 +507,10 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         raise TimeoutError('No queda tiempo del job para la CI; PR abierta, la fusiona el siguiente cron')
     pending = set(workflows)
     retried = set()
+    # Intento de la ejecución al relanzarla: tras `run rerun` el listado puede devolver aún el intento viejo
+    # (completed, failure) unos segundos; contarlo como el resultado del reintento paraba la carga sin haberlo
+    # esperado (caso 15 de la revisión GPT, 25/11). Sin campo `attempt` (gh antiguo) se mira como antes.
+    relanzado = {}
     while pending:
         if time.monotonic() >= deadline:
             raise TimeoutError(f'CI timed out; PR left open: {sorted(pending)}')
@@ -518,6 +522,9 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
             result = current[0]
             if result['status'] != 'completed':
                 continue
+            if relanzado.get(workflow) is not None and result.get('attempt') is not None \
+                    and result['attempt'] <= relanzado[workflow]:
+                continue  # el reintento aún no figura: es el intento que ya falló
             url = f'https://github.com/{repo}/actions/runs/{result["databaseId"]}'
             context = REQUIRED_JOBS.get(workflow)
             # Solo las ejecuciones despachadas necesitan su estado a mano; las pull_request ya figuran en la PR.
@@ -576,6 +583,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                     print(f'SIN RETRY {workflow} ({result["databaseId"]}): fallo de un test concreto (FALLA: tests/...)', flush=True)
                 if workflow not in retried:
                     retried.add(workflow)
+                    relanzado[workflow] = result.get('attempt')
                     gh('run', 'rerun', str(result['databaseId']), '--failed')
                     print(f'RETRY {workflow} ({result["databaseId"]})', flush=True)
                     continue

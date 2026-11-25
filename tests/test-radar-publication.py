@@ -33,8 +33,11 @@ assert "p.startswith('editoriales/') and p.endswith('.html')" in publisher
 assert '            .lycheeignore \\\n' in workflow
 assert "'.lycheeignore'}" in (ROOT/'scripts/publish-radar-refresh.py').read_text(encoding='utf-8')
 
-def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocked=(), lagging_job=0, carga=0):
+def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocked=(), lagging_job=0, carga=0,
+             rerun_lento=None):
     calls = []
+    # Caso 15 (25/11): tras `run rerun` el listado devuelve aún `rerun_lento` veces el intento 1 fallido; luego el 2 verde.
+    rerun = {'hecho': False, 'lento': rerun_lento or 0}
     carga = {'left': carga}
     lag = {'left': lagging_job}
     dispatched = set()
@@ -76,6 +79,12 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
                 ])
             if name not in dispatched:
                 return json.dumps([{'databaseId':1}])
+            if rerun_lento is not None and name == failure:
+                fallido = {'databaseId':2,'headSha':'expected-sha','status':'completed','conclusion':'failure','attempt':1}
+                if not rerun['hecho'] or rerun['lento']:
+                    rerun['lento'] -= rerun['hecho']
+                    return json.dumps([fallido])
+                return json.dumps([{**fallido, 'conclusion':'success', 'attempt':2}])
             return json.dumps([
                 {'databaseId':3,'headSha':'different-sha','status':'completed','conclusion':'success'},
                 {'databaseId':2,'headSha':'expected-sha','status':'completed','conclusion':
@@ -84,6 +93,8 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
             ])
         if args[0] == 'api' and args[1].endswith('...main'):
             return json.dumps({'ahead_by': 0, 'files': []})  # main no movió entradas de los builders
+        if args[:2] == ('run','rerun'):
+            rerun['hecho'] = True
         if args[:2] == ('pr','merge') and conflict:
             raise subprocess.CalledProcessError(1, ['gh', *args], stderr='Pull request is not mergeable')
         if args[0] == 'api' and args[1:3] == ('--method', 'POST') and args[3].endswith('/dispatches'):
@@ -112,7 +123,7 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
                 raise AssertionError('a conflicting PR must not be reported as merged')
             except module.StaleMerge:
                 pass
-        elif failure or skipped_job:
+        elif (failure and rerun_lento is None) or skipped_job:
             try:
                 module.run('automation/radar-clock-test')
                 raise AssertionError('failed CI must stop publication')
@@ -128,6 +139,9 @@ def scenario(failure=None, skipped_job=False, conflict=False, pr_runs=(), blocke
     successes = [call for call in calls if call[0] == 'api' and 'state=success' in call]
     if conflict:
         assert not deployments
+    elif rerun_lento is not None:
+        assert len(merges) == 1, 'el reintento verde se espera aunque el listado tarde en mostrarlo'
+        assert sum(call[:2] == ('run','rerun') for call in calls) == 1
     elif failure or skipped_job:
         assert not merges and not deployments
         # A failed run gets exactly one rerun of its failed jobs before publication stops.
@@ -155,6 +169,8 @@ scenario(conflict=True)
 scenario(lagging_job=2)
 # Con la carga en curso no se fusiona hasta que termine: espera, consulta otra vez y entonces fusiona.
 scenario(carga=3)
+scenario(module.WORKFLOWS[0], rerun_lento=3)
+scenario(module.WORKFLOWS[0], rerun_lento=0)
 # Si la carga no termina antes del plazo, la PR queda abierta y no se fusiona ni se despliega.
 def sin_fin():
     calls = []
