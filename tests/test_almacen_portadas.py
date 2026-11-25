@@ -62,6 +62,11 @@ class AlmacenPortadasTest(unittest.TestCase):
         self.assertFalse((self.root / almacen.LOCAL / 'isbn-1.webp').exists())
         self.assertTrue((self.root / almacen.LOCAL / 'isbn-2.webp').is_file())
 
+    def test_un_fallo_suelto_de_pages_no_cuenta_como_ausente(self):
+        respuestas = iter([False, False, True])
+        self.assertTrue(almacen._responde('u', head=lambda u: next(respuestas), espera=lambda s: None))
+        self.assertFalse(almacen._responde('u', head=lambda u: False, espera=lambda s: None))
+
     def test_una_copia_local_cambiada_despues_de_migrar_no_se_borra(self):
         almacen.migrar(self.root, self.clone)
         (self.root / almacen.LOCAL / 'isbn-1.webp').write_bytes(b'otra')

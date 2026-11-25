@@ -17,6 +17,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -61,13 +62,23 @@ def migrar(root: Path, directory: Path) -> int:
     return moved
 
 
-def _responde(url: str) -> bool:
+def _head(url: str) -> bool:
     try:
         req = urllib.request.Request(url, method='HEAD', headers={'User-Agent': 'web-escritor-almacen'})
         with urllib.request.urlopen(req, timeout=30) as res:
             return res.status == 200
     except Exception:
         return False
+
+
+def _responde(url: str, *, intentos: int = 3, head=_head, espera=time.sleep) -> bool:
+    """Pages corta a veces miles de HEAD seguidos: un fallo suelto no es una portada ausente."""
+    for i in range(intentos):
+        if head(url):
+            return True
+        if i + 1 < intentos:
+            espera(2 * (i + 1))
+    return False
 
 
 def verificar(root: Path, *, borrar: bool = False, probe=_responde, workers: int = 16) -> tuple[int, list[str]]:
