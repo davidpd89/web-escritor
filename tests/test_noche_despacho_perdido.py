@@ -52,5 +52,16 @@ class DespachoPerdidoTest(unittest.TestCase):
         self.assertFalse(noche.decidir(libro, T0 + timedelta(hours=2))[0])
 
 
+class SegadorTest(unittest.TestCase):
+    def test_el_segador_recoge_tambien_timeout_y_arranque_fallido(self):
+        """Caso 19: una carga cortada por timeout-minutes acaba en «timed_out» (o «cancelled» por GitHub): sin
+        segador el apunte se quedaba en_curso y bloqueaba el resto de la noche."""
+        import yaml
+        flujo = yaml.safe_load((ROOT / '.github/workflows/reading-catalogue-reaper.yml').read_text(encoding='utf-8'))
+        condicion = flujo['jobs']['recoger']['if']
+        for conclusion in ('failure', 'timed_out', 'cancelled', 'startup_failure'):
+            self.assertIn(f'"{conclusion}"', condicion)
+
+
 if __name__ == '__main__':
     unittest.main()

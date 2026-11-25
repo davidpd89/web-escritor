@@ -15,7 +15,7 @@ permissions:
 jobs:
   recoger:
     # Solo ejecuciones en rojo de la carga real sobre main; las canceladas a mano o por el grupo no se reintentan.
-    if: github.event.workflow_run.conclusion == 'failure' && github.event.workflow_run.head_branch == 'main' && vars.READING_INTAKE_ENABLED == 'true'
+    if: contains(fromJSON('["failure","timed_out","cancelled","startup_failure"]'), github.event.workflow_run.conclusion) && github.event.workflow_run.head_branch == 'main' && vars.READING_INTAKE_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
