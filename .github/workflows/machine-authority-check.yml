@@ -82,7 +82,7 @@ jobs:
       - name: Start static server
         shell: bash
         run: |
-          python -m http.server 4173 --bind 127.0.0.1 > /tmp/machine-authority-server.log 2>&1 &
+          python scripts/qa_static_server.py 4173 --bind 127.0.0.1 > /tmp/machine-authority-server.log 2>&1 &
           echo $! > /tmp/machine-authority-server.pid
           for i in {1..30}; do
             if curl --fail --silent http://127.0.0.1:4173/ai/ >/dev/null; then exit 0; fi

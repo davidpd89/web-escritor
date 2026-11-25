@@ -1,10 +1,13 @@
 import importlib.util
+import sys
 import unittest
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+import reading_cover_store as cover_store  # noqa: E402
 SPEC = importlib.util.spec_from_file_location('pagefind_media', ROOT / 'scripts/build-pagefind-index.py')
 BUILDER = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(BUILDER)
@@ -38,7 +41,7 @@ class SocialImageIntegrity(unittest.TestCase):
                 self.assertTrue(path.startswith('/'), f'{rel}: {key} no tiene ruta absoluta: {value}')
                 target = (ROOT / path.lstrip('/')).resolve()
                 self.assertTrue(target.is_relative_to(ROOT), f'{rel}: {key} escapa de la raíz: {value}')
-                self.assertTrue(target.is_file(), f'{rel}: {key} apunta a imagen inexistente: {value}')
+                self.assertTrue(target.is_file() or cover_store.stored_file(target, ROOT), f'{rel}: {key} apunta a imagen inexistente: {value}')
                 checked += 1
         self.assertGreater(checked, 0, 'No se encontraron imágenes sociales locales en páginas públicas')
 

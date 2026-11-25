@@ -6,7 +6,7 @@ run-name: Mejoras web vista previa ${{ inputs.ref }}
 # DOCUMENTADO PERO NO ACTIVADO: solo workflow_dispatch manual y con confirmacion escrita. Nunca se dispara con un push, una PR o el ejecutor del laboratorio.
 # NO toca GitHub Pages ni deploy-pages.yml ni la produccion: no pide permisos pages/id-token. Publica en un proyecto de Cloudflare Pages SEPARADO (rama de vista previa)
 # solo si existen el secreto CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID y la variable de repositorio MEJORAS_WEB_PAGES_PROJECT. Sin ellos, solo genera el
-# artefacto `mejoras-web-sitio` (descargable y servible en local con `python -m http.server`).
+# artefacto `mejoras-web-sitio` (descargable y servible en local con `python scripts/qa_static_server.py`).
 # La vista previa lleva X-Robots-Tag noindex y robots.txt Disallow para que los buscadores no la indexen.
 # Pasar a main solo cuando David lo ordene: este workflow no abre PR ni fusiona nada.
 

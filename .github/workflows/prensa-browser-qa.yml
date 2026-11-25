@@ -64,7 +64,7 @@ jobs:
       - name: Start local static server
         shell: bash
         run: |
-          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/prensa-qa-server.log 2>&1 &
+          python3 scripts/qa_static_server.py 4173 --bind 127.0.0.1 > /tmp/prensa-qa-server.log 2>&1 &
           echo $! > /tmp/prensa-qa-server.pid
           for i in {1..30}; do
             if curl --fail --silent http://127.0.0.1:4173/prensa.html > /dev/null; then

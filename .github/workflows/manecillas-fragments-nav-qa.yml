@@ -63,7 +63,7 @@ jobs:
 
       - name: Start static server
         run: |
-          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/fragments-server.log 2>&1 &
+          python3 scripts/qa_static_server.py 4173 --bind 127.0.0.1 > /tmp/fragments-server.log 2>&1 &
           for i in {1..30}; do
             curl --fail --silent http://127.0.0.1:4173/las-manecillas-del-recuerdo/fragmentos/ > /dev/null && exit 0
             sleep 1
