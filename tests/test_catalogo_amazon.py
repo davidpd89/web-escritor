@@ -265,6 +265,23 @@ class Transformar(unittest.TestCase):
         self.assertEqual([f['motivo'] for f in out['fallos']], [])
         self.assertEqual(out['leidos'], 1)
 
+    def test_a_cut_line_or_an_item_without_asin_does_not_stop_the_phase(self):
+        """Casos 17 y 18 de la ronda 2: un corte a mitad de escritura y un item sin ASIN."""
+        good = [item('C1', isbn('978841111131'), title='Uno'), item('C2', isbn('978841111132'), title='Dos')]
+        lines = [json.dumps({'nodo': '1', 'ruta': [], 'item': r}) for r in good]
+        nameless = dict(good[0])
+        nameless.pop('asin')
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            (Path(tmp) / 'raw').mkdir()
+            (Path(tmp) / 'raw' / '2026-11-06.jsonl').write_text(
+                lines[0] + '\n' + json.dumps({'item': nameless}) + '\n' + lines[1] + '\n' + lines[1][:40],
+                encoding='utf-8')
+            out = ca.transformar('2026-11-06', {'libros': []})
+        self.assertEqual(out['leidos'], 2)
+        self.assertEqual(sorted(f['motivo'] for f in out['fallos']),
+                         ['línea 2 del raw sin ASIN', 'línea 4 del raw ilegible'])
+
 
 class FakeProvider:
     """Nodo raíz lleno (10 páginas de 10) que se parte en dos hijos con pocos resultados."""

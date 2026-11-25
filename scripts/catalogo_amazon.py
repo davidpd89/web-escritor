@@ -1318,9 +1318,21 @@ def transformar(day, catalogue, write_pending=True):
     proper = proper_words(catalogue)
     by_work, failures, seen, complete = defaultdict(list), [], set(), set()
     total, best = 0, {}
-    for line in raw.read_text(encoding='utf-8').splitlines():
-        entry = json.loads(line)
-        asin = amazon_dict(entry.get('item')).get('asin')
+    # Casos 17 y 18 de la ronda 2 GPT (25/11): el raw se escribe en modo añadir y un corte a mitad de línea dejaba
+    # un JSON partido que tumbaba la fase entera; un item sin ASIN se juntaba con los demás bajo la clave None.
+    # Lo ilegible y lo que no trae ASIN se anota como fallo y se sigue.
+    for number, line in enumerate(raw.read_text(encoding='utf-8').splitlines(), 1):
+        if not line.strip():
+            continue
+        try:
+            entry = json.loads(line)
+        except ValueError:
+            failures.append({'fase': 'transformar', 'motivo': f'línea {number} del raw ilegible'})
+            continue
+        asin = amazon_dict(entry.get('item') if isinstance(entry, dict) else None).get('asin')
+        if not asin:
+            failures.append({'fase': 'transformar', 'motivo': f'línea {number} del raw sin ASIN'})
+            continue
         # El mismo libro sale por varias búsquedas; se queda la aparición con la clasificación más completa.
         if asin not in best or len(node_names(entry['item'])) > len(node_names(best[asin]['item'])):
             best[asin] = entry
