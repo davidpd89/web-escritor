@@ -33,6 +33,23 @@ class EstadoTest(unittest.TestCase):
     def use(self, repo):
         return patch.multiple(estado, ROOT=repo, WORK=repo / '.local/catalogo')
 
+    def test_restaurar_borra_el_estado_local_que_el_remoto_ya_no_tiene(self):
+        """R3-07 GPT: un segundo ciclo en el mismo runner no resucita un fichero de estado de un intento anterior."""
+        a = self.repos[0]
+        with self.use(a):
+            self.assertEqual(estado.restaurar(), 0)
+            work = a / '.local/catalogo'
+            work.mkdir(parents=True, exist_ok=True)
+            (work / 'semillas.json').write_text('{"cola": []}', encoding='utf-8')
+            estado.guardar('uno')
+            sobrante = next(n for n in estado.FILES if n != 'semillas.json' and '/' not in n)
+            (work / sobrante).write_text('{"viejo": true}', encoding='utf-8')
+            estado.restaurar()
+            self.assertFalse((work / sobrante).exists(), f'{sobrante} sobrevivió al restaurar')
+            self.assertTrue((work / 'semillas.json').exists())
+            estado.guardar('dos')
+        self.assertNotIn(sobrante, run('ls-tree', '--name-only', 'refs/heads/catalogo-estado', cwd=self.remote))
+
     def test_first_run_starts_empty_and_saves_then_restores_elsewhere(self):
         a, b = self.repos[0], self.repos[1]
         with self.use(a):

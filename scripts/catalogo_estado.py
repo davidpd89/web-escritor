@@ -49,6 +49,10 @@ def restaurar():
         target = WORK / name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(git('show', f'{head}:{name}').stdout)
+    # Un fichero de estado que el remoto ya no tiene no puede sobrevivir en local de un intento anterior del mismo
+    # runner (segundo ciclo tras el código 75; git clean no toca .local): guardar() lo resucitaría (R3-07 de GPT).
+    for name in set(FILES) - set(names):
+        (WORK / name).unlink(missing_ok=True)
     print(f'Estado restaurado de {BRANCH}@{head[:12]}: {len(names)} ficheros', flush=True)
     return len(names)
 
