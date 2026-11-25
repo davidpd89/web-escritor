@@ -174,6 +174,10 @@ class CoverStoreWriteTest(unittest.TestCase):
         hook.unlink()
         self.assertEqual(store.flush(root=self.root), 1)
         self.assertIn('isbn-9780000000002.webp', run('ls-tree', '--name-only', 'main', cwd=remote.name).stdout)
+        # caso 9 de la ronda 2: un nombre del manifiesto sin fichero en origin sería una portada 404 en la web
+        store.register(self.root, 'fantasma.webp', store.digest(b'nada'))
+        with self.assertRaisesRegex(RuntimeError, 'fantasma.webp'):
+            store.flush(root=self.root)
 
 
 if __name__ == '__main__':

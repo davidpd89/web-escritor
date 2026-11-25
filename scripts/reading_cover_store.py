@@ -298,12 +298,25 @@ def flush(message: str = 'Portadas de la carga', root: Path = ROOT) -> int:
     git = _store_git(directory)
     _commit_registered(git, directory, root, message)
     if git('rev-parse', '--verify', '--quiet', 'HEAD', check=False).returncode:
-        return 0  # almacén recién creado y sin nada que subir
+        _check_published(set(), root)  # almacén recién creado y sin nada que subir
+        return 0
     for _ in range(3):
         published = _push_once(git)
         if published is not None:
+            git('fetch', '--quiet', 'origin', 'main')
+            _check_published(set(git('ls-tree', '-r', '--name-only', 'FETCH_HEAD').stdout.splitlines()), root)
             return published
     raise RuntimeError('Almacén de portadas: no se pudo subir tras 3 intentos')
+
+
+def _check_published(remote: set[str], root: Path) -> None:
+    """Caso 9 de la ronda 2 GPT (25/11): el manifiesto es lo que decide la URL pública, y `_commit_registered` deja
+    fuera los nombres sin fichero en la copia local. Un nombre dado de alta que no está en origin sería una portada
+    404 en la web: se para aquí, antes de que la rama de datos con ese manifiesto se suba."""
+    missing = sorted(names(root) - remote)
+    if missing:
+        raise RuntimeError(f'Almacén de portadas: {len(missing)} portadas del manifiesto no están en origin '
+                           f'(darían 404): {", ".join(missing[:10])}')
 
 
 if __name__ == '__main__':
