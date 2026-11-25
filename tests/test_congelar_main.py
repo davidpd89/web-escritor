@@ -108,22 +108,33 @@ class GhFalso:
         self.prs = {p['number']: dict(p, labels=[{'name': n} for n in p.get('labels', [])]) for p in prs}
         self.rompe = set(rompe)
         self.llamadas = []
+        self.etiquetas = set()
 
     def __call__(self, *args):
         import json
         self.llamadas.append(args)
         if args[:2] == ('pr', 'list'):
             return json.dumps(list(self.prs.values()))
+        if args[0] == 'label':
+            self.etiquetas.add(args[2])
+            return ''
         numero = int(args[2])
         if numero in self.rompe:
             raise subprocess.CalledProcessError(1, 'gh')
         pr = self.prs[numero]
         if args[1] == 'ready':
             pr['isDraft'] = '--undo' in args
+            if pr['isDraft']:
+                pr['autoMergeRequest'] = None  # como GitHub: el borrador desactiva el auto-merge
+        elif args[1] == 'merge':
+            assert not pr['isDraft'], 'GitHub no activa auto-merge en un borrador'
+            pr['autoMergeRequest'] = {'mergeMethod': 'SQUASH'}
         elif '--add-label' in args:
-            pr['labels'].append({'name': args[-1]})
+            assert set(args[-1].split(',')) <= self.etiquetas, 'gh falla con una etiqueta que no existe'
+            pr['labels'] += [{'name': n} for n in args[-1].split(',')]
         elif '--remove-label' in args:
-            pr['labels'] = [e for e in pr['labels'] if e['name'] != args[-1]]
+            quitar = args[-1].split(',')
+            pr['labels'] = [e for e in pr['labels'] if e['name'] not in quitar]
         return ''
 
     def estado(self):
@@ -157,14 +168,14 @@ class CongelarPrAbiertasTest(unittest.TestCase):
         self.assertEqual({n: e for n, e in gh.estado().items() if n != 1},
                          {2: (True, False), 3: (False, False), 4: (False, False), 5: (False, False)},
                          'ni el borrador del autor, ni la carga, ni las exentas')
-        self.assertEqual(c.descongelar(gh, libre, imprimir=lambda *_: None), [1])
+        self.assertEqual(c.descongelar(gh, libre, imprimir=lambda *_: None, pausa_s=0), [1])
         self.assertEqual(gh.estado()[1], (False, False))
         self.assertEqual(gh.estado()[2], (True, False), 'el borrador del autor sigue siéndolo')
 
     def test_con_otra_carga_en_cola_siguen_congeladas(self):
         gh = GhFalso(self.PRS)
         c.congelar(gh, imprimir=lambda *_: None)
-        self.assertEqual(c.descongelar(gh, ocupada, imprimir=lambda *_: None), [])
+        self.assertEqual(c.descongelar(gh, ocupada, imprimir=lambda *_: None, pausa_s=0), [])
         self.assertEqual(gh.estado()[1], (True, True))
 
     def test_falla_abierto(self):
@@ -176,14 +187,52 @@ class CongelarPrAbiertasTest(unittest.TestCase):
         def roto(*args):
             raise subprocess.CalledProcessError(1, 'gh')
         self.assertEqual(c.congelar(roto, imprimir=lambda *_: None), [])
-        self.assertEqual(c.descongelar(roto, libre, imprimir=lambda *_: None), [])
+        self.assertEqual(c.descongelar(roto, libre, imprimir=lambda *_: None, pausa_s=0), [])
 
     def test_si_falla_el_borrador_la_etiqueta_la_devuelve_igual(self):
         """Etiqueta antes que borrador: descongelar quita la etiqueta aunque la PR no llegara a borrador."""
         gh = GhFalso([{'number': 1, 'headRefName': 'fix/algo', 'isDraft': False, 'labels': [c.ETIQUETA_CARGA]}])
-        self.assertEqual(c.descongelar(gh, libre, imprimir=lambda *_: None), [1])
+        self.assertEqual(c.descongelar(gh, libre, imprimir=lambda *_: None, pausa_s=0), [1])
         self.assertEqual(gh.estado()[1], (False, False))
         self.assertNotIn(('pr', 'ready', '1'), gh.llamadas, 'no la marca lista si no era borrador')
+
+    def test_el_auto_merge_vuelve_tras_la_noche(self):
+        """Caso 1 de la ronda 2: la reparación con auto-merge lo perdía al pasar a borrador."""
+        gh = GhFalso([{'number': 7, 'headRefName': 'autorepair/x-1', 'isDraft': False,
+                       'autoMergeRequest': {'mergeMethod': 'SQUASH'}},
+                      {'number': 8, 'headRefName': 'fix/sin-auto', 'isDraft': False, 'autoMergeRequest': None}])
+        c.congelar(gh, imprimir=lambda *_: None)
+        self.assertIsNone(gh.prs[7]['autoMergeRequest'])
+        self.assertEqual(c.descongelar(gh, libre, imprimir=lambda *_: None, pausa_s=0), [7, 8])
+        self.assertTrue(gh.prs[7]['autoMergeRequest'], 'vuelve con auto-merge')
+        self.assertIsNone(gh.prs[8]['autoMergeRequest'], 'la que no lo tenía no lo gana')
+        self.assertEqual(gh.prs[7]['labels'], [], 'sin etiquetas de congelación')
+
+    def test_si_falla_el_auto_merge_sigue_marcada_para_reintentar(self):
+        gh = GhFalso([{'number': 7, 'headRefName': 'autorepair/x-1', 'isDraft': False,
+                       'autoMergeRequest': {'mergeMethod': 'SQUASH'}}])
+        c.congelar(gh, imprimir=lambda *_: None)
+
+        def merge_roto(*args):
+            if args[1] == 'merge':
+                raise subprocess.CalledProcessError(1, 'gh')
+            return gh(*args)
+        self.assertEqual(c.descongelar(merge_roto, libre, imprimir=lambda *_: None, pausa_s=0), [])
+        self.assertIn(c.ETIQUETA_AUTO, [e['name'] for e in gh.prs[7]['labels']])
+        self.assertEqual(c.descongelar(gh, libre, imprimir=lambda *_: None, pausa_s=0), [7],
+                         'la siguiente pasada lo completa')
+        self.assertTrue(gh.prs[7]['autoMergeRequest'])
+
+    def test_la_carga_que_tarda_en_aparecer_mantiene_la_congelacion(self):
+        """Caso 2 de la ronda 2: A acaba y B ya está despachada, pero el listado aún no la muestra."""
+        gh = GhFalso(self.PRS)
+        c.congelar(gh, imprimir=lambda *_: None)
+        vistas = iter([libre, ocupada])
+        pausas = []
+        self.assertEqual(c.descongelar(gh, lambda f: next(vistas)(f), imprimir=lambda *_: None,
+                                       dormir=pausas.append), [])
+        self.assertEqual(pausas, [c.CONFIRMAR_S])
+        self.assertEqual(gh.estado()[1], (True, True))
 
     def test_workflows_cableados(self):
         sync = (ROOT / '.github/workflows/reading-catalogue-sync.yml').read_text(encoding='utf-8')

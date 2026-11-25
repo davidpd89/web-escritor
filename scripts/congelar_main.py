@@ -38,6 +38,12 @@ ETIQUETA = 'sin-congelar'
 TOPE_MIN = 300
 CADA_S = 120
 ETIQUETA_CARGA = 'congelada-por-carga'
+# Pasar a borrador desactiva el auto-merge y volver a «lista» no lo reactiva: sin anotarlo, una reparación que iba a
+# entrar sola se quedaba abierta tras la noche (caso 1 de la ronda 2 GPT, 25/11).
+ETIQUETA_AUTO = 'congelada-con-auto-merge'
+# El listado de Actions puede tardar en mostrar la carga que la anterior acaba de despachar (caso 2 de la ronda 2):
+# el segador mira dos veces, con esta pausa, antes de devolver las PR.
+CONFIRMAR_S = 90
 CARGA = 'reading-catalogue-sync.yml'
 ERRORES = 3  # consultas fallidas seguidas antes de abrir: un 502 suelto de gh no abre main en plena carga
 
@@ -98,7 +104,7 @@ def esperar(head_ref='', etiquetas='', consulta=gh_runs, dormir=time.sleep, ahor
 
 def _abiertas(gh=_gh):
     return gh_listas.lista(gh, 'pr', 'list', '--base', 'main', '--state', 'open',
-                           '--json', 'number,headRefName,isDraft,labels')
+                           '--json', 'number,headRefName,isDraft,labels,autoMergeRequest')
 
 
 def _nombres(pr):
@@ -113,12 +119,19 @@ def congelar(gh=_gh, imprimir=print):
     except (subprocess.SubprocessError, OSError, ValueError, gh_listas.Truncada) as exc:
         imprimir(f'::warning::No se pudieron listar las PR para congelarlas ({type(exc).__name__}).')
         return hechas
+    # `gh pr edit --add-label` falla si la etiqueta no existe: sin esto no se congelaba ninguna PR (25/11).
+    for nombre in (ETIQUETA_CARGA, ETIQUETA_AUTO):
+        try:
+            gh('label', 'create', nombre, '--force', '--color', 'BFD4F2', '--description', 'scripts/congelar_main.py')
+        except (subprocess.SubprocessError, OSError) as exc:
+            imprimir(f'::warning::No se pudo asegurar la etiqueta {nombre} ({type(exc).__name__}).')
     for pr in prs:
         if pr.get('isDraft') or exenta(pr.get('headRefName', ''), ','.join(_nombres(pr))):
             continue
         numero = str(pr['number'])
         try:  # la etiqueta primero: si falla el borrador, descongelar la vuelve a dejar como estaba
-            gh('pr', 'edit', numero, '--add-label', ETIQUETA_CARGA)
+            etiquetas = ETIQUETA_CARGA + (',' + ETIQUETA_AUTO if pr.get('autoMergeRequest') else '')
+            gh('pr', 'edit', numero, '--add-label', etiquetas)
             gh('pr', 'ready', numero, '--undo')
             hechas.append(pr['number'])
         except (subprocess.SubprocessError, OSError) as exc:
@@ -127,10 +140,16 @@ def congelar(gh=_gh, imprimir=print):
     return hechas
 
 
-def descongelar(gh=_gh, consulta=gh_runs, imprimir=print):
-    """Devuelve a «lista para revisar» las PR que congeló la carga, si no queda ninguna carga activa ni en cola."""
+def descongelar(gh=_gh, consulta=gh_runs, imprimir=print, dormir=time.sleep, pausa_s=CONFIRMAR_S):
+    """Devuelve a «lista para revisar» las PR que congeló la carga, si no queda ninguna carga activa ni en cola.
+
+    Con auto-merge anotado al congelar, lo vuelve a activar. Las etiquetas solo se quitan si todo salió bien: una PR a
+    medias la retoma el final de la siguiente carga."""
     try:
         quedan = activas(consulta, (CARGA,))
+        if not quedan and pausa_s:
+            dormir(pausa_s)
+            quedan = activas(consulta, (CARGA,))
         prs = [pr for pr in _abiertas(gh) if ETIQUETA_CARGA in _nombres(pr)]
     except (subprocess.SubprocessError, OSError, ValueError, gh_listas.Truncada) as exc:
         imprimir(f'::warning::No se pudo descongelar ({type(exc).__name__}); lo hará el final de la próxima carga.')
@@ -144,7 +163,10 @@ def descongelar(gh=_gh, consulta=gh_runs, imprimir=print):
         try:
             if pr.get('isDraft'):
                 gh('pr', 'ready', numero)
-            gh('pr', 'edit', numero, '--remove-label', ETIQUETA_CARGA)
+            if ETIQUETA_AUTO in _nombres(pr) and not pr.get('autoMergeRequest'):
+                gh('pr', 'merge', numero, '--auto', '--squash')
+            gh('pr', 'edit', numero, '--remove-label',
+               ETIQUETA_CARGA + (',' + ETIQUETA_AUTO if ETIQUETA_AUTO in _nombres(pr) else ''))
             hechas.append(pr['number'])
         except (subprocess.SubprocessError, OSError) as exc:
             imprimir(f'::warning::PR #{numero} sigue congelada ({type(exc).__name__}).')
