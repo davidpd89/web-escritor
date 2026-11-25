@@ -1,0 +1,60 @@
+name: Contratos en main tras fusionar
+
+# Las PR de código pasan su puerta contra el main de ese momento y el ruleset no exige rama al día (strict apagado el
+# 25/10: reiniciaba la CI de todos los lotes). Dos PR verdes por separado pueden dejar main en rojo: el 24/11 #1564 y
+# #1395 entraron con una hora de diferencia, el test de una no reconocía la paginación de la otra y nadie lo vio hasta
+# que las cargas de la noche cayeron una tras otra en la puerta (45517390273, 45528652551).
+#
+# Aquí corren los mismos contratos Python que la puerta (scripts/run-python-contracts.sh) sobre main tras cada fusión
+# de código. scripts/night-autorepair.py vigila este flujo: si sale rojo lo relanza y, si repite, lo repara con IA, de
+# modo que un main roto por la tarde llega arreglado a la carga de la 01:17.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'tests/**'
+      - 'qa/**'
+      - '.github/workflows/**'
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # Solo importa el main más reciente: una fusión nueva cancela la comprobación de la anterior.
+  group: main-contratos
+  cancel-in-progress: true
+
+jobs:
+  contratos:
+    name: Contratos Python en main
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Install shared Python dependencies
+        run: python -m pip install --requirement scripts/requirements.txt
+      - name: Run universal Python contracts
+        shell: bash
+        run: bash scripts/run-python-contracts.sh guion
+      - name: Run underscore-named Python contracts
+        if: success() || failure()
+        shell: bash
+        run: bash scripts/run-python-contracts.sh subrayado
