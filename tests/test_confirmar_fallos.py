@@ -29,6 +29,38 @@ class ConfirmarFallosTest(unittest.TestCase):
         fallan, inestables = cf.confirmar(modo, ficheros, ejecutar, salida.append)
         return fallan, inestables, '\n'.join(salida), llamadas
 
+    def test_el_plazo_vencido_mata_tambien_a_los_nietos(self):
+        """R3-10 GPT: un contrato colgado no deja vivo a lo que lanzó (servidor, navegador) para los siguientes."""
+        import os
+        import subprocess
+        import tempfile
+        import time
+        from unittest.mock import patch
+
+        def vivo(pid):
+            if os.name == 'nt':
+                fuera = subprocess.run(['tasklist', '/FI', f'PID eq {pid}', '/NH'], capture_output=True, text=True).stdout
+                return str(pid) in fuera
+            try:
+                os.kill(pid, 0)
+            except OSError:
+                return False
+            return True
+
+        with tempfile.TemporaryDirectory() as tmp:
+            pidfile = Path(tmp) / 'nieto.pid'
+            nieto = f'import os,time; open({str(pidfile)!r},"w").write(str(os.getpid())); time.sleep(60)'
+            hijo = f'import subprocess,sys,time; subprocess.Popen([sys.executable,"-c",{nieto!r}]); time.sleep(60)'
+            with patch.object(cf, 'TIEMPO_S', 3):
+                rc, salida = cf.ejecutar([sys.executable, '-c', hijo])
+            self.assertEqual(rc, 124, salida)
+            pid = int(pidfile.read_text())
+            for _ in range(20):
+                if not vivo(pid):
+                    break
+                time.sleep(0.25)
+            self.assertFalse(vivo(pid), 'el nieto sobrevivió al plazo vencido')
+
     def test_un_fallo_que_no_se_repite_no_es_determinista(self):
         fallan, inestables, salida, _ = self.correr('script', ['tests/test-red.py', 'tests/test-roto.py'],
                                                     {'test-red.py': 0, 'test-roto.py': 1})

@@ -14,6 +14,8 @@ sobre la misma revisión; lo que pasa a la segunda sale como INESTABLE (aviso de
 LISTA es un fichero con un test por línea (el `$logs/failed` del paso). Sale 1 si alguno falla dos veces.
 """
 import argparse
+import os
+import signal
 import subprocess
 import sys
 from pathlib import Path
@@ -36,13 +38,34 @@ def pasa(modo, rc):
     return rc == 0 or (modo == 'unittest' and rc == 5)
 
 
+def matar_arbol(pid):
+    """El proceso y sus descendientes (servidores, navegadores que lanzó el contrato), como night-autorepair.py."""
+    if os.name == 'nt':
+        taskkill = str(Path(os.environ.get('SystemRoot', r'C:\Windows')) / 'System32' / 'taskkill.exe')
+        subprocess.run([taskkill, '/T', '/F', '/PID', str(pid)], capture_output=True, check=False)
+    else:
+        try:
+            os.killpg(pid, signal.SIGKILL)
+        except OSError:
+            pass   # el grupo ya terminó
+
+
 def ejecutar(cmd):
+    # subprocess.run(timeout=) mata solo al hijo directo: un contrato colgado dejaba vivos a sus nietos (un servidor
+    # en un puerto, un navegador) para los contratos siguientes del mismo job (R3-10 GPT, 25/11). En su propio
+    # grupo de procesos, al vencer el plazo cae el árbol entero.
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, text=True,
+                         encoding='utf-8', errors='replace', start_new_session=os.name != 'nt')
     try:
-        hecho = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-                               encoding='utf-8', errors='replace', timeout=TIEMPO_S)
-        return hecho.returncode, hecho.stdout
+        salida, _ = p.communicate(timeout=TIEMPO_S)
+        return p.returncode, salida
     except subprocess.TimeoutExpired as exc:
-        return 124, f'sin terminar en {TIEMPO_S}s\n{exc.output or ""}'
+        matar_arbol(p.pid)
+        try:
+            resto, _ = p.communicate(timeout=30)
+        except subprocess.TimeoutExpired:
+            resto = ''   # un nieto fuera del grupo sigue con la tubería: se abandona, no se espera
+        return 124, f'sin terminar en {TIEMPO_S}s\n{resto or exc.output or ""}'
 
 
 def confirmar(modo, ficheros, ejecutar=ejecutar, imprimir=print):
