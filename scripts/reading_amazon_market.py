@@ -1073,7 +1073,8 @@ def item_non_reading(book,payload):
 
 
 def item_audience(book,payload):
-    """«infantil» si alguna edición impresa del libro está sobre todo en ramas infantiles de Amazon, o None.
+    """«infantil» si alguna edición impresa del libro está sobre todo en ramas infantiles de Amazon, «otro» si las
+    impresas que trae la respuesta están en ramas de adultos (prueba en contra) y None si no hay prueba.
 
     Origen (2026-11-25): «Narnia: El sobrino del mago» salió como terror; Amazon lo tiene en siete ramas infantiles y
     tres de adultos. El barrido diario ya trae los nodos: la señal llega a lo publicado sin gastar cuota y
@@ -1083,11 +1084,12 @@ def item_audience(book,payload):
     payload=amazon_dict(payload)
     container=next((value for field in ('searchResult','itemsResult','itemResults')
                     if isinstance((value:=payload.get(field)),dict)),{})
+    seen=set()
     for item in amazon_list(container.get('items')):
         item=amazon_dict(item)
-        if item.get('asin') in printed and node_audience(item)=='infantil':
-            return 'infantil'
-    return None
+        if item.get('asin') in printed:
+            seen.add(node_audience(item))
+    return 'infantil' if 'infantil' in seen else 'otro' if 'otro' in seen else None
 
 
 def item_sales_rank(book,payload):
@@ -1185,14 +1187,20 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
             return {}
         return payload
 
+    kids=set()
     def keep(found,book,payload):
         answers.setdefault(book['id'],[]).append(payload)
         if book['id'] not in covers and (url:=item_cover_url(book,payload)):
             covers[book['id']]=url
         if why:=item_non_reading(book,payload):
             book['no_lectura']=why
-        if item_audience(book,payload)=='infantil':
+        # Una respuesta de adultos borra la marca de barridos anteriores, pero no la que otra respuesta de este puso.
+        audience=item_audience(book,payload)
+        if audience=='infantil':
             book['publico_amazon']='infantil'
+            kids.add(book['id'])
+        elif audience=='otro' and book['id'] not in kids:
+            book.pop('publico_amazon',None)
         rank=item_sales_rank(book,payload)
         if rank and (book['id'] not in ranks or rank<ranks[book['id']]):
             ranks[book['id']]=rank

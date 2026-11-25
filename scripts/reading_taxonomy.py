@@ -343,7 +343,9 @@ class GenreFallback:
         for book in catalogue['libros']:  # solo géneros con respaldo propio: no cambian entre pasadas
             if book.get('estado') != 'publicado':
                 continue
-            for g in by_book.get(book['id'], set()) & self.genres:
+            assigned = by_book.get(book['id'], set())
+            gone = title_only_fiction(book, assigned)  # lo que la reparación quitará no vota: igual en cada pasada
+            for g in assigned & self.genres - gone:
                 if rule_supported(book, g) and g not in FALLBACK_GENRES:
                     counts = self.by_publisher.setdefault(book.get('editorial') or '', {})
                     counts[g] = counts.get(g, 0) + 1

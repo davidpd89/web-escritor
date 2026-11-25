@@ -77,7 +77,9 @@ class PublishedBooksTests(unittest.TestCase):
         self.assertIn('B000000001', market.price_asins(book))
         self.assertEqual(market.item_audience(book, payload), 'infantil')
         adult = {'itemsResult': {'items': [item(branch('Novela', ADULT))]}}
-        self.assertIsNone(market.item_audience(book, adult))
+        self.assertEqual(market.item_audience(book, adult), 'otro')  # prueba en contra: borra la marca
+        self.assertIsNone(market.item_audience(book, {'itemsResult': {'items': [item(branch('Ofertas', STORE))]}}))
+        self.assertIsNone(market.item_audience(book, {'itemsResult': {'items': []}}))
 
     def test_listed_children_book_loses_terror(self):
         data = {'categorias': [{'id': c, 'slug': c, 'nombre': c, 'tipo': 'genero', 'orden': 1, 'activa': True}
