@@ -31,14 +31,20 @@ def fake(responder):
     return run, calls
 
 
+def es_lista_jobs(args):
+    """La lista de jobs de la ejecución, por el recurso y no por la URL exacta: la paginación (#1395) añadió
+    `&page=N` y un `endswith` rompió la puerta de la carga del 25/11."""
+    return args[:1] == ['api'] and '/actions/runs/' in args[-1] and '/jobs' in args[-1].split('?')[0]
+
+
 def gh_actual(args):
-    if args[-1].endswith('/jobs?per_page=100'):
+    if es_lista_jobs(args):
         return 0, JOBS, ''
     return (0, LOG, '') if '--allow-escape-sequences' in args else (1, '', ESCAPES)
 
 
 def gh_antiguo(args):
-    if args[-1].endswith('/jobs?per_page=100'):
+    if es_lista_jobs(args):
         return 0, JOBS, ''
     return (1, '', VIEJO) if '--allow-escape-sequences' in args else (0, LOG, '')
 
