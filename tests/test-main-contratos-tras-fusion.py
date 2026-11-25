@@ -4,8 +4,13 @@ El 24/11 dos PR verdes por separado (#1564 y #1395) dejaron main en rojo y nadie
 noche cayeron en la puerta. Este contrato impide que la comprobación de main se desvíe de la puerta o deje de vigilarse.
 """
 import ast
+import os
 import pathlib
 import re
+import tempfile
+
+# Solo lee night-autorepair.py con ast (no lo carga); igualmente aislado, como pide su contrato de estado local.
+os.environ['AUTOREPAIR_ESTADO_DIR'] = tempfile.mkdtemp()
 
 RAIZ = pathlib.Path(__file__).resolve().parents[1]
 flujo = (RAIZ / '.github/workflows/main-contratos.yml').read_text(encoding='utf-8')

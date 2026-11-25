@@ -20,7 +20,7 @@
       "id": "calidad",
       "nombre": "Calidad",
       "mision": "Que nada entre en main sin pasar la batería completa de pruebas.",
-      "workflows": ["calidad-html-css", "design-evidence-hardening", "lab-mejoras-offline", "release-readiness-pre-main", "required-merge-gate", "research-editoriales-offline", "tool-tests"],
+      "workflows": ["calidad-html-css", "design-evidence-hardening", "lab-mejoras-offline", "release-readiness-pre-main", "required-merge-gate", "main-contratos", "research-editoriales-offline", "tool-tests"],
       "descartados": [
         {"herramienta": "MegaLinter", "motivo": "Lanza decenas de linters por PR sobre una cola de Actions ya saturada; se añaden uno a uno los que aportan."},
         {"herramienta": "ESLint y Biome", "motivo": "El JavaScript ya lo analizan SonarCloud, DeepSource y CodeQL en cada PR."},
