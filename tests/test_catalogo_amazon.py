@@ -462,6 +462,21 @@ class Sellos(unittest.TestCase):
 
 
 class Priorizar(unittest.TestCase):
+    def test_una_fecha_imposible_no_tumba_el_lote(self):
+        """R4-02 GPT: 2026-11-31 tiene la forma AAAA-MM-DD y no existe; ordenar por cercanía lanzaba ValueError."""
+        for malo in ('2026-11-31', '2027-02-29', '2026-13-01'):
+            with self.subTest(fecha=malo):
+                buena = ca.to_record({'item': item(asin='B000000002', ean=isbn('978841234568'))}, '2026-11-06')
+                rota = dict(buena, asin='B000000003', fecha_publicacion_edicion=malo)
+                chosen, deferred = ca.priorizar([rota, buena], '2026-11-06', 1)
+                self.assertEqual([r['asin'] for r in chosen], ['B000000002'])
+                with self.assertRaises(ca.Rejected):
+                    ca.to_record({'item': item(date=malo)}, '2026-11-06')
+                self.assertIsNone(ca.dia_valido(malo))
+        self.assertEqual(ca.dia_valido('2028-02-29T00:00:00Z'), '2028-02-29')
+        from reading_ttl_source import ttl_publication_date
+        self.assertIsNone(ttl_publication_date('<dt>Fecha publicación</dt><dd>31-11-2026</dd>'))
+
     def test_publisher_legal_form_and_prefix_are_stripped_before_matching(self):
         clean = lambda n: ca.PREFIX.sub('', ca.LEGAL_FORM.sub('', n).strip(' ,'))
         self.assertEqual(clean('Norma Editorial, S.a.'), 'Norma Editorial')

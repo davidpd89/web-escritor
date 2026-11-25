@@ -359,7 +359,7 @@ def semillas_fechas(get, day, known, max_requests=300, ahead=30, back=7, pause=1
                 if row is None:
                     row = queue[isbn] = {'primera': day, 'intentos': 0, 'siguiente': day, 'fuente': 'todostuslibros-fechas'}
                     added += 1
-                if not row.get('fecha') or abs(date.fromisoformat(job['cota']) - today) < abs(date.fromisoformat(row['fecha']) - today):
+                if not dia_valido(row.get('fecha')) or abs(date.fromisoformat(job['cota']) - today) < abs(date.fromisoformat(row['fecha']) - today):
                     row['fecha'] = job['cota']
                     dated += 1
             if stamp and (stamp > last if job['orden'] == 'asc' else stamp < first):
@@ -372,6 +372,20 @@ def semillas_fechas(get, day, known, max_requests=300, ahead=30, back=7, pause=1
                        'ventana': [first, last], 'listados_sin_terminar': len(jobs), 'errores': errors[-5:]}
     write_json(seeds_path(), state)
     return state['fechas']
+
+
+def dia_valido(value):
+    """El día AAAA-MM-DD de `value` si existe en el calendario; si no, None. Una fecha con la forma buena y el día
+    imposible (2026-11-31, 2027-02-29) pasaba la expresión regular y tumbaba después con ValueError todo el lote que
+    se ordenaba por cercanía a hoy (R4-02 GPT, 25/11)."""
+    day = str(value or '')[:10]
+    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', day):
+        return None
+    try:
+        date.fromisoformat(day)
+    except ValueError:
+        return None
+    return day
 
 
 def seed_order(queue, isbns, day):
@@ -670,8 +684,8 @@ def reencolar(day, deferred, rejected, previous=None, pending=None):
         if isbn:
             row['isbn13'] = isbn  # para seguirlo por ISBN (un 979 no se deduce del ASIN)
         # Fecha de publicación de la edición: reintentar pide antes los que salen más cerca de hoy.
-        published = (record.get('fecha_publicacion_edicion') or '')[:10]
-        if re.fullmatch(r'\d{4}-\d{2}-\d{2}', published):
+        published = dia_valido(record.get('fecha_publicacion_edicion'))
+        if published:
             row['fecha'] = published
         return row
     for record in deferred:
@@ -1282,6 +1296,8 @@ def to_record(entry, day, proper=None):
     published = text(content.get('publicationDate')) or text(amazon_dict(info.get('productInfo')).get('releaseDate'))
     if not re.match(r'\d{4}-\d{2}-\d{2}', published):
         raise Rejected('sin fecha de publicación')
+    if not dia_valido(published):
+        raise Rejected('fecha de publicación imposible: ' + published[:10])
     pages = amazon_dict(content.get('pagesCount')).get('displayValue')
     nodes = subjects(item, entry.get('ruta'))
     # Un producto para rellenar, colorear o estudiar idiomas no es un libro de lectura aunque Amazon lo venda como
@@ -1463,7 +1479,7 @@ def priorizar(candidates, day, limit, waiting=None):
 
     def closeness(record):
         published = record['fecha_publicacion_edicion']
-        distance = abs((date.fromisoformat(published[:10]) - today).days) if re.fullmatch(r'\d{4}-\d{2}-\d{2}', published[:10]) else 999
+        distance = abs((date.fromisoformat(dia_valido(published)) - today).days) if dia_valido(published) else 999
         return (distance, [-ord(c) for c in published], sales_rank(record))
     fresh = sorted((r for r in candidates if is_fresh(r)), key=closeness)
     firsts, rest, slots = [], [], set()
