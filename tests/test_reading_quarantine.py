@@ -76,7 +76,11 @@ class QuarantineTest(unittest.TestCase):
     def test_too_many_books_is_a_rule_problem(self):
         data = copy.deepcopy(DATA)
         _, published_cap = q.limit(DATA, DATA)
-        for b in data['libros'][:published_cap + 1]:
+        # Solo los publicados: un borrador no pasa por la regla de descripción y no cuenta como revertido (el
+        # catálogo real los mezcla; con «los primeros N» el tope se quedaba corto el 25/11 y la carga caía).
+        live = [b for b in data['libros'] if b.get('estado') == 'publicado']
+        self.assertGreater(len(live), published_cap + 1)
+        for b in live[:published_cap + 1]:
             b['descripcion_breve'] = 'corta'
         with self.assertRaisesRegex(q.build.ValidationError, 'publicados revertidos'):
             q.isolate(data, ROOT, DATA)
