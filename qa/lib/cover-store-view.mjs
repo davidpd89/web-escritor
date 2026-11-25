@@ -9,9 +9,16 @@ const PREFIX = '/assets/reading-covers/';
 const NAME = /^[a-z0-9][a-z0-9-]*\.(?:webp|jpg|jpeg|png)$/;
 
 export function loadCoverStore(path = 'data/reading-covers-store.json') {
-  if (!fs.existsSync(path)) return { base: '', stored: new Set() };
+  if (!fs.existsSync(path)) return { base: '', stored: new Set(), extra: [], where: {} };
   const data = JSON.parse(fs.readFileSync(path, 'utf8'));
-  return { base: String(data.base_url || '').replace(/\/+$/, ''), stored: new Set(data.archivos || []) };
+  const trim = url => String(url || '').replace(/\/+$/, '');
+  // Varios almacenes: `almacenes` lista los siguientes al primero y `almacen` da el número (1 = almacenes[0]).
+  return { base: trim(data.base_url), stored: new Set(data.archivos || []), extra: (data.almacenes || []).map(trim), where: data.almacen || {} };
+}
+
+function urlOf(store, name) {
+  const k = (store.where || {})[name];
+  return k ? store.extra[k - 1] : store.base;
 }
 
 // Sustituye cada referencia a una portada del almacén (ruta del sitio o URL completa) sin construir una regex dinámica.
@@ -24,7 +31,7 @@ function rewriteRefs(text, store) {
     const name = text.slice(at + PREFIX.length, end);
     const start = text.startsWith(SITE, at - SITE.length) && at >= SITE.length ? at - SITE.length : at;
     if (NAME.test(name) && store.stored.has(name)) {
-      out += text.slice(from, start) + `${store.base}/${name}`;
+      out += text.slice(from, start) + `${urlOf(store, name)}/${name}`;
     } else {
       out += text.slice(from, end);
     }
@@ -37,9 +44,8 @@ export function expectedPublished(text, { html = false, store = loadCoverStore()
   if (!store.stored.size) return text;
   let out = rewriteRefs(text, store);
   if (html) {
-    const u = new URL(store.base);
-    const host = `${u.protocol}//${u.host}`;
-    out = out.replace(/(img-src[^;"]*?)(?=;|"|$)/g, directive => (directive.includes(host) ? directive : `${directive} ${host}`));
+    const hosts = [...new Set([store.base, ...(store.extra || [])].map(url => { const u = new URL(url); return `${u.protocol}//${u.host}`; }))];
+    out = out.replace(/(img-src[^;"]*?)(?=;|"|$)/g, directive => directive + hosts.filter(h => !directive.includes(h)).map(h => ` ${h}`).join(''));
   }
   return out;
 }

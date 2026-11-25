@@ -78,6 +78,26 @@ class RecoveryTests(unittest.TestCase):
    manifest=json.loads((repo.work/store).read_text(encoding='utf-8'))
    self.assertEqual(manifest['archivos'],['compartida.webp','isbn-9780241838044.webp','main.webp'])
    self.assertEqual(manifest['sha256'],{'compartida.webp':'3'*64,'isbn-9780241838044.webp':'1'*64,'main.webp':'4'*64})
+ def test_a_recovered_cover_keeps_the_store_it_lives_in(self):
+  # Varios almacenes (25/11): la portada de una alta vive en el segundo; sin su número se serviría desde el primero (404).
+  with tempfile.TemporaryDirectory() as tmp:
+   repo=Repo(tmp);branch='automation/reading-catalogue-2026-11-25-store2'
+   store='data/reading-covers-store.json';base='https://example.github.io/portadas';second=base+'-2'
+   repo.git('switch','-q','-c',branch,'origin/main')
+   data=json.loads(books('a','b','c','d','e','f'));data['libros'].append({'id':'isbn-9780241838044','isbn13':'9780241838044','portada_local':'/assets/reading-covers/isbn-9780241838044.webp'})
+   item={'estado_ingesta':'publicado','libro_id':'isbn-9780241838044'}
+   repo.write({CATALOGUE:json.dumps(data),'data/reading-intake-state.json':json.dumps({'schema_version':1,'items':{'isbn13:9780241838044':item}}),
+               store:json.dumps({'base_url':base,'archivos':['isbn-9780241838044.webp','vieja.webp'],'sha256':{'isbn-9780241838044.webp':'1'*64,'vieja.webp':'2'*64},
+                                 'almacenes':[second],'almacen':{'isbn-9780241838044.webp':1}})})
+   repo.commit('source');repo.git('push','-q','origin',branch);repo.git('switch','-q','--detach','origin/main')
+   # main ya abrió otro almacén antes (CodeRabbit #1586): el número se recalcula en la lista de main, no se copia.
+   third=base+'-3'
+   repo.main_moves({CATALOGUE:books('a','b','c','d','e','f','main-book'),store:json.dumps({'base_url':base,'archivos':['vieja.webp','main3.webp'],'sha256':{'vieja.webp':'2'*64,'main3.webp':'5'*64},
+                                                                                      'almacenes':[third],'almacen':{'main3.webp':1}})})
+   self.assertEqual(refresh.carry(branch,root=repo.work),['isbn-9780241838044'])
+   manifest=json.loads((repo.work/store).read_text(encoding='utf-8'))
+   self.assertEqual(manifest['almacenes'],[third,second])
+   self.assertEqual(manifest['almacen'],{'main3.webp':1,'isbn-9780241838044.webp':2})
  def test_a_legacy_manifest_without_digests_sets_its_books_aside_instead_of_failing(self):
   # #1500: el punto de guardado de una carga cuyo runner murió registró nombres sin huella y sin bytes subidos.
   with tempfile.TemporaryDirectory() as tmp:
