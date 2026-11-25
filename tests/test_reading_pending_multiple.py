@@ -97,7 +97,7 @@ class MultiplePendingTests(unittest.TestCase):
             refresh.chain_report(0, trasladada_de='automation/y', new_books=[])
             refresh.chain_report(0, reanudada='automation/z')
             refresh.chain_report(3)
-        self.assertEqual([r['stats']['consulta_pendiente'] for r in reports], [1, 1, 0, 0])
+        self.assertEqual([r['stats']['consulta_pendiente'] for r in reports], [1, 1, 1, 0])
 
     def test_a_single_pending_batch_is_not_touched(self):
         with patch.object(refresh.publisher.publication, 'gh', side_effect=AssertionError):

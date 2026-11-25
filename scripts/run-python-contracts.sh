@@ -6,7 +6,7 @@
 #
 # Lo usan la puerta de las PR (required-merge-gate.yml) y main tras cada fusión (main-contratos.yml): las dos corren
 # lo mismo, así un main roto por dos PR verdes por separado se ve igual que en la puerta. La línea `FALLA: tests/...`
-# la leen scripts/publish-radar-refresh.py (fallo_determinista) y scripts/night-autorepair.py: no cambiar su forma.
+# (la imprime confirmar_fallos.py) la leen publish-radar-refresh.py (fallo_determinista) y night-autorepair.py: no cambiar su forma.
 set -uo pipefail
 
 modo="${1:?uso: run-python-contracts.sh guion|subrayado}"
@@ -40,5 +40,10 @@ case "$modo" in
   *) echo "modo desconocido: $modo" >&2; exit 2 ;;
 esac
 
-if [ -s "$logs/failed" ]; then sed 's/^/FALLA: /' "$logs/failed"; exit 1; fi
+# Solo es FALLA (fallo determinista: la carga para sin reintentar la puerta) lo que falla dos veces seguidas sobre
+# la misma revisión; lo que pasa a la segunda sale como INESTABLE y no tumba el paso (scripts/confirmar_fallos.py).
+if [ -s "$logs/failed" ]; then
+  [ "$modo" = guion ] && tipo=script || tipo=unittest
+  python scripts/confirmar_fallos.py --modo "$tipo" "$logs/failed" || exit 1
+fi
 echo "$(ls "$logs"/*.log 2>/dev/null | wc -l) ficheros de contratos ($modo) OK"

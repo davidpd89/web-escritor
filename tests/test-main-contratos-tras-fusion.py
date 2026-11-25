@@ -16,10 +16,13 @@ RAIZ = pathlib.Path(__file__).resolve().parents[1]
 flujo = (RAIZ / '.github/workflows/main-contratos.yml').read_text(encoding='utf-8')
 puerta = (RAIZ / '.github/workflows/required-merge-gate.yml').read_text(encoding='utf-8')
 
-for modo in ('guion', 'subrayado'):
-    orden = f'bash scripts/run-python-contracts.sh {modo}'
-    assert orden in puerta, f'la puerta ya no usa {orden!r}: main-contratos.yml debe seguirla'
+# Toda orden de contratos de la puerta corre también en main (R5-02, 25/11: los tests/*.mjs solo iban en la puerta).
+ordenes = set(re.findall(r'bash scripts/run-[\w-]+-contracts\.sh(?: \w+)?', puerta))
+assert {'bash scripts/run-python-contracts.sh guion', 'bash scripts/run-python-contracts.sh subrayado',
+        'bash scripts/run-node-contracts.sh'} <= ordenes, f'la puerta ya no usa los scripts de contratos: {ordenes}'
+for orden in sorted(ordenes):
     assert orden in flujo, f'main-contratos.yml no corre {orden!r} como la puerta'
+assert 'for f in tests/*.mjs' not in puerta, 'los contratos Node de la puerta van por scripts/run-node-contracts.sh'
 
 assert re.search(r'push:\s*\n\s*branches:\s*\[main\]', flujo), 'main-contratos.yml debe dispararse con push a main'
 assert 'workflow_dispatch' in flujo, 'la autorreparación relanza con workflow_dispatch'

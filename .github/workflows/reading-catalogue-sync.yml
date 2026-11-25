@@ -122,6 +122,14 @@ jobs:
           if [ "$RESPALDO" = 'true' ]; then MOTIVO=respaldo; fi
           if [ "$EVENT" = 'schedule' ]; then MOTIVO=cron; fi
           python scripts/noche.py abrir --motivo "$MOTIVO" >> "$GITHUB_OUTPUT"
+      - name: Freeze open pull requests
+        # Una PR verde de antes de la carga no espera en el check «Main congelado»: pasa a borrador hasta que acabe
+        # la última carga (scripts/congelar_main.py; la devuelve el segador). Falla abierto.
+        if: ${{ !inputs.dry_run && steps.libro.outputs.cargar == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: python scripts/congelar_main.py congelar || true
       - uses: actions/setup-node@v7
         if: inputs.dry_run || steps.libro.outputs.cargar == 'true'
         with:
@@ -132,6 +140,15 @@ jobs:
           python -m pip install --requirement scripts/requirements.txt
           python -m pip install --requirement scripts/requirements-reading-audio.txt
           npm ci
+      - name: Main must pass its contracts
+        # La PR de datos corre todos los contratos: con main en rojo caería en la puerta tras ~2 h de carga. Espera a
+        # main-contratos.yml si está en curso y, si está rojo y sus fallos se repiten sobre este HEAD, para aquí con la
+        # firma anotada en el libro de la noche (scripts/main_verde.py). Falla abierto.
+        if: ${{ !inputs.dry_run && steps.libro.outputs.cargar == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: python scripts/main_verde.py
       - name: Restore public editorial response cache
         if: inputs.dry_run || steps.libro.outputs.cargar == 'true'
         uses: actions/cache@v6

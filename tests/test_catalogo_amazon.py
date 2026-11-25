@@ -265,6 +265,23 @@ class Transformar(unittest.TestCase):
         self.assertEqual([f['motivo'] for f in out['fallos']], [])
         self.assertEqual(out['leidos'], 1)
 
+    def test_a_cut_line_or_an_item_without_asin_does_not_stop_the_phase(self):
+        """Casos 17 y 18 de la ronda 2: un corte a mitad de escritura y un item sin ASIN."""
+        good = [item('C1', isbn('978841111131'), title='Uno'), item('C2', isbn('978841111132'), title='Dos')]
+        lines = [json.dumps({'nodo': '1', 'ruta': [], 'item': r}) for r in good]
+        nameless = dict(good[0])
+        nameless.pop('asin')
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            (Path(tmp) / 'raw').mkdir()
+            (Path(tmp) / 'raw' / '2026-11-06.jsonl').write_text(
+                lines[0] + '\n' + json.dumps({'item': nameless}) + '\n' + lines[1] + '\n' + lines[1][:40],
+                encoding='utf-8')
+            out = ca.transformar('2026-11-06', {'libros': []})
+        self.assertEqual(out['leidos'], 2)
+        self.assertEqual(sorted(f['motivo'] for f in out['fallos']),
+                         ['línea 2 del raw sin ASIN', 'línea 4 del raw ilegible'])
+
 
 class FakeProvider:
     """Nodo raíz lleno (10 páginas de 10) que se parte en dos hijos con pocos resultados."""
@@ -445,6 +462,21 @@ class Sellos(unittest.TestCase):
 
 
 class Priorizar(unittest.TestCase):
+    def test_una_fecha_imposible_no_tumba_el_lote(self):
+        """R4-02 GPT: 2026-11-31 tiene la forma AAAA-MM-DD y no existe; ordenar por cercanía lanzaba ValueError."""
+        for malo in ('2026-11-31', '2027-02-29', '2026-13-01'):
+            with self.subTest(fecha=malo):
+                buena = ca.to_record({'item': item(asin='B000000002', ean=isbn('978841234568'))}, '2026-11-06')
+                rota = dict(buena, asin='B000000003', fecha_publicacion_edicion=malo)
+                chosen, deferred = ca.priorizar([rota, buena], '2026-11-06', 1)
+                self.assertEqual([r['asin'] for r in chosen], ['B000000002'])
+                with self.assertRaises(ca.Rejected):
+                    ca.to_record({'item': item(date=malo)}, '2026-11-06')
+                self.assertIsNone(ca.dia_valido(malo))
+        self.assertEqual(ca.dia_valido('2028-02-29T00:00:00Z'), '2028-02-29')
+        from reading_ttl_source import ttl_publication_date
+        self.assertIsNone(ttl_publication_date('<dt>Fecha publicación</dt><dd>31-11-2026</dd>'))
+
     def test_publisher_legal_form_and_prefix_are_stripped_before_matching(self):
         clean = lambda n: ca.PREFIX.sub('', ca.LEGAL_FORM.sub('', n).strip(' ,'))
         self.assertEqual(clean('Norma Editorial, S.a.'), 'Norma Editorial')
@@ -1171,6 +1203,81 @@ class Client(unittest.TestCase):
         with self.patch.object(self.market, 'urlopen', side_effect=[self.error(500)] * 4):
             with self.assertRaisesRegex(RuntimeError, '^Amazon Creators HTTP 500$'):
                 client.post(ca.SEARCH, {})
+
+    def test_creators_down_stops_calling_after_a_few_and_probes_now_and_then(self):
+        """Caso 10 (25/11): con Creators caído cada petición agotaba sus reintentos y el presupuesto de la noche
+        pasaba de los 240 min del job. Tras CORTE caídas seguidas no se llama; cada SONDEO se prueba una."""
+        market = self.market
+        client = market.CreatorsPrices('id', 'secret', 'tag-21')
+        calls = []
+
+        def down(request, timeout):
+            calls.append(1)
+            raise self.error(503)
+
+        with self.patch.object(market, 'urlopen', side_effect=down):
+            for _ in range(market.CORTE + 3 * market.SONDEO):
+                with self.assertRaises(market.Unavailable):
+                    client.post(ca.SEARCH, {})
+        # 4 llamadas (1 + 3 reintentos) por cada una antes del corte y por cada sondeo
+        self.assertEqual(len(calls), 4 * (market.CORTE + 3))
+        with self.patch.object(market, 'urlopen', side_effect=[self.ok({'searchResult': {}})]):
+            for _ in range(market.SONDEO - 1):
+                with self.assertRaises(market.Unavailable):
+                    client.post(ca.SEARCH, {})
+            self.assertEqual(client.post(ca.SEARCH, {}), {'searchResult': {}})  # el sondeo vuelve: se reabre
+        self.assertFalse(client.caido)
+
+    def test_every_phase_shares_one_client_so_the_breaker_survives(self):
+        """Caso 5 de la ronda 2: cada fase pedía un cliente nuevo y el corte volvía a cero en cada una."""
+        env = {'AMAZON_CREATORS_CLIENT_ID': 'id', 'AMAZON_CREATORS_CLIENT_SECRET': 'secret'}
+        with self.patch.dict(ca.os.environ, env), self.patch.object(ca, '_CLIENTES', {}):
+            first = ca.provider('tag-21')
+            first.caidas = self.market.CORTE
+            self.assertIs(ca.provider('tag-21'), first)
+            self.assertTrue(ca.provider('tag-21').caido, 'la fase siguiente sabe que Creators está caído')
+            self.assertIsNot(ca.provider('otro-21'), first)
+
+    def test_main_only_builds_clients_through_provider(self):
+        import inspect
+        fuente = inspect.getsource(ca)
+        self.assertEqual(fuente.count('CreatorsPrices('), 1, 'un cliente nuevo fuera de provider() pierde el corte')
+
+    def test_a_bad_request_is_not_an_outage(self):
+        client = self.market.CreatorsPrices('id', 'secret', 'tag-21')
+        with self.patch.object(self.market, 'urlopen', side_effect=lambda *a, **k: (_ for _ in ()).throw(self.error(400))):
+            for _ in range(self.market.CORTE + 1):
+                with self.assertRaises(RuntimeError) as caught:
+                    client.post(ca.SEARCH, {})
+                self.assertNotIsInstance(caught.exception, self.market.Unavailable)
+        self.assertFalse(client.caido)
+
+    def test_seeds_do_not_spend_errors_while_creators_is_down(self):
+        """Una caída de toda la noche no puede descartar semillas ni comerse el tiempo del job."""
+        market = self.market
+        seeds = [isbn('978841111%03d' % n) for n in range(60)]
+        calls = []
+
+        def down(request, timeout):
+            calls.append(1)
+            if b'client_credentials' in request.data:
+                return self.ok({'access_token': 'T', 'expires_in': 3600})
+            raise self.error(503)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            queue = {b: {'primera': '2026-11-01', 'intentos': 0, 'siguiente': '2026-11-06',
+                         'errores': ca.DROP_AFTER - 1} for b in seeds}
+            ca.write_json(ca.seeds_path(), {'cola': queue})
+            with self.patch.object(market, 'urlopen', side_effect=down), \
+                    (Path(tmp) / 'raw.jsonl').open('w', encoding='utf-8') as out:
+                res = ca.por_isbn(market.CreatorsPrices('id', 'secret', 'tag-21'), 'tag', '2026-11-06', out, 50)
+            state = json.loads(ca.seeds_path().read_text(encoding='utf-8'))
+        # con errores previos van sueltas (SPLIT_AFTER): 50 peticiones, solo las de antes del corte y los sondeos llaman
+        self.assertEqual(res['lotes_fallidos'], 50)
+        self.assertLessEqual(len(calls), 1 + 4 * (market.CORTE + 50 // market.SONDEO))
+        self.assertEqual(len(state['cola']), len(seeds), 'una caída no descarta ninguna semilla, tampoco antes del corte')
+        self.assertGreaterEqual(len(state['cola']), 10)
 
     def test_not_found_is_an_empty_page_for_the_walk(self):
         client = self.market.CreatorsPrices('id', 'secret', 'tag-21')

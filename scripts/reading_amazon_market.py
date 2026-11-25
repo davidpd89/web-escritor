@@ -343,6 +343,16 @@ class AccessDenied(RuntimeError):
     Conserva el texto de RuntimeError para quien lo registra; las decisiones se toman por el tipo."""
 
 
+class Unavailable(RuntimeError):
+    """Creators no responde (429/5xx o red) ni tras los reintentos. No dice nada del libro pedido."""
+
+
+# Cortacircuitos (caso 10 de la revisión GPT, 25/11): con Creators caído cada petición agotaba sus reintentos
+# (~20-100 s) y un presupuesto de 1500 peticiones pasaba de los 240 min del job: la carga moría por timeout y el
+# reintento repetía lo mismo. Tras CORTE caídas seguidas se deja de llamar; cada SONDEO llamadas se prueba una.
+CORTE, SONDEO = 5, 25
+
+
 # Reintentos tomados de sergioteula/python-amazon-paapi (MIT, amazon_creatorsapi/core/retry.py):
 # 429 y 5xx con espera exponencial o la que pida Retry-After; un 401 renueva el token una vez.
 RETRY_STATUS = frozenset({429, 500, 502, 503, 504})
@@ -355,8 +365,31 @@ class CreatorsPrices:
         self.token=None
         self.expires=0.0
         self.last=0
+        self.caidas=0  # Unavailable seguidos; un éxito o un error del propio pedido lo pone a 0
+        self.saltadas=0
+        self.auth_malas=0  # 200 de autenticación sin token seguidos: cuentan como caídas aunque el POST «salga bien»
+
+    @property
+    def caido(self):
+        return self.caidas>=CORTE
 
     def post(self,url,payload,headers=None,retries=3):
+        if self.caido:
+            self.saltadas+=1
+            if self.saltadas%SONDEO:
+                raise Unavailable(f'Amazon Creators unavailable (cortado tras {self.caidas} caídas seguidas)')
+        try:
+            result=self._post(url,payload,headers,retries)
+        except Unavailable:
+            self.caidas+=1
+            raise
+        except RuntimeError:
+            self.caidas=0
+            raise
+        self.caidas=0
+        return result
+
+    def _post(self,url,payload,headers=None,retries=3):
         attempt,refreshed=0,False
         while True:
             time.sleep(max(0,1.1-(time.monotonic()-self.last)))
@@ -365,7 +398,8 @@ class CreatorsPrices:
                             headers={'Content-Type':'application/json',**(headers or {})})
             try:
                 with urlopen(request,timeout=20) as response:
-                    result=json.load(response)
+                    raw=response.read()
+                result=json.loads(raw)
             except HTTPError as exc:
                 try:
                     error=json.loads(exc.read(20000))
@@ -388,17 +422,21 @@ class CreatorsPrices:
                     attempt+=1
                     time.sleep(wait)
                     continue
-                if exc.code==403 and ('eligib' in str(error.get('message','')).lower() or any(e.get('code')=='AssociateNotEligible' for e in error.get('errors',[]) if isinstance(e,dict))):
+                if exc.code==403 and ('eligib' in str(error.get('message','')).lower() or any(e.get('code')=='AssociateNotEligible' for e in amazon_list(error.get('errors')) if isinstance(e,dict))):
                     raise AccessDenied('pending_amazon_eligibility') from exc
                 if exc.code==404:
                     raise NotFound('Amazon Creators HTTP 404') from exc
-                raise (AccessDenied if exc.code==401 else RuntimeError)(f'Amazon Creators HTTP {exc.code}') from exc
-            except (URLError,TimeoutError,ConnectionError) as exc:
+                kind=AccessDenied if exc.code==401 else Unavailable if exc.code in RETRY_STATUS else RuntimeError
+                raise kind(f'Amazon Creators HTTP {exc.code}') from exc
+            # Un 200 con HTML de un intermediario, cuerpo vacío o cortado (JSON roto, IncompleteRead) es tan pasajero
+            # como un corte de red: se reintenta y cuenta para el cortacircuitos (R3-03 de GPT, 25/11). Antes salía
+            # como ValueError, que los llamantes (except RuntimeError) no esperan, y tumbaba la fase entera.
+            except (URLError,TimeoutError,ConnectionError,http.client.HTTPException,ValueError) as exc:
                 if attempt<retries:
                     attempt+=1
                     time.sleep(min(30.0,2.0*2**attempt))
                     continue
-                raise RuntimeError('Amazon Creators unavailable') from exc
+                raise Unavailable('Amazon Creators unavailable') from exc
             if not isinstance(result,dict):
                 raise RuntimeError('Invalid Amazon Creators response')
             return result
@@ -409,7 +447,14 @@ class CreatorsPrices:
             data=self.post(TOKEN_URL,{
                 'grant_type':'client_credentials','client_id':self.client_id,
                 'client_secret':self.secret,'scope':'creatorsapi::default'})
-            self.token=data['access_token']
+            token=data.get('access_token')
+            if not isinstance(token,str) or not token.strip():
+                # 200 sin token usable (R3-04): un fallo del proveedor con tipo, no un KeyError/TypeError suelto.
+                self.auth_malas+=1
+                self.caidas=self.auth_malas
+                raise Unavailable('Amazon Creators: respuesta de autenticación sin token válido')
+            self.auth_malas=0
+            self.token=token
             try:
                 life=float(data.get('expires_in') or 3600)
             except (TypeError,ValueError):

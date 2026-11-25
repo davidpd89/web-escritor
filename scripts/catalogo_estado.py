@@ -15,6 +15,7 @@ import os
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -32,8 +33,27 @@ def git(*args, env=None, data=None, check=True):
                           env={**os.environ, **(env or {})})
 
 
+RED_INTENTOS = 4
+
+
+def red(*args):
+    """Orden git que habla con GitHub (ls-remote, fetch): un 502 o un corte de unos segundos se repite con espera.
+
+    Sin esto, un error de red suelto tumbaba restaurar() al empezar la carga y guardar() justo después del punto de
+    guardado (R5 de la revisión GPT, 25/11). Las órdenes locales (show, ls-tree...) no pasan por aquí: su error es real."""
+    for intento in range(1, RED_INTENTOS + 1):
+        try:
+            return git(*args)
+        except subprocess.CalledProcessError as exc:
+            if intento == RED_INTENTOS:
+                raise
+            causa = (exc.stderr or b'').decode(errors='replace').strip()[-200:]
+            print(f'::warning::git {args[0]} falló (intento {intento}/{RED_INTENTOS}): {causa}', flush=True)
+            time.sleep(5 * intento)
+
+
 def remote_head():
-    out = git('ls-remote', '--heads', 'origin', BRANCH).stdout.decode().split()
+    out = red('ls-remote', '--heads', 'origin', BRANCH).stdout.decode().split()
     return out[0] if out else None
 
 
@@ -43,12 +63,16 @@ def restaurar():
     if not head:
         print('Estado: sin rama ' + BRANCH + ', se empieza de cero', flush=True)
         return 0
-    git('fetch', '--quiet', '--no-tags', 'origin', f'+refs/heads/{BRANCH}:refs/remotes/origin/{BRANCH}')
+    red('fetch', '--quiet', '--no-tags', 'origin', f'+refs/heads/{BRANCH}:refs/remotes/origin/{BRANCH}')
     names = git('ls-tree', '-r', '--name-only', head).stdout.decode().splitlines()
     for name in names:
         target = WORK / name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(git('show', f'{head}:{name}').stdout)
+    # Un fichero de estado que el remoto ya no tiene no puede sobrevivir en local de un intento anterior del mismo
+    # runner (segundo ciclo tras el código 75; git clean no toca .local): guardar() lo resucitaría (R3-07 de GPT).
+    for name in set(FILES) - set(names):
+        (WORK / name).unlink(missing_ok=True)
     print(f'Estado restaurado de {BRANCH}@{head[:12]}: {len(names)} ficheros', flush=True)
     return len(names)
 
@@ -58,19 +82,24 @@ def leer(name):
     head = remote_head()
     if not head:
         return None
-    git('fetch', '--quiet', '--no-tags', 'origin', f'+refs/heads/{BRANCH}:refs/remotes/origin/{BRANCH}')
+    red('fetch', '--quiet', '--no-tags', 'origin', f'+refs/heads/{BRANCH}:refs/remotes/origin/{BRANCH}')
     shown = git('show', f'{head}:{name}', check=False)
     return shown.stdout if shown.returncode == 0 else None
 
 
-def _commit(entries, message, keep_parent):
+def _commit(entries, message, keep_parent, rehacer=None):
     """Commit encima de la cabeza de la rama con `entries` (nombre -> bytes). Con `keep_parent` se parte del árbol
     anterior y solo se sustituyen esos nombres; sin él, el árbol es exactamente `entries` más los ficheros AJENOS
-    del anterior (los escribe otro proceso y no se pueden perder). Reintenta si otro movió la rama."""
-    for attempt in range(3):
+    del anterior (los escribe otro proceso y no se pueden perder). Reintenta si otro movió la rama.
+
+    `rehacer` (nombre -> función(bytes|None) -> bytes) recalcula ese fichero sobre su contenido en la cabeza de cada
+    intento: sin él, un reintento volvía a subir bytes calculados sobre una lectura vieja y pisaba lo que el otro
+    proceso acababa de escribir (caso 13 de la revisión GPT, 25/11: el segador y el abrir de la siguiente carga)."""
+    rehacer = rehacer or {}
+    for attempt in range(RED_INTENTOS):
         parent = remote_head()
         if parent:
-            git('fetch', '--quiet', '--no-tags', 'origin', f'+refs/heads/{BRANCH}:refs/remotes/origin/{BRANCH}')
+            red('fetch', '--quiet', '--no-tags', 'origin', f'+refs/heads/{BRANCH}:refs/remotes/origin/{BRANCH}')
         with tempfile.TemporaryDirectory() as tmp:
             env = {'GIT_INDEX_FILE': str(Path(tmp) / 'index')}
             if parent and keep_parent:
@@ -81,6 +110,9 @@ def _commit(entries, message, keep_parent):
                         line = git('ls-tree', parent, '--', name).stdout.decode().split()
                         if line:
                             git('update-index', '--add', '--cacheinfo', f'100644,{line[2]},{name}', env=env)
+            for name, cambio in rehacer.items():
+                anterior = git('show', f'{parent}:{name}', check=False) if parent else None
+                entries[name] = cambio(anterior.stdout if anterior is not None and anterior.returncode == 0 else None)
             for name, data in entries.items():
                 blob = git('hash-object', '-w', '--stdin', data=data).stdout.decode().strip()
                 git('update-index', '--add', '--cacheinfo', f'100644,{blob},{name}', env=env)
@@ -96,13 +128,18 @@ def _commit(entries, message, keep_parent):
         if git('push', '--quiet', 'origin', f'{commit}:refs/heads/{BRANCH}', check=False).returncode == 0:
             print(f'Estado guardado en {BRANCH}@{commit[:12]}', flush=True)
             return commit
-        print(f'Estado: la rama cambió durante el guardado (intento {attempt + 1})', flush=True)
+        # Rechazado porque otro movió la rama, o un error de red: se rehace sobre la cabeza nueva, con espera (un
+        # corte de unos segundos ya no gasta todos los intentos seguidos).
+        print(f'Estado: el push no entró (intento {attempt + 1}/{RED_INTENTOS}); se rehace sobre la cabeza actual', flush=True)
+        if attempt + 1 < RED_INTENTOS:
+            time.sleep(5 * (attempt + 1))
     raise RuntimeError('No se pudo guardar el estado en ' + BRANCH)
 
 
-def escribir(name, data, message):
-    """Sustituye un solo fichero de la rama y conserva el resto (el libro de la noche, scripts/noche.py)."""
-    return _commit({name: data}, message, keep_parent=True)
+def escribir(name, data, message, rehacer=None):
+    """Sustituye un solo fichero de la rama y conserva el resto (el libro de la noche, scripts/noche.py). Con
+    `rehacer`, `data` se recalcula sobre el contenido remoto en cada intento (compare-and-swap)."""
+    return _commit({name: data}, message, keep_parent=True, rehacer={name: rehacer} if rehacer else None)
 
 
 def latest_photo():

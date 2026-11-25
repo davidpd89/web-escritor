@@ -1,5 +1,6 @@
 import datetime as dt
 import os
+import re
 import importlib.util
 import subprocess
 import tempfile
@@ -948,6 +949,8 @@ class EstadoAislado(unittest.TestCase):
     def test_todo_test_que_carga_el_estado_local_lo_aisla(self):
         for f in Path(__file__).parent.glob('test*.py'):
             texto = f.read_text(encoding='utf-8')
-            if 'night-autorepair' in texto or 'estado_local' in texto:
+            # El uso real (cargar el script o el módulo), no la palabra: un nombre de test como
+            # test_restaurar_borra_el_estado_local_… (catalogo_estado) no toca el estado del autorepair.
+            if 'night-autorepair' in texto or re.search(r'\bimport estado_local\b|\bestado_local\.', texto):
                 with self.subTest(f.name):
                     self.assertIn("os.environ['AUTOREPAIR_ESTADO_DIR']", texto)

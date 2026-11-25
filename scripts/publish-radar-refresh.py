@@ -24,6 +24,26 @@ import gh_listas  # noqa: E402
 STALE_EXIT_CODE = 75  # EX_TEMPFAIL: main avanzó durante la CI; regenerar desde main
 
 
+RED_INTENTOS = 4
+
+
+def remote_heads(pattern, cwd=None, intentos=RED_INTENTOS):
+    """`git ls-remote --heads origin <pattern>` repetido con espera ante un error de red (502, corte).
+
+    save_checkpoint() pide aquí el nombre del punto de guardado tras ~80 min de ingesta: un 502 suelto tiraba
+    todo lo consultado sin guardarlo (S01, ronda 5 de la revisión GPT, 25/11)."""
+    for intento in range(1, intentos + 1):
+        try:
+            return subprocess.check_output(['git', 'ls-remote', '--heads', 'origin', pattern], cwd=cwd, text=True,
+                                           stderr=subprocess.PIPE)
+        except subprocess.CalledProcessError as exc:
+            if intento == intentos:
+                raise
+            print(f'::warning::git ls-remote falló (intento {intento}/{intentos}): {(exc.stderr or "")[-200:]}',
+                  flush=True)
+            time.sleep(10 * intento)
+
+
 def fresh_branch(prefix, cwd=None):
     """Nombre de rama que no existe ni en local ni en origin.
 
@@ -36,7 +56,7 @@ def fresh_branch(prefix, cwd=None):
     out = lambda *a: subprocess.check_output(['git', *a], cwd=cwd, text=True)
     taken = set(out('for-each-ref', '--format=%(refname:short)', 'refs/heads/').split())
     taken |= {line.split('refs/heads/', 1)[1] for line in
-              out('ls-remote', '--heads', 'origin', prefix + '*').splitlines() if 'refs/heads/' in line}
+              remote_heads(prefix + '*', cwd).splitlines() if 'refs/heads/' in line}
     name, n = base, 2
     while name in taken:
         name, n = f'{base}-r{n}', n + 1
@@ -75,6 +95,9 @@ class StaleMerge(RuntimeError):
 TRANSIENT_GH = ('Something went wrong', 'HTTP 500', 'HTTP 502', 'HTTP 503', 'HTTP 504', 'Bad Gateway',
                 'Service Unavailable', 'Gateway Timeout', 'timed out', 'connection reset', 'TLS handshake timeout')
 GH_ATTEMPTS = 4
+# Cuota de GitHub (25/11, caso 17 de la revisión GPT): un 429 o «secondary rate limit» se pasa esperando, no en 5 s.
+RATE_LIMIT_GH = ('rate limit', 'HTTP 429', 'abuse detection')
+GH_TIMEOUT_S = 600  # un gh colgado (red) no se come el job de 240 min: se trata como un fallo transitorio
 # Lecturas y `pr create` (que antes de repetir busca la PR) se repiten tal cual. Las escrituras solo con una
 # comprobación previa (_comprobacion_escritura): repetir a ciegas un `workflow run` o un `pr merge` que sí llegó a
 # GitHub duplicaría ejecuciones o fallaría tras haber funcionado.
@@ -173,7 +196,7 @@ def _comprobacion_escritura(args):
 
             try:
                 foto = punta(datos_pr()['base'])
-            except (subprocess.CalledProcessError, ValueError, KeyError):
+            except (subprocess.CalledProcessError, subprocess.TimeoutExpired, ValueError, KeyError):
                 foto = None  # sin foto solo vale la punta de después
 
             def aplicado(foto):
@@ -204,19 +227,23 @@ def gh(*args: str):
     for attempt in range(1, GH_ATTEMPTS + 1):
         try:
             result = subprocess.run(['gh', *args], check=True, capture_output=True, text=True, encoding='utf-8', errors='replace',
-                                    env=env)
+                                    env=env, timeout=GH_TIMEOUT_S)
             return result.stdout.strip()
-        except subprocess.CalledProcessError as exc:
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as exc:
             # capture_output hides gh's own explanation; surface it in the job log.
-            stderr = (exc.stderr or '').strip()
+            if isinstance(exc, subprocess.TimeoutExpired):
+                stderr = f'gh timed out after {GH_TIMEOUT_S} s'
+            else:
+                stderr = (exc.stderr or '').strip()
             print(f'gh {" ".join(args[:3])} failed: {stderr}', file=sys.stderr, flush=True)
             repetible = _retryable(args) or comprobacion is not None
-            if not repetible or not any(m.lower() in stderr.lower() for m in TRANSIENT_GH):
+            cuota = any(m.lower() in stderr.lower() for m in RATE_LIMIT_GH)
+            if not repetible or not (cuota or any(m.lower() in stderr.lower() for m in TRANSIENT_GH)):
                 raise
             # Tras el último intento solo se espera si hay un efecto que comprobar; una lectura se rinde ya.
             if attempt == GH_ATTEMPTS and efecto is None and tuple(args[:2]) != ('pr', 'create'):
                 raise
-            time.sleep(5 * attempt)
+            time.sleep((60 if cuota else 5) * attempt)
             # El efecto se comprueba también tras el último intento: un merge que llegó con 502 no es un fallo.
             created = _existing_pr(args)
             if created:
@@ -399,22 +426,84 @@ def registro_job(repo, job_id):
         return gh('api', ruta)
 
 
+def firmas_deterministas(repo, run_id):
+    """Los `tests/...` que la ejecución fallida marca con `FALLA:`, ordenados y sin repetir; [] si no hay o no se pueden
+    leer los registros (entonces se reintenta como siempre). Un registro ilegible no borra las firmas de los demás."""
+    firmas = set()
+    try:
+        jobs = gh_listas.rest_todas(lambda ruta: json.loads(gh('api', ruta)), f'repos/{repo}/actions/runs/{run_id}/jobs', 'jobs')
+    except Exception:  # noqa: BLE001 - sin lista de jobs, el reintento de siempre
+        return []
+    for job in jobs:
+        if job.get('conclusion') != 'failure':
+            continue
+        try:
+            lineas = DETERMINISTA.findall(registro_job(repo, job['id']))
+        except Exception:  # noqa: BLE001 - este registro no se lee; se conservan las firmas ya leídas
+            continue
+        for linea in lineas:
+            firmas.add(linea[linea.index('tests/'):])
+    return sorted(firmas)
+
+
+def anotar_fallo(firmas, entorno=None):
+    """Deja la firma del fallo determinista en $RUNNER_TEMP/carga-fallo.json para el libro de la noche
+    (scripts/noche.py: con el mismo código ni el reintento ni los relojes repiten la carga). Sin RUNNER_TEMP (local)
+    no hace nada; un fallo al escribir no cambia el resultado de la carga."""
+    entorno = os.environ if entorno is None else entorno
+    if not entorno.get('RUNNER_TEMP') or not firmas:
+        return
+    try:
+        Path(entorno['RUNNER_TEMP'], 'carga-fallo.json').write_text(
+            json.dumps({'clase': 'determinista', 'firma': ', '.join(firmas)}, ensure_ascii=False), encoding='utf-8')
+    except OSError:
+        pass
+
+
 def fallo_determinista(repo, run_id):
     """True si la ejecución fallida trae un `FALLA: tests/...` (un test concreto que falló sobre los datos de la
     PR): repetir el mismo commit da el mismo fallo y cuesta otra puerta entera (~22 min). Un job cancelado, un corte de
     red o un runner caído no escriben esa línea, y esos sí se reintentan. Si no se pueden leer los registros, se
     reintenta como siempre."""
-    try:
-        jobs = gh_listas.rest_todas(lambda ruta: json.loads(gh('api', ruta)), f'repos/{repo}/actions/runs/{run_id}/jobs', 'jobs')
-        for job in jobs:
-            if job.get('conclusion') != 'failure':
-                continue
-            log = registro_job(repo, job['id'])
-            if DETERMINISTA.search(log):
-                return True
-    except Exception:  # noqa: BLE001 - sin registros legibles, el reintento de siempre
-        return False
-    return False
+    return bool(firmas_deterministas(repo, run_id))
+
+
+# La API de ficheros de una PR devuelve como mucho 3000 (documentado) sin avisar, y una carga del catálogo cambia
+# ~11 000 (10 954 en #1567-#1578): la guarda de rutas permitidas solo veía la primera cuarta parte (caso 22 de la
+# ronda 2 GPT, 25/11). Con el tope alcanzado, la lista sale de git, que no corta.
+TOPE_FICHEROS_PR = 3000
+
+
+def _git_salida(*args, cwd=None):
+    return subprocess.run(['git', *args], cwd=cwd, check=True, capture_output=True, text=True, encoding='utf-8',
+                          errors='replace', timeout=600).stdout
+
+
+def ficheros_pr(repo, pr, *, gh_=None, git=_git_salida, tope=TOPE_FICHEROS_PR):
+    """Ficheros de la PR como los da la API ({'filename', 'previous_filename'?}), completos aunque pasen del tope.
+
+    Por encima del tope compara en local la cabeza de la PR con su base común con main (lo mismo que enseña la PR).
+    Si git no puede, falla: una lista incompleta no sirve para decidir que todo está permitido."""
+    pages = json.loads((gh_ or gh)('api', '--paginate', '--slurp', f'repos/{repo}/pulls/{pr["number"]}/files?per_page=100'))
+    items = [item for page in pages for item in page]
+    if len(items) < tope:
+        return items
+    head = pr['headRefOid']
+    git('fetch', '--quiet', '--no-tags', 'origin', 'main', head)
+    base = git('merge-base', 'origin/main', head).strip()
+    campos = git('diff', '--name-status', '-z', '--no-color', '-M', base, head).split('\0')
+    completos, i = [], 0
+    while i < len(campos) and campos[i]:
+        estado = campos[i]
+        if estado[:1] in 'RC':
+            completos.append({'filename': campos[i + 2], 'previous_filename': campos[i + 1]})
+            i += 3
+        else:
+            completos.append({'filename': campos[i + 1]})
+            i += 2
+    if len(completos) < len(items):
+        raise ValueError(f'git ve {len(completos)} ficheros y la API {len(items)}: la lista de la PR no cuadra')
+    return completos
 
 
 def cancelar_si_sigue(run_id):
@@ -437,13 +526,12 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     if pr['baseRefName'] != 'main' or pr['state'] != 'OPEN':
         raise ValueError('Expected an open PR targeting main')
     sha = pr['headRefOid']
-    pages = json.loads(gh('api', '--paginate', '--slurp', f'repos/{repo}/pulls/{pr["number"]}/files?per_page=100'))
-    paths = [item for page in pages for item in page]
+    paths = ficheros_pr(repo, pr)
     if not paths or any(not allowed_path(item['filename']) or (item.get('previous_filename') and not allowed_path(item['previous_filename'])) for item in paths):
         raise ValueError('PR contains a path outside the generated-artifact policy')
     def runs_on_sha(workflow, event, exclude=frozenset()):
         runs = gh_listas.lista(gh, 'run', 'list', '--workflow', workflow, '--branch', branch, '--commit', sha,
-                               '--event', event, '--json', 'databaseId,headSha,status,conclusion', tope=100)
+                               '--event', event, '--json', 'databaseId,headSha,status,conclusion,attempt', tope=100)
         return [item for item in runs if item['databaseId'] not in exclude and item['headSha'] == sha]
 
     # A PR opened with a user token already starts its pull_request CI on this exact commit; dispatching the same
@@ -480,6 +568,10 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
         raise TimeoutError('No queda tiempo del job para la CI; PR abierta, la fusiona el siguiente cron')
     pending = set(workflows)
     retried = set()
+    # Intento de la ejecución al relanzarla: tras `run rerun` el listado puede devolver aún el intento viejo
+    # (completed, failure) unos segundos; contarlo como el resultado del reintento paraba la carga sin haberlo
+    # esperado (caso 15 de la revisión GPT, 25/11). Sin campo `attempt` (gh antiguo) se mira como antes.
+    relanzado = {}
     while pending:
         if time.monotonic() >= deadline:
             raise TimeoutError(f'CI timed out; PR left open: {sorted(pending)}')
@@ -491,6 +583,9 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
             result = current[0]
             if result['status'] != 'completed':
                 continue
+            if relanzado.get(workflow) is not None and result.get('attempt') is not None \
+                    and result['attempt'] <= relanzado[workflow]:
+                continue  # el reintento aún no figura: es el intento que ya falló
             url = f'https://github.com/{repo}/actions/runs/{result["databaseId"]}'
             context = REQUIRED_JOBS.get(workflow)
             # Solo las ejecuciones despachadas necesitan su estado a mano; las pull_request ya figuran en la PR.
@@ -541,11 +636,15 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                     return publish_generated(branch, allowed_path, workflows, timeout=int(remaining),
                                              deploy_before=deploy_before, pr_wait=pr_wait, ceder_a=ceder_a,
                                              qa_refreshes=qa_refreshes - 1)
-                if workflow not in retried and fallo_determinista(repo, result['databaseId']):
+                firmas = firmas_deterministas(repo, result['databaseId'])
+                if firmas:  # también tras un reintento: la carga cae por esto y el libro de la noche lo anota
+                    anotar_fallo(firmas)
+                if workflow not in retried and firmas:
                     retried.add(workflow)  # el reintento daría el mismo fallo: se para ya, sin gastar otra puerta
                     print(f'SIN RETRY {workflow} ({result["databaseId"]}): fallo de un test concreto (FALLA: tests/...)', flush=True)
                 if workflow not in retried:
                     retried.add(workflow)
+                    relanzado[workflow] = result.get('attempt')
                     gh('run', 'rerun', str(result['databaseId']), '--failed')
                     print(f'RETRY {workflow} ({result["databaseId"]})', flush=True)
                     continue
