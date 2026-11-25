@@ -1,0 +1,179 @@
+name: Check content indexes
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  # En una PR, un push nuevo cancela la CI del commit anterior; main y los programados no se cancelan.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+# R5-8: el token por defecto del repo es de escritura; en pull_request basta con leer.
+permissions:
+  contents: read
+
+jobs:
+  content-indexes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install shared Python dependencies
+        run: python -m pip install --requirement scripts/requirements.txt
+      - name: Check versioned experiment registry
+        run: python scripts/check-experiment-registry.py
+      - name: Test experiment registry checker failure modes
+        run: python tests/test-experiment-registry.py
+      - name: Check RSS is generated from current articles
+        run: python scripts/build-feed.py --check
+      - name: Check sitemap is generated from canonical indexable HTML
+        run: python scripts/build-sitemap.py --check
+      - name: Check scheduled-event calendars match eventos.html
+        run: python scripts/build-event-calendars.py --check
+      - name: Test scheduled-event calendar generation
+        run: python tests/test-event-calendars.py
+      - name: Check the prev/next page order is up to date
+        run: python scripts/build-page-order.py --check
+      - name: Check canonical navigation coverage
+        run: python scripts/check-navigation-coverage.py
+      - name: Check visible and structured breadcrumb parity
+        run: python scripts/check-breadcrumb-parity.py
+      - name: Test breadcrumb parity semantics
+        run: python tests/test-breadcrumb-parity.py
+      - name: Check site shell is generated from navigation contract
+        run: python scripts/build-site-shell.py --check
+      - name: Check indexable pages are not orphaned
+        run: python scripts/check-internal-graph.py
+      - name: Check local asset references resolve to real files
+        run: python scripts/check-local-assets.py
+      - name: Check public HTML safety invariants
+        run: python scripts/check-public-html-safety.py
+      - name: Check heading outline, skip-link focus and accessible names
+        run: python scripts/check-heading-structure.py
+      - name: Check .assetsignore still matches the public-dist exclude list
+        run: python scripts/build-public-dist.py --check-assetsignore
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
+      - name: Check public dist excludes internal-only content
+        run: |
+          python scripts/build-public-dist.py
+          python scripts/build-public-dist.py --check-contents
+      - name: Check shared JSON-LD entities use one canonical @id
+        run: python scripts/check-canonical-entity-ids.py
+      - name: Check the pre-rendered article-tools block matches current headings
+        run: python scripts/build-article-tools.py --check
+      # Lighthouse no puede auditar robots.txt en las paginas con
+      # `connect-src 'none'` (ver .github/workflows/lighthouse-ci.yml), asi que
+      # la validacion real vive aqui: parsea el fichero, exige el sitemap
+      # canonico y comprueba que cada bot de busqueda alcance las rutas clave.
+      - name: Check robots.txt and AI/search crawler access
+        run: python scripts/check-ai-discoverability.py
+      - name: Check social cards (Open Graph / Twitter) on every indexable page
+        run: python scripts/check-social-cards.py --strict
+      - name: Check visible article dates and review lifecycle
+        run: python scripts/check-article-dates.py --check
+      - name: Test article review lifecycle semantics
+        run: python tests/test-article-dates-lifecycle.py
+      - name: Check key article pages keep non-generic social cards
+        run: python tests/test-social-card-article-specific.py
+      - name: Check the editorial methodology page is date-independent
+        run: python tests/test-editoriales-metodologia.py
+      - name: Check the Editoriales builder keeps V1 parity with published pages
+        run: python tests/test-editoriales-builder-parity-v1.py
+      - name: Check the Convocatorias builder keeps V1 parity with published pages
+        run: python tests/test-radar-builder-parity-v1.py
+      - name: Check published Spanish copy is not missing its accents
+        run: python scripts/check-copy-tildes.py
+      - name: Check FAQPage JSON-LD does not reappear in Recomendaciones (K.2)
+        run: python scripts/check-recomendaciones-no-faqpage.py --check
+      - name: Preserve unpublished Noveris magic page quarantine
+        run: python scripts/check-noveris-magic-quarantine.py --check
+      # Este escaneo vivia en assistant-hardening-qa.yml, que solo se dispara
+      # cuando la PR toca ficheros del asistente: una clave colada en cualquier
+      # otro sitio del repo no lo activaba y pasaba sin mirar. GitHub Pages
+      # publica main desde la raiz, asi que todo lo versionado es publico y el
+      # escaneo tiene que correr en todas las PR, que es lo que hace este
+      # workflow.
+      - name: Check no tracked file leaks an API key
+        run: python scripts/check-secrets.py
+      # Gate reproducible de imagenes responsive (H.3): dimensiones
+      # intrinsecas para evitar CLS, srcset/sizes coherentes, y candidatos
+      # de srcset que apuntan a ficheros reales. Ver docs/PENDIENTE-H-*.md.
+      - name: Check responsive image policy
+        run: python scripts/check-responsive-images.py --check
+      # Sin este check, un cambio en data/writer-tools.json (o en el propio
+      # builder) puede fusionarse sin regenerar el HTML publicado, y nada lo
+      # avisaria: paso exactamente eso con el CSP y el JSON-LD de esta pagina,
+      # ausentes en el HTML desplegado aunque cada pagina hermana los lleva.
+      - name: Check the curated writer-tools directory is up to date
+        run: >
+          python scripts/build-writer-tools.py data/writer-tools.json
+          --output recursos/herramientas-para-escritores/index.html --check
+      - name: Check the /herramientas/ hub is up to date
+        run: python scripts/build-tools-hub.py data/tools-hub.json herramientas/index.html --check
+      # --root valida los destinos "ready" contra el HTML real: existen, no
+      # llevan noindex y el canonical esperado sigue presente. Sin este paso
+      # en CI, una pagina podria pasar a noindex o desaparecer y el boton
+      # "Sorprendeme" seguiria ofreciendola sin que nada avisara.
+      - name: Check the "Sorpréndeme" pool against real pages
+        run: >
+          python scripts/build-surprise-content.py data/surprise-content.json
+          assets/surprise-content.generated.js --root . --check
+      # El propio script documenta este comando como el uso previsto en CI
+      # (ver la docstring), pero nunca se habia ejecutado en ningun workflow:
+      # el bloque en autor.html llevaba 2 dias desactualizado (13 herramientas
+      # en vez de 15) sin que nada lo avisara.
+      - name: Check "Esta web, en cifras" is reproducible and up to date
+        run: >
+          python scripts/build-human-site-stats.py --root .
+          --output data/site-human-stats.generated.html
+          --json-output data/site-human-stats.generated.json
+          --inject-into autor.html --check
+      # Solo verifica que la lista de paginas elegibles (derivada de
+      # content-registry.json) coincida con pagefind/eligible-manifest.json;
+      # no necesita Node/pagefind CLI para esto, solo para regenerar.
+      - name: Check the local Pagefind search index is not stale
+        run: python scripts/build-pagefind-index.py --check
+      - name: Check /cuaderno/temas/ topic collections are up to date
+        run: python scripts/build-topic-collections.py --data data/topic-collections.json --root . --check
+      - name: Check Atlas literario pages are up to date and meet the release contract
+        run: |
+          python scripts/build-atlas-pages.py --data data/atlas/catalogue.json --root . --check
+          python scripts/check_atlas_release_contract.py --root . --manifest data/atlas-routes-manifest.json
+      - name: Check static reading catalogue and book pages are up to date
+        run: python scripts/build-reading-catalogue.py --check
+      - name: Check reading sheet snapshot and editorial approval reproduce the catalogue
+        run: python scripts/import-reading-sheet.py --check
+      # El contrato "el texto no sale del navegador" es el argumento de venta
+      # de cada herramienta de manuscrito. Este preflight existia
+      # (scripts/audit-private-tools.py) pero nada lo ejecutaba en CI: una
+      # regresion de CSP o un fetch() colado habria llegado a produccion sin
+      # que ningun check se pusiera en rojo. Verificado que detecta una
+      # regresion real antes de fiarse de el (ver el commit que lo activa).
+      - name: Check manuscript tools keep their local-only privacy contract
+        run: >
+          python scripts/audit-private-tools.py
+          herramientas/*/index.html
+          clubes-de-lectura/preparar-sesion/index.html
+          convocatorias-escritores/index.html
+          recursos/ficha-historia-objeto-heredado/index.html
+      # This script already existed (built for a 2026-08-20 stale-cache
+      # incident) but nothing ran it in CI -- a second, unrelated instance
+      # of the exact same bug (2026-09-02: v1-fonts.css unversioned on 71
+      # pages, v1-home.css?v=9 never bumped across two real fixes to that
+      # file) shipped anyway. Wiring it in here so an unbumped/unversioned
+      # cache-busted asset reference fails the same required gate as
+      # everything else in this job, instead of only being catchable by
+      # someone remembering to run it by hand.
+      - name: Check runtime asset cache-busting versions are current and consistent
+        run: python scripts/check-asset-versions.py
