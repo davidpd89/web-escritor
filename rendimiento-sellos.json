@@ -1742,12 +1742,20 @@
   "penguin bolsillo": {
     "libros_es": 100,
     "nombre": "Penguin Bolsillo",
-    "ultima": "2026-11-22"
+    "particion": {
+      "libros_es": 1946,
+      "ultima": "2026-11-25"
+    },
+    "ultima": "2026-11-25"
   },
   "penguin clasicos": {
-    "libros_es": 49,
+    "libros_es": 0,
     "nombre": "Penguin Clásicos",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 144,
+      "ultima": "2026-11-25"
+    },
+    "ultima": "2026-11-25"
   },
   "penguin classics": {
     "libros_es": 2,
@@ -1755,9 +1763,9 @@
     "ultima": "2026-11-06"
   },
   "penguin kids": {
-    "libros_es": 15,
+    "libros_es": 33,
     "nombre": "Penguin Kids",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-25"
   },
   "penguin random house grupo editorial": {
     "libros_es": 100,
@@ -1785,9 +1793,9 @@
     "ultima": "2026-11-08"
   },
   "picarona": {
-    "libros_es": 39,
+    "libros_es": 40,
     "nombre": "Picarona",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-25"
   },
   "plan b publicaciones s l": {
     "libros_es": 20,
@@ -1804,9 +1812,9 @@
     "ultima": "2026-11-09"
   },
   "planeta comic": {
-    "libros_es": 41,
+    "libros_es": 73,
     "nombre": "Planeta Cómic",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-25"
   },
   "planeta gastro": {
     "libros_es": 19,

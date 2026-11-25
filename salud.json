@@ -1,20 +1,20 @@
 {
- "generado": "2026-11-23T01:32:22+00:00",
- "publicados": 7677,
+ "generado": "2026-11-25T01:31:02+00:00",
+ "publicados": 7928,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 1058,
-   "proximos": 289,
+   "total": 1022,
+   "proximos": 268,
    "por_mes": {
     "2027-08": 1,
     "2027-05": 5,
     "2027-04": 1,
     "2027-03": 3,
-    "2027-02": 80,
-    "2027-01": 38,
-    "2026-12": 108,
-    "2026-11": 466,
-    "2026-10": 341,
+    "2027-02": 77,
+    "2027-01": 37,
+    "2026-12": 106,
+    "2026-11": 435,
+    "2026-10": 342,
     "2026-09": 11,
     "2026-08": 1,
     "2025-08": 1
@@ -142,7 +142,7 @@
     },
     {
      "id": "isbn-9788425363061",
-     "titulo": "Quemar grasa no es perder grasa: Guía práctica de 4 semanas para decir adiós a la ansiedad y a los antojos​ (Bienestar, salud y vida sana)",
+     "titulo": "Quemar grasa no es perder grasa: Guía práctica de 4 semanas para decir adiós a la ansiedad y a los antojos (Bienestar, salud y vida sana)",
      "isbn13": "9788425363061",
      "editorial": "Grijalbo",
      "fecha_publicacion": "2027-02-25",
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 336,
+   "total": 355,
    "muestra": [
     {
      "id": "isbn-9791388042324",
@@ -538,13 +538,6 @@
      "isbn13": "9791370341282",
      "editorial": "Susaeta Ediciones",
      "fecha_publicacion": "2026-09-09"
-    },
-    {
-     "id": "isbn-9788491459866",
-     "titulo": "Estado desde la sociedad, El. Espacios de poder en la España del siglo XIX. (ÁLBUMES ILUSTRADOS)",
-     "isbn13": "9788491459866",
-     "editorial": "Picarona",
-     "fecha_publicacion": "2026-11-23"
     },
     {
      "id": "isbn-9798890988430",
@@ -636,12 +629,19 @@
      "isbn13": "9791388465116",
      "editorial": "Agea Editora",
      "fecha_publicacion": "2026-10-31"
+    },
+    {
+     "id": "isbn-9791388613388",
+     "titulo": "Zarafa y la Filosofía: Descubre y cuida tu sistema filosófico",
+     "isbn13": "9791388613388",
+     "editorial": "María del Carmen Bengoechea Bernal0",
+     "fecha_publicacion": "2026-10-31"
     }
    ]
   },
   "sin_texto": {
-   "total": 4477,
-   "proximos": 630,
+   "total": 4728,
+   "proximos": 624,
    "por_mes": {
     "2028-01": 1,
     "2027-10": 1,
@@ -650,11 +650,11 @@
     "2027-04": 3,
     "2027-03": 8,
     "2027-02": 49,
-    "2027-01": 131,
-    "2026-12": 242,
-    "2026-11": 1453,
-    "2026-10": 1857,
-    "2026-09": 363
+    "2027-01": 132,
+    "2026-12": 261,
+    "2026-11": 1589,
+    "2026-10": 1891,
+    "2026-09": 373
    },
    "muestra": [
     {
@@ -840,10 +840,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 72,
+  "portadas_tipograficas": -36,
   "formatos_sin_precio": 0,
-  "sin_formatos_de_compra": 43,
-  "sin_texto": 250,
+  "sin_formatos_de_compra": 19,
+  "sin_texto": 251,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -853,90 +853,6 @@
   "errores": {},
   "oportunidades": [],
   "sin_portada_en_amazon": [
-   {
-    "id": "isbn-9791399188721",
-    "titulo": "Tres escritores venezolanos en España.: Rafael María Baralt, Rufino Blanco Fombon y Teresa De La Parra: 35 (Libros singulares)",
-    "isbn13": "9791399188721",
-    "editorial": "Fundación Instituto Castellano y Leonés de la Lengua",
-    "fecha_publicacion": "2026-11-23"
-   },
-   {
-    "id": "isbn-9791399119879",
-    "titulo": "Patologías: La caía de Johan van Vere de With",
-    "isbn13": "9791399119879",
-    "editorial": "Asociación Cultural Amistades Particulares, Libros Libres",
-    "fecha_publicacion": "2026-11-23"
-   },
-   {
-    "id": "isbn-9788449602177",
-    "titulo": "Senos de mujeres y diosas: Una iconografía: los enos en la Historia del Arte",
-    "isbn13": "9788449602177",
-    "editorial": "Tanais.architecta",
-    "fecha_publicacion": "2026-11-23"
-   },
-   {
-    "id": "isbn-9791388415302",
-    "titulo": "El dolor que nunca se olvida",
-    "isbn13": "9791388415302",
-    "editorial": "Círculo Lector",
-    "fecha_publicacion": "2026-11-23"
-   },
-   {
-    "id": "isbn-9788419833624",
-    "titulo": "El goce de castigar.: Feminismo punitivo y la fábrica neoliberal de la víctima: 91 (Mapas)",
-    "isbn13": "9788419833624",
-    "editorial": "Traficantes de Sueños",
-    "fecha_publicacion": "2026-11-23"
-   },
-   {
-    "id": "isbn-9788498905496",
-    "titulo": "Una mirada multidisciplinar sobre el ámbito Penitenciario: Un espacio de reflexión enmarcado en el proyecto vr4react",
-    "isbn13": "9788498905496",
-    "editorial": "Portal Derecho, S.a. (iustel)",
-    "fecha_publicacion": "2026-11-23"
-   },
-   {
-    "id": "isbn-9789877901320",
-    "titulo": "De la duda (ZONA DE TRADUCCIONES)",
-    "isbn13": "9789877901320",
-    "editorial": "Interzona",
-    "fecha_publicacion": "2026-11-23"
-   },
-   {
-    "id": "isbn-9789877901399",
-    "titulo": "Con el sudor de tu frente (3ra ed) (ZONA DE ENSAYOS)",
-    "isbn13": "9789877901399",
-    "editorial": "Interzona",
-    "fecha_publicacion": "2026-11-23"
-   },
-   {
-    "id": "isbn-9788419120649",
-    "titulo": "Mata a todos los magos: 1 (Las cuentas del bárbaro)",
-    "isbn13": "9788419120649",
-    "editorial": "Lubre",
-    "fecha_publicacion": "2026-11-24"
-   },
-   {
-    "id": "isbn-9788419120694",
-    "titulo": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar)",
-    "isbn13": "9788419120694",
-    "editorial": "Lubre",
-    "fecha_publicacion": "2026-11-24"
-   },
-   {
-    "id": "isbn-9788494726453",
-    "titulo": "El regreso de Hermes",
-    "isbn13": "9788494726453",
-    "editorial": "Cosmograma Ediciones",
-    "fecha_publicacion": "2026-11-22"
-   },
-   {
-    "id": "isbn-9791388054303",
-    "titulo": "Obra completa III. Cuaderno blanco: Poemas (2009-2016) (Biblioteca de Clásicos Contemporaneos)",
-    "isbn13": "9791388054303",
-    "editorial": "Editorial Pre-Textos",
-    "fecha_publicacion": "2026-11-25"
-   },
    {
     "id": "isbn-9791388205866",
     "titulo": "Pau Riba en 20 canciones (Sílex Música)",
@@ -980,18 +896,102 @@
     "fecha_publicacion": "2026-11-25"
    },
    {
-    "id": "isbn-9791399079395",
-    "titulo": "Reeducación química ―ou san Antón en la orilla―: 21 (Poéticas del desencuentro)",
-    "isbn13": "9791399079395",
-    "editorial": "Marciano Sonoro Ediciones",
-    "fecha_publicacion": "2026-11-21"
+    "id": "isbn-9791399142730",
+    "titulo": "Autonomía local, democracia y organización territorial. Volumen I: El gobierno local en el sistema constitucional: 51 (Serie Claves del Gobierno Local)",
+    "isbn13": "9791399142730",
+    "editorial": "Fundación Democracia y Gobierno Local",
+    "fecha_publicacion": "2026-11-25"
    },
    {
-    "id": "isbn-9791387960506",
-    "titulo": "Música de gasolinera. (Libros de autor)",
-    "isbn13": "9791387960506",
-    "editorial": "La Fábrica",
+    "id": "isbn-9788467984613",
+    "titulo": "Black clover 09 (Nuevo pvp)",
+    "isbn13": "9788467984613",
+    "editorial": "Norma Editorial",
     "fecha_publicacion": "2026-11-25"
+   },
+   {
+    "id": "isbn-9791370331894",
+    "titulo": "Jurisprudencial del Tribunal supremo en materia de creencia",
+    "isbn13": "9791370331894",
+    "editorial": "Comares",
+    "fecha_publicacion": "2026-11-25"
+   },
+   {
+    "id": "isbn-9791370332044",
+    "titulo": "Cultura contemporanea del consentimiento sexual una invitac",
+    "isbn13": "9791370332044",
+    "editorial": "Comares",
+    "fecha_publicacion": "2026-11-25"
+   },
+   {
+    "id": "isbn-9791387949693",
+    "titulo": "Stormside (Starside 2) (Sin límites)",
+    "isbn13": "9791387949693",
+    "editorial": "Alfaguara",
+    "fecha_publicacion": "2026-11-26"
+   },
+   {
+    "id": "isbn-9791388417764",
+    "titulo": "Jugando fuerte (edición especial) (Windy City 2) (Lo más visto)",
+    "isbn13": "9791388417764",
+    "editorial": "Montena",
+    "fecha_publicacion": "2026-11-26"
+   },
+   {
+    "id": "isbn-9788419120649",
+    "titulo": "Mata a todos los magos: 1 (Las cuentas del bárbaro)",
+    "isbn13": "9788419120649",
+    "editorial": "Lubre",
+    "fecha_publicacion": "2026-11-24"
+   },
+   {
+    "id": "isbn-9788419120694",
+    "titulo": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar)",
+    "isbn13": "9788419120694",
+    "editorial": "Lubre",
+    "fecha_publicacion": "2026-11-24"
+   },
+   {
+    "id": "isbn-9791388484087",
+    "titulo": "Fatale Game Vol.1",
+    "isbn13": "9791388484087",
+    "editorial": "Moztros Producciones SL",
+    "fecha_publicacion": "2026-11-26"
+   },
+   {
+    "id": "isbn-9791399315707",
+    "titulo": "El árbol de los cuervos: Los cuentos del fénix II.: 2",
+    "isbn13": "9791399315707",
+    "editorial": "Somos Fénix Books S.l",
+    "fecha_publicacion": "2026-11-26"
+   },
+   {
+    "id": "isbn-9791388484063",
+    "titulo": "Yon",
+    "isbn13": "9791388484063",
+    "editorial": "Moztros Producciones SL",
+    "fecha_publicacion": "2026-11-26"
+   },
+   {
+    "id": "isbn-9788412567786",
+    "titulo": "Guía Proensa de los mejores vinos de España 2027",
+    "isbn13": "9788412567786",
+    "editorial": "Guía Proensa",
+    "fecha_publicacion": "2026-11-26"
+   },
+   {
+    "id": "isbn-9791399188721",
+    "titulo": "Tres escritores venezolanos en España.: Rafael María Baralt, Rufino Blanco Fombon y Teresa De La Parra: 35 (Libros singulares)",
+    "isbn13": "9791399188721",
+    "editorial": "Fundación Instituto Castellano y Leonés de la Lengua",
+    "fecha_publicacion": "2026-11-23"
+   },
+   {
+    "id": "isbn-9791399119879",
+    "titulo": "Patologías: La caía de Johan van Vere de With",
+    "isbn13": "9791399119879",
+    "editorial": "Asociación Cultural Amistades Particulares, Libros Libres",
+    "fecha_publicacion": "2026-11-23"
    }
   ]
  }
