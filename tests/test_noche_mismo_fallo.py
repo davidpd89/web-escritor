@@ -8,6 +8,7 @@ test y la noche murió con MAX_FALLIDOS sin que nada intentara arreglarlo. Aquí
 import importlib.util
 import io
 import json
+import subprocess
 import os
 import sys
 import tempfile
@@ -158,6 +159,17 @@ class PublicadorTest(unittest.TestCase):
             firmas = pub.firmas_deterministas('o/r', 1)
             self.assertTrue(pub.fallo_determinista('o/r', 1))
         self.assertEqual(firmas, ['tests/test-b.py', 'tests/test_a.py'])
+
+    def test_un_registro_ilegible_no_borra_las_firmas_de_otro_job(self):
+        # CodeRabbit en #1579: un solo try para todos los jobs devolvía [] si el job 8 no se leía, tras leer el 7.
+        def gh(*args):
+            if args[0] == 'api' and args[-1].split('?')[0].endswith('/jobs'):
+                return json.dumps({'jobs': [{'id': 7, 'conclusion': 'failure'}, {'id': 8, 'conclusion': 'failure'}], 'total_count': 2})
+            if '/jobs/8/' in args[-1]:
+                raise subprocess.CalledProcessError(1, 'gh')
+            return 'FALLA: tests/test_a.py' + chr(10)
+        with mock.patch.object(pub, 'gh', gh):
+            self.assertEqual(pub.firmas_deterministas('o/r', 1), ['tests/test_a.py'])
 
     def test_anotar_sin_runner_temp_no_escribe(self):
         pub.anotar_fallo([FIRMA], {})  # local: no revienta ni escribe en ningún sitio

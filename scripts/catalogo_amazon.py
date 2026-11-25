@@ -49,7 +49,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
-from reading_amazon_market import (AMAZON_COVER_BASIS, AccessDenied, BINDINGS, CreatorsPrices, NotFound,  # noqa: E402
+from reading_amazon_market import (AMAZON_COVER_BASIS, AccessDenied, BINDINGS, CreatorsPrices, NotFound, Unavailable,  # noqa: E402
                                    amazon_dict, amazon_list, api_cover_url, fetch_amazon_image,
                                    select_offers, store_prices)
 from reading_amazon_radar import BOOKS_NODE, SPANISH  # noqa: E402
@@ -573,7 +573,9 @@ def por_isbn(prov, tag, day, out, budget, only_dated=False):
             if isinstance(exc, AccessDenied):
                 raise
             failed += 1
-            if getattr(prov, 'caido', False):  # Creators caído, no este lote: vuelve mañana sin gastar errores
+            # Creators sin responder (Unavailable, también antes de que salte el corte) no dice nada del lote: vuelve
+            # mañana sin gastar errores. CodeRabbit en #1579: con solo `caido`, las de antes del corte se descartaban.
+            if isinstance(exc, Unavailable) or getattr(prov, 'caido', False):
                 continue
             for isbn in batch:  # sin respuesta: no gasta reintentos, pero tras varios fallos va suelto y luego fuera
                 queue[isbn]['errores'] = queue[isbn].get('errores', 0) + 1

@@ -196,7 +196,7 @@ def _comprobacion_escritura(args):
 
             try:
                 foto = punta(datos_pr()['base'])
-            except (subprocess.CalledProcessError, ValueError, KeyError):
+            except (subprocess.CalledProcessError, subprocess.TimeoutExpired, ValueError, KeyError):
                 foto = None  # sin foto solo vale la punta de después
 
             def aplicado(foto):
@@ -428,17 +428,21 @@ def registro_job(repo, job_id):
 
 def firmas_deterministas(repo, run_id):
     """Los `tests/...` que la ejecución fallida marca con `FALLA:`, ordenados y sin repetir; [] si no hay o no se pueden
-    leer los registros (entonces se reintenta como siempre)."""
+    leer los registros (entonces se reintenta como siempre). Un registro ilegible no borra las firmas de los demás."""
     firmas = set()
     try:
         jobs = gh_listas.rest_todas(lambda ruta: json.loads(gh('api', ruta)), f'repos/{repo}/actions/runs/{run_id}/jobs', 'jobs')
-        for job in jobs:
-            if job.get('conclusion') != 'failure':
-                continue
-            for linea in DETERMINISTA.findall(registro_job(repo, job['id'])):
-                firmas.add(linea[linea.index('tests/'):])
-    except Exception:  # noqa: BLE001 - sin registros legibles, el reintento de siempre
+    except Exception:  # noqa: BLE001 - sin lista de jobs, el reintento de siempre
         return []
+    for job in jobs:
+        if job.get('conclusion') != 'failure':
+            continue
+        try:
+            lineas = DETERMINISTA.findall(registro_job(repo, job['id']))
+        except Exception:  # noqa: BLE001 - este registro no se lee; se conservan las firmas ya leídas
+            continue
+        for linea in lineas:
+            firmas.add(linea[linea.index('tests/'):])
     return sorted(firmas)
 
 

@@ -1276,7 +1276,7 @@ class Client(unittest.TestCase):
         # con errores previos van sueltas (SPLIT_AFTER): 50 peticiones, solo las de antes del corte y los sondeos llaman
         self.assertEqual(res['lotes_fallidos'], 50)
         self.assertLessEqual(len(calls), 1 + 4 * (market.CORTE + 50 // market.SONDEO))
-        self.assertLessEqual(len(seeds) - len(state['cola']), market.CORTE - 1, 'solo cuentan las de antes del corte')
+        self.assertEqual(len(state['cola']), len(seeds), 'una caída no descarta ninguna semilla, tampoco antes del corte')
         self.assertGreaterEqual(len(state['cola']), 10)
 
     def test_not_found_is_an_empty_page_for_the_walk(self):

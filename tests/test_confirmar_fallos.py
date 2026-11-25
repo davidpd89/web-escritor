@@ -83,7 +83,7 @@ class ConfirmarFallosTest(unittest.TestCase):
         """Ningún paso de la puerta ni el runner compartido (que también usa main-contratos.yml) imprime `FALLA:`
         por su cuenta: todos pasan por confirmar_fallos."""
         gate = '\n'.join((ROOT / r).read_text(encoding='utf-8') for r in (
-            '.github/workflows/required-merge-gate.yml', 'scripts/run-python-contracts.sh'))
+            '.github/workflows/required-merge-gate.yml', 'scripts/run-python-contracts.sh', 'scripts/run-node-contracts.sh'))
         self.assertNotIn("sed 's/^/FALLA: /'", gate)
         self.assertNotIn('echo "FALLA: ', gate)
         for trozo in ('tipo=script', 'tipo=unittest', 'confirmar_fallos.py --modo "$tipo"', 'confirmar_fallos.py --modo node'):
