@@ -347,8 +347,10 @@ def chain_report(accepted, consumed=None, **extra):
     noche sin altas nuevas los vaciaba de uno en uno solo con el cron (F8)."""
     # Un lote recuperado o trasladado no consultó las fuentes: la noche aún debe su consulta, aunque el lote no
     # trajera altas (21/11, carga 44843220015: un punto de guardado ya publicado gastó el turno y entraron 0 libros).
-    # Una carga reanudada no: su PR sigue abierta y encadenar repetiría la misma reanudación.
-    pending = int(bool(extra.get('recuperado_de') or extra.get('trasladada_de')))
+    # Una carga reanudada tampoco consultó: `resume_pending` → `run` solo vuelve tras fusionar (si no, lanza), así que
+    # su PR ya no está abierta y la siguiente carga consulta (25/11, caso 8 de la revisión GPT: antes la cadena
+    # paraba ahí y la noche se quedaba sin consulta).
+    pending = int(bool(extra.get('recuperado_de') or extra.get('trasladada_de') or extra.get('reanudada')))
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json',
                      {**extra, 'stats': {'accepted': accepted, 'checkpoints_restantes': len(set(checkpoints()) - {consumed}),
                                          'consulta_pendiente': pending}})

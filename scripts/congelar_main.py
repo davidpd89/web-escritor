@@ -28,6 +28,7 @@ EXENTAS = ('automation/', 'revision/')  # la carga y su refresco publican por aq
 ETIQUETA = 'sin-congelar'
 TOPE_MIN = 300
 CADA_S = 120
+ERRORES = 3  # consultas fallidas seguidas antes de abrir: un 502 suelto de gh no abre main en plena carga
 
 
 def _gh(*args):
@@ -57,12 +58,19 @@ def esperar(head_ref='', etiquetas='', consulta=gh_runs, dormir=time.sleep, ahor
         return 0
     inicio = ahora()
     avisadas = None
+    errores = 0
     while True:
         try:
             ocupadas = activas(consulta)
+            errores = 0
         except (subprocess.SubprocessError, OSError, ValueError) as exc:
-            imprimir(f'::warning::No se pudo mirar si hay carga ({type(exc).__name__}); no se congela.')
-            return 0
+            errores += 1
+            if errores >= ERRORES or ahora() - inicio >= tope_s:
+                imprimir(f'::warning::No se pudo mirar si hay carga ({type(exc).__name__}, {errores} veces); no se congela.')
+                return 0
+            imprimir(f'No se pudo mirar si hay carga ({type(exc).__name__}); reintento en {cada_s} s.')
+            dormir(cada_s)
+            continue
         if not ocupadas:
             imprimir('Main libre: no hay carga ni refresco del radar en marcha.')
             return 0

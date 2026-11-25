@@ -103,6 +103,10 @@ def decidir(libro: dict | None, now: datetime, codigo: str | None = None) -> tup
     r = resumen(libro, now)
     if r['fallidos'] >= MAX_FALLIDOS:
         return False, f"{r['fallidos']} cargas fallidas esta noche: no se insiste hasta mañana"
+    if r['pendientes']:
+        # Un despacho (cadena o reintento) anotado cuyo `gh workflow run` falló o se perdió: nadie más lo cargaría.
+        # El job intake lo hereda en `abrir` («despacho desalojado») o, si el despacho llegó, no carga dos veces.
+        return True, f"despacho {r['pendientes'][0].get('motivo')} pendiente: lo resuelve el turno"
     if r['ultimo'] and r['ultimo'][1] in ('publicado', 'degradado'):
         return False, f"la última carga de esta noche ({r['ultimo'][0].get('run')}) terminó {r['ultimo'][1]}"
     firma = repetiria(r['ultimo'], codigo)

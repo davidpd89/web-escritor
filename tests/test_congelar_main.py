@@ -73,8 +73,24 @@ class CongelarMainTest(unittest.TestCase):
         def roto(flujo):
             raise subprocess.CalledProcessError(1, 'gh')
         rc, t, salida = self.esperar(roto)
-        self.assertEqual((rc, t), (0, 0))
+        self.assertEqual((rc, t), (0, 10 * (c.ERRORES - 1)), 'reintenta antes de abrir')
         self.assertIn('No se pudo mirar', salida)
+
+    def test_un_fallo_suelto_de_gh_no_abre_main_en_plena_carga(self):
+        """Caso 7 de la revisión GPT (25/11): un 502 de gh abría main con la carga en marcha."""
+        ocupada = consulta_de({'reading-catalogue-sync.yml': 'in_progress'}, {'reading-catalogue-sync.yml': 'in_progress'}, {})
+        fallos = {'n': 1}
+
+        def a_ratos(flujo):
+            if fallos['n']:
+                fallos['n'] -= 1
+                raise subprocess.CalledProcessError(1, 'gh')
+            return ocupada(flujo)
+        rc, t, salida = self.esperar(a_ratos)
+        self.assertEqual(rc, 0)
+        self.assertIn('Main congelado', salida)
+        self.assertIn('Main libre', salida)
+        self.assertGreaterEqual(t, 20)
 
     def test_tope_agotado_abre_con_aviso(self):
         rc, t, salida = self.esperar(consulta_de({'reading-catalogue-sync.yml': 'in_progress'}), tope_s=50)
