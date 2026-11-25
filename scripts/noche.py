@@ -71,7 +71,7 @@ def iso(now: datetime) -> str:
 
 def de_hoy(libro: dict | None, now: datetime) -> dict:
     """El libro de esta noche; el de otra noche no cuenta (se sustituye al primer apunte)."""
-    if libro and libro.get('dia') == dia(now):
+    if isinstance(libro, dict) and libro.get('dia') == dia(now):
         return libro
     return {'dia': dia(now), 'intentos': []}
 
@@ -334,7 +334,12 @@ def _abrir(now, run, intento, args) -> int:
         decision['r'] = abrir(lib, now, run, intento, head, args.motivo, codigo)
         return decision['r'][2]
 
-    decide(libro)
+    try:
+        decide(libro)
+    except Exception as exc:  # noqa: BLE001 - JSON legible con otra forma (R3-05 de GPT): como ilegible, sin pisarlo
+        libro, legible = None, False
+        _resumen_job(f'Libro de la noche con forma inválida ({type(exc).__name__}): se decide sin él y no se reescribe.')
+        decide(None)
     cargar, porque, noche = decision['r']
     try:
         if legible:  # un libro vacío pisaría el historial remoto que no se pudo leer
