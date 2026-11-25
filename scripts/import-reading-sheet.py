@@ -50,6 +50,20 @@ def has_intake_record(book, state):
     return evidence.get('estado_ingesta') == 'publicado' and evidence.get('libro_id') == book['id']
 
 
+def cover_dimensions(book, previous, root):
+    """Ancho y alto de la portada: del fichero si está en el checkout; si no (portada servida desde el almacén externo,
+    #1588), los que ya publicó ese libro con la misma portada. El constructor valida la huella del almacén."""
+    cover = book.get('portada_local')
+    if not cover:
+        return
+    path = root / cover.lstrip('/')
+    if path.is_file():
+        with Image.open(path) as image:
+            book['portada_ancho'], book['portada_alto'] = image.size
+    elif previous.get('portada_local') == cover and previous.get('portada_ancho') and previous.get('portada_alto'):
+        book['portada_ancho'], book['portada_alto'] = previous['portada_ancho'], previous['portada_alto']
+
+
 def convert(snapshot, review, existing, root):
     sheets = snapshot['sheets']
     if any(tab not in sheets for tab in TABS):
@@ -87,11 +101,7 @@ def convert(snapshot, review, existing, root):
         book['portada_fuente_url'] = cover.get('url_imagen_editorial') or ''
         book['fuente_bibliografica_url'] = source.get('url', '')
         book.update({k: v for k, v in approved.items() if k in builder.BOOK_FIELDS and v is not None})
-        if book.get('portada_local'):
-            path = root / book['portada_local'].lstrip('/')
-            if path.is_file():
-                with Image.open(path) as image:
-                    book['portada_ancho'], book['portada_alto'] = image.size
+        cover_dimensions(book, next((b for b in existing['libros'] if b['id'] == book['id']), {}), root)
         if 'fecha_publicacion' in approved:
             if approved['fecha_publicacion']:
                 book['fecha_publicacion'] = approved['fecha_publicacion']

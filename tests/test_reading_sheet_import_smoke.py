@@ -54,5 +54,21 @@ class UnregisteredRule(unittest.TestCase):
         self.assertEqual(unregistered(catalogue, state), ['isbn-2', 'isbn-3'])
 
 
+
+class CoverDimensions(unittest.TestCase):
+    def test_a_cover_in_the_external_store_keeps_its_published_size(self):
+        """#1588: las portadas viven en el almacén y no en el checkout; sin esto la importación dejaba el libro sin
+        dimensiones y la validación tumbaba la carga («dimensiones de portada obligatorias»)."""
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            book = {'portada_local': '/assets/reading-covers/isbn-1.webp'}
+            sheet.cover_dimensions(book, {'portada_local': '/assets/reading-covers/isbn-1.webp', 'portada_ancho': 300,
+                                          'portada_alto': 450}, Path(tmp))
+            self.assertEqual((book.get('portada_ancho'), book.get('portada_alto')), (300, 450))
+            otra = {'portada_local': '/assets/reading-covers/isbn-2.webp'}
+            sheet.cover_dimensions(otra, {'portada_local': '/assets/reading-covers/isbn-1.webp', 'portada_ancho': 300,
+                                          'portada_alto': 450}, Path(tmp))
+            self.assertNotIn('portada_ancho', otra)
+
 if __name__ == '__main__':
     unittest.main()
