@@ -244,6 +244,10 @@ class CongelarPrAbiertasTest(unittest.TestCase):
         self.assertIn('scripts/congelar_main.py descongelar', tras)
         self.assertNotIn('conclusion', tras.split('steps:', 1)[0], 'como acabe la carga, no solo en rojo')
         self.assertIn('pull-requests: write', tras)
+        paso = tras.split('Unfreeze pull requests', 1)[1]
+        self.assertIn('app_token.mjs', paso, 'el auto-merge reactivado con GITHUB_TOKEN fusiona sin desplegar (R3-01)')
+        self.assertIn('scripts/app_token.mjs', tras.split('steps:', 1)[1].split('- name:', 1)[0])
+        self.assertNotIn('GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}', paso)
         self.assertIn(c.ETIQUETA_CARGA, espera, 'su etiqueta no relanza la espera')
 
 
