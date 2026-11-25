@@ -92,5 +92,38 @@ class RunnerMuertoTrasElCheckpoint(unittest.TestCase):
             self.noche(rutas=('scripts/otra-cosa.py',))
 
 
+class ErrorDeRedSuelto(unittest.TestCase):
+    """S01 (502 de GitHub): follow_main() hace un fetch justo antes de save_checkpoint, tras ~80 min de ingesta. Un
+    502 suelto ahí tiraba todo lo consultado sin guardarlo. Las órdenes git de red se repiten con espera."""
+
+    def test_fetch_y_ls_remote_se_repiten_con_espera(self):
+        import subprocess
+        real, fallos, esperas = subprocess.run, {'fetch': 2, 'ls-remote': 2}, []
+
+        def run(cmd, *a, **kw):
+            orden = cmd[1] if cmd[:1] == ['git'] else None
+            if fallos.get(orden):
+                fallos[orden] -= 1
+                raise subprocess.CalledProcessError(128, cmd, b'', b'fatal: The requested URL returned error: 502')
+            return real(cmd, *a, **kw)
+        from test_reading_branch_retry import Repo
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Repo(tmp)
+            repo.main_moves({'otro.txt': 'x\n'})
+            with patch.object(refresh.subprocess, 'run', side_effect=run), \
+                    patch.object(refresh.time, 'sleep', side_effect=esperas.append):
+                self.assertEqual(refresh.follow_main(root=repo.work), repo.git('rev-parse', 'origin/main'))
+                self.assertEqual(refresh.checkpoints(root=repo.work), [])
+        self.assertEqual(fallos, {'fetch': 0, 'ls-remote': 0})
+        self.assertTrue(len(esperas) == 4 and all(s > 0 for s in esperas), esperas)
+
+    def test_un_error_local_no_se_repite(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as tmp, patch.object(refresh.time, 'sleep') as dormir:
+            with self.assertRaises(subprocess.CalledProcessError):
+                refresh.git('rev-parse', 'HEAD', root=Path(tmp))
+            dormir.assert_not_called()
+
+
 if __name__ == '__main__':
     unittest.main()

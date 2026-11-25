@@ -81,8 +81,25 @@ def push(*refspec, root=ROOT, timeout=PUSH_TIMEOUT, attempts=PUSH_ATTEMPTS):
     raise RuntimeError(f'git push {refspec[0][:60]} falló tras {attempts} intentos: {last}')
 
 
+RED = ('fetch', 'ls-remote')   # órdenes que hablan con GitHub; el push tiene su propio bucle (push())
+RED_INTENTOS = 4
+
+
 def git(*args, root=ROOT, data=None):
-    return subprocess.run(['git', *args], cwd=root, check=True, capture_output=True, input=data).stdout
+    """git con el resultado en bytes. fetch y ls-remote se repiten con espera ante un error (502, corte de red).
+
+    follow_main() hace un fetch justo antes de save_checkpoint, tras ~80 min de ingesta: un 502 suelto ahí tiraba
+    todo lo consultado sin guardarlo (S01 de la revisión GPT, 25/11). Las órdenes locales no se repiten."""
+    intentos = RED_INTENTOS if args and args[0] in RED else 1
+    for intento in range(1, intentos + 1):
+        try:
+            return subprocess.run(['git', *args], cwd=root, check=True, capture_output=True, input=data).stdout
+        except subprocess.CalledProcessError as exc:
+            if intento == intentos:
+                raise
+            causa = (exc.stderr or b'').decode(errors='replace').strip()[-200:]
+            print(f'::warning::git {args[0]} falló (intento {intento}/{intentos}): {causa}', flush=True)
+            time.sleep(10 * intento)
 
 
 def replay(patch, onto, root=ROOT):
