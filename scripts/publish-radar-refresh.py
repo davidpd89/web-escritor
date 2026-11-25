@@ -399,22 +399,42 @@ def registro_job(repo, job_id):
         return gh('api', ruta)
 
 
-def fallo_determinista(repo, run_id):
-    """True si la ejecución fallida trae un `FALLA: tests/...` (un test concreto que falló sobre los datos de la
-    PR): repetir el mismo commit da el mismo fallo y cuesta otra puerta entera (~22 min). Un job cancelado, un corte de
-    red o un runner caído no escriben esa línea, y esos sí se reintentan. Si no se pueden leer los registros, se
-    reintenta como siempre."""
+def firmas_deterministas(repo, run_id):
+    """Los `tests/...` que la ejecución fallida marca con `FALLA:`, ordenados y sin repetir; [] si no hay o no se pueden
+    leer los registros (entonces se reintenta como siempre)."""
+    firmas = set()
     try:
         jobs = gh_listas.rest_todas(lambda ruta: json.loads(gh('api', ruta)), f'repos/{repo}/actions/runs/{run_id}/jobs', 'jobs')
         for job in jobs:
             if job.get('conclusion') != 'failure':
                 continue
-            log = registro_job(repo, job['id'])
-            if DETERMINISTA.search(log):
-                return True
+            for linea in DETERMINISTA.findall(registro_job(repo, job['id'])):
+                firmas.add(linea[linea.index('tests/'):])
     except Exception:  # noqa: BLE001 - sin registros legibles, el reintento de siempre
-        return False
-    return False
+        return []
+    return sorted(firmas)
+
+
+def anotar_fallo(firmas, entorno=None):
+    """Deja la firma del fallo determinista en $RUNNER_TEMP/carga-fallo.json para el libro de la noche
+    (scripts/noche.py: con el mismo código ni el reintento ni los relojes repiten la carga). Sin RUNNER_TEMP (local)
+    no hace nada; un fallo al escribir no cambia el resultado de la carga."""
+    entorno = os.environ if entorno is None else entorno
+    if not entorno.get('RUNNER_TEMP') or not firmas:
+        return
+    try:
+        Path(entorno['RUNNER_TEMP'], 'carga-fallo.json').write_text(
+            json.dumps({'clase': 'determinista', 'firma': ', '.join(firmas)}, ensure_ascii=False), encoding='utf-8')
+    except OSError:
+        pass
+
+
+def fallo_determinista(repo, run_id):
+    """True si la ejecución fallida trae un `FALLA: tests/...` (un test concreto que falló sobre los datos de la
+    PR): repetir el mismo commit da el mismo fallo y cuesta otra puerta entera (~22 min). Un job cancelado, un corte de
+    red o un runner caído no escriben esa línea, y esos sí se reintentan. Si no se pueden leer los registros, se
+    reintenta como siempre."""
+    return bool(firmas_deterministas(repo, run_id))
 
 
 def cancelar_si_sigue(run_id):
@@ -541,7 +561,10 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                     return publish_generated(branch, allowed_path, workflows, timeout=int(remaining),
                                              deploy_before=deploy_before, pr_wait=pr_wait, ceder_a=ceder_a,
                                              qa_refreshes=qa_refreshes - 1)
-                if workflow not in retried and fallo_determinista(repo, result['databaseId']):
+                firmas = firmas_deterministas(repo, result['databaseId'])
+                if firmas:  # también tras un reintento: la carga cae por esto y el libro de la noche lo anota
+                    anotar_fallo(firmas)
+                if workflow not in retried and firmas:
                     retried.add(workflow)  # el reintento daría el mismo fallo: se para ya, sin gastar otra puerta
                     print(f'SIN RETRY {workflow} ({result["databaseId"]}): fallo de un test concreto (FALLA: tests/...)', flush=True)
                 if workflow not in retried:
