@@ -98,6 +98,12 @@ class StaleMerge(RuntimeError):
     """The PR could not merge because main moved while its CI was running."""
 
 
+class PrAbierta(TimeoutError):
+    """La CI de la PR no acabó a tiempo (Actions saturado, otra carga delante). La PR queda abierta y la siguiente
+    carga la reanuda (`resume_pending`): no es un fallo de datos y no pone la carga en rojo (26/11, carga
+    45797789304: Actions lleno de PR, broken-links/pa11y/reflow sin terminar y la carga roja con los datos sanos)."""
+
+
 # Fallos de GitHub que no dicen nada del comando: repetirlo es seguro y casi siempre funciona.
 # Run 41818107338: un «GraphQL: Something went wrong» en `gh pr create` tiró una carga ya trasladada y empujada.
 TRANSIENT_GH = ('Something went wrong', 'HTTP 500', 'HTTP 502', 'HTTP 503', 'HTTP 504', 'Bad Gateway',
@@ -393,7 +399,7 @@ def esperar_escritores(ceder_a, deadline, poll=60):
         if not activos:
             return
         if time.monotonic() >= deadline:
-            raise TimeoutError(f'La carga sigue en curso ({", ".join(activos)}); PR abierta, la fusiona el siguiente cron')
+            raise PrAbierta(f'La carga sigue en curso ({", ".join(activos)}); PR abierta, la fusiona el siguiente cron')
         print(f'ESPERA: carga en curso ({", ".join(activos)}); no se fusiona hasta que termine', flush=True)
         time.sleep(poll)
 
@@ -573,7 +579,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
 
     deadline = recortar_al_job(time.monotonic() + timeout)
     if deadline <= time.monotonic():
-        raise TimeoutError('No queda tiempo del job para la CI; PR abierta, la fusiona el siguiente cron')
+        raise PrAbierta('No queda tiempo del job para la CI; PR abierta, la fusiona el siguiente cron')
     pending = set(workflows)
     retried = set()
     # Intento de la ejecución al relanzarla: tras `run rerun` el listado puede devolver aún el intento viejo
@@ -582,7 +588,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     relanzado = {}
     while pending:
         if time.monotonic() >= deadline:
-            raise TimeoutError(f'CI timed out; PR left open: {sorted(pending)}')
+            raise PrAbierta(f'CI timed out; PR left open: {sorted(pending)}')
         for workflow in sorted(pending):
             current = [item for item in runs_on_sha(workflow, *source[workflow])
                        if workflow not in pinned or item['databaseId'] == pinned[workflow]]
