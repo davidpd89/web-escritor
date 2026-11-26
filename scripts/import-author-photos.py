@@ -43,14 +43,22 @@ def one_face(im: Image.Image) -> bool:
     return len(faces) == 1
 
 
-def preparar() -> None:
+def preparar(cand_file: str = '', vistos: bool = False) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    cands = json.loads(CAND.read_text(encoding='utf-8'))
+    cands = json.loads((ROOT / cand_file if cand_file else CAND).read_text(encoding='utf-8'))
+    prev = set()
+    if vistos and (OUT / 'indice.json').exists():
+        prev = {e['img'] for e in json.loads((OUT / 'indice.json').read_text(encoding='utf-8'))}
+        for f in OUT.glob('hoja-*.png'):
+            f.unlink()
     names = {a['slug']: a['nombre'] for a in json.loads(AUTHORS.read_text(encoding='utf-8'))['autores']}
     index = []
+    have = {a['slug'] for a in json.loads(AUTHORS.read_text(encoding='utf-8'))['autores'] if a.get('foto')}
     for slug, items in cands.items():
+        if slug in have:
+            continue
         for c in items:
-            if SKIP_HOST.search(c['page'] + c['img']):
+            if SKIP_HOST.search(c['page'] + c['img']) or c['img'] in prev:
                 continue
             im = fetch(c['img']) or fetch(c['thumb'])
             if valid(im) and one_face(im):
@@ -99,7 +107,7 @@ def aplicar(spec: str, subir: bool) -> None:
 
 
 if __name__ == '__main__':
-    p = argparse.ArgumentParser(); p.add_argument('--preparar', action='store_true'); p.add_argument('--aplicar', default=''); p.add_argument('--subir', action='store_true')
+    p = argparse.ArgumentParser(); p.add_argument('--preparar', action='store_true'); p.add_argument('--aplicar', default=''); p.add_argument('--cand', default=''); p.add_argument('--vistos', action='store_true'); p.add_argument('--subir', action='store_true')
     a = p.parse_args()
-    if a.preparar: preparar()
+    if a.preparar: preparar(a.cand, a.vistos)
     if a.aplicar: aplicar(a.aplicar, a.subir)

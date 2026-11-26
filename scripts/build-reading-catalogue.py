@@ -1959,6 +1959,9 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
     if own:
         graph.append({'@type':'ItemList','@id':canonical+'#obras','name':'Libros de '+a['nombre']+' en orden de publicación','itemListOrder':'https://schema.org/ItemListOrderAscending',
                       'itemListElement':[{'@type':'ListItem','position':i,'item':{'@type':'Book','name':w['titulo'],**({'datePublished':str(w['anio'])} if str(w['anio'])<=(anchor or data_anchor(books))[:4] else {}),'author':{'@id':canonical+'#person'}}} for i,w in enumerate(own['obras'],1)]})
+    elif selected and person_like:
+        graph.append({'@type':'ItemList','@id':canonical+'#libros','name':'Libros de '+a['nombre'],'numberOfItems':len(selected),
+                      'itemListElement':[{'@type':'ListItem','position':i,'url':SITE+url(b)} for i,b in enumerate(selected,1)]})
     schema={'@context':'https://schema.org','@graph':graph}
     titles=', '.join(b['titulo'] for b in selected[:2])
     meta=a['nombre']+': '+(str(count)+(' libro recomendado' if count==1 else ' libros recomendados')+(' ('+titles+')' if titles else '')+', ' if count else '')+('biografía, géneros y editoriales.' if has_bio else 'géneros y editoriales.')
@@ -1969,6 +1972,8 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
         title=a['nombre']+(' ('+a['nacimiento'][:4]+'–'+a['fallecimiento'][:4]+')' if a.get('nacimiento') else '')+': libros en orden y biografía'
     elif own:
         title=a['nombre']+': libros en orden'+(', sagas' if own.get('sagas') else '')+' y biografía'
+    elif person_like and count == 1 and has_bio and len(a['nombre']+': libros, '+selected[0]['titulo']+' y biografía')<=58:
+        title=a['nombre']+': libros, '+selected[0]['titulo']+' y biografía'
     elif not person_like or count < 2:
         title='Libros de '+a['nombre']+': títulos y novedades'
     elif a.get('fallecimiento'):

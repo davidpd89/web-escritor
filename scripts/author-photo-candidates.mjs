@@ -10,7 +10,8 @@ const arg = (n, d) => { const i = process.argv.indexOf('--' + n); return i > 0 ?
 const limit = Number(arg('limite', 0)), pause = Number(arg('pausa', 1500)), PORT = Number(process.env.EDGE_PORT || 9263);
 const norm = (s) => String(s).normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const authors = JSON.parse(fs.readFileSync(path.join(root, 'data/reading-authors.json'), 'utf8')).autores;
-const outPath = path.join(root, '.local/author-photo-candidates.json');
+const outPath = path.join(root, arg('salida', '.local/author-photo-candidates.json'));
+const consulta = arg('consulta', '"{n}" escritor autor');
 fs.mkdirSync(path.dirname(outPath), { recursive: true });
 const out = fs.existsSync(outPath) ? JSON.parse(fs.readFileSync(outPath, 'utf8')) : {};
 const BAD = /(shutterstock|istockphoto|alamy|gettyimages|dreamstime|depositphotos|freepik|youtube|ytimg|amazon\.|media-amazon|goodreads\.com\/book|casadellibro\.com\/libro|thickbox|portada|cover|book-?cover|\/libro\/|\.svg|logo|banner|sprite)/i;
@@ -28,15 +29,15 @@ try {
     n++;
     const tokens = norm(a.nombre).split(' ').filter((t) => t.length > 1);
     try {
-      await page.goto('https://www.bing.com/images/search?q=' + encodeURIComponent(`"${a.nombre}" escritor autor`) + '&form=HDRSC2&first=1', { waitUntil: 'domcontentloaded', timeout: 45000 });
+      await page.goto('https://www.bing.com/images/search?q=' + encodeURIComponent(consulta.replace('{n}', a.nombre)) + '&form=HDRSC2&first=1', { waitUntil: 'domcontentloaded', timeout: 45000 });
       await new Promise((r) => setTimeout(r, 1800));
-      const raw = await page.$$eval('a.iusc', (as) => as.slice(0, 24).map((x) => { try { const m = JSON.parse(x.getAttribute('m')); return { title: m.t || '', page: m.purl || '', img: m.murl || '', thumb: m.turl || '' }; } catch { return null; } }).filter(Boolean));
+      const raw = await page.$$eval('a.iusc', (as) => as.slice(0, 40).map((x) => { try { const m = JSON.parse(x.getAttribute('m')); return { title: m.t || '', page: m.purl || '', img: m.murl || '', thumb: m.turl || '' }; } catch { return null; } }).filter(Boolean));
       const cands = raw.map((c) => {
         const text = norm(c.title + ' ' + c.page + ' ' + c.img.replace(/[-_.]/g, ' '));
         const all = tokens.every((t) => text.includes(t));
         const bad = BAD.test(c.img + ' ' + c.page + ' ' + c.title);
         return { ...c, score: (all ? 10 : 0) + (GOOD.test(c.page) ? 3 : 0) - (bad ? 20 : 0) };
-      }).filter((c) => c.score >= 10).sort((x, y) => y.score - x.score).slice(0, 4);
+      }).filter((c) => c.score >= 10).sort((x, y) => y.score - x.score).slice(0, 8);
       out[a.slug] = cands; if (cands.length) withCand++;
     } catch (e) { console.log('error', a.nombre, String(e.message).slice(0, 60)); await new Promise((r) => setTimeout(r, 20000)); }
     if (n % 20 === 0) { save(); console.log(`${n}/${todo.length} con candidatas: ${withCand}`); }
