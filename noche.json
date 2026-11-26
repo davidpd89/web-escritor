@@ -40,11 +40,11 @@
   {
    "run": 45797789304,
    "intento": 1,
-   "sha": "dfe2d331b9f26370003ab37e9f89536e6b999e12",
+   "sha": "0ffd5500d75d35ab8a5725c7a6d53785cee9f8ae",
    "motivo": "cron",
    "inicio": "2026-11-26T10:06:23Z",
-   "fin": null,
-   "resultado": "en_curso",
+   "fin": "2026-11-26T12:16:40Z",
+   "resultado": "fallido",
    "clase": null,
    "firma": null,
    "codigo": "2db06052649c6cf22015ced47d866d987d3b7587"
