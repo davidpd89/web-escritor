@@ -67,6 +67,29 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(dates, {'lib-0001': '2026-10-20', 'isbn-1': '2026-11-26'})
         self.assertNotIn('misterio-y-thriller', cats_of(data, 'lib-0001'))
 
+    def test_main_genre_arrives_even_if_another_pass_removed_the_wrong_one(self):
+        """El pintor de su deshonra: otro repaso quitó lo erróneo y el respaldo dejó arte-y-diseño (Codex #1599)."""
+        data = self.data()
+        data['categorias'].append({'id': 'poesia', 'slug': 'p', 'nombre': 'p', 'tipo': 'genero', 'orden': 1,
+                                   'activa': True})
+        by_book = {'d': {'terror'}}
+        ops = {'d': {'generos_gpt': ['poesia'], 'sobran': ['ensayo'], 'motivo': 'Drama en verso del Siglo de Oro'}}
+        self.assertEqual(tax.apply_review(data, by_book, ops), ['d'])
+        self.assertEqual(cats_of(data, 'd'), {'terror', 'poesia'})
+        self.assertEqual(tax.apply_review(data, by_book, ops), [])  # idempotente
+
+    def test_derivation_does_not_bring_back_what_the_review_removed(self):
+        """romantasy se deriva de fantasía + romance: si la revisión lo quitó, apply_derived no lo repone."""
+        data = catalogue(('isbn-1', 'Una novela', ['fantasia', 'romance', 'romantasy']))
+        ops = {'isbn-1': {'generos_gpt': ['fantasia', 'romance'], 'sobran': ['romantasy'],
+                          'motivo': 'Fantasía épica con subtrama amorosa secundaria'}}
+        original = tax.load_opinions
+        tax.load_opinions = lambda path=None: ops if path == tax.REVIEW_FILE else {}
+        self.addCleanup(setattr, tax, 'load_opinions', original)
+        tax.apply_derived(data)
+        self.assertEqual(cats_of(data, 'isbn-1'), {'fantasia', 'romance'})
+        self.assertEqual(tax.apply_derived(data), {})  # cerrado bajo derivación
+
 
 class PublishedReviewTests(unittest.TestCase):
     def test_flagged_genres_are_gone(self):
@@ -84,6 +107,9 @@ class PublishedReviewTests(unittest.TestCase):
             elif left := tax.review_drop(op, by_book.get(ident, set())):
                 if by_book.get(ident, set()) - left & genres:
                     malos[ident] = 'conserva lo que la revisión quita: ' + ', '.join(sorted(left))
+            elif (tax.review_rejects(op) and (main := tax.review_main(op, genres))
+                  and not by_book.get(ident, set()) & set(op['generos_gpt'])):
+                malos[ident] = 'tenía errores y no lleva el género de GPT: falta ' + main
         incumplen('la revisión de GPT se aplica: lo que señala como erróneo no se publica', malos)
 
 

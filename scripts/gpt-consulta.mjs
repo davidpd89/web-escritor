@@ -10,11 +10,12 @@ const page = await browser.contexts()[0].newPage();
 // La pestaña se cierra siempre (bien, error o plazo): abiertas acumulan cientos de MB y llenan la RAM.
 let cerrada = false;
 const cerrar = async (code) => { if (!cerrada) { cerrada = true; await page.close().catch(() => {}); } process.exit(code); };
-process.on('uncaughtException', (e) => { console.error(String(e).slice(0, 300)); cerrar(1); });
-process.on('unhandledRejection', (e) => { console.error(String(e).slice(0, 300)); cerrar(1); });
-setTimeout(() => { console.error('plazo de 28 min agotado'); cerrar(4); }, 28 * 60000);
+process.on('uncaughtException', (e) => { console.error(String(e).slice(0, 300)); void cerrar(1); });
+process.on('unhandledRejection', (e) => { console.error(String(e).slice(0, 300)); void cerrar(1); });
+setTimeout(() => { console.error('plazo de 28 min agotado'); void cerrar(4); }, 28 * 60000);
 // argv[4] opcional: URL de una conversación para seguir en ella.
-await page.goto(process.argv[4] || 'https://chatgpt.com/');
+// 90 s: con la máquina cargada chatgpt.com supera los 30 s por defecto (26/11, ronda 10).
+await page.goto(process.argv[4] || 'https://chatgpt.com/', {timeout: 90000});
 await page.locator('button[aria-label="Seleccionar modelo de ChatGPT"]').waitFor({timeout: 120000});
 await page.waitForTimeout(1500);
 // Siempre High (no Instant): abrir el selector y llevar el deslizador al extremo derecho.

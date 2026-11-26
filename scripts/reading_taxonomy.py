@@ -159,8 +159,10 @@ def apply_derived(catalogue: dict) -> dict[str, list[str]]:
     for rel in catalogue['libro_categorias']:
         by_book.setdefault(rel['libro_id'], set()).add(rel['categoria_id'])
     added: dict[str, list[str]] = {}
+    reviewed = load_opinions(REVIEW_FILE)
     for book in catalogue['libros']:
-        blocked = set(book.get('categorias_excluidas', []))
+        # Lo que la revisión de GPT quitó tampoco vuelve por derivación (romantasy de fantasía + romance; Codex #1599).
+        blocked = set(book.get('categorias_excluidas', [])) | review_rejects(reviewed.get(book['id']))
         new = [c for c in derived_categories(by_book.get(book['id'], set()), book.get('titulo', ''))
                if c not in blocked]
         if new:
@@ -572,22 +574,34 @@ def apply_second_opinion(catalogue: dict, by_book: dict, opinions: dict | None =
     return repaired
 
 
-def review_drop(op: dict, assigned: set) -> set:
+def review_rejects(op) -> set:
     """Géneros que la revisión de GPT señala como erróneos y con motivo concreto: confunden al lector (Narnia en
     terror, un atlas de la Biblia en humor), aunque los diera una materia de la editorial."""
-    if len(str(op.get('motivo') or '').strip()) < 20:
+    if not isinstance(op, dict) or len(str(op.get('motivo') or '').strip()) < 20:
         return set()
-    return set(op.get('sobran') or []) & assigned
+    return {g for g in op.get('sobran') or [] if isinstance(g, str)}
+
+
+def review_drop(op: dict, assigned: set) -> set:
+    return review_rejects(op) & assigned
+
+
+def review_main(op: dict, genres: set):
+    """Primer género de GPT que existe y que no señaló como erróneo."""
+    return next((g for g in op.get('generos_gpt') or [] if g in genres and g not in (op.get('sobran') or [])), None)
 
 
 def review_opinion(catalogue: dict, by_book: dict, ident: str, op: dict, genres: set) -> bool:
     """Aplica una opinión de la revisión: quita lo que sobra y, si el libro pierde así su género, pone el principal
-    de GPT. No añade géneros a un libro que no tenía errores: un secundario distinto no es un fallo."""
+    de GPT. No añade géneros a un libro que no tenía errores: un secundario distinto no es un fallo.
+    Si otro repaso ya quitó lo erróneo y el respaldo puso un género que GPT no dio (El pintor de su deshonra en
+    arte-y-diseño en vez de poesía; Codex #1599), también pone el principal."""
     assigned = by_book.setdefault(ident, set())
     drop = review_drop(op, assigned)
-    main = next((g for g in op.get('generos_gpt') or [] if g in genres and g not in op.get('sobran', [])), None)
+    main = review_main(op, genres)
     left = assigned - drop
-    add = {main} if drop and main and main not in left else set()
+    wrong = drop or (review_rejects(op) and not left & set(op.get('generos_gpt') or []))
+    add = {main} if wrong and main and main not in left else set()
     if drop and not left & genres and not add:
         return False  # sin sustituto válido no se deja un libro sin género
     if not add and not drop:
