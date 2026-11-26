@@ -861,7 +861,7 @@ def load_author_records(path):
     for a in payload['autores']:
         required = {'slug', 'nombre', 'descripcion', 'fuentes', 'fecha_verificacion'}
         optional = {'biografia_breve', 'biografia_fuente_url', 'biografia_fecha_revision', 'biografia_fuente_nombre', 'biografia_ultimo_intento',
-                    'nacimiento', 'fallecimiento', 'foto', 'wikidata', 'amazon_autor_id', 'identificadores'}
+                    'nacimiento', 'fallecimiento', 'foto', 'wikidata', 'amazon_autor_id', 'amazon_autor_id_probado', 'identificadores'}
         required |= {'tipo'} if a.get('tipo') == 'bibliografico' else {'nacimiento'}
         require(required <= set(a) <= required | optional, 'Campos de autor inválidos')
         require(a['slug'] != 'pagina', 'Slug de autor reservado para la paginación del índice')
@@ -1692,7 +1692,15 @@ def author_genres(data, selected):
         for c in public(categories(data, b)):
             if c['tipo'] == 'genero':
                 counted.setdefault(c['id'], [c, 0])[1] += 1
-    return [c for c, _ in sorted(counted.values(), key=lambda t: (-t[1], t[0]['nombre']))]
+    return [c for c, _ in _dominant(sorted(counted.values(), key=lambda t: (-t[1], t[0]['nombre'])), len(selected))]
+
+
+def _dominant(ranked, total):
+    """Con 4 libros o más, un género que cubre menos de la cuarta parte (o un solo libro) es la excepción, no lo que
+    escribe: Roald Dahl no es «Cocina» por un libro de recetas. Siempre queda el principal."""
+    if total < 4:
+        return ranked
+    return [t for i, t in enumerate(ranked) if i == 0 or (t[1] >= 2 and t[1] * 4 >= total)]
 
 
 def _on_date(label):
@@ -1866,8 +1874,7 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
     if own:
         bio=own['intro']
         has_bio=True
-    biography_source='' if own else ('<p class="catalogue-source"><a href="'+esc(a['biografia_fuente_url'])+'" target="_blank" rel="noopener noreferrer">Nota biográfica: '+esc(a.get('biografia_fuente_nombre') or 'editorial')+' ↗'+NEW_TAB+'</a>'+(' · Texto de Wikipedia con licencia CC BY-SA 4.0' if a.get('biografia_fuente_nombre') == 'Wikipedia' else '')+'</p>') if a.get('biografia_breve') else ''
-    context='<section aria-labelledby="author-context"><h2 id="author-context">Su obra en este catálogo</h2><p>'+esc(summary)+'</p>'
+    context='<section aria-labelledby="author-context"><h2 id="author-context">Su obra</h2>'
     if topics:
         context+='<p>Géneros y temas presentes en sus libros:</p>'+tags(list(topics.values()))
     if publishers:
@@ -1888,24 +1895,22 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
     life=life_line(a) if person_like else ''
     chips=''.join('<li><a href="'+AUTHORS_BASE+'#genero='+esc(g['id'])+'">'+esc(g['nombre'])+'</a></li>' for g in genres[:3])
     cta=('<p class="catalogue-author-cta"><a class="catalogue-buy-link" href="'+esc(amazon_author_destination(a))+'"'+sponsored+'>Sus libros en Amazon <span aria-hidden="true">↗</span>'+NEW_TAB+'</a></p>') if person_like else ''
-    photo=('<figure class="catalogue-author-figure">'+author_photo(a,False)+(('<figcaption>'+photo_credit(a)+'</figcaption>') if a.get('foto') else '')+'</figure>') if person_like else ''
+    photo=('<figure class="catalogue-author-figure">'+author_photo(a,False)+'</figure>') if person_like else ''
     faq=author_faq(a,selected,genres,anchor) if person_like else []
     toc=before=after=''
     if own:
         toc,before,after=author_text_sections(a,own,selected,related_pool)
         # Las del catálogo que el texto propio ya responde (nacimiento, géneros) ceden su sitio a las suyas.
         faq=[(x['pregunta'],x['respuesta']) for x in own['faq']]+[(q,r) for q,r in faq if not q.startswith(('¿Cuándo nació','¿Qué tipo de libros escribe'))]
-    shown_ids=[(AUTHOR_ID_LABELS[k],a['identificadores'][k]) for k in ('web','wikipedia') if k in a.get('identificadores',{}) and (k!='web' or third_party_links.alive(a['identificadores'][k]))]
-    links=('<p class="catalogue-source">Más sobre '+esc(a['nombre'])+': '+' · '.join('<a href="'+esc(h)+'" target="_blank" rel="noopener noreferrer">'+esc(t)+NEW_TAB+'</a>' for t,h in shown_ids)+'</p>') if shown_ids else ''
     faq_html=('<section aria-labelledby="author-faq" class="catalogue-faq"><h2 id="author-faq">Preguntas frecuentes sobre '+esc(a['nombre'])+'</h2>'+''.join('<details class="catalogue-details"><summary>'+esc(q)+'</summary><p>'+esc(r)+'</p></details>' for q,r in faq)+'</section>') if faq else ''
     trail=[('Inicio','/'),('Libros recomendados','/recomendaciones/'),('Autores',AUTHORS_BASE),(a['nombre'],author_url(a))]
     crumbs=''.join('<li><a href="'+href+'">'+esc(label)+'</a></li>' for label,href in trail[:-1])+'<li aria-current="page">'+esc(a['nombre'])+'</li>'
     main=('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol>'+crumbs+'</ol></nav>'
           '<header class="catalogue-author-hero'+(' catalogue-author-hero--photo' if photo else '')+'">'+photo+'<div><p class="eyebrow">Autores · Libros recomendados</p><h1>'+esc(a['nombre'])+'</h1>'
           +('<p class="catalogue-author-life">'+esc(life)+'</p>' if life else '')+('<ul class="catalogue-tags catalogue-tags--compact">'+chips+'</ul>' if chips else '')
-          +'<p>'+esc(bio)+'</p>'+biography_source+links+cta+'</div></header>'+toc+before
+          +'<p>'+esc(bio)+'</p>'+cta+'</div></header>'+toc+before
           +'<section aria-labelledby="author-books"><h2 id="author-books">Libros de '+esc(a['nombre'])+'</h2><p>Ediciones ordenadas de la más reciente a la más antigua.</p><ul class="catalogue-author-books">'+items+'</ul></section>'
-          +after+context+faq_html+'<div class="catalogue-end"><a class="text-action" href="'+AUTHORS_BASE+'">Ver todos los autores</a> <a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
+          +after+context+faq_html+'<div class="catalogue-end"><a class="text-action" href="'+AUTHORS_BASE+'">Ver todos los autores</a> <a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div>'+(('<p class="catalogue-photo-credit">Foto: '+esc(a['foto']['autor'])+', '+esc(a['foto']['licencia'])+'.</p>') if a.get('foto') and a['foto'].get('licencia') != 'Public domain' else '')+'</main>')
     person={'@type':'Person' if person_like else 'Organization','@id':canonical+'#person','name':a['nombre'],'url':canonical,'description':bio}
     if a.get('nacimiento'):
         person['birthDate']=a['nacimiento']
@@ -2083,9 +2088,11 @@ def author_rows(authors, books, data, publishers, anchor):
         for b in bs:
             for c in public(cats[b['id']]):
                 shown.setdefault(c['tipo'], {}).setdefault(c['id'], [c, 0])[1] += 1
+        genres = _dominant(sorted(shown.get('genero', {}).values(), key=lambda t: (-t[1], t[0]['nombre'])), len(bs))
+        if 'genero' in shown:
+            shown['genero'] = {c['id']: [c, n] for c, n in genres}
         pairs = [(kind, cid) for kind in PUBLIC_TYPES for cid in shown.get(kind, {})] + [(kind, NO_VALUE[kind]['id']) for kind in NO_VALUE if kind not in shown]
         facet_values = [cid for _kind, cid in pairs]
-        genres = sorted(shown.get('genero', {}).values(), key=lambda t: (-t[1], t[0]['nombre']))
         spans = sorted(((s, b) for b in bs if (s := publication_bounds(b))), key=lambda t: (t[0], t[1]['id']))
         dates = sorted({lo for (lo, _hi), _b in spans})
         released = [(hi, b) for (lo, hi), b in spans if lo <= anchor]
@@ -2155,21 +2162,20 @@ def author_card(r, lazy=True):
     if bio:
         description = first_sentence(bio)
     else:
-        shown = ', '.join('«' + b['titulo'] + '»' for b in bs[:2])
-        description = 'En el catálogo: ' + shown + (f' y {len(bs) - 2} más.' if len(bs) > 2 else '.')
+        names = [g['nombre'].lower() for g in r['genres'][:2]]
+        description = (a['nombre'] + (' escribió sobre todo ' if a.get('fallecimiento') else ' escribe sobre todo ') + ' y '.join(names) + '.') if names else ''
     life = life_line(a)
-    count = str(len(bs)) + (' libro' if len(bs) == 1 else ' libros') + ' en el catálogo'
     return (f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" {amazon} aria-label="Libros de {esc(a["nombre"])} en Amazon (otra pestaña)">{author_photo(a, lazy)}</a>'
-            + f'<div>{photo_credit(a)}' + (f'<p class="eyebrow catalogue-when">{esc(when)}</p>' if when else '') + (f'<ul class="catalogue-tags catalogue-tags--compact">{chips}</ul>' if chips else '')
+            + f'<div>' + (f'<p class="eyebrow catalogue-when">{esc(when)}</p>' if when else '') + (f'<ul class="catalogue-tags catalogue-tags--compact">{chips}</ul>' if chips else '')
             + f'<h3><a {amazon} aria-label="Libros de {esc(a["nombre"])} en Amazon (otra pestaña)">{esc(a["nombre"])}</a></h3>'
             + (f'<p class="catalogue-author-life">{esc(life)}</p>' if life else '')
             + (f'<p class="catalogue-author">{esc(r["imprint"])}</p>' if r['imprint'] else '')
-            + f'<p class="catalogue-card__description">{esc(description)}</p><p class="catalogue-author-count">{count}</p>'
+            + (f'<p class="catalogue-card__description">{esc(description)}</p>' if description else '')
             + f'<a class="text-action catalogue-card__ficha" href="{author_url(a)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(a["nombre"])} (se abre en otra pestaña)">Ver ficha</a>'
             + f'<a class="catalogue-buy-link catalogue-card__buy" {amazon} aria-label="Ver los libros de {esc(a["nombre"])} en Amazon (otra pestaña)">Sus libros en Amazon <span aria-hidden="true">↗</span></a></div></li>')
 
 
-AUTHOR_HUB_SORTS = (('editorial', 'Último libro · más reciente primero'), ('destacados', 'Destacados · próximos y novedades'), ('nombre', 'Nombre · A–Z'), ('libros_desc', 'Número de libros · de más a menos'))
+AUTHOR_HUB_SORTS = (('editorial', 'Último libro · más reciente primero'), ('destacados', 'Destacados · próximos y novedades'), ('nombre', 'Nombre · A–Z'))
 AUTHOR_BIRTH_SORTS = (('nacimiento_asc', 'Nacimiento · del más antiguo al más reciente'), ('nacimiento_desc', 'Nacimiento · del más reciente al más antiguo'))
 
 
