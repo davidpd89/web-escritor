@@ -460,6 +460,7 @@ def refresh(*, publish=False):
     # tumbaba la carga antes de save_checkpoint y la noche se perdía. Se deshace solo lo escrito por el mercado.
     antes = git_estado.foto(ROOT, *SOURCE_PATHS)
     market_failure = None
+    MARKET_STATUS.clear()
     try:
         changed = market_refresh(config)
     except (Exception, SystemExit) as exc:  # noqa: BLE001
@@ -468,6 +469,10 @@ def refresh(*, publish=False):
               flush=True)
         git_estado.restaurar(ROOT, antes, *SOURCE_PATHS)
         changed = False
+    if market_failure is None and MARKET_STATUS.get('precios') in PROVIDER_DOWN:
+        # refresh_offers no lanza si el proveedor cae: devuelve el estado. Cuenta como fase fallida (los grupos ya
+        # guardados se quedan, no se deshacen), para que ningún aviso diga que se publicaron los precios (CodeRabbit #1595).
+        market_failure = RuntimeError(f"proveedor de precios: {MARKET_STATUS['precios']}")
     follow_main()
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     saved = save_checkpoint(day)
@@ -572,8 +577,13 @@ def amazon_intake(config, publish):
                                                                'regresion': bool(code)}}
 
 
+PROVIDER_DOWN = ('provider_unavailable', 'pending_amazon_eligibility')
+MARKET_STATUS = {}  # estado del barrido de precios de la última market_refresh (refresh_offers no lanza)
+
+
 def market_refresh(config):
     """Valoraciones, formatos, portadas y precios: devuelve si cambió algún dato publicado."""
+    MARKET_STATUS.clear()
     # This runs DAILY, even when publishers have no new ISBNs.
     # Single writer and ONE generated PR for publisher + rating changes.
     market_path = ROOT / 'assets/reading-market.json'
@@ -649,6 +659,7 @@ def market_refresh(config):
         market,price_stats=refresh_offers(books,market,provider,tag,
                                          now,sweep_days=int(amazon_config.get('sweep_days',7)),
                                          cover=lambda book,url:swap_cover(book,ROOT,url,fetch_amazon_image,cover_bytes,now.date().isoformat()))
+        MARKET_STATUS['precios']=price_stats.get('status')
         write_if_changed(ROOT/'.ci/reading-intake/prices-report.json',price_stats)
         print('Precios Amazon: '+json.dumps(price_stats,ensure_ascii=True),flush=True)
         changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings

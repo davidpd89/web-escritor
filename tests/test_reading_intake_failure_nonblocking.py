@@ -19,7 +19,7 @@ spec.loader.exec_module(refresh)
 
 
 class IntakeFailure(unittest.TestCase):
-    def run_refresh(self, intake, market_error=None):
+    def run_refresh(self, intake, market_error=None, issue_error=None, price_status=None):
         config = {'autopublish': True, 'amazon_catalogo': {'enabled': True}}
         calls = MagicMock()
         with patch.object(refresh, 'read_json', return_value=config), \
@@ -39,6 +39,12 @@ class IntakeFailure(unittest.TestCase):
              patch.object(refresh, 'assemble', calls.assemble):
             calls.market.return_value = True
             calls.market.side_effect = market_error
+            calls.issue.side_effect = issue_error
+            if price_status:
+                def market(config):
+                    refresh.MARKET_STATUS['precios'] = price_status  # refresh_offers devuelve el estado, no lanza
+                    return True
+                calls.market.side_effect = market
             try:
                 refresh.refresh(publish=True)
                 error = None
@@ -78,10 +84,30 @@ class IntakeFailure(unittest.TestCase):
         """R3-09 GPT (26/11): sin permiso o sin red para la issue, el aviso no puede tumbar lo ya publicado."""
         def boom(config, publish):
             raise KeyError('x')
-        with patch.object(refresh, 'open_issue', side_effect=RuntimeError('gh caído')):
-            calls, error = self.run_refresh(boom)
+        calls, error = self.run_refresh(boom, issue_error=RuntimeError('gh caído'))  # antes el mock quedaba tapado
         self.assertIsNone(error)
+        calls.issue.assert_called_once()
         calls.assemble.assert_called_once()
+
+    def test_price_provider_down_counts_as_a_failed_phase(self):
+        """CodeRabbit #1595: refresh_offers no lanza con el proveedor caído; con las altas también caídas, era verde
+        y el aviso decía que los precios sí se publicaron."""
+        def boom(config, publish):
+            raise KeyError('x')
+        for status in refresh.PROVIDER_DOWN:
+            with self.subTest(status=status):
+                calls, error = self.run_refresh(boom, price_status=status)
+                self.assertIsInstance(error, KeyError)
+                bodies = ' '.join(c.args[1] for c in calls.issue.call_args_list)
+                self.assertNotIn('sí se publicaron', bodies)
+                calls.discard.assert_called_once()  # solo se deshacen las altas: lo guardado del mercado se queda
+
+    def test_price_provider_down_alone_degrades_green_keeping_the_intake(self):
+        calls, error = self.run_refresh(lambda config, publish: {'new_books': ['a'], 'updated_books': [], 'stats': {}},
+                                        price_status='provider_unavailable')
+        self.assertIsNone(error)
+        self.assertEqual(calls.issue.call_args.args[0], 'Carga degradada: precios y portadas (RuntimeError)')
+        calls.guardar.assert_called_once()
 
     def test_both_phases_failing_goes_red_with_honest_messages(self):
         """R3-12 GPT (26/11): con las dos caídas, cada aviso decía que la otra sí se publicó; y sin nada publicado, rojo

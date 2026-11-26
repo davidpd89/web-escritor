@@ -722,8 +722,18 @@ def replace_cover(book,root,image,small,dimensions,source,day,basis=AMAZON_COVER
         # El almacén es de solo añadir: la sustituta va con nombre nuevo y la vieja sigue intacta, así que revertir
         # el JSON (mercado fallido, cuarentena) basta para volver a la imagen anterior (Codex #1495).
         logical=cover_store.fresh_name(logical,image)
-    cover_store.put(root,logical,image)
-    cover_store.put(root,logical.replace('.webp','-320.webp'),small)
+    # Una portada local se sobrescribe en su sitio: si la miniatura falla a medias, se devuelven los bytes viejos para
+    # que el fichero siga casando con la ficha que el llamante conserva (Codex #1595).
+    targets=[(logical,image),(logical.replace('.webp','-320.webp'),small)]
+    before={rel:(root/rel.lstrip('/')).read_bytes() for rel,_ in targets
+            if not cover_store.goes_to_store(root,rel) and (root/rel.lstrip('/')).is_file()}
+    try:
+        for rel,content in targets:
+            cover_store.put(root,rel,content)
+    except BaseException:
+        for rel,content in before.items():
+            (root/rel.lstrip('/')).write_bytes(content)
+        raise
     book['portada_local']=logical
     book.update(portada_fuente_url=source,portada_ancho=dimensions[0],portada_alto=dimensions[1],portada_fecha_revision=day,
                 portada_sustituida=True,autorizacion_o_base_uso=basis,portadas_amazon_buscadas=day)
@@ -1241,7 +1251,8 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
                 if hasattr(provider,'discover') and needs_discovery(current,now):
                     # Kindle and audiobook editions have their own ASIN and no ISBN.
                     keep(found[current['id']],current,ask(provider.discover,current))
-                    current['formatos_amazon_buscados']=day
+                    if current['id'] not in broken:  # una respuesta rara no cuenta como búsqueda hecha (CodeRabbit #1595)
+                        current['formatos_amazon_buscados']=day
             priced=True
             pending=[(b,asin) for b in group for asin,fmt in price_asins(b,batched).items()
                      if fmt not in found[b['id']] and (fmt or not found[b['id']])]
