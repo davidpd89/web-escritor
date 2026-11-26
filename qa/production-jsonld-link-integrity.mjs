@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { readPublished } from './lib/cover-store-view.mjs';
 import { assertProductionRelease } from './production-release-marker.mjs';
 import { auditUrl, fetchWithBackoff, isTransientStatus } from './production-fetch.mjs';
 
@@ -54,7 +55,7 @@ function walk(value,source,path='$'){
 }
 
 for(const source of publicSources){
-  const html=fs.readFileSync(source,'utf8');
+  const html=readPublished(source);
   for(const match of html.matchAll(JSONLD_RE)){
     blocks++;
     let data;

@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { readPublished } from './lib/cover-store-view.mjs';
 import { chromium } from 'playwright';
 import { assertProductionRelease } from './production-release-marker.mjs';
 
 const O=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const S=(process.env.EXPECTED_RELEASE_SHA||'').trim();
-const sw=fs.readFileSync('service-worker.js','utf8');
+const sw=readPublished('service-worker.js');
 const version=sw.match(/const CACHE_VERSION = `\$\{CACHE_NAMESPACE\}-(v\d+)`;/)?.[1];
 const shellMatch=sw.match(/const APP_SHELL = \[([\s\S]*?)\];/);
 assert.ok(version,'PWA production audit: cache version missing');
