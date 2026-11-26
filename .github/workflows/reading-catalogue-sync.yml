@@ -160,6 +160,9 @@ jobs:
         # Las portadas nuevas se suben al repositorio del almacén con una deploy key (GITHUB_TOKEN no escribe en otro repo).
         # Sin la variable no se hace nada y las portadas se siguen guardando en este repositorio.
         if: ${{ (inputs.dry_run || steps.libro.outputs.cargar == 'true') && vars.READING_COVERS_STORE == 'true' }}
+        # R3-10 GPT (26/11): cualquier fallo al abrirlo (clave, ssh-keyscan, cupo, clon) deja el almacén apagado y la
+        # carga sigue con las portadas en el repo; las variables solo se exportan al final, si todo fue bien.
+        continue-on-error: true
         # Varios almacenes: READING_COVERS_STORE_REPO nombra el activo (scripts/almacen_portadas.py nuevo la cambia).
         # Uno lleno (900 MB de los 1 GB de Pages) no se abre: las portadas vuelven a este repositorio y se avisa.
         env:
@@ -183,7 +186,11 @@ jobs:
           chmod 600 ~/.ssh/covers_store
           ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND='ssh -i ~/.ssh/covers_store -o IdentitiesOnly=yes'
-          git clone --quiet --depth 1 "git@github.com:$OWNER/$STORE_REPO.git" "$RUNNER_TEMP/portadas"
+          # Sin clave o sin red el almacén no se abre y la carga sigue con las portadas en este repositorio.
+          if ! git clone --quiet --depth 1 "git@github.com:$OWNER/$STORE_REPO.git" "$RUNNER_TEMP/portadas"; then
+            echo "::warning::No se pudo clonar el almacén $STORE_REPO; esta carga guarda las portadas en el repositorio."
+            exit 0
+          fi
           echo "READING_COVERS_STORE_DIR=$RUNNER_TEMP/portadas" >> "$GITHUB_ENV"
           echo "READING_COVERS_STORE_URL=https://$OWNER.github.io/$STORE_REPO" >> "$GITHUB_ENV"
           echo "GIT_SSH_COMMAND=ssh -i $HOME/.ssh/covers_store -o IdentitiesOnly=yes" >> "$GITHUB_ENV"
