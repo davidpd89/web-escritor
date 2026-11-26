@@ -44,7 +44,9 @@ concurrency:
 jobs:
   check-links:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    # La web entera (9.482 páginas el 26/11) ya no cabe en 40 min; solo la auditoría completa (programada, dispatch
+    # en main o full_scan) tiene ese margen. Una PR revisa lo que cambia y conserva el límite corto.
+    timeout-minutes: ${{ (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && (github.ref == 'refs/heads/main' || inputs.full_scan))) && 120 || 40 }}
 
     steps:
       - name: Checkout

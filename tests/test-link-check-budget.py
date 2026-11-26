@@ -20,7 +20,8 @@ def flag(name):
 
 
 timeout, retries, workers = flag('timeout'), flag('max-retries'), flag('max-concurrency')
-job_limit = int(re.search(r'timeout-minutes:\s*(\d+)', wf).group(1))
+# El límite corto (el de las PR) es el que aprieta; la auditoría completa tiene más (26/11).
+job_limit = min(int(n) for n in re.findall(r'\d+', re.search(r'timeout-minutes:([^\n]*)', wf).group(1)))
 per_url = timeout * (1 + retries)
 assert per_url <= 150, f'one dead URL costs {per_url}s (timeout {timeout} x {1 + retries} attempts)'
 # 32 timeouts in the 2026-11-02 weekly scan; leave most of the job for real checks.

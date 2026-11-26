@@ -85,10 +85,16 @@ class LinkInputSelectionTests(unittest.TestCase):
         result=selector.select(self.root,'push',{'before':self.base},'refs/heads/main')
         self.assertEqual(result['files'],['books/index.html'])
 
-    def test_changing_the_checker_audits_the_whole_site(self):
+    def test_changing_the_checker_does_not_force_the_whole_site_in_a_pr(self):
+        """26/11 (run 45891455063): la propia PR del selector revisó las 9.482 páginas y agotó los 40 min.
+        Las reglas nuevas las audita el programado, que tiene su propio límite largo."""
         (self.root/'.lycheeignore').write_text('x',encoding='utf-8');self.commit()
         result=selector.select(self.root,'pull_request',{'pull_request':{'base':{'sha':self.base}}},'refs/heads/main')
-        self.assertEqual((result['scope'],result['files']),('full-site',['books/index.html','index.html']))
+        self.assertEqual((result['scope'],result['files']),('none',[]))
+        workflow=(ROOT/'.github/workflows/broken-links.yml').read_text(encoding='utf-8')
+        limit=[l for l in workflow.splitlines() if 'timeout-minutes:' in l][0]
+        self.assertIn("github.event_name == 'schedule'",limit)
+        self.assertIn('inputs.full_scan',limit)
 
     def test_workflow_skips_lychee_when_there_is_nothing_to_check(self):
         workflow=(ROOT/'.github/workflows/broken-links.yml').read_text(encoding='utf-8')

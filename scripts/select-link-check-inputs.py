@@ -14,10 +14,6 @@ _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
 
 
-# Cambiar el propio comprobador obliga a auditar todo el sitio con las reglas nuevas.
-CHECKER_FILES = {'scripts/recheck-link-timeouts.py', '.linkcheck-quarantine.json', 'scripts/select-link-check-inputs.py',
-                 '.lycheeignore', '.github/workflows/broken-links.yml'}
-
 # Lo que ninguna página enlaza: borrarlo no rompe enlaces (Pagefind carga sus trozos por JS, no por <a>/<img>).
 NOT_LINKED = ('scripts/', 'tests/', '.github/', '.ci/', 'docs/', 'data/', 'pagefind/', 'lychee/', 'qa/')
 
@@ -61,7 +57,7 @@ def select(root, event_name, event, ref, full_scan=False):
             status=None
             reason='comparison unavailable; checking all pages'
         if status is not None:
-            removed,changed,touched=set(),set(),set()
+            removed,changed=set(),set()
             i=0
             while i<len(status)-1:
                 kind=status[i]
@@ -69,29 +65,26 @@ def select(root, event_name, event, ref, full_scan=False):
                     i+=1;continue
                 if kind[0] in 'RC':
                     old,new=status[i+1],status[i+2];i+=3
-                    touched|={old,new}
                     if kind[0]=='R':removed.add(old)
                     changed.add(new)
                 else:
                     path=status[i+1];i+=2
-                    touched.add(path)
                     (removed if kind[0]=='D' else changed).add(path)
-            if touched & CHECKER_FILES:
-                reason='the link checker itself changed; checking all pages'
-            else:
-                removed=set(public_html(removed))|{p for p in removed if not p.endswith('.html') and not p.startswith(NOT_LINKED)}
-                pages=set(public_html(changed))
-                if removed:
-                    # 26/11 (carga 45868423421): borrar o renombrar páginas mandaba a revisar las 9.482 y el job
-                    # agotaba sus 40 min. Un borrado (página, portada, CSS) solo puede romper los enlaces que apuntan a él:
-                    # se revisan las páginas que lo nombran (por su último tramo, que también casa con enlaces relativos).
-                    pages|=set(referencing(root,removed,all_files))
-                if not pages:
-                    # 26/11: una PR de datos que solo reindexa pagefind no trae HTML; antes caía a la web entera.
-                    return {'scope':'none','base':base,'files':[],
-                            'reason':'no public HTML added, modified or removed; nothing to check'}
-                return {'scope':'changed-html','base':base,'files':sorted(pages),
-                        'reason':'every added or modified HTML page'+(' and every page naming a removed file' if removed else '')}
+            # 26/11: cambiar el propio comprobador ya no manda a la web entera (no cabe en el job de una PR);
+            # sus reglas nuevas las audita el programado semanal, que tiene más tiempo.
+            removed=set(public_html(removed))|{p for p in removed if not p.endswith('.html') and not p.startswith(NOT_LINKED)}
+            pages=set(public_html(changed))
+            if removed:
+                # 26/11 (carga 45868423421): borrar o renombrar páginas mandaba a revisar las 9.482 y el job
+                # agotaba sus 40 min. Un borrado (página, portada, CSS) solo puede romper los enlaces que apuntan a él:
+                # se revisan las páginas que lo nombran (por su último tramo, que también casa con enlaces relativos).
+                pages|=set(referencing(root,removed,all_files))
+            if not pages:
+                # 26/11: una PR de datos que solo reindexa pagefind no trae HTML; antes caía a la web entera.
+                return {'scope':'none','base':base,'files':[],
+                        'reason':'no public HTML added, modified or removed; nothing to check'}
+            return {'scope':'changed-html','base':base,'files':sorted(pages),
+                    'reason':'every added or modified HTML page'+(' and every page naming a removed file' if removed else '')}
     return {'scope':'full-site','base':base,'files':all_files,'reason':reason}
 
 
