@@ -744,6 +744,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                     raise RuntimeError(f'Pages failed for {merged_sha}: {current["databaseId"]}')
                 print(f'PASS Pages and production smoke @ {merged_sha}: {current["databaseId"]} @ {current["headSha"]}', flush=True)
                 return
+            if time.monotonic() + 30 >= deadline:
+                break  # decide con esta observación, no con una vieja tras la última pausa (CodeRabbit #1597)
             time.sleep(30)
         if current and current['status'] != 'completed':
             # 26/11 (carga 45776893030): Pages tardó 32 min y la espera, recortada al job, tumbó una carga ya fusionada.

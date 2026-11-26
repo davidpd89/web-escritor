@@ -46,6 +46,11 @@ AMAZON_FIELDS = ('formatos_compra', 'precios_amazon_revision', 'formatos_amazon_
 # tests/test_reading_sheet_import_smoke.py obliga a clasificar aquí toda clave nueva que escriba reading_amazon_market.
 MARKET_FIELDS = ('publico_amazon', 'no_lectura', 'formato_edicion', 'edicion', 'encuadernacion')
 SHEET_FIELDS_TOUCHED_BY_MARKET = ('descripcion_breve', 'portada_local')
+# Portada sustituida por el mercado (replace_cover): la ficha de la hoja apunta a la editorial y la reimportación
+# devolvía la vieja (fuente, base de uso, medidas) junto a portada_sustituida=True: contrato roto y cuarentena,
+# como lib-0001 con publico_amazon. Con la marca, la portada entera se conserva de la ficha anterior.
+COVER_REPLACEMENT_FIELDS = ('portada_local', 'portada_fuente_url', 'portada_ancho', 'portada_alto', 'portada_fecha_revision',
+                            'autorizacion_o_base_uso')
 
 
 def has_intake_record(book, state):
@@ -122,6 +127,8 @@ def convert(snapshot, review, existing, root):
         previous = next((b for b in existing['libros'] if b['id'] == book['id']), {})
         book.update({k: previous[k] for k in AMAZON_FIELDS if k in previous})
         book.update({k: previous[k] for k in MARKET_FIELDS if k in previous and k not in book})
+        if previous.get('portada_sustituida'):
+            book.update({k: previous[k] for k in COVER_REPLACEMENT_FIELDS if k in previous})
         book_links = [link for link in links if link['libro_id'] == source_id and link.get('url')]
         book['resenas'] = [{'titulo': link['titulo_visible'], 'url': link['url'], 'fecha_verificacion': link['fecha_consulta']} for link in book_links if link['tipo'].startswith('resenas')]
         fragment = next((link for link in book_links if link['tipo'] == 'fragmento'), {})

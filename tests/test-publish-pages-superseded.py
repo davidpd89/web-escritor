@@ -25,20 +25,22 @@ def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled'
     nuestro_sha = 'merged-sha' if exact_present else 'newer-sha'
 
     def consultar(repo, run_id):
-        assert (repo, run_id) == ('owner/repo', 10), (repo, run_id)
+        # Cada despacho tiene su id (10, 20): el reintento solo vale si se sigue la ejecución nueva (CodeRabbit #1597).
+        assert repo == 'owner/repo' and run_id in (10, 20), (repo, run_id)
+        if run_id == 20:
+            return 200, {'databaseId': 20, 'headSha': nuestro_sha, 'status': 'completed', 'conclusion': segundo}
         vistas['n'] += 1
         if vistas['n'] <= aun_sin_registrar:
             return 404, None
         if vistas['n'] <= aun_sin_registrar + vistas_en_cola:
             return 200, {'databaseId': 10, 'headSha': nuestro_sha, 'status': 'queued', 'conclusion': None}
-        conclusion = segundo if segundo and len(despachos) > 1 else exact_conclusion
-        return 200, {'databaseId': 10, 'headSha': nuestro_sha, 'status': 'completed', 'conclusion': conclusion}
+        return 200, {'databaseId': 10, 'headSha': nuestro_sha, 'status': 'completed', 'conclusion': exact_conclusion}
 
     def gh(*args):
         if args[0] == 'api' and args[1:3] == ('--method', 'POST') and args[3].endswith('deploy-pages.yml/dispatches'):
             despachos.append(args)
             assert 'inputs[before_sha]=base' in args, args
-            return json.dumps({'workflow_run_id': 10})
+            return json.dumps({'workflow_run_id': 10 if len(despachos) == 1 else 20})
         if args[:2] == ('repo', 'view'):
             return 'owner/repo'
         if args[:3] == ('api', '--paginate', '--slurp'):
@@ -160,7 +162,7 @@ with patch.object(module, 'consultar_ejecucion', lambda r, i: (403, None)):
 try:
     scenario('success', exact_conclusion='failure', ajeno=True, despachos_esperados=2)
 except RuntimeError as exc:
-    assert 'Pages failed' in str(exc) and ': 10' in str(exc), exc
+    assert 'Pages failed' in str(exc) and ': 20' in str(exc), exc
 else:
     raise AssertionError('un deploy ajeno no puede validar el nuestro fallido')
 

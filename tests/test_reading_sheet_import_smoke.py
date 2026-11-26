@@ -57,6 +57,17 @@ class MarketFieldsSurviveTheSheet(unittest.TestCase):
         got = next(b for b in data['libros'] if b['id'] == book['id'])
         self.assertEqual(got.get('publico_amazon'), 'infantil')
 
+    def test_cover_replaced_by_the_market_on_a_sheet_book_is_reproduced(self):
+        catalogue = read('data/reading-catalogue.json')
+        book = next(b for b in catalogue['libros'] if b['id'].startswith('lib-') and b.get('portada_local'))
+        book.update(portada_sustituida=True, portada_fuente_url='https://m.media-amazon.com/images/I/x.jpg',
+                    autorizacion_o_base_uso='Portada de la ficha de Amazon', portada_fecha_revision='2026-11-26')
+        data, _ = sheet.convert(read('data/reading-sheet-snapshot.json'), read('data/reading-import-review.json'),
+                                json.loads(json.dumps(catalogue)), ROOT)
+        got = next(b for b in data['libros'] if b['id'] == book['id'])
+        for key in sheet.COVER_REPLACEMENT_FIELDS:
+            self.assertEqual(got.get(key), book.get(key), key)
+
     def test_every_key_the_market_writes_is_classified(self):
         import ast
         tree = ast.parse((ROOT / 'scripts/reading_amazon_market.py').read_text(encoding='utf-8'))
@@ -66,9 +77,16 @@ class MarketFieldsSurviveTheSheet(unittest.TestCase):
             for t in targets:
                 if isinstance(t, ast.Subscript) and isinstance(t.value, ast.Name) and t.value.id == 'book'                         and isinstance(t.slice, ast.Constant) and isinstance(t.slice.value, str):
                     written.add(t.slice.value)
-            if isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute) and node.func.attr in ('pop', 'setdefault', 'update')                     and isinstance(node.func.value, ast.Name) and node.func.value.id == 'book' and node.args                     and isinstance(node.args[0], ast.Constant) and isinstance(node.args[0].value, str):
-                written.add(node.args[0].value)
-        known = set(sheet.AMAZON_FIELDS) | set(sheet.MARKET_FIELDS) | set(sheet.SHEET_FIELDS_TOUCHED_BY_MARKET)
+            if isinstance(node, ast.Call) and isinstance(node.func, ast.Attribute) and isinstance(node.func.value, ast.Name)                     and node.func.value.id == 'book' and node.func.attr in ('pop', 'setdefault', 'update'):
+                first = node.args[0] if node.args else None
+                if isinstance(first, ast.Constant) and isinstance(first.value, str) and node.func.attr != 'update':
+                    written.add(first.value)
+                if node.func.attr == 'update':
+                    # book.update({'x': ...}) y book.update(x=...) también escriben (CodeRabbit #1597).
+                    if isinstance(first, ast.Dict):
+                        written |= {k.value for k in first.keys if isinstance(k, ast.Constant) and isinstance(k.value, str)}
+                    written |= {kw.arg for kw in node.keywords if kw.arg}
+        known = set(sheet.AMAZON_FIELDS) | set(sheet.MARKET_FIELDS) | set(sheet.SHEET_FIELDS_TOUCHED_BY_MARKET) | set(sheet.COVER_REPLACEMENT_FIELDS)
         self.assertEqual(sorted(written - known), [], 'Clasifica en import-reading-sheet.py los campos nuevos del mercado')
 
 
