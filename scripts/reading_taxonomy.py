@@ -587,10 +587,13 @@ def review_drop(op: dict, assigned: set) -> set:
 
 
 def review_main(op: dict, genres: set, book: dict | None = None, assigned: set = frozenset()):
-    """Primer género de GPT que existe, que no señaló como erróneo y que el repaso infantil no quitaría (poesía o
-    terror en un libro infantil: el último repaso de la revisión lo devolvería; Codex #1599)."""
+    """Primer género de GPT que existe, que no señaló como erróneo y que los repasos no quitarían: el infantil
+    (poesía o terror en un libro infantil) ni el del eje (romance en un libro que conserva «historia» y pesa más
+    como no ficción). Si no, la revisión deshace esos repasos en cada carga (Codex #1599)."""
+    book = book or {}
     return next((g for g in op.get('generos_gpt') or [] if g in genres and g not in (op.get('sobran') or [])
-                 and g not in children_drop(book or {}, set(assigned) | {g})), None)
+                 and g not in children_drop(book, set(assigned) | {g})
+                 and g not in axis_loses(book, set(assigned) | {g})), None)
 
 
 def review_opinion(catalogue: dict, by_book: dict, book: dict, op: dict, genres: set) -> bool:
@@ -613,6 +616,8 @@ def review_opinion(catalogue: dict, by_book: dict, book: dict, op: dict, genres:
                                      if not (r['libro_id'] == ident and r['categoria_id'] in drop)]
     catalogue['libro_categorias'] += [{'libro_id': ident, 'categoria_id': c} for c in sorted(add)]
     by_book[ident] = left | add
+    # El principal gana el eje: lo que queda en la otra cara sale como en repair_axis (no se publica en las dos).
+    repair_axis_book(catalogue, by_book, book)
     return True
 
 
@@ -715,28 +720,36 @@ def axis_side(book: dict, assigned: set):
     return 'ficcion' if solid or COMIC_ID in assigned else 'no-ficcion'
 
 
+def axis_loses(book: dict, assigned: set) -> set:
+    """Géneros de la cara del eje ficción/no ficción que pierde (vacío si el libro está en una sola)."""
+    side = axis_side(book, assigned)
+    return assigned & (NON_FICTION_GENRES if side == 'ficcion' else FICTION_GENRES) if side else set()
+
+
 def repair_axis(catalogue: dict, by_book: dict) -> list:
     """Deja cada libro en una sola cara del eje ficción/no ficción quitando los géneros de la otra."""
-    repaired = []
-    for book in catalogue['libros']:
-        assigned = by_book.get(book['id'], set())
-        side = axis_side(book, assigned)
-        if not side:
-            continue
-        drop = assigned & (NON_FICTION_GENRES if side == 'ficcion' else FICTION_GENRES)
-        # Lo derivado de un género que se va se va con él («halloween» por «terror»): si no, la pasada siguiente
-        # lo quitaría y la reparación no sería idempotente.
-        title = book.get('titulo') or ''
-        was = set(derived_categories(assigned - DERIVED_IDS, title))
-        drop |= (assigned & was) - set(derived_categories(assigned - drop - DERIVED_IDS, title))
-        catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
-                                         if not (r['libro_id'] == book['id'] and r['categoria_id'] in drop)]
-        by_book[book['id']] = assigned - drop
-        if JUVENILE_NOVEL in drop and JUVENILE_AUDIENCE not in assigned:
-            catalogue['libro_categorias'].append({'libro_id': book['id'], 'categoria_id': JUVENILE_AUDIENCE})
-            by_book[book['id']].add(JUVENILE_AUDIENCE)
-        repaired.append(book['id'])
-    return repaired
+    return [book['id'] for book in catalogue['libros'] if repair_axis_book(catalogue, by_book, book)]
+
+
+def repair_axis_book(catalogue: dict, by_book: dict, book: dict) -> bool:
+    """Una pasada de repair_axis sobre un libro; True si quitó algo."""
+    assigned = by_book.get(book['id'], set())
+    side = axis_side(book, assigned)
+    if not side:
+        return False
+    drop = assigned & (NON_FICTION_GENRES if side == 'ficcion' else FICTION_GENRES)
+    # Lo derivado de un género que se va se va con él («halloween» por «terror»): si no, la pasada siguiente
+    # lo quitaría y la reparación no sería idempotente.
+    title = book.get('titulo') or ''
+    was = set(derived_categories(assigned - DERIVED_IDS, title))
+    drop |= (assigned & was) - set(derived_categories(assigned - drop - DERIVED_IDS, title))
+    catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
+                                     if not (r['libro_id'] == book['id'] and r['categoria_id'] in drop)]
+    by_book[book['id']] = assigned - drop
+    if JUVENILE_NOVEL in drop and JUVENILE_AUDIENCE not in assigned:
+        catalogue['libro_categorias'].append({'libro_id': book['id'], 'categoria_id': JUVENILE_AUDIENCE})
+        by_book[book['id']].add(JUVENILE_AUDIENCE)
+    return True
 
 
 # Pasatiempo o guía de adultos con un género de ficción que solo sale de una palabra del título: «Turismo de
@@ -860,6 +873,7 @@ def repair_classification(catalogue, today=None):
     by_book = {}
     for rel in catalogue['libro_categorias']:
         by_book.setdefault(rel['libro_id'], set()).add(rel['categoria_id'])
+    before = {i: frozenset(c) for i, c in by_book.items()}
     repaired = []
     for book in catalogue['libros']:
         assigned = by_book.get(book['id'], set())
@@ -901,6 +915,9 @@ def repair_classification(catalogue, today=None):
     # pasar, y la revisión otra vez por si alguno devolvió lo que ella quitó (las dos pasadas son idempotentes).
     touched |= set(repair_children_genres(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
     touched |= set(apply_review(catalogue, by_book))
+    # Solo cuenta el cambio neto: un repaso que quita poesía y la revisión que la devuelve no es un cambio, y la
+    # fecha avanzaría en cada carga (Codex #1599, El pintor de su deshonra).
+    touched = {i for i in touched if frozenset(by_book.get(i, set())) != before.get(i, frozenset())}
     if today:
         for book in catalogue['libros']:
             # La fecha de un libro de la hoja (lib-*) la fija la hoja: cambiarla rompe la reimportación

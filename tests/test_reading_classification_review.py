@@ -110,6 +110,35 @@ class ReviewTests(unittest.TestCase):
         self.assertNotIn('poesia', cats_of(data, 'isbn-1'))
         self.assertIn('infantil', cats_of(data, 'isbn-1'))
 
+    def test_review_main_genre_respects_the_fiction_axis(self):
+        """humor + historia, GPT quita humor y da romance: no queda en las dos caras del eje (Codex #1599)."""
+        data = catalogue(('isbn-1', 'Una historia', ['humor', 'historia']))
+        for g in ('historia', 'romance'):
+            if not any(c['id'] == g for c in data['categorias']):
+                data['categorias'].append({'id': g, 'slug': g, 'nombre': g, 'tipo': 'genero', 'orden': 1,
+                                           'activa': True})
+        ops = {'isbn-1': {'generos_gpt': ['romance'], 'sobran': ['humor'], 'motivo': 'Novela romántica de época'}}
+        original = tax.apply_review
+        tax.apply_review = lambda c, b, o=None: original(c, b, ops)
+        self.addCleanup(setattr, tax, 'apply_review', original)
+        tax.repair_classification(data, today='2026-11-26')
+        got = cats_of(data, 'isbn-1')
+        self.assertFalse(got & tax.FICTION_GENRES and got & tax.NON_FICTION_GENRES, got)
+        self.assertNotIn('humor', got)
+
+    def test_date_only_moves_on_net_changes(self):
+        """Un repaso quita y la revisión devuelve: sin cambio neto la fecha no avanza en cada carga (Codex #1599)."""
+        data = catalogue(('isbn-1', 'Narnia', ['fantasia', 'terror', 'infantil']))
+        data['libros'][0]['fecha_actualizacion'] = '2026-10-20'
+        ops = {'isbn-1': {'generos_gpt': ['fantasia'], 'sobran': ['terror'], 'motivo': 'Fantasía infantil sin terror'}}
+        original = tax.apply_review
+        tax.apply_review = lambda c, b, o=None: original(c, b, ops)
+        self.addCleanup(setattr, tax, 'apply_review', original)
+        tax.repair_classification(data, today='2026-11-26')
+        self.assertEqual(data['libros'][0]['fecha_actualizacion'], '2026-11-26')
+        self.assertEqual(tax.repair_classification(data, today='2026-11-27'), [])
+        self.assertEqual(data['libros'][0]['fecha_actualizacion'], '2026-11-26')
+
 
 class PublishedReviewTests(unittest.TestCase):
     def test_flagged_genres_are_gone(self):
