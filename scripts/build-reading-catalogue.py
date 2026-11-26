@@ -1938,7 +1938,7 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
           +('<p class="catalogue-author-life">'+esc(life)+'</p>' if life else '')+('<ul class="catalogue-tags catalogue-tags--compact">'+chips+'</ul>' if chips else '')
           +'<p>'+esc(bio)+'</p>'+cta+'</div></header>'+toc+before
           +'<section aria-labelledby="author-books"><h2 id="author-books">Libros de '+esc(a['nombre'])+'</h2><p>Ediciones ordenadas de la más reciente a la más antigua.</p><ul class="catalogue-author-books">'+items+'</ul></section>'
-          +after+context+faq_html+'<div class="catalogue-end"><a class="text-action" href="'+AUTHORS_BASE+'">Ver todos los autores</a> <a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div>'+(('<p class="catalogue-photo-credit">Foto: '+esc(a['foto']['autor'])+', '+esc(a['foto']['licencia'])+'.</p>') if a.get('foto') and a['foto'].get('licencia') != 'Public domain' else '')+'</main>')
+          +after+context+faq_html+'<div class="catalogue-end"><a class="text-action" href="'+AUTHORS_BASE+'">Ver todos los autores</a> <a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div>'+'</main>')
     person={'@type':'Person' if person_like else 'Organization','@id':canonical+'#person','name':a['nombre'],'url':canonical,'description':bio}
     if a.get('nacimiento'):
         person['birthDate']=a['nacimiento']
