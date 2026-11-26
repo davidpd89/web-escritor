@@ -191,7 +191,8 @@ def allow_img_host(text: str, data: dict) -> str:
 def stale_local(root: Path = ROOT, data: dict | None = None) -> list[str]:
     """Portadas del manifiesto cuya copia en el repo tiene otros bytes que los registrados. Pasa cuando una carga
     sustituye la portada en el repo después de la foto de una migración: el despliegue reescribiría la referencia al
-    almacén y publicaría la imagen vieja. Una copia con los mismos bytes (antes de `verificar --borrar`) no cuenta."""
+    almacén y publicaría la imagen vieja: el despliegue y la vista de QA las tratan como locales. Una copia con los
+    mismos bytes (antes de `verificar --borrar`) no cuenta."""
     data = data or load(root)
     folder = root / 'assets/reading-covers'
     return sorted(n for n in data['archivos'] if (folder / n).is_file() and digest((folder / n).read_bytes()) != data['sha256'][n])
@@ -204,8 +205,9 @@ def apply_to_dist(out_dir: Path, root: Path = ROOT) -> int:
         return 0
     stale = stale_local(root, data)
     if stale:
-        raise ValueError(f'{len(stale)} portadas del almacén tienen en el repo otros bytes (se publicaría la imagen vieja): '
-                         + ', '.join(stale[:5]) + ' — quitarlas del manifiesto o darles un nombre nuevo (fresh_name)')
+        # Autoarreglo: la copia del repo es la vigente, así que esas portadas se publican desde aquí (sin reescribir).
+        print(f'Aviso almacén: {len(stale)} portadas con otros bytes en el repo se publican desde el repo: {", ".join(stale[:5])}')
+        data = {**data, 'archivos': [n for n in data['archivos'] if n not in set(stale)]}
     changed = 0
     base = out_dir.resolve()
     for path in out_dir.rglob('*'):
