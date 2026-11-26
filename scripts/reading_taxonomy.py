@@ -586,19 +586,22 @@ def review_drop(op: dict, assigned: set) -> set:
     return review_rejects(op) & assigned
 
 
-def review_main(op: dict, genres: set):
-    """Primer género de GPT que existe y que no señaló como erróneo."""
-    return next((g for g in op.get('generos_gpt') or [] if g in genres and g not in (op.get('sobran') or [])), None)
+def review_main(op: dict, genres: set, book: dict | None = None, assigned: set = frozenset()):
+    """Primer género de GPT que existe, que no señaló como erróneo y que el repaso infantil no quitaría (poesía o
+    terror en un libro infantil: el último repaso de la revisión lo devolvería; Codex #1599)."""
+    return next((g for g in op.get('generos_gpt') or [] if g in genres and g not in (op.get('sobran') or [])
+                 and g not in children_drop(book or {}, set(assigned) | {g})), None)
 
 
-def review_opinion(catalogue: dict, by_book: dict, ident: str, op: dict, genres: set) -> bool:
+def review_opinion(catalogue: dict, by_book: dict, book: dict, op: dict, genres: set) -> bool:
     """Aplica una opinión de la revisión: quita lo que sobra y, si el libro pierde así su género, pone el principal
     de GPT. No añade géneros a un libro que no tenía errores: un secundario distinto no es un fallo.
     Si otro repaso ya quitó lo erróneo y el respaldo puso un género que GPT no dio (El pintor de su deshonra en
     arte-y-diseño en vez de poesía; Codex #1599), también pone el principal."""
+    ident = book['id']
     assigned = by_book.setdefault(ident, set())
     drop = review_drop(op, assigned)
-    main = review_main(op, genres)
+    main = review_main(op, genres, book, assigned - drop)
     left = assigned - drop
     wrong = drop or (review_rejects(op) and not left & set(op.get('generos_gpt') or []))
     add = {main} if wrong and main and main not in left else set()
@@ -616,8 +619,10 @@ def review_opinion(catalogue: dict, by_book: dict, ident: str, op: dict, genres:
 def apply_review(catalogue: dict, by_book: dict, opinions: dict | None = None) -> list:
     opinions = load_opinions(REVIEW_FILE) if opinions is None else opinions
     genres = {c['id'] for c in catalogue['categorias'] if c['tipo'] == 'genero'}
-    return [i for i, op in sorted(opinions.items()) if isinstance(op, dict) and 'generos_gpt' in op
-            and review_opinion(catalogue, by_book, i, op, genres)]
+    # Solo libros del catálogo: la opinión de uno retirado no crea relaciones huérfanas (Codex #1599).
+    books = {b['id']: b for b in catalogue['libros']}
+    return [i for i, op in sorted(opinions.items()) if i in books and isinstance(op, dict) and 'generos_gpt' in op
+            and review_opinion(catalogue, by_book, books[i], op, genres)]
 
 
 def juvenile_audience_only(assigned: set) -> bool:

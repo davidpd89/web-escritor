@@ -90,6 +90,26 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(cats_of(data, 'isbn-1'), {'fantasia', 'romance'})
         self.assertEqual(tax.apply_derived(data), {})  # cerrado bajo derivación
 
+    def test_opinions_of_books_not_in_the_catalogue_are_ignored(self):
+        data = self.data()
+        before = list(data['libro_categorias'])
+        ops = {'retirado': {'generos_gpt': ['humor'], 'sobran': ['terror'], 'motivo': WHY}}
+        self.assertEqual(tax.apply_review(data, {}, ops), [])
+        self.assertEqual(data['libro_categorias'], before)
+
+    def test_review_does_not_undo_the_children_repair(self):
+        """Infantil con GPT diciendo solo «poesía» sin versos en el título: el repaso infantil manda (Codex #1599)."""
+        data = catalogue(('isbn-1', 'El dragón dormilón', ['infantil', 'humor']))
+        data['categorias'].append({'id': 'poesia', 'slug': 'p', 'nombre': 'p', 'tipo': 'genero', 'orden': 1,
+                                   'activa': True})
+        ops = {'isbn-1': {'generos_gpt': ['poesia'], 'sobran': ['humor'], 'motivo': 'Cuento rimado para prelectores'}}
+        original = tax.apply_review
+        tax.apply_review = lambda c, b, o=None: original(c, b, ops)
+        self.addCleanup(setattr, tax, 'apply_review', original)
+        tax.repair_classification(data, today='2026-11-26')
+        self.assertNotIn('poesia', cats_of(data, 'isbn-1'))
+        self.assertIn('infantil', cats_of(data, 'isbn-1'))
+
 
 class PublishedReviewTests(unittest.TestCase):
     def test_flagged_genres_are_gone(self):
@@ -98,16 +118,17 @@ class PublishedReviewTests(unittest.TestCase):
         for r in data['libro_categorias']:
             by_book.setdefault(r['libro_id'], set()).add(r['categoria_id'])
         genres = {c['id'] for c in data['categorias'] if c['tipo'] == 'genero'}
+        books = {b['id']: b for b in data['libros']}
         malos = {}
         for ident, op in tax.load_opinions(tax.REVIEW_FILE).items():
-            if not isinstance(op, dict) or 'generos_gpt' not in op:
-                continue
+            if ident not in books or not isinstance(op, dict) or 'generos_gpt' not in op:
+                continue  # la opinión de un libro retirado no cuenta
             if unknown := (set(op['generos_gpt']) | set(op.get('sobran') or [])) - genres:
                 malos[ident] = 'géneros que no existen: ' + ', '.join(sorted(unknown))
             elif left := tax.review_drop(op, by_book.get(ident, set())):
                 if by_book.get(ident, set()) - left & genres:
                     malos[ident] = 'conserva lo que la revisión quita: ' + ', '.join(sorted(left))
-            elif (tax.review_rejects(op) and (main := tax.review_main(op, genres))
+            elif (tax.review_rejects(op) and (main := tax.review_main(op, genres, books[ident], by_book.get(ident, set())))
                   and not by_book.get(ident, set()) & set(op['generos_gpt'])):
                 malos[ident] = 'tenía errores y no lleva el género de GPT: falta ' + main
         incumplen('la revisión de GPT se aplica: lo que señala como erróneo no se publica', malos)
