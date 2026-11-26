@@ -45,7 +45,7 @@ const pages=entries.filter(x=>x.status==='public'&&String(x.sourceFile||'').ends
 const failures=[];
 await pool(pages,12,async x=>{
   try{
-    const local=read(x.sourceFile);
+    const local=expectedPublished(read(x.sourceFile),{html:true});  // vista publicada (portadas del almacén)
     const r=await get(x.url);
     assert.equal(r.status,200,x.url+' status');
     const ct=(r.headers.get('content-type')||'').toLowerCase();
