@@ -1,0 +1,235 @@
+name: Refresh radar clock outputs
+
+on:
+  schedule:
+    # Europe/Madrid midnight is 22:00 UTC in CEST and 23:00 UTC in CET.
+    # The earlier run is a no-op in winter; the later run is a no-op in summer.
+    - cron: '20 22 * * *'
+    - cron: '20 23 * * *'
+    # Backups: GitHub delays nightly crons by hours and a failed run (one
+    # external link timeout) must not leave main stale until the next day.
+    # They are no-ops while the radar is current.
+    - cron: '50 1 * * *'
+    - cron: '20 4 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/radar-clock-refresh.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write
+  statuses: write
+
+concurrency:
+  group: refresh-radar-clock
+  cancel-in-progress: false
+
+# Reloj estricto (site_clock.clock_window): decide si refrescar: debe ver el desfase del mismo día.
+# Las PR aceptan generados de hasta 2 días; esto no.
+env:
+  RELOJ_ESTRICTO: "1"
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      # El publicador recorta todas sus esperas a este límite (limite_del_job): mejor soltar con informe que
+      # dejar que GitHub cancele el job a mitad de una espera. Minutos = timeout-minutes - 10.
+      - name: Límite del job para el publicador
+        run: echo "PUBLICAR_HASTA=$(( $(date +%s) + 100 * 60 ))" >> "$GITHUB_ENV"
+      - name: Checkout latest main
+        uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Fast-forward to authoritative main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git reset --hard origin/main
+
+      # Una convocatoria se oculta a los 30 días de su verified_at. Sin este paso nadie la renovaba y el 19/11/2026
+      # el radar público quedó vacío con 25 convocatorias abiertas. Solo renueva las que su fuente sigue confirmando.
+      - name: Reverify open calls against their official source
+        id: reverify
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/reverify_radar.py --informe "$RUNNER_TEMP/reverify.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          python - <<'PY' > "$RUNNER_TEMP/reverify-issue.md"
+          import json, os
+          r = json.load(open(os.environ['RUNNER_TEMP'] + '/reverify.json', encoding='utf-8'))
+          if r['urgentes']:
+              print('Estas convocatorias abiertas están a punto de ocultarse del radar porque su fuente no confirma el plazo '
+                    '(o no responde). Revísalas a mano y actualiza `verified_at`/plazo en `data/radar-opportunities.json`, '
+                    'o retíralas si ya no están abiertas:')
+              print()
+              for p in r['urgentes']:
+                  print(f"- `{p['id']}` (plazo {p['plazo']}, verificada {p['verified_at']}): {p['motivo']}")
+          PY
+          if [ -s "$RUNNER_TEMP/reverify-issue.md" ]; then
+            title="Radar: convocatorias sin reverificar"
+            n="$(gh issue list --state open --search "\"$title\" in:title" --json number -q '.[0].number // empty')"
+            if [ -n "$n" ]; then
+              gh issue edit "$n" --body-file "$RUNNER_TEMP/reverify-issue.md"
+            else
+              gh issue create --title "$title" --body-file "$RUNNER_TEMP/reverify-issue.md"
+            fi
+          fi
+
+      - name: Resolve Madrid civil date and detect clock drift
+        id: clock
+        shell: bash
+        run: |
+          set -euo pipefail
+          today="$(python - <<'PY'
+          import sys
+          sys.path.insert(0, 'scripts')
+          from site_clock import site_today
+          print(site_today().isoformat())
+          PY
+          )"
+          echo "today=$today" >> "$GITHUB_OUTPUT"
+          # Two artifacts follow the real clock: the radar (deadlines) and the editorial
+          # stale warnings (>90 days since verification). Until 10/11 only the nightly
+          # intake regenerated the editorials; when it failed, the first editorial to
+          # reach day 91 turned check-professional-resources red for every PR.
+          if python scripts/check-radar-clock-current.py --today "$today" && python scripts/check-professional-resources.py; then
+            echo "refresh=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "refresh=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Regenerate deterministic radar outputs
+        if: steps.clock.outputs.refresh == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/build-radar-opportunities.py \
+            --data data/radar-opportunities.json \
+            --out convocatorias-escritores \
+            --today "${{ steps.clock.outputs.today }}"
+          python scripts/build-editoriales.py --data data/editoriales.json --output .
+
+      - name: Detect whether searchable HTML changed
+        if: steps.clock.outputs.refresh == 'true'
+        id: html
+        shell: bash
+        run: |
+          if git diff --quiet -- convocatorias-escritores/index.html editoriales/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Node for Pagefind
+        if: steps.html.outputs.changed == 'true'
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install pinned Pagefind dependency
+        if: steps.html.outputs.changed == 'true'
+        run: npm ci
+
+      - name: Rebuild Pagefind only when radar HTML changed
+        if: steps.html.outputs.changed == 'true'
+        run: python scripts/build-pagefind-index.py
+
+      # An expired call leaves the HTML; its exact lychee exception would then
+      # fail the hygiene gate on this very PR (2026-11-04, Madrid microrrelatos).
+      - name: Prune lychee exceptions the radar no longer publishes
+        if: steps.html.outputs.changed == 'true'
+        run: python tests/test-lychee-ignore-hygiene.py --prune-unused
+
+      - name: Validate regenerated artifacts
+        if: steps.clock.outputs.refresh == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/check-radar-clock-current.py --today "${{ steps.clock.outputs.today }}"
+          python scripts/check-professional-resources.py
+          python scripts/build-pagefind-index.py --check
+          git diff --check
+
+      - name: Enforce generated-file allowlist
+        if: steps.clock.outputs.refresh == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          bad=0
+          while IFS= read -r path; do
+            case "$path" in
+              data/radar-opportunities.json|convocatorias-escritores/index.html|convocatorias-escritores/opportunities.json|convocatorias-escritores/deadlines.ics|.lycheeignore|pagefind/*|editoriales/*.html)
+                ;;
+              *)
+                echo "Unexpected generated change: $path"
+                bad=1
+                ;;
+            esac
+          done < <(git diff --name-only)
+          exit "$bad"
+
+      - name: Publish refresh branch and pull request
+        if: steps.clock.outputs.refresh == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No generated change after refresh."
+            exit 0
+          fi
+
+          # A previous clock refresh may still have an open PR. Runs are
+          # serialized (no cancellation), so a same-day PR here belongs to a
+          # finished, failed run: close it before writing a fresh one.
+          python scripts/radar_pr_guard.py --supersede-stale --today "${{ steps.clock.outputs.today }}"
+
+          today="${{ steps.clock.outputs.today }}"
+          branch="automation/radar-clock-${today}-${GITHUB_RUN_ID}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add -- \
+            data/radar-opportunities.json \
+            convocatorias-escritores/index.html \
+            convocatorias-escritores/opportunities.json \
+            convocatorias-escritores/deadlines.ics \
+            .lycheeignore \
+            editoriales/ \
+            pagefind/
+          git commit -m "chore(resources): refresh radar clock ${today}"
+          git push origin "HEAD:refs/heads/$branch"
+
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "chore(resources): refresh radar clock ${today}" \
+            --body "Actualización automática del radar al día civil de Madrid \`${today}\`. Solo artefactos deterministas permitidos y Pagefind cuando cambia el HTML. Se ejecutan explícitamente las pruebas sobre este commit; solo se fusiona si todas pasan y las reglas de main lo permiten. Después se solicita el despliegue de Pages. Si alguna fase falla, la ejecución queda en rojo."
+
+          # GITHUB_TOKEN does not start normal PR/push CI. Dispatch real CI
+          # explicitly, wait for every result, merge through main rules and
+          # explicitly dispatch Pages. A failed phase fails this job too.
+          python scripts/publish-radar-refresh.py --branch "$branch"
