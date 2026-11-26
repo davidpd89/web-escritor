@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { auditUrl, fetchWithBackoff } from './production-fetch.mjs';
-import { expectedPublished } from './lib/cover-store-view.mjs';
+import { expectedPublished, readPublished } from './lib/cover-store-view.mjs';
 
 const O=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const S=(process.env.EXPECTED_RELEASE_SHA||'').trim().toLowerCase();
-const read=p=>fs.readFileSync(p,'utf8');
+const read=p=>readPublished(p);
 const attr=(tag,name)=>{
   const re=new RegExp(`\\b${name.replace(':','\\:')}\\s*=\\s*(["'])(.*?)\\1`,'i');
   return tag.match(re)?.[2]||'';

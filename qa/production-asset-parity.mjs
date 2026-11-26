@@ -3,15 +3,12 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { auditUrl, fetchWithBackoff } from './production-fetch.mjs';
-import { expectedPublished } from './lib/cover-store-view.mjs';
+import { readPublished } from './lib/cover-store-view.mjs';
 
 const ROOT=process.cwd();
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const SHA=(process.env.EXPECTED_RELEASE_SHA||'').trim();
 const MAX_EXACT=3*1024*1024;
-// Los ficheros de texto se publican con las portadas del almacén reescritas (scripts/reading_cover_store.py TEXT_SUFFIXES).
-const TEXT_EXT=new Set(['.json','.js','.mjs','.xml','.txt','.css','.webmanifest','.rss']);
-const published=(local,raw)=>TEXT_EXT.has(path.extname(local).toLowerCase())?Buffer.from(expectedPublished(raw.toString('utf8')),'utf8'):raw;
 const ALLOWED_EXT=new Set(['.css','.js','.mjs','.json','.xml','.svg','.png','.jpg','.jpeg','.webp','.avif','.woff2','.woff','.ico']);
 const registry=JSON.parse(fs.readFileSync('data/content-registry.json','utf8'));
 const defs=registry.defaults||{};
@@ -35,7 +32,7 @@ function add(raw,source){
   const x=refs.get(pathname);x.queries.add(u.search);x.sources.add(source);
 }
 for(const file of [...new Set(htmlFiles)]){
-  const html=fs.readFileSync(file,'utf8');
+  const html=readPublished(file);
   for(const m of html.matchAll(/\b(?:src|href|poster)=["']([^"']+)["']/gi))add(m[1],file);
   for(const m of html.matchAll(/\bsrcset=["']([^"']+)["']/gi)){
     for(const candidate of m[1].split(',')){
@@ -45,7 +42,7 @@ for(const file of [...new Set(htmlFiles)]){
 }
 for(const file of ['manifest.json']){
   if(!fs.existsSync(file))continue;
-  const data=JSON.parse(fs.readFileSync(file,'utf8'));
+  const data=JSON.parse(readPublished(file));
   for(const icon of data.icons||[])add(icon.src,file);
 }
 
@@ -64,7 +61,7 @@ const failures=[],observations=[];
 await pool([...refs.values()],8,async item=>{
   try{
     const local=item.pathname.replace(/^\//,'');
-    const bytes=published(local,fs.readFileSync(local));
+    const bytes=readPublished(local,{encoding:null});
     const query=[...item.queries].find(Boolean)||'';
     const r=await fetchRetry(auditUrl(`${item.pathname}${query}`,ORIGIN));
     assert.equal(r.status,200,`${item.pathname}: HTTP ${r.status}`);

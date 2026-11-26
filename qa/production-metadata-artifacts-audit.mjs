@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
-import {expectedPublished} from './lib/cover-store-view.mjs';
+import { expectedPublished, readPublished } from './lib/cover-store-view.mjs';
 import fs from 'node:fs';
 import { auditUrl, fetchWithBackoff } from './production-fetch.mjs';
 
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const SHA=(process.env.EXPECTED_RELEASE_SHA||'').trim().toLowerCase();
-const read=p=>fs.readFileSync(p,'utf8');
+const read=p=>readPublished(p);
 const norm=s=>String(s||'').replace(/\r\n?/g,'\n').trim();
 
 function attrs(tag){

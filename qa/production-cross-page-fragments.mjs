@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { readPublished } from './lib/cover-store-view.mjs';
 import { chromium } from 'playwright';
 import { assertProductionRelease } from './production-release-marker.mjs';
 
@@ -15,7 +16,7 @@ await assertProductionRelease({origin:O,sha:S,label:'cross-page-fragments'});
 
 const refs=[];
 for(const page of pages){
-  const html=fs.readFileSync(page.sourceFile,'utf8');
+  const html=readPublished(page.sourceFile);
   const base=new URL(page.url,O);
   for(const m of html.matchAll(/<a\b[^>]*\bhref=["']([^"']+)["']/gi)){
     const raw=m[1].trim();

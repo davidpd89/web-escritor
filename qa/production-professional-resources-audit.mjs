@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {expectedPublished} from './lib/cover-store-view.mjs';
+import { expectedPublished, readPublished } from './lib/cover-store-view.mjs';
 import fs from 'node:fs';
 import { siteCivilDate } from './site-civil-clock.mjs';
 import { assertProductionRelease } from './production-release-marker.mjs';
@@ -8,7 +8,7 @@ const ROOT=process.cwd();
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const SHA=(process.env.EXPECTED_RELEASE_SHA||'').trim().toLowerCase();
 const TODAY=siteCivilDate();
-const read=p=>fs.readFileSync(p,'utf8');
+const read=p=>readPublished(p);
 const json=p=>JSON.parse(read(p));
 const norm=s=>String(s||'').replace(/\r\n?/g,'\n').trim();
 const text=s=>norm(String(s||'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' '));
