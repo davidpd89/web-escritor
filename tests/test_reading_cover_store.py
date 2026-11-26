@@ -77,6 +77,20 @@ class CoverStoreTest(unittest.TestCase):
         self.assertEqual(json.loads((out / 'x/data.json').read_text(encoding='utf-8'))['portada'], BASE + '/a.webp')
         self.assertEqual((out / 'x/foto.webp').read_bytes(), b'\x00\xff binario')
 
+    def test_the_deploy_refuses_a_stored_cover_replaced_in_the_repo(self):
+        # Foto de migración vieja: la carga cambió la portada en el repo y el almacén guarda los bytes anteriores.
+        d, root = tree(['a.webp', 'b.webp'], local=['a.webp'])
+        self.addCleanup(d.cleanup)
+        out = root / 'dist'
+        out.mkdir()
+        (out / 'i.html').write_text(CSP + '<img src="/assets/reading-covers/a.webp">', encoding='utf-8')
+        self.assertEqual(store.stale_local(root), ['a.webp'])
+        with self.assertRaisesRegex(ValueError, 'a.webp'):
+            store.apply_to_dist(out, root)
+        (root / 'assets/reading-covers/a.webp').write_bytes(b'a.webp')  # mismos bytes que el registro: aún sin borrar
+        self.assertEqual(store.stale_local(root), [])
+        self.assertEqual(store.apply_to_dist(out, root), 1)
+
     def test_an_empty_store_changes_nothing(self):
         d, root = tree([])
         self.addCleanup(d.cleanup)

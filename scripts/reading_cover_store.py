@@ -188,11 +188,24 @@ def allow_img_host(text: str, data: dict) -> str:
     return IMG_SRC.sub(widen, text)
 
 
+def stale_local(root: Path = ROOT, data: dict | None = None) -> list[str]:
+    """Portadas del manifiesto cuya copia en el repo tiene otros bytes que los registrados. Pasa cuando una carga
+    sustituye la portada en el repo después de la foto de una migración: el despliegue reescribiría la referencia al
+    almacén y publicaría la imagen vieja. Una copia con los mismos bytes (antes de `verificar --borrar`) no cuenta."""
+    data = data or load(root)
+    folder = root / 'assets/reading-covers'
+    return sorted(n for n in data['archivos'] if (folder / n).is_file() and digest((folder / n).read_bytes()) != data['sha256'][n])
+
+
 def apply_to_dist(out_dir: Path, root: Path = ROOT) -> int:
     """Reescribe el artefacto publicado. Devuelve cuántos ficheros cambió (0 con el almacén vacío)."""
     data = load(root)
     if not data['archivos']:
         return 0
+    stale = stale_local(root, data)
+    if stale:
+        raise ValueError(f'{len(stale)} portadas del almacén tienen en el repo otros bytes (se publicaría la imagen vieja): '
+                         + ', '.join(stale[:5]) + ' — quitarlas del manifiesto o darles un nombre nuevo (fresh_name)')
     changed = 0
     base = out_dir.resolve()
     for path in out_dir.rglob('*'):
