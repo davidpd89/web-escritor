@@ -44,6 +44,14 @@ def remote_heads(pattern, cwd=None, intentos=RED_INTENTOS):
             time.sleep(10 * intento)
 
 
+def run_url():
+    """Enlace a la ejecución actual para issues y avisos (no para nombrar ramas: eso es fresh_branch)."""
+    run_id = os.environ.get('GITHUB_RUN_ID')
+    if not run_id:
+        return ''
+    return f"{os.environ.get('GITHUB_SERVER_URL', 'https://github.com')}/{os.environ.get('GITHUB_REPOSITORY', '')}/actions/runs/{run_id}"
+
+
 def fresh_branch(prefix, cwd=None):
     """Nombre de rama que no existe ni en local ni en origin.
 
@@ -88,6 +96,12 @@ def report_job(repo, sha, context, state, url):
 
 class StaleMerge(RuntimeError):
     """The PR could not merge because main moved while its CI was running."""
+
+
+class PrAbierta(TimeoutError):
+    """La CI de la PR no acabó a tiempo (Actions saturado, otra carga delante). La PR queda abierta y la siguiente
+    carga la reanuda (`resume_pending`): no es un fallo de datos y no pone la carga en rojo (26/11, carga
+    45797789304: Actions lleno de PR, broken-links/pa11y/reflow sin terminar y la carga roja con los datos sanos)."""
 
 
 # Fallos de GitHub que no dicen nada del comando: repetirlo es seguro y casi siempre funciona.
@@ -385,7 +399,7 @@ def esperar_escritores(ceder_a, deadline, poll=60):
         if not activos:
             return
         if time.monotonic() >= deadline:
-            raise TimeoutError(f'La carga sigue en curso ({", ".join(activos)}); PR abierta, la fusiona el siguiente cron')
+            raise PrAbierta(f'La carga sigue en curso ({", ".join(activos)}); PR abierta, la fusiona el siguiente cron')
         print(f'ESPERA: carga en curso ({", ".join(activos)}); no se fusiona hasta que termine', flush=True)
         time.sleep(poll)
 
@@ -565,7 +579,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
 
     deadline = recortar_al_job(time.monotonic() + timeout)
     if deadline <= time.monotonic():
-        raise TimeoutError('No queda tiempo del job para la CI; PR abierta, la fusiona el siguiente cron')
+        raise PrAbierta('No queda tiempo del job para la CI; PR abierta, la fusiona el siguiente cron')
     pending = set(workflows)
     retried = set()
     # Intento de la ejecución al relanzarla: tras `run rerun` el listado puede devolver aún el intento viejo
@@ -574,7 +588,7 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     relanzado = {}
     while pending:
         if time.monotonic() >= deadline:
-            raise TimeoutError(f'CI timed out; PR left open: {sorted(pending)}')
+            raise PrAbierta(f'CI timed out; PR left open: {sorted(pending)}')
         for workflow in sorted(pending):
             current = [item for item in runs_on_sha(workflow, *source[workflow])
                        if workflow not in pinned or item['databaseId'] == pinned[workflow]]
@@ -697,6 +711,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     if deploy_before:
         deadline = recortar_al_job(time.monotonic() + 1800)
         followed = None  # deploy posterior que contiene merged_sha, tras cancelarse el nuestro por concurrencia
+        redespachado = False
+        current = None
         while time.monotonic() < deadline:
             if followed is None:
                 # Nuestro deploy, por su id. `ref main` despacha desde la punta: si main avanzó tras la fusión su
@@ -718,10 +734,25 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                     time.sleep(30)
                     continue
                 if current['conclusion'] != 'success':
+                    # Los datos ya están en main: un deploy fallido se reintenta una vez (fallo pasajero de Pages)
+                    # antes de dar la carga por fallida.
+                    if not redespachado:
+                        redespachado = True
+                        print(f'::warning::Pages {current["databaseId"]} falló para {merged_sha}; se despacha otra vez', flush=True)
+                        propio, followed, current = despachar(repo, 'deploy-pages.yml', 'main', before_sha=pr['baseRefOid']), None, None
+                        continue
                     raise RuntimeError(f'Pages failed for {merged_sha}: {current["databaseId"]}')
                 print(f'PASS Pages and production smoke @ {merged_sha}: {current["databaseId"]} @ {current["headSha"]}', flush=True)
                 return
+            if time.monotonic() + 30 >= deadline:
+                break  # decide con esta observación, no con una vieja tras la última pausa (CodeRabbit #1597)
             time.sleep(30)
+        if current and current['status'] != 'completed':
+            # 26/11 (carga 45776893030): Pages tardó 32 min y la espera, recortada al job, tumbó una carga ya fusionada.
+            # El deploy sigue en marcha con el merge dentro; la auditoría post-deploy verifica producción.
+            print(f'::warning::Pages {current["databaseId"]} sigue en curso con {merged_sha} al agotar la espera; '
+                  'la verificación queda para la auditoría post-deploy', flush=True)
+            return
         raise TimeoutError(f'Pages did not complete for exact merged commit {merged_sha}')
 
 

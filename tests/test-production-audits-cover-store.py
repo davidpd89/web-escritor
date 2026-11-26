@@ -7,8 +7,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 node = shutil.which("node")
 if node:
-    done = subprocess.run([node, "qa/cover-store-view-test.mjs"], cwd=ROOT, capture_output=True, text=True)
-    assert done.returncode == 0, done.stdout + done.stderr
+    for script in ("qa/cover-store-view-test.mjs", "qa/cover-store-route-test.mjs"):
+        done = subprocess.run([node, script], cwd=ROOT, capture_output=True, text=True)
+        assert done.returncode == 0, done.stdout + done.stderr
+# Clase: la QA de navegador sobre el dist (portadas con URL del almacén) no depende de la red de Pages.
+for path in sorted((ROOT / "qa").glob("*.mjs")):
+    text = path.read_text(encoding="utf-8")
+    if "build-public-dist" in text and "newContext(" in text:
+        assert "withCoverStore(" in text, f"{path.name}: abre el dist publicado sin withCoverStore (portadas por la red de Pages)"
 # Método: una auditoría de producción solo lee ficheros del repo con readPublished (la vista que publica el
 # despliegue, con las portadas del almacén reescritas). Leer el fuente crudo hace que una portada ya movida al
 # almacén parezca rota (404 en el dominio) o distinta en producción, sea cual sea la comprobación que la use.

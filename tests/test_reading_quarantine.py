@@ -184,6 +184,23 @@ class QuarantineTest(unittest.TestCase):
         self.assertIn('test_no_meta', named[book_id])
         self.assertIsNone(q.flagged_books(failures + [{'test': 't.x', 'texto': 'ImportError: no module'}], DATA))
 
+    def test_unattributed_failure_does_not_discard_the_named_books(self):
+        """R2-03 GPT (26/11): un contrato sin libro no anula lo que otros contratos sí atribuyen."""
+        book_id = DATA['libros'][0]['id']
+        failures = [{'test': 't.a', 'texto': f"AssertionError: ('{book_id}', 'x')"},
+                    {'test': 't.b', 'texto': 'AssertionError: 3 != 2'},
+                    {'test': 't.c', 'libros': {'no-existe': 'y'}, 'texto': ''}]
+        named, unattributed = q.split_flagged(failures, DATA)
+        self.assertEqual(list(named), [book_id])
+        self.assertEqual([f['test'] for f in unattributed], ['t.b', 't.c'])
+        self.assertIsNone(q.flagged_books(failures, DATA))
+
+    def test_stale_id_in_a_declared_list_keeps_the_valid_books(self):
+        """R3-08 GPT (26/11): un id que ya no existe en `libros` anulaba los vigentes que el contrato también declaraba."""
+        book_id = DATA['libros'][0]['id']
+        named, unattributed = q.split_flagged([{'test': 't.a', 'libros': {book_id: 'x', 'ya-no-existe': 'y'}, 'texto': ''}], DATA)
+        self.assertEqual((list(named), unattributed), ([book_id], []))
+
     def test_flagged_books_also_by_isbn(self):
         """El 16/11 el contrato de títulos anónimos citaba «Título · ISBN13» sin id y la carga paró entera."""
         book = [b for b in DATA['libros'] if b.get('isbn13')][0]

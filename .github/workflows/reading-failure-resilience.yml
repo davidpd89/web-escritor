@@ -64,7 +64,7 @@ jobs:
 
       - name: Start isolated local site
         run: |
-          python3 -m http.server 4175 --bind 127.0.0.1 > /tmp/reading-resilience-server.log 2>&1 &
+          python3 scripts/qa_static_server.py 4175 --bind 127.0.0.1 > /tmp/reading-resilience-server.log 2>&1 &
           for i in {1..30}; do
             if curl --fail --silent http://127.0.0.1:4175/recomendaciones/ >/dev/null; then exit 0; fi
             sleep 1

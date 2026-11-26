@@ -41,6 +41,16 @@ def read_live(spreadsheet, token):
 
 
 AMAZON_FIELDS = ('formatos_compra', 'precios_amazon_revision', 'formatos_amazon_buscados', 'formatos_pagina_buscados', 'portadas_amazon_buscadas', 'portada_sustituida')
+# Lo que el barrido de Amazon anota y la hoja no produce: se conserva si la fila no lo fija. Sin esto cada libro de
+# la hoja con `publico_amazon` (26/11, lib-0001) rompía el contrato de importación y caía en cuarentena cada noche.
+# tests/test_reading_sheet_import_smoke.py obliga a clasificar aquí toda clave nueva que escriba reading_amazon_market.
+MARKET_FIELDS = ('publico_amazon', 'no_lectura', 'formato_edicion', 'edicion', 'encuadernacion')
+SHEET_FIELDS_TOUCHED_BY_MARKET = ('descripcion_breve', 'portada_local')
+# Portada sustituida por el mercado (replace_cover): la ficha de la hoja apunta a la editorial y la reimportación
+# devolvía la vieja (fuente, base de uso, medidas) junto a portada_sustituida=True: contrato roto y cuarentena,
+# como lib-0001 con publico_amazon. Con la marca, la portada entera se conserva de la ficha anterior.
+COVER_REPLACEMENT_FIELDS = ('portada_local', 'portada_fuente_url', 'portada_ancho', 'portada_alto', 'portada_fecha_revision',
+                            'autorizacion_o_base_uso')
 
 
 def has_intake_record(book, state):
@@ -48,6 +58,20 @@ def has_intake_record(book, state):
     La usa también el contrato previo a la PR de la carga (test_reading_sheet_import_smoke)."""
     evidence = state.get('items', {}).get('isbn13:' + book.get('isbn13', ''), {})
     return evidence.get('estado_ingesta') == 'publicado' and evidence.get('libro_id') == book['id']
+
+
+def cover_dimensions(book, previous, root):
+    """Ancho y alto de la portada: del fichero si está en el checkout; si no (portada servida desde el almacén externo,
+    #1588), los que ya publicó ese libro con la misma portada. El constructor valida la huella del almacén."""
+    cover = book.get('portada_local')
+    if not cover:
+        return
+    path = root / cover.lstrip('/')
+    if path.is_file():
+        with Image.open(path) as image:
+            book['portada_ancho'], book['portada_alto'] = image.size
+    elif previous.get('portada_local') == cover and previous.get('portada_ancho') and previous.get('portada_alto'):
+        book['portada_ancho'], book['portada_alto'] = previous['portada_ancho'], previous['portada_alto']
 
 
 def convert(snapshot, review, existing, root):
@@ -87,11 +111,7 @@ def convert(snapshot, review, existing, root):
         book['portada_fuente_url'] = cover.get('url_imagen_editorial') or ''
         book['fuente_bibliografica_url'] = source.get('url', '')
         book.update({k: v for k, v in approved.items() if k in builder.BOOK_FIELDS and v is not None})
-        if book.get('portada_local'):
-            path = root / book['portada_local'].lstrip('/')
-            if path.is_file():
-                with Image.open(path) as image:
-                    book['portada_ancho'], book['portada_alto'] = image.size
+        cover_dimensions(book, next((b for b in existing['libros'] if b['id'] == book['id']), {}), root)
         if 'fecha_publicacion' in approved:
             if approved['fecha_publicacion']:
                 book['fecha_publicacion'] = approved['fecha_publicacion']
@@ -106,6 +126,9 @@ def convert(snapshot, review, existing, root):
         # The nightly Amazon sweep owns these fields; the sheet never rewinds them.
         previous = next((b for b in existing['libros'] if b['id'] == book['id']), {})
         book.update({k: previous[k] for k in AMAZON_FIELDS if k in previous})
+        book.update({k: previous[k] for k in MARKET_FIELDS if k in previous and k not in book})
+        if previous.get('portada_sustituida'):
+            book.update({k: previous[k] for k in COVER_REPLACEMENT_FIELDS if k in previous})
         book_links = [link for link in links if link['libro_id'] == source_id and link.get('url')]
         book['resenas'] = [{'titulo': link['titulo_visible'], 'url': link['url'], 'fecha_verificacion': link['fecha_consulta']} for link in book_links if link['tipo'].startswith('resenas')]
         fragment = next((link for link in book_links if link['tipo'] == 'fragmento'), {})

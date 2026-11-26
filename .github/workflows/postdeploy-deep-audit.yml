@@ -297,7 +297,7 @@ jobs:
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
-          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/focus-contract-http.log 2>&1 &
+          python3 scripts/qa_static_server.py 4173 --bind 127.0.0.1 > /tmp/focus-contract-http.log 2>&1 &
           echo $! > /tmp/focus-contract-http.pid
           for i in {1..30}; do
             if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then exit 0; fi

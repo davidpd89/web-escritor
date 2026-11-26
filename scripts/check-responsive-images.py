@@ -35,6 +35,7 @@ from __future__ import annotations
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
 import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
+import reading_cover_store as cover_store  # noqa: E402  (portadas servidas desde el almacén externo)
 import argparse
 import re
 import subprocess
@@ -168,7 +169,7 @@ def audit_file(path: Path, root: Path) -> list[str]:
                 errors.append(f"{rel}:{line}: SRCSET_WITHOUT_SIZES srcset con descriptor 'w' sin sizes: {src or candidates[0][0]}")
             for cand_url, _ in candidates:
                 target = resolve_local(cand_url, path, root)
-                if target is not None and not target.exists():
+                if target is not None and not target.exists() and not cover_store.stored_file(target, root):
                     errors.append(f"{rel}:{line}: BROKEN_SRCSET_CANDIDATE {cand_url} -> no existe")
 
     for match in SOURCE_TAG_RE.finditer(html):
@@ -183,7 +184,7 @@ def audit_file(path: Path, root: Path) -> list[str]:
             errors.append(f"{rel}:{line}: SRCSET_WITHOUT_SIZES source srcset con descriptor 'w' sin sizes: {candidates[0][0]}")
         for cand_url, _ in candidates:
             target = resolve_local(cand_url, path, root)
-            if target is not None and not target.exists():
+            if target is not None and not target.exists() and not cover_store.stored_file(target, root):
                 errors.append(f"{rel}:{line}: BROKEN_SRCSET_CANDIDATE (source) {cand_url} -> no existe")
 
     return errors

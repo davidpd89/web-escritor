@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import tempfile
 import time
+import traceback
 import urllib.request
 import sys
 from datetime import datetime, timezone
@@ -435,11 +436,12 @@ def refresh(*, publish=False):
     failure = None
     if amazon and publish:
         # Un fallo de las altas no puede dejar la noche sin precios ni portadas (09/11: un ISBN repetido tumbó
-        # refresh() antes de market_refresh). Se deshacen sus escrituras, siguen precios y portadas y al final se
-        # sale con error para que el fallo siga a la vista (y lo recoja la autorreparación nocturna).
+        # refresh() antes de market_refresh). Se deshacen sus escrituras, siguen precios y portadas y la noche acaba
+        # degradada (issue por causa), no en rojo: un rojo cortaba la cadena y lanzaba un reintento inútil (R2-07).
+        # SystemExit también: catalogo_amazon sale así sin credenciales o con una respuesta ilegible (R2-04 GPT, 26/11).
         try:
             report = amazon_intake(config, publish)
-        except Exception as exc:  # noqa: BLE001
+        except (Exception, SystemExit) as exc:  # noqa: BLE001
             failure = exc
             print(f'::error::Altas de Amazon fallidas ({type(exc).__name__}: {exc}); se descartan y siguen precios y portadas',
                   flush=True)
@@ -458,14 +460,19 @@ def refresh(*, publish=False):
     # tumbaba la carga antes de save_checkpoint y la noche se perdía. Se deshace solo lo escrito por el mercado.
     antes = git_estado.foto(ROOT, *SOURCE_PATHS)
     market_failure = None
+    MARKET_STATUS.clear()
     try:
         changed = market_refresh(config)
-    except Exception as exc:  # noqa: BLE001
+    except (Exception, SystemExit) as exc:  # noqa: BLE001
         market_failure = exc
         print(f'::error::Precios y portadas fallidos ({type(exc).__name__}: {exc}); se deshacen y siguen las altas',
               flush=True)
         git_estado.restaurar(ROOT, antes, *SOURCE_PATHS)
         changed = False
+    if market_failure is None and MARKET_STATUS.get('precios') in PROVIDER_DOWN:
+        # refresh_offers no lanza si el proveedor cae: devuelve el estado. Cuenta como fase fallida (los grupos ya
+        # guardados se quedan, no se deshacen), para que ningún aviso diga que se publicaron los precios (CodeRabbit #1595).
+        market_failure = RuntimeError(f"proveedor de precios: {MARKET_STATUS['precios']}")
     follow_main()
     day = datetime.now(ZoneInfo('Europe/Madrid')).date().isoformat()
     saved = save_checkpoint(day)
@@ -474,12 +481,44 @@ def refresh(*, publish=False):
         # Solo ahora: los libros ya están a salvo en la rama de datos (o no había nada), así que la cola de
         # semillas puede avanzar sin perder ninguno si después falla la PR.
         estado.guardar(f'Estado de la ingesta {day}: {len(report["new_books"])} altas')
-    result = assemble(report, changed=changed, checkpoint=saved)
-    if failure:
-        raise RuntimeError('Las altas de Amazon fallaron; precios y portadas sí se publicaron') from failure
-    if market_failure:
-        raise RuntimeError('Precios y portadas fallaron; las altas sí se publicaron') from market_failure
+    aplazada = None
+    try:
+        result = assemble(report, changed=changed, checkpoint=saved)
+    except publisher.publication.PrAbierta as exc:
+        # La PR queda para la siguiente carga, pero los avisos de fallo y el rojo con las dos fases caídas siguen
+        # (CodeRabbit #1597): el reintento nocturno depende de ellos.
+        aplazada, result = exc, None
+    # R3-12 GPT (26/11): si fallan las dos, ninguna frase puede decir que la otra sí se publicó.
+    both = failure is not None and market_failure is not None
+    degrade('altas de Amazon', failure, 'tampoco se renovaron precios' if both else 'precios y portadas sí se publicaron')
+    degrade('precios y portadas', market_failure, 'tampoco hubo altas' if both else 'las altas sí se publicaron')
+    if both:
+        raise failure  # nada se publicó: en rojo para que entre el reintento (puede ser la red o el proveedor)
+    if aplazada:
+        raise aplazada
     return result
+
+
+def degrade(phase, exc, kept):
+    """Una fase que falló sin llevarse la otra: issue `fallo` por causa (una, no una por noche) y aviso en el job.
+
+    La carga sale en verde para que la cadena siga y el reintento no repita lo ya publicado."""
+    if exc is None:
+        return
+    cause = f'{type(exc).__name__}: {exc}'[:300]
+    text = f'Carga degradada: fallaron las {phase} ({cause}); {kept}.'
+    print(f'::error::{text}', flush=True)
+    summary = os.environ.get('GITHUB_STEP_SUMMARY')
+    if summary:
+        with open(summary, 'a', encoding='utf-8') as fh:
+            fh.write(text + '\n')
+    run = publisher.publication.run_url()
+    trace = ''.join(traceback.format_exception(exc))[-3000:]
+    try:
+        open_issue(f'Carga degradada: {phase} ({type(exc).__name__})',
+                   f'{text}\n\nRun: {run}\n\n```\n{trace}\n```')
+    except Exception as issue_exc:  # noqa: BLE001 - R3-09 GPT (26/11): sin issue, el aviso queda en el log y el resumen
+        print(f'::warning::No se pudo abrir la issue de carga degradada: {type(issue_exc).__name__}: {issue_exc}', flush=True)
 
 
 INTAKE_PATHS = ('data', 'assets/reading-covers')
@@ -546,8 +585,13 @@ def amazon_intake(config, publish):
                                                                'regresion': bool(code)}}
 
 
+PROVIDER_DOWN = ('provider_unavailable', 'pending_amazon_eligibility')
+MARKET_STATUS = {}  # estado del barrido de precios de la última market_refresh (refresh_offers no lanza)
+
+
 def market_refresh(config):
     """Valoraciones, formatos, portadas y precios: devuelve si cambió algún dato publicado."""
+    MARKET_STATUS.clear()
     # This runs DAILY, even when publishers have no new ISBNs.
     # Single writer and ONE generated PR for publisher + rating changes.
     market_path = ROOT / 'assets/reading-market.json'
@@ -623,6 +667,7 @@ def market_refresh(config):
         market,price_stats=refresh_offers(books,market,provider,tag,
                                          now,sweep_days=int(amazon_config.get('sweep_days',7)),
                                          cover=lambda book,url:swap_cover(book,ROOT,url,fetch_amazon_image,cover_bytes,now.date().isoformat()))
+        MARKET_STATUS['precios']=price_stats.get('status')
         write_if_changed(ROOT/'.ci/reading-intake/prices-report.json',price_stats)
         print('Precios Amazon: '+json.dumps(price_stats,ensure_ascii=True),flush=True)
         changed_ratings=write_changed(ROOT/'data/reading-catalogue.json',books) or changed_ratings
@@ -791,10 +836,14 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
         failures = data_contract_failures()
         if not failures:
             break
-        named = reading_quarantine.flagged_books(failures, read_json(ROOT / reading_quarantine.CATALOGUE))
-        if named is None:
+        named, unattributed = reading_quarantine.split_flagged(failures, read_json(ROOT / reading_quarantine.CATALOGUE))
+        if not named:
             raise RuntimeError('check-reading-data falló en contratos que no nombran ningún libro: '
-                               + '; '.join(f['test'] for f in failures)[:600])
+                               + '; '.join(f['test'] for f in unattributed)[:600])
+        if unattributed:
+            # Se apartan primero los nombrados y se repite: el fallo sin libro suele ser consecuencia de ellos.
+            print('Contratos sin libro (se reintentan tras apartar los nombrados): '
+                  + '; '.join(f['test'] for f in unattributed)[:600], flush=True)
         repeated = set(named) <= set(flagged)
         flagged.update(named)
         antes = entradas(quarantined, named)
@@ -849,6 +898,11 @@ def main(publish):
         # The stale bot PR is closed and regenerated by the next invocation.
         print(exc, flush=True)
         sys.exit(publisher.publication.STALE_EXIT_CODE)
+    except publisher.publication.PrAbierta as exc:
+        # La PR de datos sigue abierta con su CI en marcha: la reanuda la siguiente carga. Se conserva el punto de
+        # guardado, así la cadena nocturna sigue (checkpoints_restantes) y la reanudación fusiona sin volver a consultar.
+        print(f'::warning::{exc}; la siguiente carga reanuda la PR', flush=True)
+        chain_report(0, pr_abierta=str(exc))
 
 
 if __name__ == '__main__':

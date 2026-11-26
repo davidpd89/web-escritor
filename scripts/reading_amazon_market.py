@@ -1,4 +1,5 @@
 """Bounded Creators API prices; no browser session or invented ASINs."""
+import copy
 import gzip
 import html
 import http.client
@@ -721,8 +722,18 @@ def replace_cover(book,root,image,small,dimensions,source,day,basis=AMAZON_COVER
         # El almacén es de solo añadir: la sustituta va con nombre nuevo y la vieja sigue intacta, así que revertir
         # el JSON (mercado fallido, cuarentena) basta para volver a la imagen anterior (Codex #1495).
         logical=cover_store.fresh_name(logical,image)
-    cover_store.put(root,logical,image)
-    cover_store.put(root,logical.replace('.webp','-320.webp'),small)
+    # Una portada local se sobrescribe en su sitio: si la miniatura falla a medias, se devuelven los bytes viejos para
+    # que el fichero siga casando con la ficha que el llamante conserva (Codex #1595).
+    targets=[(logical,image),(logical.replace('.webp','-320.webp'),small)]
+    before={rel:(root/rel.lstrip('/')).read_bytes() for rel,_ in targets
+            if not cover_store.goes_to_store(root,rel) and (root/rel.lstrip('/')).is_file()}
+    try:
+        for rel,content in targets:
+            cover_store.put(root,rel,content)
+    except BaseException:
+        for rel,content in before.items():
+            (root/rel.lstrip('/')).write_bytes(content)
+        raise
     book['portada_local']=logical
     book.update(portada_fuente_url=source,portada_ancho=dimensions[0],portada_alto=dimensions[1],portada_fecha_revision=day,
                 portada_sustituida=True,autorizacion_o_base_uso=basis,portadas_amazon_buscadas=day)
@@ -1188,7 +1199,20 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
         return payload
 
     kids=set()
+    broken=set()
+    # Un dato raro en la respuesta de un libro (tipo cambiado, campo que falta) aparta ese libro, no el barrido: solo
+    # una llamada que falla (ask) es el proveedor caído. Sin fecha de revisión, el libro vuelve mañana (R2-02 GPT, 26/11).
+    DATA_ERRORS=(AttributeError,IndexError,KeyError,TypeError,ValueError,InvalidOperation)
     def keep(found,book,payload):
+        if book['id'] in broken:
+            return
+        try:
+            read_answer(found,book,payload)
+        except DATA_ERRORS as exc:
+            broken.add(book['id'])
+            stats['failures'].append({'book_id':book['id'],'error':f'datos: {type(exc).__name__}: {exc}'[:140]})
+
+    def read_answer(found,book,payload):
         answers.setdefault(book['id'],[]).append(payload)
         if book['id'] not in covers and (url:=item_cover_url(book,payload)):
             covers[book['id']]=url
@@ -1227,7 +1251,8 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
                 if hasattr(provider,'discover') and needs_discovery(current,now):
                     # Kindle and audiobook editions have their own ASIN and no ISBN.
                     keep(found[current['id']],current,ask(provider.discover,current))
-                    current['formatos_amazon_buscados']=day
+                    if current['id'] not in broken:  # una respuesta rara no cuenta como búsqueda hecha (CodeRabbit #1595)
+                        current['formatos_amazon_buscados']=day
             priced=True
             pending=[(b,asin) for b in group for asin,fmt in price_asins(b,batched).items()
                      if fmt not in found[b['id']] and (fmt or not found[b['id']])]
@@ -1254,14 +1279,40 @@ def refresh_offers(catalogue,market,provider,tag,now,budget=AMAZON_DAILY_LIMIT,s
             break
         stats['attempted']+=len(group)
         for book in group:
-            stats['formats_added']+=store_prices(book,found[book['id']].values(),day)
-            book['precios_amazon_revision']=day
+            if book['id'] in broken:
+                continue
+            # Cada libro se guarda entero o no se guarda: un fallo a medias no deja precios sin fecha ni tumba el grupo.
+            candidate=copy.deepcopy(book)
+            try:
+                added=store_prices(candidate,found[book['id']].values(),day)
+                candidate['precios_amazon_revision']=day
+            except DATA_ERRORS as exc:
+                stats['failures'].append({'book_id':book['id'],'error':f'guardar: {type(exc).__name__}: {exc}'[:140]})
+                continue
+            book.clear()
+            book.update(candidate)
+            stats['formats_added']+=added
             stats['updated']+=1
             stats['prices']+=len(found[book['id']])
-            if cover and covers.get(book['id']) and (generated_cover(book) or cover_stale(book,covers[book['id']])):
-                stats['portadas_api']+=bool(cover(book,covers[book['id']]))
+            # La portada va aparte (R3-05 GPT, 26/11): si falla, los precios ya guardados se quedan. Se cambia sobre
+            # una copia para que un fallo a medias no deje la ficha con la portada a medio cambiar.
+            if cover and covers.get(book['id']):
+                staged=copy.deepcopy(book)
+                try:
+                    if generated_cover(staged) or cover_stale(staged,covers[book['id']]):
+                        if cover(staged,covers[book['id']]):
+                            book.clear()
+                            book.update(staged)
+                            stats['portadas_api']+=1
+                except (*DATA_ERRORS,OSError) as exc:
+                    stats['failures'].append({'book_id':book['id'],'error':f'portada: {type(exc).__name__}: {exc}'[:140]})
             if not book.get('formatos_compra'):
-                stats['sin_oferta'].append({'book_id':book['id'],'motivo':miss_reason(book,answers.get(book['id'],[]))})
+                # Diagnóstico tras guardar (R3-11 GPT, 26/11): si falla, se anota sin deshacer nada.
+                try:
+                    why=miss_reason(book,answers.get(book['id'],[]))
+                except DATA_ERRORS as exc:
+                    why=f'sin diagnóstico: {type(exc).__name__}'
+                stats['sin_oferta'].append({'book_id':book['id'],'motivo':why})
     # Solo cuentan los grupos guardados: el cortado a medias vuelve mañana entero.
     saved={b['id'] for b in books if b.get('precios_amazon_revision')==day}
     ranks={i:r for i,r in ranks.items() if i in saved}

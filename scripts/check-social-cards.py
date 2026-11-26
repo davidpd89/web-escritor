@@ -13,6 +13,7 @@ from __future__ import annotations
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'scripts'))
 import arbol_publicado  # noqa: E402  (árbol publicado: versionado + generado en disco)
+import reading_cover_store as cover_store  # noqa: E402  (portadas servidas desde el almacén externo)
 import argparse
 import struct
 import subprocess
@@ -227,7 +228,9 @@ def audit_page(path: Path, root: Path, origin: str) -> PageAudit | None:
                 add(audit, "ERROR", "image-url", f"{key} has query/fragment or invalid local URL: {url}")
                 continue
             if not local.is_file():
-                add(audit, "ERROR", "missing-asset", f"{key} asset does not exist: {local.relative_to(root)}")
+                # Una portada del almacén externo no está en el checkout: el despliegue la reescribe a su URL.
+                if not cover_store.stored_file(local, root):
+                    add(audit, "ERROR", "missing-asset", f"{key} asset does not exist: {local.relative_to(root)}")
                 continue
             if local.stat().st_size > 1_000_000:
                 add(audit, "WARNING", "large-card", f"{key} asset exceeds 1 MB: {local.stat().st_size} bytes")
