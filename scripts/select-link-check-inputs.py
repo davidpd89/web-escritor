@@ -7,6 +7,7 @@ import json
 import os
 import re
 import subprocess
+from urllib.parse import quote
 from pathlib import Path
 
 import sys as _sys
@@ -74,6 +75,9 @@ def select(root, event_name, event, ref, full_scan=False):
             # sus reglas nuevas las audita el programado semanal, que tiene más tiempo.
             removed=set(public_html(removed))|{p for p in removed if not p.endswith('.html') and not p.startswith(NOT_LINKED)}
             pages=set(public_html(changed))
+            if COVER_MANIFEST in changed:
+                # 26/11 (revisión de #1602): cambiar el almacén cambia URLs de portadas sin tocar el HTML.
+                removed|=moved_covers(root,base)
             if removed:
                 # 26/11 (carga 45868423421): borrar o renombrar páginas mandaba a revisar las 9.482 y el job
                 # agotaba sus 40 min. Un borrado (página, portada, CSS) solo puede romper los enlaces que apuntan a él:
@@ -97,14 +101,20 @@ def link_tail(path):
 
 
 def referencing(root,removed,candidates):
-    """Páginas publicadas que nombran una página borrada. Lee el árbol publicado (también lo generado sin
+    """Páginas publicadas que nombran un fichero borrado. Lee el árbol publicado (también lo generado sin
     versionar): `git grep` no veía las fichas generadas en disco."""
     tails={link_tail(p) for p in removed}
     if None in tails:
         return list(candidates)  # se borró la portada del sitio: cualquier página puede enlazarla
-    needles=[t.encode('utf-8') for t in tails]
+    # Un enlace puede ir codificado (ni%C3%B1o.html) o no; se buscan las dos formas.
+    needles={v.encode('utf-8') for t in tails for v in (t,quote(t,safe='/'))}
+    # Un index.html borrado se enlaza también sin nombrar su carpeta (index.html, ./, ../ desde dentro):
+    # toda página de esa carpeta o de sus subcarpetas puede enlazarlo.
+    folders=tuple(p[:-len('index.html')] for p in removed if p.endswith('/index.html'))
     found=[]
     for page in candidates:
+        if folders and page.startswith(folders):
+            found.append(page);continue
         try:
             content=(Path(root)/page).read_bytes()
         except OSError:
@@ -112,6 +122,27 @@ def referencing(root,removed,candidates):
         if any(n in content for n in needles):
             found.append(page)
     return found
+
+
+COVER_MANIFEST='data/reading-covers-store.json'
+
+
+def moved_covers(root,base):
+    """Portadas cuya URL publicada cambia con el manifiesto del almacén: el despliegue reescribe sus rutas
+    /assets/reading-covers/ sin tocar el HTML versionado, así que se tratan como si se hubieran movido."""
+    def urls(rev):
+        try:
+            data=json.loads(git(root,'show',f'{rev}:{COVER_MANIFEST}'))
+        except (subprocess.CalledProcessError,ValueError):
+            return {}
+        where=data.get('almacen') or {};extra=data.get('almacenes') or []
+        def url(name):
+            k=where.get(name)
+            return extra[k-1] if k and 0<k<=len(extra) else data.get('base_url','')
+        return {n:url(n) for n in data.get('archivos') or []}
+    before,after=urls(base),urls('HEAD')
+    return {'assets/reading-covers/'+n for n in set(before)|set(after) if before.get(n)!=after.get(n)}
+
 
 if __name__=='__main__':
     event=json.loads(Path(os.environ['GITHUB_EVENT_PATH']).read_text(encoding='utf-8'))

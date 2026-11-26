@@ -80,6 +80,33 @@ class LinkInputSelectionTests(unittest.TestCase):
         result=selector.select(self.root,'push',{'before':self.git('rev-parse','HEAD~1').strip()},'refs/heads/main')
         self.assertEqual((result['scope'],result['files']),('changed-html',['index.html']))
 
+    def test_deleted_index_and_encoded_links_are_found(self):
+        """Revisión de #1602 (Codex/CodeRabbit): ./, ../, index.html y %C3%B1 no nombran el tramo literal."""
+        (self.root/'books/sub').mkdir()
+        (self.root/'books/review.html').write_text('<a href="index.html">x</a>',encoding='utf-8')
+        (self.root/'books/sub/deep.html').write_text('<a href="../">x</a>',encoding='utf-8')
+        (self.root/'other.html').write_text('<a href="books/ni%C3%B1o.html">x</a>',encoding='utf-8')
+        (self.root/'books/niño.html').write_text('<p>n</p>',encoding='utf-8')
+        self.commit();base=self.git('rev-parse','HEAD').strip()
+        self.git('rm','-q','books/index.html','books/niño.html');self.commit()
+        result=selector.select(self.root,'push',{'before':base},'refs/heads/main')
+        self.assertEqual(result['files'],['books/review.html','books/sub/deep.html','other.html'])
+
+    def test_cover_store_change_checks_pages_with_moved_covers(self):
+        """Revisión de #1602: el despliegue reescribe las portadas con el manifiesto; cambiarlo sin HTML no es «nada»."""
+        manifest=self.root/'data/reading-covers-store.json';manifest.parent.mkdir()
+        def store(base,names):
+            manifest.write_text(json.dumps({'base_url':base,'archivos':names,'sha256':{},'almacenes':[],'almacen':{}}),encoding='utf-8')
+        (self.root/'index.html').write_text('<img src="/assets/reading-covers/a.webp">',encoding='utf-8')
+        (self.root/'other.html').write_text('<img src="/assets/reading-covers/b.webp">',encoding='utf-8')
+        store('https://x.github.io/p',['a.webp']);self.commit();base=self.git('rev-parse','HEAD').strip()
+        store('https://x.github.io/p',['a.webp','b.webp']);self.commit()
+        result=selector.select(self.root,'pull_request',{'pull_request':{'base':{'sha':base}}},'refs/heads/main')
+        self.assertEqual(result['files'],['other.html'])
+        store('https://y.github.io/q',['a.webp','b.webp']);self.commit()
+        result=selector.select(self.root,'pull_request',{'pull_request':{'base':{'sha':base}}},'refs/heads/main')
+        self.assertEqual(result['files'],['index.html','other.html'])
+
     def test_removed_home_page_checks_all_pages(self):
         self.git('rm','-q','index.html');self.commit()
         result=selector.select(self.root,'push',{'before':self.base},'refs/heads/main')
