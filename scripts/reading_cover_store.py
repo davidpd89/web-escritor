@@ -301,18 +301,20 @@ def put(root: Path, path: str, content: bytes) -> Path:
     El almacén es de solo añadir: un nombre ya dado de alta no cambia nunca de bytes. Así deshacer un cambio del
     catálogo (reversión del mercado, cuarentena, recuperación) basta para volver a la imagen vieja, que sigue intacta;
     una portada sustituida recibe un nombre nuevo (`fresh_name`). Si aun así llegan otros bytes para un nombre del
-    almacén (una -320 regenerada con otro codificador, una colisión de huella corta), se escriben en este repo: el
-    despliegue publica desde el repo toda portada cuya copia local difiere del almacén, así que nada se bloquea y la
-    web muestra los bytes nuevos (26/11: autoarreglo en vez de error)."""
+    almacén (una -320 regenerada con otro codificador, una colisión de huella corta), se escriben en este repo y el
+    nombre sale del manifiesto: así el despliegue no lo reescribe a la URL del almacén (que serviría los bytes viejos)
+    y la compilación no lo compara con la huella vieja. Nada se bloquea y la web muestra los bytes nuevos (26/11:
+    autoarreglo en vez de error; Codex/CodeRabbit #1593)."""
     target = root / path.lstrip('/')
     directory, name = store_dir(), _name(path)
     if directory and name and goes_to_store(root, path):
         value = digest(content)
         known = load(root)['sha256'].get(name)
         if known and known != value:
-            print(f'Aviso almacén: {name} ya está en el almacén con otros bytes; la portada nueva se guarda en el repo')
+            print(f'Aviso almacén: {name} ya está en el almacén con otros bytes; la portada nueva se publica desde el repo')
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(content)
+            _unregister(root, {name})
             return target
         directory.mkdir(parents=True, exist_ok=True)
         (directory / name).write_bytes(content)
@@ -409,7 +411,8 @@ def _verified(git, ref: str, root: Path) -> set[str]:
     listing = git('ls-tree', '-r', ref, check=False)
     if listing.returncode:
         return set()
-    expected = {n: v for n, v in _leer(root)[0]['sha256'].items() if n in active_names(root)}
+    active = active_names(root)  # una vez: con ~7.900 nombres, por huella era cuadrático (CodeRabbit #1593)
+    expected = {n: v for n, v in _leer(root)[0]['sha256'].items() if n in active}
     blobs = {}
     for line in listing.stdout.splitlines():
         meta, _, name = line.partition(chr(9))

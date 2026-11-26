@@ -127,8 +127,13 @@ class CoverStoreWriteTest(unittest.TestCase):
         self.assertEqual(target, self.root / 'assets/reading-covers/isbn-9780000000001.webp')
         self.assertEqual(target.read_bytes(), b'reemplazo')
         self.assertEqual((Path(self.dir.name) / 'isbn-9780000000001.webp').read_bytes(), b'nueva')
-        self.assertEqual(store.stored_digest('/assets/reading-covers/isbn-9780000000001.webp', self.root), store.digest(b'nueva'))
-        self.assertTrue(store.goes_to_store(self.root, '/assets/reading-covers/isbn-9780000000001.webp'))
+        # y sale del manifiesto: la web la sirve desde el repo, no la vieja del almacén (Codex/CodeRabbit #1593)
+        self.assertIsNone(store.stored_digest('/assets/reading-covers/isbn-9780000000001.webp', self.root))
+        self.assertEqual(store.public_url('/assets/reading-covers/isbn-9780000000001.webp', self.root),
+                         '/assets/reading-covers/isbn-9780000000001.webp')
+        self.assertEqual(store.rewrite_text('src="/assets/reading-covers/isbn-9780000000001.webp"', store.load(self.root)),
+                         'src="/assets/reading-covers/isbn-9780000000001.webp"')
+        self.assertFalse(store.goes_to_store(self.root, '/assets/reading-covers/isbn-9780000000001.webp'))
         self.assertFalse(store.goes_to_store(self.root, '/assets/reading-covers/isbn-9780000000009.webp'))
 
     def test_a_replacement_gets_a_fresh_name_and_duplicates_are_found_by_digest(self):
