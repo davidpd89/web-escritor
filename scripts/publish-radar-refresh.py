@@ -44,6 +44,14 @@ def remote_heads(pattern, cwd=None, intentos=RED_INTENTOS):
             time.sleep(10 * intento)
 
 
+def run_url():
+    """Enlace a la ejecución actual para issues y avisos (no para nombrar ramas: eso es fresh_branch)."""
+    run_id = os.environ.get('GITHUB_RUN_ID')
+    if not run_id:
+        return ''
+    return f"{os.environ.get('GITHUB_SERVER_URL', 'https://github.com')}/{os.environ.get('GITHUB_REPOSITORY', '')}/actions/runs/{run_id}"
+
+
 def fresh_branch(prefix, cwd=None):
     """Nombre de rama que no existe ni en local ni en origin.
 

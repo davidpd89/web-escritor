@@ -499,7 +499,7 @@ def degrade(phase, exc, kept):
     if summary:
         with open(summary, 'a', encoding='utf-8') as fh:
             fh.write(text + '\n')
-    run = os.environ.get('GITHUB_RUN_ID', '')
+    run = publisher.publication.run_url()
     trace = ''.join(traceback.format_exception(exc))[-3000:]
     try:
         open_issue(f'Carga degradada: {phase} ({type(exc).__name__})',
