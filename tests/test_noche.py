@@ -181,6 +181,21 @@ class HilosRevisionTest(unittest.TestCase):
         self.assertEqual(out.getvalue(), 'cargar=true\n')
         esc.assert_not_called()  # un libro vacío pisaría el historial remoto que no se pudo leer
 
+    def test_abrir_con_libro_de_hoy_con_otra_forma_carga_y_no_lo_pisa(self):
+        """R3-05 de GPT (25/11): JSON legible con estructura rota tumbaba el paso abrir (sin carga esa noche)."""
+        import catalogo_estado
+        hoy = noche.dia(datetime.now(UTC))
+        for libro in ({'dia': hoy, 'intentos': None}, {'dia': hoy}, {'dia': hoy, 'intentos': {'a': 1}},
+                      {'dia': hoy, 'intentos': [1, 'x', None]}, [], 'x', 3):
+            with self.subTest(libro=libro), unittest.mock.patch.object(noche, 'leer', return_value=libro), \
+                    unittest.mock.patch.object(catalogo_estado, 'escribir') as esc, \
+                    unittest.mock.patch('sys.stdout', new_callable=io.StringIO) as out, \
+                    unittest.mock.patch.dict('os.environ', {'GITHUB_STEP_SUMMARY': ''}):
+                self.assertEqual(noche.main(['abrir', '--motivo', 'cron']), 0)
+                self.assertEqual(out.getvalue(), 'cargar=true\n')
+                if isinstance(libro, dict):  # el de hoy, roto: se conserva para diagnosticarlo
+                    esc.assert_not_called()
+
 
 class R59Test(unittest.TestCase):
     """Fable R5-9 (§2.6, hallazgos 1-4 y 13 de #1385): el turno decide todo lo que depende de «hay otra activa»."""
@@ -237,7 +252,7 @@ class R59Test(unittest.TestCase):
         import catalogo_estado
         guardado = {}
 
-        def escribe(_f, data, _m):
+        def escribe(_f, data, _m, **_k):
             guardado.update(json.loads(data))
 
         with unittest.mock.patch.object(noche, 'leer', return_value=None), \

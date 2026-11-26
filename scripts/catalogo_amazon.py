@@ -49,12 +49,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
-from reading_amazon_market import (AMAZON_COVER_BASIS, AccessDenied, BINDINGS, CreatorsPrices, NotFound,  # noqa: E402
+from reading_amazon_market import (AMAZON_COVER_BASIS, AccessDenied, BINDINGS, CreatorsPrices, NotFound, Unavailable,  # noqa: E402
                                    amazon_dict, amazon_list, api_cover_url, fetch_amazon_image,
                                    select_offers, store_prices)
 from reading_amazon_radar import BOOKS_NODE, SPANISH  # noqa: E402
 from reading_ratings_refresh import isbn13, key  # noqa: E402
-from reading_taxonomy import non_reading_reason  # noqa: E402
+from reading_taxonomy import node_audience, node_root, non_reading_reason  # noqa: E402
 import reading_cover_store as cover_store  # noqa: E402
 from reading_titles import proper_words, tidy_title  # noqa: E402,F401
 
@@ -181,12 +181,21 @@ def load_env():
                 os.environ[match.group(1)] = match.group(2).strip().strip('"').strip("'")
 
 
+# Un cliente por tag para toda la ejecución (caso 5 de la ronda 2 GPT, 25/11): cada fase creaba el suyo y el
+# cortacircuitos volvía a cero, así que con Creators caído cada fase repetía sus CORTE caídas con reintentos.
+# Compartirlo también reutiliza el token y el ritmo de 1,1 s entre peticiones.
+_CLIENTES = {}
+
+
 def provider(tag):
     load_env()
     client, secret = (os.getenv(k, '').strip() for k in ('AMAZON_CREATORS_CLIENT_ID', 'AMAZON_CREATORS_CLIENT_SECRET'))
     if not client or not secret:
         raise SystemExit('Faltan AMAZON_CREATORS_CLIENT_ID / AMAZON_CREATORS_CLIENT_SECRET en el entorno o en .env.local')
-    return CreatorsPrices(client, secret, tag)
+    clave = (client, secret, tag)
+    if clave not in _CLIENTES:
+        _CLIENTES[clave] = CreatorsPrices(client, secret, tag)
+    return _CLIENTES[clave]
 
 
 def read_json(path, default=None):
@@ -350,7 +359,7 @@ def semillas_fechas(get, day, known, max_requests=300, ahead=30, back=7, pause=1
                 if row is None:
                     row = queue[isbn] = {'primera': day, 'intentos': 0, 'siguiente': day, 'fuente': 'todostuslibros-fechas'}
                     added += 1
-                if not row.get('fecha') or abs(date.fromisoformat(job['cota']) - today) < abs(date.fromisoformat(row['fecha']) - today):
+                if not dia_valido(row.get('fecha')) or abs(date.fromisoformat(job['cota']) - today) < abs(date.fromisoformat(row['fecha']) - today):
                     row['fecha'] = job['cota']
                     dated += 1
             if stamp and (stamp > last if job['orden'] == 'asc' else stamp < first):
@@ -363,6 +372,20 @@ def semillas_fechas(get, day, known, max_requests=300, ahead=30, back=7, pause=1
                        'ventana': [first, last], 'listados_sin_terminar': len(jobs), 'errores': errors[-5:]}
     write_json(seeds_path(), state)
     return state['fechas']
+
+
+def dia_valido(value):
+    """El día AAAA-MM-DD de `value` si existe en el calendario; si no, None. Una fecha con la forma buena y el día
+    imposible (2026-11-31, 2027-02-29) pasaba la expresión regular y tumbaba después con ValueError todo el lote que
+    se ordenaba por cercanía a hoy (R4-02 GPT, 25/11)."""
+    day = str(value or '')[:10]
+    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', day):
+        return None
+    try:
+        date.fromisoformat(day)
+    except ValueError:
+        return None
+    return day
 
 
 def seed_order(queue, isbns, day):
@@ -550,6 +573,10 @@ def por_isbn(prov, tag, day, out, budget, only_dated=False):
             if isinstance(exc, AccessDenied):
                 raise
             failed += 1
+            # Creators sin responder (Unavailable, también antes de que salte el corte) no dice nada del lote: vuelve
+            # mañana sin gastar errores. CodeRabbit en #1579: con solo `caido`, las de antes del corte se descartaban.
+            if isinstance(exc, Unavailable) or getattr(prov, 'caido', False):
+                continue
             for isbn in batch:  # sin respuesta: no gasta reintentos, pero tras varios fallos va suelto y luego fuera
                 queue[isbn]['errores'] = queue[isbn].get('errores', 0) + 1
                 if queue[isbn]['errores'] >= DROP_AFTER:
@@ -659,8 +686,8 @@ def reencolar(day, deferred, rejected, previous=None, pending=None):
         if isbn:
             row['isbn13'] = isbn  # para seguirlo por ISBN (un 979 no se deduce del ASIN)
         # Fecha de publicación de la edición: reintentar pide antes los que salen más cerca de hoy.
-        published = (record.get('fecha_publicacion_edicion') or '')[:10]
-        if re.fullmatch(r'\d{4}-\d{2}-\d{2}', published):
+        published = dia_valido(record.get('fecha_publicacion_edicion'))
+        if published:
             row['fecha'] = published
         return row
     for record in deferred:
@@ -1172,6 +1199,29 @@ def subjects(item, path):
     return out
 
 
+ADULT_TOPICS = {'Familia y crianza', 'Autoayuda', 'Salud', 'Psicología', 'Economía', 'Derecho'}
+AUDIENCE_SUBJECTS = ('Infantil', 'Novela juvenil', 'Juvenil')
+
+
+def record_subjects(item, materias):
+    """Las tres materias de género y, aparte, las de público, que no entran en el corte: «Infantil» es el nodo más
+    general y el corte a tres lo dejaba fuera (Narnia como terror, 25/11). «Infantil» sigue a la mayoría de ramas
+    (reading_taxonomy.node_audience): se añade si dominan las infantiles y se quita si dominan las de adultos."""
+    audience = node_audience(item)
+    ordered = sorted(materias, key=lambda m: m not in ('Cómic y novela gráfica', 'Guías y referencia'))
+    kept, genres = [], 0
+    for m in ordered:  # el orden se conserva: las de público no cuentan en el corte, pero no saltan delante
+        if m in AUDIENCE_SUBJECTS:
+            if not (m == 'Infantil' and audience == 'otro'):
+                kept.append(m)
+        elif genres < 3:
+            kept.append(m)
+            genres += 1
+    if audience == 'infantil' and 'Infantil' not in kept:
+        kept.insert(0, 'Infantil')
+    return kept
+
+
 def node_subjects(item):
     """Materias del mapa cerrado por rama de nodos, de lo concreto a lo general. En cada nivel cuenta antes el
     nombre sin contexto («Novelas románticas y paranormales para jóvenes»), que no es ambiguo, que el visible
@@ -1179,10 +1229,15 @@ def node_subjects(item):
     found = []
     for node in amazon_list(amazon_dict(item.get('browseNodeInfo')).get('browseNodes')):
         current, level = amazon_dict(node), 0
+        # «Vida familiar» o «Emociones y sentimientos» dentro de «Infantil» son temas de un cuento, no un libro de
+        # crianza ni de autoayuda (35 libros infantiles con «Desarrollo personal», 25/11).
+        skip = ADULT_TOPICS if node_root(node) == 'infantil' else set()
         while current:
             for name in (current.get('contextFreeName'), current.get('displayName')):
                 name = ' '.join(str(name or '').split())
                 subject = SUBJECT_OF_NODE.get(key(NODE_ALIASES.get(key(name), name)))
+                if subject in skip:
+                    break
                 if subject:
                     found.append((level, subject))
                     break
@@ -1271,6 +1326,8 @@ def to_record(entry, day, proper=None):
     published = text(content.get('publicationDate')) or text(amazon_dict(info.get('productInfo')).get('releaseDate'))
     if not re.match(r'\d{4}-\d{2}-\d{2}', published):
         raise Rejected('sin fecha de publicación')
+    if not dia_valido(published):
+        raise Rejected('fecha de publicación imposible: ' + published[:10])
     pages = amazon_dict(content.get('pagesCount')).get('displayValue')
     nodes = subjects(item, entry.get('ruta'))
     # Un producto para rellenar, colorear o estudiar idiomas no es un libro de lectura aunque Amazon lo venda como
@@ -1281,7 +1338,7 @@ def to_record(entry, day, proper=None):
     record = {
         'isbn13': isbn, 'asin': asin, 'titulo': title, 'autores': authors, 'editorial': publisher,
         'encuadernacion': binding_text[:1].upper() + binding_text[1:], 'formato_edicion': fmt,
-        'materias': sorted(materias, key=lambda m: m not in ('Cómic y novela gráfica', 'Guías y referencia'))[:3], 'palabras_clave': [], 'nodos': nodes[:12],
+        'materias': record_subjects(item, materias), 'palabras_clave': [], 'nodos': nodes[:12],
         'fecha_publicacion_edicion': published[:10], 'precision_fecha': 'dia',
         'numero_paginas': pages if isinstance(pages, int) and 0 < pages < 10000 else None,
         'portada_fuente_url': f'https://www.amazon.es/dp/{asin}', 'cover_use_basis': COVER_BASIS,
@@ -1307,9 +1364,21 @@ def transformar(day, catalogue, write_pending=True):
     proper = proper_words(catalogue)
     by_work, failures, seen, complete = defaultdict(list), [], set(), set()
     total, best = 0, {}
-    for line in raw.read_text(encoding='utf-8').splitlines():
-        entry = json.loads(line)
-        asin = amazon_dict(entry.get('item')).get('asin')
+    # Casos 17 y 18 de la ronda 2 GPT (25/11): el raw se escribe en modo añadir y un corte a mitad de línea dejaba
+    # un JSON partido que tumbaba la fase entera; un item sin ASIN se juntaba con los demás bajo la clave None.
+    # Lo ilegible y lo que no trae ASIN se anota como fallo y se sigue.
+    for number, line in enumerate(raw.read_text(encoding='utf-8').splitlines(), 1):
+        if not line.strip():
+            continue
+        try:
+            entry = json.loads(line)
+        except ValueError:
+            failures.append({'fase': 'transformar', 'motivo': f'línea {number} del raw ilegible'})
+            continue
+        asin = amazon_dict(entry.get('item') if isinstance(entry, dict) else None).get('asin')
+        if not asin:
+            failures.append({'fase': 'transformar', 'motivo': f'línea {number} del raw sin ASIN'})
+            continue
         # El mismo libro sale por varias búsquedas; se queda la aparición con la clasificación más completa.
         if asin not in best or len(node_names(entry['item'])) > len(node_names(best[asin]['item'])):
             best[asin] = entry
@@ -1440,7 +1509,7 @@ def priorizar(candidates, day, limit, waiting=None):
 
     def closeness(record):
         published = record['fecha_publicacion_edicion']
-        distance = abs((date.fromisoformat(published[:10]) - today).days) if re.fullmatch(r'\d{4}-\d{2}-\d{2}', published[:10]) else 999
+        distance = abs((date.fromisoformat(dia_valido(published)) - today).days) if dia_valido(published) else 999
         return (distance, [-ord(c) for c in published], sales_rank(record))
     fresh = sorted((r for r in candidates if is_fresh(r)), key=closeness)
     firsts, rest, slots = [], [], set()

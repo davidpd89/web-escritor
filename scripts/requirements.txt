@@ -19,3 +19,5 @@ fonttools==4.63.0
 brotli==1.2.0
 # PyYAML: scripts/night-autorepair.py lee los workflows para repetir los pasos fallidos.
 PyYAML==6.0.3
+# Hypothesis: tests de propiedades de la carga nocturna (tests/test_propiedades_noche.py, ronda 4 GPT 25/11).
+hypothesis==6.156.1

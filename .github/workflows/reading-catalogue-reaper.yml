@@ -15,7 +15,7 @@ permissions:
 jobs:
   recoger:
     # Solo ejecuciones en rojo de la carga real sobre main; las canceladas a mano o por el grupo no se reintentan.
-    if: github.event.workflow_run.conclusion == 'failure' && github.event.workflow_run.head_branch == 'main' && vars.READING_INTAKE_ENABLED == 'true'
+    if: contains(fromJSON('["failure","timed_out","cancelled","startup_failure"]'), github.event.workflow_run.conclusion) && github.event.workflow_run.head_branch == 'main' && vars.READING_INTAKE_ENABLED == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
@@ -46,3 +46,46 @@ jobs:
             gh workflow run reading-catalogue-sync.yml --repo "$GITHUB_REPOSITORY" --ref main -f motivo=reintento
             echo "Carga muerta $MUERTA: reintento despachado." >> "$GITHUB_STEP_SUMMARY"
           fi
+
+  descongelar:
+    # Tras cualquier carga terminada, como acabe: las PR que pasó a borrador vuelven si no queda otra en marcha ni en
+    # cola (scripts/congelar_main.py). Aquí y no en la carga: también corre si el runner murió o se agotó el tiempo.
+    if: github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            scripts/congelar_main.py
+            scripts/gh_listas.py
+            scripts/app_token.mjs
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Unfreeze pull requests
+        # Con la App y no con GITHUB_TOKEN (caso R3-01 de GPT, 25/11): el auto-merge que se reactiva fusiona a nombre
+        # de quien lo activó, y una fusión de GITHUB_TOKEN no dispara los workflows del push a main (despliegue,
+        # main-contratos); además GITHUB_TOKEN no tiene contents: write para fusionar una PR que ya cumple.
+        env:
+          GITHUB_TOKEN_RESERVA: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          REPARADOR_APP_ID: ${{ vars.REPARADOR_APP_ID }}
+          REPARADOR_APP_INSTALLATION_ID: ${{ vars.REPARADOR_APP_INSTALLATION_ID }}
+          REPARADOR_APP_PRIVATE_KEY: ${{ secrets.REPARADOR_APP_PRIVATE_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${REPARADOR_APP_ID:-}" ] && token="$(node scripts/app_token.mjs)"; then
+            export GH_TOKEN="$token"
+          else
+            echo '::warning::Sin token de la App: se descongela con GITHUB_TOKEN y el auto-merge reactivado no despliega'
+            export GH_TOKEN="$GITHUB_TOKEN_RESERVA"
+          fi
+          python scripts/congelar_main.py descongelar

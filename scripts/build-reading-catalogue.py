@@ -90,6 +90,8 @@ BOOK_FIELDS = set("id slug titulo autores descripcion_breve estado portada_local
 FORMATS = {"tapa-blanda": "Tapa blanda", "tapa-dura": "Tapa dura", "ebook": "Kindle", "audiolibro": "Audiolibro"}
 BOOK_FIELDS.update({'editorial_slug', 'formato_edicion', 'amazon_busqueda_isbn', 'fecha_publicacion_parcial', 'precios_amazon_revision', 'formatos_amazon_buscados', 'formatos_pagina_buscados', 'portadas_amazon_buscadas', 'portada_sustituida'})
 BOOK_FIELDS.update({'sinopsis_breve', 'sinopsis_fuente_url', 'sinopsis_tipo', 'categorias_excluidas', 'sinopsis_completa'})
+# Público según la mayoría de ramas de Amazon de la edición impresa (barrido de precios; reading_taxonomy.node_audience).
+BOOK_FIELDS.add('publico_amazon')
 
 
 class ValidationError(ValueError):
@@ -185,8 +187,35 @@ def con_libro(valida):
     return envuelta
 
 
+_HUELLAS: dict = {}  # ruta resuelta -> (firma del fichero, (sha256, tamaño, formato, error de PIL o None))
+
+
+def _huella_portada(file: Path):
+    """sha256, tamaño, formato y corrupción de una portada, calculados una vez por versión del fichero.
+
+    La cuarentena repite validate() por cada libro que aparta (hasta 88 veces): leer, resumir y decodificar 7.900
+    portadas en cada vuelta lo hacía cuadrático (caso 11 de la revisión GPT, 25/11). La firma (mtime_ns, tamaño,
+    inodo) cambia con cualquier reescritura, así que una portada restaurada o sustituida se vuelve a comprobar."""
+    st = file.stat()
+    clave, firma = str(file), (st.st_mtime_ns, st.st_size, st.st_ino)
+    hecho = _HUELLAS.get(clave)
+    if hecho and hecho[0] == firma:
+        return hecho[1]
+    digest = hashlib.sha256(file.read_bytes()).hexdigest()
+    try:
+        with Image.open(file) as img:
+            size, fmt = img.size, img.format
+            img.verify()
+        resultado = (digest, size, fmt, None)
+    except OSError as exc:
+        resultado = (digest, None, None, exc)
+    _HUELLAS[clave] = (firma, resultado)
+    return resultado
+
+
 @con_libro
 def validate(data, root, actual):
+    raiz = Path(root).resolve()
     require(isinstance(data, dict) and data.get("schema_version") == 1, "schema_version debe ser 1")
     require(set(data) == {"schema_version", "categorias", "libros", "libro_categorias"}, "Campos raíz desconocidos o ausentes")
     cats, books, relations = data["categorias"], data["libros"], data["libro_categorias"]
@@ -229,6 +258,7 @@ def validate(data, root, actual):
         require(isinstance(b.get("autores"), list) and b["autores"] and all(isinstance(a, str) and a.strip() for a in b["autores"]), f"{name}: autores debe ser una lista")
         work = (b['titulo'].strip().casefold(), tuple(sorted(a.strip().casefold() for a in b['autores'])))
         unico(work_owner, work, name, 'obra duplicada; reunir las ediciones en una ficha')
+        require(b.get('publico_amazon') in (None, 'infantil'), f"{name}: publico_amazon inválido")
         if b.get("isbn13"):
             require(valid_isbn(b["isbn13"]), f"{name}: ISBN inválido")
             unico(isbn_owner, b['isbn13'], name, 'ISBN duplicado')
@@ -298,22 +328,20 @@ def validate(data, root, actual):
         if local is None and stored:
             digest = stored
         else:
-            inside = file.is_relative_to(root.resolve()) or (stored is not None and local is not None)
+            inside = file.is_relative_to(raiz) or (stored is not None and local is not None)
             require(inside and file.is_file(), f"{name}: portada local inexistente")
-            digest = hashlib.sha256(file.read_bytes()).hexdigest()
+            digest = _huella_portada(file)[0]
             require(stored is None or digest == stored, f"{name}: la portada del almacén no coincide con su huella", regla='portada corrupta')
         require(cover not in covers and digest not in hash_owner, f"{name}: portada duplicada (igual que {hash_owner.get(digest, 'otra ruta')})",
                 regla='portada duplicada', otro=hash_owner.get(digest))
         covers.add(cover); hash_owner[digest] = b.get("id", name)
         require(all(type(b.get(k)) is int and b[k] > 0 for k in ("portada_ancho", "portada_alto")), f"{name}: dimensiones de portada obligatorias")
         if local is not None or not stored:
-            try:
-                with Image.open(file) as img:
-                    require(img.size == (b['portada_ancho'], b['portada_alto']), f"{name}: dimensiones no coinciden con la portada")
-                    require(img.format in {'JPEG', 'PNG', 'WEBP'}, f"{name}: formato de portada inválido")
-                    img.verify()
-            except OSError as exc:
-                raise ValidationError(f"{name}: portada corrupta", libro=name, regla='portada corrupta') from exc
+            _, size, fmt, corrupta = _huella_portada(file)
+            if corrupta:
+                raise ValidationError(f"{name}: portada corrupta", libro=name, regla='portada corrupta') from corrupta
+            require(size == (b['portada_ancho'], b['portada_alto']), f"{name}: dimensiones no coinciden con la portada")
+            require(fmt in {'JPEG', 'PNG', 'WEBP'}, f"{name}: formato de portada inválido")
         if b.get("url_amazon_afiliada"):
             url = b["url_amazon_afiliada"]
             require(https(url), f"{name}: URL Amazon inválida")

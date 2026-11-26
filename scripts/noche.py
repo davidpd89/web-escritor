@@ -27,10 +27,20 @@ reintento que llegan sin su pendiente ya los cargó otro: no cargan.
   python scripts/noche.py cerrar --resultado success|failure|cancelled
   python scripts/noche.py cadena --aceptados N [--guardadas M] [--consulta-pendiente 0|1]   # código 0 si toca encadenar (y anota el pendiente)
   python scripts/noche.py reintento               # código 0 si toca reintentar (y anota el pendiente)
+
+Mismo código, mismo fallo (25/11): la puerta de la PR de datos cayó en un test concreto (`FALLA: tests/...`) y los dos
+relojes siguientes relanzaron con el mismo commit: el mismo fallo, 75 min cada vez, y la noche murió con MAX_FALLIDOS.
+Ahora el publicador deja la firma del fallo determinista en $RUNNER_TEMP/carga-fallo.json, `cerrar` la anota con la
+huella del código (scripts, tests, qa, workflows, dependencias) y:
+- el reintento no se despacha (daría lo mismo);
+- un reloj, respaldo o despacho con la misma huella no carga y deja el job en rojo, para que la autorreparación lo vea
+  y lo repare (una ejecución verde que «no carga» la callaba). Con un arreglo en main la huella cambia y se carga.
+Una carga manual carga siempre.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import subprocess
@@ -43,6 +53,12 @@ FICHERO = 'noche.json'
 HORA_FIN = 6                 # la noche de carga acaba a las 06:00 de Madrid (después Actions es del código)
 MAX_FALLIDOS = 3             # cargas fallidas por noche: con 3, ni relojes ni reintentos vuelven a cargar
 DESPACHADOS = ('cadena', 'reintento')  # cargan si su pendiente sigue en el libro; manual carga siempre
+DETERMINISTA = 'determinista'  # clase de un fallo que se repite igual con el mismo código (un test concreto)
+# Lo que decide si una carga falla es todo lo que la carga lee de main: código, pero también datos, esquemas y
+# configuración (caso 7 de la ronda 2 GPT, 25/11: con solo el código, un arreglo de datos en main no desbloqueaba la
+# noche). Fuera queda solo lo que cambia de noche sin decidir nada: informes, métricas de redes, el índice generado.
+RUIDO = ('.ci', 'redes-sociales', 'pagefind', 'docs')
+FALLO = 'carga-fallo.json'     # en $RUNNER_TEMP; lo escribe el publicador (publish-radar-refresh.anotar_fallo)
 
 
 def dia(now: datetime) -> str:
@@ -55,7 +71,7 @@ def iso(now: datetime) -> str:
 
 def de_hoy(libro: dict | None, now: datetime) -> dict:
     """El libro de esta noche; el de otra noche no cuenta (se sustituye al primer apunte)."""
-    if libro and libro.get('dia') == dia(now):
+    if isinstance(libro, dict) and libro.get('dia') == dia(now):
         return libro
     return {'dia': dia(now), 'intentos': []}
 
@@ -72,14 +88,34 @@ def resumen(libro: dict | None, now: datetime) -> dict:
     }
 
 
-def decidir(libro: dict | None, now: datetime) -> tuple[bool, str]:
+def repetiria(ultimo: tuple | None, codigo: str | None) -> str | None:
+    """La firma del fallo si la última carga cerrada cayó en un fallo determinista con este mismo código: relanzarla
+    daría el mismo fallo. None si no (otro fallo, otro código o sin huella con que comparar)."""
+    if not ultimo or not codigo:
+        return None
+    entrada, estado = ultimo
+    if estado == 'fallido' and entrada.get('clase') == DETERMINISTA and entrada.get('codigo') == codigo:
+        return entrada.get('firma') or 'un test concreto'
+    return None
+
+
+def decidir(libro: dict | None, now: datetime, codigo: str | None = None) -> tuple[bool, str]:
     """¿Carga un reloj (cron o respaldo)? Solo lo evidente: una carga en curso o pendiente no cuenta aquí, la
-    resuelve el job intake con el turno cogido (`abrir`)."""
+    resuelve el job intake con el turno cogido (`abrir`). Con `codigo` (la huella del código que correría) tampoco
+    carga si la última cayó en un fallo determinista con ese mismo código."""
     r = resumen(libro, now)
     if r['fallidos'] >= MAX_FALLIDOS:
         return False, f"{r['fallidos']} cargas fallidas esta noche: no se insiste hasta mañana"
+    if r['pendientes']:
+        # Un despacho (cadena o reintento) anotado cuyo `gh workflow run` falló o se perdió: nadie más lo cargaría.
+        # El job intake lo hereda en `abrir` («despacho desalojado») o, si el despacho llegó, no carga dos veces.
+        return True, f"despacho {r['pendientes'][0].get('motivo')} pendiente: lo resuelve el turno"
     if r['ultimo'] and r['ultimo'][1] in ('publicado', 'degradado'):
         return False, f"la última carga de esta noche ({r['ultimo'][0].get('run')}) terminó {r['ultimo'][1]}"
+    firma = repetiria(r['ultimo'], codigo)
+    if firma:
+        return False, (f"la última carga ({r['ultimo'][0].get('run')}) cayó en {firma} con este mismo código: "
+                       'repetirla daría el mismo fallo; se carga cuando entre un arreglo en main')
     if r['ultimo']:
         return True, f"la última carga de esta noche ({r['ultimo'][0].get('run')}) terminó {r['ultimo'][1]}: se reintenta"
     return True, 'ninguna carga esta noche'
@@ -98,6 +134,9 @@ def toca_reintento(libro: dict | None, now: datetime, run: int | None = None, in
                        if i.get('run') == run and i.get('intento') == intento), None)
         if propio is None or propio.get('resultado') != 'fallido':
             return False, f"esta carga no consta fallida en el libro ({(propio or {}).get('resultado', 'sin apunte')})"
+        if propio.get('clase') == DETERMINISTA:
+            return False, (f"cayó en {propio.get('firma') or 'un test concreto'}: con el mismo código el reintento daría "
+                           'el mismo fallo; lo repara la autorreparación y lo carga el siguiente reloj')
     if r['pendientes']:
         return False, 'ya hay otra carga despachada'
     fallidos = r['fallidos']
@@ -122,7 +161,7 @@ def toca_cadena(libro: dict | None, now: datetime, aceptados: int, guardadas: in
     return True, f'{aceptados} altas y {guardadas} ramas guardadas: se encadena el siguiente lote'
 
 
-def abrir(libro, now, run, intento, sha, motivo):
+def abrir(libro, now, run, intento, sha, motivo, codigo=None):
     """Ya con el turno del grupo: cierra los muertos, decide y anota el intento en curso.
     Devuelve (cargar, motivo, libro)."""
     noche = de_hoy(libro, now)
@@ -132,6 +171,10 @@ def abrir(libro, now, run, intento, sha, motivo):
     pendientes = [i for i in noche['intentos'] if i.get('resultado') == 'pendiente']
     if motivo == 'manual':
         cargar, porque = True, 'carga manual'
+    elif (firma := repetiria(resumen(noche, now)['ultimo'], codigo)):
+        # Antes que la cadena o un despacho desalojado: con el mismo código, cualquiera de ellos repetiría el fallo.
+        cargar, porque = False, (f'la última carga cayó en {firma} con este mismo código: repetirla daría el mismo '
+                                 'fallo; se carga cuando entre un arreglo en main')
     elif motivo in DESPACHADOS:
         cargar, porque = (True, f'carga {motivo}') if pendientes else (
             False, f'{motivo} sin despacho pendiente: ya la cargó quien tuvo el turno antes')
@@ -143,14 +186,15 @@ def abrir(libro, now, run, intento, sha, motivo):
     if cargar:  # solo quien carga consume los despachos que esperaban
         noche['intentos'] = [i for i in noche['intentos'] if i.get('resultado') != 'pendiente']
         noche['intentos'].append({'run': run, 'intento': intento, 'sha': sha, 'motivo': motivo, 'inicio': iso(now),
-                                  'fin': None, 'resultado': 'en_curso', 'clase': None, 'firma': None})
+                                  'fin': None, 'resultado': 'en_curso', 'clase': None, 'firma': None,
+                                  'codigo': codigo})
     return cargar, porque, noche
 
 
 RESULTADOS = {'success': 'publicado', 'failure': 'fallido', 'cancelled': 'cancelado', 'skipped': None}
 
 
-def cerrar(libro, now, run, intento, resultado, clase=None, firma=None, sha=None):
+def cerrar(libro, now, run, intento, resultado, clase=None, firma=None, sha=None, codigo=None):
     """Cierra el apunte de esta carga en el libro donde se abrió, aunque haya cruzado la medianoche de Madrid
     (abierta a las 23:50, cerrada a las 00:10): el resultado nunca se pierde. El libro de la noche siguiente
     empieza de cero al primer apunte, como siempre."""
@@ -165,13 +209,16 @@ def cerrar(libro, now, run, intento, resultado, clase=None, firma=None, sha=None
                 entrada.update(fin=iso(now), resultado=final, clase=clase, firma=firma)
                 if sha:  # el segundo intento hace reset --hard origin/main: el código que acabó la carga
                     entrada['sha'] = sha
+                if codigo:
+                    entrada['codigo'] = codigo
             break
     else:
         # la escritura de apertura falló: el resultado se anota igual, así cuenta para reintentos y MAX_FALLIDOS
         if final is not None and not any(i.get('run') == run and i.get('intento') == intento
                                          for i in noche['intentos']):
             noche['intentos'].append({'run': run, 'intento': intento, 'sha': sha, 'motivo': None, 'inicio': iso(now),
-                                      'fin': iso(now), 'resultado': final, 'clase': clase, 'firma': firma})
+                                      'fin': iso(now), 'resultado': final, 'clase': clase, 'firma': firma,
+                                      'codigo': codigo})
     return noche
 
 
@@ -203,12 +250,22 @@ def leer():
     return json.loads(data) if data else None
 
 
-def escribir(noche, mensaje):
+def _bytes(noche):
+    return (json.dumps(noche, ensure_ascii=False, indent=1) + '\n').encode()
+
+
+def escribir(noche, mensaje, rehacer=None):
+    """Guarda el libro. Con `rehacer` (libro remoto -> libro nuevo) el cambio se rehace sobre lo que haya en la rama
+    en ese momento, no sobre la lectura de antes: dos escritores a la vez (el segador y el abrir de la siguiente
+    carga) ya no se pisan."""
     import contextlib
     import catalogo_estado
+    extra = {}
+    if rehacer:
+        extra['rehacer'] = lambda datos: _bytes(rehacer(json.loads(datos) if datos else None))
     # stdout es del protocolo (cargar=, run=, que van a $GITHUB_OUTPUT): los avisos de git van a stderr.
     with contextlib.redirect_stdout(sys.stderr):
-        catalogo_estado.escribir(FICHERO, (json.dumps(noche, ensure_ascii=False, indent=1) + '\n').encode(), mensaje)
+        catalogo_estado.escribir(FICHERO, _bytes(noche), mensaje, **extra)
 
 
 def _head():
@@ -218,6 +275,29 @@ def _head():
                               timeout=30).stdout.strip()
     except (OSError, subprocess.SubprocessError):
         return os.environ.get('GITHUB_SHA', '')
+
+
+def _codigo():
+    """Huella de lo que decide si la carga falla: el árbol de main sin RUIDO (no el commit: las métricas de redes o
+    un informe no cambian el resultado de un test; un arreglo de datos sí). None si git no responde: sin huella no se
+    bloquea nada."""
+    try:
+        arbol = subprocess.run(['git', 'ls-tree', 'HEAD'], capture_output=True, text=True, check=True,
+                               timeout=30).stdout
+    except (OSError, subprocess.SubprocessError):
+        return None
+    arbol = ''.join(l + '\n' for l in arbol.splitlines() if l.split('\t', 1)[-1] not in RUIDO)
+    return hashlib.sha1(arbol.encode()).hexdigest() if arbol.strip() else None
+
+
+def _fallo_anotado():
+    """(clase, firma) que dejó el publicador en $RUNNER_TEMP/carga-fallo.json; (None, None) si no hay o no se lee."""
+    try:
+        with open(os.path.join(os.environ['RUNNER_TEMP'], FALLO), encoding='utf-8') as fh:
+            datos = json.load(fh)
+        return datos.get('clase') or None, datos.get('firma') or None
+    except (KeyError, OSError, ValueError, AttributeError):
+        return None, None
 
 
 def _resumen_job(texto):
@@ -247,16 +327,34 @@ def _abrir(now, run, intento, args) -> int:
     except Exception as exc:  # noqa: BLE001
         libro, legible = None, False
         _resumen_job(f'Libro de la noche ilegible ({type(exc).__name__}): se decide sin él y no se reescribe.')
-    cargar, porque, noche = abrir(libro, now, run, intento, _head(), args.motivo)
-    if not legible and not cargar:  # sin libro no se sabe si otro ya la cargó: se carga
-        cargar, porque = True, 'libro ilegible: se carga'
+    codigo, head = _codigo(), _head()
+    decision = {}
+
+    def decide(lib):  # se rehace sobre el libro remoto si otro escribió entretanto: vale la decisión guardada
+        decision['r'] = abrir(lib, now, run, intento, head, args.motivo, codigo)
+        return decision['r'][2]
+
+    try:
+        decide(libro)
+    except Exception as exc:  # noqa: BLE001 - JSON legible con otra forma (R3-05 de GPT): como ilegible, sin pisarlo
+        libro, legible = None, False
+        _resumen_job(f'Libro de la noche con forma inválida ({type(exc).__name__}): se decide sin él y no se reescribe.')
+        decide(None)
+    cargar, porque, noche = decision['r']
     try:
         if legible:  # un libro vacío pisaría el historial remoto que no se pudo leer
-            escribir(noche, f'Noche {noche["dia"]}: {"empieza" if cargar else "no carga"} {run}')
+            escribir(noche, f'Noche {noche["dia"]}: {"empieza" if cargar else "no carga"} {run}', decide)
+            cargar, porque, noche = decision['r']
     except Exception as exc:  # noqa: BLE001
         _resumen_job(f'Libro de la noche sin guardar ({type(exc).__name__}): la carga sigue.')
+    repite = not cargar and repetiria(resumen(noche, now)['ultimo'], codigo) is not None
+    if not legible and not cargar:  # sin libro no se sabe si otro ya la cargó: se carga
+        cargar, porque, repite = True, 'libro ilegible: se carga', False
     print(f"cargar={'true' if cargar else 'false'}")
     _resumen_job(f"Libro de la noche: {'carga' if cargar else 'no carga'}, {porque}.")
+    if repite:  # en rojo: la autorreparación vigila esta ejecución y repara el fallo antes del siguiente reloj
+        print(f'::error::Carga bloqueada: {porque}.', file=sys.stderr)
+        return 3
     return 0
 
 
@@ -264,8 +362,13 @@ def _cerrar(now, run, intento, args) -> int:
     # El cierre nunca cambia el resultado de la carga (ni la rama success()/failure() de la cadena): si no se
     # escribe, el intento queda en_curso y el siguiente turno lo cierra como corte.
     try:
-        noche = cerrar(leer(), now, run, intento, args.resultado, sha=_head())
-        escribir(noche, f'Noche {noche["dia"]}: {run} {args.resultado}')
+        clase, firma = _fallo_anotado() if args.resultado == 'failure' else (None, None)
+        sha, codigo = _head(), _codigo()
+
+        def cierra(lib):
+            return cerrar(lib, now, run, intento, args.resultado, clase=clase, firma=firma, sha=sha, codigo=codigo)
+        noche = cierra(leer())
+        escribir(noche, f'Noche {noche["dia"]}: {run} {args.resultado}', cierra)
     except Exception as exc:  # noqa: BLE001
         _resumen_job(f'Libro de la noche sin cerrar ({type(exc).__name__}): lo cerrará el siguiente turno.')
     return 0
@@ -274,15 +377,21 @@ def _cerrar(now, run, intento, args) -> int:
 def _despacho(now, run, intento, args) -> int:
     """cadena o reintento: 0 si toca despachar (y queda apuntado como pendiente), 1 si no. Sin libro legible o sin
     pendiente escrito no se despacha: un despacho sin apunte no lo podría heredar nadie."""
-    try:
-        libro = leer()
+    decision = {}
+
+    def decide(lib):  # el libro con el pendiente apuntado, o el mismo si no toca
         if args.accion == 'cadena':
-            toca, porque = toca_cadena(libro, now, args.aceptados, args.guardadas, args.consulta_pendiente)
+            decision['r'] = toca_cadena(lib, now, args.aceptados, args.guardadas, args.consulta_pendiente)
         else:
-            toca, porque = toca_reintento(libro, now, run, intento)
+            decision['r'] = toca_reintento(lib, now, run, intento)
+        return pendiente(lib, now, args.accion) if decision['r'][0] else lib
+
+    try:
+        noche = decide(leer())
+        toca, porque = decision['r']
         if toca:
-            noche = pendiente(libro, now, args.accion)
-            escribir(noche, f'Noche {noche["dia"]}: {args.accion} despachado tras {run}')
+            escribir(noche, f'Noche {noche["dia"]}: {args.accion} despachado tras {run}', decide)
+            toca, porque = decision['r']  # si al rehacerlo otro ya había despachado, no se despacha dos veces
     except Exception as exc:  # noqa: BLE001
         toca, porque = False, f'libro de la noche no disponible ({type(exc).__name__}): no se despacha'
     _resumen_job(f'{args.accion.capitalize()}: {porque}.')
@@ -293,15 +402,26 @@ def _huerfana(now, _run, _intento, args) -> int:
     """Lo lanza el vigía de cargas muertas (reading-catalogue-reaper.yml) con la carga que terminó en rojo: 0 si toca
     despachar el reintento (ya apuntado como pendiente), 1 si no. Solo actúa sobre apuntes que quedaron en curso."""
     try:
-        libro, huerfano = huerfana(leer(), now, args.run_muerto, args.intento_muerto)
+        decision = {}
+
+        def recoge(lib):
+            lib, huerfano = huerfana(lib, now, args.run_muerto, args.intento_muerto)
+            toca = toca_reintento(lib, now, args.run_muerto, args.intento_muerto) if huerfano else (False, '')
+            decision['r'] = (huerfano, *toca)
+            # El cierre como fallida se guarda siempre (cuenta para MAX_FALLIDOS y para los relojes), se despache o no.
+            return pendiente(lib, now, 'reintento') if toca[0] else lib
+
+        libro = recoge(leer())
+        huerfano, toca, porque = decision['r']
         if not huerfano:
             _resumen_job(f'Carga {args.run_muerto}: su apunte ya estaba cerrado; no hay nada que recoger.')
             return 1
-        toca, porque = toca_reintento(libro, now, args.run_muerto, args.intento_muerto)
-        # El cierre como fallida se guarda siempre (cuenta para MAX_FALLIDOS y para los relojes), se despache o no.
-        if toca:
-            libro = pendiente(libro, now, 'reintento')
-        escribir(libro, f'Noche {dia(now)}: {args.run_muerto} murió sin cerrar' + ('; reintento despachado' if toca else ''))
+        escribir(libro, f'Noche {dia(now)}: {args.run_muerto} murió sin cerrar' + ('; reintento despachado' if toca else ''),
+                 recoge)
+        huerfano, toca, porque = decision['r']
+        if not huerfano:  # al rehacerlo, el abrir de la siguiente carga ya lo había cerrado como corte
+            _resumen_job(f'Carga {args.run_muerto}: la cerró otro mientras se guardaba; no hay nada que recoger.')
+            return 1
     except Exception as exc:  # noqa: BLE001
         toca, porque = False, f'libro de la noche no disponible ({type(exc).__name__}): no se despacha'
     _resumen_job(f'Carga muerta {args.run_muerto}: {porque}.')

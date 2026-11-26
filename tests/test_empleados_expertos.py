@@ -158,7 +158,7 @@ class ModeloTests(unittest.TestCase):
         llamadas = []
         def gh(*args):
             llamadas.append(args)
-            return 'seo: ya existe\notra\n' if args[:2] == ('issue', 'list') else ''
+            return '[{"title": "seo: ya existe"}, {"title": "otra"}]' if args[:2] == ('issue', 'list') else ''
 
         with mock.patch.object(emp, '_gh', gh), tempfile.TemporaryDirectory() as d, \
                 mock.patch.object(emp, 'DATOS', Path(d)):

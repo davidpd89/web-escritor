@@ -17,6 +17,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
 import git_estado
+import gh_listas
 import reading_cover_store as cover_store
 import reading_quarantine
 import catalogo_estado as estado
@@ -80,8 +81,25 @@ def push(*refspec, root=ROOT, timeout=PUSH_TIMEOUT, attempts=PUSH_ATTEMPTS):
     raise RuntimeError(f'git push {refspec[0][:60]} falló tras {attempts} intentos: {last}')
 
 
+RED = ('fetch', 'ls-remote')   # órdenes que hablan con GitHub; el push tiene su propio bucle (push())
+RED_INTENTOS = 4
+
+
 def git(*args, root=ROOT, data=None):
-    return subprocess.run(['git', *args], cwd=root, check=True, capture_output=True, input=data).stdout
+    """git con el resultado en bytes. fetch y ls-remote se repiten con espera ante un error (502, corte de red).
+
+    follow_main() hace un fetch justo antes de save_checkpoint, tras ~80 min de ingesta: un 502 suelto ahí tiraba
+    todo lo consultado sin guardarlo (S01 de la revisión GPT, 25/11). Las órdenes locales no se repiten."""
+    intentos = RED_INTENTOS if args and args[0] in RED else 1
+    for intento in range(1, intentos + 1):
+        try:
+            return subprocess.run(['git', *args], cwd=root, check=True, capture_output=True, input=data).stdout
+        except subprocess.CalledProcessError as exc:
+            if intento == intentos:
+                raise
+            causa = (exc.stderr or b'').decode(errors='replace').strip()[-200:]
+            print(f'::warning::git {args[0]} falló (intento {intento}/{intentos}): {causa}', flush=True)
+            time.sleep(10 * intento)
 
 
 def replay(patch, onto, root=ROOT):
@@ -346,8 +364,10 @@ def chain_report(accepted, consumed=None, **extra):
     noche sin altas nuevas los vaciaba de uno en uno solo con el cron (F8)."""
     # Un lote recuperado o trasladado no consultó las fuentes: la noche aún debe su consulta, aunque el lote no
     # trajera altas (21/11, carga 44843220015: un punto de guardado ya publicado gastó el turno y entraron 0 libros).
-    # Una carga reanudada no: su PR sigue abierta y encadenar repetiría la misma reanudación.
-    pending = int(bool(extra.get('recuperado_de') or extra.get('trasladada_de')))
+    # Una carga reanudada tampoco consultó: `resume_pending` → `run` solo vuelve tras fusionar (si no, lanza), así que
+    # su PR ya no está abierta y la siguiente carga consulta (25/11, caso 8 de la revisión GPT: antes la cadena
+    # paraba ahí y la noche se quedaba sin consulta).
+    pending = int(bool(extra.get('recuperado_de') or extra.get('trasladada_de') or extra.get('reanudada')))
     write_if_changed(ROOT / '.ci/reading-intake/publisher-report.json',
                      {**extra, 'stats': {'accepted': accepted, 'checkpoints_restantes': len(set(checkpoints()) - {consumed}),
                                          'consulta_pendiente': pending}})
@@ -362,7 +382,7 @@ def refresh(*, publish=False):
     if publish:
         reconcile_deploy()
     # A failed previous batch stays inspectable; never pile up duplicate writers.
-    opened = json.loads(publisher.publication.gh('pr', 'list', '--state', 'open', '--base', 'main', '--limit', '100', '--json', 'headRefName'))
+    opened = gh_listas.lista(publisher.publication.gh, 'pr', 'list', '--state', 'open', '--base', 'main', '--json', 'headRefName')
     pending = pending_batches(opened)
     if pending:
         current = reconcile_pending(pending) if publish else pending[-1]
@@ -674,8 +694,8 @@ def open_issue(title, body):
     try:
         gh('label', 'create', 'fallo', '--color', 'B60205', '--description', 'Fallo detectado por un empleado automático', '--force')
         query = title.replace('"', ' ')  # unas comillas en la causa romperían la búsqueda literal
-        found = json.loads(gh('issue', 'list', '--state', 'open', '--label', 'fallo', '--limit', '200',
-                              '--search', f'"{query}" in:title', '--json', 'number,title'))
+        found = gh_listas.lista(gh, 'issue', 'list', '--state', 'open', '--label', 'fallo',
+                                '--search', f'"{query}" in:title', '--json', 'number,title', tope=1000)
         same = [i for i in found if i['title'] == title]
         if same:
             seen = json.loads(gh('issue', 'view', str(same[0]['number']), '--json', 'body,comments'))
@@ -697,6 +717,15 @@ def data_contract_failures():
     if code and not failures:
         raise RuntimeError(f'check-reading-data salió con {code} sin fallos de contrato (error de carga de los tests)')
     return failures
+
+
+def entradas(quarantined, ids):
+    """Lo que la cuarentena dice de esos libros, comparable entre vueltas del bucle de assemble().
+
+    Sin los contadores: apply() suma un intento cada vez que la llama, también dentro de la misma noche."""
+    ids, contadores = set(ids), {'intentos', 'ultimo_intento'}
+    return sorted(json.dumps({k: v for k, v in h.items() if k not in contadores}, sort_keys=True, ensure_ascii=False,
+                             default=str) for h in quarantined if h['libro']['id'] in ids)
 
 
 def drop_orphan_pages(quarantined):
@@ -768,10 +797,13 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
                                + '; '.join(f['test'] for f in failures)[:600])
         repeated = set(named) <= set(flagged)
         flagged.update(named)
+        antes = entradas(quarantined, named)
         quarantined = reading_quarantine.apply(ROOT, flagged=flagged)
         # No basta con que la cuarentena mueva algo: puede estar moviendo libros de noches anteriores sin
-        # relación con los que se repiten aquí. Solo cuenta como avance si toca a los propios repetidos.
-        if repeated and not ({h['libro']['id'] for h in quarantined} & set(named)):
+        # relación con los que se repiten aquí. Ni basta con que los repetidos estén en ella: si ya lo estaban
+        # igual en la vuelta anterior, nada cambió y la siguiente vuelta sería idéntica hasta el timeout del job
+        # (R3-08 GPT, 25/11). Solo es avance que cambie la entrada de algún repetido (revertido → retirado, 16/11).
+        if repeated and entradas(quarantined, named) == antes:
             raise RuntimeError('check-reading-data falló en contratos que no se resuelven apartando libros: '
                                + '; '.join(f['test'] for f in failures)[:600])
         released = held_before - {h['libro']['id'] for h in quarantined}

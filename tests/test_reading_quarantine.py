@@ -14,6 +14,10 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 import reading_quarantine as q  # noqa: E402
 
 DATA = json.loads((ROOT / q.CATALOGUE).read_text(encoding='utf-8'))
+# Los casos toman «los N primeros libros» como publicados. Un borrador entre ellos no se valida y el caso deja de
+# probar lo que dice; el catálogo crece cada noche y el corte acaba llegando a uno (25/11: tope 78 -> 81 alcanzó
+# isbn-9791387526863, borrador, y la puerta de la carga cayó). Publicados primero, en orden estable.
+DATA['libros'].sort(key=lambda b: b.get('estado') != 'publicado')
 
 
 def without(n):
@@ -72,7 +76,11 @@ class QuarantineTest(unittest.TestCase):
     def test_too_many_books_is_a_rule_problem(self):
         data = copy.deepcopy(DATA)
         _, published_cap = q.limit(DATA, DATA)
-        for b in data['libros'][:published_cap + 1]:
+        # Solo los publicados: un borrador no pasa por la regla de descripción y no cuenta como revertido (el
+        # catálogo real los mezcla; con «los primeros N» el tope se quedaba corto el 25/11 y la carga caía).
+        live = [b for b in data['libros'] if b.get('estado') == 'publicado']
+        self.assertGreater(len(live), published_cap + 1)
+        for b in live[:published_cap + 1]:
             b['descripcion_breve'] = 'corta'
         with self.assertRaisesRegex(q.build.ValidationError, 'publicados revertidos'):
             q.isolate(data, ROOT, DATA)

@@ -149,6 +149,17 @@ def recover(root, source, base, latest, skipped=None):
         store_now['base_url'] = store_now.get('base_url') or store_old.get('base_url', '')
         store_now['archivos'] = sorted(present | set(extra_names))
         store_now['sha256'] = {**{n: old_digests[n] for n in extra_names}, **store_now.get('sha256', {})}
+        # Con varios almacenes cada nombre viaja con el suyo: sin él se serviría desde el primero (404).
+        old_extra, old_where = store_old.get('almacenes') or [], store_old.get('almacen') or {}
+        extra_now, where_now = list(store_now.get('almacenes') or []), dict(store_now.get('almacen') or {})
+        for n in extra_names:
+            if old_where.get(n):
+                url = old_extra[old_where[n] - 1]
+                if url not in extra_now:
+                    extra_now.append(url)
+                where_now[n] = extra_now.index(url) + 1
+        if extra_now:
+            store_now['almacenes'], store_now['almacen'] = extra_now, where_now
         changed[store_file] = store_now
     # Portadas/audio de las altas y de los libros que main no tocó, con una lectura conjunta de blobs.
     moved = [b for b in previous['libros'] if b['id'] in untouched]

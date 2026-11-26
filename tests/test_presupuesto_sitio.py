@@ -82,7 +82,7 @@ class MedidaYRegistro(unittest.TestCase):
         def fake(cmd, **kw):
             llamadas.append(cmd)
             if cmd[:3] == ['gh', 'run', 'list']:
-                return type('R', (), {'stdout': ' '.join(['11', '22']), 'returncode': 0})()
+                return type('R', (), {'stdout': '[{"databaseId": 11}, {"databaseId": 22}]', 'returncode': 0})()
             destino = Path(cmd[cmd.index('-D') + 1]) / f'{ps.ARTEFACTO}.json'
             destino.write_text('{roto' if cmd[3] == '11' else '{"bytes": 5, "libros": 1, "coste_por_libro": 5}',
                                encoding='utf-8')
@@ -99,7 +99,7 @@ class MedidaYRegistro(unittest.TestCase):
 
         def descarga_falla(cmd, **kw):
             if cmd[:3] == ['gh', 'run', 'list']:
-                return type('R', (), {'stdout': '11 22', 'returncode': 0})()
+                return type('R', (), {'stdout': '[{"databaseId": 11}, {"databaseId": 22}]', 'returncode': 0})()
             if cmd[3] == '11':
                 raise ps.subprocess.TimeoutExpired(cmd, 120)
             return type('R', (), {'stdout': '', 'returncode': 1})()

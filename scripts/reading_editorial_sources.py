@@ -194,11 +194,16 @@ class CachedHTTP:
         key = hashlib.sha256(url.encode()).hexdigest()
         body, stamp = self.cache / (key + '.body'), self.cache / (key + '.json')
         if body.is_file() and stamp.is_file():
-            meta = json.loads(stamp.read_text(encoding='utf-8'))
-            age = self.now() - meta['retrieved_at']
-            if 0 <= age < ttl and body.stat().st_size <= limit:
-                self.hits += 1
-                return body.read_bytes()
+            # Una entrada dañada (runner muerto a mitad, caché restaurada rota) es un fallo de caché, no de la
+            # fuente: se vuelve a pedir (R3-06 de GPT, 25/11). Antes fallaba en cada carga aunque la web respondiera.
+            try:
+                age = self.now() - float(json.loads(stamp.read_text(encoding='utf-8'))['retrieved_at'])
+                if 0 <= age < ttl and body.stat().st_size <= limit:
+                    content = body.read_bytes()
+                    self.hits += 1
+                    return content
+            except (ValueError, KeyError, TypeError, OSError):
+                pass
         self._before_request()
         req = Request(url, headers={'User-Agent': AGENT, 'Accept': 'text/html, image/*;q=0.9, */*;q=0.5'})
         with self.opener.open(req, timeout=25) as response:
@@ -213,7 +218,9 @@ class CachedHTTP:
         tmp = body.with_suffix('.tmp')
         tmp.write_bytes(content)
         tmp.replace(body)
-        stamp.write_text(json.dumps({'url': url, 'retrieved_at': self.now()}), encoding='utf-8')
+        tmp = stamp.with_suffix('.json.tmp')
+        tmp.write_text(json.dumps({'url': url, 'retrieved_at': self.now()}), encoding='utf-8')
+        tmp.replace(stamp)
         return content
 
 

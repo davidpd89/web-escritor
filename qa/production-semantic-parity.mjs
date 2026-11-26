@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { auditUrl, fetchWithBackoff } from './production-fetch.mjs';
+import { expectedPublished } from './lib/cover-store-view.mjs';
 
 const O=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const S=(process.env.EXPECTED_RELEASE_SHA||'').trim().toLowerCase();
@@ -110,7 +111,7 @@ const failures=[];
 await pool(pages,10,async x=>{
   try{
     const localHtml=read(x.sourceFile);
-    const local=semantic(localHtml);
+    const local=semantic(expectedPublished(localHtml,{html:true}));  // producción lleva las portadas del almacén
     const {r,body}=await get(x.url);
     assert.equal(r.status,200,`${x.url}: HTTP ${r.status}`);
     const prod=semantic(body);

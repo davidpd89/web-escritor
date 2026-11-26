@@ -17,6 +17,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import gh_listas  # noqa: E402
+
 LIMITE_CUERPO = 60000  # GitHub rechaza cuerpos de más de 65.536 caracteres
 
 
@@ -41,8 +44,10 @@ def publicar(etiqueta, titulo, texto, hay_aviso, repo, cierre, descripcion='', c
     if not desde_main(entorno):
         return None
     llamar('label', 'create', etiqueta, '--repo', repo, '--color', color, '--force', '--description', descripcion)
-    abierto = llamar('issue', 'list', '--repo', repo, '--label', etiqueta, '--state', 'open', '--json', 'number',
-                     '-q', '.[0].number').stdout.strip()
+    # Ventana de 1 a propósito: solo importa si hay alguna abierta con la etiqueta.
+    abiertas = gh_listas.ultimas(lambda *a: llamar(*a).stdout, 'issue', 'list', '--repo', repo, '--label', etiqueta,
+                                 '--state', 'open', '--json', 'number', n=1)
+    abierto = str(abiertas[0]['number']) if abiertas else ''
     cuerpo = recortar(texto)
     if hay_aviso and abierto:
         return llamar('issue', 'edit', abierto, '--repo', repo, '--title', titulo, '--body', cuerpo)

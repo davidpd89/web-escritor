@@ -24,6 +24,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import gh_listas  # noqa: E402
 import issue_vivo  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -126,15 +127,19 @@ def ejecuciones_de(fichero, repo):
 
     Se pide solo la rama main: sin ese filtro, las ejecuciones de las PR abiertas llenan la página
     y un workflow programado que sí ficha parece ausente."""
-    salida = subprocess.run(
-        ['gh', 'api', f'repos/{repo}/actions/workflows/{fichero}/runs?per_page=30&status=completed&branch=main',
-         '-q', '.workflow_runs[] | [.event, .conclusion, .updated_at, .html_url, .head_branch] | @tsv'],
-        capture_output=True, text=True, encoding='utf-8', check=False)
-    if salida.returncode:
-        raise RuntimeError(f'gh no pudo leer {fichero}: {salida.stderr.strip()[:200]}')
+    def api(ruta):
+        salida = subprocess.run(['gh', 'api', ruta], capture_output=True, text=True, encoding='utf-8', check=False)
+        if salida.returncode:
+            raise RuntimeError(f'gh no pudo leer {fichero}: {salida.stderr.strip()[:200]}')
+        return json.loads(salida.stdout or '{}')
+
+    # Ventana de 30 a propósito: basta para ver la última ejecución y la racha reciente.
+    runs = gh_listas.rest_ultimas(api, f'repos/{repo}/actions/workflows/{fichero}/runs?status=completed&branch=main',
+                                  'workflow_runs', 30)
     filas = []
-    for linea in salida.stdout.splitlines():
-        evento, conclusion, fecha, url, rama = (linea.split('\t') + [''] * 5)[:5]
+    for r in runs:
+        evento, conclusion, fecha, url, rama = (r.get('event') or '', r.get('conclusion') or '', r.get('updated_at') or '',
+                                                r.get('html_url') or '', r.get('head_branch') or '')
         if evento in ('pull_request', 'pull_request_target') or (evento == 'workflow_dispatch' and rama != 'main'):
             continue
         filas.append({'conclusion': conclusion or None, 'url': url,

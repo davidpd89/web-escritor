@@ -122,6 +122,14 @@ jobs:
           if [ "$RESPALDO" = 'true' ]; then MOTIVO=respaldo; fi
           if [ "$EVENT" = 'schedule' ]; then MOTIVO=cron; fi
           python scripts/noche.py abrir --motivo "$MOTIVO" >> "$GITHUB_OUTPUT"
+      - name: Freeze open pull requests
+        # Una PR verde de antes de la carga no espera en el check «Main congelado»: pasa a borrador hasta que acabe
+        # la última carga (scripts/congelar_main.py; la devuelve el segador). Falla abierto.
+        if: ${{ !inputs.dry_run && steps.libro.outputs.cargar == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: python scripts/congelar_main.py congelar || true
       - uses: actions/setup-node@v7
         if: inputs.dry_run || steps.libro.outputs.cargar == 'true'
         with:
@@ -132,6 +140,15 @@ jobs:
           python -m pip install --requirement scripts/requirements.txt
           python -m pip install --requirement scripts/requirements-reading-audio.txt
           npm ci
+      - name: Main must pass its contracts
+        # La PR de datos corre todos los contratos: con main en rojo caería en la puerta tras ~2 h de carga. Espera a
+        # main-contratos.yml si está en curso y, si está rojo y sus fallos se repiten sobre este HEAD, para aquí con la
+        # firma anotada en el libro de la noche (scripts/main_verde.py). Falla abierto.
+        if: ${{ !inputs.dry_run && steps.libro.outputs.cargar == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: python scripts/main_verde.py
       - name: Restore public editorial response cache
         if: inputs.dry_run || steps.libro.outputs.cargar == 'true'
         uses: actions/cache@v6
@@ -143,18 +160,32 @@ jobs:
         # Las portadas nuevas se suben al repositorio del almacén con una deploy key (GITHUB_TOKEN no escribe en otro repo).
         # Sin la variable no se hace nada y las portadas se siguen guardando en este repositorio.
         if: ${{ (inputs.dry_run || steps.libro.outputs.cargar == 'true') && vars.READING_COVERS_STORE == 'true' }}
+        # Varios almacenes: READING_COVERS_STORE_REPO nombra el activo (scripts/almacen_portadas.py nuevo la cambia).
+        # Uno lleno (900 MB de los 1 GB de Pages) no se abre: las portadas vuelven a este repositorio y se avisa.
         env:
           COVERS_KEY: ${{ secrets.COVERS_STORE_DEPLOY_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STORE_REPO: ${{ vars.READING_COVERS_STORE_REPO || 'web-escritor-portadas' }}
+          OWNER: ${{ github.repository_owner }}
         shell: bash
         run: |
           set -euo pipefail
+          kb="$(gh api "repos/$OWNER/$STORE_REPO" -q .size 2>/dev/null || true)"
+          estado="$(python3 scripts/almacen_portadas.py cupo "$kb")"
+          echo "Almacén $STORE_REPO: ${kb:-?} KB ($estado)"
+          if [ "$estado" = lleno ]; then
+            echo "::error::El almacén de portadas $STORE_REPO está lleno: python scripts/almacen_portadas.py nuevo <N>. Esta carga guarda las portadas en el repositorio."
+            exit 0
+          fi
+          [ "$estado" = aviso ] && echo "::warning::El almacén de portadas $STORE_REPO pasa de 800 MB: abrir el siguiente con scripts/almacen_portadas.py nuevo <N>."
           install -d -m 700 ~/.ssh
           printf '%s\n' "$COVERS_KEY" > ~/.ssh/covers_store
           chmod 600 ~/.ssh/covers_store
           ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
           export GIT_SSH_COMMAND='ssh -i ~/.ssh/covers_store -o IdentitiesOnly=yes'
-          git clone --quiet --depth 1 git@github.com:davidpd89/web-escritor-portadas.git "$RUNNER_TEMP/portadas"
+          git clone --quiet --depth 1 "git@github.com:$OWNER/$STORE_REPO.git" "$RUNNER_TEMP/portadas"
           echo "READING_COVERS_STORE_DIR=$RUNNER_TEMP/portadas" >> "$GITHUB_ENV"
+          echo "READING_COVERS_STORE_URL=https://$OWNER.github.io/$STORE_REPO" >> "$GITHUB_ENV"
           echo "GIT_SSH_COMMAND=ssh -i $HOME/.ssh/covers_store -o IdentitiesOnly=yes" >> "$GITHUB_ENV"
       - name: Discover, validate and publish through protected main
         id: carga

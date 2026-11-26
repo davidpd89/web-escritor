@@ -343,7 +343,9 @@ class GenreFallback:
         for book in catalogue['libros']:  # solo géneros con respaldo propio: no cambian entre pasadas
             if book.get('estado') != 'publicado':
                 continue
-            for g in by_book.get(book['id'], set()) & self.genres:
+            assigned = by_book.get(book['id'], set())
+            gone = title_only_fiction(book, assigned)  # lo que la reparación quitará no vota: igual en cada pasada
+            for g in assigned & self.genres - gone:
                 if rule_supported(book, g) and g not in FALLBACK_GENRES:
                     counts = self.by_publisher.setdefault(book.get('editorial') or '', {})
                     counts[g] = counts.get(g, 0) + 1
@@ -409,7 +411,10 @@ def repair_amazon_rules(catalogue: dict, by_book: dict, fallback: GenreFallback)
 # el canal de Telegram lo anunciaba como libro de terror (23/11, «El lago de los monstruos (INFANTIL)»).
 CHILD_ID = 'infantil'
 OLDER_AUDIENCE = {'juvenil', 'narrativa-juvenil', 'fantasia-juvenil', 'tema-novelas-juveniles'}
-ADULT_FOR_CHILDREN = {'terror', 'romance', 'romantasy', 'tema-amor-y-pareja', 'tema-thriller-juvenil'}
+# «Familia y crianza» y «Desarrollo personal» son guías para adultos: un cuento sobre un hermanito o sobre la
+# tristeza va dirigido al niño, no a sus padres (25/11, «¡La Srta. Lulú no sabe ni la U!», «Rosa, la nube Lupe»).
+ADULT_FOR_CHILDREN = {'terror', 'romance', 'romantasy', 'tema-amor-y-pareja', 'tema-thriller-juvenil',
+                      'familia-y-crianza', 'desarrollo-personal'}
 VERSE_TITLE = re.compile(r'\bpoesia\b|\bpoemas?\b|\bversos?\b|\brimas?\b|\bcoplas?\b|\bcanciones\b|\bnanas?\b')
 
 
@@ -434,6 +439,71 @@ def repair_children_genres(catalogue: dict, by_book: dict) -> list:
         catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
                                          if not (r['libro_id'] == book['id'] and r['categoria_id'] in drop)]
         by_book[book['id']] = assigned - drop
+        repaired.append(book['id'])
+    return repaired
+
+
+# Series y sellos que solo publican para niños: el público se deduce de la marca aunque el nodo de Amazon no lo diga.
+CHILD_BRAND = re.compile(r'\bprimeras lecturas|\bprimeros lectores|^aprender a leer con\b|\bmi libro para llevar|\bpequeflores|\bgeronimo stilton|\bbluey\b|\bpeppa\b|\bpaw patrol\b|\bpatrulla canina\b|\bbarbie\b|\bpocoyo\b|\bsuperthings\b|\blibro de carton|\blibro juguete|\bbusca y encuentra')
+# «Harperkids», «Kómikids», «Kilikids», «Bibliokids»: el sufijo pegado también es un sello infantil.
+CHILD_IMPRINT = re.compile(r'kids\b|\blibros disney\b|\bplaneta junior\b|(?<!juvenil )\binfantil\b(?!( &| y)? juvenil)')
+ADULT_EDITION = re.compile(r'\bcreacion de una obra|\berase una vez disney|\bhistoria del cine|\bestudio\b|\bensayo\b|\bbiografia\b')
+
+# Público según las ramas de Amazon. Cada nodo cuelga de una raíz bajo «Categorías»: «Infantil» («Libros para
+# niños»), «Juvenil» («Libros juveniles») o una de adultos. Las materias se recortan a tres, de lo concreto a lo
+# general, y la raíz infantil, la más general, se perdía: «Narnia: El sobrino del mago» (Harperkids, 25/11) salió
+# como terror por «Libros infantiles de fantasmas». Cuenta la mayoría de ramas, no un nodo suelto: un libro de
+# adultos también puede tener alguna rama infantil. Las ramas de tienda (sin «Categorías») no cuentan.
+CHILD_ROOTS = {'infantil', 'libros para ninos'}
+YOUTH_ROOTS = {'juvenil', 'libros juveniles'}
+
+
+def _as_dict(value) -> dict:
+    return value if isinstance(value, dict) else {}
+
+
+def node_root(node: dict) -> str | None:
+    """Raíz de la rama: «infantil», «juvenil» o «adultos» según el nodo que cuelga de «Categorías»; None si no la hay."""
+    current = _as_dict(node)
+    for _ in range(64):
+        parent = _as_dict(current.get('ancestor'))
+        if not parent:
+            return None
+        if normalize_text(parent.get('displayName') or '') == 'categorias':
+            names = {normalize_text(current.get(k) or '') for k in ('displayName', 'contextFreeName')}
+            return 'infantil' if names & CHILD_ROOTS else 'juvenil' if names & YOUTH_ROOTS else 'adultos'
+        current = parent
+    return None
+
+
+def node_audience(item: dict) -> str | None:
+    """Público del artículo por mayoría de sus ramas de Amazon: «infantil» si dominan las infantiles (dos o más, o
+    todas), «otro» si dominan las demás y None si empatan o no hay ramas con raíz."""
+    nodes = _as_dict(_as_dict(item).get('browseNodeInfo')).get('browseNodes')
+    roots = [r for r in map(node_root, nodes if isinstance(nodes, list) else []) if r]
+    kids = roots.count('infantil')
+    others = len(roots) - kids
+    if kids > others and (kids >= 2 or not others):
+        return CHILD_ID
+    return 'otro' if others > kids else None
+
+
+def repair_children_brands(catalogue: dict, by_book: dict) -> list:
+    """Marca como infantil el libro de una serie o sello infantil que no tiene público mayor ni es un ensayo sobre la
+    marca, y el que Amazon tiene sobre todo en ramas infantiles (`publico_amazon`, del barrido diario de precios)."""
+    repaired = []
+    for book in catalogue['libros']:
+        assigned = by_book.get(book['id'], set())
+        if CHILD_ID in assigned or assigned & OLDER_AUDIENCE or 'ensayo' in assigned:
+            continue
+        title = normalize_text(book.get('titulo') or '')
+        imprint = normalize_text(book.get('editorial') or '')
+        branded = CHILD_BRAND.search(title) or CHILD_IMPRINT.search(imprint)
+        listed = book.get('publico_amazon') == CHILD_ID and 'adultos' not in assigned
+        if ADULT_EDITION.search(title) or not (branded or listed):
+            continue
+        catalogue['libro_categorias'].append({'libro_id': book['id'], 'categoria_id': CHILD_ID})
+        by_book[book['id']] = assigned | {CHILD_ID}
         repaired.append(book['id'])
     return repaired
 
@@ -613,6 +683,42 @@ def repair_axis(catalogue: dict, by_book: dict) -> list:
     return repaired
 
 
+# Pasatiempo o guía de adultos con un género de ficción que solo sale de una palabra del título: «Turismo de
+# terror», «Crimoku», «El crimen de la Navidad» (pasatiempos) salían en terror o misterio (25/11, revisión con GPT).
+# Sin género de no ficción, el eje no los ve; el tema de no ficción del nodo decide y el respaldo da el género.
+NON_FICTION_THEMES = {'tema-viajes', 'tema-economia-politica-sociedad-y-actualidad', 'tema-actualidad',
+                      'tema-ocio-y-tiempo-libre', 'tema-religion-y-espiritualidad'}
+
+
+def title_only_fiction(book: dict, assigned: set) -> set:
+    """Géneros de ficción que sobran: todos salen del título, el libro es de adultos y tiene tema de no ficción."""
+    fiction = assigned & FICTION_GENRES
+    if (not fiction or not assigned & NON_FICTION_THEMES or assigned & (NON_FICTION_GENRES | OLDER_AUDIENCE)
+            or assigned & {'infantil', COMIC_ID} or book.get('publico_amazon')):
+        return set()
+    subjects = subject_text(book)
+    if FICTION_HINT.search(normalize_text(book.get('titulo') or '')):
+        return set()
+    return fiction if all(title_only(i, subjects) for i in fiction) else set()
+
+
+def repair_title_only_fiction(catalogue: dict, by_book: dict) -> list:
+    repaired = []
+    for book in catalogue['libros']:
+        assigned = by_book.get(book['id'], set())
+        drop = title_only_fiction(book, assigned)
+        if not drop:
+            continue
+        title = book.get('titulo') or ''
+        was = set(derived_categories(assigned - DERIVED_IDS, title))
+        drop |= (assigned & was) - set(derived_categories(assigned - drop - DERIVED_IDS, title))
+        catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
+                                         if not (r['libro_id'] == book['id'] and r['categoria_id'] in drop)]
+        by_book[book['id']] = assigned - drop
+        repaired.append(book['id'])
+    return repaired
+
+
 # «Salud» heredada: el nodo raíz «Salud, familia y desarrollo personal» de Amazon daba la materia «salud» a toda su
 # estantería y un oráculo de tarot o una guía de herencias salían en nutrición y bienestar (147 de 298, 2026-11-16).
 # En las altas guardadas solo queda el texto de la materia: «salud» junto a otra materia vale si el título habla de
@@ -725,10 +831,11 @@ def repair_classification(catalogue, today=None):
     # Género antes y después de quitar etiquetas: el tema de un nodo («tema-viajes») deja su género de respaldo
     # antes de irse, y un libro que pierde su género por nodo recibe otro. Una sola pasada basta (idempotente).
     touched = set(drop_seasons(catalogue, by_book)) | set(apply_second_opinion(catalogue, by_book))
-    touched |= set(repair_children_genres(catalogue, by_book))
+    touched |= set(repair_children_brands(catalogue, by_book)) | set(repair_children_genres(catalogue, by_book))
     touched |= set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
     touched |= set(repair_amazon_rules(catalogue, by_book, fallback))
     touched |= set(repair_inherited_health(catalogue, by_book)) | set(repair_axis(catalogue, by_book))
+    touched |= set(repair_title_only_fiction(catalogue, by_book))
     touched |= set(repair_children_genres(catalogue, by_book))  # los repasos anteriores no devuelven lo de adultos
     # Quitar etiquetas de nodo puede dejar «narrativa-juvenil» sola con la no ficción: el público se repara otra vez.
     touched |= set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))

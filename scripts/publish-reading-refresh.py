@@ -140,9 +140,7 @@ def resume_pending(branch):
         return 'resumed'
     if not generated_by_bot(repo, pr['number']):
         raise ValueError('Refusing to replace a stale proposal not authored by the catalogue bot')
-    pages = json.loads(publication.gh('api', '--paginate', '--slurp',
-        f'repos/{repo}/pulls/{pr["number"]}/files?per_page=100'))
-    paths = [item for page in pages for item in page]
+    paths = publication.ficheros_pr(repo, pr)
     if not paths or any(not allowed_path(item['filename']) or
                        (item.get('previous_filename') and not allowed_path(item['previous_filename']))
                        for item in paths):

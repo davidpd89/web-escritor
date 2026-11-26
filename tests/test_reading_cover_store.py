@@ -174,6 +174,74 @@ class CoverStoreWriteTest(unittest.TestCase):
         hook.unlink()
         self.assertEqual(store.flush(root=self.root), 1)
         self.assertIn('isbn-9780000000002.webp', run('ls-tree', '--name-only', 'main', cwd=remote.name).stdout)
+        # caso 9 de la ronda 2: un nombre del manifiesto sin fichero en origin sería una portada 404 en la web
+        store.register(self.root, 'fantasma.webp', store.digest(b'nada'))
+        with self.assertRaisesRegex(RuntimeError, 'fantasma.webp'):
+            store.flush(root=self.root)
+
+
+BASE2 = 'https://otro.github.io/web-escritor-portadas-2'
+
+
+class VariosAlmacenesTest(unittest.TestCase):
+    """Un repositorio de Pages admite 1 GB: lleno el primero, las portadas siguientes van a otro y cada una se sirve
+    desde el suyo (25/11, petición de David: «si se llenaba el otro se creaba otro nuevo»)."""
+
+    def setUp(self):
+        import os
+        self.d, self.root = tree(['a.webp'])
+        self.addCleanup(self.d.cleanup)
+        self.dir = tempfile.TemporaryDirectory()
+        self.addCleanup(self.dir.cleanup)
+        for env in (store.STORE_DIR_ENV, store.STORE_URL_ENV):
+            saved = os.environ.pop(env, None)
+            self.addCleanup(lambda e=env, v=saved: os.environ.__setitem__(e, v) if v else os.environ.pop(e, None))
+
+    def test_cada_portada_se_sirve_desde_su_almacen_y_la_csp_admite_los_dos(self):
+        data = store.load(self.root)
+        data['archivos'].append('b.webp')
+        data['sha256']['b.webp'] = store.digest(b'b')
+        data.update(almacenes=[BASE2], almacen={'b.webp': 1})
+        store.write_manifest(self.root, data)
+        self.assertEqual(store.public_url('/assets/reading-covers/a.webp', self.root), BASE + '/a.webp')
+        self.assertEqual(store.public_url('/assets/reading-covers/b.webp', self.root), BASE2 + '/b.webp')
+        text = store.rewrite_text('<img src="/assets/reading-covers/a.webp"><img src="https://davidportodiaz.com/assets/reading-covers/b.webp">', store.load(self.root))
+        self.assertEqual(text, f'<img src="{BASE}/a.webp"><img src="{BASE2}/b.webp">')
+        csp = store.allow_img_host(CSP, store.load(self.root))
+        self.assertIn('https://davidpd89.github.io', csp)
+        self.assertIn('https://otro.github.io', csp)
+
+    def test_un_numero_de_almacen_que_no_existe_se_rechaza(self):
+        data = store.load(self.root)
+        data.update(almacenes=[BASE2], almacen={'a.webp': 2})
+        with self.assertRaises(ValueError):
+            store.write_manifest(self.root, data)
+
+    def test_la_carga_en_el_almacen_nuevo_registra_alli_y_no_exige_las_del_lleno(self):
+        import os
+        import subprocess
+        remote = tempfile.TemporaryDirectory()
+        self.addCleanup(remote.cleanup)
+        run = lambda *a, cwd: subprocess.run(['git', *a], cwd=cwd, check=True, capture_output=True, text=True)
+        run('init', '-q', '--bare', '-b', 'main', cwd=remote.name)
+        run('clone', '-q', remote.name, self.dir.name, cwd=remote.name)
+        run('config', 'user.name', 't', cwd=self.dir.name)
+        run('config', 'user.email', 't@t', cwd=self.dir.name)
+        os.environ[store.STORE_DIR_ENV] = self.dir.name
+        os.environ[store.STORE_URL_ENV] = BASE2
+        store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'nueva')
+        data = store.load(self.root)
+        self.assertEqual(data['almacenes'], [BASE2])
+        self.assertEqual(data['almacen'], {'isbn-9780000000001.webp': 1})
+        self.assertEqual(store.public_url('/assets/reading-covers/isbn-9780000000001.webp', self.root), BASE2 + '/isbn-9780000000001.webp')
+        # a.webp vive en el primer almacén: el repo nuevo no la tiene y eso no es una portada 404
+        self.assertEqual(store.flush(root=self.root), 1)
+        self.assertEqual(run('ls-tree', '--name-only', 'main', cwd=remote.name).stdout.split(), ['isbn-9780000000001.webp'])
+
+    def test_un_manifiesto_de_un_solo_almacen_se_escribe_como_siempre(self):
+        store.register(self.root, 'c.webp', store.digest(b'c'))
+        raw = json.loads((self.root / store.MANIFEST).read_text(encoding='utf-8'))
+        self.assertEqual(set(raw), {'base_url', 'archivos', 'sha256'})
 
 
 if __name__ == '__main__':

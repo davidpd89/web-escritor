@@ -3,11 +3,15 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { auditUrl, fetchWithBackoff } from './production-fetch.mjs';
+import { expectedPublished } from './lib/cover-store-view.mjs';
 
 const ROOT=process.cwd();
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const SHA=(process.env.EXPECTED_RELEASE_SHA||'').trim();
 const MAX_EXACT=3*1024*1024;
+// Los ficheros de texto se publican con las portadas del almacén reescritas (scripts/reading_cover_store.py TEXT_SUFFIXES).
+const TEXT_EXT=new Set(['.json','.js','.mjs','.xml','.txt','.css','.webmanifest','.rss']);
+const published=(local,raw)=>TEXT_EXT.has(path.extname(local).toLowerCase())?Buffer.from(expectedPublished(raw.toString('utf8')),'utf8'):raw;
 const ALLOWED_EXT=new Set(['.css','.js','.mjs','.json','.xml','.svg','.png','.jpg','.jpeg','.webp','.avif','.woff2','.woff','.ico']);
 const registry=JSON.parse(fs.readFileSync('data/content-registry.json','utf8'));
 const defs=registry.defaults||{};
@@ -60,7 +64,7 @@ const failures=[],observations=[];
 await pool([...refs.values()],8,async item=>{
   try{
     const local=item.pathname.replace(/^\//,'');
-    const bytes=fs.readFileSync(local);
+    const bytes=published(local,fs.readFileSync(local));
     const query=[...item.queries].find(Boolean)||'';
     const r=await fetchRetry(auditUrl(`${item.pathname}${query}`,ORIGIN));
     assert.equal(r.status,200,`${item.pathname}: HTTP ${r.status}`);

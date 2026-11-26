@@ -15,7 +15,7 @@ spec.loader.exec_module(pub)
 
 def falso_gh(log, conclusion='failure'):
     def gh(*args):
-        if args[1].endswith('/jobs?per_page=100'):
+        if args[1].split('?')[0].endswith('/jobs'):  # por recurso, no por la query (paginación)
             return json.dumps({'jobs': [{'id': 7, 'conclusion': conclusion}, {'id': 8, 'conclusion': 'success'}]})
         return log
     return gh

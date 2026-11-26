@@ -15,6 +15,7 @@ import html
 import io
 import json
 import re
+from datetime import date
 import textwrap
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -143,7 +144,13 @@ def ttl_publication_date(document: str) -> str | None:
     day = re.fullmatch(r'(\d{2})-(\d{2})-(\d{4})', _dd(document, 'Fecha publicación'))
     edition = next((w for w in _book(document).get('workExample') or [] if isinstance(w, dict)), {})
     stamp = f'{day.group(3)}-{day.group(2)}-{day.group(1)}' if day else str(edition.get('datePublished', ''))[:10]
-    return stamp if re.fullmatch(r'\d{4}-\d{2}-\d{2}', stamp) else None
+    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', stamp):
+        return None
+    try:  # 31-11-2026 tiene la forma buena y no existe: la cota del listado haría fromisoformat y tumbaría la noche
+        date.fromisoformat(stamp)
+    except ValueError:
+        return None
+    return stamp
 
 
 def ttl_edition(document: str, url: str) -> dict:
