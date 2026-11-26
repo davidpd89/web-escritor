@@ -36,6 +36,7 @@ OUT = ROOT / '.local/reading-texts/out'
 STATE = ROOT / '.local/reading-texts/state.json'
 AUTHOR_OUT = ROOT / '.local/reading-author-texts/out'  # fichas de autor: scripts/reading-author-texts.py
 CLASIFICACION = ROOT / '.local/reading-texts/clasificacion.json'  # segunda opinión de ChatGPT sobre género y público
+REVISION = ROOT / '.local/reading-classification-review/opiniones.json'  # revisión del catálogo entero
 PROMPT = ROOT / 'scripts/templates/reading-texts-prompt.md'
 RRSS_TOOLS = Path(os.environ.get('RRSS_TOOLS', r'C:\GIT\RRSS_DavidPorto\tools'))
 VERSION = 3
@@ -785,6 +786,11 @@ def _publish_once(out, publisher):
     merged = {**read_json(published_opinions, {}), **{i: o for i, o in read_json(CLASIFICACION, {}).items() if i in books}}
     if merged != read_json(published_opinions, {}):
         write_json(published_opinions, dict(sorted(merged.items())))
+    # La revisión del catálogo entero (scripts/reading-classification-review.py) viaja igual, en su propio fichero.
+    published_review = tree / 'data/reading-classification-review.json'
+    review = {**read_json(published_review, {}), **{i: o for i, o in read_json(REVISION, {}).items() if i in books}}
+    if review != read_json(published_review, {}):
+        write_json(published_review, dict(sorted(review.items())))
     # Fichas de autor (scripts/reading-author-texts.py): se revalidan con los datos de main antes de copiarlas.
     if any(authors_out.glob('*.json')):
         load_module('reading_author_texts', 'scripts/reading-author-texts.py').copy_valid(tree, authors_out)
@@ -793,6 +799,9 @@ def _publish_once(out, publisher):
         if run_check.returncode:
             print('Aviso: sin comprobar enlaces de autor; las fuentes nuevas salen como texto', flush=True)
     run = lambda *cmd: subprocess.run([sys.executable, *cmd], cwd=tree, check=True)
+    # Las opiniones solo se aplican en la carga nocturna; si viajan sin aplicar, el contrato de la revisión
+    # (PublishedReviewTests) tumba esta PR. Se repara aquí con el mismo código (idempotente).
+    run('scripts/reading-classification-review.py', 'aplicar')
     for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
         run('scripts/' + script)
     for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):

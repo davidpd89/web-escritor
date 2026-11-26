@@ -40,6 +40,7 @@ DATA_CONTRACTS = (
     'test_atlas_integration_real_catalogue.RealCatalogueBridge.test_every_published_book_resolves_to_an_existing_page',
     'test_book_modified_date_parity.ModifiedDateParity.test_dates_match_published_pages',
     'test_reading_taxonomy_children.ChildrenGenreTests.test_published_catalogue_has_no_adult_genre_on_children_or_seasons',
+    'test_reading_classification_review.PublishedReviewTests',
 )
 # Familias que solo leen datos: entran todas, también las que se añadan, para que esta lista no se quede atrás de la
 # puerta (faltaban las de mercado y una PR nocturna salió roja por precios sin precios_amazon_revision).

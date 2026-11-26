@@ -868,10 +868,6 @@
       "libro_id": "lib-0001"
     },
     {
-      "categoria_id": "misterio-y-thriller",
-      "libro_id": "lib-0001"
-    },
-    {
       "categoria_id": "narrativa",
       "libro_id": "isbn-9788439747222"
     },
@@ -9925,10 +9921,6 @@
     },
     {
       "categoria_id": "comic-y-novela-grafica",
-      "libro_id": "isbn-9788402432148"
-    },
-    {
-      "categoria_id": "misterio-y-thriller",
       "libro_id": "isbn-9788402432148"
     },
     {
@@ -22468,19 +22460,11 @@
       "libro_id": "isbn-9791399229158"
     },
     {
-      "categoria_id": "divulgacion-cientifica",
-      "libro_id": "isbn-9786073876148"
-    },
-    {
       "categoria_id": "psicologia",
       "libro_id": "isbn-9786073876148"
     },
     {
       "categoria_id": "ensayo",
-      "libro_id": "isbn-9786073876148"
-    },
-    {
-      "categoria_id": "desarrollo-personal",
       "libro_id": "isbn-9786073876148"
     },
     {
@@ -27504,14 +27488,6 @@
       "libro_id": "isbn-9788419232793"
     },
     {
-      "categoria_id": "fantasia",
-      "libro_id": "isbn-9788445022863"
-    },
-    {
-      "categoria_id": "terror",
-      "libro_id": "isbn-9788445022863"
-    },
-    {
       "categoria_id": "comic-y-novela-grafica",
       "libro_id": "isbn-9791388102370"
     },
@@ -32062,10 +32038,6 @@
     {
       "categoria_id": "relatos",
       "libro_id": "isbn-9791388149450"
-    },
-    {
-      "categoria_id": "terror",
-      "libro_id": "isbn-9791388299308"
     },
     {
       "categoria_id": "tema-economia-y-empresa",
@@ -42056,10 +42028,6 @@
       "libro_id": "isbn-9791399320060"
     },
     {
-      "categoria_id": "ciencia-ficcion",
-      "libro_id": "isbn-9788418875830"
-    },
-    {
       "categoria_id": "fantasia",
       "libro_id": "isbn-9788418875830"
     },
@@ -43040,20 +43008,12 @@
       "libro_id": "isbn-9788419868848"
     },
     {
-      "categoria_id": "misterio-y-thriller",
-      "libro_id": "isbn-9788419868848"
-    },
-    {
       "categoria_id": "romance",
       "libro_id": "isbn-9791387810924"
     },
     {
       "categoria_id": "misterio-y-thriller",
       "libro_id": "isbn-9788425374883"
-    },
-    {
-      "categoria_id": "aventuras",
-      "libro_id": "isbn-9788425376238"
     },
     {
       "categoria_id": "fantasia",
@@ -46312,15 +46272,7 @@
       "libro_id": "isbn-9791388101793"
     },
     {
-      "categoria_id": "ciencia-ficcion",
-      "libro_id": "isbn-9791388101793"
-    },
-    {
       "categoria_id": "juvenil",
-      "libro_id": "isbn-9791388101793"
-    },
-    {
-      "categoria_id": "narrativa-juvenil",
       "libro_id": "isbn-9791388101793"
     },
     {
@@ -48160,10 +48112,6 @@
       "libro_id": "isbn-9788445022696"
     },
     {
-      "categoria_id": "narrativa",
-      "libro_id": "isbn-9788466685061"
-    },
-    {
       "categoria_id": "romance",
       "libro_id": "isbn-9788466685061"
     },
@@ -48753,10 +48701,6 @@
     },
     {
       "categoria_id": "aventuras",
-      "libro_id": "isbn-9788410489226"
-    },
-    {
-      "categoria_id": "misterio-y-thriller",
       "libro_id": "isbn-9788410489226"
     },
     {
@@ -50952,10 +50896,6 @@
       "libro_id": "isbn-9788427734111"
     },
     {
-      "categoria_id": "terror",
-      "libro_id": "isbn-9791259578532"
-    },
-    {
       "categoria_id": "tema-arte-y-diseno",
       "libro_id": "isbn-9791259578532"
     },
@@ -52473,10 +52413,6 @@
     },
     {
       "categoria_id": "ensayo",
-      "libro_id": "isbn-9791388406003"
-    },
-    {
-      "categoria_id": "humor",
       "libro_id": "isbn-9791388406003"
     },
     {
@@ -59700,15 +59636,7 @@
       "libro_id": "isbn-9781021217394"
     },
     {
-      "categoria_id": "historia",
-      "libro_id": "isbn-9781021218131"
-    },
-    {
       "categoria_id": "tema-arte-y-diseno",
-      "libro_id": "isbn-9781021218131"
-    },
-    {
-      "categoria_id": "humor",
       "libro_id": "isbn-9781021218131"
     },
     {
@@ -65914,6 +65842,30 @@
     {
       "libro_id": "isbn-9788409944309",
       "categoria_id": "infantil"
+    },
+    {
+      "libro_id": "isbn-9788419868848",
+      "categoria_id": "fantasia-juvenil"
+    },
+    {
+      "libro_id": "isbn-9788445022863",
+      "categoria_id": "guias-y-referencia"
+    },
+    {
+      "libro_id": "isbn-9791259578532",
+      "categoria_id": "guias-y-referencia"
+    },
+    {
+      "libro_id": "isbn-9791388299308",
+      "categoria_id": "guias-y-referencia"
+    },
+    {
+      "libro_id": "isbn-9791388406003",
+      "categoria_id": "guias-y-referencia"
+    },
+    {
+      "libro_id": "isbn-9781021218131",
+      "categoria_id": "arte-y-diseno"
     }
   ],
   "libros": [
@@ -237175,7 +237127,7 @@
       "edicion": "Tapa dura · Penguin Random House Grupo Editorial",
       "editorial": "Penguin Random House Grupo Editorial",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-13",
+      "fecha_actualizacion": "2026-11-26",
       "fecha_publicacion": "2026-11-17",
       "fecha_verificacion": "2026-11-12",
       "formato_edicion": "tapa-dura",
@@ -275360,7 +275312,7 @@
       "editorial": "Minotauro",
       "editorial_slug": "minotauro",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-23",
+      "fecha_actualizacion": "2026-11-26",
       "fecha_publicacion": "2026-11-25",
       "fecha_verificacion": "2026-11-13",
       "formato_edicion": "tapa-dura",
@@ -297270,7 +297222,7 @@
       "editorial": "Eolas Ediciones",
       "editorial_catalogo_slug": "eolas-ediciones",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-23",
+      "fecha_actualizacion": "2026-11-26",
       "fecha_publicacion": "2026-12-14",
       "fecha_verificacion": "2026-11-14",
       "formato_edicion": "tapa-blanda",
@@ -375561,7 +375513,7 @@
       "editorial": "Grijalbo",
       "editorial_slug": "grijalbo",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-23",
+      "fecha_actualizacion": "2026-11-26",
       "fecha_publicacion": "2026-10-08",
       "fecha_verificacion": "2026-11-16",
       "formato_edicion": "tapa-blanda",
@@ -400233,7 +400185,7 @@
       "editorial": "Planeta Cómic",
       "editorial_catalogo_slug": "planeta-comic",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-23",
+      "fecha_actualizacion": "2026-11-26",
       "fecha_publicacion": "2026-10-07",
       "fecha_verificacion": "2026-11-16",
       "formato_edicion": "tapa-dura",
@@ -407994,7 +407946,7 @@
       "editorial": "Ediciones B",
       "editorial_slug": "ediciones-b",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-23",
+      "fecha_actualizacion": "2026-11-26",
       "fecha_publicacion": "2026-09-23",
       "fecha_verificacion": "2026-11-19",
       "formato_edicion": "tapa-blanda",
@@ -427841,7 +427793,7 @@
       "edicion": "Tapa dura · Magazzini Salani",
       "editorial": "Magazzini Salani",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-23",
+      "fecha_actualizacion": "2026-11-26",
       "fecha_publicacion": "2026-10-26",
       "fecha_verificacion": "2026-11-19",
       "formato_edicion": "tapa-dura",
@@ -439621,7 +439573,7 @@
       "editorial": "Plataforma Editorial",
       "editorial_catalogo_slug": "plataforma-editorial",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-19",
+      "fecha_actualizacion": "2026-11-26",
       "fecha_publicacion": "2026-10-07",
       "fecha_verificacion": "2026-11-19",
       "formato_edicion": "tapa-blanda",
@@ -486355,7 +486307,7 @@
       "edicion": "Tapa blanda · Legare Street Press",
       "editorial": "Legare Street Press",
       "estado": "publicado",
-      "fecha_actualizacion": "2026-11-23",
+      "fecha_actualizacion": "2026-11-26",
       "fecha_publicacion": "2023-07-18",
       "fecha_verificacion": "2026-11-23",
       "formato_edicion": "tapa-blanda",

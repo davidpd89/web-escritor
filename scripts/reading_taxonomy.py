@@ -529,6 +529,9 @@ GPT_GENRE_IDS = {'misterio y thriller': 'misterio-y-thriller', 'fantasia': 'fant
                  'cocina': 'cocina', 'desarrollo personal': 'desarrollo-personal',
                  'narrativa contemporanea': 'narrativa', 'infantil': CHILD_ID}
 OPINIONS_FILE = Path(__file__).resolve().parents[1] / 'data' / 'reading-classification-gpt.json'
+# Revisión del catálogo entero por GPT (scripts/reading-classification-review.py): fichero propio para que la segunda
+# opinión del bucle de textos (otro formato, por libro) no la pise.
+REVIEW_FILE = OPINIONS_FILE.with_name('reading-classification-review.json')
 
 
 def load_opinions(path: Path = OPINIONS_FILE) -> dict:
@@ -567,6 +570,40 @@ def apply_second_opinion(catalogue: dict, by_book: dict, opinions: dict | None =
         by_book[book['id']] = (assigned - drop) | add
         repaired.append(book['id'])
     return repaired
+
+
+def review_drop(op: dict, assigned: set) -> set:
+    """Géneros que la revisión de GPT señala como erróneos y con motivo concreto: confunden al lector (Narnia en
+    terror, un atlas de la Biblia en humor), aunque los diera una materia de la editorial."""
+    if len(str(op.get('motivo') or '').strip()) < 20:
+        return set()
+    return set(op.get('sobran') or []) & assigned
+
+
+def review_opinion(catalogue: dict, by_book: dict, ident: str, op: dict, genres: set) -> bool:
+    """Aplica una opinión de la revisión: quita lo que sobra y, si el libro pierde así su género, pone el principal
+    de GPT. No añade géneros a un libro que no tenía errores: un secundario distinto no es un fallo."""
+    assigned = by_book.setdefault(ident, set())
+    drop = review_drop(op, assigned)
+    main = next((g for g in op.get('generos_gpt') or [] if g in genres and g not in op.get('sobran', [])), None)
+    left = assigned - drop
+    add = {main} if drop and main and main not in left else set()
+    if drop and not left & genres and not add:
+        return False  # sin sustituto válido no se deja un libro sin género
+    if not add and not drop:
+        return False
+    catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias']
+                                     if not (r['libro_id'] == ident and r['categoria_id'] in drop)]
+    catalogue['libro_categorias'] += [{'libro_id': ident, 'categoria_id': c} for c in sorted(add)]
+    by_book[ident] = left | add
+    return True
+
+
+def apply_review(catalogue: dict, by_book: dict, opinions: dict | None = None) -> list:
+    opinions = load_opinions(REVIEW_FILE) if opinions is None else opinions
+    genres = {c['id'] for c in catalogue['categorias'] if c['tipo'] == 'genero'}
+    return [i for i, op in sorted(opinions.items()) if isinstance(op, dict) and 'generos_gpt' in op
+            and review_opinion(catalogue, by_book, i, op, genres)]
 
 
 def juvenile_audience_only(assigned: set) -> bool:
@@ -839,8 +876,16 @@ def repair_classification(catalogue, today=None):
     touched |= set(repair_children_genres(catalogue, by_book))  # los repasos anteriores no devuelven lo de adultos
     # Quitar etiquetas de nodo puede dejar «narrativa-juvenil» sola con la no ficción: el público se repara otra vez.
     touched |= set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
+    # La revisión de GPT tiene la última palabra sobre lo que sobra: ningún repaso anterior devuelve un género que señaló.
+    touched |= set(apply_review(catalogue, by_book))
+    # El principal de GPT puede ser de adultos en un libro infantil: el repaso infantil y el género mínimo vuelven a
+    # pasar, y la revisión otra vez por si alguno devolvió lo que ella quitó (las dos pasadas son idempotentes).
+    touched |= set(repair_children_genres(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
+    touched |= set(apply_review(catalogue, by_book))
     if today:
         for book in catalogue['libros']:
-            if book['id'] in touched:
+            # La fecha de un libro de la hoja (lib-*) la fija la hoja: cambiarla rompe la reimportación
+            # (test_reading_sheet_import_smoke; 26/11, Coraline al quitarle misterio).
+            if book['id'] in touched and book['id'].startswith('isbn-'):
                 book['fecha_actualizacion'] = today
     return repaired + sorted(touched - set(repaired))
