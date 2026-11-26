@@ -9,6 +9,7 @@
 // gated pages (see data/content-registry.json GATED_REGISTRY_STATUS) that
 // are never supposed to be reachable, and asserting they're error-free would
 // be meaningless since real visitors can't load them.
+import { withCoverStore } from './lib/cover-store-route.mjs';
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -76,6 +77,8 @@ await new Promise((r) => server.listen(0, '127.0.0.1', r));
 const ORIGIN = `http://127.0.0.1:${server.address().port}`;
 
 const browser = await chromium.launch({ headless: true, ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}) });
+
+withCoverStore(browser);
 const findings = [];
 
 // Cuatro páginas a la vez (los vCPU del runner): en serie, con el catálogo entero, pasaba de 15 min.
