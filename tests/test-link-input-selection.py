@@ -49,20 +49,52 @@ class LinkInputSelectionTests(unittest.TestCase):
 
     def test_schedule_override_missing_comparison_and_empty_diff_check_all(self):
         for name,event,full in [('schedule',{},False),('push',{'before':'invalid'},False),
-                                ('push',{'before':'0'*40},False),('push',{'before':self.base},False),
-                                ('push',{'before':self.base},True)]:
+                                ('push',{'before':'0'*40},False),('push',{'before':self.base},True)]:
             with self.subTest(name=name,event=event,full=full):
                 result=selector.select(self.root,name,event,'refs/heads/main',full)
                 self.assertEqual(result['scope'],'full-site')
                 self.assertEqual(result['files'],['books/index.html','index.html'])
 
-    def test_deletion_or_rename_checks_all_remaining_pages(self):
+    def test_nothing_public_changed_checks_nothing(self):
+        """26/11 (carga 45868423421): la PR de datos #1601 solo reindexaba pagefind y se revisaron las 9.482 páginas;
+        el job agotó sus 40 min y la carga salió roja."""
+        self.assertEqual(selector.select(self.root,'push',{'before':self.base},'refs/heads/main')['scope'],'none')
+        (self.root/'pagefind').mkdir();(self.root/'pagefind/index.pf').write_text('x',encoding='utf-8')
+        (self.root/'data').mkdir();(self.root/'data/x.json').write_text('{}',encoding='utf-8');self.commit()
+        result=selector.select(self.root,'pull_request',{'pull_request':{'base':{'sha':self.base}}},'refs/heads/main')
+        self.assertEqual((result['scope'],result['files']),('none',[]))
+
+    def test_deletion_or_rename_checks_only_pages_naming_it(self):
+        """Antes, cualquier borrado o renombrado mandaba a revisar la web entera."""
+        (self.root/'index.html').write_text('<a href="books/">libros</a><img src="assets/c/x.webp">',encoding='utf-8')
+        (self.root/'other.html').write_text('<p>nada</p>',encoding='utf-8')
+        (self.root/'assets/c').mkdir(parents=True);(self.root/'assets/c/x.webp').write_bytes(b'img')
+        self.commit();base=self.git('rev-parse','HEAD').strip()
         self.git('mv','books/index.html','renamed.html');self.commit()
+        result=selector.select(self.root,'push',{'before':base},'refs/heads/main')
+        self.assertEqual((result['scope'],result['files']),('changed-html',['index.html','renamed.html']))
+        self.git('rm','-q','renamed.html');self.commit()
+        result=selector.select(self.root,'push',{'before':base},'refs/heads/main')
+        self.assertEqual((result['scope'],result['files']),('changed-html',['index.html']))
+        self.git('rm','-q','assets/c/x.webp');self.commit()
+        result=selector.select(self.root,'push',{'before':self.git('rev-parse','HEAD~1').strip()},'refs/heads/main')
+        self.assertEqual((result['scope'],result['files']),('changed-html',['index.html']))
+
+    def test_removed_home_page_checks_all_pages(self):
+        self.git('rm','-q','index.html');self.commit()
         result=selector.select(self.root,'push',{'before':self.base},'refs/heads/main')
-        self.assertEqual(result['scope'],'full-site')
-        self.assertEqual(result['files'],['index.html','renamed.html'])
-        self.git('rm','renamed.html');self.commit()
-        self.assertEqual(selector.select(self.root,'push',{'before':self.base},'refs/heads/main')['scope'],'full-site')
+        self.assertEqual(result['files'],['books/index.html'])
+
+    def test_changing_the_checker_audits_the_whole_site(self):
+        (self.root/'.lycheeignore').write_text('x',encoding='utf-8');self.commit()
+        result=selector.select(self.root,'pull_request',{'pull_request':{'base':{'sha':self.base}}},'refs/heads/main')
+        self.assertEqual((result['scope'],result['files']),('full-site',['books/index.html','index.html']))
+
+    def test_workflow_skips_lychee_when_there_is_nothing_to_check(self):
+        workflow=(ROOT/'.github/workflows/broken-links.yml').read_text(encoding='utf-8')
+        step=workflow[workflow.index('id: lychee'):]
+        self.assertIn("if: steps.scope.outputs.skip != 'true'",step[:200])
+        self.assertIn("output.write('skip='",(ROOT/'scripts/select-link-check-inputs.py').read_text(encoding='utf-8'))
 
     def test_shell_metacharacters_and_parent_traversal_cannot_be_emitted(self):
         for name in ['bad;command.html','$(bad).html','../outside.html','bad name.html']:
