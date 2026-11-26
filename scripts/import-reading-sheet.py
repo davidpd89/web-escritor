@@ -41,6 +41,11 @@ def read_live(spreadsheet, token):
 
 
 AMAZON_FIELDS = ('formatos_compra', 'precios_amazon_revision', 'formatos_amazon_buscados', 'formatos_pagina_buscados', 'portadas_amazon_buscadas', 'portada_sustituida')
+# Lo que el barrido de Amazon anota y la hoja no produce: se conserva si la fila no lo fija. Sin esto cada libro de
+# la hoja con `publico_amazon` (26/11, lib-0001) rompía el contrato de importación y caía en cuarentena cada noche.
+# tests/test_reading_sheet_import_smoke.py obliga a clasificar aquí toda clave nueva que escriba reading_amazon_market.
+MARKET_FIELDS = ('publico_amazon', 'no_lectura', 'formato_edicion', 'edicion', 'encuadernacion')
+SHEET_FIELDS_TOUCHED_BY_MARKET = ('descripcion_breve', 'portada_local')
 
 
 def has_intake_record(book, state):
@@ -116,6 +121,7 @@ def convert(snapshot, review, existing, root):
         # The nightly Amazon sweep owns these fields; the sheet never rewinds them.
         previous = next((b for b in existing['libros'] if b['id'] == book['id']), {})
         book.update({k: previous[k] for k in AMAZON_FIELDS if k in previous})
+        book.update({k: previous[k] for k in MARKET_FIELDS if k in previous and k not in book})
         book_links = [link for link in links if link['libro_id'] == source_id and link.get('url')]
         book['resenas'] = [{'titulo': link['titulo_visible'], 'url': link['url'], 'fecha_verificacion': link['fecha_consulta']} for link in book_links if link['tipo'].startswith('resenas')]
         fragment = next((link for link in book_links if link['tipo'] == 'fragmento'), {})

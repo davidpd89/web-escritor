@@ -705,6 +705,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
     if deploy_before:
         deadline = recortar_al_job(time.monotonic() + 1800)
         followed = None  # deploy posterior que contiene merged_sha, tras cancelarse el nuestro por concurrencia
+        redespachado = False
+        current = None
         while time.monotonic() < deadline:
             if followed is None:
                 # Nuestro deploy, por su id. `ref main` despacha desde la punta: si main avanzó tras la fusión su
@@ -726,10 +728,23 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                     time.sleep(30)
                     continue
                 if current['conclusion'] != 'success':
+                    # Los datos ya están en main: un deploy fallido se reintenta una vez (fallo pasajero de Pages)
+                    # antes de dar la carga por fallida.
+                    if not redespachado:
+                        redespachado = True
+                        print(f'::warning::Pages {current["databaseId"]} falló para {merged_sha}; se despacha otra vez', flush=True)
+                        propio, followed, current = despachar(repo, 'deploy-pages.yml', 'main', before_sha=pr['baseRefOid']), None, None
+                        continue
                     raise RuntimeError(f'Pages failed for {merged_sha}: {current["databaseId"]}')
                 print(f'PASS Pages and production smoke @ {merged_sha}: {current["databaseId"]} @ {current["headSha"]}', flush=True)
                 return
             time.sleep(30)
+        if current and current['status'] != 'completed':
+            # 26/11 (carga 45776893030): Pages tardó 32 min y la espera, recortada al job, tumbó una carga ya fusionada.
+            # El deploy sigue en marcha con el merge dentro; la auditoría post-deploy verifica producción.
+            print(f'::warning::Pages {current["databaseId"]} sigue en curso con {merged_sha} al agotar la espera; '
+                  'la verificación queda para la auditoría post-deploy', flush=True)
+            return
         raise TimeoutError(f'Pages did not complete for exact merged commit {merged_sha}')
 
 
