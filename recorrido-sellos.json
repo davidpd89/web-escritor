@@ -634,109 +634,100 @@
     {
       "consulta": "Planeta Cómic",
       "nivel": 2,
-      "nodo": "28166968031",
+      "nodo": "12942066031",
       "ruta": [
-        "Cómics, manga y novelas gráficas",
-        "Manga"
-      ],
-      "sello": "Planeta Cómic"
-    },
-    {
-      "consulta": "Planeta Cómic",
-      "nivel": 1,
-      "nodo": "902520031",
-      "ruta": [
-        "Deportes y aire libre"
-      ],
-      "sello": "Planeta Cómic"
-    },
-    {
-      "consulta": "Planeta Cómic",
-      "nivel": 1,
-      "nodo": "902590031",
-      "ruta": [
-        "Derecho"
-      ],
-      "sello": "Planeta Cómic"
-    },
-    {
-      "consulta": "Planeta Cómic",
-      "nivel": 1,
-      "nodo": "902595031",
-      "ruta": [
-        "Economía y empresa"
-      ],
-      "sello": "Planeta Cómic"
-    },
-    {
-      "consulta": "Planeta Cómic",
-      "nivel": 1,
-      "nodo": "902681031",
-      "ruta": [
-        "Erótica"
-      ],
-      "sello": "Planeta Cómic"
-    },
-    {
-      "consulta": "Planeta Cómic",
-      "nivel": 1,
-      "nodo": "1349107031",
-      "ruta": [
-        "Fantasía y ciencia ficción"
-      ],
-      "sello": "Planeta Cómic"
-    },
-    {
-      "consulta": "Planeta Cómic",
-      "nivel": 1,
-      "nodo": "902600031",
-      "ruta": [
+        "Juvenil",
         "Historia"
       ],
       "sello": "Planeta Cómic"
     },
     {
       "consulta": "Planeta Cómic",
-      "nivel": 1,
-      "nodo": "902610031",
+      "nivel": 2,
+      "nodo": "12942168031",
       "ruta": [
-        "Hogar, manualidades y estilos de vida"
+        "Juvenil",
+        "Hobbies y juegos"
       ],
       "sello": "Planeta Cómic"
     },
     {
       "consulta": "Planeta Cómic",
-      "nivel": 1,
-      "nodo": "902620031",
+      "nivel": 2,
+      "nodo": "12942297031",
       "ruta": [
-        "Humor"
+        "Juvenil",
+        "Misterio y suspense"
       ],
       "sello": "Planeta Cómic"
     },
     {
       "consulta": "Planeta Cómic",
-      "nivel": 1,
-      "nodo": "902621031",
+      "nivel": 2,
+      "nodo": "12942149031",
       "ruta": [
-        "Infantil"
+        "Juvenil",
+        "Novelas históricas"
       ],
       "sello": "Planeta Cómic"
     },
     {
       "consulta": "Planeta Cómic",
-      "nivel": 1,
-      "nodo": "902652031",
+      "nivel": 2,
+      "nodo": "12942337031",
       "ruta": [
-        "Informática, internet y medios digitales"
+        "Juvenil",
+        "Novelas románticas"
       ],
       "sello": "Planeta Cómic"
     },
     {
       "consulta": "Planeta Cómic",
-      "nivel": 1,
-      "nodo": "12942013031",
+      "nivel": 2,
+      "nodo": "12942184031",
       "ruta": [
-        "Juvenil"
+        "Juvenil",
+        "Novelas y ficción literaria"
+      ],
+      "sello": "Planeta Cómic"
+    },
+    {
+      "consulta": "Planeta Cómic",
+      "nivel": 2,
+      "nodo": "12942111031",
+      "ruta": [
+        "Juvenil",
+        "Ordenadoes"
+      ],
+      "sello": "Planeta Cómic"
+    },
+    {
+      "consulta": "Planeta Cómic",
+      "nivel": 2,
+      "nodo": "12942320031",
+      "ruta": [
+        "Juvenil",
+        "Religión y espiritualidad"
+      ],
+      "sello": "Planeta Cómic"
+    },
+    {
+      "consulta": "Planeta Cómic",
+      "nivel": 2,
+      "nodo": "12942305031",
+      "ruta": [
+        "Juvenil",
+        "Salud personal"
+      ],
+      "sello": "Planeta Cómic"
+    },
+    {
+      "consulta": "Planeta Cómic",
+      "nivel": 2,
+      "nodo": "12942378031",
+      "ruta": [
+        "Juvenil",
+        "Temas sociales y familiares"
       ],
       "sello": "Planeta Cómic"
     },
@@ -1204,8 +1195,8 @@
   "errores": [],
   "grupos": {
     "planeta comic": {
-      "libros_es": 254,
-      "pendientes": 22
+      "libros_es": 882,
+      "pendientes": 20
     }
   },
   "hijos": {
@@ -3739,7 +3730,7 @@
       ]
     ]
   },
-  "libros_es": 19151,
+  "libros_es": 19982,
   "origen": {
     "Editorial Akelarre Ediciones": "Akelarre Ediciones",
     "Editorial Asociacion HAY Soluciones para Todo": "Asociacion HAY Soluciones para Todo",
@@ -3757,13 +3748,13 @@
     "Editorial Plomo Ediciones": "Plomo Ediciones",
     "Grupo Planeta Mexico": "Grupo Planeta México"
   },
-  "particiones": 1961,
-  "peticiones": 3833,
-  "reintentos": 10255,
-  "reintentos_dia": "2026-11-25",
-  "segundos": 133,
+  "particiones": 2016,
+  "peticiones": 3953,
+  "reintentos": 10520,
+  "reintentos_dia": "2026-11-26",
+  "segundos": 132,
   "sellos_leidos": 266,
-  "sellos_llenos": 234,
+  "sellos_llenos": 237,
   "sellos_nuevos": 160,
   "sellos_saltados": 9,
   "variantes_probadas": [

@@ -1,20 +1,20 @@
 {
- "generado": "2026-11-25T01:31:02+00:00",
- "publicados": 7928,
+ "generado": "2026-11-26T01:33:31+00:00",
+ "publicados": 8178,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 1022,
-   "proximos": 268,
+   "total": 1079,
+   "proximos": 275,
    "por_mes": {
     "2027-08": 1,
     "2027-05": 5,
     "2027-04": 1,
     "2027-03": 3,
-    "2027-02": 77,
-    "2027-01": 37,
-    "2026-12": 106,
-    "2026-11": 435,
-    "2026-10": 342,
+    "2027-02": 76,
+    "2027-01": 41,
+    "2026-12": 117,
+    "2026-11": 460,
+    "2026-10": 360,
     "2026-09": 11,
     "2026-08": 1,
     "2025-08": 1
@@ -223,10 +223,10 @@
    ]
   },
   "formatos_sin_precio": {
-   "total": 535,
-   "libros": 401,
+   "total": 534,
+   "libros": 400,
    "por_formato": {
-    "ebook": 218,
+    "ebook": 217,
     "tapa-blanda": 131,
     "tapa-dura": 94,
     "audiolibro": 92
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 355,
+   "total": 363,
    "muestra": [
     {
      "id": "isbn-9791388042324",
@@ -538,6 +538,13 @@
      "isbn13": "9791370341282",
      "editorial": "Susaeta Ediciones",
      "fecha_publicacion": "2026-09-09"
+    },
+    {
+     "id": "isbn-9788491459866",
+     "titulo": "Estado desde la sociedad, El. Espacios de poder en la España del siglo XIX. (ÁLBUMES ILUSTRADOS)",
+     "isbn13": "9788491459866",
+     "editorial": "Picarona",
+     "fecha_publicacion": "2026-11-23"
     },
     {
      "id": "isbn-9798890988430",
@@ -629,19 +636,12 @@
      "isbn13": "9791388465116",
      "editorial": "Agea Editora",
      "fecha_publicacion": "2026-10-31"
-    },
-    {
-     "id": "isbn-9791388613388",
-     "titulo": "Zarafa y la Filosofía: Descubre y cuida tu sistema filosófico",
-     "isbn13": "9791388613388",
-     "editorial": "María del Carmen Bengoechea Bernal0",
-     "fecha_publicacion": "2026-10-31"
     }
    ]
   },
   "sin_texto": {
-   "total": 4728,
-   "proximos": 624,
+   "total": 4978,
+   "proximos": 598,
    "por_mes": {
     "2028-01": 1,
     "2027-10": 1,
@@ -649,12 +649,12 @@
     "2027-05": 5,
     "2027-04": 3,
     "2027-03": 8,
-    "2027-02": 49,
-    "2027-01": 132,
-    "2026-12": 261,
-    "2026-11": 1589,
-    "2026-10": 1891,
-    "2026-09": 373
+    "2027-02": 50,
+    "2027-01": 140,
+    "2026-12": 280,
+    "2026-11": 1683,
+    "2026-10": 1958,
+    "2026-09": 375
    },
    "muestra": [
     {
@@ -840,10 +840,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": -36,
-  "formatos_sin_precio": 0,
-  "sin_formatos_de_compra": 19,
-  "sin_texto": 251,
+  "portadas_tipograficas": 57,
+  "formatos_sin_precio": -1,
+  "sin_formatos_de_compra": 8,
+  "sin_texto": 250,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -853,6 +853,48 @@
   "errores": {},
   "oportunidades": [],
   "sin_portada_en_amazon": [
+   {
+    "id": "isbn-9791387949693",
+    "titulo": "Stormside (Starside 2) (Sin límites)",
+    "isbn13": "9791387949693",
+    "editorial": "Alfaguara",
+    "fecha_publicacion": "2026-11-26"
+   },
+   {
+    "id": "isbn-9791388417764",
+    "titulo": "Jugando fuerte (edición especial) (Windy City 2) (Lo más visto)",
+    "isbn13": "9791388417764",
+    "editorial": "Montena",
+    "fecha_publicacion": "2026-11-26"
+   },
+   {
+    "id": "isbn-9791388484087",
+    "titulo": "Fatale Game Vol.1",
+    "isbn13": "9791388484087",
+    "editorial": "Moztros Producciones SL",
+    "fecha_publicacion": "2026-11-26"
+   },
+   {
+    "id": "isbn-9791399315707",
+    "titulo": "El árbol de los cuervos: Los cuentos del fénix II.: 2",
+    "isbn13": "9791399315707",
+    "editorial": "Somos Fénix Books S.l",
+    "fecha_publicacion": "2026-11-26"
+   },
+   {
+    "id": "isbn-9791388484063",
+    "titulo": "Yon",
+    "isbn13": "9791388484063",
+    "editorial": "Moztros Producciones SL",
+    "fecha_publicacion": "2026-11-26"
+   },
+   {
+    "id": "isbn-9788412567786",
+    "titulo": "Guía Proensa de los mejores vinos de España 2027",
+    "isbn13": "9788412567786",
+    "editorial": "Guía Proensa",
+    "fecha_publicacion": "2026-11-26"
+   },
    {
     "id": "isbn-9791388205866",
     "titulo": "Pau Riba en 20 canciones (Sílex Música)",
@@ -880,6 +922,20 @@
     "isbn13": "9791399294200",
     "editorial": "Real Instituto de Estudios Asturianos",
     "fecha_publicacion": "2026-11-25"
+   },
+   {
+    "id": "isbn-9788419605535",
+    "titulo": "Las crónicas de Rema 2: El reino del agua (Andana Gráfica)",
+    "isbn13": "9788419605535",
+    "editorial": "Andana Gráfica",
+    "fecha_publicacion": "2026-11-27"
+   },
+   {
+    "id": "isbn-9791399187342",
+    "titulo": "Quien aguarda en el puente del olvido",
+    "isbn13": "9791399187342",
+    "editorial": "Zona Abisal S.l.",
+    "fecha_publicacion": "2026-11-27"
    },
    {
     "id": "isbn-9791399216707",
@@ -924,74 +980,18 @@
     "fecha_publicacion": "2026-11-25"
    },
    {
-    "id": "isbn-9791387949693",
-    "titulo": "Stormside (Starside 2) (Sin límites)",
-    "isbn13": "9791387949693",
-    "editorial": "Alfaguara",
-    "fecha_publicacion": "2026-11-26"
+    "id": "isbn-9788411272995",
+    "titulo": "Es hora de hacer las paces con las redes sociales: Doce rounds para dejar de pelear con ellas y empezar a usarlas a tu favor",
+    "isbn13": "9788411272995",
+    "editorial": "Sat Nam Nova Casa",
+    "fecha_publicacion": "2026-11-27"
    },
    {
-    "id": "isbn-9791388417764",
-    "titulo": "Jugando fuerte (edición especial) (Windy City 2) (Lo más visto)",
-    "isbn13": "9791388417764",
-    "editorial": "Montena",
-    "fecha_publicacion": "2026-11-26"
-   },
-   {
-    "id": "isbn-9788419120649",
-    "titulo": "Mata a todos los magos: 1 (Las cuentas del bárbaro)",
-    "isbn13": "9788419120649",
-    "editorial": "Lubre",
-    "fecha_publicacion": "2026-11-24"
-   },
-   {
-    "id": "isbn-9788419120694",
-    "titulo": "La catedral de los ahogados: 2 (Trilogía Gótica Lunar)",
-    "isbn13": "9788419120694",
-    "editorial": "Lubre",
-    "fecha_publicacion": "2026-11-24"
-   },
-   {
-    "id": "isbn-9791388484087",
-    "titulo": "Fatale Game Vol.1",
-    "isbn13": "9791388484087",
-    "editorial": "Moztros Producciones SL",
-    "fecha_publicacion": "2026-11-26"
-   },
-   {
-    "id": "isbn-9791399315707",
-    "titulo": "El árbol de los cuervos: Los cuentos del fénix II.: 2",
-    "isbn13": "9791399315707",
-    "editorial": "Somos Fénix Books S.l",
-    "fecha_publicacion": "2026-11-26"
-   },
-   {
-    "id": "isbn-9791388484063",
-    "titulo": "Yon",
-    "isbn13": "9791388484063",
-    "editorial": "Moztros Producciones SL",
-    "fecha_publicacion": "2026-11-26"
-   },
-   {
-    "id": "isbn-9788412567786",
-    "titulo": "Guía Proensa de los mejores vinos de España 2027",
-    "isbn13": "9788412567786",
-    "editorial": "Guía Proensa",
-    "fecha_publicacion": "2026-11-26"
-   },
-   {
-    "id": "isbn-9791399188721",
-    "titulo": "Tres escritores venezolanos en España.: Rafael María Baralt, Rufino Blanco Fombon y Teresa De La Parra: 35 (Libros singulares)",
-    "isbn13": "9791399188721",
-    "editorial": "Fundación Instituto Castellano y Leonés de la Lengua",
-    "fecha_publicacion": "2026-11-23"
-   },
-   {
-    "id": "isbn-9791399119879",
-    "titulo": "Patologías: La caía de Johan van Vere de With",
-    "isbn13": "9791399119879",
-    "editorial": "Asociación Cultural Amistades Particulares, Libros Libres",
-    "fecha_publicacion": "2026-11-23"
+    "id": "isbn-9788410286726",
+    "titulo": "La navidad - signos y significados",
+    "isbn13": "9788410286726",
+    "editorial": "Alfar Editorial",
+    "fecha_publicacion": "2026-11-25"
    }
   ]
  }
