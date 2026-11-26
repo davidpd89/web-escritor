@@ -139,6 +139,22 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(tax.repair_classification(data, today='2026-11-27'), [])
         self.assertEqual(data['libros'][0]['fecha_actualizacion'], '2026-11-26')
 
+    def test_review_does_not_add_an_excluded_genre(self):
+        data = catalogue(('isbn-1', 'Una novela', ['terror', 'romance']), ('x', 'Otra', ['fantasia']))
+        data['libros'][0]['categorias_excluidas'] = ['fantasia']
+        ops = {'isbn-1': {'generos_gpt': ['fantasia', 'romance'], 'sobran': ['terror'], 'motivo': WHY}}
+        tax.apply_review(data, {'isbn-1': {'terror', 'romance'}}, ops)
+        self.assertNotIn('fantasia', cats_of(data, 'isbn-1'))
+
+    def test_review_additions_are_closed_under_derivation(self):
+        """terror + romance, GPT quita terror y da fantasía: entra también romantasy (Codex #1599)."""
+        data = catalogue(('isbn-1', 'Una novela', ['terror', 'romance']), ('x', 'Otra', ['fantasia']))
+        ops = {'isbn-1': {'generos_gpt': ['fantasia', 'romance'], 'sobran': ['terror'], 'motivo': WHY}}
+        tax.apply_review(data, {'isbn-1': {'terror', 'romance'}}, ops)
+        got = cats_of(data, 'isbn-1')
+        self.assertIn('fantasia', got)
+        self.assertEqual(tax.derived_categories(got, 'Una novela'), [])
+
 
 class PublishedReviewTests(unittest.TestCase):
     def test_flagged_genres_are_gone(self):

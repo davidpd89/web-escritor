@@ -42,7 +42,9 @@ for (let i = 0; i < 300; i++) {
   const cur = await ultima();
   const ocupado = await page.locator('[data-testid="stop-button"], button[aria-label*="Detener"], button[aria-label*="Stop"]').count();
   const pensando = /Pensando|Thinking|Buscando|Searching|Razonando/.test(cur.slice(0, 400)) && cur.length < 3000;
-  estable = (cur === prev && cur.length > 1500 && !ocupado && !pensando) ? estable + 5 : 0;
+  // Una respuesta corta también vale si el JSON ya está cerrado (--lote 1 o el último libro; Codex #1599).
+  const completa = cur.length > 1500 || /"libros"[\s\S]*\]\s*\}/.test(cur);
+  estable = (cur === prev && completa && !ocupado && !pensando) ? estable + 5 : 0;
   prev = cur;
   if (estable >= 60) break;
 }

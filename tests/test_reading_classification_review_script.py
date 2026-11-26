@@ -53,6 +53,12 @@ class ReviewScriptTests(unittest.TestCase):
         self.assertEqual(rev.parse(self.cat, text, asked={'narnia'}), {})
         self.assertEqual(rev.parse(self.cat, 'sin json'), {})
 
+    def test_correction_without_reason_stays_pending(self):
+        """Un «sobran» con motivo corto no se aplicaría: no cuenta como revisado (Codex #1599)."""
+        text = self.answer({'id': 'narnia', 'generos': ['Fantasía juvenil'], 'publico': 'infantil',
+                            'sobran': ['Terror'], 'motivo': 'no'})
+        self.assertEqual(rev.parse(self.cat, text), {})
+
     def test_pending_returns_book_when_it_gains_an_unseen_genre(self):
         ops = rev.parse(self.cat, self.answer(
             {'id': 'narnia', 'generos': ['Fantasía juvenil'], 'publico': 'infantil', 'sobran': [], 'motivo': ''},

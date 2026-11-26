@@ -591,7 +591,9 @@ def review_main(op: dict, genres: set, book: dict | None = None, assigned: set =
     (poesía o terror en un libro infantil) ni el del eje (romance en un libro que conserva «historia» y pesa más
     como no ficción). Si no, la revisión deshace esos repasos en cada carga (Codex #1599)."""
     book = book or {}
+    excluded = set(book.get('categorias_excluidas') or [])
     return next((g for g in op.get('generos_gpt') or [] if g in genres and g not in (op.get('sobran') or [])
+                 and g not in excluded
                  and g not in children_drop(book, set(assigned) | {g})
                  and g not in axis_loses(book, set(assigned) | {g})), None)
 
@@ -618,6 +620,12 @@ def review_opinion(catalogue: dict, by_book: dict, book: dict, op: dict, genres:
     by_book[ident] = left | add
     # El principal gana el eje: lo que queda en la otra cara sale como en repair_axis (no se publica en las dos).
     repair_axis_book(catalogue, by_book, book)
+    # Y arrastra lo que se deriva de él (fantasía + romance → romantasy), salvo lo excluido o lo que GPT quitó:
+    # el catálogo publicado debe quedar cerrado bajo derivación (Codex #1599).
+    blocked = set(book.get('categorias_excluidas') or []) | review_rejects(op)
+    derived = [c for c in derived_categories(by_book[ident], book.get('titulo') or '') if c not in blocked]
+    catalogue['libro_categorias'] += [{'libro_id': ident, 'categoria_id': c} for c in derived]
+    by_book[ident] |= set(derived)
     return True
 
 

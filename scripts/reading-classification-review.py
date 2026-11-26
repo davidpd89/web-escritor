@@ -141,6 +141,8 @@ def parse(cat, text, asked=None):
         pub = str(e.get('publico') or '').casefold().strip()
         if not gs or pub not in PUBLICOS:
             continue
+        if so and len(str(e.get('motivo') or '').strip()) < MIN_MOTIVO:
+            continue  # corrección sin motivo: no se aplicaría; el libro sigue pendiente y se vuelve a preguntar
         out[i] = {'generos_gpt': list(dict.fromkeys(gs)), 'publico_gpt': pub, 'sobran': sorted(set(so)),
                   'motivo': str(e.get('motivo') or '').strip(), 'genero_nuestro': sorted(cat.current(i)),
                   'fecha': time.strftime('%Y-%m-%d')}
