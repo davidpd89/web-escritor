@@ -190,6 +190,24 @@ class AmazonPriceTests(unittest.TestCase):
         self.assertEqual(len(calls),1)
         self.assertEqual(stats['status'],'pending_amazon_eligibility')
 
+    def test_odd_answer_for_one_book_does_not_stop_the_sweep(self):
+        """R2-02/R2-05 GPT (26/11): un KeyError leyendo un libro o guardándolo aparta ese libro; el barrido sigue."""
+        books=[dict(BOOK,id=f'lib-{i}',precios_amazon_revision='2026-10-01') for i in range(4)]
+        real_read,real_store=reading_amazon_market.item_sales_rank,reading_amazon_market.store_prices
+        def odd_rank(book,payload):
+            if book['id']=='lib-1': raise KeyError('salesRank')
+            return real_read(book,payload)
+        def odd_store(book,offers,day):
+            if book['id']=='lib-2': raise TypeError('precio raro')
+            return real_store(book,offers,day)
+        with patch.object(reading_amazon_market,'item_sales_rank',odd_rank),patch.object(reading_amazon_market,'store_prices',odd_store):
+            _,stats=refresh_offers({'libros':books},{'offers':[]},lambda b:response(),'contrato-21',NOW,sweep_days=1)
+        revised={b['id'] for b in books if b.get('precios_amazon_revision')==NOW.date().isoformat()}
+        self.assertEqual(revised,{'lib-0','lib-3'})
+        self.assertNotIn('status',stats)
+        self.assertEqual(sorted(f['book_id'] for f in stats['failures']),['lib-1','lib-2'])
+        self.assertFalse(books[2].get('formatos_compra'),'un guardado a medias no deja precios sin fecha')
+
     def test_chained_batch_does_not_reprice_what_was_revised_today(self):
         calls=[]
         def provider(book):
@@ -761,6 +779,19 @@ class AmazonApiCoverTests(unittest.TestCase):
         self.assertEqual(swapped,[('lib-1','https://m.media-amazon.com/images/I/51qFSR41gJL.jpg')],
                          'solo la tipográfica; la cubierta editorial no se toca')
         self.assertEqual(stats['portadas_api'],1)
+
+    def test_failed_cover_swap_keeps_the_new_prices(self):
+        """R3-05 GPT (26/11): la portada iba en la misma transacción y un fallo al bajarla tiraba los precios del día."""
+        book={**copy.deepcopy(BOOK),**self.GENERATED,'formatos_compra':[]}
+        def broken(b,url):
+            b['portada_local']='/a-medias.webp'
+            raise OSError('disco lleno')
+        _,stats=refresh_offers({'libros':[book]},{'offers':[]},lambda b:self.with_image(),'contrato-21',NOW,cover=broken)
+        self.assertEqual(book['precios_amazon_revision'],NOW.date().isoformat())
+        self.assertTrue(book.get('formatos_compra'))
+        self.assertEqual(book['portada_local'],self.GENERATED['portada_local'],'nada de portada a medio cambiar')
+        self.assertEqual(stats['portadas_api'],0)
+        self.assertIn('portada: OSError',stats['failures'][0]['error'])
 
     def test_sweep_replaces_an_amazon_cover_that_amazon_has_since_changed(self):
         # «El árbol de la buena muerte» (22/11): revisada el 09/11, Amazon cambió la imagen y la web seguía con la vieja.

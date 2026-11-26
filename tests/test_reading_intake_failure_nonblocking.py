@@ -19,7 +19,7 @@ spec.loader.exec_module(refresh)
 
 
 class IntakeFailure(unittest.TestCase):
-    def run_refresh(self, intake):
+    def run_refresh(self, intake, market_error=None, issue_error=None, price_status=None):
         config = {'autopublish': True, 'amazon_catalogo': {'enabled': True}}
         calls = MagicMock()
         with patch.object(refresh, 'read_json', return_value=config), \
@@ -35,16 +35,25 @@ class IntakeFailure(unittest.TestCase):
              patch.object(refresh, 'save_checkpoint', return_value='cp'), \
              patch.object(refresh, 'health_report'), \
              patch.object(refresh.estado, 'guardar', calls.guardar), \
+             patch.object(refresh, 'open_issue', calls.issue), \
              patch.object(refresh, 'assemble', calls.assemble):
             calls.market.return_value = True
+            calls.market.side_effect = market_error
+            calls.issue.side_effect = issue_error
+            if price_status:
+                def market(config):
+                    refresh.MARKET_STATUS['precios'] = price_status  # refresh_offers devuelve el estado, no lanza
+                    return True
+                calls.market.side_effect = market
             try:
                 refresh.refresh(publish=True)
                 error = None
-            except RuntimeError as exc:
+            except (Exception, SystemExit) as exc:  # noqa: BLE001
                 error = exc
         return calls, error
 
-    def test_failed_intake_still_refreshes_prices_and_covers_then_fails_visibly(self):
+    def test_failed_intake_still_refreshes_prices_and_covers_then_degrades_green(self):
+        """R2-07 (GPT, 26/11): el rojo final cortaba la cadena y lanzaba un reintento de lo ya publicado."""
         def boom(config, publish):
             raise KeyError('isbn-9791388351112')
         calls, error = self.run_refresh(boom)
@@ -56,8 +65,60 @@ class IntakeFailure(unittest.TestCase):
         self.assertIn('KeyError', report['stats']['error'])
         # La cola de semillas no avanza: la noche siguiente reintenta esas altas.
         calls.guardar.assert_not_called()
-        self.assertIsNotNone(error)
-        self.assertIsInstance(error.__cause__, KeyError)
+        self.assertIsNone(error)
+        calls.issue.assert_called_once()
+        self.assertEqual(calls.issue.call_args.args[0], 'Carga degradada: altas de Amazon (KeyError)')
+
+    def test_intake_exiting_without_credentials_does_not_stop_prices(self):
+        """R2-04 (GPT, 26/11): catalogo_amazon sale con SystemExit sin credenciales; `except Exception` no lo cogía."""
+        def no_credentials(config, publish):
+            raise SystemExit('Faltan credenciales de Creators API')
+        calls, error = self.run_refresh(no_credentials)
+        self.assertIsNone(error)
+        calls.discard.assert_called_once()
+        calls.market.assert_called_once()
+        calls.assemble.assert_called_once()
+        self.assertIn('SystemExit', calls.issue.call_args.args[0])
+
+    def test_issue_failure_does_not_turn_the_degraded_load_red(self):
+        """R3-09 GPT (26/11): sin permiso o sin red para la issue, el aviso no puede tumbar lo ya publicado."""
+        def boom(config, publish):
+            raise KeyError('x')
+        calls, error = self.run_refresh(boom, issue_error=RuntimeError('gh caído'))  # antes el mock quedaba tapado
+        self.assertIsNone(error)
+        calls.issue.assert_called_once()
+        calls.assemble.assert_called_once()
+
+    def test_price_provider_down_counts_as_a_failed_phase(self):
+        """CodeRabbit #1595: refresh_offers no lanza con el proveedor caído; con las altas también caídas, era verde
+        y el aviso decía que los precios sí se publicaron."""
+        def boom(config, publish):
+            raise KeyError('x')
+        for status in refresh.PROVIDER_DOWN:
+            with self.subTest(status=status):
+                calls, error = self.run_refresh(boom, price_status=status)
+                self.assertIsInstance(error, KeyError)
+                bodies = ' '.join(c.args[1] for c in calls.issue.call_args_list)
+                self.assertNotIn('sí se publicaron', bodies)
+                calls.discard.assert_called_once()  # solo se deshacen las altas: lo guardado del mercado se queda
+
+    def test_price_provider_down_alone_degrades_green_keeping_the_intake(self):
+        calls, error = self.run_refresh(lambda config, publish: {'new_books': ['a'], 'updated_books': [], 'stats': {}},
+                                        price_status='provider_unavailable')
+        self.assertIsNone(error)
+        self.assertEqual(calls.issue.call_args.args[0], 'Carga degradada: precios y portadas (RuntimeError)')
+        calls.guardar.assert_called_once()
+
+    def test_both_phases_failing_goes_red_with_honest_messages(self):
+        """R3-12 GPT (26/11): con las dos caídas, cada aviso decía que la otra sí se publicó; y sin nada publicado, rojo
+        para que entre el reintento."""
+        def boom(config, publish):
+            raise KeyError('x')
+        calls, error = self.run_refresh(boom, market_error=TimeoutError('api'))
+        self.assertIsInstance(error, KeyError)
+        bodies = ' '.join(c.args[1] for c in calls.issue.call_args_list)
+        self.assertEqual(calls.issue.call_count, 2)
+        self.assertNotIn('sí se publicaron', bodies)
 
     def test_successful_intake_keeps_the_normal_flow(self):
         calls, error = self.run_refresh(lambda config, publish: {'new_books': ['a'], 'updated_books': [], 'stats': {'accepted': 1}})
@@ -65,8 +126,9 @@ class IntakeFailure(unittest.TestCase):
         calls.discard.assert_not_called()
         calls.market.assert_called_once()
         calls.guardar.assert_called_once()
+        calls.issue.assert_not_called()
 
-    def test_failed_market_keeps_the_intake_and_fails_visibly(self):
+    def test_failed_market_keeps_the_intake_and_degrades_green(self):
         """#1312 (CodeRabbit): una excepción en market_refresh salía antes de save_checkpoint y perdía las altas."""
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -105,10 +167,10 @@ class IntakeFailure(unittest.TestCase):
                  patch.object(refresh, 'save_checkpoint', calls.save), \
                  patch.object(refresh, 'health_report'), \
                  patch.object(refresh.estado, 'guardar', calls.guardar), \
+                 patch.object(refresh, 'open_issue', calls.issue), \
                  patch.object(refresh, 'assemble', calls.assemble):
-                with self.assertRaises(RuntimeError) as raised:
-                    refresh.refresh(publish=True)
-            self.assertIsInstance(raised.exception.__cause__, TimeoutError)
+                refresh.refresh(publish=True)
+            self.assertEqual(calls.issue.call_args.args[0], 'Carga degradada: precios y portadas (TimeoutError)')
             self.assertEqual(catalogue.read_text(), '["alta"]\n')
             self.assertEqual(market.read_text(), '{"precios": 0}\n')
             self.assertTrue((root / 'assets/reading-covers/alta.webp').exists())

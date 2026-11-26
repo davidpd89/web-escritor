@@ -4,6 +4,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import catalogo_amazon as ca  # noqa: E402
@@ -281,6 +282,31 @@ class Transformar(unittest.TestCase):
         self.assertEqual(out['leidos'], 2)
         self.assertEqual(sorted(f['motivo'] for f in out['fallos']),
                          ['línea 2 del raw sin ASIN', 'línea 4 del raw ilegible'])
+
+    def test_an_item_with_an_unexpected_shape_is_set_aside_and_retried(self):
+        """R2-01/R2-11 GPT (26/11): un tipo raro en un resultado (idioma como entero, ASIN como lista) aparta ese ASIN."""
+        good = [item('D1', isbn('978841111141'), title='Uno'), item('D2', isbn('978841111142'), title='Dos'),
+                item('D3', isbn('978841111143'), title='Tres')]
+        odd = item('D4', isbn('978841111144'), title='Cuatro')
+        listed = dict(good[0], asin=['D9'])
+        rows = good[:1] + [odd, listed] + good[1:]
+        real = ca.to_record
+
+        def to_record(entry, *args):
+            if entry['item']['asin'] == 'D4':
+                raise TypeError('idioma 7')
+            return real(entry, *args)
+        with tempfile.TemporaryDirectory() as tmp:
+            ca.WORK = Path(tmp)
+            (Path(tmp) / 'raw').mkdir()
+            (Path(tmp) / 'raw' / '2026-11-06.jsonl').write_text(
+                ''.join(json.dumps({'nodo': '1', 'ruta': [], 'item': r}) + '\n' for r in rows), encoding='utf-8')
+            with patch.object(ca, 'to_record', to_record):
+                out = ca.transformar('2026-11-06', {'libros': []})
+        self.assertEqual(out['leidos'], 4)  # D1-D4; el de ASIN en lista no cuenta
+        motives = sorted(f['motivo'] for f in out['fallos'])
+        self.assertEqual(motives, ['error inesperado: TypeError: idioma 7', 'línea 3 del raw sin ASIN'])
+        self.assertTrue(motives[0].startswith(ca.RETRYABLE))
 
 
 class FakeProvider:
@@ -1372,3 +1398,72 @@ class PortadaDeLaApi(unittest.TestCase):
             self.assertEqual(ca.cover_for(record, lambda url: b'raw', convert, typographic), (b't', b'ts', (600, 900), False))
             self.assertEqual(record['cover_use_basis'], ca.COVER_BASIS)
             self.assertEqual(record['portada_fuente_url'], 'https://www.amazon.es/dp/B000000001')
+
+
+class Clash(ValueError):
+    """Como build-reading-catalogue.ValidationError: el dueño va en atributos, no en el texto."""
+
+    def __init__(self, message, libro=None, otro=None):
+        super().__init__(message)
+        self.libro, self.otro = libro, otro
+
+
+class GlobalValidationIsolation(unittest.TestCase):
+    """R2-06 (GPT, 26/11): un fallo global sin isbn en el texto tumbaba el lote entero con SystemExit."""
+
+    def catalogue(self, *ids):
+        return {'categorias': [{'id': 'c'}], 'libros': [{'id': i} for i in ids],
+                'libro_categorias': [{'libro_id': i, 'categoria_id': 'c'} for i in ids]}
+
+    def run_isolation(self, catalogue, added, bad):
+        dropped = []
+
+        def validate(data):
+            present = {b['id'] for b in data['libros']}
+            for rule in bad:
+                if rule <= present:
+                    raise Clash('dos fichas chocan')  # sin ids ni isbn en el texto
+
+        def drop(book_id, reason):
+            dropped.append(book_id)
+            catalogue['libros'] = [b for b in catalogue['libros'] if b['id'] != book_id]
+            added.discard(book_id)
+        ca.isolate_global(catalogue, added, validate, drop, {'c'})
+        return dropped
+
+    def test_unattributed_clash_drops_only_the_new_book_that_causes_it(self):
+        catalogue = self.catalogue('p1', 'p2', 'n1', 'n2', 'n3', 'n4', 'n5')
+        dropped = self.run_isolation(catalogue, {'n1', 'n2', 'n3', 'n4', 'n5'}, [{'p1', 'n4'}])
+        self.assertEqual(dropped, ['n4'])
+        self.assertEqual([b['id'] for b in catalogue['libros']], ['p1', 'p2', 'n1', 'n2', 'n3', 'n5'])
+
+    def test_clash_between_two_new_books_keeps_the_first(self):
+        dropped = self.run_isolation(self.catalogue('p1', 'n1', 'n2', 'n3'), {'n1', 'n2', 'n3'}, [{'n1', 'n3'}])
+        self.assertEqual(dropped, ['n3'])
+
+    def test_named_owner_is_dropped_without_searching(self):
+        catalogue, calls = self.catalogue('p1', 'n1', 'n2'), []
+
+        def validate(data):
+            calls.append(len(data['libros']))
+            if any(b['id'] == 'n2' for b in data['libros']):
+                raise Clash('portada repetida', libro='p1', otro='n2')
+        ca.isolate_global(catalogue, {'n1', 'n2'}, validate,
+                          lambda i, r: catalogue.update(libros=[b for b in catalogue['libros'] if b['id'] != i]))
+        self.assertEqual([b['id'] for b in catalogue['libros']], ['p1', 'n1'])
+        self.assertEqual(calls, [3, 1, 2])  # entero, base sin altas (R3-04), sin el culpable
+
+    def test_failure_already_in_the_published_catalogue_is_raised_not_blamed_on_new_books(self):
+        with self.assertRaises(Clash):
+            self.run_isolation(self.catalogue('p1', 'p2', 'n1'), {'n1'}, [{'p1', 'p2'}])
+
+    def test_new_book_named_in_a_failure_already_in_the_base_is_not_dropped(self):
+        """R3-04 GPT (26/11): el error citaba al alta como gemelo de un defecto previo y se apartaba a un inocente."""
+        catalogue, dropped = self.catalogue('p1', 'n1'), []
+
+        def validate(data):
+            if any(b['id'] == 'p1' for b in data['libros']):
+                raise Clash('ficha rota', libro='p1', otro='n1')
+        with self.assertRaises(Clash):
+            ca.isolate_global(catalogue, {'n1'}, validate, lambda i, r: dropped.append(i))
+        self.assertEqual(dropped, [])
