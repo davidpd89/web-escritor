@@ -39,6 +39,7 @@ const ROUTES=[...new Set([
   ...pick(groups.content,2),
   ...pick(groups.other,2),
 ])];
+assert.ok(ROUTES.length>0,'muestra rotatoria vacía: el sitemap no dio rutas');
 const ENGINES={chromium,firefox,webkit};
 const failures=[];
 

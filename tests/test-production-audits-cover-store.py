@@ -13,7 +13,11 @@ if node:
 # despliegue, con las portadas del almacén reescritas). Leer el fuente crudo hace que una portada ya movida al
 # almacén parezca rota (404 en el dominio) o distinta en producción, sea cual sea la comprobación que la use.
 # Solo la configuración de data/ (que no se compara con producción) se lee directamente.
-RAW_READ = re.compile(r"\b(?:readFileSync|readFile|createReadStream)\(\s*(?!'data/)([^,)]*)")
+RAW_READ = re.compile(r"\b(?:readFileSync|readFile|createReadStream)\s*\(\s*(?![\"'`]data/)([^,)]*)")
+# Regresión: un espacio antes del paréntesis o las comillas dobles no esconden una lectura cruda.
+for sample, hit in (("readFileSync(p)", True), ("readFileSync (p)", True), ("fs.readFile\t(x, cb)", True),
+                    ("readFileSync('data/a.json')", False), ('readFileSync("data/a.json")', False)):
+    assert bool(RAW_READ.search(sample)) is hit, sample
 bad = []
 for path in sorted((ROOT / "qa").glob("production-*.mjs")):
     text = path.read_text(encoding="utf-8")
