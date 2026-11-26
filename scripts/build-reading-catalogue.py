@@ -2096,14 +2096,6 @@ def author_photo(a, lazy=True):
             + (' loading="lazy"' if lazy else ' fetchpriority="high"') + ' decoding="async">')
 
 
-def photo_credit(a):
-    foto = a.get('foto')
-    if not foto:
-        return ''
-    return ('<small class="catalogue-photo-credit">Foto: <a href="' + esc(foto['fuente_url']) + '" target="_blank" rel="noopener noreferrer">' + esc(foto['autor']) + NEW_TAB + '</a> · '
-            + ('<a href="' + esc(foto['licencia_url']) + '" target="_blank" rel="noopener noreferrer license">' + esc(foto['licencia']) + NEW_TAB + '</a>' if foto.get('licencia_url') else esc(foto['licencia'])) + '</small>')
-
-
 def author_rows(authors, books, data, publishers, anchor):
     """Una fila por autor con libros: lo que piden la tarjeta, las facetas y la ordenación del índice."""
     index = category_index(data)
