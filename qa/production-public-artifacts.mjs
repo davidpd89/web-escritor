@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { readPublished } from './lib/cover-store-view.mjs';
 import path from 'node:path';
 import { assertProductionRelease } from './production-release-marker.mjs';
 
 const ORIGIN=(process.env.SITE_BASE_URL||'https://davidportodiaz.com').replace(/\/$/,'');
 const SHA=(process.env.EXPECTED_RELEASE_SHA||'').trim();
-const read=p=>fs.readFileSync(p);
+const read=p=>readPublished(p,{encoding:null});
 const normalizeXml=b=>b.toString('utf8').replace(/\r\n?/g,'\n').trim();
 
 await assertProductionRelease({origin:ORIGIN,sha:SHA,label:'public-artifacts'});
@@ -97,7 +98,7 @@ const eventDir='assets/events/calendar';
 const localIcs=fs.existsSync(eventDir)
   ? fs.readdirSync(eventDir).filter(x=>x.endsWith('.ics')).sort()
   : [];
-const eventos=fs.readFileSync('eventos.html','utf8');
+const eventos=readPublished('eventos.html');
 const linked=[...eventos.matchAll(/href=["']\/assets\/events\/calendar\/([^"'?#]+\.ics)["'][^>]*data-calendar-download/gi)]
   .map(m=>m[1]).sort();
 assert.deepEqual(linked,localIcs,'eventos: visible calendar links differ from tracked ICS files');

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
+import { readPublished } from './lib/cover-store-view.mjs';
 import { chromium, firefox, webkit } from 'playwright';
 import { assertProductionRelease } from './production-release-marker.mjs';
 
@@ -17,7 +18,7 @@ const entries=[...new Map(registry.entries
   .filter(x=>!String(x.url||'').includes('#'))
   .filter(x=>{
     try{
-      const html=fs.readFileSync(x.sourceFile,'utf8');
+      const html=readPublished(x.sourceFile);
       return html.includes('site-header')&&html.includes('data-explore-dialog');
     }catch{return false}
   })

@@ -49,3 +49,19 @@ export function expectedPublished(text, { html = false, store = loadCoverStore()
   }
   return out;
 }
+
+// Mismos sufijos que reescribe el despliegue (scripts/reading_cover_store.py TEXT_SUFFIXES).
+const TEXT_SUFFIXES = new Set(['.html', '.json', '.js', '.mjs', '.xml', '.txt', '.css', '.webmanifest', '.rss']);
+let cachedStore = null;
+
+// Lee un fichero del repo tal como lo publica el despliegue. Toda auditoría de producción lee con esto:
+// leer el fuente crudo hace que las portadas que ya están en el almacén parezcan rotas o distintas en producción.
+// encoding null devuelve un Buffer (comparaciones byte a byte); los binarios no se tocan.
+export function readPublished(path, { encoding = 'utf8', store } = {}) {
+  const raw = fs.readFileSync(path);
+  const dot = path.lastIndexOf('.');
+  const suffix = dot === -1 ? '' : path.slice(dot).toLowerCase();
+  if (!TEXT_SUFFIXES.has(suffix)) return encoding ? raw.toString(encoding) : raw;
+  const view = expectedPublished(raw.toString('utf8'), { html: suffix === '.html', store: store || (cachedStore ||= loadCoverStore()) });
+  return encoding ? view : Buffer.from(view, 'utf8');
+}

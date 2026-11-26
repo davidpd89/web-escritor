@@ -9,19 +9,30 @@ node = shutil.which("node")
 if node:
     done = subprocess.run([node, "qa/cover-store-view-test.mjs"], cwd=ROOT, capture_output=True, text=True)
     assert done.returncode == 0, done.stdout + done.stderr
-# Clase: toda auditoría que compare producción con un fichero del repo pasa por expectedPublished.
+# Método: una auditoría de producción solo lee ficheros del repo con readPublished (la vista que publica el
+# despliegue, con las portadas del almacén reescritas). Leer el fuente crudo hace que una portada ya movida al
+# almacén parezca rota (404 en el dominio) o distinta en producción, sea cual sea la comprobación que la use.
+# Solo la configuración de data/ (que no se compara con producción) se lee directamente.
+RAW_READ = re.compile(r"\b(?:readFileSync|readFile|createReadStream)\(\s*(?!'data/)([^,)]*)")
+bad = []
 for path in sorted((ROOT / "qa").glob("production-*.mjs")):
     text = path.read_text(encoding="utf-8")
-    for match in re.finditer(r"norm\(r\.body\),\s*norm\((\w+)\(", text):
-        assert match.group(1) == "expectedPublished", f"{path.name}: compara producción con el fuente crudo ({match.group(0)})"
-    # Misma transformación sobre el cuerpo de producción y sobre una variable leída cruda del repo
-    # (p. ej. semantic(body) frente a semantic(localHtml)): el fuente no lleva las URL del almacén.
-    raw_vars = re.findall(r"(?:const|let)\s+(\w+)\s*=\s*(?:read|fs\.readFileSync)\(", text)
-    on_body = set(re.findall(r"\b(\w+)\((?:r\.)?body\b", text))
-    for var in raw_vars:
-        for fn in set(re.findall(rf"\b(\w+)\({var}\b", text)) & on_body:
-            assert fn == "expectedPublished", f"{path.name}: {fn}() compara producción con el fuente crudo `{var}`; pasar por expectedPublished"
-    # JSON de producción frente a JSON del repo: el esperado también pasa por la vista publicada.
-    for match in re.finditer(r"deepEqual\(JSON\.parse\((?:r\.)?body\),\s*([^;]+?),\s*\w+\)", text):
-        assert "expectedPublished" in match.group(1), f"{path.name}: JSON de producción frente a {match.group(1)} crudo"
+    bad += [f"{path.name}: lectura cruda de {m.group(1).strip() or '?'}" for m in RAW_READ.finditer(text)]
+assert not bad, "usar readPublished (qa/lib/cover-store-view.mjs):\n" + "\n".join(bad)
+if node:
+    # readPublished reescribe texto publicado, deja binarios intactos y es idempotente.
+    probe = (
+        "import fs from 'node:fs';import os from 'node:os';import path from 'node:path';"
+        "import {readPublished} from './qa/lib/cover-store-view.mjs';"
+        "const d=fs.mkdtempSync(path.join(os.tmpdir(),'rp-'));"
+        "const store={base:'https://s.example/p',stored:new Set(['isbn-1.webp']),extra:[],where:{}};"
+        "const h=path.join(d,'a.html');fs.writeFileSync(h,'<img src=\"/assets/reading-covers/isbn-1.webp\">');"
+        "const b=path.join(d,'a.webp');fs.writeFileSync(b,'/assets/reading-covers/isbn-1.webp');"
+        "const v=readPublished(h,{store});"
+        "if(!v.includes('https://s.example/p/isbn-1.webp'))throw new Error('html sin reescribir '+v);"
+        "if(readPublished(b,{store,encoding:null}).toString()!=='/assets/reading-covers/isbn-1.webp')throw new Error('binario tocado');"
+        "fs.writeFileSync(h,v);if(readPublished(h,{store})!==v)throw new Error('no idempotente');"
+    )
+    done = subprocess.run([node, "--input-type=module", "-e", probe], cwd=ROOT, capture_output=True, text=True)
+    assert done.returncode == 0, done.stdout + done.stderr
 print("PASS: auditorías de producción con vista del almacén de portadas")
