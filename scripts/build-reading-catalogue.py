@@ -1894,7 +1894,7 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
                 +('<a class="catalogue-buy-link" href="'+esc(buy)+'"'+sponsored+' aria-label="Comprar «'+esc(b['titulo'])+'» en Amazon (otra pestaña)">'+amazon_action_label(b)+' <span aria-hidden="true">↗</span></a>' if buy else '')+'</li>')
     life=life_line(a) if person_like else ''
     chips=''.join('<li><a href="'+AUTHORS_BASE+'#genero='+esc(g['id'])+'">'+esc(g['nombre'])+'</a></li>' for g in genres[:3])
-    cta=('<p class="catalogue-author-cta"><a class="catalogue-buy-link" href="'+esc(amazon_author_destination(a))+'"'+sponsored+'>Sus libros en Amazon <span aria-hidden="true">↗</span>'+NEW_TAB+'</a></p>') if person_like else ''
+    cta=('<p class="catalogue-author-cta"><a class="catalogue-buy-link" href="'+esc(amazon_author_destination(a,selected))+'"'+sponsored+'>Sus libros en Amazon <span aria-hidden="true">↗</span>'+NEW_TAB+'</a></p>') if person_like else ''
     photo=('<figure class="catalogue-author-figure">'+author_photo(a,False)+'</figure>') if person_like else ''
     faq=author_faq(a,selected,genres,anchor) if person_like else []
     toc=before=after=''
@@ -2046,10 +2046,16 @@ def author_century(a):
     return f'siglo-{century}' if century in ROMAN else ''
 
 
-def amazon_author_destination(a):
-    """Página de autor de Amazon.es con la etiqueta; sin ID conocido, búsqueda etiquetada por autor en Libros."""
+def amazon_author_destination(a, books=()):
+    """Página de autor de Amazon.es con la etiqueta. Sin ID (Amazon no le ha abierto página), la ficha de su libro más
+    reciente con enlace verificado: la búsqueda por nombre mezclaba homónimos y coautores («Juana Cárdenas» para «Juan
+    Cárdenas»). Sin libro verificado, búsqueda etiquetada por autor en Libros."""
     if a.get('amazon_autor_id'):
         return amazon_es('https://www.amazon.es/stores/author/' + a['amazon_autor_id'] + '?tag=' + AUTHOR_TAG)
+    for b in _newest_first(list(books)):
+        link = amazon_destination(b)
+        if amazon_asin(link):
+            return link
     return amazon_es('https://www.amazon.es/s?i=stripbooks&rh=' + quote('p_27:' + a['nombre'], safe='') + '&tag=' + AUTHOR_TAG)
 
 
@@ -2148,7 +2154,7 @@ def author_card(r, lazy=True):
     attrs = (f'data-catalogue-book data-group="{" ".join(r["groups"])}" data-book-id="{esc(a["slug"])}" data-categories="{esc(" ".join(r["categories"]))}" data-title="{esc(a["nombre"])}"'
              f' data-sort-name="{esc(a["nombre"].casefold())}" data-score="{r["score"]}" data-search="{esc(a["nombre"] + " " + titles + " " + isbns)}" data-books="{len(bs)}"'
              + (f' data-dates="{" ".join(r["dates"])}"' if r['dates'] else '') + (f' data-published="{r["latest"]}"' if r['latest'] else '') + (f' data-born="{born}"' if born else ''))
-    destination = amazon_author_destination(a)
+    destination = amazon_author_destination(a, bs)
     amazon = f'href="{esc(destination)}" target="_blank" rel="sponsored nofollow noopener noreferrer"'
     if r['upcoming']:
         when = 'Próximo libro · ' + r['upcoming_label']

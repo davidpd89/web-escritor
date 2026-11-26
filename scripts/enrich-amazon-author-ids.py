@@ -51,10 +51,17 @@ def author_id(page: str, name: str) -> str | None:
     return None
 
 
+class Blocked(Exception):
+    pass
+
+
 def get(url: str) -> str:
     """curl y no urllib: amazon.es sirve a urllib una página de «seguir comprando» (huella TLS)."""
     out = subprocess.run(['curl', '-s', '--max-time', '30', '-A', UA, '-H', 'Accept-Language: es-ES,es;q=0.9', url], capture_output=True, check=True)
-    return out.stdout.decode('utf-8', 'replace')
+    page = out.stdout.decode('utf-8', 'replace')
+    if len(page) < 20000 and 'seguir comprando' in page or not page:
+        raise Blocked(url)  # página de bloqueo: no es «el autor no tiene ID»
+    return page
 
 
 def fetch(isbn13: str) -> str:
@@ -97,9 +104,9 @@ def main() -> None:
                 time.sleep(args.pausa)
                 if ident:
                     break
-        except Exception as exc:  # 5xx/429 o corte: no se marca como probado
-            print('error', a['nombre'], exc)
-            time.sleep(10)
+        except Exception as exc:  # bloqueo, 5xx o corte: no se marca como probado; se espera y se sigue
+            print('error', a['nombre'], exc, flush=True)
+            time.sleep(60 if isinstance(exc, Blocked) else 10)
             continue
         if ident:
             a['amazon_autor_id'] = ident
