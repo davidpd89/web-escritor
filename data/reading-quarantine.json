@@ -1,4 +1,117 @@
 {
-  "libros": [],
+  "libros": [
+    {
+      "categorias": [
+        "aventuras",
+        "fantasia",
+        "fantasia-juvenil",
+        "fantasia-oscura",
+        "juvenil",
+        "misterio",
+        "misterio-y-thriller",
+        "mundos-paralelos",
+        "terror"
+      ],
+      "causa": "contrato de datos test_sheet_import_reproduces_the_catalogue: AssertionError: Importación desactualizada: lib-N",
+      "desde": "2026-11-26",
+      "fuente": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
+      "intentos": 1,
+      "isbn": "9788498382372",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788498382372&tag=davidporto-21",
+        "anio_publicacion": 2009,
+        "audio_descripcion": "/assets/reading-audio/coraline-da027726f648.mp3",
+        "audio_voz": "Voz sintética · Elvira (español de España)",
+        "autores": [
+          "Neil Gaiman"
+        ],
+        "autorizacion_o_base_uso": "Cubierta promocional de la edición ISBN 9788498382372 ofrecida en la ficha oficial de la editorial, que incluye descarga de imagen. Uso identificativo junto a la recomendación y sus datos bibliográficos, con enlace y atribución a la fuente; no procede de Amazon ni se altera el diseño.",
+        "descripcion_breve": "Tras mudarse a una casa antigua, Coraline encuentra una puerta hacia otra versión de su hogar. Allí todo parece mejor, hasta que descubre que sus otros padres no piensan dejarla marchar.",
+        "descripcion_original_confirmada": true,
+        "edad_recomendada": "A partir de 9 años",
+        "edicion": "Tapa blanda con solapas · Salamandra",
+        "editorial": "Salamandra",
+        "editorial_slug": "salamandra",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-10-20",
+        "fecha_publicacion": "2009-06-01",
+        "fecha_verificacion": "2026-10-20",
+        "formato_edicion": "tapa-blanda",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-26",
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/8498382378",
+            "precio_centimos": 1135,
+            "precio_referencia_centimos": 1195,
+            "url": "https://www.amazon.es/dp/8498382378?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          },
+          {
+            "fecha_verificacion": "2026-11-26",
+            "formato": "tapa-dura",
+            "fuente_url": "https://www.amazon.es/dp/8498382378",
+            "precio_centimos": 1420,
+            "precio_referencia_centimos": 1495,
+            "url": "https://www.amazon.es/dp/847888579X?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          },
+          {
+            "fecha_verificacion": "2026-11-26",
+            "formato": "ebook",
+            "fuente_url": "https://www.amazon.es/dp/8498382378",
+            "precio_centimos": 664,
+            "precio_referencia_centimos": 699,
+            "url": "https://www.amazon.es/dp/B08CYCPBZN?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          },
+          {
+            "fecha_verificacion": "2026-11-26",
+            "formato": "audiolibro",
+            "fuente_url": "https://www.amazon.es/dp/8498382378",
+            "precio_centimos": 959,
+            "precio_referencia_centimos": 1370,
+            "url": "https://www.amazon.es/dp/B08CR4VJRT?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "formatos_pagina_buscados": "2026-11-11",
+        "fragmento_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372/fragmento",
+        "fuente_bibliografica_url": "https://www.penguinrandomhouse.com/books/665423/coraline-spanish-edition-by-neil-gaiman/9788498382372/",
+        "fuente_edad_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
+        "fuente_publicacion_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
+        "id": "lib-0001",
+        "idioma": "es",
+        "isbn13": "9788498382372",
+        "numero_paginas": 160,
+        "portada_alto": 1280,
+        "portada_ancho": 797,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-10-20",
+        "portada_fuente_url": "https://www.penguinlibros.com/cl/53759/coraline.jpg",
+        "portada_local": "/assets/reading-covers/coraline-9788498382372.webp",
+        "precios_amazon_revision": "2026-11-26",
+        "publico_amazon": "infantil",
+        "pvp_centimos": 1195,
+        "pvp_fecha_verificacion": "2026-10-21",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-10-20",
+            "titulo": "Reseñas de lectores (Goodreads)",
+            "url": "https://www.goodreads.com/book/show/6785288.Coraline"
+          },
+          {
+            "fecha_verificacion": "2026-10-20",
+            "titulo": "Opiniones de crítica y reseñas en la editorial",
+            "url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372"
+          }
+        ],
+        "sinopsis_breve": "Tras mudarse a una casa antigua, Coraline encuentra una puerta hacia otra versión de su hogar. Allí todo parece mejor, hasta que descubre que sus otros padres no piensan dejarla marchar.",
+        "sinopsis_fuente_url": "https://www.penguinlibros.com/es/libros-ninos-9-anos/37666-libro-coraline-9788498382372",
+        "sinopsis_tipo": "resumen_propio",
+        "slug": "coraline",
+        "titulo": "Coraline",
+        "url_amazon_afiliada": "https://www.amazon.es/dp/8498382378?tag=davidporto-21"
+      },
+      "motivo": "lib-0001: contrato de datos test_sheet_import_reproduces_the_catalogue: AssertionError: Importación desactualizada: lib-0001",
+      "ultimo_intento": "2026-11-26"
+    }
+  ],
   "schema_version": 1
 }
