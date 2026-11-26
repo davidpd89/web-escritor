@@ -234,7 +234,17 @@ def isolate(data, root, previous=None, held=(), today=None, flagged=None):
 
 
 def flagged_books(failures, data):
-    """De los fallos de los contratos de datos, {id: motivo} si TODOS nombran algún libro del catálogo; si alguno no
+    """{id: motivo} si TODOS los fallos nombran algún libro; si alguno no, None (ver split_flagged)."""
+    named, unattributed = split_flagged(failures, data)
+    return None if unattributed else named
+
+
+def split_flagged(failures, data):
+    """({id: motivo}, [fallos sin libro]). Los fallos que nombran libros se apartan aunque otros no nombren ninguno: un
+    contrato sin atribuir no anula las atribuciones buenas de los demás (R2-03 GPT, 26/11). Lo que quede sin atribuir
+    cuando no hay nada que apartar es una regla rota (o código) y la carga para.
+
+    De los fallos de los contratos de datos, {id: motivo} si TODOS nombran algún libro del catálogo; si alguno no
     nombra ninguno es una regla rota (o código), no un dato, y se devuelve None para que la carga pare.
 
     Un contrato migrado declara sus libros (`libros`: {id: motivo}, tests/contrato_libros.py) y manda eso: nada de
@@ -246,12 +256,15 @@ def flagged_books(failures, data):
     # Y otros por la ruta de su ficha: el slug no siempre coincide con el id.
     by_slug = {b['slug']: b['id'] for b in data['libros'] if b.get('slug') and b['slug'] not in ids}
     out = {}
+    unattributed = []
     for failure in failures:
         rule = failure.get('regla') or failure['test'].split('.')[-1]
         if 'libros' in failure:
-            declared = failure['libros']
-            if not declared or set(declared) - ids:
-                return None
+            # R3-08 GPT (26/11): un id obsoleto en la lista no anula los libros vigentes que el contrato también declara.
+            declared = {k: v for k, v in (failure['libros'] or {}).items() if k in ids}
+            if not declared:
+                unattributed.append(failure)
+                continue
             for book_id, why in declared.items():
                 out.setdefault(book_id, f'contrato de datos {rule}: {str(why)[:240]}')
             continue
@@ -260,7 +273,8 @@ def flagged_books(failures, data):
         found += [by_slug[t] for t in re.findall(r'[a-z0-9]+(?:-[a-z0-9]+)+', failure['texto']) if t in by_slug]
         named = list(dict.fromkeys(found))
         if not named:
-            return None
+            unattributed.append(failure)
+            continue
         lines = [line.strip() for line in failure['texto'].strip().splitlines() if line.strip()] or ['']
         isbn_of = {v: k for k, v in by_isbn.items()}
         for book_id in named:
@@ -268,7 +282,7 @@ def flagged_books(failures, data):
             own = [line for line in lines if book_id in line or (isbn_of.get(book_id) or book_id) in line]
             motivo = (own or lines)[-1 if not own else 0]
             out.setdefault(book_id, f"contrato de datos {rule}: {motivo[:240]}")
-    return out
+    return out, unattributed
 
 
 # --- Reparaciones de reglas generales -------------------------------------------------------------------------

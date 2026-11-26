@@ -158,7 +158,11 @@ EDITION_PREFERENCE = ['tapa-blanda', 'tapa-dura', 'ebook', 'audiolibro']
 # Huecos que Amazon suele rellenar días después del alta (sobre todo en «próximamente»): el libro no se
 # descarta, se vuelve a pedir con getItems a 1, 2, 4, 8, 16 y 30 días hasta que llega el campo.
 RETRYABLE = ('sin materia', 'sin título', 'sin autoría', 'sin editorial', 'sin fecha de publicación', 'encuadernación: vacía',
-             'sin idioma y con ISBN extranjero')
+             'sin idioma y con ISBN extranjero', 'error inesperado')
+# Un resultado de Amazon con una forma que el código no espera (tipo cambiado, campo que falta) aparta ese ASIN, no la
+# carga: va a la cola con los demás reintentables y, si el fallo sigue, se descarta como cualquier otro (R2-01 GPT, 26/11).
+UNEXPECTED = (AttributeError, IndexError, KeyError, TypeError, ValueError)
+ASIN = re.compile(r'[A-Za-z0-9]{1,20}')
 RETRY_DAYS = (1, 2, 4, 8, 16, 30)
 
 
@@ -1376,7 +1380,7 @@ def transformar(day, catalogue, write_pending=True):
             failures.append({'fase': 'transformar', 'motivo': f'línea {number} del raw ilegible'})
             continue
         asin = amazon_dict(entry.get('item') if isinstance(entry, dict) else None).get('asin')
-        if not asin:
+        if not isinstance(asin, str) or not ASIN.fullmatch(asin):
             failures.append({'fase': 'transformar', 'motivo': f'línea {number} del raw sin ASIN'})
             continue
         # El mismo libro sale por varias búsquedas; se queda la aparición con la clasificación más completa.
@@ -1398,6 +1402,9 @@ def transformar(day, catalogue, write_pending=True):
         except Rejected as exc:
             failures.append({'asin': asin, 'fase': 'transformar', 'motivo': str(exc)})
             continue
+        except UNEXPECTED as exc:
+            failures.append({'asin': asin, 'fase': 'transformar', 'motivo': f'error inesperado: {type(exc).__name__}: {exc}'[:240]})
+            continue
         try:
             # Solo nodos de escaparate: sin materia no hay dónde mostrarlo. Amazon suele asignarla días
             # después, así que se vuelve a pedir (pendientes) en vez de publicarlo sin clasificar.
@@ -1408,6 +1415,10 @@ def transformar(day, catalogue, write_pending=True):
             nodes = node_names(entry['item']) or record.get('nodos') or []
             failures.append({'asin': asin, 'isbn13': record['isbn13'], 'fase': 'transformar',
                              'motivo': 'materia sin mapear' if nodes else 'sin materia'} | ({'nodos': nodes} if nodes else {}))
+            continue
+        except UNEXPECTED as exc:
+            failures.append({'asin': asin, 'isbn13': record.get('isbn13'), 'fase': 'transformar',
+                             'motivo': f'error inesperado: {type(exc).__name__}: {exc}'[:240]})
             continue
         complete.add(asin)
         if record['isbn13'] in known_isbn:
@@ -1698,7 +1709,11 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT, fetch_image=fet
         module.CATEGORY_INDEX = (catalogue, index)
     # Contenido mínimo para orientar (lo exige la puerta de textos): se mide, no se adivina.
     for book in [b for b in catalogue['libros'] if b['id'] in added]:
-        modules = {m['modulo'] for m in texts.payload(catalogue, book)['modulos_permitidos']}
+        try:
+            modules = {m['modulo'] for m in texts.payload(catalogue, book)['modulos_permitidos']}
+        except Exception as exc:  # noqa: BLE001 - los textos de un libro raro no tumban el lote (R2-06 GPT, 26/11)
+            drop(book['id'], f'textos no generados: {type(exc).__name__}: {exc}')
+            continue
         if len(modules) < texts.MIN_BLOCKS or 'para_quien' not in modules:
             drop(book['id'], 'datos insuficientes para orientar: ' + (', '.join(sorted(modules)) or 'ningún bloque'))
     # Cuarentena en dos pasos. 1) Cada libro nuevo solo (milisegundos): sus campos, enlaces y portada.
@@ -1711,19 +1726,18 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT, fetch_image=fet
         try:
             builder.validate(alone, root)
         except builder.ValidationError as exc:
-            if book['id'] in str(exc):
+            # Solo está este libro: lo que no sea de un fichero común es suyo (aunque el texto no lo nombre).
+            if not getattr(exc, 'general', False):
                 drop(book['id'], str(exc))
+        except (*UNEXPECTED, OSError) as exc:
+            # R3-07 GPT (26/11): un fallo al leer su portada o un campo de tipo raro es de este libro, no del lote.
+            drop(book['id'], f'validación: {type(exc).__name__}: {exc}'[:240])
     # 2) El catálogo entero (duplicados entre libros): el libro nuevo que lo rompe sale y se repite.
-    while True:
-        try:
-            builder.validate(catalogue, root)
-            break
-        except builder.ValidationError as exc:
-            found = re.search(r'isbn-\d{13}', str(exc))
-            if not found or found.group() not in added:
-                write_json(WORK / f'fallos-{day}.json', summarize(failures))
-                raise SystemExit(f'Validación global sin libro nuevo al que atribuirla: {exc}')
-            drop(found.group(), str(exc))
+    try:
+        isolate_global(catalogue, added, lambda data: builder.validate(data, root), drop, base_categories)
+    except builder.ValidationError:
+        write_json(WORK / f'fallos-{day}.json', summarize(failures))
+        raise
     # Las categorías que solo creó un libro apartado no se quedan vacías.
     used = {r['categoria_id'] for r in catalogue['libro_categorias']}
     catalogue['categorias'] = [c for c in catalogue['categorias'] if c['id'] in used or c['id'] in base_categories]
@@ -1741,6 +1755,67 @@ def aplicar(day, tag, candidates, transform_failures, root=ROOT, fetch_image=fet
     report = summarize(failures)
     write_json(WORK / f'fallos-{day}.json', report)
     return {'publicados': len(added), 'enlazados': linked, 'fallos': len(failures), 'motivos': report['motivos']}
+
+
+def owners(exc, catalogue):
+    """Ids de libro que un ValidationError nombra por sus atributos (libro, otro, posicion), no por su texto."""
+    found = [getattr(exc, 'libro', None), getattr(exc, 'otro', None)]
+    position = getattr(exc, 'posicion', None)
+    if isinstance(position, int) and 0 <= position < len(catalogue['libros']):
+        found.append(catalogue['libros'][position].get('id'))
+    found += re.findall(r'isbn-\d{13}', str(exc))  # validadores antiguos que solo lo dicen en el mensaje
+    return [i for i in dict.fromkeys(found) if isinstance(i, str)]
+
+
+def subset(catalogue, keep, base_categories):
+    """El catálogo con solo los libros de `keep` (y las categorías que sigan en uso o ya existieran)."""
+    relations = [r for r in catalogue['libro_categorias'] if r['libro_id'] in keep]
+    used = {r['categoria_id'] for r in relations}
+    return {**catalogue, 'libros': [b for b in catalogue['libros'] if b['id'] in keep], 'libro_categorias': relations,
+            'categorias': [c for c in catalogue['categorias'] if c['id'] in used or c['id'] in base_categories]}
+
+
+def isolate_global(catalogue, added, validate, drop, base_categories=()):
+    """Valida el catálogo entero apartando los libros nuevos que lo rompen, de uno en uno, hasta que pase.
+
+    El culpable sale de los atributos del error; si no nombra ningún libro nuevo, búsqueda binaria: el prefijo más corto
+    de altas que ya falla delata a la última (R2-06 GPT, 26/11: antes un error sin isbn en el texto tumbaba el lote).
+    Si falla sin ninguna alta, el fallo ya estaba en el catálogo publicado y se propaga: apartar altas no lo arregla."""
+    base_broken = None
+    while True:
+        try:
+            validate(catalogue)
+            return
+        except Exception as exc:  # noqa: BLE001 - ValidationError u otro tipo: la búsqueda decide de quién es
+            error = exc
+        published = {b['id'] for b in catalogue['libros']} - set(added)
+        new = [b['id'] for b in catalogue['libros'] if b['id'] in added]
+
+        def fails(count):
+            try:
+                validate(subset(catalogue, published | set(new[:count]), base_categories))
+                return False
+            except Exception:  # noqa: BLE001
+                return True
+        # R3-04 GPT (26/11): si el catálogo sin altas ya falla, un alta citada en el error es contexto, no culpable.
+        if base_broken is None:
+            base_broken = bool(new) and fails(0)
+        if not new or base_broken:
+            raise error  # ya fallaba sin altas: apartar libros no lo arregla
+        named = [i for i in owners(error, catalogue) if i in added]
+        if named:
+            drop(named[0], str(error))
+            continue
+        if not fails(len(new)):
+            raise error  # el fallo no depende de las altas
+        low, high = 1, len(new)
+        while low < high:
+            mid = (low + high) // 2
+            if fails(mid):
+                high = mid
+            else:
+                low = mid + 1
+        drop(new[low - 1], f'rompe la validación del catálogo junto a los publicados: {error}')
 
 
 def summarize(failures):
