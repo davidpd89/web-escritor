@@ -19,7 +19,7 @@ spec.loader.exec_module(refresh)
 
 
 class IntakeFailure(unittest.TestCase):
-    def run_refresh(self, intake, market_error=None, issue_error=None, price_status=None):
+    def run_refresh(self, intake, market_error=None, issue_error=None, price_status=None, assemble_error=None):
         config = {'autopublish': True, 'amazon_catalogo': {'enabled': True}}
         calls = MagicMock()
         with patch.object(refresh, 'read_json', return_value=config), \
@@ -40,6 +40,7 @@ class IntakeFailure(unittest.TestCase):
             calls.market.return_value = True
             calls.market.side_effect = market_error
             calls.issue.side_effect = issue_error
+            calls.assemble.side_effect = assemble_error
             if price_status:
                 def market(config):
                     refresh.MARKET_STATUS['precios'] = price_status  # refresh_offers devuelve el estado, no lanza
@@ -119,6 +120,18 @@ class IntakeFailure(unittest.TestCase):
         bodies = ' '.join(c.args[1] for c in calls.issue.call_args_list)
         self.assertEqual(calls.issue.call_count, 2)
         self.assertNotIn('sí se publicaron', bodies)
+
+    def test_open_pr_timeout_does_not_hide_the_failed_phases(self):
+        """CodeRabbit #1597: la PR que queda abierta para el siguiente cron no tapa el aviso ni el rojo de las fases."""
+        def boom(config, publish):
+            raise KeyError('x')
+        pr = refresh.publisher.publication.PrAbierta('CI timed out; PR left open')
+        calls, error = self.run_refresh(boom, assemble_error=pr)
+        self.assertIs(error, pr)  # main() la convierte en aviso y conserva el punto de guardado
+        self.assertEqual(calls.issue.call_args.args[0], 'Carga degradada: altas de Amazon (KeyError)')
+        calls, error = self.run_refresh(boom, market_error=TimeoutError('api'), assemble_error=pr)
+        self.assertIsInstance(error, KeyError)  # las dos caídas: rojo para el reintento
+        self.assertEqual(calls.issue.call_count, 2)
 
     def test_successful_intake_keeps_the_normal_flow(self):
         calls, error = self.run_refresh(lambda config, publish: {'new_books': ['a'], 'updated_books': [], 'stats': {'accepted': 1}})

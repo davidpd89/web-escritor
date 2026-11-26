@@ -17,7 +17,7 @@ spec.loader.exec_module(module)
 
 
 def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled', exact_present=True, main_files=(),
-             vistas_en_cola=0, ajeno=False, aun_sin_registrar=0):
+             vistas_en_cola=0, ajeno=False, aun_sin_registrar=0, despachos_esperados=1, segundo=None):
     """R5-14: el deploy se despacha por la API y se sigue por SU id (10). `exact_present=False`: main avanzó y nuestro
     deploy se construyó desde `newer-sha`. `vistas_en_cola`: la ejecución tarda en arrancar. `ajeno`: otro despacho
     verde del mismo commit aparece en la lista y no puede tapar el resultado del nuestro."""
@@ -25,7 +25,10 @@ def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled'
     nuestro_sha = 'merged-sha' if exact_present else 'newer-sha'
 
     def consultar(repo, run_id):
-        assert (repo, run_id) == ('owner/repo', 10), (repo, run_id)
+        # Cada despacho tiene su id (10, 20): el reintento solo vale si se sigue la ejecución nueva (CodeRabbit #1597).
+        assert repo == 'owner/repo' and run_id in (10, 20), (repo, run_id)
+        if run_id == 20:
+            return 200, {'databaseId': 20, 'headSha': nuestro_sha, 'status': 'completed', 'conclusion': segundo}
         vistas['n'] += 1
         if vistas['n'] <= aun_sin_registrar:
             return 404, None
@@ -37,7 +40,7 @@ def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled'
         if args[0] == 'api' and args[1:3] == ('--method', 'POST') and args[3].endswith('deploy-pages.yml/dispatches'):
             despachos.append(args)
             assert 'inputs[before_sha]=base' in args, args
-            return json.dumps({'workflow_run_id': 10})
+            return json.dumps({'workflow_run_id': 10 if len(despachos) == 1 else 20})
         if args[:2] == ('repo', 'view'):
             return 'owner/repo'
         if args[:3] == ('api', '--paginate', '--slurp'):
@@ -66,14 +69,16 @@ def scenario(later_conclusion, later_contains=True, exact_conclusion='cancelled'
         try:
             module.publish_generated('automation/x', lambda p: True, (), deploy_before=True, pr_wait=0)
         finally:
-            assert len(despachos) <= 1, f'un único despacho, no {len(despachos)}'
-        assert len(despachos) == 1, 'publicación sin despacho de Pages'
+            assert len(despachos) <= 2, f'como mucho un redespacho, no {len(despachos)}'
+        assert len(despachos) == despachos_esperados, f'{len(despachos)} despachos de Pages, se esperaban {despachos_esperados}'
 
 
 scenario('success')  # cancelado y sustituido por un deploy verde que contiene el merge: pasa
 
+# 26/11: un deploy fallido con los datos ya en main se redespacha una vez; si el segundo publica, la carga pasa.
+scenario('success', exact_conclusion='failure', segundo='success', despachos_esperados=2)
 for kwargs, error in (({'later_conclusion': 'failure'}, RuntimeError),
-                      ({'later_conclusion': 'success', 'exact_conclusion': 'failure'}, RuntimeError)):
+                      ({'later_conclusion': 'success', 'exact_conclusion': 'failure', 'despachos_esperados': 2}, RuntimeError)):
     try:
         scenario(**kwargs)
     except error as exc:
@@ -90,6 +95,11 @@ with patch.object(module.time, 'monotonic', lambda: next(clock)):
         pass
     else:
         raise AssertionError('un deploy que no contiene el merge no puede validar la publicación')
+
+# 26/11 (carga 45776893030): Pages tarda más que la espera con el merge ya hecho: aviso, no fallo.
+clock = iter(range(0, 10**6, 60))
+with patch.object(module.time, 'monotonic', lambda: next(clock)):
+    scenario('success', exact_conclusion='success', vistas_en_cola=10**6)
 
 # #1312: main avanzó antes del dispatch y nuestro deploy se construyó desde un commit posterior que contiene el merge.
 scenario('success', exact_present=False)
@@ -150,9 +160,9 @@ with patch.object(module, 'consultar_ejecucion', lambda r, i: (403, None)):
         raise AssertionError('un 403 no se espera')
 # R5-14: un despacho ajeno del mismo commit no tapa el fallo del nuestro.
 try:
-    scenario('success', exact_conclusion='failure', ajeno=True)
+    scenario('success', exact_conclusion='failure', ajeno=True, despachos_esperados=2)
 except RuntimeError as exc:
-    assert 'Pages failed' in str(exc) and ': 10' in str(exc), exc
+    assert 'Pages failed' in str(exc) and ': 20' in str(exc), exc
 else:
     raise AssertionError('un deploy ajeno no puede validar el nuestro fallido')
 
