@@ -137,6 +137,16 @@ def public_url(path: str, root: Path = ROOT, *, site: str = '') -> str:
     return site + path
 
 
+def stored_file(target: Path, root: Path = ROOT) -> bool:
+    """`target` es la ruta en disco de una portada dada de alta en el almacén: no tiene por qué estar en el checkout
+    (el despliegue la reescribe a la URL del almacén). Para comprobadores que resuelven URLs a ficheros."""
+    try:
+        rel = Path(target).resolve().relative_to(Path(root).resolve()).as_posix()
+    except ValueError:
+        return False
+    return is_stored('/' + rel, root)
+
+
 def exists(path: str, root: Path = ROOT) -> bool:
     """La portada existe en disco o está dada de alta en el almacén."""
     return (root / path.lstrip('/')).is_file() or is_stored(path, root)
@@ -178,11 +188,26 @@ def allow_img_host(text: str, data: dict) -> str:
     return IMG_SRC.sub(widen, text)
 
 
+def stale_local(root: Path = ROOT, data: dict | None = None) -> list[str]:
+    """Portadas del manifiesto cuya copia en el repo tiene otros bytes que los registrados. Pasa cuando una carga
+    sustituye la portada en el repo después de la foto de una migración: el despliegue reescribiría la referencia al
+    almacén y publicaría la imagen vieja: el despliegue y la vista de QA las tratan como locales. Una copia con los
+    mismos bytes (antes de `verificar --borrar`) no cuenta."""
+    data = data or load(root)
+    folder = root / 'assets/reading-covers'
+    return sorted(n for n in data['archivos'] if (folder / n).is_file() and digest((folder / n).read_bytes()) != data['sha256'][n])
+
+
 def apply_to_dist(out_dir: Path, root: Path = ROOT) -> int:
     """Reescribe el artefacto publicado. Devuelve cuántos ficheros cambió (0 con el almacén vacío)."""
     data = load(root)
     if not data['archivos']:
         return 0
+    stale = stale_local(root, data)
+    if stale:
+        # Autoarreglo: la copia del repo es la vigente, así que esas portadas se publican desde aquí (sin reescribir).
+        print(f'Aviso almacén: {len(stale)} portadas con otros bytes en el repo se publican desde el repo: {", ".join(stale[:5])}')
+        data = {**data, 'archivos': [n for n in data['archivos'] if n not in set(stale)]}
     changed = 0
     base = out_dir.resolve()
     for path in out_dir.rglob('*'):

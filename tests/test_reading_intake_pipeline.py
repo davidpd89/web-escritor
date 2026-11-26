@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 from reading_editorial_sources import SourceError, CachedHTTP, _Redirects, allowed_url, penguin_edition, product_links
 from reading_intake_pipeline import make_book, cover_bytes, update_authors, classify, work_key, builder
 import reading_intake_pipeline as pipeline
+import reading_cover_store as cover_store
 from contrato_libros import incumplen
 
 URL = 'https://www.penguinlibros.com/es/fantasia/123-libro-prueba-9780140328721'
@@ -440,7 +441,7 @@ class ContractTests(unittest.TestCase):
             for key in ('portada_local', 'audio_descripcion'):
                 target = root / manual[key].lstrip('/')
                 target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy(ROOT / manual[key].lstrip('/'), target)
+                target.write_bytes(cover_store.read_bytes(manual[key], ROOT) if key == 'portada_local' else (ROOT / manual[key].lstrip('/')).read_bytes())
             publisher = root / 'editoriales/salamandra/index.html'
             publisher.parent.mkdir(parents=True); publisher.touch()
             url2 = URL.replace('9780140328721', '9780140449136')

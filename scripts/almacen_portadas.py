@@ -53,17 +53,21 @@ def migrar(root: Path, directory: Path, url: str) -> int:
         raise ValueError(f'migrar necesita la URL https del almacén de destino, no {url!r}')
     os.environ[store.STORE_DIR_ENV] = str(directory)
     os.environ[store.STORE_URL_ENV] = url.rstrip('/')
-    moved = 0
+    moved, kept = 0, []
     for path in pendientes(root):
         content = path.read_bytes()
         target = directory / path.name
         if target.is_file() and target.read_bytes() != content:
-            raise ValueError(f'{path.name}: el almacén ya tiene otro fichero con ese nombre')
+            # El almacén no cambia bytes de un nombre: esta portada se sigue sirviendo desde el repo (no aborta).
+            kept.append(path.name)
+            continue
         shutil.copyfile(path, target)
         store.register(root, path.name, store.digest(content))
         moved += 1
     # Siempre: si un flush anterior falló tras registrar, repetir migrar sin pendientes debe volver a subir.
     store.flush(f'Migración de {moved} portadas desde web-escritor', root=root)
+    if kept:
+        print(f'{len(kept)} portadas se quedan en el repo (el almacén tiene otros bytes con ese nombre): {", ".join(kept[:5])}')
     return moved
 
 

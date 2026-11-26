@@ -94,6 +94,19 @@ def run() -> None:
 
         # Negativo: pagina noindex -> no se audita en absoluto.
         page = tmp / "noindex.html"
+        # Portadas del almacén externo (#1588): no están en el checkout; el despliegue las reescribe a su URL.
+        import json
+        (tmp / "data").mkdir(exist_ok=True)
+        (tmp / "data/reading-covers-store.json").write_text(json.dumps({
+            "base_url": "https://example.github.io/portadas", "archivos": ["isbn-1.webp", "isbn-1-320.webp"],
+            "sha256": {"isbn-1.webp": "a" * 64, "isbn-1-320.webp": "b" * 64}}), encoding="utf-8")
+        img = ('<img src="/assets/reading-covers/{n}.webp" srcset="/assets/reading-covers/{n}-320.webp 320w, '
+               '/assets/reading-covers/{n}.webp 640w" sizes="100px" width="100" height="150" alt="">')
+        errors = audit(img.format(n="isbn-1") + '<picture><source srcset="/assets/reading-covers/isbn-1.webp"></picture>', tmp)
+        check(not any("BROKEN_SRCSET_CANDIDATE" in e for e in errors), "portada del almacén no cuenta como rota", str(errors))
+        errors = audit(img.format(n="isbn-2"), tmp)
+        check(sum("BROKEN_SRCSET_CANDIDATE" in e for e in errors) == 2, "portada fuera del almacén y del disco sigue rota", str(errors))
+
         page.write_text(
             '<head><meta name="robots" content="noindex,follow"></head>'
             '<body><img src="/x.png" alt=""></body>', encoding="utf-8",

@@ -15,6 +15,7 @@
 //
 // Uso: node qa/navigation-menus-multidevice.mjs   (sirve el repo él mismo;
 // QA_ORIGIN apunta a otro origen, p. ej. la vista previa de build-public-dist).
+import { withCoverStore } from './lib/cover-store-route.mjs';
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -77,6 +78,8 @@ const browser = await chromium.launch({
   headless: true,
   ...(process.env.QA_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.QA_CHROMIUM_EXECUTABLE_PATH } : {}),
 });
+
+withCoverStore(browser);
 
 let reference = null; // firma del ☰ de la primera página, para comparar con el resto
 

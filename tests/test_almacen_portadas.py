@@ -105,10 +105,13 @@ class AlmacenPortadasTest(unittest.TestCase):
         self.assertEqual(almacen.verificar(self.root, borrar=True, probe=lambda url, sha: True), (1, []))  # solo isbn-2
         self.assertTrue((self.root / almacen.LOCAL / 'isbn-1.webp').is_file())
 
-    def test_un_nombre_ocupado_en_el_almacen_con_otros_bytes_para_la_migracion(self):
+    def test_un_nombre_ocupado_en_el_almacen_con_otros_bytes_se_queda_en_el_repo_y_la_migracion_sigue(self):
         (self.clone / 'isbn-1.webp').write_bytes(b'distinto')
-        with self.assertRaisesRegex(ValueError, 'isbn-1.webp'):
-            almacen.migrar(self.root, self.clone, BASE)
+        almacen.migrar(self.root, self.clone, BASE)
+        self.assertNotIn('isbn-1.webp', store.names(self.root))
+        self.assertTrue((self.root / almacen.LOCAL / 'isbn-1.webp').is_file())
+        self.assertEqual((self.clone / 'isbn-1.webp').read_bytes(), b'distinto')
+        self.assertTrue(store.names(self.root))  # las demás sí migran
 
     def test_nuevo_abre_el_repo_con_pages_y_deja_la_variable_para_el_final(self):
         calls = []

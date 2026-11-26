@@ -2,18 +2,25 @@
 // (espejo en JS de scripts/reading_cover_store.py: rewrite_text + allow_img_host). Las auditorías de paridad con
 // producción comparan contra esta vista, no contra el fuente crudo: con el manifiesto lleno, producción lleva la URL
 // del almacén en las portadas y su host en la CSP.
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 
 const SITE = 'https://davidportodiaz.com';
 const PREFIX = '/assets/reading-covers/';
 const NAME = /^[a-z0-9][a-z0-9-]*\.(?:webp|jpg|jpeg|png)$/;
 
-export function loadCoverStore(path = 'data/reading-covers-store.json') {
+export function loadCoverStore(path = 'data/reading-covers-store.json', localDir = 'assets/reading-covers') {
   if (!fs.existsSync(path)) return { base: '', stored: new Set(), extra: [], where: {} };
   const data = JSON.parse(fs.readFileSync(path, 'utf8'));
   const trim = url => String(url || '').replace(/\/+$/, '');
+  const sha = data.sha256 || {};
+  // Igual que reading_cover_store.stale_local: una portada con otros bytes en el repo se publica desde el repo.
+  const stale = name => {
+    const local = `${localDir}/${name}`;
+    return fs.existsSync(local) && crypto.createHash('sha256').update(fs.readFileSync(local)).digest('hex') !== sha[name];
+  };
   // Varios almacenes: `almacenes` lista los siguientes al primero y `almacen` da el número (1 = almacenes[0]).
-  return { base: trim(data.base_url), stored: new Set(data.archivos || []), extra: (data.almacenes || []).map(trim), where: data.almacen || {} };
+  return { base: trim(data.base_url), stored: new Set((data.archivos || []).filter(n => !stale(n))), extra: (data.almacenes || []).map(trim), where: data.almacen || {} };
 }
 
 function urlOf(store, name) {

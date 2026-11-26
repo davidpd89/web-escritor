@@ -1,6 +1,7 @@
 // Cross-device, multi-viewport comprehensive smoke test suite.
 // Validates responsive layout integrity, horizontal overflow absence,
 // interaction responsiveness, and zero console errors across 7 device viewports.
+import { withCoverStore } from './lib/cover-store-route.mjs';
 import assert from 'node:assert/strict';
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
@@ -102,6 +103,8 @@ const origin = `http://127.0.0.1:${port}`;
 console.log(`Cross-device smoke testing ${TARGET_ROUTES.length} routes across ${VIEWPORTS.length} viewports...`);
 
 const browser = await chromium.launch({ headless: true });
+
+withCoverStore(browser);
 let totalPassed = 0;
 const failures = [];
 
