@@ -213,6 +213,74 @@ class CoverStoreWriteTest(unittest.TestCase):
         self.assertEqual(store.names(self.root), {'base.webp'})
 
 
+    def _remote_and_clone(self):
+        import os
+        import subprocess
+        remote, other = tempfile.TemporaryDirectory(), tempfile.TemporaryDirectory()
+        self.addCleanup(remote.cleanup)
+        self.addCleanup(other.cleanup)
+        run = lambda *a, cwd: subprocess.run(['git', *a], cwd=cwd, check=True, capture_output=True, text=True)
+        run('init', '-q', '--bare', '-b', 'main', cwd=remote.name)
+        for clone in (self.dir.name, other.name):
+            run('clone', '-q', remote.name, clone, cwd=remote.name)
+            run('config', 'user.name', 't', cwd=clone)
+            run('config', 'user.email', 't@t', cwd=clone)
+        os.environ[store.STORE_DIR_ENV] = self.dir.name
+        return run, other.name
+
+    def test_flush_rejects_remote_cover_with_wrong_digest(self):
+        # R3-01: origin tiene el nombre, pero con otros bytes; no cuenta como subida y vuelve al repo.
+        run, other = self._remote_and_clone()
+        store.put(self.root, '/assets/reading-covers/base.webp', b'base')
+        self.assertEqual(store.flush(root=self.root), 1)
+        name = 'isbn-9780000000001.webp'
+        run('pull', '-q', 'origin', 'main', cwd=other)
+        (Path(other) / name).write_bytes(b'portada-incorrecta')
+        run('add', '-A', cwd=other)
+        run('commit', '-q', '-m', 'x', cwd=other)
+        run('push', '-q', 'origin', 'HEAD:main', cwd=other)
+        run('pull', '-q', 'origin', 'main', cwd=self.dir.name)
+        store.register(self.root, name, store.digest(b'portada-correcta'))
+        (Path(self.dir.name) / name).write_bytes(b'portada-correcta')
+        store.flush(root=self.root)
+        # con los bytes certificados en la copia local, la subida repara el almacén y la portada sigue en él
+        self.assertIn(name, store.names(self.root))
+        self.assertEqual(run('show', f'origin/main:{name}', cwd=self.dir.name).stdout, 'portada-correcta')
+        # sin poder repararlo (la copia local es la incorrecta), la portada certificada del repo es la que se publica
+        other_name = 'isbn-9780000000002.webp'
+        (Path(self.dir.name) / other_name).write_bytes(b'mala')
+        run('add', '-A', cwd=self.dir.name)
+        run('commit', '-q', '-m', 'y', cwd=self.dir.name)
+        run('push', '-q', 'origin', 'HEAD:main', cwd=self.dir.name)
+        store.register(self.root, other_name, store.digest(b'buena'))
+        folder = self.root / 'assets/reading-covers'
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / other_name).write_bytes(b'buena')
+        store.flush(root=self.root)
+        self.assertNotIn(other_name, store.names(self.root))
+        self.assertEqual((folder / other_name).read_bytes(), b'buena')
+
+    def test_fallback_preserves_newer_local_override_and_does_not_call_it_lost(self):
+        # R3-02/R3-03: la copia del repo es la que vale; ni se pisa ni se declara perdida.
+        self._remote_and_clone()
+        folder = self.root / 'assets/reading-covers'
+        folder.mkdir(parents=True, exist_ok=True)
+        (Path(self.dir.name) / 'v.webp').write_bytes(b'portada-v1')
+        store.register(self.root, 'v.webp', store.digest(b'portada-v1'))
+        (folder / 'v.webp').write_bytes(b'portada-v2')
+        store.register(self.root, 'solo-repo.webp', store.digest(b'imagen-valida'))
+        (folder / 'solo-repo.webp').write_bytes(b'imagen-valida')
+        import subprocess
+        remote = subprocess.run(['git', '-C', self.dir.name, 'remote', 'get-url', 'origin'], capture_output=True, text=True).stdout.strip()
+        pre = Path(remote) / 'hooks/pre-receive'
+        pre.write_text('#!/bin/sh' + chr(10) + 'exit 1' + chr(10), encoding='utf-8')
+        pre.chmod(0o755)
+        self.assertEqual(store.flush(root=self.root), 0)
+        self.assertEqual((folder / 'v.webp').read_bytes(), b'portada-v2')
+        self.assertEqual((folder / 'solo-repo.webp').read_bytes(), b'imagen-valida')
+        self.assertFalse({'v.webp', 'solo-repo.webp'} & store.names(self.root))
+
+
 BASE2 = 'https://otro.github.io/web-escritor-portadas-2'
 
 

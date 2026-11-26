@@ -387,18 +387,51 @@ def flush(message: str = 'Portadas de la carga', root: Path = ROOT) -> int:
             if pushed is not None:
                 published = pushed
                 git('fetch', '--quiet', 'origin', 'main')
-                _back_to_repo(root, directory, git, set(git('ls-tree', '-r', '--name-only', 'FETCH_HEAD').stdout.splitlines()))
+                _back_to_repo(root, directory, git, _verified(git, 'FETCH_HEAD', root))
                 return published
         print('Aviso almacén: no se pudo subir tras 3 intentos')
     except (RuntimeError, OSError, subprocess.CalledProcessError) as error:
         print(f'Aviso almacén: la subida falló ({str(error)[:200]})')
     # Lo que origin tenía al clonar o en el último fetch: sin red no hay más que saber, y nunca se toca lo ya subido.
     # Lo que este clon tiene en un commit sin subir (o con otros bytes que origin) tampoco está en el almacén.
-    known = git('ls-tree', '-r', '--name-only', 'origin/main', check=False)
-    remote = set(known.stdout.splitlines()) if not known.returncode else set()
-    remote -= set(git('diff', '--name-only', 'origin/main', 'HEAD', check=False).stdout.splitlines())
+    # Un nombre que origin tiene con otros bytes (otra carga, rebase que chocó) no cuenta como subido.
+    try:
+        remote = _verified(git, 'origin/main', root)
+    except (OSError, subprocess.CalledProcessError, ValueError):
+        remote = set()
     _back_to_repo(root, directory, git, remote, reset=True)
     return 0
+
+
+def _verified(git, ref: str, root: Path) -> set[str]:
+    """R3-01 GPT (26/11): portadas activas que `ref` tiene con los bytes que certifica el manifiesto. Un nombre con
+    otro contenido en el almacén serviría en la web una imagen distinta de la registrada: no cuenta como subido."""
+    listing = git('ls-tree', '-r', ref, check=False)
+    if listing.returncode:
+        return set()
+    expected = {n: v for n, v in _leer(root)[0]['sha256'].items() if n in active_names(root)}
+    blobs = {}
+    for line in listing.stdout.splitlines():
+        meta, _, name = line.partition(chr(9))
+        parts = meta.split()
+        if name in expected and len(parts) == 3 and parts[1] == 'blob':
+            blobs[name] = parts[2]
+    if not blobs:
+        return set()
+    directory = git('rev-parse', '--show-toplevel').stdout.strip()
+    batch = subprocess.run(['git', '-C', directory, 'cat-file', '--batch'], input=''.join(b + chr(10) for b in blobs.values()).encode(),
+                           capture_output=True, check=True).stdout
+    contents, offset = {}, 0
+    for blob in blobs.values():
+        end = batch.index(b'\n', offset)
+        header = batch[offset:end].split()
+        if len(header) != 3:  # «<id> missing»: clon superficial sin ese objeto
+            offset = end + 1
+            continue
+        size = int(header[2])
+        contents[blob] = batch[end + 1:end + 1 + size]
+        offset = end + 1 + size + 1
+    return {n for n, b in blobs.items() if b in contents and digest(contents[b]) == expected[n]}
 
 
 def _unregister(root: Path, gone: set[str]) -> None:
@@ -418,12 +451,16 @@ def _back_to_repo(root: Path, directory: Path, git, remote: set[str], *, reset: 
     if not missing:
         return
     folder = root / LOGICAL_PREFIX.strip('/')
-    lost = [n for n in missing if not (directory / n).is_file()]
+    expected = _leer(root)[0]['sha256']
+    # R3-02/R3-03 GPT (26/11): una copia que ya está en el repo es la que `put` decidió usar (sustitución con otros
+    # bytes) o la misma imagen: se conserva y no se pisa. Si no, se trae la del almacén solo si es la certificada.
+    from_store = [n for n in missing if not (folder / n).is_file()]
+    lost = [n for n in from_store if not (directory / n).is_file() or digest((directory / n).read_bytes()) != expected.get(n)]
     if lost:
         raise RuntimeError(f'Almacén de portadas: {len(lost)} portadas del manifiesto no están en origin ni en la copia '
                            f'local (darían 404): {", ".join(lost[:10])}')
     folder.mkdir(parents=True, exist_ok=True)
-    for name in missing:
+    for name in from_store:
         (folder / name).write_bytes((directory / name).read_bytes())
     _unregister(root, set(missing))
     if reset:
