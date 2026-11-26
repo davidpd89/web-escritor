@@ -52,6 +52,31 @@ class StoreBytes(unittest.TestCase):
         self.assertEqual(self.urls, [])
 
 
+    def test_el_servidor_responde_la_portada_como_imagen_y_lo_demas_como_siempre(self):
+        import functools
+        import threading
+        import urllib.error
+        import urllib.request
+        from http.server import ThreadingHTTPServer
+        from unittest.mock import patch
+        (self.served / 'index.html').write_text('hola', encoding='utf-8')
+        handler = functools.partial(server.Handler, directory=str(self.served))
+        real = server.store_file
+        with patch.object(server, 'store_file', lambda p, s, *a, **k: real(p, s, self.root, get=self.get)), \
+                ThreadingHTTPServer(('127.0.0.1', 0), handler) as httpd:
+            threading.Thread(target=httpd.serve_forever, daemon=True).start()
+            base = f'http://127.0.0.1:{httpd.server_address[1]}'
+            with urllib.request.urlopen(base + '/assets/reading-covers/isbn-1.webp?v=1') as r:
+                self.assertEqual((r.read(), r.headers['Content-Type'], r.headers['X-Content-Type-Options']),
+                                 (b'IMG', 'image/webp', 'nosniff'))
+            with urllib.request.urlopen(base + '/index.html') as r:
+                self.assertEqual(r.read(), b'hola')
+            with self.assertRaises(urllib.error.HTTPError) as missing:
+                urllib.request.urlopen(base + '/assets/reading-covers/otra.webp')
+            self.assertEqual(missing.exception.code, 404)
+            httpd.shutdown()
+
+
 class Workflows(unittest.TestCase):
     def test_ningun_workflow_usa_http_server_plano(self):
         plain = re.compile(r'python3? -m http\.server')

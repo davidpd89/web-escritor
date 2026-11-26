@@ -32,7 +32,7 @@ _lock = threading.Lock()
 mimetypes.add_type('image/webp', '.webp')
 # Solo nombres planos de imagen: nada de rutas, «..» ni otros tipos (el servidor nunca sirve HTML del almacén).
 STORE_NAME = re.compile(r'[A-Za-z0-9][A-Za-z0-9._-]*\.(webp|jpg|jpeg|png|avif)')
-IMAGE_TYPES = {'webp': 'image/webp', 'jpg': 'image/jpeg', 'jpeg': 'image/jpeg', 'png': 'image/png', 'avif': 'image/avif'}
+mimetypes.add_type('image/avif', '.avif')
 
 
 def _get(url: str) -> bytes:
@@ -40,8 +40,8 @@ def _get(url: str) -> bytes:
         return response.read()
 
 
-def store_bytes(path: str, served: Path, root: Path = cover_store.ROOT, *, get=_get) -> bytes | None:
-    """Bytes de una portada del almacén que no está en `served`; None si no es del almacén.
+def store_file(path: str, served: Path, root: Path = cover_store.ROOT, *, get=_get) -> Path | None:
+    """Copia en caché de una portada del almacén que no está en `served`; None si no es del almacén.
 
     El manifiesto se lee del repo (`root`), no del directorio servido: un dist no lo lleva."""
     if not path.startswith(cover_store.LOGICAL_PREFIX):
@@ -52,44 +52,34 @@ def store_bytes(path: str, served: Path, root: Path = cover_store.ROOT, *, get=_
     if (served / 'assets/reading-covers' / name).is_file():
         return None
     cached = CACHE / name
-    if cached.is_file():
-        return cached.read_bytes()
-    content = cover_store.read_bytes(path, root, get=get)
-    with _lock:
-        CACHE.mkdir(parents=True, exist_ok=True)
-        cached.write_bytes(content)
-    return content
+    if not cached.is_file():
+        content = cover_store.read_bytes(path, root, get=get)
+        with _lock:
+            CACHE.mkdir(parents=True, exist_ok=True)
+            cached.write_bytes(content)
+    return cached
+
+
+def store_bytes(path: str, served: Path, root: Path = cover_store.ROOT, *, get=_get) -> bytes | None:
+    found = store_file(path, served, root, get=get)
+    return found.read_bytes() if found else None
 
 
 class Handler(SimpleHTTPRequestHandler):
-    def _store(self) -> bytes | None:
+    """Sirve el directorio y, para las portadas del almacén, su copia en caché como un fichero más: la respuesta la
+    escribe siempre SimpleHTTPRequestHandler (tipo por extensión de imagen, nunca contenido escrito a mano)."""
+
+    def translate_path(self, path):
         try:
-            return store_bytes(unquote(urlsplit(self.path).path), Path(self.directory))
+            found = store_file(unquote(urlsplit(path).path), Path(self.directory))
         except Exception as error:  # una portada que no baja es un 404, como antes
-            self.log_message('almacén: %s (%s)', self.path, error)
-            return None
+            self.log_message('almacén: %s (%s)', path, error)
+            found = None
+        return str(found) if found else super().translate_path(path)
 
-    def _send_store(self, head: bool) -> bool:
-        content = self._store()
-        if content is None:
-            return False
-        self.send_response(200)
-        # store_bytes solo admite nombres de imagen: el tipo sale de su extensión y el navegador no lo reinterpreta.
-        self.send_header('Content-Type', IMAGE_TYPES[unquote(urlsplit(self.path).path).rsplit('.', 1)[-1].lower()])
+    def end_headers(self):
         self.send_header('X-Content-Type-Options', 'nosniff')
-        self.send_header('Content-Length', str(len(content)))
-        self.end_headers()
-        if not head:
-            self.wfile.write(content)
-        return True
-
-    def do_GET(self):  # noqa: N802
-        if not self._send_store(False):
-            super().do_GET()
-
-    def do_HEAD(self):  # noqa: N802
-        if not self._send_store(True):
-            super().do_HEAD()
+        super().end_headers()
 
 
 def main(argv: list[str] | None = None) -> None:
