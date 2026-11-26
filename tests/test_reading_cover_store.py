@@ -122,9 +122,12 @@ class CoverStoreWriteTest(unittest.TestCase):
         self.assertEqual(store.stored_digest('/assets/reading-covers/isbn-9780000000001.webp', self.root), store.digest(b'nueva'))
         # el almacén es de solo añadir: mismos bytes sí, otros bytes nunca (la sustituta lleva nombre nuevo)
         store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'nueva')
-        with self.assertRaises(ValueError):
-            store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'reemplazo')
+        # otros bytes para un nombre del almacén: no se pisa el almacén ni se para la carga; van al repo
+        target = store.put(self.root, '/assets/reading-covers/isbn-9780000000001.webp', b'reemplazo')
+        self.assertEqual(target, self.root / 'assets/reading-covers/isbn-9780000000001.webp')
+        self.assertEqual(target.read_bytes(), b'reemplazo')
         self.assertEqual((Path(self.dir.name) / 'isbn-9780000000001.webp').read_bytes(), b'nueva')
+        self.assertEqual(store.stored_digest('/assets/reading-covers/isbn-9780000000001.webp', self.root), store.digest(b'nueva'))
         self.assertTrue(store.goes_to_store(self.root, '/assets/reading-covers/isbn-9780000000001.webp'))
         self.assertFalse(store.goes_to_store(self.root, '/assets/reading-covers/isbn-9780000000009.webp'))
 
@@ -164,20 +167,50 @@ class CoverStoreWriteTest(unittest.TestCase):
         (Path(self.dir.name) / 'huerfana.webp').write_bytes(b'x')
         self.assertEqual(store.flush(root=self.root), 0)
         self.assertNotIn('huerfana.webp', run('ls-tree', '--name-only', 'main', cwd=remote.name).stdout)
-        # un commit que no llegó a subirse se reintenta en la siguiente llamada
+        # el almacén rechaza la subida: la carga sigue y la portada vuelve al repo, fuera del manifiesto
         hook = Path(remote.name) / 'hooks/pre-receive'
         hook.write_text('#!/bin/sh' + chr(10) + 'exit 1' + chr(10), encoding='utf-8')
         hook.chmod(0o755)
         store.put(self.root, '/assets/reading-covers/isbn-9780000000002.webp', b'otra')
-        with self.assertRaises(RuntimeError):
-            store.flush(root=self.root)
+        self.assertEqual(store.flush(root=self.root), 0)
+        self.assertEqual((self.root / 'assets/reading-covers/isbn-9780000000002.webp').read_bytes(), b'otra')
+        self.assertEqual(store.names(self.root), {'isbn-9780000000001.webp'})
+        self.assertNotIn('isbn-9780000000002.webp', run('ls-tree', '--name-only', 'main', cwd=remote.name).stdout)
+        # lo ya subido no se toca y la siguiente subida de la misma carga no arrastra el commit rechazado
         hook.unlink()
+        store.put(self.root, '/assets/reading-covers/isbn-9780000000003.webp', b'tercera')
         self.assertEqual(store.flush(root=self.root), 1)
-        self.assertIn('isbn-9780000000002.webp', run('ls-tree', '--name-only', 'main', cwd=remote.name).stdout)
-        # caso 9 de la ronda 2: un nombre del manifiesto sin fichero en origin sería una portada 404 en la web
+        self.assertEqual(store.names(self.root), {'isbn-9780000000001.webp', 'isbn-9780000000003.webp'})
+        # caso 9 de la ronda 2: un nombre sin bytes en origin ni en la copia local es una pérdida real y para
         store.register(self.root, 'fantasma.webp', store.digest(b'nada'))
         with self.assertRaisesRegex(RuntimeError, 'fantasma.webp'):
             store.flush(root=self.root)
+
+    def test_a_store_push_that_clashes_sends_the_covers_back_to_the_repo(self):
+        import os
+        import subprocess
+        remote, other = tempfile.TemporaryDirectory(), tempfile.TemporaryDirectory()
+        self.addCleanup(remote.cleanup)
+        self.addCleanup(other.cleanup)
+        run = lambda *a, cwd: subprocess.run(['git', *a], cwd=cwd, check=True, capture_output=True, text=True)
+        run('init', '-q', '--bare', '-b', 'main', cwd=remote.name)
+        for clone in (self.dir.name, other.name):
+            run('clone', '-q', remote.name, clone, cwd=remote.name)
+            run('config', 'user.name', 't', cwd=clone)
+            run('config', 'user.email', 't@t', cwd=clone)
+        os.environ[store.STORE_DIR_ENV] = self.dir.name
+        store.put(self.root, '/assets/reading-covers/base.webp', b'base')
+        self.assertEqual(store.flush(root=self.root), 1)
+        run('pull', '-q', 'origin', 'main', cwd=other.name)
+        # otra carga subió el mismo nombre con otros bytes: el rebase choca
+        (Path(other.name) / 'isbn-9780000000004.webp').write_bytes(b'ajena')
+        run('add', '-A', cwd=other.name)
+        run('commit', '-q', '-m', 'x', cwd=other.name)
+        run('push', '-q', 'origin', 'HEAD:main', cwd=other.name)
+        store.put(self.root, '/assets/reading-covers/isbn-9780000000004.webp', b'propia')
+        self.assertEqual(store.flush(root=self.root), 0)
+        self.assertEqual((self.root / 'assets/reading-covers/isbn-9780000000004.webp').read_bytes(), b'propia')
+        self.assertEqual(store.names(self.root), {'base.webp'})
 
 
 BASE2 = 'https://otro.github.io/web-escritor-portadas-2'

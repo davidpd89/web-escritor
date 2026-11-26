@@ -298,16 +298,22 @@ def put(root: Path, path: str, content: bytes) -> Path:
     """Guarda una portada. Con almacén activo, una portada nueva (sin fichero en este repo) va allí y se da de alta
     en el manifiesto con su huella; una portada local existente se sigue escribiendo en su sitio.
 
-    El almacén es de solo añadir: un nombre ya dado de alta no cambia nunca de bytes (ValueError). Así deshacer un
-    cambio del catálogo (reversión del mercado, cuarentena, recuperación) basta para volver a la imagen vieja, que
-    sigue intacta; una portada sustituida recibe un nombre nuevo (`fresh_name`)."""
+    El almacén es de solo añadir: un nombre ya dado de alta no cambia nunca de bytes. Así deshacer un cambio del
+    catálogo (reversión del mercado, cuarentena, recuperación) basta para volver a la imagen vieja, que sigue intacta;
+    una portada sustituida recibe un nombre nuevo (`fresh_name`). Si aun así llegan otros bytes para un nombre del
+    almacén (una -320 regenerada con otro codificador, una colisión de huella corta), se escriben en este repo: el
+    despliegue publica desde el repo toda portada cuya copia local difiere del almacén, así que nada se bloquea y la
+    web muestra los bytes nuevos (26/11: autoarreglo en vez de error)."""
     target = root / path.lstrip('/')
     directory, name = store_dir(), _name(path)
     if directory and name and goes_to_store(root, path):
         value = digest(content)
         known = load(root)['sha256'].get(name)
         if known and known != value:
-            raise ValueError(f'{name}: el almacén no sobrescribe portadas dadas de alta; usar un nombre nuevo')
+            print(f'Aviso almacén: {name} ya está en el almacén con otros bytes; la portada nueva se guarda en el repo')
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(content)
+            return target
         directory.mkdir(parents=True, exist_ok=True)
         (directory / name).write_bytes(content)
         register(root, name, value)
@@ -361,33 +367,69 @@ def flush(message: str = 'Portadas de la carga', root: Path = ROOT) -> int:
     """Sube al almacén las portadas del manifiesto escritas con `put`. Devuelve cuántos ficheros publicó.
 
     Solo sube nombres dados de alta en el manifiesto actual: lo que una reversión quitó de él se queda fuera. Un
-    commit de un intento anterior que no llegó a subirse se vuelve a intentar; si el rebase choca, se aborta y
-    falla (nunca se da por subido lo que no está en origin)."""
+    commit de un intento anterior que no llegó a subirse se vuelve a intentar.
+
+    Si el almacén no acepta la subida (push rechazado tres veces, rebase que choca, red o clave caídas), la carga no
+    se para: las portadas que no llegaron a origin vuelven a este repo y salen del manifiesto (`_back_to_repo`), y
+    la web las sirve desde aquí como antes del almacén (26/11: autoarreglo en vez de error)."""
     directory = store_dir()
     if not directory:
         return 0
     git = _store_git(directory)
-    _commit_registered(git, directory, root, message)
-    if git('rev-parse', '--verify', '--quiet', 'HEAD', check=False).returncode:
-        _check_published(set(), root)  # almacén recién creado y sin nada que subir
-        return 0
-    for _ in range(3):
-        published = _push_once(git)
-        if published is not None:
-            git('fetch', '--quiet', 'origin', 'main')
-            _check_published(set(git('ls-tree', '-r', '--name-only', 'FETCH_HEAD').stdout.splitlines()), root)
-            return published
-    raise RuntimeError('Almacén de portadas: no se pudo subir tras 3 intentos')
+    published = 0
+    try:
+        _commit_registered(git, directory, root, message)
+        if git('rev-parse', '--verify', '--quiet', 'HEAD', check=False).returncode:
+            _back_to_repo(root, directory, git, set())  # almacén recién creado y sin nada que subir
+            return 0
+        for _ in range(3):
+            pushed = _push_once(git)
+            if pushed is not None:
+                published = pushed
+                git('fetch', '--quiet', 'origin', 'main')
+                _back_to_repo(root, directory, git, set(git('ls-tree', '-r', '--name-only', 'FETCH_HEAD').stdout.splitlines()))
+                return published
+        print('Aviso almacén: no se pudo subir tras 3 intentos')
+    except (RuntimeError, OSError, subprocess.CalledProcessError) as error:
+        print(f'Aviso almacén: la subida falló ({str(error)[:200]})')
+    # Lo que origin tenía al clonar o en el último fetch: sin red no hay más que saber, y nunca se toca lo ya subido.
+    # Lo que este clon tiene en un commit sin subir (o con otros bytes que origin) tampoco está en el almacén.
+    known = git('ls-tree', '-r', '--name-only', 'origin/main', check=False)
+    remote = set(known.stdout.splitlines()) if not known.returncode else set()
+    remote -= set(git('diff', '--name-only', 'origin/main', 'HEAD', check=False).stdout.splitlines())
+    _back_to_repo(root, directory, git, remote, reset=True)
+    return 0
 
 
-def _check_published(remote: set[str], root: Path) -> None:
-    """Caso 9 de la ronda 2 GPT (25/11): el manifiesto es lo que decide la URL pública, y `_commit_registered` deja
-    fuera los nombres sin fichero en la copia local. Un nombre dado de alta que no está en origin sería una portada
-    404 en la web: se para aquí, antes de que la rama de datos con ese manifiesto se suba."""
+def _unregister(root: Path, gone: set[str]) -> None:
+    data = load(root)
+    data['archivos'] = [n for n in data['archivos'] if n not in gone]
+    data['sha256'] = {n: v for n, v in data['sha256'].items() if n not in gone}
+    data['almacen'] = {n: v for n, v in data['almacen'].items() if n not in gone}
+    write_manifest(root, data)
+
+
+def _back_to_repo(root: Path, directory: Path, git, remote: set[str], *, reset: bool = False) -> None:
+    """Caso 9 de la ronda 2 GPT (25/11): el manifiesto decide la URL pública, así que un nombre dado de alta que no
+    está en origin sería una portada 404 en la web. En vez de parar la carga, esa portada vuelve a este repo (sus
+    bytes siguen en la copia local del almacén) y sale del manifiesto. Solo si los bytes no están en ningún sitio
+    se para: eso es una pérdida real, no un fallo de subida."""
     missing = sorted(active_names(root) - remote)  # las de otros almacenes viven en otro repo
-    if missing:
-        raise RuntimeError(f'Almacén de portadas: {len(missing)} portadas del manifiesto no están en origin '
-                           f'(darían 404): {", ".join(missing[:10])}')
+    if not missing:
+        return
+    folder = root / LOGICAL_PREFIX.strip('/')
+    lost = [n for n in missing if not (directory / n).is_file()]
+    if lost:
+        raise RuntimeError(f'Almacén de portadas: {len(lost)} portadas del manifiesto no están en origin ni en la copia '
+                           f'local (darían 404): {", ".join(lost[:10])}')
+    folder.mkdir(parents=True, exist_ok=True)
+    for name in missing:
+        (folder / name).write_bytes((directory / name).read_bytes())
+    _unregister(root, set(missing))
+    if reset:
+        # Un commit local que origin no acepta haría fallar igual cada subida siguiente de esta carga.
+        git('reset', '--quiet', '--hard', 'origin/main', check=False)
+    print(f'Aviso almacén: {len(missing)} portadas no llegaron al almacén y se publican desde el repo: {", ".join(missing[:5])}')
 
 
 if __name__ == '__main__':
