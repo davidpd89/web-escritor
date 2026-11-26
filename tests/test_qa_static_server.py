@@ -43,6 +43,14 @@ class StoreBytes(unittest.TestCase):
         self.assertIsNone(server.store_bytes('/assets/otra/isbn-1.webp', self.served, self.root, get=self.get))
         self.assertEqual(self.urls, [])
 
+    def test_rutas_y_tipos_no_imagen_se_rechazan_aunque_esten_en_el_manifiesto(self):
+        data = json.loads((self.root / 'data/reading-covers-store.json').read_text(encoding='utf-8'))
+        data['archivos'] += ['../x.webp', 'sub/isbn-1.webp', 'pagina.html']
+        (self.root / 'data/reading-covers-store.json').write_text(json.dumps(data), encoding='utf-8')
+        for path in ('/assets/reading-covers/../x.webp', '/assets/reading-covers/sub/isbn-1.webp', '/assets/reading-covers/pagina.html'):
+            self.assertIsNone(server.store_bytes(path, self.served, self.root, get=self.get), path)
+        self.assertEqual(self.urls, [])
+
 
 class Workflows(unittest.TestCase):
     def test_ningun_workflow_usa_http_server_plano(self):

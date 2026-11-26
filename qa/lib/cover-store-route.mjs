@@ -6,7 +6,7 @@
 import { loadCoverStore } from './cover-store-view.mjs';
 
 export function storeOrigins(store = loadCoverStore()) {
-  return [store.base, ...(store.extra || [])].filter(Boolean).map(url => url.replace(/\/+$/, '') + '/');
+  return [store.base, ...(store.extra || [])].filter(Boolean).map(url => { let u = url; while (u.endsWith('/')) u = u.slice(0, -1); return u + '/'; });
 }
 
 export function makeCoverFetcher({ fetchImpl = fetch, attempts = 4, delayMs = 500, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {

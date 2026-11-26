@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import functools
 import mimetypes
+import re
 import sys
 import tempfile
 import threading
@@ -29,6 +30,9 @@ import reading_cover_store as cover_store  # noqa: E402
 CACHE = Path(tempfile.gettempdir()) / 'qa-covers-store-cache'
 _lock = threading.Lock()
 mimetypes.add_type('image/webp', '.webp')
+# Solo nombres planos de imagen: nada de rutas, «..» ni otros tipos (el servidor nunca sirve HTML del almacén).
+STORE_NAME = re.compile(r'[A-Za-z0-9][A-Za-z0-9._-]*\.(webp|jpg|jpeg|png|avif)')
+IMAGE_TYPES = {'webp': 'image/webp', 'jpg': 'image/jpeg', 'jpeg': 'image/jpeg', 'png': 'image/png', 'avif': 'image/avif'}
 
 
 def _get(url: str) -> bytes:
@@ -40,11 +44,14 @@ def store_bytes(path: str, served: Path, root: Path = cover_store.ROOT, *, get=_
     """Bytes de una portada del almacén que no está en `served`; None si no es del almacén.
 
     El manifiesto se lee del repo (`root`), no del directorio servido: un dist no lo lleva."""
-    if not path.startswith(cover_store.LOGICAL_PREFIX) or (served / path.lstrip('/')).is_file():
+    if not path.startswith(cover_store.LOGICAL_PREFIX):
         return None
-    if not cover_store.is_stored(path, root):
+    name = path[len(cover_store.LOGICAL_PREFIX):]
+    if not STORE_NAME.fullmatch(name) or not cover_store.is_stored(path, root):
         return None
-    cached = CACHE / path.rsplit('/', 1)[-1]
+    if (served / 'assets/reading-covers' / name).is_file():
+        return None
+    cached = CACHE / name
     if cached.is_file():
         return cached.read_bytes()
     content = cover_store.read_bytes(path, root, get=get)
@@ -67,7 +74,9 @@ class Handler(SimpleHTTPRequestHandler):
         if content is None:
             return False
         self.send_response(200)
-        self.send_header('Content-Type', mimetypes.guess_type(self.path.split('?')[0])[0] or 'application/octet-stream')
+        # store_bytes solo admite nombres de imagen: el tipo sale de su extensión y el navegador no lo reinterpreta.
+        self.send_header('Content-Type', IMAGE_TYPES[unquote(urlsplit(self.path).path).rsplit('.', 1)[-1].lower()])
+        self.send_header('X-Content-Type-Options', 'nosniff')
         self.send_header('Content-Length', str(len(content)))
         self.end_headers()
         if not head:
