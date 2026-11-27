@@ -101,5 +101,52 @@ class FicherosPrTest(unittest.TestCase):
                                  'una lectura suelta del listado vuelve a cortar en 3000')
 
 
+    # 27/11, carga 46054825375: la API compare también genera el diff entero y da 422 con una carga grande.
+    def api_422(self, *args):
+        raise subprocess.CalledProcessError(1, ['gh', *args], stderr='HTTP 422: this diff is taking too long')
+
+    def test_compare_con_la_api_rota_sale_de_git(self):
+        data = pub.comparar('o/r', 'main', self.head, gh_=self.api_422, git=self.git)
+        self.assertEqual((data['status'], data['ahead_by'], data['behind_by']), ('diverged', 1, 1))
+
+    def test_compare_con_ficheros_sale_de_git_completo(self):
+        data = pub.comparar('o/r', 'main', self.head, ficheros=True, gh_=self.api_422, git=self.git)
+        self.assertTrue(data['completa'])
+        self.assertEqual(sorted(i['filename'] for i in data['files']),
+                         ['data/b.json', 'data/c.json', 'data/d.json', 'data/e.json', 'scripts/colado.py'])
+
+    def test_compare_truncado_por_la_api_se_completa_con_git(self):
+        truncada = lambda *a: json.dumps({'status': 'diverged', 'ahead_by': 1, 'behind_by': 1,
+                                          'files': [{'filename': f'x/{i}'} for i in range(300)]})
+        data = pub.comparar('o/r', 'main', self.head, ficheros=True, gh_=truncada, git=self.git)
+        self.assertEqual(len(data['files']), 5)
+
+    def test_compare_truncado_y_sin_git_devuelve_lo_de_la_api(self):
+        truncada = lambda *a: json.dumps({'ahead_by': 1, 'files': [{'filename': f'x/{i}'} for i in range(300)]})
+        def git_roto(*args):
+            raise subprocess.CalledProcessError(128, ['git', *args])
+        data = pub.comparar('o/r', 'a', 'b', ficheros=True, gh_=truncada, git=git_roto)
+        self.assertEqual(len(data['files']), 300)
+        self.assertNotIn('completa', data)
+
+    def test_estado_con_la_api_rota_sale_de_git(self):
+        main = self.git('rev-parse', 'origin/main').strip()
+        self.assertEqual(pub.estado_comparacion('o/r', self.head, main, gh_=self.api_422, git=self.git), 'diverged')
+        self.assertEqual(pub.estado_comparacion('o/r', self.head, self.head, gh_=self.api_422, git=self.git), 'identical')
+
+    def test_sin_api_ni_git_la_comparacion_falla(self):
+        def git_roto(*args):
+            raise subprocess.CalledProcessError(128, ['git', *args])
+        with self.assertRaises(subprocess.CalledProcessError):
+            pub.comparar('o/r', 'a', 'b', gh_=self.api_422, git=git_roto)
+
+    def test_los_publicadores_no_llaman_a_compare_por_su_cuenta(self):
+        """Una llamada suelta a la API compare vuelve a tumbar la carga con 422 en un diff grande."""
+        for nombre in ('publish-radar-refresh.py', 'publish-reading-refresh.py'):
+            fuente = (ROOT / 'scripts' / nombre).read_text(encoding='utf-8')
+            with self.subTest(nombre):
+                self.assertEqual(fuente.count('/compare/'), 2 * int(nombre == 'publish-radar-refresh.py'))
+
+
 if __name__ == '__main__':
     unittest.main()
