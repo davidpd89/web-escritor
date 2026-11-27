@@ -1,23 +1,23 @@
 {
- "generado": "2026-11-27T17:03:10+00:00",
- "publicados": 10419,
+ "generado": "2026-11-27T23:57:13+00:00",
+ "publicados": 11411,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 1542,
-   "proximos": 374,
+   "total": 1582,
+   "proximos": 382,
    "por_mes": {
     "2027-08": 1,
     "2027-05": 5,
     "2027-04": 10,
     "2027-03": 42,
     "2027-02": 84,
-    "2027-01": 69,
-    "2026-12": 132,
-    "2026-11": 515,
+    "2027-01": 70,
+    "2026-12": 137,
+    "2026-11": 543,
     "2026-10": 643,
-    "2026-09": 36,
+    "2026-09": 37,
     "2026-08": 1,
-    "2025-08": 1
+    "2026-06": 1
    },
    "muestra": [
     {
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 662,
+   "total": 716,
    "muestra": [
     {
      "id": "isbn-9791388042324",
@@ -640,8 +640,8 @@
    ]
   },
   "sin_texto": {
-   "total": 7219,
-   "proximos": 989,
+   "total": 8211,
+   "proximos": 1012,
    "por_mes": {
     "2028-01": 1,
     "2027-10": 1,
@@ -649,12 +649,12 @@
     "2027-07": 1,
     "2027-05": 7,
     "2027-04": 15,
-    "2027-03": 85,
-    "2027-02": 163,
-    "2027-01": 243,
-    "2026-12": 376,
-    "2026-11": 1876,
-    "2026-10": 2786
+    "2027-03": 91,
+    "2027-02": 167,
+    "2027-01": 245,
+    "2026-12": 384,
+    "2026-11": 1941,
+    "2026-10": 2787
    },
    "muestra": [
     {
@@ -840,10 +840,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 204,
+  "portadas_tipograficas": 40,
   "formatos_sin_precio": 0,
-  "sin_formatos_de_compra": 161,
-  "sin_texto": 996,
+  "sin_formatos_de_compra": 54,
+  "sin_texto": 992,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -976,25 +976,25 @@
     "fecha_publicacion": "2026-11-28"
    },
    {
-    "id": "isbn-9791388205866",
-    "titulo": "Pau Riba en 20 canciones (Sílex Música)",
-    "isbn13": "9791388205866",
-    "editorial": "Sílex Ediciones",
-    "fecha_publicacion": "2026-11-25"
+    "id": "isbn-9788410908819",
+    "titulo": "El Sitio de San Lorenzo el Real de El Escorial: Un símbolo para comprender el concepto de Dios",
+    "isbn13": "9788410908819",
+    "editorial": "Editorial Letra Minúscula",
+    "fecha_publicacion": "2026-11-26"
    },
    {
-    "id": "isbn-9788494341410",
-    "titulo": "Los guardianes de lo efímero",
-    "isbn13": "9788494341410",
-    "editorial": "Pentaesencia Books",
-    "fecha_publicacion": "2026-11-25"
+    "id": "isbn-9788410908949",
+    "titulo": "Ritual de vida",
+    "isbn13": "9788410908949",
+    "editorial": "Editorial Letra Minúscula",
+    "fecha_publicacion": "2026-11-26"
    },
    {
-    "id": "isbn-9791388540059",
-    "titulo": "LA CHISPA DE LEX: El viaje de los sueños",
-    "isbn13": "9791388540059",
-    "editorial": "Livensoul",
-    "fecha_publicacion": "2026-11-25"
+    "id": "isbn-9788410909120",
+    "titulo": "Dale una cachetada a tu ego",
+    "isbn13": "9788410909120",
+    "editorial": "Editorial Letra Minúscula",
+    "fecha_publicacion": "2026-11-26"
    }
   ]
  }

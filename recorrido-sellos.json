@@ -638,80 +638,61 @@
   "cola": [
     {
       "consulta": "Austral",
-      "nivel": 3,
-      "nodo": "13440922031",
+      "nivel": 2,
+      "nodo": "902614031",
       "ruta": [
-        "Erótica",
-        "Guías sexuales",
-        "Mujeres"
-      ],
-      "sello": "Austral"
-    },
-    {
-      "consulta": "Austral",
-      "nivel": 3,
-      "nodo": "13440918031",
-      "ruta": [
-        "Erótica",
-        "Guías sexuales",
-        "Sexo alternativo"
+        "Hogar, manualidades y estilos de vida",
+        "Guías de estilos personales y estilos de vida"
       ],
       "sello": "Austral"
     },
     {
       "consulta": "Austral",
       "nivel": 2,
-      "nodo": "13440889031",
+      "nodo": "902615031",
       "ruta": [
-        "Erótica",
-        "Literatura y ficción"
+        "Hogar, manualidades y estilos de vida",
+        "Jardinería"
       ],
       "sello": "Austral"
     },
     {
       "consulta": "Austral",
       "nivel": 2,
-      "nodo": "13440915031",
+      "nodo": "902616031",
       "ruta": [
-        "Erótica",
-        "Masajes"
+        "Hogar, manualidades y estilos de vida",
+        "Juegos y adivinanzas"
       ],
       "sello": "Austral"
     },
     {
       "consulta": "Austral",
       "nivel": 2,
-      "nodo": "13440916031",
+      "nodo": "902617031",
       "ruta": [
-        "Erótica",
-        "Recetas"
+        "Hogar, manualidades y estilos de vida",
+        "Mantenimiento del hogar y la vivienda"
       ],
       "sello": "Austral"
     },
     {
       "consulta": "Austral",
-      "nivel": 1,
-      "nodo": "1349107031",
+      "nivel": 2,
+      "nodo": "902618031",
       "ruta": [
-        "Fantasía y ciencia ficción"
+        "Hogar, manualidades y estilos de vida",
+        "Maquetas y trenes eléctricos"
       ],
       "sello": "Austral"
     },
     {
       "consulta": "Austral",
-      "nivel": 1,
-      "nodo": "902600031",
+      "nivel": 2,
+      "nodo": "902619031",
       "ruta": [
-        "Historia"
-      ],
-      "sello": "Austral"
-    },
-    {
-      "consulta": "Austral",
-      "nivel": 1,
-      "nodo": "902610031",
-      "ruta": [
-        "Hogar, manualidades y estilos de vida"
+        "Hogar, manualidades y estilos de vida",
+        "Mascotas"
       ],
       "sello": "Austral"
     },
@@ -1186,8 +1167,8 @@
   "errores": [],
   "grupos": {
     "austral": {
-      "libros_es": 40,
-      "pendientes": 22
+      "libros_es": 102,
+      "pendientes": 20
     }
   },
   "hijos": {
@@ -3708,6 +3689,49 @@
     "902596031": [],
     "902597031": [],
     "902598031": [],
+    "902600031": [
+      [
+        "902601031",
+        "Antigüedad"
+      ],
+      [
+        "902602031",
+        "Arqueología"
+      ],
+      [
+        "902603031",
+        "Edad media"
+      ],
+      [
+        "902604031",
+        "Edad moderna hasta el siglo XX"
+      ],
+      [
+        "902605031",
+        "Historia del siglo XX y XXI"
+      ],
+      [
+        "902606031",
+        "Historia militar"
+      ],
+      [
+        "902607031",
+        "Historia social y cultural"
+      ],
+      [
+        "902608031",
+        "Historiografía"
+      ],
+      [
+        "206205999031",
+        "Indígena"
+      ],
+      [
+        "902609031",
+        "Siglo de oro y edad moderna temprana"
+      ]
+    ],
+    "902607031": [],
     "902610031": [
       [
         "902611031",
@@ -4739,7 +4763,7 @@
       ]
     ]
   },
-  "libros_es": 21134,
+  "libros_es": 21200,
   "origen": {
     "Agencia Grafica S.L. Poligono do Tambre. Via Nobel, Nave 14. 15890 Santiago de Compostela (Spain)": "Agencia Gráfica S.L. Polígono do Tambre. Vía Nóbel, Nave 14. 15890 Santiago de Compostela (Spain)",
     "Editorial Akelarre Ediciones": "Akelarre Ediciones",
@@ -4760,13 +4784,13 @@
     "Editorial Tundra Producciones": "Tundra Producciones",
     "Grupo Planeta Mexico": "Grupo Planeta México"
   },
-  "particiones": 2387,
-  "peticiones": 4479,
-  "reintentos": 10497,
-  "reintentos_dia": "2026-11-27",
-  "segundos": 329,
+  "particiones": 2447,
+  "peticiones": 4554,
+  "reintentos": 8676,
+  "reintentos_dia": "2026-11-28",
+  "segundos": 83,
   "sellos_leidos": 303,
-  "sellos_llenos": 294,
+  "sellos_llenos": 311,
   "sellos_nuevos": 165,
   "sellos_saltados": 9,
   "variantes_probadas": [
