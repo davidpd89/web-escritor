@@ -115,6 +115,7 @@ jobs:
             --method get
             --exclude-path '(^|/)scripts/'
             --exclude-path '(^|/)tests/'
+            ${{ steps.scope.outputs.store_args }}
             ${{ steps.scope.outputs.files }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

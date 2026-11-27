@@ -144,6 +144,27 @@ def moved_covers(root,base):
     return {'assets/reading-covers/'+n for n in set(before)|set(after) if before.get(n)!=after.get(n)}
 
 
+def store_excludes(root,scope):
+    """27/11 (PR #1603): con el almacén activo cada portada es una URL del mismo host, y lychee va de una en una
+    (--host-concurrency 1, 750 ms): 87 páginas de recomendaciones agotaron los 40 min. El manifiesto solo registra
+    portadas cuyo contenido ya se verificó en el almacén (`reading_cover_store._verified`), y las que no están en él
+    siguen como fichero local y lychee las comprueba en disco; en la revisión parcial basta el manifiesto. La auditoría
+    completa (programada) sigue pidiendo cada portada al almacén."""
+    if scope=='full-site':
+        return []
+    try:
+        data=json.loads((Path(root)/COVER_MANIFEST).read_text(encoding='utf-8'))
+    except (OSError,ValueError):
+        return []
+    out=[]
+    for url in [data.get('base_url') or '',*(data.get('almacenes') or [])]:
+        url=str(url).rstrip('/')
+        # Solo URL sencillas: el valor acaba en la línea de órdenes de lychee.
+        if re.fullmatch(r'https://[\w.-]+(/[\w.-]+)*',url) and url not in out:
+            out.append(url)
+    return ["--exclude '^"+re.escape(u)+"/'" for u in out]
+
+
 if __name__=='__main__':
     event=json.loads(Path(os.environ['GITHUB_EVENT_PATH']).read_text(encoding='utf-8'))
     full=event.get('inputs',{}).get('full_scan',False)
@@ -158,6 +179,7 @@ if __name__=='__main__':
     with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as output:
         output.write('files=--files-from '+inputs.as_posix()+'\n')
         output.write('skip='+('true' if not result['files'] else 'false')+'\n')
+        output.write('store_args='+' '.join(store_excludes(Path.cwd(),result['scope']))+'\n')
     message=f"Link scope: {result['scope']}; {len(result['files'])} HTML pages. {result['reason']}."
     print(message)
     if os.environ.get('GITHUB_STEP_SUMMARY'):
