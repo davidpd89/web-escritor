@@ -30,6 +30,7 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
 import git_estado
 import gh_listas
+import reading_taxonomy
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / '.local/reading-texts/out'
@@ -261,9 +262,7 @@ def affine_books(data, b, cat_ids):
     return [(index[i][0], sorted(names[c] for c in shared) or ['autor']) for _, _, _, i, shared in best]
 
 
-GENEROS = ('Misterio y thriller', 'Fantasía', 'Romance', 'Ciencia ficción', 'Terror', 'Novela histórica', 'Aventuras', 'Poesía',
-           'Humor', 'Ensayo', 'Cómic y novela gráfica', 'Biografías y memorias', 'Cocina', 'Desarrollo personal',
-           'Narrativa contemporánea', 'Infantil', 'Otro')
+GENEROS = tuple(name for _id, name in reading_taxonomy.asked_genres()) + ('Otro',)  # los activos del catálogo
 PUBLICOS = ('infantil', 'juvenil', 'adultos')
 
 
