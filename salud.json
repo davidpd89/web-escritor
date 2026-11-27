@@ -1,21 +1,21 @@
 {
- "generado": "2026-11-27T08:55:34+00:00",
- "publicados": 8428,
+ "generado": "2026-11-27T09:55:32+00:00",
+ "publicados": 9423,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 1129,
-   "proximos": 280,
+   "total": 1338,
+   "proximos": 338,
    "por_mes": {
     "2027-08": 1,
     "2027-05": 5,
-    "2027-04": 1,
-    "2027-03": 3,
-    "2027-02": 75,
-    "2027-01": 42,
-    "2026-12": 127,
-    "2026-11": 488,
-    "2026-10": 372,
-    "2026-09": 11,
+    "2027-04": 6,
+    "2027-03": 24,
+    "2027-02": 78,
+    "2027-01": 61,
+    "2026-12": 132,
+    "2026-11": 515,
+    "2026-10": 499,
+    "2026-09": 13,
     "2026-08": 1,
     "2025-08": 1
    },
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 418,
+   "total": 501,
    "muestra": [
     {
      "id": "isbn-9791388042324",
@@ -640,21 +640,21 @@
    ]
   },
   "sin_texto": {
-   "total": 5228,
-   "proximos": 608,
+   "total": 6223,
+   "proximos": 865,
    "por_mes": {
     "2028-01": 1,
     "2027-10": 1,
     "2027-09": 1,
-    "2027-05": 5,
-    "2027-04": 3,
-    "2027-03": 8,
-    "2027-02": 50,
-    "2027-01": 145,
-    "2026-12": 304,
-    "2026-11": 1793,
-    "2026-10": 2007,
-    "2026-09": 383
+    "2027-07": 1,
+    "2027-05": 7,
+    "2027-04": 10,
+    "2027-03": 48,
+    "2027-02": 98,
+    "2027-01": 226,
+    "2026-12": 376,
+    "2026-11": 1876,
+    "2026-10": 2457
    },
    "muestra": [
     {
@@ -840,10 +840,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 0,
+  "portadas_tipograficas": 209,
   "formatos_sin_precio": 0,
-  "sin_formatos_de_compra": 0,
-  "sin_texto": 0,
+  "sin_formatos_de_compra": 83,
+  "sin_texto": 995,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -938,6 +938,41 @@
     "fecha_publicacion": "2026-11-28"
    },
    {
+    "id": "isbn-9791388366215",
+    "titulo": "Pack Memento Procesal Civil 2027 + Memento Procesal Penal 2027 + Memento Procesal Contencioso Administrativo 2027",
+    "isbn13": "9791388366215",
+    "editorial": "Editorial",
+    "fecha_publicacion": "2026-11-28"
+   },
+   {
+    "id": "isbn-9791388366185",
+    "titulo": "Memento Procesal Penal 2027",
+    "isbn13": "9791388366185",
+    "editorial": "Editorial",
+    "fecha_publicacion": "2026-11-28"
+   },
+   {
+    "id": "isbn-9791388366178",
+    "titulo": "Memento Procesal Civil 2027",
+    "isbn13": "9791388366178",
+    "editorial": "Editorial",
+    "fecha_publicacion": "2026-11-28"
+   },
+   {
+    "id": "isbn-9791388366192",
+    "titulo": "Memento Procesal Contencioso-Administrativo 2027",
+    "isbn13": "9791388366192",
+    "editorial": "Editorial",
+    "fecha_publicacion": "2026-11-28"
+   },
+   {
+    "id": "isbn-9791388366147",
+    "titulo": "Memento Concursal 2027",
+    "isbn13": "9791388366147",
+    "editorial": "Editorial",
+    "fecha_publicacion": "2026-11-28"
+   },
+   {
     "id": "isbn-9791388205866",
     "titulo": "Pau Riba en 20 canciones (Sílex Música)",
     "isbn13": "9791388205866",
@@ -957,41 +992,6 @@
     "isbn13": "9791388540059",
     "editorial": "Livensoul",
     "fecha_publicacion": "2026-11-25"
-   },
-   {
-    "id": "isbn-9791399294200",
-    "titulo": "El `discurso de Oviedo´ de D. Julio Rey Pastor sobre las matemáticas en España. Contexto e implicaciones",
-    "isbn13": "9791399294200",
-    "editorial": "Real Instituto de Estudios Asturianos",
-    "fecha_publicacion": "2026-11-25"
-   },
-   {
-    "id": "isbn-9791399216707",
-    "titulo": "Subir la dosis: 23 (Letra Caniche)",
-    "isbn13": "9791399216707",
-    "editorial": "Caniche Editorial",
-    "fecha_publicacion": "2026-11-25"
-   },
-   {
-    "id": "isbn-9791388540066",
-    "titulo": "PISANDO FUERTE: Dejando huella sin permiso",
-    "isbn13": "9791388540066",
-    "editorial": "Livensoul",
-    "fecha_publicacion": "2026-11-25"
-   },
-   {
-    "id": "isbn-9791399142730",
-    "titulo": "Autonomía local, democracia y organización territorial. Volumen I: El gobierno local en el sistema constitucional: 51 (Serie Claves del Gobierno Local)",
-    "isbn13": "9791399142730",
-    "editorial": "Fundación Democracia y Gobierno Local",
-    "fecha_publicacion": "2026-11-25"
-   },
-   {
-    "id": "isbn-9788413828817",
-    "titulo": "Cardiología en el área de urgencias",
-    "isbn13": "9788413828817",
-    "editorial": "Elsevier",
-    "fecha_publicacion": "2026-11-29"
    }
   ]
  }

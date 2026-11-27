@@ -38,7 +38,7 @@
   "albion": {
     "libros_es": 7,
     "nombre": "Albion",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-27"
   },
   "alfabeto": {
     "libros_es": 0,
@@ -84,14 +84,14 @@
     "ultima": "2026-11-08"
   },
   "almuzarauniversidad": {
-    "libros_es": 6,
+    "libros_es": 11,
     "nombre": "AlmuzaraUniversidad",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-27"
   },
   "altamarea edicion de libros sl": {
-    "libros_es": 20,
+    "libros_es": 30,
     "nombre": "Altamarea Edición de Libros SL",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-27"
   },
   "altamarea ediciones": {
     "libros_es": 26,
@@ -101,7 +101,7 @@
   "altrocanto poesia": {
     "libros_es": 3,
     "nombre": "ALTROCANTO POESÍA",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-27"
   },
   "alvarellos editora": {
     "libros_es": 20,
@@ -109,9 +109,13 @@
     "ultima": "2026-11-12"
   },
   "amara": {
-    "libros_es": 4,
+    "libros_es": 0,
     "nombre": "Amara",
-    "ultima": "2026-11-06"
+    "particion": {
+      "libros_es": 70,
+      "ultima": "2026-11-27"
+    },
+    "ultima": "2026-11-27"
   },
   "amarante": {
     "libros_es": 0,
@@ -168,9 +172,9 @@
     "ultima": "2026-11-06"
   },
   "arcopress": {
-    "libros_es": 8,
+    "libros_es": 15,
     "nombre": "Arcopress",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-27"
   },
   "ariel": {
     "libros_es": 22,
@@ -188,14 +192,14 @@
     "ultima": "2026-11-12"
   },
   "arzola aguilar sixto apolonio": {
-    "libros_es": 6,
+    "libros_es": 9,
     "nombre": "Arzola Aguilar Sixto Apolonio",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-27"
   },
   "athena ediciones": {
-    "libros_es": 19,
+    "libros_es": 29,
     "nombre": "Athena Ediciones",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-27"
   },
   "athenaica ediciones": {
     "libros_es": 19,
@@ -212,9 +216,9 @@
     "ultima": "2026-11-12"
   },
   "austral": {
-    "libros_es": 9,
+    "libros_es": 1,
     "nombre": "Austral",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-27"
   },
   "austral editorial": {
     "libros_es": 10,
@@ -2400,11 +2404,15 @@
   "yoyo": {
     "libros_es": 0,
     "nombre": "Yoyo",
+    "particion": {
+      "libros_es": 12,
+      "ultima": "2026-11-27"
+    },
     "ultima": "2026-11-27"
   },
   "zenith": {
-    "libros_es": 26,
+    "libros_es": 30,
     "nombre": "Zenith",
-    "ultima": "2026-11-06"
+    "ultima": "2026-11-27"
   }
 }
