@@ -1,0 +1,80 @@
+{
+  "host": "piloto.davidportodiaz.com",
+  "zona": "davidportodiaz.com",
+  "nucleo": "dp-nucleo",
+  "prefijo_worker": "dp-frag",
+  "compatibility_date": "2026-11-27",
+  "noindex": true,
+  "bloqueante": false,
+  "objetivo_ficheros": 10000,
+  "umbral_ficheros": 15000,
+  "maximo_ficheros": 19500,
+  "fragmentos": [
+    {
+      "worker": "dp-frag-eb7c9ce3",
+      "prefijos": [
+        "pagefind/fragment/es_0",
+        "pagefind/fragment/es_1",
+        "pagefind/fragment/es_2",
+        "pagefind/fragment/es_3",
+        "pagefind/fragment/es_4",
+        "pagefind/fragment/es_5",
+        "pagefind/fragment/es_6",
+        "pagefind/fragment/es_7",
+        "pagefind/fragment/es_8",
+        "pagefind/fragment/es_9",
+        "pagefind/fragment/es_a",
+        "pagefind/fragment/es_b",
+        "pagefind/fragment/es_c",
+        "pagefind/fragment/es_d",
+        "pagefind/fragment/es_e"
+      ]
+    },
+    {
+      "worker": "dp-frag-52cbafb9",
+      "prefijos": [
+        "pagefind/fragment/es_f"
+      ]
+    },
+    {
+      "worker": "dp-frag-2c30376f",
+      "prefijos": [
+        "recomendaciones/libros/1",
+        "recomendaciones/libros/2",
+        "recomendaciones/libros/3",
+        "recomendaciones/libros/4",
+        "recomendaciones/libros/5",
+        "recomendaciones/libros/6",
+        "recomendaciones/libros/7",
+        "recomendaciones/libros/8",
+        "recomendaciones/libros/9",
+        "recomendaciones/libros/a",
+        "recomendaciones/libros/b",
+        "recomendaciones/libros/c",
+        "recomendaciones/libros/d",
+        "recomendaciones/libros/e",
+        "recomendaciones/libros/f",
+        "recomendaciones/libros/g",
+        "recomendaciones/libros/h",
+        "recomendaciones/libros/i",
+        "recomendaciones/libros/j",
+        "recomendaciones/libros/k",
+        "recomendaciones/libros/l",
+        "recomendaciones/libros/m",
+        "recomendaciones/libros/n",
+        "recomendaciones/libros/o",
+        "recomendaciones/libros/p",
+        "recomendaciones/libros/q",
+        "recomendaciones/libros/r",
+        "recomendaciones/libros/s",
+        "recomendaciones/libros/t",
+        "recomendaciones/libros/u",
+        "recomendaciones/libros/v",
+        "recomendaciones/libros/w",
+        "recomendaciones/libros/x",
+        "recomendaciones/libros/y",
+        "recomendaciones/libros/z"
+      ]
+    }
+  ]
+}
