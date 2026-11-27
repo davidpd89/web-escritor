@@ -54,6 +54,11 @@ class Validacion(unittest.TestCase):
         self.assertEqual(va.normalizar({'pub': 'a', 'gen': ['fantasia', 'romance', 'terror', 'narrativa']}, GEN)[0],
                          ('fantasia', 'romance', 'terror'))
 
+    def test_un_solo_lado_del_eje_manda_el_principal(self):
+        gen = {**GEN, 'filosofia': ('Filosofía', '')}
+        self.assertEqual(va.normalizar({'pub': 'a', 'gen': ['narrativa', 'filosofia']}, gen), (('narrativa',), 'a'))
+        self.assertEqual(va.normalizar({'pub': 'a', 'gen': ['filosofia', 'terror']}, gen), (('filosofia',), 'a'))
+
     def test_r4_exige_confianza(self):
         r = json.dumps({'libros': [{'id': 'b01', 'elige': 'A', 'pub': 'a', 'gen': ['terror'], 'conf': 'alta', 'fuente': 'u'},
                                    {'id': 'b02', 'elige': 'B', 'pub': 'a', 'gen': ['terror']}]})

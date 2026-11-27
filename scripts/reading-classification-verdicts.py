@@ -218,6 +218,9 @@ def normalizar(o: dict, gen: dict):
     g = list(dict.fromkeys(g))
     if len(g) > 1 and 'narrativa' in g and set(g) & FICCION:
         g.remove('narrativa')
+    from reading_taxonomy import verdict_genres  # un solo lado del eje: el mismo criterio que al aplicarlo
+    lado = verdict_genres(g, set(gen))
+    g = [x for x in g if x in lado]
     if pub == 'i':
         g = [x for x in g if x not in ('romance', 'familia-y-crianza', 'desarrollo-personal')] or ['infantil']
     return tuple(g[:3]), pub
