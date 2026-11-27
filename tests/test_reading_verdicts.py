@@ -71,7 +71,8 @@ class PublishedCatalogue(unittest.TestCase):
         for book_id, verdict in self.verdicts.items():
             if book_id not in known:
                 continue  # el libro pudo salir del catálogo; su veredicto no estorba
-            want = set(verdict['gen']) | ({tax.CHILD_ID} if verdict['pub'] == 'i' else set())
+            # Un solo lado del eje ficción/no ficción: manda el género principal del veredicto.
+            want = tax.verdict_genres(verdict['gen'], genres) | ({tax.CHILD_ID} if verdict['pub'] == 'i' else set())
             if {'romance', 'fantasia'} <= want:
                 want.add('romantasy')
             if by_book.get(book_id, set()) & genres - {'fantasia-oscura', 'fantasia-juvenil'} != want & genres:

@@ -826,14 +826,25 @@ def load_verdicts(path: Path = VERDICTS_FILE) -> dict:
     return data if isinstance(data, dict) else {}
 
 
+def verdict_genres(gen: list, genre_ids: set) -> set:
+    """Géneros del veredicto en un solo lado del eje ficción/no ficción: manda el principal (el primero).
+    GPT a veces suma «filosofía» a una novela; el catálogo no admite libros en las dos caras."""
+    gen = [g for g in gen if g in genre_ids]
+    side = next((FICTION_GENRES if g in FICTION_GENRES else NON_FICTION_GENRES for g in gen
+                 if g in FICTION_GENRES or g in NON_FICTION_GENRES), None)
+    other = (NON_FICTION_GENRES if side is FICTION_GENRES else FICTION_GENRES) if side else set()
+    return {g for g in gen if g not in other}
+
+
 def apply_verdicts(catalogue: dict, by_book: dict, verdicts: dict | None = None) -> list:
     """Fija géneros y público de los libros con veredicto. Solo toca géneros y las etiquetas de público
     (infantil, juvenil); los temas y las edades siguen siendo de los nodos."""
     verdicts = load_verdicts() if verdicts is None else verdicts
     cat_ids = {c['id'] for c in catalogue['categorias']}
     genre_ids = {c['id'] for c in catalogue['categorias'] if c['tipo'] == 'genero'}
+    present = [verdicts[b['id']] for b in catalogue['libros'] if b['id'] in verdicts]
     for gid, (name, desc, order) in NEW_GENRES.items():
-        if gid not in cat_ids and any(gid in (v.get('gen') or []) for v in verdicts.values()):
+        if gid not in cat_ids and any(gid in (v.get('gen') or []) for v in present):
             catalogue['categorias'].append({'id': gid, 'slug': gid, 'nombre': name, 'tipo': 'genero',
                                             'descripcion': desc, 'orden': order, 'activa': True})
             genre_ids.add(gid)
@@ -842,7 +853,7 @@ def apply_verdicts(catalogue: dict, by_book: dict, verdicts: dict | None = None)
         v = verdicts.get(book['id'])
         if not v:
             continue
-        want = {g for g in v.get('gen') or [] if g in genre_ids}
+        want = verdict_genres(v.get('gen') or [], genre_ids)
         pub = v.get('pub')
         if pub == 'i':
             want.add(CHILD_ID)
@@ -876,6 +887,7 @@ def repair_classification(catalogue, today=None):
         by_book.setdefault(rel['libro_id'], set()).add(rel['categoria_id'])
     before = {ident: set(cats) for ident, cats in by_book.items()}
     dates = {book['id']: book.get('fecha_actualizacion') for book in catalogue['libros']}
+    position = {(r['libro_id'], r['categoria_id']): i for i, r in enumerate(catalogue['libro_categorias'])}
     repaired = []
     for book in catalogue['libros']:
         assigned = by_book.get(book['id'], set())
@@ -912,6 +924,9 @@ def repair_classification(catalogue, today=None):
     # Quitar etiquetas de nodo puede dejar «narrativa-juvenil» sola con la no ficción: el público se repara otra vez.
     touched |= set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
     touched |= set(apply_verdicts(catalogue, by_book))
+    # Un repaso que quita algo y el veredicto que lo devuelve mueven filas: el orden de entrada se conserva
+    # (las nuevas, al final) para que una segunda pasada no cambie nada.
+    catalogue['libro_categorias'].sort(key=lambda r: position.get((r['libro_id'], r['categoria_id']), len(position)))
     # Los repasos pueden quitar algo que el veredicto devuelve: solo cuenta como cambio lo que queda distinto.
     after = {}
     for rel in catalogue['libro_categorias']:
