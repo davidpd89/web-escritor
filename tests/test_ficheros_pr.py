@@ -70,6 +70,22 @@ class FicherosPrTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             pub.ficheros_pr('o/r', {'number': 1, 'headRefOid': self.head}, gh_=self.api(9), git=self.git, tope=3)
 
+    def test_si_la_api_no_puede_generar_el_diff_la_lista_sale_de_git(self):
+        """27/11, carga 46028944813: HTTP 422 «diff taking too long» con 10 419 libros tumbó la carga."""
+        def api_rota(*args):
+            raise subprocess.CalledProcessError(1, ['gh', *args], stderr='HTTP 422: this diff is taking too long')
+        items = pub.ficheros_pr('o/r', {'number': 1, 'headRefOid': self.head}, gh_=api_rota, git=self.git, tope=3)
+        self.assertEqual(sorted(i['filename'] for i in items),
+                         ['data/b.json', 'data/c.json', 'data/d.json', 'data/e.json', 'scripts/colado.py'])
+
+    def test_sin_api_ni_git_falla_en_vez_de_dar_lista_vacia(self):
+        def api_rota(*args):
+            raise subprocess.CalledProcessError(1, ['gh', *args])
+        def git_roto(*args):
+            raise subprocess.CalledProcessError(128, ['git', *args])
+        with self.assertRaises(subprocess.CalledProcessError):
+            pub.ficheros_pr('o/r', {'number': 1, 'headRefOid': self.head}, gh_=api_rota, git=git_roto, tope=3)
+
     def test_los_publicadores_no_leen_la_api_de_ficheros_por_su_cuenta(self):
         for nombre in ('publish-radar-refresh.py', 'publish-reading-refresh.py'):
             fuente = (ROOT / 'scripts' / nombre).read_text(encoding='utf-8')
