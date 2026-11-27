@@ -913,7 +913,8 @@ def loop(args):
             since_publish += saved
             print(f'Lote de {len(books)}: {saved} guardados, {rejected} rechazados', flush=True)
         elif not args.refresh_data:
-            if publishing is not None or retry_at:  # revisión de #1612: el reintento de una aplazada sigue vivo
+            # revisión de #1612: sigue vivo el reintento de una aplazada, o hay textos (de una fallida) para la próxima hora fija
+            if publishing is not None or retry_at or (args.publish_at and since_publish):
                 time.sleep(60)
                 continue
             print('Sin pendientes', flush=True)
