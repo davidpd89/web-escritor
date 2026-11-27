@@ -130,8 +130,7 @@ def resume_pending(branch):
                                   'number,headRefOid,baseRefName,state'))
     if pr['state'] != 'OPEN' or pr['baseRefName'] != 'main':
         raise ValueError('Expected an open PR targeting main')
-    comparison = json.loads(publication.gh('api',
-        f'repos/{repo}/compare/main...{pr["headRefOid"]}'))
+    comparison = publication.comparar(repo, 'main', pr['headRefOid'])
     # A commit that already failed after the publisher's rerun fails again: regenerate it from main
     # (newer code and data) instead of blocking every later batch on the same red commit.
     failed = failed_checks(repo, pr['headRefOid'])
