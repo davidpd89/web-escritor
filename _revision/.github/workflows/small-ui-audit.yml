@@ -1,0 +1,95 @@
+name: Small UI gaps audit (advisory)
+
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'assets/**/*.json'
+      - 'data/**/*.json'
+      - 'scripts/audit-small-ui-contracts.py'
+      - 'tests/test-small-ui-audit.py'
+      - '.github/workflows/small-ui-audit.yml'
+      # Vía rápida: un PR solo de contenido generado (scripts/ci_content_lane.py CONTENT_GLOBS) no lo dispara; lo cubre weekly-full-audit.yml.
+      - '!assets/page-order.generated.js'
+      - '!assets/reading-market.json'
+      - '!assets/reading-covers/isbn-*.webp'
+      - '!assets/reading-audio/*.mp3'
+      - '!assets/pinterest/feeds/*.xml'
+      - '!data/reading-catalogue.json'
+      - '!data/reading-authors.json'
+      - '!data/reading-publishers.json'
+      - '!data/reading-intake-state.json'
+      - '!data/reading-covers-store.json'
+      - '!data/reading-author-links.json'
+      - '!data/reading-amazon-audit.json'
+      - '!data/reading-classification-gpt.json'
+      - '!data/reading-pinterest-state.json'
+      - '!data/reading-quarantine.json'
+      - '!data/reading-texts/*.json'
+      - '!data/reading-author-texts/*.json'
+      - '!data/content-registry.json'
+      - '!recomendaciones/index.html'
+      - '!recomendaciones/autores/index.html'
+      - '!recomendaciones/editoriales/index.html'
+      - '!recomendaciones/libros/*/index.html'
+      - '!recomendaciones/pagina/*/index.html'
+      - '!recomendaciones/autores/*/index.html'
+      - '!recomendaciones/autores/pagina/*/index.html'
+      - '!recomendaciones/editoriales/*/index.html'
+      - '!recomendaciones/proximos-lanzamientos.ics'
+      - '!recomendaciones/llms.txt'
+      - '!recomendaciones/ofertas.json'
+      - '!editoriales/*/index.html'
+      - '!editoriales-sitemap.xml'
+      - '!editoriales/index.html'
+      - '!editoriales/editoriales-data.json'
+      - '!metodologia-editorial/index.html'
+      - '!mapa-del-sitio/index.html'
+      - '!sitemap.xml'
+      - '!pagefind/**'
+  schedule:
+    - cron: '17 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # En una PR, un push nuevo cancela la CI del commit anterior; main y los programados no se cancelan.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  audit:
+    name: Small UI source findings (advisory)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validate the audit with independent fixtures
+        run: python tests/test-small-ui-audit.py
+      - name: Audit tracked HTML and JSON sources
+        run: python scripts/audit-small-ui-contracts.py
+      - name: Publish findings in run summary
+        if: always()
+        run: |
+          if [ -f .ci/small-ui-audit/report.md ]; then
+            cat .ci/small-ui-audit/report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve JSON and readable report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: small-ui-audit
+          path: .ci/small-ui-audit/
+          if-no-files-found: warn
+          retention-days: 30
