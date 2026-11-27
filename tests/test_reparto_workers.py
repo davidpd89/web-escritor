@@ -181,6 +181,17 @@ class Validar(unittest.TestCase):
                 rw.validar_resumen(malo)
 
 
+class SinCredenciales(unittest.TestCase):
+    def test_missing_credentials_only_fail_once_workers_is_production(self):
+        import os
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {}, clear=True):
+            for bloqueante, esperado in ((False, 0), (True, 1)):
+                ruta = Path(tmp) / 'plan.json'
+                ruta.write_text(json.dumps(dict(BASE, bloqueante=bloqueante)), encoding='utf-8')
+                self.assertEqual(rw.main(['desplegar', '--repartido', tmp, '--plan', str(ruta)]), esperado)
+
+
 class PlanVersionado(unittest.TestCase):
     def test_repo_plan_is_valid(self):
         plan = rw.leer_plan()

@@ -47,6 +47,9 @@ Para rotarlo, crea uno nuevo con los mismos permisos (dash → My Profile → AP
 
 ## Corte del apex (cuando Pages se acerque al límite)
 
+El humo de Workers toma el host y el bloqueo del plan, y con `bloqueante: true` la falta de credenciales hace
+fallar el despliegue y el humo. Así, el corte se hace cambiando el plan.
+
 1. En `config/workers-reparto.json` pon `host: "davidportodiaz.com"`, `noindex: false` y `bloqueante: true`.
    Fusiona y espera a que el despliegue deje el núcleo y las rutas creados.
 2. En DNS, borra los registros A/AAAA del apex que apuntan a GitHub. El dominio personalizado del Worker
@@ -66,5 +69,6 @@ Para rotarlo, crea uno nuevo con los mismos permisos (dash → My Profile → AP
 - Tras el corte: repón los registros A del apex a GitHub Pages (185.199.108-111.153) y el CNAME de `www`,
   quita el dominio personalizado del Worker núcleo y **borra las rutas `davidportodiaz.com/*` de los
   fragmentos** (dash → Workers Routes); si el apex queda proxied, esos prefijos seguirían sirviéndose desde
-  los Workers. Devuelve el host del plan al piloto. Con el apex otra vez en Pages vuelve a aplicar el límite de
+  los Workers. Devuelve el plan al piloto (`host`, `noindex: true`, `bloqueante: false`) y repón `continue-on-error` en los pasos
+  de Workers, para que un fallo del espejo no vuelva a bloquear Pages. Con el apex otra vez en Pages vuelve a aplicar el límite de
   1 GB.

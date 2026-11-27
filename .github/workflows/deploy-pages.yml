@@ -193,15 +193,20 @@ jobs:
         run: python scripts/reparto_workers.py desplegar --repartido "$RUNNER_TEMP/workers"
 
       - name: Smoke test Workers mirror (non-blocking while staging)
-        if: env.CF_TOKEN_SET == 'true'
         continue-on-error: true
         env:
           CF_TOKEN_SET: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
-          SITE_BASE_URL: https://piloto.davidportodiaz.com
           CANONICAL_ORIGIN: https://davidportodiaz.com
           SMOKE_LABEL: WORKERS
           EXPECTED_RELEASE_SHA: ${{ github.sha }}
-        run: node tests/test-staging-smoke.mjs
+        run: |
+          # Host y bloqueo salen del plan: el corte del apex solo cambia config/workers-reparto.json.
+          read -r HOST BLOQUEANTE < <(python -c "import json;p=json.load(open('config/workers-reparto.json',encoding='utf-8'));print(p['host'],str(p.get('bloqueante',False)).lower())")
+          if [ "$CF_TOKEN_SET" != "true" ]; then
+            echo "Sin credenciales de Cloudflare: no hay espejo que comprobar."
+            [ "$BLOQUEANTE" = "true" ] && exit 1 || exit 0
+          fi
+          SITE_BASE_URL="https://$HOST" node tests/test-staging-smoke.mjs
 
   deploy:
     needs: build

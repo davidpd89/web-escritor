@@ -366,7 +366,7 @@ def main(argv=None):
     token = os.environ.get('CLOUDFLARE_API_TOKEN', '')
     if not token or not os.environ.get('CLOUDFLARE_ACCOUNT_ID'):
         print('Sin CLOUDFLARE_API_TOKEN/CLOUDFLARE_ACCOUNT_ID: no se despliega a Workers.')
-        return 0
+        return 1 if plan.get('bloqueante') else 0  # tras el corte, sin credenciales no hay producción
     try:
         resumen = desplegar(a.repartido, token)
         fallos = humo(resumen)
