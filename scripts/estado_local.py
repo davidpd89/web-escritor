@@ -40,16 +40,20 @@ def leer(nombre: str, carpeta: Path | None = None) -> dict | None:
 
 @contextmanager
 def vigilado(nombre: str, registro: Path, argv: list[str], cwd: Path, carpeta: Path | None = None):
-    """Envuelve una publicación local: en marcha al entrar; éxito o fallo (con la cola del registro) al salir."""
+    """Envuelve una publicación local: en marcha al entrar; éxito o fallo (con la cola del registro) al salir.
+
+    Devuelve un dict: quien no publicó a propósito (p. ej. aplazada por una carga en CI) pone `conclusion='neutral'`
+    para no constar como éxito; la autorreparación (`decidir`) ni olvida ni repara un neutral (revisión de #1612)."""
     inicio = dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
     base = {'nombre': nombre, 'databaseId': f'{nombre}-{inicio}', 'createdAt': inicio, 'url': str(registro),
             'argv': argv, 'cwd': str(cwd), 'registro_ruta': str(registro)}
     escribir(nombre, {**base, 'status': 'in_progress', 'conclusion': None}, carpeta)
+    resultado: dict = {}
     try:
-        yield
+        yield resultado
     except BaseException:
         sys.stdout.flush(); sys.stderr.flush()
         escribir(nombre, {**base, 'status': 'completed', 'conclusion': 'failure',
                           'registro': cola(registro) + '\n' + traceback.format_exc()}, carpeta)
         raise
-    escribir(nombre, {**base, 'status': 'completed', 'conclusion': 'success'}, carpeta)
+    escribir(nombre, {**base, 'status': 'completed', 'conclusion': resultado.get('conclusion', 'success')}, carpeta)

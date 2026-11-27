@@ -989,8 +989,9 @@ def main(argv=None):
         sys.path.insert(0, str(ROOT / 'scripts'))
         import estado_local
         with estado_local.vigilado('publicacion-textos', ROOT / '.local/reading-texts/publish.log',
-                                   [sys.executable, '-u', str(Path(__file__).resolve()), 'publish'], ROOT):
+                                   [sys.executable, '-u', str(Path(__file__).resolve()), 'publish'], ROOT) as resultado:
             if publish() == DEFERRED:
+                resultado['conclusion'] = 'neutral'  # aplazada: ni éxito (no publicó) ni fallo que reparar
                 return PUBLISH_DEFERRED
     return 0
 
