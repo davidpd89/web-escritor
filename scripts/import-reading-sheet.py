@@ -169,6 +169,15 @@ def convert(snapshot, review, existing, root):
         by_book.setdefault(rel['libro_id'], set()).add(rel['categoria_id'])
     taxonomy.drop_seasons(data, by_book)
     taxonomy.repair_children_genres(data, by_book)
+    # Los veredictos de clasificación son la capa final también para los libros de la hoja (si no, --check
+    # nunca reproduce el catálogo). Se reordena después para conservar la posición de lo ya publicado.
+    published = {b['id']: b for b in existing['libros']}
+    for book_id in taxonomy.apply_verdicts(data, by_book):
+        book = next(b for b in data['libros'] if b['id'] == book_id)
+        old = (published.get(book_id) or {}).get('fecha_actualizacion')
+        if old and old > (book.get('fecha_actualizacion') or ''):
+            book['fecha_actualizacion'] = old  # la fecha que puso la reclasificación, no la de la hoja
+    data['libro_categorias'].sort(key=lambda r: position.get((r['libro_id'], r['categoria_id']), len(position)))
     builder.validate(data, root)
     return data, report
 
