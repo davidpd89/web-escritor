@@ -44,7 +44,9 @@ concurrency:
 jobs:
   check-links:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    # La web entera (9.482 páginas el 26/11) ya no cabe en 40 min; solo la auditoría completa (programada, dispatch
+    # en main o full_scan) tiene ese margen. Una PR revisa lo que cambia y conserva el límite corto.
+    timeout-minutes: ${{ (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && (github.ref == 'refs/heads/main' || inputs.full_scan))) && 120 || 40 }}
 
     steps:
       - name: Checkout
@@ -65,6 +67,7 @@ jobs:
       # their logical /assets/reading-covers/ paths to the store URL. Do the same here so lychee checks the real
       # hosted file instead of reporting a missing local one.
       - name: Point store covers at the store, as the deploy does
+        if: steps.scope.outputs.skip != 'true'
         run: python3 scripts/reading_cover_store.py apply .
 
       # Two flags about the CI runner, not about the links (2026-10-06): lychee's
@@ -81,8 +84,11 @@ jobs:
       # limit (PR scans got cancelled). Timeouts/5xx/transport errors are
       # rechecked with curl in the next step, which still demands a 2xx, so
       # 2 retries here lose no coverage. tests/test-link-check-budget.py.
+      # 26/11 (carga 45868423421): sin HTML nuevo, cambiado ni borrado no hay enlace que pueda haberse roto; antes
+      # se revisaba la web entera (9.482 páginas), el job agotaba sus 40 min y la carga salía roja.
       - name: Check links with Lychee
         id: lychee
+        if: steps.scope.outputs.skip != 'true'
         continue-on-error: true
         uses: lycheeverse/lychee-action@v2
         with:
@@ -109,6 +115,7 @@ jobs:
             --method get
             --exclude-path '(^|/)scripts/'
             --exclude-path '(^|/)tests/'
+            ${{ steps.scope.outputs.store_args }}
             ${{ steps.scope.outputs.files }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
