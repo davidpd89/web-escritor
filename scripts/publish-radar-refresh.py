@@ -224,7 +224,7 @@ def _comprobacion_escritura(args):
                     return False
                 if otros[0] in (foto, punta(datos['base'])):
                     return True
-                return bool(foto) and gh('api', f'repos/{pr[1]}/compare/{foto}...{otros[0]}', '--jq', '.status') in ('ahead', 'identical')
+                return bool(foto) and comparar(pr[1], foto, otros[0], jq='.status') in ('ahead', 'identical')
             return foto, aplicado
     return None
 
@@ -331,8 +331,7 @@ def superseding_pages(repo, merged_sha, after_id):
     runs = gh_listas.ultimas(gh, 'run', 'list', '--workflow', 'deploy-pages.yml', '--branch', 'main',
                              '--json', 'databaseId,headSha,status,conclusion', n=50)
     for item in sorted((r for r in runs if r['databaseId'] > after_id), key=lambda r: r['databaseId']):
-        if item['headSha'] == merged_sha or gh('api', f'repos/{repo}/compare/{merged_sha}...{item["headSha"]}',
-                                               '--jq', '.status') in ('ahead', 'identical'):
+        if item['headSha'] == merged_sha or comparar(repo, merged_sha, item['headSha'], jq='.status') in ('ahead', 'identical'):
             if item['status'] == 'completed' and item['conclusion'] == 'cancelled':
                 continue
             return item
@@ -358,12 +357,12 @@ def main_cambio_entradas(repo, sha, hasta='main'):
     fusiona sin conflicto artefactos construidos con datos viejos (#1312, CodeRabbit). Solo cuentan las entradas
     de los builders: una instantánea de redes que entra a diario no obliga a regenerar.
     """
-    data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...{hasta}'))
+    data = comparar(repo, sha, hasta)
     if not data.get('ahead_by'):
         return []
     # Un renombrado cuenta por los dos nombres: retirar una página generada (index.html -> .bak) también la cambia.
     files = [name for item in data.get('files', []) for name in (item['filename'], item.get('previous_filename')) if name]
-    if len(data.get('files', [])) >= 300:  # la API trunca la lista: no se puede descartar nada
+    if len(data.get('files', [])) >= 300 and not data.get('completo'):  # la API trunca la lista: no se puede descartar nada
         return files[:5] + ['…']
     return [f for f in files if entrada_de_builders(f)]
 
@@ -416,11 +415,11 @@ GENERATED_BRANCH = re.compile(r'automation/[a-zA-Z0-9][a-zA-Z0-9._-]*')
 
 def main_cambio_qa(repo, sha):
     """Ficheros de código de CI que main tiene y la cabeza de la PR no (vacío si no hay)."""
-    data = json.loads(gh('api', f'repos/{repo}/compare/{sha}...main'))
+    data = comparar(repo, sha, 'main')
     if not data.get('ahead_by'):
         return []
     files = data.get('files', [])
-    if len(files) >= 300:  # la API trunca la lista: el arreglo de QA puede estar fuera; se cuenta como cambio
+    if len(files) >= 300 and not data.get('completo'):  # la API trunca la lista: el arreglo de QA puede estar fuera; se cuenta como cambio
         return [item['filename'] for item in files[:5]] + ['…']
     return [item['filename'] for item in files if item['filename'].startswith(QA_CODE_PREFIXES)]
 
@@ -493,6 +492,47 @@ def _git_salida(*args, cwd=None):
                           errors='replace', timeout=600).stdout
 
 
+def _ficheros_git(git, base, head):
+    """Ficheros cambiados de `base` a `head` con el formato de la API ({'filename', 'previous_filename'?})."""
+    campos = git('diff', '--name-status', '-z', '--no-color', '-M', base, head).split('\0')
+    completos, i = [], 0
+    while i < len(campos) and campos[i]:
+        if campos[i][:1] in 'RC':
+            completos.append({'filename': campos[i + 2], 'previous_filename': campos[i + 1]})
+            i += 3
+        else:
+            completos.append({'filename': campos[i + 1]})
+            i += 2
+    return completos
+
+
+def comparar(repo, base, head, *, jq=None, gh_=None, git=_git_salida):
+    """`gh api repos/{repo}/compare/{base}...{head}` (con `--jq` opcional) que no cae si la API no puede comparar.
+
+    Clase de fallo (27/11, carga 46054825375): con 10 419 libros la API responde HTTP 422 «this diff is taking too
+    long to generate» y resume_pending tumbaba la carga entera. Si la API falla, status/ahead_by/behind_by/files
+    salen de git (lo mismo que calcula la API, sin tope de 300 ficheros: `completo` lo indica). Si git tampoco
+    puede, falla: un estado inventado no sirve para decidir qué se fusiona.
+    jq solo admite '.status' (el único filtro que usan los llamadores)."""
+    if jq not in (None, '.status'):
+        raise ValueError(f'comparar: filtro no soportado {jq!r}')
+    try:
+        salida = (gh_ or gh)('api', f'repos/{repo}/compare/{base}...{head}', *(('--jq', jq) if jq else ()))
+        return salida if jq else json.loads(salida)
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, ValueError) as error:
+        print(f'compare {base}...{head} sin API ({error}); se calcula con git.', flush=True)
+    git('fetch', '--quiet', '--no-tags', 'origin', *dict.fromkeys(('main', base, head)))
+    local = lambda ref: 'origin/main' if ref == 'main' else ref
+    b, h = local(base), local(head)
+    detras, delante = (int(n) for n in git('rev-list', '--left-right', '--count', f'{b}...{h}').split())
+    status = ('identical' if not (delante or detras) else 'ahead' if not detras else
+              'behind' if not delante else 'diverged')
+    if jq:
+        return status
+    return {'status': status, 'ahead_by': delante, 'behind_by': detras, 'completo': True,
+            'files': _ficheros_git(git, git('merge-base', b, h).strip(), h)}
+
+
 def ficheros_pr(repo, pr, *, gh_=None, git=_git_salida, tope=TOPE_FICHEROS_PR):
     """Ficheros de la PR como los da la API ({'filename', 'previous_filename'?}), completos aunque pasen del tope.
 
@@ -512,16 +552,7 @@ def ficheros_pr(repo, pr, *, gh_=None, git=_git_salida, tope=TOPE_FICHEROS_PR):
     head = pr['headRefOid']
     git('fetch', '--quiet', '--no-tags', 'origin', 'main', head)
     base = git('merge-base', 'origin/main', head).strip()
-    campos = git('diff', '--name-status', '-z', '--no-color', '-M', base, head).split('\0')
-    completos, i = [], 0
-    while i < len(campos) and campos[i]:
-        estado = campos[i]
-        if estado[:1] in 'RC':
-            completos.append({'filename': campos[i + 2], 'previous_filename': campos[i + 1]})
-            i += 3
-        else:
-            completos.append({'filename': campos[i + 1]})
-            i += 2
+    completos = _ficheros_git(git, base, head)
     if len(completos) < len(items):
         raise ValueError(f'git ve {len(completos)} ficheros y la API {len(items)}: la lista de la PR no cuadra')
     return completos
@@ -725,8 +756,8 @@ def publish_generated(branch, allowed_path, workflows, *, timeout=5400, deploy_b
                 # Nuestro deploy, por su id. `ref main` despacha desde la punta: si main avanzó tras la fusión su
                 # commit es posterior y debe contener el merge (#1312); si no lo contiene, no valida nada.
                 current = ejecucion(repo, propio, hasta=deadline)
-                if current['headSha'] != merged_sha and gh(
-                        'api', f'repos/{repo}/compare/{merged_sha}...{current["headSha"]}', '--jq', '.status') not in ('ahead', 'identical'):
+                if current['headSha'] != merged_sha and comparar(
+                        repo, merged_sha, current['headSha'], jq='.status') not in ('ahead', 'identical'):
                     raise RuntimeError(f'Pages {propio} @ {current["headSha"]} no contiene el merge {merged_sha}')
             else:
                 current = superseding_pages(repo, merged_sha, followed)
