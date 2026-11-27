@@ -765,7 +765,7 @@ def _publish_once(out, publisher):
         publisher.publication.gh, 'pr', 'list', '--state', 'open', '--base', 'main', '--json', 'headRefName,createdAt'))
     if batch:
         print(f'Carga del catálogo en CI ({batch}): los textos esperan a la siguiente publicación', flush=True)
-        return False
+        return DEFERRED
     tree = publisher.clean_main_tree(ROOT, ROOT / '.local/reading-texts/main')
     data = read_json(tree / 'data/reading-catalogue.json')
     catalogue.index_categories(data)
@@ -840,6 +840,30 @@ def publish(out=OUT):
             print(f'main avanzó durante la publicación de textos: reconstruyo desde main (intento {attempt + 1}/3)', flush=True)
 
 
+# 27/11: la publicación diaria de las 21 h coincidía con cargas del catálogo en CI y se aplazaba al día siguiente
+# (26/11), o fallaba y daba los textos por publicados (20/11); la PR #1562 quedó roja desde el 24/11 sin relevo.
+# Aplazada (código 75, EX_TEMPFAIL) se reintenta a los 30 min; fallida conserva los textos para la siguiente hora.
+DEFERRED = 'aplazada'
+PUBLISH_DEFERRED = 75
+PUBLISH_RETRY = 1800
+
+
+def publish_now(args, now, last, pending, retry_at, clock):
+    """Lanzar la publicación: hay textos sin publicar y llega su hora, o vence el reintento de una aplazada."""
+    if not pending:
+        return False
+    if retry_at:
+        return clock >= retry_at
+    return publish_due(args, now, last) and bool(args.publish_at or pending >= args.publish_every)
+
+
+def after_publish(code, owed, clock):
+    """(textos que vuelven a quedar pendientes, momento del reintento o 0) según cómo acabó la publicación."""
+    if code == PUBLISH_DEFERRED:
+        return owed, clock + PUBLISH_RETRY
+    return (owed if code else 0), 0
+
+
 def publish_due(args, now, last):
     """Toca publicar: a una de las horas de --publish-at (Madrid), una vez por hora y día, o al llegar a --publish-every."""
     if args.publish_at:
@@ -862,16 +886,20 @@ def loop(args):
     data = read_json(ROOT / 'data/reading-catalogue.json')
     catalogue.index_categories(data)
     deadline = time.time() + args.hours * 3600
-    done = since_publish = 0
-    publishing, last = None, ''
+    done = since_publish = owed = 0
+    publishing, last, retry_at = None, '', 0
     while time.time() < deadline and done < args.max_books:
         now = datetime.now(ZoneInfo('Europe/Madrid'))
         if publishing is not None and publishing.poll() is not None:
             print(f'Publicación terminada ({publishing.returncode})', flush=True)
+            back, retry_at = after_publish(publishing.returncode, owed, time.time())
+            since_publish += back
+            if retry_at:
+                print(f'Publicación aplazada: reintento en {PUBLISH_RETRY // 60} min', flush=True)
             publishing = None
-        if publishing is None and since_publish and publish_due(args, now, last) and \
-                (args.publish_at or since_publish >= args.publish_every):
-            publishing, last, since_publish = start_publish(), now.strftime('%Y-%m-%d %H'), 0
+        if publishing is None and publish_now(args, now, last, since_publish, retry_at, time.time()):
+            owed = since_publish
+            publishing, last, since_publish, retry_at = start_publish(), now.strftime('%Y-%m-%d %H'), 0, 0
             print('Publicación lanzada en segundo plano', flush=True)
         books = pending(data, state=state)[:args.batch]
         if books:
@@ -958,7 +986,8 @@ def main(argv=None):
         import estado_local
         with estado_local.vigilado('publicacion-textos', ROOT / '.local/reading-texts/publish.log',
                                    [sys.executable, '-u', str(Path(__file__).resolve()), 'publish'], ROOT):
-            publish()
+            if publish() == DEFERRED:
+                return PUBLISH_DEFERRED
     return 0
 
 

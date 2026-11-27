@@ -229,6 +229,33 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertFalse(texts.publish_due(args, at, '2026-11-03 21'))
         self.assertFalse(texts.publish_due(args, datetime(2026, 11, 3, 10), ''))
 
+    def test_publication_deferred_by_a_catalogue_load_retries_within_the_hour_and_keeps_its_texts(self):
+        """27/11: aplazada a las 21 h por una carga en CI esperaba al día siguiente (#1562 roja desde el 24/11)."""
+        from datetime import datetime
+        from types import SimpleNamespace
+        args = SimpleNamespace(publish_at=[21], publish_every=25)
+        back, retry_at = texts.after_publish(texts.PUBLISH_DEFERRED, 7, 1000)
+        self.assertEqual((back, retry_at), (7, 1000 + texts.PUBLISH_RETRY))
+        at = datetime(2026, 11, 26, 21, 40)
+        self.assertFalse(texts.publish_now(args, at, '2026-11-26 21', back, retry_at, 1000 + 60))
+        self.assertTrue(texts.publish_now(args, datetime(2026, 11, 26, 23, 0), '2026-11-26 21', back, retry_at, retry_at))
+        self.assertEqual(texts.after_publish(1, 7, 1000), (7, 0))  # fallida: los textos siguen pendientes
+        self.assertEqual(texts.after_publish(0, 7, 1000), (0, 0))
+        self.assertFalse(texts.publish_now(args, at, '', 0, 0, 0))
+        self.assertTrue(texts.publish_now(args, datetime(2026, 11, 27, 21, 1), '2026-11-26 21', 7, 0, 0))
+
+    def test_publish_command_exits_75_when_a_catalogue_load_is_in_ci(self):
+        from types import SimpleNamespace
+        publisher = SimpleNamespace(publication=SimpleNamespace(gh=lambda *a: '[]'))
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / 'out'
+            out.mkdir()
+            (out / 'x.json').write_text('{}', encoding='utf-8')
+            with mock.patch.object(texts.gh_listas, 'lista', return_value=[{'headRefName': 'automation/reading-catalogue-2026-11-26-1',
+                                                                          'createdAt': '2099-01-01T00:00:00Z'}]), \
+                    mock.patch.object(texts, 'catalogue_in_ci', return_value='automation/reading-catalogue-2026-11-26-1'):
+                self.assertEqual(texts._publish_once(out, publisher), texts.DEFERRED)
+
     def test_same_chat_repairs_failing_blocks_then_improves_short_ones(self):
         wrong = {**self.others[2], 'texto': self.others[2]['texto'] + ' Se publicó en 1987.'}
         first = {'id': self.book['id'], 'bloques': [self.block, self.others[0], self.others[1], wrong]}
