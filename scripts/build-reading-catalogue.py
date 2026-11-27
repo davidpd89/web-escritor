@@ -1884,6 +1884,96 @@ def author_text_sections(a, t, selected, related_by_name):
     return nav_html, before, after
 
 
+_ROLE_STEMS = ('escritor', 'novelista', 'poeta', 'periodista', 'ensayista', 'guionista', 'dramaturg', 'historiador', 'filósof',
+               'psicólog', 'ilustrador', 'dibujante', 'divulgador', 'profesor', 'médic', 'científic', 'economista', 'investigador',
+               'traductor', 'autor', 'cociner', 'chef', 'psiquiatra', 'neurocientífic', 'biólog', 'físic', 'abogad', 'empresari',
+               'actor', 'actriz', 'cantante', 'músic', 'humorista', 'presentador', 'entrenador', 'nutricionista', 'creador',
+               'pedagog', 'sociólog', 'antropólog', 'arqueólog', 'astrofísic', 'matemátic', 'veterinari', 'fotógraf', 'cineasta',
+               'director', 'politólog', 'teólog', 'monje', 'chamán', 'maestr', 'terapeuta', 'psicoterapeuta', 'educador', 'artista')
+_ROLE = re.compile(r'\b(?:es|fue|era)\s+(?:(?:una|un)\s+)?([^.;:()]{4,90}?)(?=\s+(?:nacid[oa]|que|con|cuy[oa]s?|conocid[oa]|especializad[oa]|'
+                   r'licenciad[oa]|doctor[a]?|graduad[oa]|afincad[oa]|residente|reconocid[oa]|considerad[oa]|famos[oa]|ganador[a]?|'
+                   r'premiad[oa]|y\s+(?:vive|reside|trabaja)|autor[a]?\s+de|desde|en\s+\w+)\b|[.;(]|$)')
+
+
+def author_role(text):
+    """«escritor y guionista británico» de «Neil Gaiman es un escritor y guionista británico nacido en…». Solo si empieza
+    por un oficio: «es la séptima novela de…» no es un oficio y no da nada."""
+    m = _ROLE.search(text or '')
+    role = m.group(1).strip(' ,') if m else ''
+    return role if role and len(role) <= 60 and role.lower().startswith(_ROLE_STEMS) else ''
+
+
+def _short_title(t, limit=40):
+    """Título para un snippet: sin «(ed. actualizada)» y, si es largo, hasta el subtítulo."""
+    t = re.sub(r'\s*\((?:ed\.|edición|edicion)[^)]*\)', '', t).strip()
+    if len(t) > limit:
+        for sep in (':', '. ', ' (', ' - ', ' / '):
+            if sep in t and 3 <= t.index(sep) <= limit:
+                return t[:t.index(sep)].strip()
+    return t if len(t) <= limit else ''
+
+
+def _some(titles, n):
+    return ', '.join(titles[:n]) + ' y más' if len(titles) > n else _join_titles(titles[:n])
+
+
+def _join_titles(titles, last=' y '):
+    return titles[0] if len(titles) == 1 else ', '.join(titles[:-1]) + last + titles[-1]
+
+
+def author_seo(a, selected, own, genres, has_bio, person_like):
+    """(title, description) de la ficha de autor, con lo que se busca («libros de X», «X libros en orden», «por dónde
+    empezar con X») y datos propios de la persona (oficio, títulos, sagas, editorial) en vez de una plantilla común."""
+    name = a['nombre']
+    titles = []
+    for b, _ in group_editions(selected):
+        t = _short_title(b['titulo'])
+        if t and t not in titles:
+            titles.append(t)
+    bio_text = (own or {}).get('intro') or a.get('biografia_breve') or (a.get('descripcion') if a.get('tipo') != 'bibliografico' else '')
+    role = author_role(bio_text) if person_like else ''
+    genre = genres[0]['nombre'].lower() if genres else ''
+    who = name + (', ' + role if role else '')
+
+    def fit(options, limit):
+        return next((o for o in options if o and len(o) <= limit), options[-1])
+
+    if own:
+        starts = [_short_title(x['titulo']) for x in own.get('por_donde_empezar', [])]
+        starts = [s for s in starts if s][:3]
+        saga = own['sagas'][0]['nombre'] if own.get('sagas') else ''
+        rest = (' Sagas como ' + saga + ', biografía' if saga else ' Biografía') + ' y novedades en España.'
+        meta = fit(['Libros de ' + name + ' en orden y por dónde empezar: ' + _join_titles(starts[:n], ' o ') + '.' + r
+                    for n in (3, 2, 1) if len(starts) >= n for r in (rest, ' Orden de lectura y biografía.')]
+                   + [name + ': libros en orden de publicación, por dónde empezar' + (', sagas' if saga else '') + ' y biografía.'], 158)
+        years = (' (' + a['nacimiento'][:4] + '–' + a['fallecimiento'][:4] + ')') if a.get('fallecimiento') and a.get('nacimiento') else ''
+        title = fit([name + years + ': libros en orden' + (', sagas' if saga else '') + ' y por dónde empezar',
+                     name + years + ': libros en orden y por dónde empezar', name + ': libros en orden y biografía'], 60)
+        return title, meta
+    if not person_like:
+        meta = fit([name + ': ' + _join_titles(titles[:n]) + '. Sinopsis, fecha de publicación y dónde comprarlos.' for n in (3, 2, 1) if len(titles) >= n]
+                   + [name + ': libros, fechas de publicación y dónde comprarlos.'], 158)
+        return 'Libros de ' + name + ': títulos y novedades', meta
+    tail_bio = ', biografía' if has_bio else ''
+    if len(selected) == 1:
+        b = selected[0]
+        facts = ', '.join(str(v) for v in (b.get('editorial'), (b.get('fecha_publicacion') or '')[:4] or b.get('anio_publicacion')) if v)
+        t = titles[0] if titles else _short_title(b['titulo'], 70) or b['titulo']
+        meta = fit(['«' + t + '», de ' + who + ': sinopsis' + (', edición (' + facts + ')' if facts else '') + tail_bio + ' y dónde comprarlo.',
+                    '«' + t + '», de ' + name + ': sinopsis' + (', edición (' + facts + ')' if facts else '') + tail_bio + ' y dónde comprarlo.',
+                    '«' + t + '», de ' + name + ': sinopsis' + tail_bio + ' y dónde comprarlo.',
+                    'Libros de ' + name + ': sinopsis' + tail_bio + ' y dónde comprarlos.'], 158)
+        title = fit(['Libros de ' + name + ': «' + t + '»' + (' y biografía' if has_bio else ''), 'Libros de ' + name + ': «' + t + '»', 'Libros de ' + name + (' y biografía' if has_bio else '')], 60)
+        return title, meta
+    lead = 'Libros de ' + who + (' (' + genre + ')' if genre and not role else '') + ': '
+    meta = fit([lead + _some(titles, n) + '. Sinopsis, novedades' + tail_bio + ' y dónde comprarlos.' for n in (3, 2, 1) if len(titles) >= n]
+               + ['Libros de ' + name + ': ' + _join_titles(titles[:n]) + '. Sinopsis' + tail_bio + ' y dónde comprarlos.' for n in (2, 1) if len(titles) >= n]
+               + ['Libros de ' + name + ': ' + str(len(selected)) + ' títulos con sinopsis, novedades' + tail_bio + ' y dónde comprarlos.'], 158)
+    title = fit(['Libros de ' + name + ': ' + _some(titles, n) for n in (2, 1) if len(titles) >= n]
+                + ['Libros de ' + name + (' y biografía' if has_bio else ': títulos y novedades')], 60)
+    return title, meta
+
+
 def render_author(a,data,books,template,all_authors=(),anchor=None):
     selected=_newest_first([b for b in books if a['nombre'] in b['autores']])
     canonical=SITE+author_url(a)
@@ -1963,24 +2053,7 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
         graph.append({'@type':'ItemList','@id':canonical+'#libros','name':'Libros de '+a['nombre'],'numberOfItems':len(selected),
                       'itemListElement':[{'@type':'ListItem','position':i,'url':SITE+url(b)} for i,b in enumerate(selected,1)]})
     schema={'@context':'https://schema.org','@graph':graph}
-    titles=', '.join(b['titulo'] for b in selected[:2])
-    meta=a['nombre']+': '+(str(count)+(' libro recomendado' if count==1 else ' libros recomendados')+(' ('+titles+')' if titles else '')+', ' if count else '')+('biografía, géneros y editoriales.' if has_bio else 'géneros y editoriales.')
-    if own:
-        meta=a['nombre']+': por dónde empezar a leerle, sus libros en orden de publicación'+(', sagas' if own.get('sagas') else '')+' y biografía.'
-    if len(meta)>160: meta=a['nombre']+': '+str(count)+(' libro recomendado' if count==1 else ' libros recomendados')+(', biografía, géneros y editoriales.' if has_bio else ', géneros y editoriales.')
-    if own and a.get('fallecimiento'):
-        title=a['nombre']+(' ('+a['nacimiento'][:4]+'–'+a['fallecimiento'][:4]+')' if a.get('nacimiento') else '')+': libros en orden y biografía'
-    elif own:
-        title=a['nombre']+': libros en orden'+(', sagas' if own.get('sagas') else '')+' y biografía'
-    elif person_like and count == 1 and has_bio and len(a['nombre']+': libros, '+selected[0]['titulo']+' y biografía')<=58:
-        title=a['nombre']+': libros, '+selected[0]['titulo']+' y biografía'
-    elif not person_like or count < 2:
-        title='Libros de '+a['nombre']+': títulos y novedades'
-    elif a.get('fallecimiento'):
-        years=' ('+a['nacimiento'][:4]+'–'+a['fallecimiento'][:4]+')' if a.get('nacimiento') else ''
-        title=a['nombre']+years+(': libros y biografía' if has_bio else ': libros y ediciones actuales')
-    else:
-        title=a['nombre']+(': libros, últimas novedades y biografía' if has_bio else ': libros y últimas novedades')
+    title,meta=author_seo(a,selected,own,genres,has_bio,person_like)
     if len(title)+len(' | David Porto Díaz')<=75:
         title+=' | David Porto Díaz'
     return render_detail_page(template,main,canonical,title,meta if a.get('tipo') != 'bibliografico' or count else bio,schema,selected[0] if selected else None)
