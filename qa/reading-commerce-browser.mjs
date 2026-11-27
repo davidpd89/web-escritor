@@ -107,7 +107,11 @@ try {
   assert.equal(await author.getAttribute('target'), '_blank');
   await live.goto(`${base}/recomendaciones/autores/neil-gaiman/`);
   assert.equal(await live.locator('main h1').innerText(), 'Neil Gaiman');
-  assert.equal(await live.locator('.catalogue-author-books > li').count(), 1);
+  // 27/11: la carga 45971872296 trajo un segundo Gaiman (Sandman) y el «=== 1» tumbó la PR de datos #1613.
+  // El catálogo real crece: se comprueba la forma (Coraline presente, cada fila enlaza a una ficha), no el número.
+  const authorBooks = await live.locator('.catalogue-author-books > li').evaluateAll(items => items.map(li => li.querySelector('a[href^="/recomendaciones/libros/"]')?.getAttribute('href')));
+  assert(authorBooks.length >= 1 && authorBooks.every(Boolean), `Cada libro del autor enlaza a su ficha: ${authorBooks}`);
+  assert(authorBooks.includes('/recomendaciones/libros/coraline/'), 'Coraline sigue en la página de Neil Gaiman');
   // Sin el bloque «Fuentes y ediciones», Wikipedia queda como identidad del autor en sameAs (JSON-LD).
   assert.match(await live.locator('script[type="application/ld+json"]').allInnerTexts().then(t => t.join(' ')), /"sameAs": \[[^\]]*es\.wikipedia\.org\/wiki\/Neil_Gaiman/);
   assert(!/aggregateRating/.test(await live.content()));
