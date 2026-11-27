@@ -208,16 +208,18 @@ class LotesDeSemillas(unittest.TestCase):
 class PresupuestoDelSitio(unittest.TestCase):
     @FIJO
     @given(usados=st.integers(0, 1000 * ps.MB), crece=st.integers(0, 100 * ps.MB), coste=st.integers(1, ps.MB),
-           medidos=st.integers(1, 20000), nuevos=st.integers(0, 400), hechas=st.integers(0, 300))
-    def test_nunca_pasa_del_tope_ni_del_freno(self, usados, crece, coste, medidos, nuevos, hechas):
+           medidos=st.integers(1, 20000), nuevos=st.integers(0, 400), hechas=st.integers(0, 300),
+           tope=st.one_of(st.none(), st.integers(1, 2000)))
+    def test_nunca_pasa_del_tope_ni_del_freno(self, usados, crece, coste, medidos, nuevos, hechas, tope):
         medida = {'bytes': usados, 'libros': medidos, 'coste_por_libro': coste}
-        cupo = ps.altas_max(medida, medidos + nuevos, hechas)
+        cupo = ps.altas_max(medida, medidos + nuevos, hechas, tope)
         self.assertGreaterEqual(cupo, 0)
-        self.assertLessEqual(cupo, max(0, ps.TOPE_NOCHE - hechas))
+        if tope is not None:
+            self.assertLessEqual(cupo, max(0, tope - hechas))
         self.assertLessEqual(usados + (nuevos + cupo) * coste, max(usados + nuevos * coste, ps.FRENO_MB * ps.MB))
-        mayor = ps.altas_max(dict(medida, bytes=usados + crece), medidos + nuevos, hechas)
+        mayor = ps.altas_max(dict(medida, bytes=usados + crece), medidos + nuevos, hechas, tope)
         self.assertLessEqual(mayor, cupo, 'un sitio más grande no recibe más altas')
-        self.assertLessEqual(ps.altas_max(medida, medidos + nuevos + 1, hechas), cupo, 'ni con más libros publicados')
+        self.assertLessEqual(ps.altas_max(medida, medidos + nuevos + 1, hechas, tope), cupo, 'ni con más libros publicados')
 
 
 if __name__ == '__main__':
