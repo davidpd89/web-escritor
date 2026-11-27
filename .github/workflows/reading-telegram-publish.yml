@@ -109,6 +109,10 @@ jobs:
                            if p.get('release_date') == data.get('at', '')[:10]]
           retrying = [p for p in pending_today if p.get('transient', True)]
           excluded = [p for p in pending_today if not p.get('transient', True)]
+          # Portada caída = el mensaje habría salido sin imagen: error visible en el run, no solo en el resumen.
+          for fix in data.get('cover_fixes', []):
+              if fix.get('caida'):
+                  print(f"::error::Portada caída: {fix.get('id')}: {fix.get('verdict')} ({fix.get('url')})")
           print('Telegram cycle:', data['status'], json.dumps(detail, sort_keys=True),
                 'pendientes de verificar hoy:', len(retrying), '| excluidos hoy:', len(excluded))
           # El motivo de cada pendiente de hoy (id público del libro + motivo, sin chats ni secretos): sin él,
@@ -125,7 +129,7 @@ jobs:
                       out.write(f"- {p['id']}: {p.get('reason')}\n")
               fixes = data.get('cover_fixes', [])
               if fixes:
-                  out.write('\nPortadas tipográficas revisadas al publicar:\n')
+                  out.write('\nPortadas revisadas al publicar (tipográficas y caídas):\n')
                   for fix in fixes[:200]:
                       out.write(f"- {fix.get('title')}: {fix.get('verdict')} ({fix.get('source') or '-'})\n")
               out.write('Durable state is checkpointed per batch of sends. No private runtime artifacts uploaded.\n')

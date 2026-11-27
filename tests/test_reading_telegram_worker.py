@@ -397,6 +397,65 @@ class CoverResolverTests(unittest.TestCase):
         self.assertIsNone(resolve(book))
         self.assertEqual(fixes[0]["verdict"], "sin portada real: tipográfica")
 
+    def test_working_own_cover_is_used_without_report(self):
+        from reading_telegram_worker import cover_resolver
+        fixes = []
+        get = lambda url, **kw: self.response("image/webp", 20000)
+        book = {"id": "ok", "title": "Libro", "asin": "B0ABCDEFGH",
+                "cover_url": "https://davidpd89.github.io/web-escritor-portadas/isbn-9788401042751.webp"}
+        self.assertEqual(cover_resolver(fixes, get=get, fetch_json=lambda url: {})(book), book["cover_url"])
+        self.assertEqual(fixes, [])
+
+    def test_broken_own_cover_is_replaced_and_flagged(self):
+        """27/11: la portada del almacén salía como ruta del sitio (404) y el mensaje iba sin imagen."""
+        from reading_telegram_worker import cover_resolver
+        fixes = []
+        broken = "https://davidportodiaz.com/assets/reading-covers/isbn-9788401042751.webp"
+        get = lambda url, **kw: (self.response("text/html", 21000, 404) if url == broken
+                                 else self.response("image/jpeg", 40000))
+        book = {"id": "x", "title": "Libro", "asin": "8401042755", "isbn13": "9788401042751",
+                "cover_url": broken}
+        url = cover_resolver(fixes, get=get, fetch_json=lambda url: {})(book)
+        self.assertIn("/images/P/8401042755.01.", url)
+        self.assertTrue(fixes[0]["caida"])
+        self.assertEqual(fixes[0]["verdict"], "portada caída: sustituida")
+
+    def test_broken_cover_without_alternative_is_flagged_not_sent_broken(self):
+        from reading_telegram_worker import cover_resolver
+        fixes = []
+        get = lambda url, **kw: self.response("text/html", 21000, 404)
+        book = {"id": "y", "title": "Libro", "asin": "B0ABCDEFGH", "isbn13": "9788401042751",
+                "cover_url": "https://davidportodiaz.com/assets/reading-covers/isbn-9788401042751.webp"}
+        self.assertIsNone(cover_resolver(fixes, get=get, fetch_json=lambda url: {})(book))
+        self.assertEqual(fixes[0]["verdict"], "portada caída: sale sin portada")
+        self.assertTrue(fixes[0]["caida"])
+
+    def test_cover_url_uses_store_manifest_from_given_root(self):
+        """El publicador corre con checkout de solo scripts/: el manifiesto llega por cover_root."""
+        import json
+        import tempfile
+        from reading_telegram import cover_url
+        name = "isbn-9788401042751.webp"
+        book = {"portada_local": "/assets/reading-covers/" + name, "portada_edicion_verificada": True}
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "data").mkdir()
+            (Path(tmp) / "data" / "reading-covers-store.json").write_text(json.dumps({
+                "base_url": "https://almacen.example/portadas", "archivos": [name],
+                "sha256": {name: "0" * 64}}), encoding="utf-8")
+            self.assertEqual(cover_url(book, Path(tmp)), "https://almacen.example/portadas/" + name)
+
+    def test_cycle_feeds_store_manifest_from_main(self):
+        """Guardia: el ciclo baja el manifiesto del almacén de main y se lo pasa al catálogo."""
+        import ast
+        source = Path(reading_telegram_worker.__file__).read_text(encoding="utf-8")
+        tree = ast.parse(source)
+        cycle = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == "cycle")
+        calls = [n for n in ast.walk(cycle) if isinstance(n, ast.Call)]
+        self.assertTrue(any(getattr(c.func, "id", "") == "main_json" and c.args
+                            and getattr(c.args[0], "value", "") == "reading-covers-store.json" for c in calls))
+        build = next(c for c in calls if getattr(c.func, "id", "") == "from_reading_catalogue")
+        self.assertIn("cover_root", [k.arg for k in build.keywords])
+
     def test_cycle_waits_until_1130_without_any_request(self):
         import tempfile
         from datetime import datetime

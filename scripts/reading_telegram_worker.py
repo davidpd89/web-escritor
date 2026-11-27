@@ -238,7 +238,7 @@ def verified_snapshot(catalogue, intake, today, fetch):
 MIN_COVER_BYTES = 5000  # Amazon answers a missing cover with a ~1 KB placeholder GIF
 
 
-def real_cover_url(url, get=requests.get):
+def real_cover_url(url, get=requests.get, min_bytes=MIN_COVER_BYTES):
     """True when the URL serves a real image (not a placeholder, not an error page)."""
     try:
         response = get(url, timeout=10, allow_redirects=True)
@@ -249,16 +249,22 @@ def real_cover_url(url, get=requests.get):
         response.status_code == 200
         and kind.startswith("image/")
         and "gif" not in kind
-        and len(response.content) >= MIN_COVER_BYTES
+        and len(response.content) >= min_bytes
     )
 
 
-def cover_resolver(fixes, get=requests.get, fetch_json=None):
-    """For books that still carry our typographic cover, look for the real one before posting.
+OWN_COVER_MIN_BYTES = 1000  # nuestras portadas (almacén o web) son webp pequeños pero nunca un marcador
 
-    Order: Amazon image of that ASIN, then Open Library and Google Books by ISBN. When one exists the
-    post uses it and the fix is reported as «fallo nuestro» (the nightly cover pass missed it); when
-    none exists the typographic cover is the right one and is kept."""
+
+def cover_resolver(fixes, get=requests.get, fetch_json=None):
+    """Portada con la que sale cada mensaje, comprobada antes de enviarlo.
+
+    1. Si el libro lleva nuestra tipográfica, busca la real (imagen de Amazon de ese ASIN, Open Library y
+       Google Books por ISBN). Si existe, sale esa y se informa como «fallo nuestro».
+    2. La URL de la portada del catálogo tiene que servir una imagen de verdad. Si da 404 o una página
+       (27/11: almacén externo sin manifiesto → ruta del sitio inexistente), se busca otra y se marca
+       `caida`, lo que deja el ciclo en needs_attention: nunca más se publica sin portada sin que se vea.
+    Devuelve la URL que funciona o None si no hay ninguna (el mensaje sale en texto y queda avisado)."""
     from reading_amazon_market import fallback_cover_urls
 
     if fetch_json is None:
@@ -267,28 +273,51 @@ def cover_resolver(fixes, get=requests.get, fetch_json=None):
 
     memo = {}
 
-    def resolve(book):
-        if not book.get("generated_cover"):
-            return None
-        key = book.get("id") or book["asin"]
-        if key in memo:
-            return memo[key]
+    def search(book):
         candidates = []
         if re.fullmatch(r"[0-9]{9}[0-9X]", book.get("asin", "")):
             candidates.append(
                 ("Amazon", f"https://images-na.ssl-images-amazon.com/images/P/{book['asin']}.01.LZZZZZZZ.jpg")
             )
-        candidates += fallback_cover_urls({"isbn13": book.get("isbn13")}, fetch_json)
-        found = next(((name, url) for name, url in candidates if real_cover_url(url, get)), None)
-        memo[key] = found[1] if found else None
+        try:
+            candidates += fallback_cover_urls({"isbn13": book.get("isbn13")}, fetch_json)
+        except Exception:  # noqa: BLE001 - buscar alternativa nunca debe impedir el envío
+            pass
+        return next(((name, url) for name, url in candidates if real_cover_url(url, get)), None)
+
+    def resolve(book):
+        key = book.get("id") or book["asin"]
+        if key in memo:
+            return memo[key]
+        own = book.get("cover_url")
+        if book.get("generated_cover"):
+            found = search(book)
+            fixes.append(
+                {
+                    "id": book.get("id"),
+                    "title": book.get("title"),
+                    "source": found[0] if found else None,
+                    "verdict": "fallo nuestro: había portada real" if found else "sin portada real: tipográfica",
+                }
+            )
+            if found:
+                memo[key] = found[1]
+                return memo[key]
+        if not own or real_cover_url(own, get, OWN_COVER_MIN_BYTES):
+            memo[key] = own
+            return own
+        found = None if book.get("generated_cover") else search(book)
         fixes.append(
             {
                 "id": book.get("id"),
                 "title": book.get("title"),
                 "source": found[0] if found else None,
-                "verdict": "fallo nuestro: había portada real" if found else "sin portada real: tipográfica",
+                "verdict": "portada caída: sustituida" if found else "portada caída: sale sin portada",
+                "caida": True,
+                "url": own,
             }
         )
+        memo[key] = found[1] if found else None
         return memo[key]
 
     return resolve
@@ -351,8 +380,12 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False
         for g in main_json("communities.json").get("groups", [])
         if isinstance(g, dict) and g.get("id")
     }
+    # El manifiesto del almacén de portadas viaja con el catálogo de la misma versión de main: el publicador
+    # corre con un checkout que solo trae scripts/, y sin él las portadas del almacén salían como rutas del
+    # sitio que dan 404 (Telegram y Discord sin portada, 27/11).
+    atomic_json(root / "covers" / "data" / "reading-covers-store.json", main_json("reading-covers-store.json"))
     catalog = from_reading_catalogue(
-        root / "catalogue.json", root / "channels.json", groups
+        root / "catalogue.json", root / "channels.json", groups, cover_root=root / "covers"
     )
     catalog["digests"] = digest_candidate_keys(catalog, today)
     cover_fixes = []
@@ -388,7 +421,7 @@ def cycle(root: Path, live=False, github_state=False, test_asin=None, wait=False
         r["status"] in {"uncertain", "rejected", "skipped:sending"}
         or r["status"].startswith(("uncertain:", "retry:", "skipped:retry:"))
         for r in deliveries
-    )
+    ) or any(f.get("caida") for f in cover_fixes)
     report = {
         "at": datetime.now(ZoneInfo("Europe/Madrid")).isoformat(),
         "live": live,
