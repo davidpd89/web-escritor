@@ -29,6 +29,7 @@ from zoneinfo import ZoneInfo
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # módulos hermanos también al cargarlo con importlib
 import git_estado
+import materializar_generados as materializar
 import gh_listas
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,6 +37,7 @@ OUT = ROOT / '.local/reading-texts/out'
 STATE = ROOT / '.local/reading-texts/state.json'
 AUTHOR_OUT = ROOT / '.local/reading-author-texts/out'  # fichas de autor: scripts/reading-author-texts.py
 CLASIFICACION = ROOT / '.local/reading-texts/clasificacion.json'  # segunda opinión de ChatGPT sobre género y público
+VEREDICTOS = ROOT / '.local/clasificacion-veredictos/estado.json'  # scripts/reading-classification-verdicts.py
 PROMPT = ROOT / 'scripts/templates/reading-texts-prompt.md'
 RRSS_TOOLS = Path(os.environ.get('RRSS_TOOLS', r'C:\GIT\RRSS_DavidPorto\tools'))
 VERSION = 3
@@ -758,8 +760,10 @@ def _publish_once(out, publisher):
     """Copia los textos a un árbol limpio de origin/main y publica con el flujo protegido del barrido."""
     texts = sorted(out.glob('*.json'))
     authors_out = AUTHOR_OUT if out == OUT else out.parent / 'author-texts-none'
-    if not texts and not any(authors_out.glob('*.json')):
-        print('Sin textos que publicar')
+    verdicts_state = VEREDICTOS if out == OUT else out.parent / 'veredictos-none.json'
+    pending_verdicts = any(isinstance(e, dict) and e.get('aceptado') for e in (read_json(verdicts_state, {}) or {}).values())
+    if not texts and not any(authors_out.glob('*.json')) and not pending_verdicts:
+        print('Sin textos ni veredictos que publicar')
         return False
     batch = catalogue_in_ci(gh_listas.lista(
         publisher.publication.gh, 'pr', 'list', '--state', 'open', '--base', 'main', '--json', 'headRefName,createdAt'))
@@ -793,10 +797,17 @@ def _publish_once(out, publisher):
         if run_check.returncode:
             print('Aviso: sin comprobar enlaces de autor; las fuentes nuevas salen como texto', flush=True)
     run = lambda *cmd: subprocess.run([sys.executable, *cmd], cwd=tree, check=True)
-    for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
-        run('scripts/' + script)
-    for script in ('build-reading-catalogue.py', 'build-site-shell.py', 'build-sitemap.py', 'build-pagefind-index.py'):
-        run('scripts/' + script, '--check')
+    # Veredictos de clasificación aceptados (bucle de clasificación, mismo .local): se fusionan y el catálogo se
+    # rederiva con el código de main, o los contratos de veredictos tumbarían la PR. Corre en el árbol de main.
+    verdicts_file = tree / 'data/reading-classification-verdicts.json'
+    verdicts_before = read_json(verdicts_file, {}) or {}
+    if pending_verdicts and (tree / 'scripts/reading-classification-verdicts.py').exists():
+        run('scripts/reading-classification-verdicts.py', 'publicar', '--estado', str(verdicts_state))
+    verdicts_after = read_json(verdicts_file, {}) or {}
+    verdicts_count = sum(1 for i, v in verdicts_after.items() if verdicts_before.get(i) != v)
+    # Cadena única de builders (la de la carga): un cambio de clasificación también mueve editoriales y orden.
+    materializar.construir(tree)
+    materializar.comprobar(tree)
     run('scripts/check-reading-data.py')  # el código lo prueba el Required merge gate; aquí, solo los datos
     paths = git_estado.rutas(tree)
     if not paths:
@@ -810,6 +821,9 @@ def _publish_once(out, publisher):
     count = len([p for p in paths if p.startswith('data/reading-texts/')])
     authors_count = len([p for p in paths if p.startswith('data/reading-author-texts/')])
     title = f'Orientación propia en {count} fichas de lectura' + (f' y {authors_count} de autor' if authors_count else '')
+    if verdicts_count:
+        title = (title + f' y {verdicts_count} veredictos de clasificación') if count or authors_count else \
+            f'Veredictos de clasificación de {verdicts_count} libros'
     git('switch', '-q', '-c', branch, cwd=tree)
     git_add(paths, cwd=tree)
     git('commit', '-q', '-m', title, cwd=tree)
@@ -817,7 +831,10 @@ def _publish_once(out, publisher):
     body = tree.parent / 'pr-body.md'
     body.write_text(f'Añade texto propio validado a {count} fichas: por qué leerlo, para quién, tono, libros afines del catálogo y preguntas frecuentes.\n\n'
                     'Cada texto pasa el validador de scripts/reading-texts.py (sin copia de la sinopsis, sin cifras, nombres ni premios sin respaldo). '
-                    'Se ejecutan las reglas de main antes de fusionar y después se despliega.\n', encoding='utf-8')
+                    'Se ejecutan las reglas de main antes de fusionar y después se despliega.\n'
+                    + (f'\nFija género y público de {verdicts_count} libros (data/reading-classification-verdicts.json) con '
+                       'scripts/reading-classification-verdicts.py: dos lecturas a ciegas de ChatGPT y desempate con fuente. '
+                       'El catálogo se rederiva con esos veredictos.\n' if verdicts_count else ''), encoding='utf-8')
     for old in gh_listas.lista(publisher.publication.gh, 'pr', 'list', '--state', 'open', '--json', 'number,headRefName'):
         if old['headRefName'].startswith('automation/reading-catalogue-textos-'):
             publisher.publication.gh('pr', 'close', str(old['number']), '--comment', 'Sustituida por una publicación de textos más reciente.')
