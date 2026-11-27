@@ -497,11 +497,18 @@ def ficheros_pr(repo, pr, *, gh_=None, git=_git_salida, tope=TOPE_FICHEROS_PR):
     """Ficheros de la PR como los da la API ({'filename', 'previous_filename'?}), completos aunque pasen del tope.
 
     Por encima del tope compara en local la cabeza de la PR con su base común con main (lo mismo que enseña la PR).
+    Si la API no puede dar la lista (27/11, carga 46028944813: HTTP 422 «this diff is taking too long to generate»
+    con 10 419 libros, o un 5xx) también sale de git: la API es un atajo, no la fuente.
     Si git no puede, falla: una lista incompleta no sirve para decidir que todo está permitido."""
-    pages = json.loads((gh_ or gh)('api', '--paginate', '--slurp', f'repos/{repo}/pulls/{pr["number"]}/files?per_page=100'))
-    items = [item for page in pages for item in page]
-    if len(items) < tope:
-        return items
+    try:
+        pages = json.loads((gh_ or gh)('api', '--paginate', '--slurp', f'repos/{repo}/pulls/{pr["number"]}/files?per_page=100'))
+        items = [item for page in pages for item in page]
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, ValueError) as error:
+        print(f'Ficheros de la PR #{pr["number"]} sin API ({error}); se listan con git.', flush=True)
+        items = []
+    else:
+        if len(items) < tope:
+            return items
     head = pr['headRefOid']
     git('fetch', '--quiet', '--no-tags', 'origin', 'main', head)
     base = git('merge-base', 'origin/main', head).strip()
