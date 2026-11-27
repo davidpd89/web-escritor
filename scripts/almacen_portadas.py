@@ -25,7 +25,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import reading_cover_store as store  # noqa: E402
 
-AVISO_KB = 800 * 1024   # quedan ~8 noches a 250 altas/noche: tiempo de abrir otro
+AVISO_KB = 800 * 1024   # quedan ~100 MB (~4.000 portadas a ~24 KB): tiempo de abrir otro
 LLENO_KB = 900 * 1024   # Pages publica hasta 1 GB por sitio; por encima no se escribe más ahí
 LOCAL = 'assets/reading-covers'
 OWNER = 'davidpd89'
