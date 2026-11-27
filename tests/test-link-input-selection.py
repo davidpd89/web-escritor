@@ -107,6 +107,19 @@ class LinkInputSelectionTests(unittest.TestCase):
         result=selector.select(self.root,'pull_request',{'pull_request':{'base':{'sha':base}}},'refs/heads/main')
         self.assertEqual(result['files'],['index.html','other.html'])
 
+    def test_partial_scan_trusts_the_cover_manifest_instead_of_fetching_every_cover(self):
+        """27/11 (PR #1603): 87 páginas con portadas del almacén agotaron los 40 min pidiéndolas de una en una."""
+        manifest=self.root/'data/reading-covers-store.json';manifest.parent.mkdir()
+        manifest.write_text(json.dumps({'base_url':'https://x.github.io/portadas/','almacenes':['https://y.github.io/p2','https://evil;rm/'],
+                                        'archivos':[],'sha256':{}}),encoding='utf-8')
+        args=selector.store_excludes(self.root,'changed-html')
+        self.assertEqual(args,["--exclude '^https://x\\.github\\.io/portadas/'","--exclude '^https://y\\.github\\.io/p2/'"])
+        self.assertEqual(selector.store_excludes(self.root,'full-site'),[])
+        manifest.unlink()
+        self.assertEqual(selector.store_excludes(self.root,'changed-html'),[])
+        workflow=(ROOT/'.github/workflows/broken-links.yml').read_text(encoding='utf-8')
+        self.assertIn('${{ steps.scope.outputs.store_args }}',workflow)
+
     def test_removed_home_page_checks_all_pages(self):
         self.git('rm','-q','index.html');self.commit()
         result=selector.select(self.root,'push',{'before':self.base},'refs/heads/main')
