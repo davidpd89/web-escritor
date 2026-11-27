@@ -1,20 +1,20 @@
 {
- "generado": "2026-11-26T07:49:45+00:00",
- "publicados": 8178,
+ "generado": "2026-11-27T06:30:17+00:00",
+ "publicados": 8428,
  "secciones": {
   "portadas_tipograficas": {
-   "total": 1079,
-   "proximos": 275,
+   "total": 1129,
+   "proximos": 280,
    "por_mes": {
     "2027-08": 1,
     "2027-05": 5,
     "2027-04": 1,
     "2027-03": 3,
-    "2027-02": 76,
-    "2027-01": 41,
-    "2026-12": 117,
-    "2026-11": 460,
-    "2026-10": 360,
+    "2027-02": 75,
+    "2027-01": 42,
+    "2026-12": 127,
+    "2026-11": 488,
+    "2026-10": 372,
     "2026-09": 11,
     "2026-08": 1,
     "2025-08": 1
@@ -223,11 +223,11 @@
    ]
   },
   "formatos_sin_precio": {
-   "total": 534,
-   "libros": 400,
+   "total": 530,
+   "libros": 397,
    "por_formato": {
     "ebook": 217,
-    "tapa-blanda": 131,
+    "tapa-blanda": 127,
     "tapa-dura": 94,
     "audiolibro": 92
    },
@@ -460,7 +460,7 @@
    ]
   },
   "sin_formatos_de_compra": {
-   "total": 363,
+   "total": 418,
    "muestra": [
     {
      "id": "isbn-9791388042324",
@@ -640,8 +640,8 @@
    ]
   },
   "sin_texto": {
-   "total": 4978,
-   "proximos": 598,
+   "total": 5228,
+   "proximos": 608,
    "por_mes": {
     "2028-01": 1,
     "2027-10": 1,
@@ -650,11 +650,11 @@
     "2027-04": 3,
     "2027-03": 8,
     "2027-02": 50,
-    "2027-01": 140,
-    "2026-12": 280,
-    "2026-11": 1683,
-    "2026-10": 1958,
-    "2026-09": 375
+    "2027-01": 145,
+    "2026-12": 304,
+    "2026-11": 1793,
+    "2026-10": 2007,
+    "2026-09": 383
    },
    "muestra": [
     {
@@ -840,10 +840,10 @@
   }
  },
  "cambio": {
-  "portadas_tipograficas": 0,
-  "formatos_sin_precio": 0,
-  "sin_formatos_de_compra": 0,
-  "sin_texto": 0,
+  "portadas_tipograficas": 50,
+  "formatos_sin_precio": -4,
+  "sin_formatos_de_compra": 55,
+  "sin_texto": 250,
   "portada_sin_fichero": 0
  },
  "amazon": {
@@ -853,6 +853,27 @@
   "errores": {},
   "oportunidades": [],
   "sin_portada_en_amazon": [
+   {
+    "id": "isbn-9788419605535",
+    "titulo": "Las crónicas de Rema 2: El reino del agua (Andana Gráfica)",
+    "isbn13": "9788419605535",
+    "editorial": "Andana Gráfica",
+    "fecha_publicacion": "2026-11-27"
+   },
+   {
+    "id": "isbn-9791399187342",
+    "titulo": "Quien aguarda en el puente del olvido",
+    "isbn13": "9791399187342",
+    "editorial": "Zona Abisal S.l.",
+    "fecha_publicacion": "2026-11-27"
+   },
+   {
+    "id": "isbn-9788411272995",
+    "titulo": "Es hora de hacer las paces con las redes sociales: Doce rounds para dejar de pelear con ellas y empezar a usarlas a tu favor",
+    "isbn13": "9788411272995",
+    "editorial": "Sat Nam Nova Casa",
+    "fecha_publicacion": "2026-11-27"
+   },
    {
     "id": "isbn-9791387949693",
     "titulo": "Stormside (Starside 2) (Sin límites)",
@@ -896,6 +917,27 @@
     "fecha_publicacion": "2026-11-26"
    },
    {
+    "id": "isbn-9791388366161",
+    "titulo": "Pack Memento Concursal 2027 y Formularios Concursales 2027",
+    "isbn13": "9791388366161",
+    "editorial": "Editorial",
+    "fecha_publicacion": "2026-11-28"
+   },
+   {
+    "id": "isbn-9791388366154",
+    "titulo": "Formularios Prácticos Concursales 2027",
+    "isbn13": "9791388366154",
+    "editorial": "Editorial",
+    "fecha_publicacion": "2026-11-28"
+   },
+   {
+    "id": "isbn-9791388366208",
+    "titulo": "Pack Memento Procesal Civil 2027+ Memento Procesal Penal 2027",
+    "isbn13": "9791388366208",
+    "editorial": "Editorial",
+    "fecha_publicacion": "2026-11-28"
+   },
+   {
     "id": "isbn-9791388205866",
     "titulo": "Pau Riba en 20 canciones (Sílex Música)",
     "isbn13": "9791388205866",
@@ -924,20 +966,6 @@
     "fecha_publicacion": "2026-11-25"
    },
    {
-    "id": "isbn-9788419605535",
-    "titulo": "Las crónicas de Rema 2: El reino del agua (Andana Gráfica)",
-    "isbn13": "9788419605535",
-    "editorial": "Andana Gráfica",
-    "fecha_publicacion": "2026-11-27"
-   },
-   {
-    "id": "isbn-9791399187342",
-    "titulo": "Quien aguarda en el puente del olvido",
-    "isbn13": "9791399187342",
-    "editorial": "Zona Abisal S.l.",
-    "fecha_publicacion": "2026-11-27"
-   },
-   {
     "id": "isbn-9791399216707",
     "titulo": "Subir la dosis: 23 (Letra Caniche)",
     "isbn13": "9791399216707",
@@ -959,39 +987,11 @@
     "fecha_publicacion": "2026-11-25"
    },
    {
-    "id": "isbn-9788467984613",
-    "titulo": "Black clover 09 (Nuevo pvp)",
-    "isbn13": "9788467984613",
-    "editorial": "Norma Editorial",
-    "fecha_publicacion": "2026-11-25"
-   },
-   {
-    "id": "isbn-9791370331894",
-    "titulo": "Jurisprudencial del Tribunal supremo en materia de creencia",
-    "isbn13": "9791370331894",
-    "editorial": "Comares",
-    "fecha_publicacion": "2026-11-25"
-   },
-   {
-    "id": "isbn-9791370332044",
-    "titulo": "Cultura contemporanea del consentimiento sexual una invitac",
-    "isbn13": "9791370332044",
-    "editorial": "Comares",
-    "fecha_publicacion": "2026-11-25"
-   },
-   {
-    "id": "isbn-9788411272995",
-    "titulo": "Es hora de hacer las paces con las redes sociales: Doce rounds para dejar de pelear con ellas y empezar a usarlas a tu favor",
-    "isbn13": "9788411272995",
-    "editorial": "Sat Nam Nova Casa",
-    "fecha_publicacion": "2026-11-27"
-   },
-   {
-    "id": "isbn-9788410286726",
-    "titulo": "La navidad - signos y significados",
-    "isbn13": "9788410286726",
-    "editorial": "Alfar Editorial",
-    "fecha_publicacion": "2026-11-25"
+    "id": "isbn-9788413828817",
+    "titulo": "Cardiología en el área de urgencias",
+    "isbn13": "9788413828817",
+    "editorial": "Elsevier",
+    "fecha_publicacion": "2026-11-29"
    }
   ]
  }
