@@ -78,6 +78,13 @@ class FicherosPrTest(unittest.TestCase):
         self.assertEqual(sorted(i['filename'] for i in items),
                          ['data/b.json', 'data/c.json', 'data/d.json', 'data/e.json', 'scripts/colado.py'])
 
+    def test_si_la_api_agota_el_tiempo_la_lista_sale_de_git(self):
+        """Revisión de CodeRabbit en #1622: gh() relanza TimeoutExpired tras agotar sus reintentos."""
+        def api_lenta(*args):
+            raise subprocess.TimeoutExpired(['gh', *args], 600)
+        items = pub.ficheros_pr('o/r', {'number': 1, 'headRefOid': self.head}, gh_=api_lenta, git=self.git, tope=3)
+        self.assertEqual(len(items), 5)
+
     def test_sin_api_ni_git_falla_en_vez_de_dar_lista_vacia(self):
         def api_rota(*args):
             raise subprocess.CalledProcessError(1, ['gh', *args])

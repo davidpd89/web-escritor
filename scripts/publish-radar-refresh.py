@@ -503,7 +503,7 @@ def ficheros_pr(repo, pr, *, gh_=None, git=_git_salida, tope=TOPE_FICHEROS_PR):
     try:
         pages = json.loads((gh_ or gh)('api', '--paginate', '--slurp', f'repos/{repo}/pulls/{pr["number"]}/files?per_page=100'))
         items = [item for page in pages for item in page]
-    except (subprocess.CalledProcessError, ValueError) as error:
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired, ValueError) as error:
         print(f'Ficheros de la PR #{pr["number"]} sin API ({error}); se listan con git.', flush=True)
         items = []
     else:
