@@ -21,6 +21,7 @@ se sirve como `d/` y `d`; `x.html` como `x`), así ningún listado queda en un W
 import argparse
 import hashlib
 import json
+import re
 import os
 import shutil
 import subprocess
@@ -280,9 +281,24 @@ def borrar_huerfanos(resumen, token, cuenta, api=_api):
     return borrados
 
 
+NOMBRE_WORKER = re.compile(r'^[a-z0-9][a-z0-9-]{0,62}$')
+NOMBRE_HOST = re.compile(r'^(?=.{1,253}$)([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}$')
+
+
+def validar_resumen(resumen):
+    """reparto.json llega del disco: nombres y host se validan antes de usarlos en comandos o URL."""
+    for w in resumen['workers']:
+        if not NOMBRE_WORKER.match(w):
+            raise ValueError(f'Nombre de Worker no válido: {w!r}')
+    for clave in ('host', 'zona'):
+        if not NOMBRE_HOST.match(resumen[clave]):
+            raise ValueError(f'{clave} no válido: {resumen[clave]!r}')
+    return resumen
+
+
 def desplegar(repartido, token):
     repartido = Path(repartido)
-    resumen = json.loads((repartido / 'reparto.json').read_text(encoding='utf-8'))
+    resumen = validar_resumen(json.loads((repartido / 'reparto.json').read_text(encoding='utf-8')))
     # Fragmentos antes que el núcleo y rutas al final: una ruta nunca apunta a un Worker sin sus ficheros.
     orden = [w for w in resumen['workers'] if w != resumen['nucleo']] + [resumen['nucleo']]
     for w in orden:
@@ -299,6 +315,7 @@ def desplegar(repartido, token):
 
 def humo(resumen, abrir=urllib.request.urlopen):
     """Cada Worker sirve su muestra por el host público."""
+    validar_resumen(resumen)
     fallos = []
     for w, rel in resumen['muestras'].items():
         if not rel:

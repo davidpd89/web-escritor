@@ -150,8 +150,19 @@ class Huerfanos(unittest.TestCase):
         self.assertEqual(borrados, ['/accounts/A/workers/scripts/frag-viejo'])
 
     def test_fragment_name_depends_only_on_its_prefixes(self):
-        self.assertEqual(rw.nombre_fragmento(BASE, ['a', 'b']), rw.nombre_fragmento(BASE, ['a', 'b']))
+        nombre = rw.nombre_fragmento(BASE, ['a', 'b'])
+        self.assertEqual(nombre, rw.nombre_fragmento(dict(BASE, host='otro.example.com'), ['a', 'b']))
+        self.assertRegex(nombre, rw.NOMBRE_WORKER)
         self.assertNotEqual(rw.nombre_fragmento(BASE, ['a', 'b']), rw.nombre_fragmento(BASE, ['a']))
+
+
+class Validar(unittest.TestCase):
+    def test_rejects_names_that_could_become_command_options_or_other_hosts(self):
+        bueno = {'workers': {'core': 1, 'frag-ab12': 1}, 'host': 'h.example.com', 'zona': 'example.com'}
+        self.assertIs(rw.validar_resumen(bueno), bueno)
+        for malo in (dict(bueno, workers={'--config=x': 1}), dict(bueno, host='evil.com/x?'), dict(bueno, zona='a b')):
+            with self.assertRaises(ValueError):
+                rw.validar_resumen(malo)
 
 
 class PlanVersionado(unittest.TestCase):
