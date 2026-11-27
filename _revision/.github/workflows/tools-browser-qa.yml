@@ -1,0 +1,122 @@
+name: Tools browser QA
+
+on:
+  pull_request:
+    paths:
+      - 'herramientas/index.html'
+      - 'herramientas/manuscrito/**'
+      - 'herramientas/dialogo/**'
+      - 'herramientas/legibilidad/**'
+      - 'herramientas/repeticiones/**'
+      - 'herramientas/variedad-lexica/**'
+      - 'herramientas/que-tipo-de-lector-eres/**'
+      - 'assets/herramientas-index.css'
+      - 'assets/herramientas-hub.js'
+      - 'assets/v1-shell.js'
+      - 'assets/v1-tools.css'
+      - 'assets/analizador-capitulos*'
+      - 'assets/dialogo-espanol.js'
+      - 'assets/legibilidad-*'
+      - 'assets/repeticiones-*'
+      - 'assets/variedad-lexica*'
+      - 'assets/tipo-lector*'
+      - 'data/tools-hub.json'
+      - 'scripts/build-tools-hub.py'
+      - 'qa/herramientas-index-design-browser.mjs'
+      - 'qa/tools-browser.mjs'
+      - 'qa/tipo-lector-browser.mjs'
+      - 'qa/text-spacing.css'
+      - '.github/workflows/tools-browser-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  # En una PR, un push nuevo cancela la CI del commit anterior; main y los programados no se cancelan.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install CI/QA dependencies (Node)
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright Chromium (with OS deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
+
+      - name: Install Playwright OS deps only (browser cached)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium
+
+      - name: Check generated Herramientas hub parity
+        run: |
+          python scripts/build-tools-hub.py data/tools-hub.json herramientas/index.html --check
+          mkdir -p qa-artifacts/herramientas-hub
+          cp herramientas/index.html qa-artifacts/herramientas-hub/generated-index.html
+
+      - name: Materializar generados
+        uses: ./.github/actions/materializar
+
+      - name: Start local static server
+        run: |
+          python3 scripts/qa_static_server.py 4173 --bind 127.0.0.1 > /tmp/tools-qa-server.log 2>&1 &
+          echo $! > /tmp/tools-qa-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/herramientas/manuscrito/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/tools-qa-server.log
+          exit 1
+
+      - name: Run browser QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts
+        run: node qa/tools-browser.mjs
+
+      - name: Herramientas hub visual-system QA
+        env:
+          QA_ORIGIN: http://127.0.0.1:4173
+          QA_OUT: qa-artifacts/herramientas-hub
+        run: node qa/herramientas-index-design-browser.mjs
+
+      - name: Reader type quiz browser QA
+        if: always()
+        run: node qa/tipo-lector-browser.mjs
+
+      - name: Upload browser QA evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: tools-browser-qa
+          path: qa-artifacts/
+          if-no-files-found: warn
+          retention-days: 14

@@ -1,0 +1,118 @@
+name: Navigation round trips (advisory)
+
+on:
+  pull_request:
+    paths:
+      - 'data/navigation.json'
+      - 'data/content-registry.json'
+      - 'data/reading-catalogue.json'
+      - 'data/reading-authors.json'
+      - 'assets/v1-shell.js'
+      - 'assets/v1*.css'
+      - 'recomendaciones/**'
+      - 'cuaderno/index.html'
+      - 'qa/reading-navigation-roundtrips.mjs'
+      - '.github/workflows/navigation-roundtrip-audit.yml'
+      # Vía rápida: un PR solo de contenido generado (scripts/ci_content_lane.py CONTENT_GLOBS) no lo dispara; lo cubre weekly-full-audit.yml.
+      - '!assets/page-order.generated.js'
+      - '!assets/reading-market.json'
+      - '!assets/reading-covers/isbn-*.webp'
+      - '!assets/reading-audio/*.mp3'
+      - '!assets/pinterest/feeds/*.xml'
+      - '!data/reading-catalogue.json'
+      - '!data/reading-authors.json'
+      - '!data/reading-publishers.json'
+      - '!data/reading-intake-state.json'
+      - '!data/reading-covers-store.json'
+      - '!data/reading-author-links.json'
+      - '!data/reading-amazon-audit.json'
+      - '!data/reading-classification-gpt.json'
+      - '!data/reading-pinterest-state.json'
+      - '!data/reading-quarantine.json'
+      - '!data/reading-texts/*.json'
+      - '!data/reading-author-texts/*.json'
+      - '!data/content-registry.json'
+      - '!recomendaciones/index.html'
+      - '!recomendaciones/autores/index.html'
+      - '!recomendaciones/editoriales/index.html'
+      - '!recomendaciones/libros/*/index.html'
+      - '!recomendaciones/pagina/*/index.html'
+      - '!recomendaciones/autores/*/index.html'
+      - '!recomendaciones/autores/pagina/*/index.html'
+      - '!recomendaciones/editoriales/*/index.html'
+      - '!recomendaciones/proximos-lanzamientos.ics'
+      - '!recomendaciones/llms.txt'
+      - '!recomendaciones/ofertas.json'
+      - '!editoriales/*/index.html'
+      - '!editoriales-sitemap.xml'
+      - '!editoriales/index.html'
+      - '!editoriales/editoriales-data.json'
+      - '!metodologia-editorial/index.html'
+      - '!mapa-del-sitio/index.html'
+      - '!sitemap.xml'
+      - '!pagefind/**'
+  push:
+    branches: [main]
+    paths:
+      - 'data/navigation.json'
+      - 'data/content-registry.json'
+      - 'assets/v1-shell.js'
+      - 'recomendaciones/**'
+      - 'qa/reading-navigation-roundtrips.mjs'
+      - '.github/workflows/navigation-roundtrip-audit.yml'
+  schedule:
+    - cron: '23 4 * * 5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: navigation-roundtrips-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  journeys:
+    name: Navigation history journeys (advisory)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/assets/no usadas/
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - name: Install existing browser dependencies
+        run: npm ci
+      - uses: actions/cache@v6
+        id: browsers
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+      - name: Install browser and OS dependencies
+        if: steps.browsers.outputs.cache-hit != 'true'
+        run: bash scripts/ci/playwright-install-deps.sh full chromium
+      - name: Install OS dependencies for cached browser
+        if: steps.browsers.outputs.cache-hit == 'true'
+        run: bash scripts/ci/playwright-install-deps.sh deps chromium
+      - name: Follow links and exercise real document history
+        run: node qa/reading-navigation-roundtrips.mjs
+      - name: Publish diagnostic summary
+        if: always()
+        run: |
+          if [ -f .ci/navigation-roundtrips/report.md ]; then
+            cat .ci/navigation-roundtrips/report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preserve results and failure screenshots
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: navigation-roundtrips
+          path: .ci/navigation-roundtrips/
+          retention-days: 30
+          if-no-files-found: warn
