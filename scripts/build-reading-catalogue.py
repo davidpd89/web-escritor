@@ -888,11 +888,13 @@ def load_author_records(path):
     names, slugs = set(), set()
     for a in payload['autores']:
         required = {'slug', 'nombre', 'descripcion', 'fuentes', 'fecha_verificacion'}
-        optional = {'biografia_breve', 'biografia_fuente_url', 'biografia_fecha_revision', 'biografia_fuente_nombre', 'biografia_ultimo_intento',
+        optional = {'biografia_breve', 'biografia_fuente_url', 'biografia_fecha_revision', 'biografia_fuente_nombre', 'biografia_ultimo_intento', 'biografia_descartada',
                     'nacimiento', 'fallecimiento', 'foto', 'wikidata', 'amazon_autor_id', 'amazon_autor_id_probado', 'identificadores'}
         required |= {'tipo'} if a.get('tipo') == 'bibliografico' else {'nacimiento'}
         require(required <= set(a) <= required | optional, 'Campos de autor inválidos')
         require(a['slug'] != 'pagina', 'Slug de autor reservado para la paginación del índice')
+        if 'biografia_descartada' in a:
+            require(isinstance(a['biografia_descartada'], list) and all(isinstance(u, str) and u.startswith('https://') for u in a['biografia_descartada']), 'biografia_descartada: lista de URL https')
         for key in ('nacimiento', 'fallecimiento'):
             if a.get(key):
                 require(isinstance(a[key], str) and AUTHOR_LIFE.fullmatch(a[key]), f'{key} de autor inválido (AAAA o AAAA-MM-DD)')
