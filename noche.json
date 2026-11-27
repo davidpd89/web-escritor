@@ -100,14 +100,14 @@
   {
    "run": 45971872296,
    "intento": 1,
-   "sha": "c4ab87738b2054291b18997efeb27b089c8f10c8",
+   "sha": "8442a4181782fb38ce520de21ba142b263eb8801",
    "motivo": "manual",
    "inicio": "2026-11-27T09:13:47Z",
-   "fin": null,
-   "resultado": "en_curso",
+   "fin": "2026-11-27T11:09:50Z",
+   "resultado": "fallido",
    "clase": null,
    "firma": null,
-   "codigo": "35bbc015c64aa1e1abee23a429a69fc3b91c9375"
+   "codigo": "534c6fea5fb2f299492f40198d3b94baafe37f96"
   }
  ]
 }
