@@ -64,7 +64,16 @@ def write_json(path, value):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + '.tmp')
-    tmp.write_text(json.dumps(value, ensure_ascii=False, indent=1, sort_keys=True) + '\n', encoding='utf-8')
+    tmp.write_bytes((json.dumps(value, ensure_ascii=False, indent=1, sort_keys=True) + '\n').encode('utf-8'))
+    os.replace(tmp, path)
+
+
+def escribir_veredictos(path, value):
+    """Formato del fichero publicado: un libro por línea y orden por id (diffs de una línea por veredicto)."""
+    texto = '{\n' + ',\n'.join(f' {json.dumps(k)}: {json.dumps(v, ensure_ascii=False)}'
+                                for k, v in sorted(value.items())) + '\n}\n'
+    tmp = Path(path).with_suffix('.json.tmp')
+    tmp.write_bytes(texto.encode('utf-8'))
     os.replace(tmp, path)
 
 
@@ -443,7 +452,7 @@ def fusionar(tree: Path, estado_path: Path = ESTADO) -> int:
         return bool(v) and v.get('h', huella(libros[i])) == huella(libros[i])
     cambios = {i: a for i, a in nuevos.items() if i in libros and a['h'] == huella(libros[i]) and not vigente(i)}
     if cambios:
-        write_json(tree / VERDICTS, {**actuales, **cambios})
+        escribir_veredictos(tree / VERDICTS, {**actuales, **cambios})
     return len(cambios)
 
 

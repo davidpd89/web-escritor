@@ -140,6 +140,9 @@ class Fusion(unittest.TestCase):
             self.assertEqual(out['isbn-b']['gen'], ['terror'])
             self.assertNotIn('isbn-c', out)
             self.assertEqual(va.fusionar(tree, tree / 'estado.json'), 0)  # idempotente
+            raw = (tree / va.VERDICTS).read_bytes()
+            self.assertNotIn(b'\r', raw)
+            self.assertEqual(raw.count(b'\n'), 4)  # llaves + un libro por línea: diffs mínimos
 
     def test_el_publicador_acepta_el_fichero_de_veredictos(self):
         spec = importlib.util.spec_from_file_location('pub_refresh', ROOT / 'scripts/publish-reading-refresh.py')
