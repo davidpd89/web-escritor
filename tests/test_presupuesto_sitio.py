@@ -41,10 +41,21 @@ class Medir(unittest.TestCase):
 class AltasMax(unittest.TestCase):
     medida = {'bytes': 700 * MB, 'libros': 1000, 'coste_por_libro': MB // 10}
 
-    def test_never_more_than_250_a_night_minus_what_is_already_done(self):
-        self.assertEqual(ps.altas_max(self.medida, libros_ahora=1000, hechas_hoy=0), 250)
-        self.assertEqual(ps.altas_max(self.medida, libros_ahora=1000, hechas_hoy=200), 50)
-        self.assertEqual(ps.altas_max(self.medida, libros_ahora=1000, hechas_hoy=300), 0)
+    def test_without_tope_only_space_limits_the_day(self):
+        # 700 MB medidos: quedan 150 MB = 1500 libros, hechas o no hoy.
+        self.assertEqual(ps.altas_max(self.medida, libros_ahora=1000, hechas_hoy=0), 1500)
+        self.assertEqual(ps.altas_max(self.medida, libros_ahora=1000, hechas_hoy=900), 1500)
+
+    def test_optional_tope_minus_what_is_already_done(self):
+        self.assertEqual(ps.altas_max(self.medida, libros_ahora=1000, hechas_hoy=0, tope=250), 250)
+        self.assertEqual(ps.altas_max(self.medida, libros_ahora=1000, hechas_hoy=200, tope=250), 50)
+        self.assertEqual(ps.altas_max(self.medida, libros_ahora=1000, hechas_hoy=300, tope=250), 0)
+
+    def test_tope_comes_from_env_and_zero_or_garbage_means_none(self):
+        self.assertEqual(ps.tope_dia({'READING_TOPE_ALTAS_DIA': '250'}), 250)
+        for valor in ('', '0', '-3', 'mucho'):
+            self.assertIsNone(ps.tope_dia({'READING_TOPE_ALTAS_DIA': valor}))
+        self.assertIsNone(ps.tope_dia({}))
 
     def test_room_left_under_850_mb_caps_the_night(self):
         # 840 MB medidos: quedan 10 MB = 100 libros.

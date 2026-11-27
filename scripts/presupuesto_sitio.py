@@ -2,8 +2,13 @@
 
 GitHub Pages admite 1 GB por sitio y cada libro añade su ficha. El despliegue mide el artefacto construido y no sube
 uno de más de 900 MB; publica la medida como artefacto de Actions «presupuesto-sitio». La carga nocturna la descarga
-y solo da de alta los libros que caben por debajo de 850 MB, con un tope de 250 por noche (los de fecha más cercana:
-los elige `catalogo_amazon.priorizar`). Sin medida no hay altas: se falla cerrado.
+y solo da de alta los libros que caben por debajo de 850 MB (los de fecha más cercana: los elige
+`catalogo_amazon.priorizar`). Sin medida no hay altas: se falla cerrado.
+
+El tope de 250 altas por día (18/11) racionaba el espacio cuando las portadas iban en el artefacto (~100 KB por libro).
+Con las portadas en el almacén el freno que importa es el espacio medido: un tope fijo dejaba 9.600 libros ya
+encontrados esperando mientras sobraban 400 MB (27/11). Queda como opción: READING_TOPE_ALTAS_DIA=N; vacío o 0 = sin
+tope.
 
     python scripts/presupuesto_sitio.py medir --dist .preview-dist --out presupuesto-sitio.json
 """
@@ -21,7 +26,6 @@ ROOT = Path(__file__).resolve().parents[1]
 MB = 1024 * 1024
 MAX_MB = 900        # el despliegue falla por encima
 FRENO_MB = 850      # la carga deja de dar altas por encima
-TOPE_NOCHE = 250    # altas por noche como máximo
 LEDGER = 'altas-por-dia.json'  # en el estado de la carga (catalogo_estado.FILES)
 ARTEFACTO = 'presupuesto-sitio'
 
@@ -54,14 +58,29 @@ def comprobar(medida, max_mb=MAX_MB):
     return []
 
 
-def altas_max(medida, libros_ahora, hechas_hoy, tope=TOPE_NOCHE, freno_mb=FRENO_MB):
-    """Libros nuevos que caben esta noche. Los publicados desde la medida cuentan a su coste medio."""
+def tope_dia(env=None):
+    """Tope opcional de altas por día (READING_TOPE_ALTAS_DIA). None = sin tope; un valor raro también."""
+    valor = (os.environ if env is None else env).get('READING_TOPE_ALTAS_DIA', '').strip()
+    try:
+        n = int(valor)
+    except ValueError:
+        return None
+    return n if n > 0 else None
+
+
+def por_espacio(medida, libros_ahora, freno_mb=FRENO_MB):
+    """Libros que caben por debajo del freno. Los publicados desde la medida cuentan a su coste medio."""
     if not medida or not medida.get('coste_por_libro'):
         return 0
     coste = medida['coste_por_libro']
     estimado = medida['bytes'] + max(0, libros_ahora - medida['libros']) * coste
-    libres = max(0, freno_mb * MB - estimado)
-    return max(0, min(tope - hechas_hoy, libres // coste))
+    return max(0, freno_mb * MB - estimado) // coste
+
+
+def altas_max(medida, libros_ahora, hechas_hoy, tope=None, freno_mb=FRENO_MB):
+    """Libros nuevos que caben hoy: el espacio manda; `tope` (por día, opcional) solo si se pide."""
+    libres = por_espacio(medida, libros_ahora, freno_mb)
+    return libres if tope is None else max(0, min(tope - hechas_hoy, libres))
 
 
 CLAVES = ('bytes', 'libros', 'coste_por_libro')
@@ -123,9 +142,16 @@ def _ledger(work):
 
 def cupo_de_hoy(work, day, libros_ahora):
     medida = ultima_medida()
-    cupo = altas_max(medida, libros_ahora, _ledger(work).get(day, 0))
-    print(f'Presupuesto del sitio: {cupo} altas posibles hoy'
-          + ('' if medida else ' (sin medida del último despliegue)'), flush=True)
+    tope, hechas = tope_dia(), _ledger(work).get(day, 0)
+    libres = por_espacio(medida, libros_ahora)
+    cupo = altas_max(medida, libros_ahora, hechas, tope)
+    if not medida:
+        causa = 'sin medida del último despliegue'
+    elif cupo < libres:
+        causa = f'tope READING_TOPE_ALTAS_DIA={tope}, hechas hoy {hechas}'
+    else:
+        causa = f'espacio: {libres} libros caben bajo {FRENO_MB} MB'
+    print(f'Presupuesto del sitio: {cupo} altas posibles hoy ({causa})', flush=True)
     return cupo
 
 
