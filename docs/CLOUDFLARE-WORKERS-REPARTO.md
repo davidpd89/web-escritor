@@ -53,8 +53,10 @@ Para rotarlo, crea uno nuevo con los mismos permisos (dash → My Profile → AP
    núcleo crea su propio registro.
 3. Cambia `www`: quita el CNAME a `davidpd89.github.io`, crea un registro proxied (por ejemplo,
    `AAAA 100::`) y añade una Redirect Rule `www` → apex 301 que conserve la ruta y la query.
-4. Quita el corte de >900 MB del paso de presupuesto de `deploy-pages.yml`, porque Pages deja de ser el
-   origen, y sube el freno de espacio de la carga.
+4. En `deploy-pages.yml`, quita `continue-on-error` del paso «Deploy split artifact» y del humo de Workers.
+   Para que Workers no dependa de Pages, quita el corte de >900 MB del paso de presupuesto y añade
+   `continue-on-error` a los pasos que suben y despliegan Pages, que pasarán de 1 GB. Sube el freno de espacio
+   de la carga.
 5. Comprueba el humo con `SITE_BASE_URL=https://davidportodiaz.com`, mira las cabeceras sin `noindex` y
    revisa Search Console.
 
@@ -62,4 +64,7 @@ Para rotarlo, crea uno nuevo con los mismos permisos (dash → My Profile → AP
 
 - Para quitar el espejo, deja el host en el piloto, o borra los secretos y los pasos se saltan solos.
 - Tras el corte: repón los registros A del apex a GitHub Pages (185.199.108-111.153) y el CNAME de `www`,
-  quita el dominio personalizado del Worker núcleo y devuelve el host del plan al piloto.
+  quita el dominio personalizado del Worker núcleo y **borra las rutas `davidportodiaz.com/*` de los
+  fragmentos** (dash → Workers Routes); si el apex queda proxied, esos prefijos seguirían sirviéndose desde
+  los Workers. Devuelve el host del plan al piloto. Con el apex otra vez en Pages vuelve a aplicar el límite de
+  1 GB.

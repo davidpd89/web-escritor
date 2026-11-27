@@ -215,6 +215,7 @@ def repartir(dist, out, plan):
         for rel in rels:
             (destino / rel).parent.mkdir(parents=True, exist_ok=True)
             _enlazar(dist / rel, destino / rel)
+        destino.mkdir(parents=True, exist_ok=True)  # un prefijo sin ficheros también lleva su 404
         if w != plan['nucleo'] and (dist / '404.html').exists():
             shutil.copyfile(dist / '404.html', destino / '404.html')
         cabeceras = (dist / '_headers').read_text(encoding='utf-8') if (dist / '_headers').exists() else ''
@@ -245,11 +246,12 @@ def _api(metodo, ruta, token, cuerpo=None):
 
 
 def sincronizar_rutas(resumen, token, api=_api):
-    """Deja en la zona exactamente las rutas del plan para su host. Cambiar de Worker es un PUT (sin hueco)."""
+    """Deja en la zona exactamente las rutas del plan para su host. Cambiar de Worker es un PUT (sin hueco) y las
+    rutas sobrantes se borran al final: si `x/a*` pasa a `x/ab*` y `x/ac*`, las nuevas ya existen al borrar la vieja."""
     zona = api('GET', f'/zones?name={resumen["zona"]}', token)[0]['id']
     actuales = api('GET', f'/zones/{zona}/workers/routes', token)
     deseadas = dict(resumen['rutas'])
-    hecho = []
+    hecho, sobrantes = [], []
     for r in actuales:
         if not r['pattern'].startswith(resumen['host'] + '/'):
             continue  # rutas de otros hosts (staging de otros proyectos): no se tocan
@@ -259,11 +261,13 @@ def sincronizar_rutas(resumen, token, api=_api):
                 api('PUT', f'/zones/{zona}/workers/routes/{r["id"]}', token, {'pattern': r['pattern'], 'script': script})
                 hecho.append(f'mover {r["pattern"]} -> {script}')
         else:
-            api('DELETE', f'/zones/{zona}/workers/routes/{r["id"]}', token)
-            hecho.append(f'borrar {r["pattern"]}')
+            sobrantes.append(r)
     for patron, script in deseadas.items():
         api('POST', f'/zones/{zona}/workers/routes', token, {'pattern': patron, 'script': script})
         hecho.append(f'crear {patron} -> {script}')
+    for r in sobrantes:
+        api('DELETE', f'/zones/{zona}/workers/routes/{r["id"]}', token)
+        hecho.append(f'borrar {r["pattern"]}')
     return hecho
 
 
@@ -366,7 +370,7 @@ def main(argv=None):
     try:
         resumen = desplegar(a.repartido, token)
         fallos = humo(resumen)
-    except (subprocess.CalledProcessError, urllib.error.URLError, OSError, KeyError, IndexError) as e:
+    except (subprocess.CalledProcessError, urllib.error.URLError, OSError, KeyError, IndexError, ValueError) as e:
         fallos = [f'despliegue a Workers: {e}']
     for x in fallos:
         print(f'::error::{x}')

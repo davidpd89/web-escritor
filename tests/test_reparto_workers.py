@@ -109,6 +109,19 @@ class Repartir(unittest.TestCase):
             self.assertEqual(resumen['rutas'], {'h.example.com/recomendaciones/libros/a*': 'frag-01'})
 
 
+    def test_fragment_without_files_still_gets_its_404(self):
+        plan = dict(BASE, fragmentos=[{'worker': 'frag-01', 'prefijos': ['recomendaciones/libros/q']}])
+        with tempfile.TemporaryDirectory() as tmp:
+            dist, out = Path(tmp) / 'dist', Path(tmp) / 'out'
+            for rel in sitio(['ana']):
+                (dist / rel).parent.mkdir(parents=True, exist_ok=True)
+                (dist / rel).write_text(rel, encoding='utf-8')
+            plan['noindex'] = False
+            _, errores, _ = rw.repartir(dist, out, plan)
+            self.assertEqual(errores, [])
+            self.assertTrue((out / 'frag-01/dist/404.html').exists())
+
+
 class SincronizarRutas(unittest.TestCase):
     def test_moves_creates_and_deletes_only_routes_of_its_host(self):
         llamadas = []
@@ -130,6 +143,8 @@ class SincronizarRutas(unittest.TestCase):
         self.assertIn(('DELETE', '/zones/Z/workers/routes/2', None), cambios)
         self.assertIn(('POST', '/zones/Z/workers/routes', {'pattern': 'h.example.com/x/b*', 'script': 'frag-01'}), cambios)
         self.assertFalse([c for c in cambios if c[1].endswith('/3')])
+        metodos = [m for m, _, _ in cambios]
+        self.assertGreater(metodos.index('DELETE'), metodos.index('POST'))  # sin hueco: crear antes de borrar
 
 
 class Huerfanos(unittest.TestCase):
@@ -144,6 +159,7 @@ class Huerfanos(unittest.TestCase):
             if metodo == 'GET':
                 return [{'id': n} for n in ('frag-aaaa', 'frag-viejo', 'frag-viejo-con-ruta', 'core', 'ajeno')]
             borrados.append(ruta)
+            return None
 
         resumen = {'zona': 'example.com', 'prefijo_worker': 'frag', 'workers': {'core': 1, 'frag-aaaa': 1}}
         self.assertEqual(rw.borrar_huerfanos(resumen, 't', 'A', api=api), ['frag-viejo'])
