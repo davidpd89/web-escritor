@@ -72,6 +72,35 @@ class WikipediaBioTests(unittest.TestCase):
         self.assertEqual(client('Roald Dahl')['title'], 'Roald Dahl')
         self.assertIsNone(client('Roald Dahl'))
 
+    def test_linked_article_skips_title_and_occupation_checks(self):
+        manga = {**GOOD, 'title': 'Rumiko Takahashi', 'description': 'mangaka japonesa',
+                 'extract': 'Rumiko Takahashi es una mangaka japonesa, autora de Urusei Yatsura, Ranma ½ e Inuyasha, entre otras obras.',
+                 'content_urls': {'desktop': {'page': 'https://es.wikipedia.org/wiki/Rumiko_Takahashi'}}}
+        self.assertIsNone(select_wikipedia_bio('Takahashi, Rumiko', {**manga, 'description': 'japonesa'}))
+        self.assertIsNotNone(select_wikipedia_bio('Takahashi, Rumiko', {**manga, 'description': 'japonesa'}, verified=True))
+        self.assertIsNone(select_wikipedia_bio('X', {**manga, 'type': 'disambiguation'}, verified=True))
+        authors = {'autores': [
+            {'nombre': 'Sin enlace', 'tipo': 'bibliografico'},
+            {'nombre': 'Rumiko T.', 'tipo': 'bibliografico', 'biografia_ultimo_intento': '2026-11-20',
+             'identificadores': {'wikipedia': 'https://es.wikipedia.org/wiki/Rumiko_Takahashi'}}]}
+        calls = []
+        def lookup(title):
+            calls.append(title)
+            return manga if title == 'Rumiko Takahashi' else None
+        self.assertEqual(fill_missing_bios(authors, lookup, '2026-11-27', force=True), 1)
+        self.assertEqual(calls[0], 'Rumiko Takahashi', 'los enlazados van primero y se piden por su artículo')
+        self.assertIn('mangaka', authors['autores'][1]['biografia_breve'])
+
+    def test_wider_occupations_are_accepted_by_name(self):
+        self.assertIsNotNone(select_wikipedia_bio('Roald Dahl', {**GOOD, 'description': 'mangaka y historietista'}))
+        self.assertIsNone(select_wikipedia_bio('Roald Dahl', {**GOOD, 'description': 'futbolista noruego'}))
+
+    def test_rejected_homonym_is_not_filled_again(self):
+        authors = {'autores': [{'nombre': 'Roald Dahl', 'tipo': 'bibliografico',
+                                'biografia_descartada': ['https://es.wikipedia.org/wiki/Roald_Dahl']}]}
+        self.assertEqual(fill_missing_bios(authors, lambda name: GOOD, '2026-11-27', force=True), 0)
+        self.assertNotIn('biografia_breve', authors['autores'][0])
+
 
 if __name__ == '__main__':
     unittest.main()

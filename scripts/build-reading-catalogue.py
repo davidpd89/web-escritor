@@ -888,11 +888,13 @@ def load_author_records(path):
     names, slugs = set(), set()
     for a in payload['autores']:
         required = {'slug', 'nombre', 'descripcion', 'fuentes', 'fecha_verificacion'}
-        optional = {'biografia_breve', 'biografia_fuente_url', 'biografia_fecha_revision', 'biografia_fuente_nombre', 'biografia_ultimo_intento',
-                    'nacimiento', 'fallecimiento', 'foto', 'wikidata', 'amazon_autor_id', 'identificadores'}
+        optional = {'biografia_breve', 'biografia_fuente_url', 'biografia_fecha_revision', 'biografia_fuente_nombre', 'biografia_ultimo_intento', 'biografia_descartada',
+                    'nacimiento', 'fallecimiento', 'foto', 'wikidata', 'amazon_autor_id', 'amazon_autor_id_probado', 'identificadores'}
         required |= {'tipo'} if a.get('tipo') == 'bibliografico' else {'nacimiento'}
         require(required <= set(a) <= required | optional, 'Campos de autor inválidos')
         require(a['slug'] != 'pagina', 'Slug de autor reservado para la paginación del índice')
+        if 'biografia_descartada' in a:
+            require(isinstance(a['biografia_descartada'], list) and all(isinstance(u, str) and u.startswith('https://') for u in a['biografia_descartada']), 'biografia_descartada: lista de URL https')
         for key in ('nacimiento', 'fallecimiento'):
             if a.get(key):
                 require(isinstance(a[key], str) and AUTHOR_LIFE.fullmatch(a[key]), f'{key} de autor inválido (AAAA o AAAA-MM-DD)')
@@ -1534,7 +1536,7 @@ def render_hub(data, books, template, page_number=1):
     quiz='<details class="catalogue-quiz"><summary>¿Qué te apetece leer? Haz el test y encuentra tu próximo libro</summary><div class="catalogue-quiz__panel"><p>Puedes recorrer las páginas del catálogo para consultar todas las fichas.</p></div></details>' if books and page_number == 1 else ''
     page=template.replace('{{catalogue}}',quiz+catalogue)
     if page_number == 1:
-        page = page.replace('<link rel="stylesheet" href="/assets/reading-catalogue.css?v=36">', '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=36"><link rel="stylesheet" href="/assets/v1-catalogue-community.css?v=2">', 1)
+        page = page.replace('<link rel="stylesheet" href="/assets/reading-catalogue.css?v=37">', '<link rel="stylesheet" href="/assets/reading-catalogue.css?v=37"><link rel="stylesheet" href="/assets/v1-catalogue-community.css?v=2">', 1)
     page = page.replace('data-reading-catalogue data-family=', f'data-reading-catalogue data-catalogue-total="{len(books)}" data-catalogue-version="{version}" data-family=')
     modified=max((b['fecha_actualizacion'] for b in books),default='2026-10-20')
     page=re.sub(r'("dateModified":\s*")[^"]*',lambda match:match[1]+modified,page,count=1)
@@ -1720,7 +1722,15 @@ def author_genres(data, selected):
         for c in public(categories(data, b)):
             if c['tipo'] == 'genero':
                 counted.setdefault(c['id'], [c, 0])[1] += 1
-    return [c for c, _ in sorted(counted.values(), key=lambda t: (-t[1], t[0]['nombre']))]
+    return [c for c, _ in _dominant(sorted(counted.values(), key=lambda t: (-t[1], t[0]['nombre'])), len(selected))]
+
+
+def _dominant(ranked, total):
+    """Con 4 libros o más, un género que cubre menos de la cuarta parte (o un solo libro) es la excepción, no lo que
+    escribe: Roald Dahl no es «Cocina» por un libro de recetas. Siempre queda el principal."""
+    if total < 4:
+        return ranked
+    return [t for i, t in enumerate(ranked) if i == 0 or (t[1] >= 2 and t[1] * 4 >= total)]
 
 
 def _on_date(label):
@@ -1847,33 +1857,123 @@ def author_text_sections(a, t, selected, related_by_name):
         by_key.setdefault(edition_key(b['titulo']), b)
     link = lambda title: author_title_link(title, a, by_key)
     nav = [('empezar', 'Por dónde empezar'), ('obras', 'Libros en orden'), ('author-books', 'Ediciones en España')]
-    before = ('<section aria-labelledby="empezar"><h2 id="empezar">Por dónde empezar a leer a ' + esc(name) + '</h2><ol class="catalogue-author-start">'
+    before = ('<section class="catalogue-author-text" aria-labelledby="empezar"><h2 id="empezar">Por dónde empezar a leer a ' + esc(name) + '</h2><ol class="catalogue-author-start">'
               + ''.join('<li><strong>' + link(x['titulo']) + '</strong><p>' + esc(x['motivo']) + '</p></li>' for x in t['por_donde_empezar']) + '</ol></section>')
-    before += ('<section aria-labelledby="obras"><h2 id="obras">Libros de ' + esc(name) + ' en orden de publicación</h2>'
+    before += ('<section class="catalogue-author-text" aria-labelledby="obras"><h2 id="obras">Libros de ' + esc(name) + ' en orden de publicación</h2>'
                '<p>Año de la primera edición original.</p><ol class="catalogue-author-works">'
                + ''.join('<li><span class="catalogue-author-works__year">' + str(w['anio']) + '</span> ' + link(w['titulo'])
                          + (' <span class="catalogue-author-works__original">(' + esc(w['titulo_original']) + ')</span>' if w.get('titulo_original') else '')
                          + (' · <span>' + esc(w['saga']) + '</span>' if w.get('saga') else '') + '</li>' for w in t['obras']) + '</ol></section>')
     if t.get('sagas'):
         nav.insert(2, ('sagas', 'Sagas'))
-        before += ('<section aria-labelledby="sagas"><h2 id="sagas">Sagas de ' + esc(name) + ' y orden de lectura</h2>'
+        before += ('<section class="catalogue-author-text" aria-labelledby="sagas"><h2 id="sagas">Sagas de ' + esc(name) + ' y orden de lectura</h2>'
                    + ''.join('<h3>' + esc(s['nombre']) + '</h3><ol class="catalogue-author-works">' + ''.join('<li>' + link(x) + '</li>' for x in s['libros']) + '</ol>' for s in t['sagas'])
                    + '</section>')
     paragraphs = [p.strip() for p in t['biografia'].split('\n\n') if p.strip()]
-    after = ('<section aria-labelledby="biografia"><h2 id="biografia">Biografía de ' + esc(name) + '</h2>' + ''.join('<p>' + esc(p) + '</p>' for p in paragraphs)
+    after = ('<section class="catalogue-author-text" aria-labelledby="biografia"><h2 id="biografia">Biografía de ' + esc(name) + '</h2>' + ''.join('<p>' + esc(p) + '</p>' for p in paragraphs)
              + '<p class="catalogue-source">Fuentes: ' + ' · '.join(('<a href="' + esc(f['url']) + '" target="_blank" rel="noopener noreferrer">' + esc(f.get('titulo') or f['url']) + NEW_TAB + '</a>')
                                                                   if third_party_links.alive(f['url']) else esc(f.get('titulo') or f['url']) for f in t['fuentes'])
              + ('. Revisado ' + esc(_on_date(life_date_label(t['fecha_revision']))) if t.get('fecha_revision') else '') + '.</p></section>')
     nav.append(('biografia', 'Biografía'))
     similar = [(related_by_name[x['nombre']], x['motivo']) for x in t.get('parecidos', []) if x.get('nombre') in related_by_name]
     if similar:
-        after += ('<section aria-labelledby="parecidos"><h2 id="parecidos">Si te gusta ' + esc(name) + '</h2><ul class="catalogue-author-start">'
+        after += ('<section class="catalogue-author-text" aria-labelledby="parecidos"><h2 id="parecidos">Si te gusta ' + esc(name) + '</h2><ul class="catalogue-author-start">'
                   + ''.join('<li><strong><a href="' + esc(author_url(o)) + '">' + esc(o['nombre']) + '</a></strong><p>' + esc(m) + '</p></li>' for o, m in similar) + '</ul></section>')
         nav.append(('parecidos', 'Autores parecidos'))
     nav.append(('author-faq', 'Preguntas frecuentes'))
     nav_html = ('<nav class="catalogue-author-toc" aria-label="En esta página"><p>En esta página:</p><ul>'
                 + ''.join('<li><a href="#' + i + '">' + esc(label) + '</a></li>' for i, label in nav) + '</ul></nav>')
     return nav_html, before, after
+
+
+_ROLE_STEMS = ('escritor', 'novelista', 'poeta', 'periodista', 'ensayista', 'guionista', 'dramaturg', 'historiador', 'filósof',
+               'psicólog', 'ilustrador', 'dibujante', 'divulgador', 'profesor', 'médic', 'científic', 'economista', 'investigador',
+               'traductor', 'autor', 'cociner', 'chef', 'psiquiatra', 'neurocientífic', 'biólog', 'físic', 'abogad', 'empresari',
+               'actor', 'actriz', 'cantante', 'músic', 'humorista', 'presentador', 'entrenador', 'nutricionista', 'creador',
+               'pedagog', 'sociólog', 'antropólog', 'arqueólog', 'astrofísic', 'matemátic', 'veterinari', 'fotógraf', 'cineasta',
+               'director', 'politólog', 'teólog', 'monje', 'chamán', 'maestr', 'terapeuta', 'psicoterapeuta', 'educador', 'artista')
+_ROLE = re.compile(r'\b(?:es|fue|era)\s+(?:(?:una|un)\s+)?([^.;:()]{4,90}?)(?=\s+(?:nacid[oa]|que|con|cuy[oa]s?|conocid[oa]|especializad[oa]|'
+                   r'licenciad[oa]|doctor[a]?|graduad[oa]|afincad[oa]|residente|reconocid[oa]|considerad[oa]|famos[oa]|ganador[a]?|'
+                   r'premiad[oa]|y\s+(?:vive|reside|trabaja)|autor[a]?\s+de|desde|en\s+\w+)\b|[.;(]|$)')
+
+
+def author_role(text):
+    """«escritor y guionista británico» de «Neil Gaiman es un escritor y guionista británico nacido en…». Solo si empieza
+    por un oficio: «es la séptima novela de…» no es un oficio y no da nada."""
+    m = _ROLE.search(text or '')
+    role = m.group(1).strip(' ,') if m else ''
+    return role if role and len(role) <= 60 and role.lower().startswith(_ROLE_STEMS) else ''
+
+
+def _short_title(t, limit=40):
+    """Título para un snippet: sin «(ed. actualizada)» y, si es largo, hasta el subtítulo."""
+    t = re.sub(r'\s*\((?:ed\.|edición|edicion)[^)]*\)', '', t).strip()
+    if len(t) > limit:
+        for sep in (':', '. ', ' (', ' - ', ' / '):
+            if sep in t and 3 <= t.index(sep) <= limit:
+                return t[:t.index(sep)].strip()
+    return t if len(t) <= limit else ''
+
+
+def _some(titles, n):
+    return ', '.join(titles[:n]) + ' y más' if len(titles) > n else _join_titles(titles[:n])
+
+
+def _join_titles(titles, last=' y '):
+    return titles[0] if len(titles) == 1 else ', '.join(titles[:-1]) + last + titles[-1]
+
+
+def author_seo(a, selected, own, genres, has_bio, person_like):
+    """(title, description) de la ficha de autor, con lo que se busca («libros de X», «X libros en orden», «por dónde
+    empezar con X») y datos propios de la persona (oficio, títulos, sagas, editorial) en vez de una plantilla común."""
+    name = a['nombre']
+    titles = []
+    for b, _ in group_editions(selected):
+        t = _short_title(b['titulo'])
+        if t and t not in titles:
+            titles.append(t)
+    bio_text = (own or {}).get('intro') or a.get('biografia_breve') or (a.get('descripcion') if a.get('tipo') != 'bibliografico' else '')
+    role = author_role(bio_text) if person_like else ''
+    genre = genres[0]['nombre'].lower() if genres else ''
+    who = name + (', ' + role if role else '')
+
+    def fit(options, limit):
+        return next((o for o in options if o and len(o) <= limit), options[-1])
+
+    if own:
+        starts = [_short_title(x['titulo']) for x in own.get('por_donde_empezar', [])]
+        starts = [s for s in starts if s][:3]
+        saga = own['sagas'][0]['nombre'] if own.get('sagas') else ''
+        rest = (' Sagas como ' + saga + ', biografía' if saga else ' Biografía') + ' y novedades en España.'
+        meta = fit(['Libros de ' + name + ' en orden y por dónde empezar: ' + _join_titles(starts[:n], ' o ') + '.' + r
+                    for n in (3, 2, 1) if len(starts) >= n for r in (rest, ' Orden de lectura y biografía.')]
+                   + [name + ': libros en orden de publicación, por dónde empezar' + (', sagas' if saga else '') + ' y biografía.'], 158)
+        years = (' (' + a['nacimiento'][:4] + '–' + a['fallecimiento'][:4] + ')') if a.get('fallecimiento') and a.get('nacimiento') else ''
+        title = fit([name + years + ': libros en orden' + (', sagas' if saga else '') + ' y por dónde empezar',
+                     name + years + ': libros en orden y por dónde empezar', name + ': libros en orden y biografía'], 60)
+        return title, meta
+    if not person_like:
+        meta = fit([name + ': ' + _join_titles(titles[:n]) + '. Sinopsis, fecha de publicación y dónde comprarlos.' for n in (3, 2, 1) if len(titles) >= n]
+                   + [name + ': libros, fechas de publicación y dónde comprarlos.'], 158)
+        return 'Libros de ' + name + ': títulos y novedades', meta
+    tail_bio = ', biografía' if has_bio else ''
+    if len(selected) == 1:
+        b = selected[0]
+        facts = ', '.join(str(v) for v in (b.get('editorial'), (b.get('fecha_publicacion') or '')[:4] or b.get('anio_publicacion')) if v)
+        t = titles[0] if titles else _short_title(b['titulo'], 70) or b['titulo']
+        meta = fit(['«' + t + '», de ' + who + ': sinopsis' + (', edición (' + facts + ')' if facts else '') + tail_bio + ' y dónde comprarlo.',
+                    '«' + t + '», de ' + name + ': sinopsis' + (', edición (' + facts + ')' if facts else '') + tail_bio + ' y dónde comprarlo.',
+                    '«' + t + '», de ' + name + ': sinopsis' + tail_bio + ' y dónde comprarlo.',
+                    'Libros de ' + name + ': sinopsis' + tail_bio + ' y dónde comprarlos.'], 158)
+        title = fit(['Libros de ' + name + ': «' + t + '»' + (' y biografía' if has_bio else ''), 'Libros de ' + name + ': «' + t + '»', 'Libros de ' + name + (' y biografía' if has_bio else '')], 60)
+        return title, meta
+    lead = 'Libros de ' + who + (' (' + genre + ')' if genre and not role else '') + ': '
+    meta = fit([lead + _some(titles, n) + '. Sinopsis, novedades' + tail_bio + ' y dónde comprarlos.' for n in (3, 2, 1) if len(titles) >= n]
+               + ['Libros de ' + name + ': ' + _join_titles(titles[:n]) + '. Sinopsis' + tail_bio + ' y dónde comprarlos.' for n in (2, 1) if len(titles) >= n]
+               + ['Libros de ' + name + ': ' + str(len(selected)) + ' títulos con sinopsis, novedades' + tail_bio + ' y dónde comprarlos.'], 158)
+    title = fit(['Libros de ' + name + ': ' + _some(titles, n) for n in (2, 1) if len(titles) >= n]
+                + ['Libros de ' + name + (' y biografía' if has_bio else ': títulos y novedades')], 60)
+    return title, meta
 
 
 def render_author(a,data,books,template,all_authors=(),anchor=None):
@@ -1894,8 +1994,7 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
     if own:
         bio=own['intro']
         has_bio=True
-    biography_source='' if own else ('<p class="catalogue-source"><a href="'+esc(a['biografia_fuente_url'])+'" target="_blank" rel="noopener noreferrer">Nota biográfica: '+esc(a.get('biografia_fuente_nombre') or 'editorial')+' ↗'+NEW_TAB+'</a>'+(' · Texto de Wikipedia con licencia CC BY-SA 4.0' if a.get('biografia_fuente_nombre') == 'Wikipedia' else '')+'</p>') if a.get('biografia_breve') else ''
-    context='<section aria-labelledby="author-context"><h2 id="author-context">Su obra en este catálogo</h2><p>'+esc(summary)+'</p>'
+    context='<section aria-labelledby="author-context"><h2 id="author-context">Su obra</h2>'
     if topics:
         context+='<p>Géneros y temas presentes en sus libros:</p>'+tags(list(topics.values()))
     if publishers:
@@ -1915,25 +2014,23 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
                 +('<a class="catalogue-buy-link" href="'+esc(buy)+'"'+sponsored+' aria-label="Comprar «'+esc(b['titulo'])+'» en Amazon (otra pestaña)">'+amazon_action_label(b)+' <span aria-hidden="true">↗</span></a>' if buy else '')+'</li>')
     life=life_line(a) if person_like else ''
     chips=''.join('<li><a href="'+AUTHORS_BASE+'#genero='+esc(g['id'])+'">'+esc(g['nombre'])+'</a></li>' for g in genres[:3])
-    cta=('<p class="catalogue-author-cta"><a class="catalogue-buy-link" href="'+esc(amazon_author_destination(a))+'"'+sponsored+'>Sus libros en Amazon <span aria-hidden="true">↗</span>'+NEW_TAB+'</a></p>') if person_like else ''
-    photo=('<figure class="catalogue-author-figure">'+author_photo(a,False)+(('<figcaption>'+photo_credit(a)+'</figcaption>') if a.get('foto') else '')+'</figure>') if person_like else ''
+    cta=('<p class="catalogue-author-cta"><a class="catalogue-buy-link" href="'+esc(amazon_author_destination(a,selected))+'"'+sponsored+'>Sus libros en Amazon <span aria-hidden="true">↗</span>'+NEW_TAB+'</a></p>') if person_like else ''
+    photo=('<figure class="catalogue-author-figure">'+author_photo(a,False)+'</figure>') if person_like else ''
     faq=author_faq(a,selected,genres,anchor) if person_like else []
     toc=before=after=''
     if own:
         toc,before,after=author_text_sections(a,own,selected,related_pool)
         # Las del catálogo que el texto propio ya responde (nacimiento, géneros) ceden su sitio a las suyas.
         faq=[(x['pregunta'],x['respuesta']) for x in own['faq']]+[(q,r) for q,r in faq if not q.startswith(('¿Cuándo nació','¿Qué tipo de libros escribe'))]
-    shown_ids=[(AUTHOR_ID_LABELS[k],a['identificadores'][k]) for k in ('web','wikipedia') if k in a.get('identificadores',{}) and (k!='web' or third_party_links.alive(a['identificadores'][k]))]
-    links=('<p class="catalogue-source">Más sobre '+esc(a['nombre'])+': '+' · '.join('<a href="'+esc(h)+'" target="_blank" rel="noopener noreferrer">'+esc(t)+NEW_TAB+'</a>' for t,h in shown_ids)+'</p>') if shown_ids else ''
     faq_html=('<section aria-labelledby="author-faq" class="catalogue-faq"><h2 id="author-faq">Preguntas frecuentes sobre '+esc(a['nombre'])+'</h2>'+''.join('<details class="catalogue-details"><summary>'+esc(q)+'</summary><p>'+esc(r)+'</p></details>' for q,r in faq)+'</section>') if faq else ''
     trail=[('Inicio','/'),('Libros recomendados','/recomendaciones/'),('Autores',AUTHORS_BASE),(a['nombre'],author_url(a))]
     crumbs=''.join('<li><a href="'+href+'">'+esc(label)+'</a></li>' for label,href in trail[:-1])+'<li aria-current="page">'+esc(a['nombre'])+'</li>'
     main=('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol>'+crumbs+'</ol></nav>'
           '<header class="catalogue-author-hero'+(' catalogue-author-hero--photo' if photo else '')+'">'+photo+'<div><p class="eyebrow">Autores · Libros recomendados</p><h1>'+esc(a['nombre'])+'</h1>'
           +('<p class="catalogue-author-life">'+esc(life)+'</p>' if life else '')+('<ul class="catalogue-tags catalogue-tags--compact">'+chips+'</ul>' if chips else '')
-          +'<p>'+esc(bio)+'</p>'+biography_source+links+cta+'</div></header>'+toc+before
+          +'<p>'+esc(bio)+'</p>'+cta+'</div></header>'+toc+before
           +'<section aria-labelledby="author-books"><h2 id="author-books">Libros de '+esc(a['nombre'])+'</h2><p>Ediciones ordenadas de la más reciente a la más antigua.</p><ul class="catalogue-author-books">'+items+'</ul></section>'
-          +after+context+faq_html+'<div class="catalogue-end"><a class="text-action" href="'+AUTHORS_BASE+'">Ver todos los autores</a> <a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
+          +after+context+faq_html+'<div class="catalogue-end"><a class="text-action" href="'+AUTHORS_BASE+'">Ver todos los autores</a> <a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div>'+'</main>')
     person={'@type':'Person' if person_like else 'Organization','@id':canonical+'#person','name':a['nombre'],'url':canonical,'description':bio}
     if a.get('nacimiento'):
         person['birthDate']=a['nacimiento']
@@ -1954,23 +2051,11 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
     if own:
         graph.append({'@type':'ItemList','@id':canonical+'#obras','name':'Libros de '+a['nombre']+' en orden de publicación','itemListOrder':'https://schema.org/ItemListOrderAscending',
                       'itemListElement':[{'@type':'ListItem','position':i,'item':{'@type':'Book','name':w['titulo'],**({'datePublished':str(w['anio'])} if str(w['anio'])<=(anchor or data_anchor(books))[:4] else {}),'author':{'@id':canonical+'#person'}}} for i,w in enumerate(own['obras'],1)]})
+    elif selected and person_like:
+        graph.append({'@type':'ItemList','@id':canonical+'#libros','name':'Libros de '+a['nombre'],'numberOfItems':len(selected),
+                      'itemListElement':[{'@type':'ListItem','position':i,'url':SITE+url(b)} for i,b in enumerate(selected,1)]})
     schema={'@context':'https://schema.org','@graph':graph}
-    titles=', '.join(b['titulo'] for b in selected[:2])
-    meta=a['nombre']+': '+(str(count)+(' libro recomendado' if count==1 else ' libros recomendados')+(' ('+titles+')' if titles else '')+', ' if count else '')+('biografía, géneros y editoriales.' if has_bio else 'géneros y editoriales.')
-    if own:
-        meta=a['nombre']+': por dónde empezar a leerle, sus libros en orden de publicación'+(', sagas' if own.get('sagas') else '')+' y biografía.'
-    if len(meta)>160: meta=a['nombre']+': '+str(count)+(' libro recomendado' if count==1 else ' libros recomendados')+(', biografía, géneros y editoriales.' if has_bio else ', géneros y editoriales.')
-    if own and a.get('fallecimiento'):
-        title=a['nombre']+(' ('+a['nacimiento'][:4]+'–'+a['fallecimiento'][:4]+')' if a.get('nacimiento') else '')+': libros en orden y biografía'
-    elif own:
-        title=a['nombre']+': libros en orden'+(', sagas' if own.get('sagas') else '')+' y biografía'
-    elif not person_like or count < 2:
-        title='Libros de '+a['nombre']+': títulos y novedades'
-    elif a.get('fallecimiento'):
-        years=' ('+a['nacimiento'][:4]+'–'+a['fallecimiento'][:4]+')' if a.get('nacimiento') else ''
-        title=a['nombre']+years+(': libros y biografía' if has_bio else ': libros y ediciones actuales')
-    else:
-        title=a['nombre']+(': libros, últimas novedades y biografía' if has_bio else ': libros y últimas novedades')
+    title,meta=author_seo(a,selected,own,genres,has_bio,person_like)
     if len(title)+len(' | David Porto Díaz')<=75:
         title+=' | David Porto Díaz'
     return render_detail_page(template,main,canonical,title,meta if a.get('tipo') != 'bibliografico' or count else bio,schema,selected[0] if selected else None)
@@ -2069,10 +2154,16 @@ def author_century(a):
     return f'siglo-{century}' if century in ROMAN else ''
 
 
-def amazon_author_destination(a):
-    """Página de autor de Amazon.es con la etiqueta; sin ID conocido, búsqueda etiquetada por autor en Libros."""
+def amazon_author_destination(a, books=()):
+    """Página de autor de Amazon.es con la etiqueta. Sin ID (Amazon no le ha abierto página), la ficha de su libro más
+    reciente con enlace verificado: la búsqueda por nombre mezclaba homónimos y coautores («Juana Cárdenas» para «Juan
+    Cárdenas»). Sin libro verificado, búsqueda etiquetada por autor en Libros."""
     if a.get('amazon_autor_id'):
         return amazon_es('https://www.amazon.es/stores/author/' + a['amazon_autor_id'] + '?tag=' + AUTHOR_TAG)
+    for b in _newest_first(list(books)):
+        link = amazon_destination(b)
+        if amazon_asin(link):
+            return link
     return amazon_es('https://www.amazon.es/s?i=stripbooks&rh=' + quote('p_27:' + a['nombre'], safe='') + '&tag=' + AUTHOR_TAG)
 
 
@@ -2083,14 +2174,6 @@ def author_photo(a, lazy=True):
         return f'<span class="catalogue-author-photo catalogue-author-photo--initials" aria-hidden="true">{esc(initials)}</span>'
     return (f'<img class="catalogue-author-photo" src="{esc(foto["url"])}" width="{foto["ancho"]}" height="{foto["alto"]}" alt="Retrato de {esc(a["nombre"])}"'
             + (' loading="lazy"' if lazy else ' fetchpriority="high"') + ' decoding="async">')
-
-
-def photo_credit(a):
-    foto = a.get('foto')
-    if not foto:
-        return ''
-    return ('<small class="catalogue-photo-credit">Foto: <a href="' + esc(foto['fuente_url']) + '" target="_blank" rel="noopener noreferrer">' + esc(foto['autor']) + NEW_TAB + '</a> · '
-            + ('<a href="' + esc(foto['licencia_url']) + '" target="_blank" rel="noopener noreferrer license">' + esc(foto['licencia']) + NEW_TAB + '</a>' if foto.get('licencia_url') else esc(foto['licencia'])) + '</small>')
 
 
 def author_rows(authors, books, data, publishers, anchor):
@@ -2111,9 +2194,11 @@ def author_rows(authors, books, data, publishers, anchor):
         for b in bs:
             for c in public(cats[b['id']]):
                 shown.setdefault(c['tipo'], {}).setdefault(c['id'], [c, 0])[1] += 1
+        genres = _dominant(sorted(shown.get('genero', {}).values(), key=lambda t: (-t[1], t[0]['nombre'])), len(bs))
+        if 'genero' in shown:
+            shown['genero'] = {c['id']: [c, n] for c, n in genres}
         pairs = [(kind, cid) for kind in PUBLIC_TYPES for cid in shown.get(kind, {})] + [(kind, NO_VALUE[kind]['id']) for kind in NO_VALUE if kind not in shown]
         facet_values = [cid for _kind, cid in pairs]
-        genres = sorted(shown.get('genero', {}).values(), key=lambda t: (-t[1], t[0]['nombre']))
         spans = sorted(((s, b) for b in bs if (s := publication_bounds(b))), key=lambda t: (t[0], t[1]['id']))
         dates = sorted({lo for (lo, _hi), _b in spans})
         released = [(hi, b) for (lo, hi), b in spans if lo <= anchor]
@@ -2169,7 +2254,7 @@ def author_card(r, lazy=True):
     attrs = (f'data-catalogue-book data-group="{" ".join(r["groups"])}" data-book-id="{esc(a["slug"])}" data-categories="{esc(" ".join(r["categories"]))}" data-title="{esc(a["nombre"])}"'
              f' data-sort-name="{esc(a["nombre"].casefold())}" data-score="{r["score"]}" data-search="{esc(a["nombre"] + " " + titles + " " + isbns)}" data-books="{len(bs)}"'
              + (f' data-dates="{" ".join(r["dates"])}"' if r['dates'] else '') + (f' data-published="{r["latest"]}"' if r['latest'] else '') + (f' data-born="{born}"' if born else ''))
-    destination = amazon_author_destination(a)
+    destination = amazon_author_destination(a, bs)
     amazon = f'href="{esc(destination)}" target="_blank" rel="sponsored nofollow noopener noreferrer"'
     if r['upcoming']:
         when = 'Próximo libro · ' + r['upcoming_label']
@@ -2183,21 +2268,20 @@ def author_card(r, lazy=True):
     if bio:
         description = first_sentence(bio)
     else:
-        shown = ', '.join('«' + b['titulo'] + '»' for b in bs[:2])
-        description = 'En el catálogo: ' + shown + (f' y {len(bs) - 2} más.' if len(bs) > 2 else '.')
+        names = [g['nombre'].lower() for g in r['genres'][:2]]
+        description = (a['nombre'] + (' escribió sobre todo ' if a.get('fallecimiento') else ' escribe sobre todo ') + ' y '.join(names) + '.') if names else ''
     life = life_line(a)
-    count = str(len(bs)) + (' libro' if len(bs) == 1 else ' libros') + ' en el catálogo'
     return (f'<li class="catalogue-card" {attrs}><a class="catalogue-card__cover" {amazon} aria-label="Libros de {esc(a["nombre"])} en Amazon (otra pestaña)">{author_photo(a, lazy)}</a>'
-            + f'<div>{photo_credit(a)}' + (f'<p class="eyebrow catalogue-when">{esc(when)}</p>' if when else '') + (f'<ul class="catalogue-tags catalogue-tags--compact">{chips}</ul>' if chips else '')
+            + f'<div>' + (f'<p class="eyebrow catalogue-when">{esc(when)}</p>' if when else '') + (f'<ul class="catalogue-tags catalogue-tags--compact">{chips}</ul>' if chips else '')
             + f'<h3><a {amazon} aria-label="Libros de {esc(a["nombre"])} en Amazon (otra pestaña)">{esc(a["nombre"])}</a></h3>'
             + (f'<p class="catalogue-author-life">{esc(life)}</p>' if life else '')
             + (f'<p class="catalogue-author">{esc(r["imprint"])}</p>' if r['imprint'] else '')
-            + f'<p class="catalogue-card__description">{esc(description)}</p><p class="catalogue-author-count">{count}</p>'
+            + (f'<p class="catalogue-card__description">{esc(description)}</p>' if description else '')
             + f'<a class="text-action catalogue-card__ficha" href="{author_url(a)}" target="_blank" rel="noopener noreferrer" aria-label="Ver ficha de {esc(a["nombre"])} (se abre en otra pestaña)">Ver ficha</a>'
             + f'<a class="catalogue-buy-link catalogue-card__buy" {amazon} aria-label="Ver los libros de {esc(a["nombre"])} en Amazon (otra pestaña)">Sus libros en Amazon <span aria-hidden="true">↗</span></a></div></li>')
 
 
-AUTHOR_HUB_SORTS = (('editorial', 'Último libro · más reciente primero'), ('destacados', 'Destacados · próximos y novedades'), ('nombre', 'Nombre · A–Z'), ('libros_desc', 'Número de libros · de más a menos'))
+AUTHOR_HUB_SORTS = (('editorial', 'Último libro · más reciente primero'), ('destacados', 'Destacados · próximos y novedades'), ('nombre', 'Nombre · A–Z'))
 AUTHOR_BIRTH_SORTS = (('nacimiento_asc', 'Nacimiento · del más antiguo al más reciente'), ('nacimiento_desc', 'Nacimiento · del más reciente al más antiguo'))
 
 
