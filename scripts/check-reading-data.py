@@ -118,10 +118,27 @@ def fallos(result):
             for test, text in result.failures + result.errors]
 
 
+def load(names):
+    """(suite, [{test, texto}] de los que no cargan). Uno por uno: 28/11 la carga 46117573426 murió sin escribir
+    sus fallos porque un contrato importaba un script que hacía sys.exit(1) al importarse; ni ese contrato apartó
+    sus libros ni los demás pudieron apartar los suyos. Un contrato que no carga es un fallo más, no el final."""
+    suite, broken = unittest.TestSuite(), []
+    for name in names:
+        try:
+            suite.addTests(unittest.defaultTestLoader.loadTestsFromName(name))
+        except BaseException as exc:  # SystemExit incluido: no es Exception
+            if isinstance(exc, KeyboardInterrupt):
+                raise
+            broken.append({'test': name, 'texto': f'no carga: {type(exc).__name__}: {exc}'[:1500]})
+    return suite, broken
+
+
 def main():
     sys.path.insert(0, str(ROOT / 'tests'))
     start = time.monotonic()
-    suite = unittest.defaultTestLoader.loadTestsFromNames(contracts())
+    suite, broken = load(contracts())
+    for f in broken:
+        print(f"FALLA {f['test']}:\n{f['texto']}", flush=True)
     result = unittest.TextTestRunner(verbosity=1, resultclass=Resultado).run(suite)
     print(f'datos del catálogo: {result.testsRun} contratos en {time.monotonic() - start:.0f}s')
     start = time.monotonic()
@@ -133,8 +150,8 @@ def main():
     print(f'datos del catálogo: {len(script_contracts())} contratos en script en {time.monotonic() - start:.0f}s')
     if '--fallos' in sys.argv:
         path = Path(sys.argv[sys.argv.index('--fallos') + 1])
-        path.write_text(json.dumps(fallos(result) + scripts, ensure_ascii=False, indent=1), encoding='utf-8')
-    return 0 if result.wasSuccessful() and not scripts else 1
+        path.write_text(json.dumps(broken + fallos(result) + scripts, ensure_ascii=False, indent=1), encoding='utf-8')
+    return 0 if result.wasSuccessful() and not scripts and not broken else 1
 
 if __name__ == '__main__':
     raise SystemExit(main())
