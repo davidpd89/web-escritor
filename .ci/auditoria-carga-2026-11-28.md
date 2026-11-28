@@ -21,6 +21,9 @@ Rama `auditoria-carga-2026-11-28` (worktree `.worktrees/auditoria-carga`, base `
   - Si ni quitando toda la carga pasa → no es un dato: en la etapa de código se avisa y se publica (decide la PR);
     en la de datos se para como antes.
   - Plazo: se corta a `PUBLICAR_HASTA − 75 min` para que siempre quede tiempo de abrir la PR.
+  - Robustez (ronda GPT 2): el fallo debe reproducirse con la carga entera antes de buscar; el arreglo debe pasar dos
+    veces; una sonda que no se puede evaluar (puerta sin `fallos.json`, módulo «sin terminar») lanza `SinResolver` y
+    no se aparta nada; un libro que solo cambia de géneros también es candidato.
 - **Puerta paralela** (un módulo por proceso, `--solo`, límite por grupo 1800 s): 119 contratos de ~23 min a minutos.
 - **Almacén de portadas automático** (`almacen_portadas.py auto`, tarea `WEB_Libros_Almacen_Portadas` 10:40): con el
   activo por encima de 700 MB prepara el siguiente repo de Pages; `nuevo` es reanudable.
@@ -29,7 +32,7 @@ Rama `auditoria-carga-2026-11-28` (worktree `.worktrees/auditoria-carga`, base `
 
 ## Verificado (local)
 
-- `test_biseccion_carga` (12), `test_almacen_portadas`, `test_check_reading_data_procesos`, `test_night_faults`,
+- `test_biseccion_carga` (16), `test_almacen_portadas`, `test_check_reading_data_procesos`, `test_night_faults`,
   `test_reading_source_recovery`: 58 tests OK. `test_check_reading_data_cobertura` OK.
 - Puerta paralela: 13 contratos en 46 s, rc 0. Tarea del almacén registrada; su ejecución: «518564 KB, sin cambios».
 
