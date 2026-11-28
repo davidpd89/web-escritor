@@ -5,15 +5,6 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:Convocatorias para escritores
 BEGIN:VEVENT
-UID:premio-alfabeto-ensayo-2026@davidportodiaz.com
-DTSTAMP:20261119T000000Z
-DTSTART;VALUE=DATE:20261127
-DTEND;VALUE=DATE:20261128
-SUMMARY:Premio Alfabeto de Ensayo Breve «(Con)vivir hoy» 2026
-DESCRIPTION:Editorial Alfabeto · Plataforma Editorial
-URL:https://www.editorialalfabeto.com/premioalfabeto
-END:VEVENT
-BEGIN:VEVENT
 UID:premio-azorin-novela-2027@davidportodiaz.com
 DTSTAMP:20261119T000000Z
 DTSTART;VALUE=DATE:20261130
