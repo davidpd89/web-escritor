@@ -21,7 +21,13 @@ def candidatos(data, published):
     """Ids de la carga que son nuevos o distintos de su versión publicada, en el orden del catálogo (los tests que
     toman «el primero» caen pronto en la búsqueda)."""
     good = {b['id']: b for b in (published or {}).get('libros', [])}
-    return [b['id'] for b in data['libros'] if good.get(b['id']) != b]
+    def generos(d):
+        out = {}
+        for r in (d or {}).get('libro_categorias', []):
+            out.setdefault(r['libro_id'], set()).add(r['categoria_id'])
+        return out
+    antes, ahora = generos(published), generos(data)
+    return [b['id'] for b in data['libros'] if good.get(b['id']) != b or antes.get(b['id']) != ahora.get(b['id'])]
 
 
 def retirar(data, published, quitar):
@@ -39,6 +45,11 @@ def retirar(data, published, quitar):
 
 class SinTiempo(RuntimeError):
     pass
+
+
+class SinResolver(RuntimeError):
+    """La sonda no pudo decir ni «pasa» ni «falla» (la puerta no cargó, un módulo sin terminar): la búsqueda se
+    abandona entera; contarlo como «falla» apartaría libros inocentes."""
 
 
 def culpable(cands, falla, *, hasta=None, reloj=time.monotonic):
@@ -65,7 +76,10 @@ def culpable(cands, falla, *, hasta=None, reloj=time.monotonic):
 
 def culpables(cands, falla, *, hasta=None, reloj=time.monotonic):
     """Todos los culpables: tras cada uno, se busca el siguiente con los hallados ya retirados, hasta que retirarlos
-    baste. None si ni retirando todos los candidatos pasa (no es un dato de esta noche)."""
+    baste. None si el fallo no se reproduce con la carga entera (inestable), si ni retirando todos los candidatos
+    pasa (no es un dato de esta noche o no es monótono) o si el arreglo no aguanta una segunda comprobación."""
+    if not cands or not falla([]):
+        return None
     found = []
     while True:
         rest = [c for c in cands if c not in found]
@@ -74,7 +88,7 @@ def culpables(cands, falla, *, hasta=None, reloj=time.monotonic):
             return None
         found.append(nxt)
         if not falla(found):
-            return found
+            return found if not falla(found) else None  # pasa dos veces seguidas: no es un acierto inestable
 
 
 def ids_solo(failures):
@@ -83,8 +97,7 @@ def ids_solo(failures):
     out = []
     for f in failures:
         name = re.sub(r'\s*\(.*\)\s*$', '', f['test']).strip()
-        if name.startswith('unittest.loader._FailedTest.'):
-            name = name.rsplit('.', 1)[-1]
+        name = name.removeprefix('unittest.loader._FailedTest.')
         if name and name not in out:
             out.append(name)
     return out

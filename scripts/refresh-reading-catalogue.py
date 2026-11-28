@@ -793,15 +793,19 @@ def bisect_unattributed(unattributed):
         sondas.append(len(quitar))
         write_changed(path, bis.retirar(data, published, quitar))
         try:
-            return bool(data_contract_failures('--solo', ','.join(ids)))
-        except RuntimeError:
-            return True  # la puerta no cargó: no cuenta como «pasa»
+            got = data_contract_failures('--solo', ','.join(ids))
+        except RuntimeError as exc:  # la puerta no cargó: ni pasa ni falla
+            raise bis.SinResolver(f'bisección abandonada: la sonda no se pudo evaluar ({exc})') from exc
         finally:
             path.write_bytes(original)
+        colgados = [f['test'] for f in got if str(f.get('texto', '')).startswith('sin terminar')]
+        if colgados:
+            raise bis.SinResolver(f'bisección abandonada: sonda sin terminar en {", ".join(colgados)[:200]}')
+        return bool(got)
     print(f'Bisección: {len(cands)} libros de la carga contra {len(ids)} contratos sin libro', flush=True)
     try:
         found = bis.culpables(cands, falla, hasta=hasta, reloj=time.time)
-    except bis.SinTiempo as exc:
+    except (bis.SinTiempo, bis.SinResolver) as exc:
         print(f'::warning::{exc}', flush=True)
         found = None
     finally:

@@ -37,7 +37,7 @@ class BusquedaTest(unittest.TestCase):
             sondas.append(len(quitar))
             return 'b637' not in quitar
         self.assertEqual(bis.culpables(cands, falla), ['b637'])
-        self.assertLessEqual(len(sondas), 13)
+        self.assertLessEqual(len(sondas), 14)  # reproducir + 1 + log2(1000) + confirmar dos veces
 
     def test_varios_culpables_se_encuentran_todos(self):
         cands = [f'b{i}' for i in range(64)]
@@ -50,8 +50,22 @@ class BusquedaTest(unittest.TestCase):
         self.assertIsNone(bis.culpables([], lambda q: True))
 
     def test_un_fallo_inestable_no_aparta_nada(self):
-        respuestas = iter([False, True, True, True])  # pasa al quitar todo y luego nunca: no monótono
+        respuestas = iter([True, False, True, True, True])  # pasa al quitar todo y luego nunca: no monótono
         self.assertIsNone(bis.culpables(['a', 'b', 'c', 'd'], lambda q: next(respuestas, True)))
+
+    def test_si_el_fallo_no_se_reproduce_no_se_busca(self):
+        sondas = []
+        self.assertIsNone(bis.culpables(['a', 'b'], lambda q: sondas.append(q) or False))
+        self.assertEqual(sondas, [[]])
+
+    def test_un_arreglo_que_no_aguanta_la_segunda_comprobacion_no_aparta(self):
+        vistas = {}
+
+        def falla(q):
+            k = tuple(q)
+            vistas[k] = vistas.get(k, 0) + 1
+            return 'b' not in q or vistas[k] > 1  # quitar b arregla solo la primera vez
+        self.assertIsNone(bis.culpables(['a', 'b'], falla))
 
     def test_el_plazo_corta_la_busqueda(self):
         reloj = iter(range(100))
@@ -63,6 +77,8 @@ class BusquedaTest(unittest.TestCase):
         data = {'libros': [libro('n1'), libro('a'), libro('b', titulo='cambiado'), libro('n2')],
                 'libro_categorias': [{'libro_id': 'b', 'categoria_id': 'y'}, {'libro_id': 'n1', 'categoria_id': 'x'}]}
         self.assertEqual(bis.candidatos(data, pub), ['n1', 'b', 'n2'])
+        solo_generos = {'libros': [libro('a'), libro('b')], 'libro_categorias': [{'libro_id': 'b', 'categoria_id': 'y'}]}
+        self.assertEqual(bis.candidatos(solo_generos, pub), ['b'])
         out = bis.retirar(data, pub, ['n1', 'b'])
         self.assertEqual(out['libros'], [libro('a'), libro('b'), libro('n2')])
         self.assertEqual(out['libro_categorias'], [{'libro_id': 'b', 'categoria_id': 'x'}])
@@ -96,6 +112,19 @@ class SondaSobreElCatalogoTest(unittest.TestCase):
             self.assertIn('bisección', found['n2'])
             self.assertEqual(path.read_bytes(), original)
             self.assertTrue(all(a == ('--solo', 'm.C.test_x') for a in vistos))
+
+    def test_una_sonda_que_no_se_puede_evaluar_abandona_sin_apartar(self):
+        for puerta in (lambda *a: (_ for _ in ()).throw(RuntimeError('sin fallos.json')),
+                       lambda *a: [{'test': 'm', 'texto': 'sin terminar en 1800 s'}]):
+            with self.subTest(puerta=puerta), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                path = root / refresh.reading_quarantine.CATALOGUE
+                path.parent.mkdir(parents=True)
+                path.write_text(json.dumps({'libros': [libro('n1'), libro('n2')], 'libro_categorias': []}), encoding='utf-8')
+                original = path.read_bytes()
+                with patch.object(refresh, 'ROOT', root), patch.object(refresh, 'data_contract_failures', puerta),                         patch.object(refresh.reading_quarantine, 'committed', lambda r: {'libros': [], 'libro_categorias': []}):
+                    self.assertEqual(refresh.bisect_unattributed([{'test': 'm.C.test_x', 'texto': 'x'}]), {})
+                self.assertEqual(path.read_bytes(), original)
 
 
 class AssembleTest(unittest.TestCase):
