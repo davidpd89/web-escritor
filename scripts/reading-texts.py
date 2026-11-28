@@ -391,7 +391,7 @@ def validate_block(p, x):
     numbers = set(re.findall(r'\d+', text)) - set(re.findall(r'\d+', cited + ' ' + own))
     if numbers:
         errors.append('cifras sin respaldo: ' + ', '.join(sorted(numbers)))
-    claims = {m.group(0).lower() for m in CLAIMS.finditer(text)} - {m.group(0).lower() for m in CLAIMS.finditer(source)}
+    claims = {m.group(0).lower() for m in CLAIMS.finditer(without_titles(p, text))} - {m.group(0).lower() for m in CLAIMS.finditer(source)}
     if claims:
         errors.append('afirmaciones sin respaldo: ' + ', '.join(sorted(claims)))
     if opinion := OPINION.search(text):
@@ -415,6 +415,16 @@ def title_forms(title):
     """El título completo y su forma corta: sin paréntesis de edición o colección ni subtítulo tras «:» o « - »."""
     short = re.split(r'\s+[-–—]\s+|:\s', re.sub(r'\s*\([^)]*\)', '', title))[0].strip(' .,;')
     return {f for f in (title.strip(), short) if len(f) >= 8 or f == title.strip()}
+
+
+def without_titles(p, text):
+    """El texto sin los títulos que nombra (el propio y los afines): «(Best Seller | Ficción)» es el nombre de una
+    colección, no una afirmación; la misma palabra fuera del título sigue necesitando respaldo."""
+    titles = [p['evidencias'].get('titulo', ''), *(p.get('afines_ids') or {})]
+    forms = sorted({f for t in titles if t for f in title_forms(t) if f}, key=len, reverse=True)
+    for form in forms:
+        text = re.sub(re.escape(form), ' ', text, flags=re.IGNORECASE)
+    return text
 
 
 def linked(p, text):

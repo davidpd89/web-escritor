@@ -105,6 +105,18 @@ class ReadingTextsTest(unittest.TestCase):
         two = {**self.payload, 'modulos_permitidos': [m for m in self.payload['modulos_permitidos'] if m['modulo'] == 'para_quien'] + [{'modulo': 'encaje_documentado'}]}
         self.assertIsNone(publish(two))
 
+    def test_claim_words_inside_a_named_title_are_the_title_not_a_claim(self):
+        # 28/11: el primer afín del catálogo real pasó a ser «… (Best Seller | Ficción)» y todo bloque que lo nombraba
+        # caía por «afirmaciones sin respaldo: best seller». Es el nombre de la colección de Debolsillo.
+        title = 'Corsarios de Levante (Pirates of the Levant 6) (Best Seller | Ficción)'
+        p = {**self.payload, 'afines_ids': {title: 'corsarios'},
+             'evidencias': {**self.payload['evidencias'], 'afines_catalogo': [f'«{title}», de Arturo Pérez-Reverte.']}}
+        block = {'modulo': 'lecturas_afines', 'evidencias': ['afines_catalogo'],
+                 'texto': f'Comparte terreno con {title}, aunque cada uno plantea su conflicto central desde un punto de partida distinto.'}
+        self.assertNotIn('afirmaciones sin respaldo: best seller', texts.validate_block(p, block))
+        boast = {**block, 'texto': block['texto'] + ' Es un best seller que ya ha conquistado a medio país.'}
+        self.assertIn('afirmaciones sin respaldo: best seller', texts.validate_block(p, boast))
+
     def test_valid_blocks_pass_and_affines_are_linked(self):
         blocks, errors = self.check()
         self.assertEqual(errors, [])
