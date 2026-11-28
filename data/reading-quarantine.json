@@ -1,4 +1,203 @@
 {
-  "libros": [],
+  "libros": [
+    {
+      "categorias": [
+        "clasicos",
+        "edicion-especial",
+        "misterio-y-thriller",
+        "narrativa"
+      ],
+      "causa": "contrato de datos texto sin mojibake: texto con señales de codificación rota: '\\ufffd'",
+      "desde": "2026-11-28",
+      "fuente": "https://www.amazon.es/dp/8491056270",
+      "intentos": 1,
+      "isbn": "9788491056270",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788491056270&tag=davidporto-21",
+        "anio_publicacion": 2025,
+        "autores": [
+          "Fi�dor M. Dostoievski"
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "Crimen y castigo (edición especial conmemorativa) (Ediciones Conmemorativas), de Fi�dor M. Dostoievski. Edición de Penguin Clásicos en castellano, en tapa dura. Consta de 720 páginas. La editorial la incluye en clásicos, misterio, narrativa contemporánea. Publicación editorial: 2025-11-19.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Tapa dura · Penguin Clásicos",
+        "editorial": "Penguin Clásicos",
+        "editorial_catalogo_slug": "penguin-clasicos",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-28",
+        "fecha_publicacion": "2025-11-19",
+        "fecha_verificacion": "2026-11-28",
+        "formato_edicion": "tapa-dura",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-28",
+            "formato": "tapa-dura",
+            "fuente_url": "https://www.amazon.es/dp/8491056270",
+            "precio_centimos": 1610,
+            "precio_referencia_centimos": 1695,
+            "url": "https://www.amazon.es/dp/8491056270?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/8491056270",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/8491056270",
+        "id": "isbn-9788491056270",
+        "idioma": "es",
+        "isbn13": "9788491056270",
+        "numero_paginas": 720,
+        "portada_alto": 500,
+        "portada_ancho": 341,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-28",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/51Z7giusc+L.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9788491056270.webp",
+        "portada_sustituida": true,
+        "precios_amazon_revision": "2026-11-28",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-28",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9788491056270"
+          }
+        ],
+        "slug": "crimen-y-castigo-edicion-especial-conmemorativa-ediciones-conmemorativas-9788491056270",
+        "titulo": "Crimen y castigo (edición especial conmemorativa) (Ediciones Conmemorativas)"
+      },
+      "motivo": "isbn-9788491056270: contrato de datos texto sin mojibake: texto con señales de codificación rota: '\\ufffd'",
+      "ultimo_intento": "2026-11-28"
+    },
+    {
+      "categorias": [
+        "clasicos",
+        "edicion-especial",
+        "juvenil",
+        "narrativa",
+        "narrativa-juvenil",
+        "novela-historica"
+      ],
+      "causa": "contrato de datos texto sin mojibake: texto con señales de codificación rota: '\\ufffd'",
+      "desde": "2026-11-28",
+      "fuente": "https://www.amazon.es/dp/8491057811",
+      "intentos": 1,
+      "isbn": "9788491057819",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788491057819&tag=davidporto-21",
+        "anio_publicacion": 2025,
+        "autores": [
+          "Emily Bront�"
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "Cumbres borrascosas (edición especial con cantos pintados): Edición Con Cantos Tintados (Campaña edición con cantos tintados), de Emily Bront�. Edición de Penguin Clásicos en castellano, en tapa dura. Consta de 416 páginas. La editorial la incluye en clásicos, narrativa contemporánea, novela histórica, novela juvenil. Publicación editorial: 2025-11-19.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Tapa dura · Penguin Clásicos",
+        "editorial": "Penguin Clásicos",
+        "editorial_catalogo_slug": "penguin-clasicos",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-28",
+        "fecha_publicacion": "2025-11-19",
+        "fecha_verificacion": "2026-11-28",
+        "formato_edicion": "tapa-dura",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-28",
+            "formato": "tapa-dura",
+            "fuente_url": "https://www.amazon.es/dp/8491057811",
+            "precio_centimos": 1610,
+            "precio_referencia_centimos": 1695,
+            "url": "https://www.amazon.es/dp/8491057811?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/8491057811",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/8491057811",
+        "id": "isbn-9788491057819",
+        "idioma": "es",
+        "isbn13": "9788491057819",
+        "numero_paginas": 416,
+        "portada_alto": 500,
+        "portada_ancho": 323,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-28",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/519CeJ2qiNL.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9788491057819.webp",
+        "portada_sustituida": true,
+        "precios_amazon_revision": "2026-11-28",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-28",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9788491057819"
+          }
+        ],
+        "slug": "cumbres-borrascosas-edicion-especial-con-cantos-pintados-edicion-con-cantos-9788491057819",
+        "titulo": "Cumbres borrascosas (edición especial con cantos pintados): Edición Con Cantos Tintados (Campaña edición con cantos tintados)"
+      },
+      "motivo": "isbn-9788491057819: contrato de datos texto sin mojibake: texto con señales de codificación rota: '\\ufffd'",
+      "ultimo_intento": "2026-11-28"
+    },
+    {
+      "categorias": [
+        "ensayo",
+        "filosofia"
+      ],
+      "causa": "contrato de datos texto sin mojibake: texto con señales de codificación rota: '\\ufffd'",
+      "desde": "2026-11-28",
+      "fuente": "https://www.amazon.es/dp/8491056963",
+      "intentos": 1,
+      "isbn": "9788491056966",
+      "libro": {
+        "amazon_busqueda_isbn": "https://www.amazon.es/s?k=9788491056966&tag=davidporto-21",
+        "anio_publicacion": 2025,
+        "autores": [
+          "Plat�n"
+        ],
+        "autorizacion_o_base_uso": "Cubierta de la edición tomada de su ficha de Amazon.es para su identificación bibliográfica",
+        "descripcion_breve": "La República (Penguin Clásicos), de Plat�n. Edición de Penguin Clásicos en castellano, en libro de bolsillo. Consta de 500 páginas. La editorial la incluye en filosofía, ensayo. Publicación editorial: 2025-02-13.",
+        "descripcion_original_confirmada": true,
+        "edicion": "Libro de bolsillo · Penguin Clásicos",
+        "editorial": "Penguin Clásicos",
+        "editorial_catalogo_slug": "penguin-clasicos",
+        "estado": "publicado",
+        "fecha_actualizacion": "2026-11-28",
+        "fecha_publicacion": "2025-02-13",
+        "fecha_verificacion": "2026-11-28",
+        "formato_edicion": "tapa-blanda",
+        "formatos_compra": [
+          {
+            "fecha_verificacion": "2026-11-28",
+            "formato": "tapa-blanda",
+            "fuente_url": "https://www.amazon.es/dp/8491056963",
+            "precio_centimos": 1515,
+            "precio_referencia_centimos": 1595,
+            "url": "https://www.amazon.es/dp/8491056963?tag=davidporto-21&linkCode=ogi&th=1&psc=1"
+          }
+        ],
+        "fuente_bibliografica_url": "https://www.amazon.es/dp/8491056963",
+        "fuente_publicacion_url": "https://www.amazon.es/dp/8491056963",
+        "id": "isbn-9788491056966",
+        "idioma": "es",
+        "isbn13": "9788491056966",
+        "numero_paginas": 500,
+        "portada_alto": 500,
+        "portada_ancho": 329,
+        "portada_edicion_verificada": true,
+        "portada_fecha_revision": "2026-11-28",
+        "portada_fuente_url": "https://m.media-amazon.com/images/I/41PLt3MKyCL.jpg",
+        "portada_local": "/assets/reading-covers/isbn-9788491056966.webp",
+        "portada_sustituida": true,
+        "precios_amazon_revision": "2026-11-28",
+        "resenas": [
+          {
+            "fecha_verificacion": "2026-11-28",
+            "titulo": "Buscar reseñas en Goodreads",
+            "url": "https://www.goodreads.com/search?q=9788491056966"
+          }
+        ],
+        "slug": "la-republica-penguin-clasicos-9788491056966",
+        "titulo": "La República (Penguin Clásicos)"
+      },
+      "motivo": "isbn-9788491056966: contrato de datos texto sin mojibake: texto con señales de codificación rota: '\\ufffd'",
+      "ultimo_intento": "2026-11-28"
+    }
+  ],
   "schema_version": 1
 }

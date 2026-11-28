@@ -52,10 +52,30 @@ def alias_de_libros(metodo):
     while alias != antes:
         antes = set(alias)
         for destinos, valor in asignaciones:
+            if clave_ajena(valor):  # `catalogo['categorias']` es parte del catálogo, pero no son libros
+                continue
             leido = not isinstance(valor, (ast.List, ast.Tuple, ast.ListComp)) and 'reading-catalogue.json' in ast.unparse(valor)
             if leido or raiz(valor) in alias:  # una lista de rutas que incluye el catálogo no es el catálogo
                 alias |= {d.id for d in destinos if isinstance(d, ast.Name)}
     return alias
+
+
+CLAVES_AJENAS = ('categorias', 'schema_version')  # partes del catálogo que no son libros; una clave desconocida sí cuenta
+
+
+def clave_ajena(nodo):
+    """¿Selecciona `nodo` una parte del catálogo que no son libros (`x['categorias']`, `x.get('categorias')`)?"""
+    while isinstance(nodo, (ast.Subscript, ast.Attribute, ast.Call)):
+        if isinstance(nodo, ast.Call):
+            es_get = isinstance(nodo.func, ast.Attribute) and nodo.func.attr == 'get' and nodo.args
+            clave = nodo.args[0] if es_get else None
+            nodo = nodo.func.value if es_get else None
+        else:
+            clave = nodo.slice if isinstance(nodo, ast.Subscript) else None
+            nodo = nodo.value
+        if isinstance(clave, ast.Constant) and isinstance(clave.value, str):
+            return clave.value in CLAVES_AJENAS
+    return False
 
 
 def raiz(nodo):
@@ -164,6 +184,9 @@ class CoberturaPuertaTest(unittest.TestCase):
                 self.assertEqual(len(list(asserts_sin_mensaje(metodo(fuente)))), 1, 'sin id del libro no vale')
         alias = "    cat = json.loads((ROOT / 'data/reading-catalogue.json').read_text())\n    todo = cat['x']\n    for b in todo:\n        self.assertTrue(b)\n"
         self.assertTrue(recorre_libros(metodo(alias)), 'el alias asignado desde el catálogo cuenta')
+        categorias = ("    cats = json.loads((ROOT / 'data/reading-catalogue.json').read_text())['categorias']\n"
+                      "    ids = {c['id'] for c in cats}\n    self.assertTrue(ids)\n")
+        self.assertFalse(recorre_libros(metodo(categorias)), 'recorrer las categorías del catálogo no es recorrer libros')
         ajeno = "    filas = [1, 2]\n    for b in filas:\n        self.assertTrue(b)\n"
         self.assertFalse(recorre_libros(metodo(ajeno)), 'un bucle sobre otra cosa no es un contrato por libro')
 
