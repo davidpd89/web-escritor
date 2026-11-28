@@ -25,9 +25,13 @@ import reading_cover_store as cover_store
 from reading_taxonomy import REVIEWED_CATEGORY_EXCLUSIONS
 
 
-def cover_url(book: dict) -> str | None:
+def cover_url(book: dict, cover_root: Path | None = None) -> str | None:
     """Portada publicada en la web. La tipográfica propia vale siempre (la hacemos nosotros con el título
-    y el autor de esa edición); una cubierta de fuera solo si se verificó que es de esa edición."""
+    y el autor de esa edición); una cubierta de fuera solo si se verificó que es de esa edición.
+
+    `cover_root` es la carpeta que contiene `data/reading-covers-store.json`. Sin ese manifiesto el almacén
+    parece vacío y la URL sale como ruta del sitio, que da 404 para las portadas del almacén (27/11: Telegram
+    y Discord salieron sin portada porque el publicador corre con un checkout que solo tiene scripts/)."""
     path = book.get("portada_local", "")
     if (
         (book.get("portada_edicion_verificada") is True or generated_cover(book))
@@ -36,7 +40,9 @@ def cover_url(book: dict) -> str | None:
             r"/assets/reading-covers/[a-zA-Z0-9_-]+\.(?:webp|jpg|jpeg|png)", path
         )
     ):
-        return cover_store.public_url(path, site="https://davidportodiaz.com")
+        return cover_store.public_url(
+            path, cover_root or cover_store.ROOT, site="https://davidportodiaz.com"
+        )
     return None
 
 
@@ -108,7 +114,9 @@ def resolve_groups(channels: list[dict], groups: dict | None) -> list[dict]:
     return resolved
 
 
-def from_reading_catalogue(path: Path, channels_path: Path, groups: dict | None = None) -> dict:
+def from_reading_catalogue(
+    path: Path, channels_path: Path, groups: dict | None = None, cover_root: Path | None = None
+) -> dict:
     """Adapt the existing catalogue, preserving reviewed Amazon destinations."""
     source = json.loads(path.read_text(encoding="utf-8"))
     config = json.loads(channels_path.read_text(encoding="utf-8"))
@@ -187,7 +195,7 @@ def from_reading_catalogue(path: Path, channels_path: Path, groups: dict | None 
                 ),
                 "source_url": book["fuente_publicacion_url"],
                 "amazon_url": url,
-                "cover_url": cover_url(book),
+                "cover_url": cover_url(book, cover_root),
                 "generated_cover": bool(generated_cover(book)),
                 "publisher": str(book.get("editorial") or ""),
                 "price_cents": price_cents(book),
@@ -1004,7 +1012,9 @@ def run(
                     time.sleep(wait)
                 photo = None if book.get("digest") else book.get("cover_url")
                 if cover_resolver and not book.get("digest"):
-                    photo = cover_resolver(book) or photo
+                    # El resolvedor ya comprobó que la URL sirve una imagen: su None significa «sin portada que
+                    # funcione», no «usa la del catálogo» (una URL caída hace que Telegram mande solo texto).
+                    photo = cover_resolver(book)
                 if discord:
                     status, mid = discord_sender(
                         channel["webhook"], key[0], message(book, tag), photo
