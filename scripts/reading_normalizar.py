@@ -148,6 +148,72 @@ FUNCIONES = (normalizar_autores, normalizar_titulo, normalizar_isbn, normalizar_
              normalizar_sinopsis)
 
 
+SUSTITUCION = '�'
+PALABRA = re.compile(r'[^\W\d_]+')
+PALABRA_ROTA = re.compile(rf'(?:[^\W\d_]|{SUSTITUCION})*{SUSTITUCION}(?:[^\W\d_]|{SUSTITUCION})*')
+NO_ASCII = '[^\\W\\d_a-zA-Z]'  # la «�» de una decodificación fallida solo sustituye letras no ASCII
+
+
+def _textos(valor):
+    if isinstance(valor, str):
+        yield valor
+    elif isinstance(valor, dict):
+        for item in valor.values():
+            yield from _textos(item)
+    elif isinstance(valor, list):
+        for item in valor:
+            yield from _textos(item)
+
+
+def _reescribir(valor, cambiar):
+    if isinstance(valor, str):
+        return cambiar(valor)
+    if isinstance(valor, dict):
+        return {k: _reescribir(v, cambiar) for k, v in valor.items()}
+    if isinstance(valor, list):
+        return [_reescribir(v, cambiar) for v in valor]
+    return valor
+
+
+def reparar_sustitucion(libros):
+    """Rehace las palabras con «�» (U+FFFD) a partir del propio catálogo: «Fi�dor» → «Fiódor», «Bront�» → «Brontë».
+
+    28/11/2026: Amazon trajo tres autores con la letra acentuada ya perdida («Fi�dor M. Dostoievski», «Plat�n») y
+    la cuarentena los apartaba en cada carga, sin fin: la fuente no se corrige sola. La letra no se puede leer, pero
+    el catálogo tiene la palabra bien escrita en otros libros. Cada «�» se prueba como una letra no ASCII y se
+    acepta la palabra del vocabulario solo si es la única que encaja o dobla en apariciones a la siguiente; si no,
+    se deja como está y el contrato «texto sin mojibake» sigue apartando el libro (red de seguridad).
+    Devuelve el número de campos reescritos."""
+    libros = [b for b in libros if isinstance(b, dict)]
+    rotos = [b for b in libros if any(SUSTITUCION in t for t in _textos(b))]
+    if not rotos:
+        return 0
+    vocabulario = {}
+    for libro in libros:
+        for texto in _textos(libro):
+            for palabra in PALABRA.findall(texto):
+                vocabulario[palabra] = vocabulario.get(palabra, 0) + 1
+    elegidas = {}
+
+    def elegir(rota):
+        if rota not in elegidas:
+            patron = re.compile(re.escape(rota).replace(re.escape(SUSTITUCION), NO_ASCII) + r'\Z')
+            candidatas = sorted(((n, p) for p, n in vocabulario.items() if patron.match(p)), reverse=True)
+            ok = rota.strip(SUSTITUCION) and candidatas and (len(candidatas) == 1 or candidatas[0][0] >= 2 * candidatas[1][0])
+            elegidas[rota] = candidatas[0][1] if ok else rota
+        return elegidas[rota]
+
+    def cambiar(texto):
+        return PALABRA_ROTA.sub(lambda m: elegir(m.group()), texto) if SUSTITUCION in texto else texto
+
+    cambios = 0
+    for libro in rotos:
+        for clave, valor in list(libro.items()):
+            nuevo = _reescribir(valor, cambiar)
+            cambios += _set(libro, clave, nuevo)
+    return cambios
+
+
 def normalizar(libros):
     """Normaliza cada libro; devuelve el número de campos reescritos."""
-    return sum(f(b) for b in libros if isinstance(b, dict) for f in FUNCIONES)
+    return sum(f(b) for b in libros if isinstance(b, dict) for f in FUNCIONES) + reparar_sustitucion(libros)
