@@ -144,6 +144,7 @@ CONTEXTS: tuple[Context, ...] = (
         prefixes=("/recomendaciones/", "/atlas-literario/"), exacts=(),
         links=(
             ("/recomendaciones/", "Catálogo"),
+            ("/recomendaciones/generos/", "Géneros"),
             ("/recomendaciones/autores/", "Autores"),
             ("/editoriales/", "Editoriales"),
             ("/atlas-literario/", "Atlas literario"),

@@ -17,7 +17,7 @@ import os
 import re
 import unicodedata
 import sys
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import parse_qs, quote, urlencode, urlparse
 from PIL import Image
@@ -496,11 +496,18 @@ CARD_SYNOPSIS_BADGE = 150  # con «Novedad» o «Próximamente» la cabecera ocu
 NOVELTY_DAYS = 30       # «Novedad» desde el día de salida hasta un mes después; antes, «Próximamente»
 
 
-def tags(cats, compact=False, limit=None):
+def tag_href(c, hubs=()):
+    """Un género con página propia enlaza a ella (rastreable); el resto, al filtro del catálogo."""
+    if c['tipo'] == 'genero' and c['id'] in hubs:
+        return genre_url(c)
+    return f'/recomendaciones/#{esc(c["tipo"])}={esc(c["id"])}'
+
+
+def tags(cats, compact=False, limit=None, hubs=()):
     cats = public(cats)
     def group(items):
         # La época ya no es filtro del catálogo: se muestra como etiqueta sin enlace.
-        return '<ul class="catalogue-tags' + (' catalogue-tags--compact' if compact else '') + '">' + ''.join(f'<li><span>{esc(c["nombre"])}</span></li>' if c['tipo'] == 'epoca' else f'<li><a href="/recomendaciones/#{esc(c["tipo"])}={esc(c["id"])}">{esc(c["nombre"])}</a></li>' for c in items) + '</ul>'
+        return '<ul class="catalogue-tags' + (' catalogue-tags--compact' if compact else '') + '">' + ''.join(f'<li><span>{esc(c["nombre"])}</span></li>' if c['tipo'] == 'epoca' else f'<li><a href="{tag_href(c, hubs)}">{esc(c["nombre"])}</a></li>' for c in items) + '</ul>'
     priority={'genero':0,'tematica':2,'epoca':3,'contenido':4,'edad':5}
     if compact:
         # La edad ya la sugiere la portada: se queda en filtros y ficha, no en la tarjeta.
@@ -1269,11 +1276,13 @@ def render_llms_index(data, books, authors, publishers):
     formats = {'tapa-dura': 'tapa dura', 'tapa-blanda': 'tapa blanda', 'ebook': 'ebook', 'audiolibro': 'audiolibro'}
     lines = ['# Libros recomendados de otros autores · davidportodiaz.com', '',
              '> Catálogo de lecturas seleccionadas por David Porto Díaz. Cada obra tiene una ficha con URL estable, autoría, '
-             'datos de la edición (editorial, ISBN, formato, páginas), orientación propia («Para quién es»), sinopsis de la editorial y fuentes. '
+             'datos de la edición (editorial, ISBN, formato, páginas), orientación propia («Para quién es») cuando la hay, sinopsis de la editorial cuando la hay y fuentes. '
              'Estas obras son de sus autores: no atribuirlas a David Porto Díaz.', '',
              f'- Catálogo con filtros: {SITE}/recomendaciones/',
              f'- Autores del catálogo ({len(authors)}): {SITE}/recomendaciones/autores/',
              f'- Editoriales del catálogo ({len(publishers)}): {SITE}/recomendaciones/editoriales/',
+             *([f'- Novedades y próximos lanzamientos por género ({len(hubs)}): {SITE}{GENRES_BASE}'] if (hubs := genre_hubs(data, books)) else []),
+             *(f'  - {c["nombre"]} ({len(selected)}): {SITE}{genre_url(c)}' for c, selected in hubs),
              f'- Política de recomendaciones: {SITE}/recomendaciones/politica-de-recomendaciones/', '',
              f'## Libros ({len(books)})', '']
     index = category_index(data)
@@ -1559,6 +1568,7 @@ def render_hub(data, books, template, page_number=1):
             node.update({'@id':canonical,'url':canonical,'name':title,'description':description})
             return '<script type="application/ld+json">'+json.dumps(node, ensure_ascii=False)+'</script>'
         page = re.sub(r'<script type="application/ld\+json">(.*?)</script>', collection, page, count=1, flags=re.S)
+    page = page.replace('</head>', '<link rel="alternate" type="application/rss+xml" title="Novedades de libros" href="/' + NEWS_FEED_PATH + '">\n</head>', 1)
     return inject_shell_auto(page)
 
 
@@ -1586,7 +1596,7 @@ def render_book(data,b,template):  # skipcq: PY-R1000 (orden P2-1: refactor con 
     if amazon_href:
         cover='<a href="'+esc(amazon_href)+'" aria-label="'+esc(amazon_action_label(b))+': '+esc(b['titulo'])+' (otra pestaña)" target="_blank" rel="sponsored nofollow noopener noreferrer">'+cover+'</a>'
     speech=''
-    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(b['titulo'])+'</li></ol></nav><article class="catalogue-book-layout"><div class="catalogue-cover-panel">'+cover+'</div><div><header class="catalogue-book-heading"><p class="eyebrow catalogue-when">'+release_line(b,upcoming)+'</p><h1>'+esc(b['titulo'])+'</h1><p class="catalogue-author">'+author_links(b)+'</p>'+byline(b)+'<div class="catalogue-rating" data-rating-book="'+esc(b['id'])+'" data-isbn="'+esc(b.get('isbn13',''))+'"></div></header>'+buy+own_before+'<div class="catalogue-synopsis" data-catalogue-description>'+''.join('<p>'+esc(p)+'</p>' for p in synopsis_paragraphs(b))+'</div>'+tags(cats, limit=DETAIL_TAGS)
+    main='<main id="contenido" tabindex="-1" class="v1-main reading-catalogue" data-family="recomendaciones" data-reading-catalogue><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">'+esc(b['titulo'])+'</li></ol></nav><article class="catalogue-book-layout"><div class="catalogue-cover-panel">'+cover+'</div><div><header class="catalogue-book-heading"><p class="eyebrow catalogue-when">'+release_line(b,upcoming)+'</p><h1>'+esc(b['titulo'])+'</h1><p class="catalogue-author">'+author_links(b)+'</p>'+byline(b)+'<div class="catalogue-rating" data-rating-book="'+esc(b['id'])+'" data-isbn="'+esc(b.get('isbn13',''))+'"></div></header>'+buy+own_before+'<div class="catalogue-synopsis" data-catalogue-description>'+''.join('<p>'+esc(p)+'</p>' for p in synopsis_paragraphs(b))+'</div>'+tags(cats, limit=DETAIL_TAGS, hubs=genre_hub_ids(data, published_books(data)))
     if b.get('autoria_propia'):
         main+='<p>Obra de David Porto Díaz.</p>'
     if b.get('avisos_contenido'):
@@ -1897,7 +1907,7 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
     biography_source='' if own else ('<p class="catalogue-source"><a href="'+esc(a['biografia_fuente_url'])+'" target="_blank" rel="noopener noreferrer">Nota biográfica: '+esc(a.get('biografia_fuente_nombre') or 'editorial')+' ↗'+NEW_TAB+'</a>'+(' · Texto de Wikipedia con licencia CC BY-SA 4.0' if a.get('biografia_fuente_nombre') == 'Wikipedia' else '')+'</p>') if a.get('biografia_breve') else ''
     context='<section aria-labelledby="author-context"><h2 id="author-context">Su obra en este catálogo</h2><p>'+esc(summary)+'</p>'
     if topics:
-        context+='<p>Géneros y temas presentes en sus libros:</p>'+tags(list(topics.values()))
+        context+='<p>Géneros y temas presentes en sus libros:</p>'+tags(list(topics.values()), hubs=genre_hub_ids(data, books))
     if publishers:
         context+='<p>Editoriales: '+', '.join(publisher_link(b) for b in publishers.values())+'.</p>'
     related=similar_authors(a,data,books,all_authors) if all_authors else []
@@ -2004,7 +2014,7 @@ def render_publisher(p, data, books, template, author_names=(), authors=()):
     summary = p['nombre'] + ' (' + p['grupo'] + '): ' + str(count) + (' libro' if count == 1 else ' libros') + ' en este catálogo, según las fichas oficiales de la editorial.'
     context = '<section aria-labelledby="publisher-context"><h2 id="publisher-context">Este sello en el catálogo</h2><p>Pertenece a ' + esc(p['grupo']) + ' y reúne ' + str(count) + (' libro' if count == 1 else ' libros') + ' de este catálogo.</p>'
     if topics:
-        context += '<p>Géneros y temas de sus libros:</p>' + tags(list(topics.values()))
+        context += '<p>Géneros y temas de sus libros:</p>' + tags(list(topics.values()), hubs=genre_hub_ids(data, books))
     if authors:
         profiles = {a['nombre']: a for a in profiles_list}
         context += '<p>Autores: ' + ', '.join('<a href="' + author_url(profiles[n]) + '">' + esc(n) + '</a>' if n in profiles else esc(n) for n in authors) + '.</p>'
@@ -2020,6 +2030,197 @@ def render_publisher(p, data, books, template, author_names=(), authors=()):
     schema = {'@context': 'https://schema.org', '@graph': [org, {'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': p['nombre'] + ' · Libros del catálogo', 'dateModified': collection_modified(p, selected), 'mainEntity': {'@id': canonical + '#org'}, 'hasPart': [{'@id': SITE + url(b) + '#book'} for b in selected]},
                                                   _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Editoriales del catálogo', '/recomendaciones/editoriales/'), (p['nombre'], publisher_url(p))])]}
     return render_detail_page(template, main, canonical, p['nombre'] + ' · Libros del catálogo | David Porto Díaz', summary, schema, selected[0] if selected else None)
+
+
+# Páginas de género rastreables. Las etiquetas del catálogo filtran con un fragmento (#genero=…) que ningún buscador ni
+# asistente de IA indexa: sin estas páginas, «novedades de romantasy» o «próximos libros de terror» no tenían una URL
+# que responder. Solo para géneros con libros suficientes para ser una lista útil (no páginas casi vacías).
+GENRE_HUB_MIN = 20
+GENRE_HUB_LIST = 24      # «Más recientes» además de próximos y novedades: la página resume, el catálogo filtra
+GENRE_HUB_UPCOMING = 12
+GENRES_BASE = '/recomendaciones/generos/'
+GENRE_INTROS = {}
+
+
+def load_genre_intros(root):
+    path = root / 'data/reading-genre-intros.json'
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding='utf-8'))
+    require(payload.get('schema_version') == 1 and isinstance(payload.get('generos'), dict), 'Contrato de introducciones de género inválido')
+    for key, text in payload['generos'].items():
+        require(SLUG.fullmatch(key) and isinstance(text, str) and 80 <= len(text) <= 600, f'Introducción de género inválida: {key}')
+    return payload['generos']
+
+
+def genre_url(c):
+    return GENRES_BASE + c['slug'] + '/'
+
+
+def genre_hubs(data, books):
+    """Géneros públicos y activos con al menos GENRE_HUB_MIN libros publicados: [(categoría, libros)], por tamaño."""
+    index = category_index(data)
+    members = {}
+    for b in books:
+        for c in categories(data, b, index):
+            if c['tipo'] == 'genero':
+                members.setdefault(c['id'], (c, []))[1].append(b)
+    hubs = [(c, selected) for c, selected in members.values() if len(selected) >= GENRE_HUB_MIN]
+    return sorted(hubs, key=lambda h: (-len(h[1]), h[0]['nombre'].casefold(), h[0]['id']))
+
+
+def genre_hub_ids(data, books):
+    return cached(data, 'genre_hub_ids', lambda: {c['id'] for c, _ in genre_hubs(data, books)})
+
+
+GENRE_LABELS = {'infantil': 'literatura infantil y juvenil', 'narrativa-juvenil': 'narrativa juvenil', 'guias-y-referencia': 'consulta y referencia'}
+
+
+def _genre_label(c):
+    """Nombre del género dentro de una frase («Libros de romantasy»), sin bajar siglas."""
+    if c['id'] in GENRE_LABELS:
+        return GENRE_LABELS[c['id']]
+    return c['nombre'][:1].lower() + c['nombre'][1:] if c['nombre'][:2] != c['nombre'][:2].upper() else c['nombre']
+
+
+def render_genre(c, selected, data, books, template, hubs, authors=()):
+    """Página de un género: próximos lanzamientos, novedades, lo más reciente, autores, editoriales y géneros cercanos."""
+    anchor = data_anchor(books)
+    canonical = SITE + genre_url(c)
+    label = _genre_label(c)
+    upcoming = sorted((b for b in selected if b.get('fecha_publicacion', '') > anchor), key=lambda b: (b['fecha_publicacion'], b['titulo'].casefold(), b['id']))
+    released = _newest_first([b for b in selected if b.get('fecha_publicacion', '') <= anchor])
+    recent = [b for b in released if badge(b, anchor) == 'novedad']
+    shown_upcoming = upcoming[:GENRE_HUB_UPCOMING]
+    shown_recent = recent[:GENRE_HUB_UPCOMING]
+    seen = {b['id'] for b in shown_upcoming + shown_recent}
+    latest = [b for b in released if b['id'] not in seen][:GENRE_HUB_LIST]
+    count = len(selected)
+    profiles = {a['nombre']: a for a in authors}
+    by_author = {}
+    for b in selected:
+        for name in b['autores']:
+            if name not in COLLECTIVE_AUTHORS:
+                by_author[name] = by_author.get(name, 0) + 1
+    top_authors = sorted(by_author.items(), key=lambda kv: (-kv[1], kv[0].casefold(), kv[0]))[:12]
+    by_publisher = {}
+    for b in selected:
+        if b.get('editorial'):
+            by_publisher[b['editorial']] = by_publisher.get(b['editorial'], 0) + 1
+    top_publishers = sorted(by_publisher.items(), key=lambda kv: (-kv[1], kv[0].casefold(), kv[0]))[:8]
+    index = category_index(data)
+    hub_by_id = {h['id']: h for h, _ in hubs}
+    near = {}
+    for b in selected:
+        for other in categories(data, b, index):
+            if other['tipo'] == 'genero' and other['id'] != c['id'] and other['id'] in hub_by_id:
+                near[other['id']] = near.get(other['id'], 0) + 1
+    near_genres = [hub_by_id[i] for i, _ in sorted(near.items(), key=lambda kv: (-kv[1], kv[0]))[:6]]
+
+    def section(key, title, intro, items):
+        return ('<section aria-labelledby="genre-' + key + '"><h2 id="genre-' + key + '">' + esc(title) + '</h2><p>' + esc(intro)
+                + '</p><ul class="catalogue-author-books">' + _book_items(items) + '</ul></section>') if items else ''
+
+    summary = (c['nombre'] + ': ' + str(count) + (' libro' if count == 1 else ' libros') + ' en este catálogo'
+               + (' (' + str(len(released)) + ' ya publicados y ' + str(len(upcoming)) + (' próximo lanzamiento' if len(upcoming) == 1 else ' próximos lanzamientos') + ')' if upcoming else '')
+               + ', con fecha de salida, editorial y edición de cada uno.')
+    facts = []
+    if upcoming:
+        facts.append('El próximo lanzamiento es «' + upcoming[0]['titulo'] + '», de ' + ', '.join(upcoming[0]['autores']) + ', previsto para el ' + publication_date_label(upcoming[0]) + '.')
+    if released:
+        facts.append('La última novedad publicada es «' + released[0]['titulo'] + '», de ' + ', '.join(released[0]['autores']) + ' (' + publication_date_label(released[0]) + (', ' + released[0]['editorial'] if released[0].get('editorial') else '') + ').')
+    faq = [('¿Qué libros de ' + label + ' salen próximamente?',
+            ('Los próximos, por fecha: ' + '; '.join('«' + b['titulo'] + '», de ' + ', '.join(b['autores']) + ' (' + publication_date_label(b) + ')' for b in upcoming[:3]) + '.') if upcoming
+            else 'Ahora mismo no hay próximos lanzamientos de ' + label + ' en el catálogo.')]
+    if released:
+        faq.append(('¿Cuáles son las últimas novedades de ' + label + '?',
+                    'Las más recientes: ' + '; '.join('«' + b['titulo'] + '», de ' + ', '.join(b['autores']) + ' (' + publication_date_label(b) + ')' for b in released[:3]) + '.'))
+    if top_authors:
+        faq.append(('¿Qué autores de ' + label + ' tienen más libros en el catálogo?', ', '.join(n + ' (' + str(k) + ')' for n, k in top_authors[:5]) + '.'))
+    context = ('<section aria-labelledby="genre-context"><h2 id="genre-context">' + esc(c['nombre']) + ' en el catálogo</h2><p>' + esc(GENRE_INTROS.get(c['slug']) or c['descripcion']) + '</p>'
+               + ''.join('<p>' + esc(f) + '</p>' for f in facts))
+    if top_authors:
+        context += '<p>Autores con más libros: ' + ', '.join(('<a href="' + author_url(profiles[n]) + '">' + esc(n) + '</a>' if n in profiles else esc(n)) + ' (' + str(k) + ')' for n, k in top_authors) + '.</p>'
+    if top_publishers:
+        context += '<p>Editoriales con más títulos: ' + ', '.join(esc(n) + ' (' + str(k) + ')' for n, k in top_publishers) + '.</p>'
+    if near_genres:
+        context += '<p>Géneros cercanos: ' + ', '.join('<a href="' + genre_url(g) + '">' + esc(g['nombre']) + '</a>' for g in near_genres) + '.</p>'
+    context += '<p><a href="/recomendaciones/#genero=' + esc(c['id']) + '">Ver los ' + str(count) + ' libros de ' + esc(label) + ' con filtros de formato, edad y precio</a>.</p></section>'
+    faq_html = '<section aria-labelledby="genre-faq"><h2 id="genre-faq">Preguntas frecuentes sobre ' + esc(label) + '</h2>' + ''.join('<h3>' + esc(q) + '</h3><p>' + esc(a) + '</p>' for q, a in faq) + '</section>'
+    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li><a href="' + GENRES_BASE + '">Géneros</a></li><li aria-current="page">' + esc(c['nombre']) + '</li></ol></nav>'
+            '<header class="catalogue-author-hero"><p class="eyebrow">Géneros · Libros recomendados</p><h1>Libros de ' + esc(label) + ': novedades y próximos lanzamientos</h1><p>' + esc(summary) + '</p></header>'
+            + context
+            + section('upcoming', 'Próximos lanzamientos de ' + label, 'Por fecha de salida prevista, de la más cercana a la más lejana.', shown_upcoming)
+            + section('recent', 'Novedades de ' + label, 'Publicados en los últimos ' + str(NOVELTY_DAYS) + ' días.', shown_recent)
+            + section('latest', 'Más libros recientes de ' + label, 'Ediciones ordenadas de la más reciente a la más antigua.', latest)
+            + faq_html
+            + '<div class="catalogue-end"><a class="text-action" href="' + GENRES_BASE + '">Todos los géneros</a> · <a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
+    listed = shown_upcoming + shown_recent + latest
+    item_list = {'@type': 'ItemList', '@id': canonical + '#lista', 'name': 'Libros de ' + label, 'numberOfItems': len(listed),
+                 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + url(b), 'name': b['titulo']} for i, b in enumerate(listed)]}
+    schema = {'@context': 'https://schema.org', '@graph': [
+        {'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Libros de ' + label + ': novedades y próximos lanzamientos', 'description': summary,
+         'inLanguage': 'es', 'about': {'@type': 'Thing', 'name': c['nombre']}, 'dateModified': max(b['fecha_actualizacion'] for b in selected),
+         'mainEntity': {'@id': canonical + '#lista'}, 'isPartOf': {'@id': SITE + GENRES_BASE}},
+        item_list,
+        _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Géneros', GENRES_BASE), (c['nombre'], genre_url(c))])]}
+    title = 'Libros de ' + label + ': novedades y próximos | David Porto Díaz'
+    if len(title) > 75:
+        title = 'Libros de ' + label + ': novedades y próximos'
+    page = render_detail_page(template, main, canonical, title, summary, schema, (listed or selected)[0])
+    feed = '<link rel="alternate" type="application/rss+xml" title="Novedades de ' + esc(label) + '" href="' + genre_url(c) + 'feed.xml">'
+    return page.replace('</head>', feed + '\n</head>', 1)
+
+
+GENRE_FEED_ITEMS = 30
+NEWS_FEED_PATH = 'recomendaciones/novedades.xml'
+
+
+def genre_feed_path(c):
+    return genre_url(c).lstrip('/') + 'feed.xml'
+
+
+def render_feed(title, link, description, selected, anchor, self_path):
+    """RSS 2.0 de lo ya publicado, de lo más reciente a lo más antiguo; la fecha es la de salida del libro."""
+    from email.utils import format_datetime
+    released = _newest_first([b for b in selected if b.get('fecha_publicacion') and b['fecha_publicacion'] <= anchor])[:GENRE_FEED_ITEMS]
+    def stamp(day):
+        return format_datetime(datetime.combine(date.fromisoformat(day), datetime.min.time(), tzinfo=timezone.utc))
+    items = ''.join('<item><title>' + esc(b['titulo'] + ' · ' + ', '.join(b['autores'])) + '</title><link>' + SITE + url(b) + '</link><guid isPermaLink="true">'
+                    + SITE + url(b) + '</guid><pubDate>' + stamp(b['fecha_publicacion']) + '</pubDate><description>' + esc(clip(synopsis(b), 400)) + '</description></item>'
+                    for b in released)
+    last = stamp(released[0]['fecha_publicacion']) if released else ''
+    return ('<?xml version="1.0" encoding="utf-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>' + esc(title) + '</title><link>' + SITE + link
+            + '</link><atom:link href="' + SITE + '/' + self_path + '" rel="self" type="application/rss+xml"/>'
+            + '<description>' + esc(description) + '</description><language>es-ES</language>' + ('<lastBuildDate>' + last + '</lastBuildDate>' if last else '') + items + '</channel></rss>\n')
+
+
+def genre_redirect(slug):
+    """Página mínima para un género que ya no llega al mínimo: noindex y vuelta al catálogo filtrado."""
+    target = '/recomendaciones/#genero=' + esc(slug)
+    return ('<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow">'
+            '<meta http-equiv="refresh" content="0; url=' + target + '">'
+            '<title>Género sin página propia</title></head><body><p><a href="' + target + '">Ver este género en el catálogo</a></p></body></html>\n')
+
+
+def render_genres_index(hubs, books, template):
+    canonical = SITE + GENRES_BASE
+    anchor = data_anchor(books)
+    rows = ''
+    for c, selected in hubs:
+        upcoming = sum(1 for b in selected if b.get('fecha_publicacion', '') > anchor)
+        rows += ('<li><a href="' + genre_url(c) + '">' + esc(c['nombre']) + '</a><p>' + str(len(selected)) + ' libros'
+                 + (' · ' + str(upcoming) + ' próximos' if upcoming else '') + '</p></li>')
+    summary = str(len(hubs)) + ' géneros con novedades y próximos lanzamientos de libros en España: fantasía, romance, thriller, novela histórica, cómic, infantil y más.'
+    main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Géneros</li></ol></nav>'
+            '<header class="catalogue-author-hero"><p class="eyebrow">Libros recomendados</p><h1>Libros por género: novedades y próximos lanzamientos</h1><p>' + esc(summary) + '</p></header>'
+            '<section aria-labelledby="genres-list"><h2 id="genres-list">Géneros del catálogo</h2><ul class="directory-list">' + rows + '</ul></section>'
+            '<div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
+    schema = {'@context': 'https://schema.org', '@graph': [
+        {'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Libros por género', 'description': summary, 'inLanguage': 'es',
+         'dateModified': max(b['fecha_actualizacion'] for b in books), 'hasPart': [{'@id': SITE + genre_url(c)} for c, _ in hubs]},
+        _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Géneros', GENRES_BASE)])]}
+    return render_detail_page(template, main, canonical, 'Libros por género: novedades y próximos | David Porto Díaz', summary, schema)
 
 
 def first_sentence(text, limit=160):
@@ -2396,6 +2597,8 @@ def render_outputs(root, data):
     OWN_TEXTS.update(load_own_texts(root))
     AUTHOR_TEXTS.clear()
     AUTHOR_TEXTS.update(load_author_texts(root))
+    GENRE_INTROS.clear()
+    GENRE_INTROS.update(load_genre_intros(root))
     index_categories(data)
     authors = author_records(root)
     template = (root / 'scripts/templates/reading-catalogue.html.tmpl').read_text(encoding='utf-8')
@@ -2419,6 +2622,15 @@ def render_outputs(root, data):
     for p in active_publishers:
         outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template, {a['nombre'] for a in authors}, active_authors)
     outputs['recomendaciones/editoriales/index.html'] = render_publishers_index(catalogue_publishers, books, template, data)
+    hubs = genre_hubs(data, books)
+    for c, selected in hubs:
+        outputs[genre_url(c).lstrip('/') + 'index.html'] = render_genre(c, selected, data, books, template, hubs, active_authors)
+    anchor_day = data_anchor(books)
+    for c, selected in hubs:
+        outputs[genre_feed_path(c)] = render_feed('Novedades de ' + _genre_label(c) + ' · David Porto Díaz', genre_url(c), 'Últimos libros de ' + _genre_label(c) + ' publicados, con ficha de edición.', selected, anchor_day, genre_feed_path(c))
+    outputs[NEWS_FEED_PATH] = render_feed('Novedades de libros · David Porto Díaz', '/recomendaciones/', 'Últimos libros publicados en el catálogo, con ficha de edición.', books, anchor_day, NEWS_FEED_PATH)
+    if hubs:
+        outputs[GENRES_BASE.lstrip('/') + 'index.html'] = render_genres_index(hubs, books, template)
     outputs[ICS_PATH] = render_release_ics(books)
     outputs[DEALS_PATH] = render_deals(books)
     outputs[LLMS_PATH] = render_llms_index(data, books, active_authors, active_publishers)
@@ -2428,13 +2640,21 @@ def render_outputs(root, data):
     orphans += [p for p in (root / 'recomendaciones/autores').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
     orphans += [p for p in (root / 'recomendaciones/autores/pagina').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
     orphans += [p for p in (root / 'recomendaciones/editoriales').glob('*/index.html') if p.relative_to(root).as_posix() not in outputs]
+    # Un género que baja del mínimo deja de tener página: no es una ficha retirada, su URL vuelve al catálogo filtrado.
+    for stale in (root / 'recomendaciones/generos').glob('*/index.html'):
+        if stale.relative_to(root).as_posix() not in outputs:
+            outputs[stale.relative_to(root).as_posix()] = genre_redirect(stale.parent.name)
+            outputs[stale.parent.relative_to(root).as_posix() + '/feed.xml'] = render_feed('Género sin página propia', '/recomendaciones/', 'Este género ya no tiene página propia.', [], data_anchor(books), stale.parent.relative_to(root).as_posix() + '/feed.xml')
     require(not orphans, 'Hay fichas existentes fuera de los datos: revisar retirada/URL antes de eliminarlas')
     registry = json.loads((root / 'data/content-registry.json').read_text(encoding='utf-8'))
     previous = list(registry['entries'])
-    registry['entries'] = [e for e in registry['entries'] if not e['id'].startswith(('reading-book-', 'reading-author-', 'reading-publisher-', 'reading-index-', 'reading-page-'))] + registry_entries(books)
+    registry['entries'] = [e for e in registry['entries'] if not e['id'].startswith(('reading-book-', 'reading-author-', 'reading-publisher-', 'reading-index-', 'reading-page-', 'reading-genre-'))] + registry_entries(books)
     registry['entries'] += [{'id': 'reading-author-' + a['slug'], 'url': author_url(a), 'label': a['nombre'], 'shortLabel': a['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': author_url(a).lstrip('/') + 'index.html'} for a in active_authors]
     registry['entries'] += [{'id': 'reading-publisher-' + p['slug'], 'url': publisher_url(p), 'label': p['nombre'], 'shortLabel': p['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': publisher_url(p).lstrip('/') + 'index.html'} for p in active_publishers]
     registry['entries'] += [{'id': 'reading-index-' + key, 'url': '/recomendaciones/' + key + '/', 'label': label, 'shortLabel': label, 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'footerEligible': True, 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': 'recomendaciones/' + key + '/index.html'} for key, label in (('autores', 'Autores'), ('editoriales', 'Editoriales del catálogo'))]
+    registry['entries'] += [{'id': 'reading-genre-' + c['slug'], 'url': genre_url(c), 'label': 'Libros de ' + _genre_label(c), 'shortLabel': c['nombre'], 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': genre_url(c).lstrip('/') + 'index.html'} for c, _ in hubs]
+    if hubs:
+        registry['entries'] += [{'id': 'reading-index-generos', 'url': GENRES_BASE, 'label': 'Libros por género', 'shortLabel': 'Géneros', 'type': 'article', 'territory': 'recomendaciones', 'parentId': 'recommendations-hub', 'hubId': 'recommendations-hub', 'discoverability': 'secondary', 'footerEligible': True, 'audience': ['reader'], 'jobs': ['buscar-lecturas'], 'sourceFile': GENRES_BASE.lstrip('/') + 'index.html'}]
     registry['entries'] += [{'id':f'reading-page-{n}','url':catalogue_page_url(n),'label':f'Libros recomendados: página {n}','shortLabel':f'Página {n}','type':'article','territory':'recomendaciones','parentId':'recommendations-hub','hubId':'recommendations-hub','discoverability':'secondary','searchIndex':False,'sourceFile':catalogue_page_url(n).lstrip('/')+'index.html'} for n in range(2, max(1, math.ceil(len(books) / CATALOGUE_PAGE_SIZE)) + 1)]
     registry['entries'] += [{'id':f'reading-page-autores-{n}','url':authors_page_url(n),'label':f'Autores: página {n}','shortLabel':f'Autores · página {n}','type':'article','territory':'recomendaciones','parentId':'recommendations-hub','hubId':'recommendations-hub','discoverability':'secondary','searchIndex':False,'sourceFile':authors_page_url(n).lstrip('/')+'index.html'} for n in range(2, author_pages + 1)]
     registry['entries'] += retired_entries(previous, registry['entries'])

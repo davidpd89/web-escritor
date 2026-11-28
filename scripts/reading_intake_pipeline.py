@@ -333,6 +333,41 @@ def update_authors(payload, catalogue, new_books, today):
             used.add(key)
 
 
+AUTHOR_PAGE_MIN_BOOKS = 2  # con dos libros, «último/próximo libro de X» ya tiene respuesta propia en su página
+NO_PAGE_AUTHORS = frozenset({'Varios autores', 'Anónimo'})
+
+
+def ensure_author_records(payload, catalogue, today, min_books=AUTHOR_PAGE_MIN_BOOKS):
+    """Ficha bibliográfica para cada autor con `min_books` libros publicados que aún no la tiene.
+
+    `update_authors` solo mira los libros nuevos de la ingesta editorial; los que entran por Amazon nunca creaban
+    ficha (el 28/11: 1.121 autores con ≥2 libros sin página, de 1.378). Se reutiliza la misma ficha de la ingesta y
+    solo cuentan libros con ficha editorial https (las fuentes de la ficha). Devuelve los nombres añadidos."""
+    known = {a['nombre'] for a in payload['autores']}
+    counts = {}
+    for b in catalogue['libros']:
+        if b.get('estado') != 'publicado' or not str(b.get('fuente_bibliografica_url', '')).startswith('https://'):
+            continue
+        for name in b['autores']:
+            counts[name] = counts.get(name, 0) + 1
+    missing = sorted(n for n, k in counts.items() if k >= min_books and n not in known and n not in NO_PAGE_AUTHORS and n.strip())
+    used = {a['slug'] for a in payload['autores']}
+    for name in missing:
+        own = [b for b in catalogue['libros'] if b.get('estado') == 'publicado' and name in b['autores']
+               and str(b.get('fuente_bibliografica_url', '')).startswith('https://')]
+        key = slug(name)
+        if not key or key == 'pagina' or key in used:
+            key = (key or 'autor') + '-' + hashlib.sha256(name.encode()).hexdigest()[:8]
+        titles = '; '.join(b['titulo'] for b in own[:4])
+        payload['autores'].append({
+            'slug': key, 'nombre': name, 'tipo': 'bibliografico',
+            'descripcion': f'Libros de {name} incluidos en este catálogo: {titles}. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.',
+            'fuentes': [{'titulo': b['titulo'] + ' · ficha editorial', 'url': b['fuente_bibliografica_url']} for b in own[:8]],
+            'fecha_verificacion': today})
+        used.add(key)
+    return missing
+
+
 def fill_full_synopses(catalogue, providers, http, max_books=6):
     """Relee la ficha oficial de los libros sin sinopsis completa; nunca toca resúmenes propios."""
     changed = 0
@@ -837,6 +872,10 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                     state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'pendiente_datos', 'primera_deteccion': previous.get('primera_deteccion', today), 'retry_after': (day + timedelta(days=3)).isoformat(), 'motivo': reason, 'fuente': url, 'intentos': attempts, **({'datos': record} if record else {})}
                 stats['pending'] += 1
         update_authors(authors, catalogue, new_books + updated_books, today)
+        try:
+            stats['author_pages_added'] = len(ensure_author_records(authors, catalogue, today))
+        except (KeyError, TypeError, ValueError) as exc:  # opcional: sin fichas nuevas hoy, el lote sigue
+            stats['errors'].append({'optional_author_pages': f'{type(exc).__name__}: {str(exc)[:120]}'})
         stats['synopses_completed'] = fill_full_synopses(catalogue, providers, http, int(config.get('max_synopsis_backfill', 6)))
         sinopsis_de_respaldo(catalogue, state, config, day, stats)
         stats['author_profiles_updated'] = enrich_author_bios(authors, state, http, today)
