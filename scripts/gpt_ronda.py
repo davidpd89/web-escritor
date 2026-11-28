@@ -10,6 +10,8 @@ import argparse
 import json
 import os
 import sys
+import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -30,15 +32,23 @@ SISTEMA = (
 def pedir(mensajes, token):
     ultimo = None
     for modelo in MODELOS:
-        cuerpo = json.dumps({'model': modelo, 'messages': mensajes, 'temperature': 0.3, 'max_tokens': 4000}).encode()
-        req = urllib.request.Request(URL, data=cuerpo, method='POST', headers={
-            'Authorization': f'Bearer {token}', 'Content-Type': 'application/json', 'Accept': 'application/json'})
-        try:
-            with urllib.request.urlopen(req, timeout=180) as r:  # noqa: S310 - URL fija
-                return modelo, json.loads(r.read())['choices'][0]['message']['content']
-        except Exception as e:  # noqa: BLE001 - se prueba el modelo de respaldo
-            ultimo = e
-            print(f'{modelo} falló: {e}', file=sys.stderr)
+        for intento in range(3):
+            cuerpo = json.dumps({'model': modelo, 'messages': mensajes, 'temperature': 0.3, 'max_tokens': 4000}).encode()
+            req = urllib.request.Request(URL, data=cuerpo, method='POST', headers={
+                'Authorization': f'Bearer {token}', 'Content-Type': 'application/json',
+                'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28'})
+            crudo = b''
+            try:
+                with urllib.request.urlopen(req, timeout=180) as r:  # noqa: S310 - URL fija
+                    crudo = r.read()
+                    estado = r.status
+                return modelo, json.loads(crudo)['choices'][0]['message']['content']
+            except urllib.error.HTTPError as e:
+                ultimo = f'HTTP {e.code}: {e.read()[:300]!r}'
+            except Exception as e:  # noqa: BLE001 - se reintenta y luego se prueba el modelo de respaldo
+                ultimo = f'{e} (estado {locals().get("estado")}, cuerpo {crudo[:300]!r})'
+            print(f'{modelo} intento {intento + 1} falló: {ultimo}', file=sys.stderr)
+            time.sleep(10 * (intento + 1))
     raise SystemExit(f'ningún modelo respondió: {ultimo}')
 
 
