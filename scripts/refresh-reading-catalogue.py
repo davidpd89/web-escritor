@@ -804,8 +804,8 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     # Autor que llega a dos libros (por Amazon o por la editorial) → ficha y página. Punto común a las dos ingestas;
     # opcional: si falla, el lote sigue sin fichas nuevas esta noche (no puede tumbar la carga).
     authors_path = ROOT / 'data/reading-authors.json'
-    authors_before = authors_path.read_bytes()  # con lo que ya escribió la ingesta de esta noche
-    authors_rc = subprocess.run([sys.executable, 'scripts/backfill-reading-author-pages.py'], cwd=ROOT).returncode
+    authors_before = authors_path.read_bytes() if authors_path.exists() else None  # con lo escrito por la ingesta
+    authors_rc = subprocess.run([sys.executable, 'scripts/backfill-reading-author-pages.py'], cwd=ROOT).returncode if authors_before is not None else 0
     if authors_rc:
         print(f'::warning::Fichas de autor nuevas no aplicadas (código {authors_rc}); el lote sigue', flush=True)
         authors_path.write_bytes(authors_before)
