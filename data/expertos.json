@@ -10,7 +10,7 @@
       "id": "revision-codigo",
       "nombre": "Revisión de código",
       "mision": "Leer cada PR y el código existente antes de que llegue a producción.",
-      "workflows": ["empleados-expertos", "revision-existente"],
+      "workflows": ["empleados-expertos", "gpt-rondas", "revision-existente"],
       "externos": ["CodeRabbit", "SonarCloud", "DeepSource", "Codex"],
       "descartados": [
         {"herramienta": "Reviewdog", "motivo": "Duplica los comentarios en línea que ya ponen CodeRabbit, SonarCloud y DeepSource."}
