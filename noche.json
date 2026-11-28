@@ -14,15 +14,16 @@
    "codigo": "03b937094c69036c161270f225e0f19581da123b"
   },
   {
-   "run": null,
-   "intento": null,
-   "sha": null,
+   "run": 46100335168,
+   "intento": 1,
+   "sha": "e34a106de2541a641c4675e5dbf1861f6e0be372",
    "motivo": "reintento",
-   "inicio": "2026-11-28T02:54:42Z",
+   "inicio": "2026-11-28T02:55:18Z",
    "fin": null,
-   "resultado": "pendiente",
+   "resultado": "en_curso",
    "clase": null,
-   "firma": null
+   "firma": null,
+   "codigo": "cd0bbd50c52f8fca759deb99a4cae133b18db0ae"
   }
  ]
 }
