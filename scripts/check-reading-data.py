@@ -126,9 +126,7 @@ def load(names):
     for name in names:
         try:
             suite.addTests(unittest.defaultTestLoader.loadTestsFromName(name))
-        except BaseException as exc:  # SystemExit incluido: no es Exception
-            if isinstance(exc, KeyboardInterrupt):
-                raise
+        except (Exception, SystemExit) as exc:  # SystemExit no es Exception; Ctrl+C sí debe parar
             broken.append({'test': name, 'texto': f'no carga: {type(exc).__name__}: {exc}'[:1500]})
     return suite, broken
 

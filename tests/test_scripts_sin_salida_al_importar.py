@@ -24,15 +24,21 @@ _spec.loader.exec_module(check)
 
 
 def is_main_guard(node):
-    return isinstance(node, ast.If) and '__name__' in ast.unparse(node.test) and '__main__' in ast.unparse(node.test)
+    """Solo `if __name__ == '__main__'` (en cualquier orden); `!=` sí corre al importar."""
+    test = node.test if isinstance(node, ast.If) else None
+    if not (isinstance(test, ast.Compare) and len(test.ops) == 1 and isinstance(test.ops[0], ast.Eq)):
+        return False
+    sides = [test.left, test.comparators[0]]
+    return (any(isinstance(s, ast.Name) and s.id == '__name__' for s in sides)
+            and any(isinstance(s, ast.Constant) and s.value == '__main__' for s in sides))
 
 
 def exits_on_import(tree):
-    """Líneas de nivel superior (fuera de funciones, clases y del bloque __main__) que terminan el proceso."""
+    """Líneas que corren al importar (fuera de funciones y del bloque __main__; el cuerpo de una clase sí corre)."""
     hits = []
 
     def visit(node):
-        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef, ast.Lambda)):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.Lambda)):
             return
         if isinstance(node, ast.Call) and ast.unparse(node.func) in EXITS:
             hits.append(node.lineno)
@@ -70,6 +76,9 @@ class ScriptsDoNotExitOnImport(unittest.TestCase):
     def test_detector_sees_exits_outside_the_main_guard(self):
         self.assertEqual(exits_on_import(ast.parse('import sys\nif 1:\n    sys.exit(1)\n')), [3])
         self.assertEqual(exits_on_import(ast.parse('raise SystemExit(2)\n')), [1])
+        self.assertEqual(exits_on_import(ast.parse('import sys\nclass C:\n    sys.exit(1)\n')), [3])
+        self.assertEqual(exits_on_import(ast.parse('import sys\nif __name__ != "__main__":\n    sys.exit(1)\n')), [3])
+        self.assertEqual(exits_on_import(ast.parse('class C:\n    def f(self):\n        raise SystemExit(1)\n')), [])
         self.assertEqual(exits_on_import(ast.parse(
             'def main():\n    raise SystemExit(1)\nif __name__ == "__main__":\n    raise SystemExit(main())\n')), [])
 
