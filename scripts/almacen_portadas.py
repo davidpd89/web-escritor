@@ -5,6 +5,7 @@
   migrar DIR URL          copia las portadas locales al almacén clonado en DIR, las registra y las sube
   verificar [--borrar]    comprueba que cada portada migrada responde en Pages y, con --borrar, quita la copia local
   nuevo N                 crea el almacén web-escritor-portadas-N con Pages, deploy key, secreto y variable
+  auto                    abre el siguiente si el activo pasa de 700 MB (tarea diaria: install-covers-store-task.ps1)
 
 Ninguna portada cambia de almacén: cuando el activo se llena se abre otro y las siguientes van allí
 (ver el bloque de varios almacenes en reading_cover_store.py).
@@ -13,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -109,28 +111,71 @@ def verificar(root: Path, *, borrar: bool = False, probe=_responde, workers: int
     return removed, failed
 
 
+def _existe(run, *args) -> bool:
+    """La consulta de gh responde (no lanza): sirve para saltar los pasos de `nuevo` que ya se hicieron."""
+    try:
+        return run(['gh', *args], check=True, text=True, capture_output=True).returncode == 0
+    except (subprocess.CalledProcessError, OSError):
+        return False
+
+
 def nuevo(n: int, *, repo: str = f'{OWNER}/web-escritor', run=subprocess.run) -> str:
-    """Abre el almacén N y deja la carga apuntando a él (requiere gh con permisos de administrador)."""
+    """Abre el almacén N y deja la carga apuntando a él (requiere gh con permisos de administrador).
+
+    Se puede repetir: un intento cortado a medias (sin red, sin Pages todavía) se completa en el siguiente sin
+    crear dos veces el repo ni el sitio. La clave de despliegue sí se renueva siempre: la privada solo vive en el
+    secreto, así que no hay otra forma de saber que la que hay corresponde a este almacén."""
     name = f'web-escritor-portadas-{n}'
     full = f'{OWNER}/{name}'
     gh = lambda *a, **k: run(['gh', *a], check=True, text=True, **k)
-    gh('repo', 'create', full, '--public', '--description', 'Portadas del catálogo de lecturas (almacén de Pages)')
+    if not _existe(run, 'repo', 'view', full, '--json', 'name'):
+        gh('repo', 'create', full, '--public', '--description', 'Portadas del catálogo de lecturas (almacén de Pages)')
     with tempfile.TemporaryDirectory() as tmp:
-        work = Path(tmp) / 'repo'
-        work.mkdir()
-        run(['git', 'init', '-q', '-b', 'main', str(work)], check=True)
-        (work / '.nojekyll').write_text('', encoding='utf-8')
-        (work / 'README.md').write_text(f'# {name}\n\nPortadas servidas por Pages para davidportodiaz.com.\n', encoding='utf-8')
-        for args in (['add', '.'], ['-c', 'user.name=almacen', '-c', 'user.email=almacen@users.noreply.github.com', 'commit', '-qm', 'Almacén nuevo'],
-                     ['push', '-q', f'https://github.com/{full}.git', 'main']):
-            run(['git', '-C', str(work), *args], check=True)
+        if not _existe(run, 'api', f'repos/{full}/commits/main', '-q', '.sha'):
+            work = Path(tmp) / 'repo'
+            work.mkdir()
+            run(['git', 'init', '-q', '-b', 'main', str(work)], check=True)
+            (work / '.nojekyll').write_text('', encoding='utf-8')
+            (work / 'README.md').write_text(f'# {name}\n\nPortadas servidas por Pages para davidportodiaz.com.\n', encoding='utf-8')
+            for args in (['add', '.'], ['-c', 'user.name=almacen', '-c', 'user.email=almacen@users.noreply.github.com', 'commit', '-qm', 'Almacén nuevo'],
+                         ['push', '-q', f'https://github.com/{full}.git', 'main']):
+                run(['git', '-C', str(work), *args], check=True)
+        if not _existe(run, 'api', f'repos/{full}/pages', '-q', '.url'):
+            gh('api', '--method', 'POST', f'repos/{full}/pages', '-f', 'source[branch]=main', '-f', 'source[path]=/')
         key = Path(tmp) / 'key'
         run(['ssh-keygen', '-q', '-t', 'ed25519', '-N', '', '-C', f'{name}-deploy', '-f', str(key)], check=True)
-        gh('api', '--method', 'POST', f'repos/{full}/pages', '-f', 'source[branch]=main', '-f', 'source[path]=/')
-        gh('repo', 'deploy-key', 'add', str(key) + '.pub', '--repo', full, '--allow-write', '--title', 'carga nocturna')
+        gh('repo', 'deploy-key', 'add', str(key) + '.pub', '--repo', full, '--allow-write', '--title', f'carga nocturna {time.strftime("%Y-%m-%d %H%M%S")}')
         gh('secret', 'set', 'COVERS_STORE_DEPLOY_KEY', '--repo', repo, input=key.read_text(encoding='utf-8'))
     gh('variable', 'set', 'READING_COVERS_STORE_REPO', '--repo', repo, '--body', name)
     return f'https://{OWNER}.github.io/{name}'
+
+
+PREPARAR_KB = 700 * 1024  # `auto` abre el siguiente aquí: ~8 noches de margen antes del aviso de la carga
+
+
+def numero(name: str) -> int:
+    """web-escritor-portadas es el 1; web-escritor-portadas-N, el N."""
+    tail = name.rsplit('-', 1)[-1]
+    return int(tail) if name.startswith('web-escritor-portadas-') and tail.isdigit() else 1
+
+
+def auto(*, repo: str = f'{OWNER}/web-escritor', run=subprocess.run, umbral: int = PREPARAR_KB) -> str:
+    """Lo ejecuta una tarea diaria con el gh del dueño (una App no puede crear repos en una cuenta personal).
+    Si el almacén activo pasa del umbral, abre el siguiente; si no, no toca nada. Devuelve qué hizo."""
+    out = lambda *a: run(['gh', *a], check=True, text=True, capture_output=True).stdout.strip()
+    try:
+        active = out('variable', 'get', 'READING_COVERS_STORE_REPO', '--repo', repo) or 'web-escritor-portadas'
+    except subprocess.CalledProcessError as exc:
+        # Solo «no existe» significa el primero; cualquier otro fallo (red, 5xx, permisos) no puede abrir un almacén
+        # a partir de uno viejo: se reintenta al día siguiente sin tocar la configuración.
+        if not re.search(r'not found|404', f'{exc.stderr or ""}{exc.stdout or ""}', re.I):
+            raise
+        active = 'web-escritor-portadas'
+    kb = out('api', f'repos/{OWNER}/{active}', '-q', '.size')
+    if not kb.isdigit() or int(kb) < umbral:
+        return f'{active}: {kb or "?"} KB, sin cambios'
+    url = nuevo(numero(active) + 1, repo=repo, run=run)
+    return f'{active}: {kb} KB, abierto {url}'
 
 
 def main(argv=None) -> int:
@@ -142,6 +187,7 @@ def main(argv=None) -> int:
     m.add_argument('url', help='URL de Pages del almacén clonado en DIR')
     sub.add_parser('verificar').add_argument('--borrar', action='store_true')
     sub.add_parser('nuevo').add_argument('n', type=int)
+    sub.add_parser('auto')
     args = parser.parse_args(argv)
     if args.cmd == 'cupo':
         print(cupo(int(args.kb) if str(args.kb).strip().isdigit() else None))
@@ -153,6 +199,8 @@ def main(argv=None) -> int:
         for name in failed[:20]:
             print(f'  {name}')
         return 1 if failed else 0
+    elif args.cmd == 'auto':
+        print(time.strftime('%Y-%m-%d %H:%M'), auto())
     else:
         print(nuevo(args.n))
     return 0

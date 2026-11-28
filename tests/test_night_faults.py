@@ -52,6 +52,7 @@ class RunnerMuertoTrasElCheckpoint(unittest.TestCase):
             p(refresh.materializar, 'construir', paso('construir'))
             p(refresh.materializar, 'comprobar', paso('comprobar'))
             p(refresh, 'data_contract_failures', paso('contratos', []))
+            p(refresh, 'code_contract_failures', lambda *a: [])
             p(refresh, 'quarantine_alert', lambda *a: None)
             p(refresh, 'quarantine_alert_note', lambda: '')
             p(refresh, 'quarantine_summary', lambda *a: '')
