@@ -66,6 +66,10 @@ jobs:
   sitewide-console-errors:
     runs-on: ubuntu-24.04
     timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2]
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -105,4 +109,6 @@ jobs:
         run: bash scripts/ci/playwright-install-deps.sh deps chromium
 
       - name: Run sitewide console-error audit
+        env:
+          SITEWIDE_SHARD: ${{ matrix.shard }}/3
         run: node qa/sitewide-console-errors-browser.mjs
