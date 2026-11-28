@@ -51,6 +51,15 @@ class ReadingTextsTest(unittest.TestCase):
         block.update(changes)
         return texts.validate_text(self.payload, {**self.good, 'bloques': [block, *self.others]})
 
+    def test_claim_words_inside_a_named_title_are_not_claims(self):
+        # Carga 46079808104: el afín «Corsarios de Levante (Best Seller | Ficción)» hacía que nombrarlo fuese
+        # «afirmación sin respaldo» y la puerta de fusión caía según qué libro saliera primero del catálogo vivo.
+        p = {'evidencias': {'titulo': 'El libro propio'}, 'afines_ids': {'Corsarios de Levante (Best Seller | Ficción)': 'x'}}
+        self.assertNotRegex(texts.without_titles(p, 'Quien busque piratas puede seguir con Corsarios de Levante (Best Seller | Ficción).'),
+                            texts.CLAIMS)
+        self.assertNotRegex(texts.without_titles(p, 'Sigue con Corsarios de Levante, otra aventura.'), texts.CLAIMS)
+        self.assertRegex(texts.without_titles(p, 'Corsarios de Levante fue un best seller.'), texts.CLAIMS)
+
     def test_families_and_modules_follow_the_evidence(self):
         self.assertEqual(texts.family({'cocina', 'narrativa'}, 'x' * 300), 'practico')
         self.assertEqual(texts.family({'infantil', 'cocina'}, 'x' * 300), 'infantil')

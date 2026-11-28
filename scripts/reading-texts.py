@@ -391,7 +391,7 @@ def validate_block(p, x):
     numbers = set(re.findall(r'\d+', text)) - set(re.findall(r'\d+', cited + ' ' + own))
     if numbers:
         errors.append('cifras sin respaldo: ' + ', '.join(sorted(numbers)))
-    claims = {m.group(0).lower() for m in CLAIMS.finditer(text)} - {m.group(0).lower() for m in CLAIMS.finditer(source)}
+    claims = {m.group(0).lower() for m in CLAIMS.finditer(without_titles(p, text))} - {m.group(0).lower() for m in CLAIMS.finditer(source)}
     if claims:
         errors.append('afirmaciones sin respaldo: ' + ', '.join(sorted(claims)))
     if opinion := OPINION.search(text):
@@ -404,6 +404,15 @@ def validate_block(p, x):
     if unknown:
         errors.append('nombres sin respaldo: ' + ', '.join(unknown[:5]))
     return errors
+
+
+def without_titles(p, text):
+    """El texto sin los títulos que nombra (el propio y los afines): «Best Seller» dentro de un título no es una afirmación."""
+    titles = [p['evidencias'].get('titulo', ''), *p.get('afines_ids', {})]
+    forms = sorted({f for t in titles if t for f in title_forms(t)}, key=len, reverse=True)
+    for f in forms:
+        text = re.sub(re.escape(f), ' ', text, flags=re.IGNORECASE)
+    return text
 
 
 def valid_blocks(p, blocks):
