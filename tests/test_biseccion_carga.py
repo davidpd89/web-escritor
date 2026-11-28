@@ -136,6 +136,19 @@ class SondaSobreElCatalogoTest(unittest.TestCase):
                 self.assertEqual(path.read_bytes(), original)
 
 
+class FixturesYCargaTest(unittest.TestCase):
+    def test_el_fallo_de_un_fixture_se_repite_por_su_clase_o_modulo(self):
+        self.assertEqual(bis.ids_solo([{'test': 'setUpClass (test_reading_texts.ReadingTextsTest)'},
+                                       {'test': 'setUpModule (test_reading_texts)'}]),
+                         ['test_reading_texts.ReadingTextsTest', 'test_reading_texts'])
+
+    def test_un_modulo_que_no_importa_por_codigo_no_cuenta_como_sonda(self):
+        roto = {'test': 'unittest.loader._FailedTest.test_x', 'texto': "ModuleNotFoundError: No module named 'y'"}
+        script = {'test': 'unittest.loader._FailedTest.test_s', 'texto': 'AssertionError: isbn-1 mal'}
+        self.assertEqual(bis.no_cargo([roto, script, {'test': 'm.C.test_a', 'texto': 'ImportError en el texto'}]),
+                         ['unittest.loader._FailedTest.test_x'])
+
+
 class AssembleTest(unittest.TestCase):
     def run_assemble(self, datos, codigo, bisect):
         """datos/codigo: listas de rondas de fallos de cada pasada; bisect: {id: motivo} o {}."""
@@ -155,7 +168,7 @@ class AssembleTest(unittest.TestCase):
                     (refresh, 'bot_identity', lambda: None), (refresh, 'read_json', lambda p: {'rss_enabled': False, 'libros': []}),
                     (refresh, 'quarantine_summary', lambda *a: ''), (refresh, 'quarantine_alert', lambda *a: None),
                     (refresh, 'data_contract_failures', lambda *a: datos.pop(0) if datos else []),
-                    (refresh, 'code_contract_failures', code), (refresh, 'bisect_unattributed', lambda u: dict(bisect)),
+                    (refresh, 'code_contract_failures', code), (refresh, 'bisect_unattributed', lambda u: dict(bisect.pop(0) if isinstance(bisect, list) else bisect)),
                     (refresh, 'drop_orphan_pages', lambda q: None), (refresh.reading_quarantine, 'apply', apply),
                     (refresh.materializar, 'construir', lambda *a, **k: None), (refresh.materializar, 'comprobar', lambda *a, **k: None),
                     (refresh.subprocess, 'check_output', lambda *a, **k: ' M data/reading-catalogue.json\n'),
@@ -163,7 +176,8 @@ class AssembleTest(unittest.TestCase):
                     (refresh.git_estado, 'preparar', lambda *a, **k: None), (refresh.publisher, 'allowed_path', lambda p: True),
                     (refresh.publisher, 'run', lambda b: calls['published'].append(b)),
                     (refresh.publisher.publication, 'fresh_branch', lambda *a, **k: 'automation/reading-catalogue-test'),
-                    (refresh.publisher.publication, 'gh', lambda *a: None), (refresh, 'drop_checkpoint', lambda b: None)]:
+                    (refresh.publisher.publication, 'gh', lambda *a: None), (refresh, 'drop_checkpoint', lambda b: None),
+                    (refresh.cover_store, 'flush', lambda *a, **k: 0)]:  # nunca el almacén real
                 s.enter_context(patch.object(owner, name, value))
             refresh.assemble({'new_books': ['n'], 'updated_books': [], 'stats': {}}, changed=True, checkpoint='saved')
         return calls
@@ -173,7 +187,16 @@ class AssembleTest(unittest.TestCase):
     def test_un_test_de_codigo_sin_libro_aparta_el_culpable_y_publica(self):
         calls = self.run_assemble([], [self.SIN_LIBRO], {'isbn-1': 'bisección'})
         self.assertEqual(calls['flagged'][-1], {'isbn-1': 'bisección'})
-        self.assertEqual(calls['codigo'], [None, ['test_reading_texts.T.test_ejemplo']])  # entera y luego solo lo que falló
+        # entera, solo lo que falló y, con eso ya verde, entera otra vez (apartar cambia el catálogo)
+        self.assertEqual(calls['codigo'], [None, ['test_reading_texts.T.test_ejemplo'], None])
+        self.assertEqual(len(calls['published']), 1)
+
+    def test_tras_apartar_la_pasada_amplia_entera_caza_lo_que_destapa_el_cambio(self):
+        otro = [{'test': 'test_reading_x.T.test_primero', 'texto': 'otro libro'}]
+        calls = self.run_assemble([], [self.SIN_LIBRO, [], otro], [{'isbn-1': 'bisección'}, {'isbn-2': 'bisección'}])
+        self.assertEqual(calls['codigo'][:3], [None, ['test_reading_texts.T.test_ejemplo'], None])
+        self.assertEqual(len(calls['flagged']), 3)  # inicial, el primero y el que destapó la pasada final
+        self.assertEqual(calls['codigo'][-1], None)
         self.assertEqual(len(calls['published']), 1)
 
     def test_codigo_roto_sin_culpable_no_pierde_el_lote(self):

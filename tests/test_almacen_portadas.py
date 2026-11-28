@@ -159,6 +159,17 @@ class AlmacenPortadasTest(unittest.TestCase):
         self.assertIn('web-escritor-portadas-3', almacen.auto(run=run))
         self.assertTrue(any(c[:4] == ['gh', 'repo', 'create', 'davidpd89/web-escritor-portadas-3'] for c in calls))
 
+    def test_auto_solo_usa_el_primero_si_la_variable_no_existe(self):
+        def run(error):
+            def r(cmd, **kw):
+                if cmd[:3] == ['gh', 'variable', 'get']:
+                    raise subprocess.CalledProcessError(1, cmd, '', error)
+                return subprocess.CompletedProcess(cmd, 0, str(100 * 1024) if cmd[1] == 'api' else '', '')
+            return r
+        self.assertIn('web-escritor-portadas:', almacen.auto(run=run('variable READING_COVERS_STORE_REPO was not found')))
+        with self.assertRaises(subprocess.CalledProcessError):  # caída de red: no se abre nada a partir del viejo
+            almacen.auto(run=run('HTTP 502: Bad Gateway'))
+
     def test_auto_sin_tamano_no_abre_nada(self):
         run, calls = self._gh_falso(salidas={'variable': '', 'api': ''})
         self.assertIn('sin cambios', almacen.auto(run=run))

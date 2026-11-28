@@ -92,6 +92,15 @@ class ProcesosTest(unittest.TestCase):
         self.assertEqual(len(fallos), 1)
         self.assertIn('regla sintética rota', fallos[0]['texto'])
 
+    def test_los_tests_no_heredan_el_almacen_vivo_ni_credenciales(self):
+        vivo = {'READING_COVERS_STORE_DIR': '/x', 'READING_COVERS_STORE_URL': 'https://x', 'GH_TOKEN': 't',
+                'REPARADOR_APP_PRIVATE_KEY': 'k', 'AMAZON_CREATORS_CLIENT_SECRET': 's', 'GOOGLE_BOOKS_API_KEY': 'g',
+                'PATH_EXTRA': 'queda'}
+        with unittest.mock.patch.dict(puerta.os.environ, vivo):
+            env = puerta.entorno_de_prueba(OTRA='1')
+        self.assertEqual({k for k in vivo if k in env}, {'PATH_EXTRA'})
+        self.assertEqual(env['OTRA'], '1')
+
     def test_un_modulo_colgado_no_se_come_la_carga(self):
         with unittest.mock.patch.object(puerta, 'GRUPO_LIMITE', 3):
             corridos, fallos = puerta.run_units(['test_colgado', 'test_bien'], workers=2, root=self.root)

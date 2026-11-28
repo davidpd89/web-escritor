@@ -18,9 +18,10 @@ Rama `auditoria-carga-2026-11-28` (worktree `.worktrees/auditoria-carga`, base `
 - **Bisección** (`scripts/biseccion_carga.py`, `bisect_unattributed` en `refresh-reading-catalogue.py`): un fallo sin
   libro se atribuye buscando, entre los libros nuevos o cambiados, cuál lo provoca (1+log2 n sondas por culpable,
   todas las del catálogo restauradas al terminar). El culpable va a cuarentena como cualquier otro.
-  - Si ni quitando toda la carga pasa → no es un dato: en la etapa de código se avisa y se publica (decide la PR);
-    en la de datos se para como antes.
-  - Plazo: se corta a `PUBLICAR_HASTA − 75 min` para que siempre quede tiempo de abrir la PR.
+  - Si ni quitando toda la carga pasa → no se pudo atribuir (código, o un dato que no vive en el JSON): en la etapa
+    de código se avisa y se publica (decide la PR); en la de datos se para como antes.
+  - Plazo: antes de **cada** sonda (también la inicial y las de confirmación) se mira `PUBLICAR_HASTA − 75 min`.
+    Límite real: una sonda ya empezada puede durar hasta 1800 s por grupo, y sin `PUBLICAR_HASTA` numérico no hay corte.
   - Robustez (ronda GPT 2): el fallo debe reproducirse con la carga entera antes de buscar; el arreglo debe pasar dos
     veces; una sonda que no se puede evaluar (puerta sin `fallos.json`, módulo «sin terminar») lanza `SinResolver` y
     no se aparta nada; un libro que solo cambia de géneros también es candidato.
@@ -30,10 +31,26 @@ Rama `auditoria-carga-2026-11-28` (worktree `.worktrees/auditoria-carga`, base `
 - Telegram/Discord (web) y Pinterest/RRSS (`portada_web.py`) leen el mismo formato `almacenes`/`almacen` → encuentran
   portadas de cualquier almacén.
 
+- **Ronda GPT 3 (revisión)** y revisión de CodeRabbit/Codex en #1634, aplicadas:
+  - la puerta corre los tests sin el almacén de portadas vivo ni credenciales (`entorno_de_prueba`): un fixture de
+    ingesta podía publicar una portada sintética en producción;
+  - los hijos heredan `sys.path` (PYTHONPATH) — arregla el rojo de offline-tests;
+  - 0 tests corridos = fallo, salvo módulos en script (aserciones al importar); un hijo con rc≠0 sin fallos listados
+    (expectedFailure que pasa) = fallo;
+  - `setUpClass (mod.Clase)` se repite por su clase; un módulo que no importa por código abandona la bisección;
+  - tras apartar libros por la pasada amplia, la pasada amplia **entera** se repite antes de aceptar;
+  - `almacen_portadas auto`: solo «variable no encontrada» usa el primer almacén; otro error no toca nada.
+- **Ronda GPT 4 (escala)**: Cloudflare Pages/Workers Assets: 20k ficheros (Free), 100k (pago). Repo: 30611 ficheros,
+  11757 html → margen, pero vigilar (memoria cf-workers-reparto, #1623). El token de la App (1 h) se genera justo antes de
+  `gh pr create` (`publish-radar-refresh.app_env`), no al empezar el paso: comprobado, sin cambio.
+
 ## Verificado (local)
 
 - `test_biseccion_carga` (16), `test_almacen_portadas`, `test_check_reading_data_procesos`, `test_night_faults`,
   `test_reading_source_recovery`: 58 tests OK. `test_check_reading_data_cobertura` OK.
+- Puerta completa local (28/11): 157 contratos en 966 s + 24 en script en 355 s; único fallo, el módulo en script
+  `test_reading_itemlist_detail_title_parity` con la regla de 0 tests → corregido y comprobado (rc 0).
+- `test_reading_quarantine` + `test_check_reading_data_procesos`: 57 OK. Bisección, almacén, procesos, night_faults: 49 OK.
 - Puerta paralela: 13 contratos en 46 s, rc 0. Tarea del almacén registrada; su ejecución: «518564 KB, sin cambios».
 
 ## Pendiente

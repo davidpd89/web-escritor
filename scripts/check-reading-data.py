@@ -56,6 +56,16 @@ SCRIPTS_CODIGO = {
     'test-publish-pages-superseded.py', 'test-publish-qa-refresh.py', 'test-ci-content-lane.py',
 }
 SCRIPT_LIMITE = 900  # segundos por script
+# Lo que la carga exporta para escribir en servicios reales: un test no lo hereda (28/11, Codex/CodeRabbit en #1634:
+# un fixture de ingesta llamaba a cover_store.put() con una portada sintética y el almacén vivo la habría publicado).
+VIVOS = ('READING_COVERS_STORE', 'GH_TOKEN', 'GITHUB_TOKEN')
+SECRETOS = ('_PRIVATE_KEY', '_CLIENT_SECRET', '_API_KEY')
+
+
+def entorno_de_prueba(**extra):
+    """Entorno de los procesos de test: el de este, sin almacén de portadas vivo ni credenciales."""
+    env = {k: v for k, v in os.environ.items() if not k.startswith(VIVOS) and not k.endswith(SECRETOS)}
+    return {**env, 'PYTHONIOENCODING': 'utf-8', **extra}
 
 
 def script_contracts(root=ROOT):
@@ -69,7 +79,7 @@ def run_scripts(root=ROOT, names=None, workers=4):
     def one(name):
         with tempfile.TemporaryDirectory() as tmp:
             fichero = Path(tmp) / 'libros.json'
-            env = {**os.environ, 'CONTRATO_LIBROS_FICHERO': str(fichero)}
+            env = entorno_de_prueba(CONTRATO_LIBROS_FICHERO=str(fichero))
             try:
                 done = subprocess.run([sys.executable, str(root / 'tests' / name)], cwd=root, capture_output=True,
                                       text=True, encoding='utf-8', errors='replace', timeout=SCRIPT_LIMITE, env=env)
@@ -158,8 +168,7 @@ def run_units(names, workers=None, root=None):
 
     # el hijo ve los mismos módulos que este proceso (rutas añadidas en ejecución incluidas): un contrato que aquí
     # carga no puede fallar allí por no encontrarse
-    env = {**os.environ, 'PYTHONIOENCODING': 'utf-8',
-           'PYTHONPATH': os.pathsep.join(p for p in sys.path if p and Path(p).exists())}
+    env = entorno_de_prueba(PYTHONPATH=os.pathsep.join(p for p in sys.path if p and Path(p).exists()))
 
     def one(group):
         with tempfile.TemporaryDirectory() as tmp:
@@ -174,6 +183,9 @@ def run_units(names, workers=None, root=None):
             if not out.is_file():
                 return 0, [{'test': group[0], 'texto': (done.stdout + done.stderr)[-3000:]}], ''
             data = json.loads(out.read_text(encoding='utf-8'))
+            if done.returncode and not data['fallos']:  # p. ej. un expectedFailure que pasa: no es «verde»
+                data['fallos'] = [{'test': group[0], 'texto': f'salida {done.returncode} sin fallos listados: '
+                                                              + done.stderr[-2000:]}]
             return data['corridos'], data['fallos'], (done.stderr if data['fallos'] else '')
     corridos, todos = 0, []
     workers = workers or int(os.environ.get('PUERTA_PROCESOS') or 0) or max(2, os.cpu_count() or 2)

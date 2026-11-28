@@ -801,6 +801,8 @@ def bisect_unattributed(unattributed):
         colgados = [f['test'] for f in got if str(f.get('texto', '')).startswith('sin terminar')]
         if colgados:
             raise bis.SinResolver(f'bisección abandonada: sonda sin terminar en {", ".join(colgados)[:200]}')
+        if bis.no_cargo(got):
+            raise bis.SinResolver(f'bisección abandonada: módulo sin cargar en {", ".join(bis.no_cargo(got))[:200]}')
         return bool(got)
     print(f'Bisección: {len(cands)} libros de la carga contra {len(ids)} contratos sin libro', flush=True)
     try:
@@ -890,8 +892,14 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
         if not failures and wide != []:
             # Con los datos en verde, una vez los tests de código que leen el catálogo real (28/11: usaban el primer
             # libro como ejemplo y la PR salía roja sin nombrar ninguno). Luego solo lo que falló.
+            targeted = bool(wide)
             failures, stage = code_contract_failures(wide), 'código'
             wide = biseccion_carga.ids_solo(failures)
+            if not failures and targeted:
+                # Lo que falló ya pasa, pero apartar libros cambia el catálogo (otro «primer libro»): la pasada amplia
+                # entera se repite antes de dar el lote por bueno (CodeRabbit en #1634).
+                failures = code_contract_failures(None)
+                wide = biseccion_carga.ids_solo(failures)
         if not failures:
             break
         named, unattributed = reading_quarantine.split_flagged(failures, read_json(ROOT / reading_quarantine.CATALOGUE))

@@ -95,12 +95,23 @@ def culpables(cands, falla, *, hasta=None, reloj=time.monotonic):
             return found if not probar(found) else None  # pasa dos veces seguidas: no es un acierto inestable
 
 
+NO_CARGA = ('ModuleNotFoundError', 'ImportError', 'SyntaxError', 'IndentationError')
+
+
+def no_cargo(failures):
+    """Registros de módulos que no llegaron a importarse por código (no por una aserción al importar, que en un
+    módulo en script sí es el contrato): esa sonda no evaluó nada."""
+    return [f['test'] for f in failures if '_FailedTest' in f['test'] and any(e in str(f.get('texto', '')) for e in NO_CARGA)]
+
+
 def ids_solo(failures):
     """Ids que `check-reading-data.py --solo` sabe repetir: sin el sufijo de subTest y, si el módulo no cargó, el
     módulo (unittest lo reporta como unittest.loader._FailedTest.<módulo>)."""
     out = []
     for f in failures:
-        name = re.sub(r'\s*\(.*\)\s*$', '', f['test']).strip()
+        fixture = re.fullmatch(r'\s*(?:setUpClass|tearDownClass|setUpModule|tearDownModule)\s*\((.+)\)\s*', f['test'])
+        # «setUpClass (mod.Clase)»: el paréntesis es el dueño, no un subTest (sin él, --solo setUpClass no corre nada)
+        name = fixture.group(1).strip() if fixture else re.sub(r'\s*\(.*\)\s*$', '', f['test']).strip()
         name = name.removeprefix('unittest.loader._FailedTest.')
         if name and name not in out:
             out.append(name)

@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -164,8 +165,12 @@ def auto(*, repo: str = f'{OWNER}/web-escritor', run=subprocess.run, umbral: int
     out = lambda *a: run(['gh', *a], check=True, text=True, capture_output=True).stdout.strip()
     try:
         active = out('variable', 'get', 'READING_COVERS_STORE_REPO', '--repo', repo) or 'web-escritor-portadas'
-    except subprocess.CalledProcessError:
-        active = 'web-escritor-portadas'  # sin la variable la carga usa el primero
+    except subprocess.CalledProcessError as exc:
+        # Solo «no existe» significa el primero; cualquier otro fallo (red, 5xx, permisos) no puede abrir un almacén
+        # a partir de uno viejo: se reintenta al día siguiente sin tocar la configuración.
+        if not re.search(r'not found|404', f'{exc.stderr or ""}{exc.stdout or ""}', re.I):
+            raise
+        active = 'web-escritor-portadas'
     kb = out('api', f'repos/{OWNER}/{active}', '-q', '.size')
     if not kb.isdigit() or int(kb) < umbral:
         return f'{active}: {kb or "?"} KB, sin cambios'

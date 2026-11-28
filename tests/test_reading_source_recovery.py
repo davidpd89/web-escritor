@@ -227,7 +227,7 @@ class CheckpointLifetimeTests(unittest.TestCase):
     (refresh.publisher,'allowed_path',lambda p:True),(refresh.publisher,'run',run),
     (refresh.publisher.publication,'fresh_branch',lambda *a,**k:'automation/reading-catalogue-test'),
     (refresh.publisher.publication,'gh',lambda *a:None),(refresh,'drop_checkpoint',lambda b:order.append('drop'))]
-   for owner,name,value in patches:stack.enter_context(patch.object(owner,name,value))
+   for owner,name,value in patches:stack.enter_context(patch.object(owner,name,value,create=name=='code_contract_failures'))
    if fail:
     with self.assertRaisesRegex(RuntimeError,'CI failed'):
      refresh.assemble({'new_books':['new'],'updated_books':[],'stats':{}},changed=True,checkpoint='saved')
@@ -256,7 +256,7 @@ class QuarantineRoundsTests(unittest.TestCase):
     (refresh.publisher,'allowed_path',lambda p:True),(refresh.publisher,'run',lambda b:published.append(b)),
     (refresh.publisher.publication,'fresh_branch',lambda *a,**k:'automation/reading-catalogue-test'),
     (refresh.publisher.publication,'gh',lambda *a:None),(refresh,'drop_checkpoint',lambda b:None)]
-   for owner,name,value in patches:stack.enter_context(patch.object(owner,name,value))
+   for owner,name,value in patches:stack.enter_context(patch.object(owner,name,value,create=name=='code_contract_failures'))
    refresh.assemble({'new_books':['new'],'updated_books':[],'stats':{}},changed=True,checkpoint='saved')
    return published
  def test_more_than_three_rounds_with_new_books_still_publish(self):
