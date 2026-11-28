@@ -10,8 +10,8 @@ import json
 import shutil
 import tempfile
 import unittest
+import unittest.mock
 from pathlib import Path
-from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('check_reading_data', ROOT / 'scripts/check-reading-data.py')
@@ -70,7 +70,7 @@ class ProcesosTest(unittest.TestCase):
         self.assertNotIn('libros', fallos[0])
 
     def test_un_modulo_colgado_no_se_come_la_carga(self):
-        with mock.patch.object(puerta, 'GRUPO_LIMITE', 3):
+        with unittest.mock.patch.object(puerta, 'GRUPO_LIMITE', 3):
             corridos, fallos = puerta.run_units(['test_colgado', 'test_bien'], workers=2, root=self.root)
         self.assertEqual(corridos, 2)
         self.assertEqual(fallos, [{'test': 'test_colgado', 'texto': 'sin terminar en 3 s'}])
@@ -84,7 +84,7 @@ class ProcesosTest(unittest.TestCase):
 
     def test_main_deja_el_json_de_fallos_que_lee_la_carga(self):
         out = self.root / 'f.json'
-        with mock.patch.object(puerta, 'ROOT', self.root):
+        with unittest.mock.patch.object(puerta, 'ROOT', self.root):
             code = puerta.main(['--solo', 'test_bien,test_libros', '--fallos', str(out)])
         self.assertEqual(code, 1)
         fallos = json.loads(out.read_text(encoding='utf-8'))
