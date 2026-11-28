@@ -33,9 +33,31 @@ Rama `ccr-a446af60-ezzotf`, desde main a79c912ef.
   sirve por el fallo de GitHub Models descrito arriba.
 - Tests: `test_reading_genre_hubs.py`, `test_reading_author_pages_backfill.py`, `test_indexnow_truncado.py`.
 
-## Verificado
-(ver sección final, se completa al cerrar)
+## Rondas con GPT
+- API de OpenAI: clave no concedida. GitHub Models: `200 OK` sin JSON (canal `gpt-rondas.yml` queda listo para cuando vuelva).
+- Codex (ChatGPT) en la PR #1636: hace revisiones (`@codex review`), pero las preguntas abiertas exigen crear un
+  entorno en chatgpt.com/codex/cloud/settings/environments (solo David).
+- Ronda 1 (revisión): 2 P1 + 2 P2, todos reales y corregidos — autores en el punto común de la carga (`assemble()`,
+  la carga usa `amazon_intake`), contratos `*_smoke.py`, fechas parciales, `dateModified` de hubs.
+- Ronda 2 (revisión): 1 P2 real y corregido — 30 firmas corporativas pasan a `Organization` (`entidad`).
+
+## Verificado (local)
+- `materializar_generados.py` construye y comprueba: catálogo 0 pendientes, shell 13.886, sitemap 13.879 URL,
+  Pagefind 13.740, versiones de assets OK; Atlas regenerado y su contrato OK; `check-global-discoverability` PASS.
+- pytest de lectura + materializar + IndexNow (xdist): 852 OK; 7 fallos míos corregidos (`18b15a0b2`) y 1 de entorno
+  (`test_bad_candidate…`: el proxy bloquea davidpd89.github.io; falla igual con main).
+- Réplica de los 16 checks de la skill audit-website-aeo: hubs 16/16; fichas de libro fallan profundidad (≈200 palabras).
+
+## Fallos y límites
+- `check-image-format-ladder`: 1 incumplimiento también en main (no es de esta PR).
+- QA de navegador local imposible (Playwright fijado sin su Chromium aquí): lo cubre la CI.
 
 ## Pendiente
-- Rondas con ChatGPT: la clave de OpenAI no se dio y GitHub Models no responde; se hacen con `@codex` en la PR.
-- Alta y medición en Bing Webmaster Tools (informe AI Performance) y Search Console: requiere a David.
+- CI verde de la PR #1636 y `scripts/carga_en_curso.py` (sin `gh` aquí) antes de fusionar; skill `revisar-carga`.
+- Rondas de estrategia con Codex: requieren el entorno de Codex (David). Preguntas listas en `.ci/gpt-rondas/`.
+- Fichas de libro finas (≈90 % sin sinopsis): decidir enriquecer/consolidar/noindex; no se ha tocado.
+- Bing Webmaster Tools (AI Performance) y Search Console: alta y medición, requiere a David.
+- GitHub Models caído: también tumba `empleados-expertos.yml`.
+
+## Enlaces
+- PR: https://github.com/davidpd89/web-escritor/pull/1636
