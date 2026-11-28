@@ -130,12 +130,14 @@ def derive_changed_urls(
     before = registry_routes(before_registry)
     after = registry_routes(after_registry)
     changed: set[str] = set()
+    added: set[str] = set()
     counts = {"added": 0, "modified": 0, "deleted": 0}
 
     for route in sorted(set(before) | set(after)):
         if route not in before:
             artifact_digest(after_dist, after[route])
             changed.add(ORIGIN + route)
+            added.add(ORIGIN + route)
             counts["added"] += 1
             continue
         if route not in after:
@@ -147,10 +149,14 @@ def derive_changed_urls(
             changed.add(ORIGIN + route)
             counts["modified"] += 1
 
-    urls = sorted(changed)
+    # Un despliegue grande (una regeneración del catálogo cambia >10.000 fichas) no debe quedarse sin avisar: antes se
+    # lanzaba un error y el deploy publicaba con la lista vacía. Se envían primero las URL nuevas y después el resto,
+    # hasta el máximo del protocolo; lo recortado se cuenta y se rastrea por el sitemap.
+    urls = sorted(added) + sorted(changed - added)
     if len(urls) > MAX_URLS:
-        raise ValueError(f"refusing to emit {len(urls)} URLs; IndexNow maximum is {MAX_URLS}")
-    return urls, counts
+        counts["truncated"] = len(urls) - MAX_URLS
+        urls = urls[:MAX_URLS]
+    return sorted(urls), counts
 
 
 def validate_url(url: str) -> None:

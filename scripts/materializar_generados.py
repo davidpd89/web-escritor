@@ -23,7 +23,7 @@ GENERADOS = (
     'pagefind/*', 'recomendaciones/*.html', 'editoriales/*.html', 'editoriales-sitemap.xml', 'sitemap*.xml',
     'mapa-del-sitio/index.html', 'assets/page-order.generated.js',
     'data/content-registry.json', 'editoriales/editoriales-data.json', 'recomendaciones/llms.txt',
-    'recomendaciones/ofertas.json', 'recomendaciones/proximos-lanzamientos.ics',
+    'recomendaciones/ofertas.json', 'recomendaciones/proximos-lanzamientos.ics', 'recomendaciones/*.xml',
 )
 # Hasta aquí se crean rutas nuevas; los siguientes leen `git ls-files` y necesitan verlas registradas.
 CREAN_RUTAS = (

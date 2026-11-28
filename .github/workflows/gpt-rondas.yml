@@ -1,0 +1,50 @@
+name: Rondas GPT (auditoría SEO/GEO)
+
+# Consulta a GPT (GitHub Models, gratis con el GITHUB_TOKEN) el fichero de ronda que se sube a .ci/gpt-rondas/.
+# No toca el repositorio: la respuesta sale en el log, en el resumen del job y como artefacto.
+on:
+  push:
+    paths:
+      - '.ci/gpt-rondas/ronda-*.md'
+      - '!.ci/gpt-rondas/*.respuesta.md'
+  workflow_dispatch:
+    inputs:
+      ronda:
+        description: 'Ruta del fichero de ronda'
+        required: true
+
+permissions:
+  contents: read
+  models: read
+
+concurrency:
+  group: gpt-rondas-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  ronda:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+          sparse-checkout: |
+            .ci/gpt-rondas
+            scripts/gpt_ronda.py
+      - name: Ronda
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RONDA: ${{ inputs.ronda }}
+        run: |
+          if [ -z "$RONDA" ]; then
+            RONDA=$(git diff --name-only HEAD~1 HEAD -- '.ci/gpt-rondas/ronda-*.md' | grep -v respuesta | tail -n 1)
+          fi
+          test -n "$RONDA" && test -f "$RONDA"
+          python scripts/gpt_ronda.py "$RONDA" --salida respuesta.md
+          cat respuesta.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v6
+        with:
+          name: gpt-ronda
+          path: respuesta.md
+          retention-days: 14

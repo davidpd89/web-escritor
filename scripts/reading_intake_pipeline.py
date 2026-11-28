@@ -333,6 +333,65 @@ def update_authors(payload, catalogue, new_books, today):
             used.add(key)
 
 
+# Firmas corporativas: su ficha declara `entidad: organizacion` y su página, Organization (no Person). Palabras que
+# solo usa una institución, un sello o una marca; «S.A.»/«S.L.» solo al final (James S.A. Corey es una persona).
+CORPORATE_AUTHOR = re.compile(
+    r"\b(?:studios?|editorial|editores|ediciones|equipo|instituto|asociaci[oó]n|fundaci[oó]n|universidad|museo|grupo de|"
+    r"sociedad|comit[eé]|ministerio|consejo|real academia|departamento|federaci[oó]n|ayuntamiento|diputaci[oó]n|"
+    r"[aá]rea de gobierno|disney|marvel|nintendo|ubisoft|pok[eé]mon company|winx club|entertainment|press)\b"
+    r"|\b(?:s\.?\s?a\.?|s\.?\s?l\.?|inc\.?|ltd\.?)$", re.I)
+
+
+def is_corporate_author(name):
+    return bool(CORPORATE_AUTHOR.search(name.strip()))
+
+
+
+def mark_corporate_authors(payload):
+    """Fichas bibliográficas de una firma corporativa sin `entidad`: se marcan como organización. Devuelve los nombres."""
+    marked = []
+    for a in payload['autores']:
+        if a.get('tipo') == 'bibliografico' and 'entidad' not in a and is_corporate_author(a['nombre']):
+            a['entidad'] = 'organizacion'
+            marked.append(a['nombre'])
+    return marked
+
+
+AUTHOR_PAGE_MIN_BOOKS = 2  # con dos libros, «último/próximo libro de X» ya tiene respuesta propia en su página
+NO_PAGE_AUTHORS = frozenset({'Varios autores', 'Anónimo'})
+
+
+def ensure_author_records(payload, catalogue, today, min_books=AUTHOR_PAGE_MIN_BOOKS):
+    """Ficha bibliográfica para cada autor con `min_books` libros publicados que aún no la tiene.
+
+    `update_authors` solo mira los libros nuevos de la ingesta editorial; los que entran por Amazon nunca creaban
+    ficha (el 28/11: 1.121 autores con ≥2 libros sin página, de 1.378). Se reutiliza la misma ficha de la ingesta y
+    solo cuentan libros con ficha editorial https (las fuentes de la ficha). Devuelve los nombres añadidos."""
+    known = {a['nombre'] for a in payload['autores']}
+    counts = {}
+    for b in catalogue['libros']:
+        if b.get('estado') != 'publicado' or not str(b.get('fuente_bibliografica_url', '')).startswith('https://'):
+            continue
+        for name in b['autores']:
+            counts[name] = counts.get(name, 0) + 1
+    missing = sorted(n for n, k in counts.items() if k >= min_books and n not in known and n not in NO_PAGE_AUTHORS and n.strip())
+    used = {a['slug'] for a in payload['autores']}
+    for name in missing:
+        own = [b for b in catalogue['libros'] if b.get('estado') == 'publicado' and name in b['autores']
+               and str(b.get('fuente_bibliografica_url', '')).startswith('https://')]
+        key = slug(name)
+        if not key or key == 'pagina' or key in used:
+            key = (key or 'autor') + '-' + hashlib.sha256(name.encode()).hexdigest()[:8]
+        titles = '; '.join(b['titulo'] for b in own[:4])
+        payload['autores'].append({
+            'slug': key, 'nombre': name, 'tipo': 'bibliografico',
+            'descripcion': f'Libros de {name} incluidos en este catálogo: {titles}. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.',
+            'fuentes': [{'titulo': b['titulo'] + ' · ficha editorial', 'url': b['fuente_bibliografica_url']} for b in own[:8]],
+            'fecha_verificacion': today, **({'entidad': 'organizacion'} if is_corporate_author(name) else {})})
+        used.add(key)
+    return missing
+
+
 def fill_full_synopses(catalogue, providers, http, max_books=6):
     """Relee la ficha oficial de los libros sin sinopsis completa; nunca toca resúmenes propios."""
     changed = 0

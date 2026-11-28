@@ -42,8 +42,13 @@ function toRoute(relHtmlPath) {
   return '/' + relHtmlPath;
 }
 
-const routes = collectHtmlFiles(DIST).map(toRoute).sort();
-assert(routes.length > 50, `expected the full public site (>50 pages), found ${routes.length} -- build likely broken`);
+const allRoutes = collectHtmlFiles(DIST).map(toRoute).sort();
+assert(allRoutes.length > 50, `expected the full public site (>50 pages), found ${allRoutes.length} -- build likely broken`);
+// SITEWIDE_SHARD=i/n reparte las páginas entre n jobs (con ~14.000 páginas un solo job pasaba de los 40 min).
+const [SHARD_INDEX, SHARD_COUNT] = (process.env.SITEWIDE_SHARD || '0/1').split('/').map(Number);
+assert(Number.isInteger(SHARD_INDEX) && Number.isInteger(SHARD_COUNT) && SHARD_COUNT >= 1 && SHARD_INDEX >= 0 && SHARD_INDEX < SHARD_COUNT,
+  `SITEWIDE_SHARD inválido: ${process.env.SITEWIDE_SHARD}`);
+const routes = allRoutes.filter((_, i) => i % SHARD_COUNT === SHARD_INDEX);
 
 const MIME = new Map([
   ['.html', 'text/html; charset=utf-8'], ['.css', 'text/css; charset=utf-8'],
@@ -155,4 +160,4 @@ if (findings.length) {
   }
   process.exit(1);
 }
-console.log(`Sitewide console-error audit: PASS (${routes.length} published pages, zero console/network errors).`);
+console.log(`Sitewide console-error audit: PASS (${routes.length} published pages${SHARD_COUNT > 1 ? ` in shard ${SHARD_INDEX}/${SHARD_COUNT} of ${allRoutes.length}` : ''}, zero console/network errors).`);

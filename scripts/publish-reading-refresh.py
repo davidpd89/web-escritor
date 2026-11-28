@@ -15,14 +15,15 @@ spec.loader.exec_module(publication)
 
 EXACT = {'assets/page-order.generated.js', 'assets/reading-market.json', 'data/reading-catalogue.json', 'data/reading-classification-gpt.json', 'data/reading-authors.json', 'data/reading-publishers.json', 'data/reading-intake-state.json', 'data/reading-covers-store.json', 'data/reading-author-links.json', 'data/reading-amazon-audit.json', 'data/reading-pinterest-state.json', 'data/reading-quarantine.json',
          'data/content-registry.json', 'recomendaciones/index.html', 'recomendaciones/autores/index.html',
-         'recomendaciones/editoriales/index.html', 'recomendaciones/proximos-lanzamientos.ics', 'recomendaciones/ofertas.json', 'recomendaciones/llms.txt', 'mapa-del-sitio/index.html',
+         'recomendaciones/editoriales/index.html', 'recomendaciones/generos/index.html', 'recomendaciones/novedades.xml', 'recomendaciones/proximos-lanzamientos.ics', 'recomendaciones/ofertas.json', 'recomendaciones/llms.txt', 'mapa-del-sitio/index.html',
          'sitemap.xml', 'editoriales-sitemap.xml', 'editoriales/index.html', 'editoriales/editoriales-data.json', 'metodologia-editorial/index.html'}
 
 
 def allowed_path(path):
     return path in EXACT or bool(re.fullmatch(
-        r'(?:recomendaciones/(?:libros|autores|editoriales)/[a-z0-9-]+/index\.html|'
+        r'(?:recomendaciones/(?:libros|autores|editoriales|generos)/[a-z0-9-]+/index\.html|'
         r'recomendaciones/(?:autores/)?pagina/[0-9]+/index\.html|'
+        r'recomendaciones/generos/[a-z0-9-]+/feed\.xml|'
         r'editoriales/[a-z0-9-]+/index\.html|'
         r'assets/reading-covers/isbn-97[89][0-9]{10}(?:-320)?\.webp|'
         r'assets/reading-audio/[a-z0-9-]+-[a-f0-9]{12}\.mp3|'
