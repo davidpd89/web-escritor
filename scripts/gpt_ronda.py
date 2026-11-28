@@ -15,7 +15,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-URL = 'https://models.github.ai/inference/chat/completions'
+URLS = ('https://models.github.ai/inference/chat/completions', 'https://models.inference.ai.azure.com/chat/completions')
 MODELOS = ('openai/gpt-4.1', 'openai/gpt-4.1-mini')
 MAX_ENTRADA = 22000  # caracteres; el nivel gratuito corta hacia 8000 tokens de entrada
 
@@ -31,12 +31,15 @@ SISTEMA = (
 
 def pedir(mensajes, token):
     ultimo = None
-    for modelo in MODELOS:
-        for intento in range(3):
+    for url, modelo in [(u, m) for m in MODELOS for u in URLS]:
+        if 'azure' in url:
+            modelo = modelo.split('/', 1)[1]  # el endpoint antiguo usa el nombre sin proveedor
+        for intento in range(2):
             cuerpo = json.dumps({'model': modelo, 'messages': mensajes, 'temperature': 0.3, 'max_tokens': 4000}).encode()
-            req = urllib.request.Request(URL, data=cuerpo, method='POST', headers={
+            req = urllib.request.Request(url, data=cuerpo, method='POST', headers={
                 'Authorization': f'Bearer {token}', 'Content-Type': 'application/json',
-                'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28'})
+                'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28',
+                'User-Agent': 'web-escritor-gpt-rondas/1.0'})
             crudo = b''
             try:
                 with urllib.request.urlopen(req, timeout=180) as r:  # noqa: S310 - URL fija
@@ -47,8 +50,8 @@ def pedir(mensajes, token):
                 ultimo = f'HTTP {e.code}: {e.read()[:300]!r}'
             except Exception as e:  # noqa: BLE001 - se reintenta y luego se prueba el modelo de respaldo
                 ultimo = f'{e} (estado {locals().get("estado")}, cuerpo {crudo[:300]!r})'
-            print(f'{modelo} intento {intento + 1} falló: {ultimo}', file=sys.stderr)
-            time.sleep(10 * (intento + 1))
+            print(f'{url} {modelo} intento {intento + 1} falló: {ultimo}', file=sys.stderr)
+            time.sleep(5)
     raise SystemExit(f'ningún modelo respondió: {ultimo}')
 
 
