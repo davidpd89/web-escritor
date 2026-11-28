@@ -22,6 +22,8 @@ def load(name, rel):
 
 
 texts = load('reading_texts_test', 'scripts/reading-texts.py')
+# Sinopsis sin palabras de CLAIMS: los tests de afirmaciones no dependen de qué libro salga primero del catálogo vivo.
+CLAIM_FREE_SYNOPSIS = 'Una historia contada desde dentro que sigue a sus personajes durante un verano decisivo en la costa.'
 builder = texts.catalogue
 
 
@@ -110,7 +112,8 @@ class ReadingTextsTest(unittest.TestCase):
         # caía por «afirmaciones sin respaldo: best seller». Es el nombre de la colección de Debolsillo.
         title = 'Corsarios de Levante (Pirates of the Levant 6) (Best Seller | Ficción)'
         p = {**self.payload, 'afines_ids': {title: 'corsarios'},
-             'evidencias': {**self.payload['evidencias'], 'afines_catalogo': [f'«{title}», de Arturo Pérez-Reverte.']}}
+             'evidencias': {**self.payload['evidencias'], 'sinopsis_editorial': CLAIM_FREE_SYNOPSIS,
+                           'afines_catalogo': [f'«{title}», de Arturo Pérez-Reverte.']}}
         block = {'modulo': 'lecturas_afines', 'evidencias': ['afines_catalogo'],
                  'texto': f'Comparte terreno con {title}, aunque cada uno plantea su conflicto central desde un punto de partida distinto.'}
         self.assertNotIn('afirmaciones sin respaldo: best seller', texts.validate_block(p, block))
@@ -121,7 +124,8 @@ class ReadingTextsTest(unittest.TestCase):
         # Revisión de #1628 (Codex/CodeRabbit): la forma corta «Televisión» no puede tapar «serie de televisión».
         title = 'Televisión: Tecnología y forma cultural'
         p = {**self.payload, 'afines_ids': {title: 'tv'},
-             'evidencias': {**self.payload['evidencias'], 'afines_catalogo': [f'«{title}», de Raymond Williams.']}}
+             'evidencias': {**self.payload['evidencias'], 'sinopsis_editorial': CLAIM_FREE_SYNOPSIS,
+                           'afines_catalogo': [f'«{title}», de Raymond Williams.']}}
         block = {'modulo': 'lecturas_afines', 'evidencias': ['afines_catalogo'],
                  'texto': 'Cuenta con una serie de televisión y se lee junto a Televisión, que mira el mismo medio desde otro punto de partida.'}
         self.assertIn('afirmaciones sin respaldo: serie de televisi', texts.validate_block(p, block))
