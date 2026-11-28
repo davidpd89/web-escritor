@@ -156,6 +156,11 @@ def run_units(names, workers=None, root=None):
     Un proceso que muere sin dejar su JSON es un fallo sin libros: la carga lo trata como error de código."""
     root = root or ROOT
 
+    # el hijo ve los mismos módulos que este proceso (rutas añadidas en ejecución incluidas): un contrato que aquí
+    # carga no puede fallar allí por no encontrarse
+    env = {**os.environ, 'PYTHONIOENCODING': 'utf-8',
+           'PYTHONPATH': os.pathsep.join(p for p in sys.path if p and Path(p).exists())}
+
     def one(group):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / 'grupo.json'
@@ -163,7 +168,7 @@ def run_units(names, workers=None, root=None):
             try:
                 done = subprocess.run(cmd, cwd=root, capture_output=True, text=True, encoding='utf-8',
                                       errors='replace', timeout=GRUPO_LIMITE,
-                                      env={**os.environ, 'PYTHONIOENCODING': 'utf-8'})
+                                      env=env)
             except subprocess.TimeoutExpired:
                 return 0, [{'test': group[0], 'texto': f'sin terminar en {GRUPO_LIMITE} s'}], ''
             if not out.is_file():
@@ -181,13 +186,26 @@ def run_units(names, workers=None, root=None):
     return corridos, todos
 
 
+def solo_scripts(names):
+    """¿Son todos módulos en script (aserciones al importar, sin TestCase)? Ya pasaron al cargarlos sin error; cero
+    tests corridos es lo normal en ellos (28/11: test_reading_itemlist_detail_title_parity es así)."""
+    def script(name):
+        mod = sys.modules.get(name)
+        return mod is not None and not any(isinstance(v, type) and issubclass(v, unittest.TestCase)
+                                           for v in vars(mod).values())
+    return all(script(n) for n in names)
+
+
 def run_group(out, names):
     """Modo hijo: corre `names` en este proceso y deja {corridos, fallos} en `out`."""
     suite = unittest.defaultTestLoader.loadTestsFromNames(names)
     result = unittest.TextTestRunner(verbosity=1, resultclass=Resultado).run(suite)
-    Path(out).write_text(json.dumps({'corridos': result.testsRun, 'fallos': fallos(result)}, ensure_ascii=False),
+    found = fallos(result)
+    if not result.testsRun and not solo_scripts(names):  # una selección que no corre nada no es «pasa» (la bisección
+        found = [{'test': names[0], 'texto': f'ningún test corrido para {", ".join(names)[:300]}'}]  # la tomaría por arreglo)
+    Path(out).write_text(json.dumps({'corridos': result.testsRun, 'fallos': found}, ensure_ascii=False),
                          encoding='utf-8')
-    return 0 if result.wasSuccessful() else 1
+    return 0 if result.wasSuccessful() and not found else 1
 
 
 def elegidos(argv):

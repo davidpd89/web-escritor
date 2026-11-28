@@ -78,17 +78,21 @@ def culpables(cands, falla, *, hasta=None, reloj=time.monotonic):
     """Todos los culpables: tras cada uno, se busca el siguiente con los hallados ya retirados, hasta que retirarlos
     baste. None si el fallo no se reproduce con la carga entera (inestable), si ni retirando todos los candidatos
     pasa (no es un dato de esta noche o no es monótono) o si el arreglo no aguanta una segunda comprobación."""
-    if not cands or not falla([]):
-        return None
+    def probar(quitar):  # todas las sondas, también la inicial y las de confirmación, respetan el plazo
+        if hasta is not None and reloj() >= hasta:
+            raise SinTiempo(f'bisección sin terminar: {len(found)} culpables hallados')
+        return falla(quitar)
     found = []
+    if not cands or not probar([]):
+        return None
     while True:
         rest = [c for c in cands if c not in found]
-        nxt = culpable(rest, lambda q: falla(found + q), hasta=hasta, reloj=reloj)
+        nxt = culpable(rest, lambda q: probar(found + q))
         if nxt is None:  # ni retirándolo todo pasa (o el contrato no es monótono / es inestable): no se aparta nada
             return None
         found.append(nxt)
-        if not falla(found):
-            return found if not falla(found) else None  # pasa dos veces seguidas: no es un acierto inestable
+        if not probar(found):
+            return found if not probar(found) else None  # pasa dos veces seguidas: no es un acierto inestable
 
 
 def ids_solo(failures):

@@ -35,6 +35,14 @@ COLGADO = '''import time, unittest
 class T(unittest.TestCase):
     def test_eterno(self): time.sleep(60)
 '''
+VACIO = '''import unittest
+class T(unittest.TestCase):
+    pass
+'''
+SCRIPT = '''assert 1 + 1 == 2, "regla sintética"
+'''
+SCRIPT_MAL = '''assert 1 + 1 == 3, "regla sintética rota"
+'''
 
 
 class ProcesosTest(unittest.TestCase):
@@ -46,7 +54,8 @@ class ProcesosTest(unittest.TestCase):
         (self.root / 'tests').mkdir()
         shutil.copy(ROOT / 'scripts/check-reading-data.py', self.root / 'scripts/check-reading-data.py')
         shutil.copy(ROOT / 'tests/contrato_libros.py', self.root / 'tests/contrato_libros.py')
-        for name, body in (('test_bien', BIEN), ('test_libros', LIBROS), ('test_colgado', COLGADO)):
+        for name, body in (('test_bien', BIEN), ('test_libros', LIBROS), ('test_colgado', COLGADO), ('test_vacio', VACIO),
+                           ('test_script', SCRIPT), ('test_script_mal', SCRIPT_MAL)):
             (self.root / 'tests' / f'{name}.py').write_text(body, encoding='utf-8')
 
     def test_un_modulo_por_proceso_en_el_orden_de_la_lista(self):
@@ -68,6 +77,20 @@ class ProcesosTest(unittest.TestCase):
         self.assertEqual(len(fallos), 1)
         self.assertIn('test_no_existe', fallos[0]['test'])
         self.assertNotIn('libros', fallos[0])
+
+    def test_una_seleccion_que_no_corre_nada_no_pasa(self):
+        corridos, fallos = puerta.run_units(['test_vacio'], workers=1, root=self.root)
+        self.assertEqual(corridos, 0)
+        self.assertEqual(len(fallos), 1)
+        self.assertIn('ningún test corrido', fallos[0]['texto'])
+        self.assertNotIn('libros', fallos[0])
+
+    def test_un_modulo_en_script_pasa_al_importar_y_falla_si_su_asercion_falla(self):
+        corridos, fallos = puerta.run_units(['test_script'], workers=1, root=self.root)
+        self.assertEqual((corridos, fallos), (0, []))
+        corridos, fallos = puerta.run_units(['test_script_mal'], workers=1, root=self.root)
+        self.assertEqual(len(fallos), 1)
+        self.assertIn('regla sintética rota', fallos[0]['texto'])
 
     def test_un_modulo_colgado_no_se_come_la_carga(self):
         with unittest.mock.patch.object(puerta, 'GRUPO_LIMITE', 3):

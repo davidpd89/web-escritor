@@ -72,6 +72,15 @@ class BusquedaTest(unittest.TestCase):
         with self.assertRaises(bis.SinTiempo):
             bis.culpables([f'b{i}' for i in range(100)], lambda q: 'b99' not in q, hasta=3, reloj=lambda: next(reloj))
 
+    def test_el_plazo_cubre_tambien_la_primera_sonda_y_las_confirmaciones(self):
+        sondas = []
+        with self.assertRaises(bis.SinTiempo):
+            bis.culpables(['a'], lambda q: sondas.append(q) or True, hasta=0, reloj=lambda: 0)
+        self.assertEqual(sondas, [])
+        reloj = iter([0, 0, 0, 5])  # reproducir, sonda con a retirado (un solo candidato) -> confirmar ya sin plazo
+        with self.assertRaises(bis.SinTiempo):
+            bis.culpables(['a'], lambda q: 'a' not in q, hasta=3, reloj=lambda: next(reloj))
+
     def test_candidatos_son_altas_y_cambiados_en_orden_y_retirar_vuelve_a_lo_publicado(self):
         pub = {'libros': [libro('a'), libro('b')], 'libro_categorias': [{'libro_id': 'b', 'categoria_id': 'x'}]}
         data = {'libros': [libro('n1'), libro('a'), libro('b', titulo='cambiado'), libro('n2')],
