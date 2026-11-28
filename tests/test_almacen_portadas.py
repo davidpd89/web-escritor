@@ -113,7 +113,9 @@ class AlmacenPortadasTest(unittest.TestCase):
         self.assertEqual((self.clone / 'isbn-1.webp').read_bytes(), b'distinto')
         self.assertTrue(store.names(self.root))  # las demás sí migran
 
-    def test_nuevo_abre_el_repo_con_pages_y_deja_la_variable_para_el_final(self):
+    @staticmethod
+    def _gh_falso(existe=(), salidas=None):
+        """run falso: las consultas de existencia fallan salvo las de `existe`; `salidas` da stdout por subcomando."""
         calls = []
 
         def run(cmd, **kw):
@@ -122,13 +124,46 @@ class AlmacenPortadasTest(unittest.TestCase):
                 key = Path(cmd[cmd.index('-f') + 1])
                 key.write_text('PRIVADA', encoding='utf-8')
                 key.with_suffix('.pub').write_text('PUBLICA', encoding='utf-8')
-            return subprocess.CompletedProcess(cmd, 0)
+            consulta = cmd[0] == 'gh' and kw.get('capture_output')
+            if consulta and (salidas or {}).get(cmd[1]) is not None:
+                return subprocess.CompletedProcess(cmd, 0, salidas[cmd[1]], '')
+            if consulta and not any(e in ' '.join(cmd) for e in existe):
+                raise subprocess.CalledProcessError(1, cmd)
+            return subprocess.CompletedProcess(cmd, 0, '', '')
+        return run, calls
+
+    def test_nuevo_abre_el_repo_con_pages_y_deja_la_variable_para_el_final(self):
+        run, calls = self._gh_falso()
         self.assertEqual(almacen.nuevo(2, run=run), 'https://davidpd89.github.io/web-escritor-portadas-2')
-        gh = [c[1:3] for c in calls if c[0] == 'gh']
-        self.assertEqual(gh[0], ['repo', 'create'])
-        self.assertIn(['api', '--method'], gh)
-        self.assertEqual(gh[-1], ['variable', 'set'])  # la carga solo cambia de almacén cuando todo lo demás existe
+        hechos = [c[1:3] for c in calls if c[0] == 'gh' and c[2] not in ('view',) and '-q' not in c]
+        self.assertEqual(hechos[0], ['repo', 'create'])
+        self.assertIn(['api', '--method'], hechos)
+        self.assertEqual(hechos[-1], ['variable', 'set'])  # la carga solo cambia de almacén cuando todo lo demás existe
         self.assertTrue(any(c[0] == 'git' and 'push' in c for c in calls))
+
+    def test_nuevo_repetido_tras_un_corte_completa_sin_crear_dos_veces(self):
+        # Repo, commit y Pages ya existen (intento anterior cortado tras el sitio): solo faltan clave y variable.
+        run, calls = self._gh_falso(existe=('repo view', 'commits/main', '/pages'))
+        almacen.nuevo(2, run=run)
+        self.assertFalse(any(c[:3] == ['gh', 'repo', 'create'] for c in calls))
+        self.assertFalse(any(c[0] == 'git' and 'push' in c for c in calls))
+        self.assertFalse(any('--method' in c for c in calls))
+        self.assertTrue(any(c[:4] == ['gh', 'repo', 'deploy-key', 'add'] for c in calls))
+        self.assertEqual(calls[-1][:3], ['gh', 'variable', 'set'])
+
+    def test_auto_no_toca_nada_por_debajo_del_umbral_y_abre_el_siguiente_por_encima(self):
+        run, calls = self._gh_falso(salidas={'variable': 'web-escritor-portadas', 'api': str(500 * 1024)})
+        self.assertIn('sin cambios', almacen.auto(run=run))
+        self.assertFalse(any(c[:3] == ['gh', 'repo', 'create'] for c in calls))
+        run, calls = self._gh_falso(salidas={'variable': 'web-escritor-portadas-2', 'api': str(750 * 1024)})
+        self.assertIn('web-escritor-portadas-3', almacen.auto(run=run))
+        self.assertTrue(any(c[:4] == ['gh', 'repo', 'create', 'davidpd89/web-escritor-portadas-3'] for c in calls))
+
+    def test_auto_sin_tamano_no_abre_nada(self):
+        run, calls = self._gh_falso(salidas={'variable': '', 'api': ''})
+        self.assertIn('sin cambios', almacen.auto(run=run))
+        self.assertEqual(almacen.numero('web-escritor-portadas'), 1)
+        self.assertEqual(almacen.numero('web-escritor-portadas-7'), 7)
 
 
 class WorkflowAlmacenTest(unittest.TestCase):

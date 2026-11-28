@@ -219,7 +219,7 @@ class CheckpointLifetimeTests(unittest.TestCase):
     if fail: raise RuntimeError('CI failed')
    patches=[(refresh,'ROOT',root),(refresh,'command',lambda *a:None),(refresh,'push',lambda *a,**k:None),(refresh,'bot_identity',lambda:None),
     (refresh,'read_json',lambda p:{'rss_enabled':False}),(refresh,'quarantine_summary',lambda *a:''),
-    (refresh,'data_contract_failures',lambda:[]),(refresh.reading_quarantine,'apply',lambda *a:[]),
+    (refresh,'data_contract_failures',lambda:[]),(refresh,'code_contract_failures',lambda *a:[]),(refresh.reading_quarantine,'apply',lambda *a:[]),
     (refresh.materializar,'construir',lambda *a,**k:None),(refresh.materializar,'comprobar',lambda *a,**k:None),
     (refresh.subprocess,'check_output',lambda *a,**k:' M data/reading-catalogue.json\n'),
     (refresh.git_estado,'rutas',lambda *a,**k:['data/reading-catalogue.json']),
@@ -246,7 +246,7 @@ class QuarantineRoundsTests(unittest.TestCase):
    def failures():return [{'test':'contrato','libros':pending.pop(0)}] if pending else []
    patches=[(refresh,'ROOT',Path(tmp)),(refresh,'command',lambda *a:None),(refresh,'push',lambda *a,**k:None),(refresh,'bot_identity',lambda:None),
     (refresh,'read_json',lambda p:{'rss_enabled':False}),(refresh,'quarantine_summary',lambda *a:''),
-    (refresh,'data_contract_failures',failures),(refresh,'drop_orphan_pages',lambda q:None),
+    (refresh,'data_contract_failures',failures),(refresh,'code_contract_failures',lambda *a:[]),(refresh,'drop_orphan_pages',lambda q:None),
     (refresh.reading_quarantine,'split_flagged',lambda f,c:({b:'motivo' for b in f[0]['libros']},[])),
     (refresh.reading_quarantine,'apply',apply),
     (refresh.materializar,'construir',lambda *a,**k:None),(refresh.materializar,'comprobar',lambda *a,**k:None),

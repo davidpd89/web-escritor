@@ -9,6 +9,8 @@ valida cada libro al construir; esto cubre lo que se ve entre páginas.
 
     python scripts/check-reading-data.py
     python scripts/check-reading-data.py --fallos f.json   # además deja los fallos en JSON (la carga aparta sus libros)
+    python scripts/check-reading-data.py --solo a.B.c,tests/test-x.py --fallos f.json   # solo esos contratos
+    python scripts/check-reading-data.py --amplia --fallos f.json   # los tests de código que leen datos reales
 """
 import json
 import os
@@ -81,6 +83,19 @@ def run_scripts(root=ROOT, names=None, workers=4):
         return [f for f in pool.map(one, script_contracts(root) if names is None else names) if f]
 
 
+# 28/11: seis tests de código de test_reading_texts tomaban el primer libro del catálogo real como ejemplo y dos
+# lotes (992 libros) se perdieron en la QA de la PR, sin que ningún fallo nombrara un libro. La pasada amplia corre
+# una vez antes de abrir la PR los módulos que leen el catálogo o lo generado y no están ya enteros en la puerta;
+# lo que falle sin nombrar libros lo atribuye la carga por bisección (scripts/biseccion_carga.py).
+AMPLIA_RASTROS = ('reading-catalogue.json', 'data/reading', 'recomendaciones/')
+
+
+def amplia(root=ROOT):
+    enteros = {n for n in contracts() if '.' not in n}
+    return sorted(f.stem for f in (root / 'tests').glob('test_*.py')
+                  if f.stem not in enteros and any(r in f.read_text(encoding='utf-8', errors='ignore') for r in AMPLIA_RASTROS))
+
+
 def contracts():
     found = {f.stem for pattern in DATA_FAMILIES for f in (ROOT / 'tests').glob(pattern)}
     return list(DATA_CONTRACTS) + sorted(found - set(DATA_CONTRACTS))
@@ -118,23 +133,96 @@ def fallos(result):
             for test, text in result.failures + result.errors]
 
 
-def main():
-    sys.path.insert(0, str(ROOT / 'tests'))
-    start = time.monotonic()
-    suite = unittest.defaultTestLoader.loadTestsFromNames(contracts())
+def grupos(names):
+    """Un grupo por módulo, en el orden de la lista: el setUpClass y las cachés del módulo se pagan una vez."""
+    por_modulo = {}
+    for name in names:
+        por_modulo.setdefault(name.split('.')[0], []).append(name)
+    return list(por_modulo.values())
+
+
+GRUPO_LIMITE = 1800  # segundos por módulo; uno colgado no debe comerse las 4 h de la carga
+
+
+def eco(text):
+    """Imprime sin que una consola cp1252 tumbe la puerta por un carácter del registro de un hijo."""
+    enc = getattr(sys.stdout, 'encoding', None) or 'utf-8'
+    print(text.encode(enc, errors='replace').decode(enc), flush=True)
+
+
+def run_units(names, workers=None, root=None):
+    """Corre los contratos unittest en subprocesos, un módulo por proceso (28/11: en un solo proceso tardaban
+    17-18 min por pasada y la carga repite la puerta en cada vuelta de cuarentena). Devuelve (corridos, fallos).
+    Un proceso que muere sin dejar su JSON es un fallo sin libros: la carga lo trata como error de código."""
+    root = root or ROOT
+
+    def one(group):
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / 'grupo.json'
+            cmd = [sys.executable, str(root / 'scripts' / 'check-reading-data.py'), '--grupo', str(out), *group]
+            try:
+                done = subprocess.run(cmd, cwd=root, capture_output=True, text=True, encoding='utf-8',
+                                      errors='replace', timeout=GRUPO_LIMITE,
+                                      env={**os.environ, 'PYTHONIOENCODING': 'utf-8'})
+            except subprocess.TimeoutExpired:
+                return 0, [{'test': group[0], 'texto': f'sin terminar en {GRUPO_LIMITE} s'}], ''
+            if not out.is_file():
+                return 0, [{'test': group[0], 'texto': (done.stdout + done.stderr)[-3000:]}], ''
+            data = json.loads(out.read_text(encoding='utf-8'))
+            return data['corridos'], data['fallos'], (done.stderr if data['fallos'] else '')
+    corridos, todos = 0, []
+    workers = workers or int(os.environ.get('PUERTA_PROCESOS') or 0) or max(2, os.cpu_count() or 2)
+    with ThreadPoolExecutor(workers) as pool:
+        for run, found, log in pool.map(one, grupos(names)):
+            corridos += run
+            todos += found
+            if log:
+                eco(log[-6000:])
+    return corridos, todos
+
+
+def run_group(out, names):
+    """Modo hijo: corre `names` en este proceso y deja {corridos, fallos} en `out`."""
+    suite = unittest.defaultTestLoader.loadTestsFromNames(names)
     result = unittest.TextTestRunner(verbosity=1, resultclass=Resultado).run(suite)
-    print(f'datos del catálogo: {result.testsRun} contratos en {time.monotonic() - start:.0f}s')
+    Path(out).write_text(json.dumps({'corridos': result.testsRun, 'fallos': fallos(result)}, ensure_ascii=False),
+                         encoding='utf-8')
+    return 0 if result.wasSuccessful() else 1
+
+
+def elegidos(argv):
+    """`--solo a,b` limita la pasada a esos contratos (ids de unittest o tests/test-x.py): la carga, tras apartar
+    libros, solo repite lo que falló antes de la pasada completa final."""
+    if '--amplia' in argv:
+        return amplia(), []
+    if '--solo' not in argv:
+        return contracts(), None
+    names = [n for n in argv[argv.index('--solo') + 1].split(',') if n]
+    return [n for n in names if not n.startswith('tests/')], [n[len('tests/'):] for n in names if n.startswith('tests/')]
+
+
+def main(argv=None):
+    argv = sys.argv[1:] if argv is None else argv
+    sys.path.insert(0, str(ROOT / 'tests'))
+    if argv[:1] == ['--grupo']:
+        return run_group(argv[1], argv[2:])
+    units, scripts_solo = elegidos(argv)
     start = time.monotonic()
-    scripts = run_scripts()
+    corridos, unit_fallos = run_units(units) if units else (0, [])
+    for f in unit_fallos:
+        eco(f"FALLA {f['test']}:\n{f['texto'][-1500:]}")
+    print(f'datos del catálogo: {corridos} contratos en {time.monotonic() - start:.0f}s')
+    start = time.monotonic()
+    scripts = run_scripts(names=scripts_solo) if scripts_solo is None or scripts_solo else []
     for f in scripts:
         # Un script que no termina a tiempo no es un fallo determinista: sin «FALLA» la puerta sí lo reintenta.
         marca = 'TIEMPO' if f['texto'].startswith('sin terminar') else 'FALLA'
-        print(f"{marca} {f['test']}:\n{f['texto']}", flush=True)
-    print(f'datos del catálogo: {len(script_contracts())} contratos en script en {time.monotonic() - start:.0f}s')
-    if '--fallos' in sys.argv:
-        path = Path(sys.argv[sys.argv.index('--fallos') + 1])
-        path.write_text(json.dumps(fallos(result) + scripts, ensure_ascii=False, indent=1), encoding='utf-8')
-    return 0 if result.wasSuccessful() and not scripts else 1
+        eco(f"{marca} {f['test']}:\n{f['texto']}")
+    print(f'datos del catálogo: {len(scripts_solo if scripts_solo is not None else script_contracts())} contratos en script en {time.monotonic() - start:.0f}s')
+    if '--fallos' in argv:
+        path = Path(argv[argv.index('--fallos') + 1])
+        path.write_text(json.dumps(unit_fallos + scripts, ensure_ascii=False, indent=1), encoding='utf-8')
+    return 0 if not unit_fallos and not scripts else 1
 
 if __name__ == '__main__':
     raise SystemExit(main())

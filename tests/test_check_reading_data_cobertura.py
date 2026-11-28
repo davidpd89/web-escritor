@@ -19,6 +19,7 @@ spec.loader.exec_module(puerta)
 
 # Recorren libros de fixtures o de un repo temporal, no el catálogo publicado: un fallo es de código, no de un libro.
 CODIGO = {
+    'test_biseccion_carga.SondaSobreElCatalogoTest.test_cada_sonda_deja_el_catalogo_como_estaba',
     'test_reading_amazon_audit.AmazonAuditTests.test_every_published_book_is_due_oldest_first_without_a_cap',
     'test_reading_amazon_audit.AmazonAuditTests.test_cover_follows_the_book_in_main_not_the_kind_stored_in_the_record',
     'test_reading_amazon_audit.AmazonAuditTests.test_cover_cap_goes_to_the_books_closest_to_today',

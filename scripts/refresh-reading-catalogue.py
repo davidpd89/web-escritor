@@ -21,6 +21,7 @@ import git_estado
 import gh_listas
 import reading_cover_store as cover_store
 import reading_quarantine
+import biseccion_carga
 import catalogo_estado as estado
 import presupuesto_sitio as presupuesto
 import materializar_generados as materializar
@@ -753,15 +754,61 @@ def open_issue(title, body):
         print(f'::warning::No se pudo abrir la issue «{title}»: {exc}', flush=True)
 
 
-def data_contract_failures():
+def data_contract_failures(*extra):
     """Corre los contratos de datos; devuelve sus fallos ([{test, texto}], vacío si pasan)."""
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp) / 'fallos.json'
-        code = subprocess.run([sys.executable, 'scripts/check-reading-data.py', '--fallos', str(out)], cwd=ROOT).returncode
+        code = subprocess.run([sys.executable, 'scripts/check-reading-data.py', *extra, '--fallos', str(out)], cwd=ROOT).returncode
         failures = json.loads(out.read_text(encoding='utf-8')) if out.exists() else []
     if code and not failures:
         raise RuntimeError(f'check-reading-data salió con {code} sin fallos de contrato (error de carga de los tests)')
     return failures
+
+
+def code_contract_failures(only=None):
+    """Pasada amplia: tests de código que leen el catálogo real (check-reading-data.py --amplia). Con `only`, solo
+    esos ids (lo que falló en la vuelta anterior)."""
+    return data_contract_failures(*(['--solo', ','.join(only)] if only else ['--amplia']))
+
+
+RESERVA_PUBLICAR = 75 * 60  # lo que necesitan la PR, su CI y la publicación tras abrirla
+
+
+def bisect_unattributed(unattributed):
+    """{id: motivo} de los libros de esta carga sin los que pasan los contratos que fallan sin nombrar ninguno
+    (scripts/biseccion_carga.py); {} si ni retirándolos todos pasan o no queda plazo. Cada sonda reescribe solo el
+    catálogo y repite esos contratos; el catálogo vuelve siempre a como estaba."""
+    bis = biseccion_carga
+    ids = bis.ids_solo(unattributed)
+    path = ROOT / reading_quarantine.CATALOGUE
+    original = path.read_bytes()
+    data = json.loads(original)
+    published = reading_quarantine.committed(ROOT)
+    cands = bis.candidatos(data, published)
+    hasta = os.environ.get('PUBLICAR_HASTA', '').strip()
+    hasta = int(hasta) - RESERVA_PUBLICAR if hasta.isdigit() else None
+    sondas = []
+
+    def falla(quitar):
+        sondas.append(len(quitar))
+        write_changed(path, bis.retirar(data, published, quitar))
+        try:
+            return bool(data_contract_failures('--solo', ','.join(ids)))
+        except RuntimeError:
+            return True  # la puerta no cargó: no cuenta como «pasa»
+        finally:
+            path.write_bytes(original)
+    print(f'Bisección: {len(cands)} libros de la carga contra {len(ids)} contratos sin libro', flush=True)
+    try:
+        found = bis.culpables(cands, falla, hasta=hasta, reloj=time.time)
+    except bis.SinTiempo as exc:
+        print(f'::warning::{exc}', flush=True)
+        found = None
+    finally:
+        path.write_bytes(original)
+    print(f'Bisección: {len(sondas)} sondas; culpables: {found or "ninguno"}', flush=True)
+    why = '; '.join(ids)[:200]
+    return {i: f'contrato sin libro {why}: falla con este libro y pasa sin él (bisección)' for i in found or ()}
 
 
 def entradas(quarantined, ids):
@@ -821,6 +868,7 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
     def registrar(_root):
         git_estado.preparar(ROOT, [*staged, 'assets/pinterest/feeds'])
     flagged = {}
+    wide = None  # pasada amplia: None = entera; lista = repetir esos ids; [] = ya pasó
     # Sin tope de rondas: cada vuelta o pasa, o para (no nombra libros nuevos ni la cuarentena hace nada con los ya
     # nombrados), o avanza; con 1000 altas por tanda caben más de 3 tandas de problemas encadenados, y el catálogo
     # es finito. Un libro repetido no es automáticamente «la regla rota»: 16/11, isbn-9791388205675 volvía a
@@ -834,9 +882,25 @@ def assemble(report, *, changed, replaced=None, source=None, checkpoint=None):
         materializar.comprobar(ROOT, assets=False)
         # Solo los contratos de datos: el código ya lo probó la batería completa del Required merge gate en main.
         failures = data_contract_failures()
+        stage = 'datos'
+        if not failures and wide != []:
+            # Con los datos en verde, una vez los tests de código que leen el catálogo real (28/11: usaban el primer
+            # libro como ejemplo y la PR salía roja sin nombrar ninguno). Luego solo lo que falló.
+            failures, stage = code_contract_failures(wide), 'código'
+            wide = biseccion_carga.ids_solo(failures)
         if not failures:
             break
         named, unattributed = reading_quarantine.split_flagged(failures, read_json(ROOT / reading_quarantine.CATALOGUE))
+        if not named:
+            # Sin libro nombrado: se busca por bisección entre los libros de esta noche el que lo provoca.
+            named = bisect_unattributed(unattributed)
+            unattributed = [] if named else unattributed
+        if not named and stage == 'código':
+            # Ni sin los libros de esta noche pasa: es código de main, no un dato. No se pierde el lote por ello; la
+            # QA de la PR decide con la batería completa (antes de esta pasada era igual).
+            print('::warning::Tests de código que fallan también sin los libros de la carga: '
+                  + '; '.join(f['test'] for f in unattributed)[:600], flush=True)
+            break
         if not named:
             raise RuntimeError('check-reading-data falló en contratos que no nombran ningún libro: '
                                + '; '.join(f['test'] for f in unattributed)[:600])
