@@ -67,6 +67,17 @@ class RealGitConflictsTest(unittest.TestCase):
         self.assertEqual(self.git('rev-parse','HEAD'),original)
         self.assertEqual((self.root/'scripts/source.py').read_text(),'feature')
         self.assertEqual(self.git('status','--porcelain'),'')
+    def test_catalogue_conflict_is_real_unless_the_branch_declares_it_derived(self):
+        cat = 'data/reading-catalogue.json'
+        self.write(cat, 'base'); self.commit('catalogue')
+        self.git('switch', '-qc', 'feature'); self.write(cat, 'feature'); self.commit('derived catalogue')
+        self.git('switch', '-q', 'main'); self.write(cat, 'main'); self.commit('nightly load')
+        self.git('switch', '-q', 'feature')
+        with self.assertRaisesRegex(SystemExit, 'no son generados'):
+            rr.rebasar('main')
+        rr.rebasar('main', frozenset({cat}))
+        self.assertEqual((self.root / cat).read_text(), 'main')  # se rederiva después sobre la carga de main
+        self.assertEqual(self.git('status', '--porcelain'), '')
     def test_many_generated_paths_are_staged_without_windows_argv_limit(self):
         def generated():
             for i in range(400):self.write('pagefind/fragment/'+str(i)+'-'+'x'*75+'.pf_fragment','generated')

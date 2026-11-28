@@ -421,7 +421,7 @@ VERSE_TITLE = re.compile(r'\bpoesia\b|\bpoemas?\b|\bversos?\b|\brimas?\b|\bcopla
 
 def children_drop(book: dict, assigned: set) -> set:
     """Géneros de adultos que sobran en un libro infantil (no juvenil): terror, romance y poesía sin versos en el título."""
-    if CHILD_ID not in assigned or assigned & OLDER_AUDIENCE:
+    if reviewed(book) or CHILD_ID not in assigned or assigned & OLDER_AUDIENCE:
         return set()
     drop = assigned & ADULT_FOR_CHILDREN
     if 'poesia' in assigned and not VERSE_TITLE.search(normalize_text(book.get('titulo') or '')):
@@ -495,7 +495,7 @@ def repair_children_brands(catalogue: dict, by_book: dict) -> list:
     repaired = []
     for book in catalogue['libros']:
         assigned = by_book.get(book['id'], set())
-        if CHILD_ID in assigned or assigned & OLDER_AUDIENCE or 'ensayo' in assigned:
+        if reviewed(book) or CHILD_ID in assigned or assigned & OLDER_AUDIENCE or 'ensayo' in assigned:
             continue
         title = normalize_text(book.get('titulo') or '')
         imprint = normalize_text(book.get('editorial') or '')
@@ -725,7 +725,7 @@ NON_FICTION_THEMES = {'tema-viajes', 'tema-economia-politica-sociedad-y-actualid
 def title_only_fiction(book: dict, assigned: set) -> set:
     """Géneros de ficción que sobran: todos salen del título, el libro es de adultos y tiene tema de no ficción."""
     fiction = assigned & FICTION_GENRES
-    if (not fiction or not assigned & NON_FICTION_THEMES or assigned & (NON_FICTION_GENRES | OLDER_AUDIENCE)
+    if (reviewed(book) or not fiction or not assigned & NON_FICTION_THEMES or assigned & (NON_FICTION_GENRES | OLDER_AUDIENCE)
             or assigned & {'infantil', COMIC_ID} or book.get('publico_amazon')):
         return set()
     subjects = subject_text(book)
@@ -830,12 +830,95 @@ def ensure_genre(catalogue: dict, by_book: dict, fallback: GenreFallback) -> dic
     return added
 
 
+# Capa final de veredictos (2026-11-26). Las reglas de arriba clasifican libros nuevos; un libro revisado
+# (GPT con fuentes + comprobación, rondas R2/R3) queda fijado en data/reading-classification-verdicts.json:
+# {id: {"gen": [...], "pub": "i|j|a"}}. Se aplica el último y es idempotente: ninguna reparación posterior
+# lo deshace, y las reglas no vuelven a inventar «aventuras» o «relatos» en un libro ya adjudicado.
+VERDICTS_FILE = Path(__file__).resolve().parents[1] / 'data' / 'reading-classification-verdicts.json'
+NEW_GENRES = {'teatro': ('Teatro', 'Textos dramáticos y obras de teatro.', 221),
+              'manuales-y-formacion': ('Manuales y formación', 'Manuales técnicos, profesionales y universitarios.', 222)}
+
+
+@lru_cache(maxsize=None)
+def _published_verdicts() -> dict:
+    return load_verdicts()
+
+
+def reviewed(book: dict) -> bool:
+    """Un libro revisado uno a uno: su veredicto manda sobre las heurísticas («Coraline» sí es terror infantil)."""
+    return book.get('id') in _published_verdicts()
+
+
+def load_verdicts(path: Path = VERDICTS_FILE) -> dict:
+    try:
+        data = json.loads(path.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def verdict_genres(gen: list, genre_ids: set) -> set:
+    """Géneros del veredicto en un solo lado del eje ficción/no ficción: manda el principal (el primero).
+    GPT a veces suma «filosofía» a una novela; el catálogo no admite libros en las dos caras."""
+    gen = [g for g in gen if g in genre_ids]
+    side = next((FICTION_GENRES if g in FICTION_GENRES else NON_FICTION_GENRES for g in gen
+                 if g in FICTION_GENRES or g in NON_FICTION_GENRES), None)
+    other = (NON_FICTION_GENRES if side is FICTION_GENRES else FICTION_GENRES) if side else set()
+    return {g for g in gen if g not in other}
+
+
+def apply_verdicts(catalogue: dict, by_book: dict, verdicts: dict | None = None) -> list:
+    """Fija géneros y público de los libros con veredicto. Solo toca géneros y las etiquetas de público
+    (infantil, juvenil); los temas y las edades siguen siendo de los nodos."""
+    verdicts = load_verdicts() if verdicts is None else verdicts
+    cat_ids = {c['id'] for c in catalogue['categorias']}
+    genre_ids = {c['id'] for c in catalogue['categorias'] if c['tipo'] == 'genero'}
+    present = [verdicts[b['id']] for b in catalogue['libros'] if b['id'] in verdicts]
+    for gid, (name, desc, order) in NEW_GENRES.items():
+        if gid not in cat_ids and any(gid in (v.get('gen') or []) for v in present):
+            catalogue['categorias'].append({'id': gid, 'slug': gid, 'nombre': name, 'tipo': 'genero',
+                                            'descripcion': desc, 'orden': order, 'activa': True})
+            genre_ids.add(gid)
+    repaired = []
+    for book in catalogue['libros']:
+        v = verdicts.get(book['id'])
+        if not v:
+            continue
+        want = verdict_genres(v.get('gen') or [], genre_ids)
+        pub = v.get('pub')
+        if pub == 'i':
+            want.add(CHILD_ID)
+        if not want:
+            continue
+        if 'romance' in want and 'fantasia' in want and 'romantasy' in genre_ids:
+            want.add('romantasy')  # misma derivación que apply_derived
+        assigned = by_book.setdefault(book['id'], set())
+        if 'fantasia' in want:  # subgéneros propios que la revisión no pregunta
+            want |= assigned & {'fantasia-oscura'} & genre_ids
+            if pub == 'j':
+                want |= assigned & {'fantasia-juvenil'} & genre_ids
+        keep = {a for a in assigned if a not in genre_ids and a != JUVENILE_AUDIENCE}
+        final = keep | want
+        if pub == 'j':
+            final.add(JUVENILE_AUDIENCE)
+        if final == assigned:
+            continue
+        catalogue['libro_categorias'] = [r for r in catalogue['libro_categorias'] if r['libro_id'] != book['id']]
+        catalogue['libro_categorias'] += [{'libro_id': book['id'], 'categoria_id': c} for c in sorted(final)]
+        by_book[book['id']] = final
+        repaired.append(book['id'])
+    return repaired
+
+
 def repair_classification(catalogue, today=None):
     """Repara la clasificación automática: consulta→ensayo, etiquetas de nodos de Amazon y libros sin género.
     Idempotente; corre en cada carga (cuarentena) y en cada alta (apply_derived)."""
     by_book = {}
     for rel in catalogue['libro_categorias']:
         by_book.setdefault(rel['libro_id'], set()).add(rel['categoria_id'])
+    before = {ident: set(cats) for ident, cats in by_book.items()}
+    dates = {book['id']: book.get('fecha_actualizacion') for book in catalogue['libros']}
+    position = {(r['libro_id'], r['categoria_id']): i for i, r in enumerate(catalogue['libro_categorias'])}
     repaired = []
     for book in catalogue['libros']:
         assigned = by_book.get(book['id'], set())
@@ -871,8 +954,19 @@ def repair_classification(catalogue, today=None):
     touched |= set(repair_children_genres(catalogue, by_book))  # los repasos anteriores no devuelven lo de adultos
     # Quitar etiquetas de nodo puede dejar «narrativa-juvenil» sola con la no ficción: el público se repara otra vez.
     touched |= set(repair_juvenile_audience(catalogue, by_book)) | set(ensure_genre(catalogue, by_book, fallback))
-    if today:
-        for book in catalogue['libros']:
-            if book['id'] in touched:
+    touched |= set(apply_verdicts(catalogue, by_book))
+    # Un repaso que quita algo y el veredicto que lo devuelve mueven filas: el orden de entrada se conserva
+    # (las nuevas, al final) para que una segunda pasada no cambie nada.
+    catalogue['libro_categorias'].sort(key=lambda r: position.get((r['libro_id'], r['categoria_id']), len(position)))
+    # Los repasos pueden quitar algo que el veredicto devuelve: solo cuenta como cambio lo que queda distinto.
+    after = {}
+    for rel in catalogue['libro_categorias']:
+        after.setdefault(rel['libro_id'], set()).add(rel['categoria_id'])
+    changed = {ident for ident in touched | set(repaired) if before.get(ident, set()) != after.get(ident, set())}
+    for book in catalogue['libros']:
+        if book['id'] in changed:
+            if today:
                 book['fecha_actualizacion'] = today
-    return repaired + sorted(touched - set(repaired))
+        elif book['id'] in touched and dates.get(book['id']) is not None:
+            book['fecha_actualizacion'] = dates[book['id']]
+    return [ident for ident in repaired if ident in changed] + sorted(changed - set(repaired))
