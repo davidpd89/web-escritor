@@ -633,84 +633,109 @@
     "cano pina s l",
     "universidad austral ediciones",
     "universidad austral de chile",
-    "universidad austral"
+    "universidad austral",
+    "ifwg publishing australia"
   ],
   "cola": [
     {
       "consulta": "Austral",
-      "nivel": 2,
-      "nodo": "902614031",
+      "nivel": 3,
+      "nodo": "902639031",
       "ruta": [
-        "Hogar, manualidades y estilos de vida",
-        "Guías de estilos personales y estilos de vida"
+        "Infantil",
+        "Fantasía y ciencia ficción",
+        "Fantasía"
+      ],
+      "sello": "Austral"
+    },
+    {
+      "consulta": "Austral",
+      "nivel": 3,
+      "nodo": "902643031",
+      "ruta": [
+        "Infantil",
+        "Fantasía y ciencia ficción",
+        "Terror, fantasmas y monstruos"
       ],
       "sello": "Austral"
     },
     {
       "consulta": "Austral",
       "nivel": 2,
-      "nodo": "902615031",
+      "nodo": "5272184031",
       "ruta": [
-        "Hogar, manualidades y estilos de vida",
-        "Jardinería"
+        "Infantil",
+        "Historia"
       ],
       "sello": "Austral"
     },
     {
       "consulta": "Austral",
       "nivel": 2,
-      "nodo": "902616031",
+      "nodo": "5272306031",
       "ruta": [
-        "Hogar, manualidades y estilos de vida",
-        "Juegos y adivinanzas"
-      ],
-      "sello": "Austral"
-    },
-    {
-      "consulta": "Austral",
-      "nivel": 2,
-      "nodo": "902617031",
-      "ruta": [
-        "Hogar, manualidades y estilos de vida",
-        "Mantenimiento del hogar y la vivienda"
-      ],
-      "sello": "Austral"
-    },
-    {
-      "consulta": "Austral",
-      "nivel": 2,
-      "nodo": "902618031",
-      "ruta": [
-        "Hogar, manualidades y estilos de vida",
-        "Maquetas y trenes eléctricos"
-      ],
-      "sello": "Austral"
-    },
-    {
-      "consulta": "Austral",
-      "nivel": 2,
-      "nodo": "902619031",
-      "ruta": [
-        "Hogar, manualidades y estilos de vida",
-        "Mascotas"
-      ],
-      "sello": "Austral"
-    },
-    {
-      "consulta": "Austral",
-      "nivel": 1,
-      "nodo": "902620031",
-      "ruta": [
+        "Infantil",
         "Humor"
       ],
       "sello": "Austral"
     },
     {
       "consulta": "Austral",
-      "nivel": 1,
-      "nodo": "902621031",
+      "nivel": 2,
+      "nodo": "5382015031",
       "ruta": [
-        "Infantil"
+        "Infantil",
+        "Literatura y ficción"
+      ],
+      "sello": "Austral"
+    },
+    {
+      "consulta": "Austral",
+      "nivel": 2,
+      "nodo": "5272187031",
+      "ruta": [
+        "Infantil",
+        "Lugares y culturas"
+      ],
+      "sello": "Austral"
+    },
+    {
+      "consulta": "Austral",
+      "nivel": 2,
+      "nodo": "13356163031",
+      "ruta": [
+        "Infantil",
+        "Misterios y detectives"
+      ],
+      "sello": "Austral"
+    },
+    {
+      "consulta": "Austral",
+      "nivel": 2,
+      "nodo": "5328472031",
+      "ruta": [
+        "Infantil",
+        "Ordenadores y tecnología"
+      ],
+      "sello": "Austral"
+    },
+    {
+      "consulta": "Austral",
+      "nivel": 2,
+      "nodo": "5272188031",
+      "ruta": [
+        "Infantil",
+        "Religión"
+      ],
+      "sello": "Austral"
+    },
+    {
+      "consulta": "Austral",
+      "nivel": 2,
+      "nodo": "13356180031",
+      "ruta": [
+        "Infantil",
+        "Vacaciones y celebraciones"
       ],
       "sello": "Austral"
     },
@@ -1161,14 +1186,15 @@
     "Agencia Grafica S.L. Poligono do Tambre. Via Nobel, Nave 14. 15890 Santiago de Compostela (Spain)",
     "Universidad Austral Ediciones",
     "Universidad Austral de Chile",
-    "Universidad Austral"
+    "Universidad Austral",
+    "IFWG Publishing Australia"
   ],
   "dia": "2026-11-08",
   "errores": [],
   "grupos": {
     "austral": {
-      "libros_es": 102,
-      "pendientes": 20
+      "libros_es": 103,
+      "pendientes": 22
     }
   },
   "hijos": {
@@ -2149,6 +2175,28 @@
         "Pequeños animales"
       ]
     ],
+    "5272146031": [
+      [
+        "13355902031",
+        "Arquitectura"
+      ],
+      [
+        "5272147031",
+        "Arte"
+      ],
+      [
+        "5272149031",
+        "Artes escénicas"
+      ],
+      [
+        "13355913031",
+        "Fotografía"
+      ],
+      [
+        "5272148031",
+        "Música"
+      ]
+    ],
     "5272177031": [
       [
         "13355944031",
@@ -2351,6 +2399,40 @@
       [
         "13355887031",
         "Zorros y lobos"
+      ]
+    ],
+    "5272181031": [
+      [
+        "13355971031",
+        "Autobuses"
+      ],
+      [
+        "13355972031",
+        "Aviones y aviación"
+      ],
+      [
+        "13355973031",
+        "Barcos y naves"
+      ],
+      [
+        "13355974031",
+        "Coches, camiones y autobuses"
+      ],
+      [
+        "13355976031",
+        "Ficción"
+      ],
+      [
+        "13355977031",
+        "Motocicletas"
+      ],
+      [
+        "13355978031",
+        "Trenes"
+      ],
+      [
+        "13355975031",
+        "Vehículos de construcción"
       ]
     ],
     "5272187031": [
@@ -3826,12 +3908,16 @@
         "Vegetariana"
       ]
     ],
+    "902614031": [],
+    "902615031": [],
     "902616031": [
       [
         "90130434031",
         "Juegos de fiesta"
       ]
     ],
+    "902617031": [],
+    "902619031": [],
     "902620031": [],
     "902621031": [
       [
@@ -3917,6 +4003,88 @@
       [
         "13356180031",
         "Vacaciones y celebraciones"
+      ]
+    ],
+    "902622031": [
+      [
+        "16171973031",
+        "Acción y aventura"
+      ],
+      [
+        "16171975031",
+        "Adaptaciones clásicas"
+      ],
+      [
+        "16171974031",
+        "Animales"
+      ],
+      [
+        "13355980031",
+        "Biográficas"
+      ],
+      [
+        "16171984031",
+        "Ciencia ficción"
+      ],
+      [
+        "16171983031",
+        "Ciencia y naturaleza"
+      ],
+      [
+        "16171976031",
+        "Cuentos, fábulas y mitos"
+      ],
+      [
+        "16171985031",
+        "Cuestiones sociales y filosóficas"
+      ],
+      [
+        "16171977031",
+        "Fantasía"
+      ],
+      [
+        "13355981031",
+        "Ficción"
+      ],
+      [
+        "13355982031",
+        "Historia"
+      ],
+      [
+        "16171979031",
+        "Humor"
+      ],
+      [
+        "13355983031",
+        "Manga"
+      ],
+      [
+        "16171980031",
+        "Misterios y detectives"
+      ],
+      [
+        "13355984031",
+        "No ficción"
+      ],
+      [
+        "16171981031",
+        "Paranormal"
+      ],
+      [
+        "13355979031",
+        "Sagas mediáticas"
+      ],
+      [
+        "13355985031",
+        "Superhéroes"
+      ],
+      [
+        "16171978031",
+        "Terror"
+      ],
+      [
+        "16171982031",
+        "Vida escolar"
       ]
     ],
     "902623031": [
@@ -4763,7 +4931,7 @@
       ]
     ]
   },
-  "libros_es": 21200,
+  "libros_es": 21201,
   "origen": {
     "Agencia Grafica S.L. Poligono do Tambre. Via Nobel, Nave 14. 15890 Santiago de Compostela (Spain)": "Agencia Gráfica S.L. Polígono do Tambre. Vía Nóbel, Nave 14. 15890 Santiago de Compostela (Spain)",
     "Editorial Akelarre Ediciones": "Akelarre Ediciones",
@@ -4784,14 +4952,14 @@
     "Editorial Tundra Producciones": "Tundra Producciones",
     "Grupo Planeta Mexico": "Grupo Planeta México"
   },
-  "particiones": 2447,
-  "peticiones": 4554,
+  "particiones": 2609,
+  "peticiones": 4722,
   "reintentos": 8676,
   "reintentos_dia": "2026-11-28",
-  "segundos": 83,
+  "segundos": 185,
   "sellos_leidos": 303,
-  "sellos_llenos": 311,
-  "sellos_nuevos": 165,
+  "sellos_llenos": 345,
+  "sellos_nuevos": 166,
   "sellos_saltados": 9,
   "variantes_probadas": [
     "matchstories|editorial matchstories",
