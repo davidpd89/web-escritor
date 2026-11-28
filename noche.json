@@ -160,14 +160,14 @@
   {
    "run": 46079808104,
    "intento": 1,
-   "sha": "e34a106de2541a641c4675e5dbf1861f6e0be372",
+   "sha": "63a556a68019e93f08bf1a4507d9953b23176a72",
    "motivo": "manual",
    "inicio": "2026-11-27T22:59:09Z",
-   "fin": null,
-   "resultado": "en_curso",
-   "clase": null,
-   "firma": null,
-   "codigo": "cd0bbd50c52f8fca759deb99a4cae133b18db0ae"
+   "fin": "2026-11-28T01:17:12Z",
+   "resultado": "fallido",
+   "clase": "determinista",
+   "firma": "tests/test_reading_texts.py",
+   "codigo": "03b937094c69036c161270f225e0f19581da123b"
   }
  ]
 }
