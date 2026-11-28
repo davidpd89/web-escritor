@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
 from reading_intake_fetch import write_if_changed  # noqa: E402
-from reading_intake_pipeline import ensure_author_records  # noqa: E402
+from reading_intake_pipeline import ensure_author_records, mark_corporate_authors  # noqa: E402
 
 
 def main(argv=None):
@@ -26,15 +26,17 @@ def main(argv=None):
     path = args.root / 'data/reading-authors.json'
     authors = json.loads(path.read_text(encoding='utf-8'))
     added = ensure_author_records(authors, catalogue, date.today().isoformat())
+    marked = mark_corporate_authors(authors)
     if args.check:
-        if added:
-            print(f'{len(added)} autores sin ficha; ejecutar scripts/backfill-reading-author-pages.py', file=sys.stderr)
+        if added or marked:
+            print(f'{len(added)} autores sin ficha y {len(marked)} firmas corporativas sin marcar; ejecutar '
+                  'scripts/backfill-reading-author-pages.py', file=sys.stderr)
             return 1
         print('Fichas de autor al día')
         return 0
-    if added:
+    if added or marked:
         write_if_changed(path, authors)
-    print(f'{len(added)} fichas de autor añadidas')
+    print(f'{len(added)} fichas de autor añadidas; {len(marked)} firmas marcadas como organización')
     return 0
 
 

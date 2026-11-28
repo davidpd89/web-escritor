@@ -333,6 +333,30 @@ def update_authors(payload, catalogue, new_books, today):
             used.add(key)
 
 
+# Firmas corporativas: su ficha declara `entidad: organizacion` y su página, Organization (no Person). Palabras que
+# solo usa una institución, un sello o una marca; «S.A.»/«S.L.» solo al final (James S.A. Corey es una persona).
+CORPORATE_AUTHOR = re.compile(
+    r"\b(?:studios?|editorial|editores|ediciones|equipo|instituto|asociaci[oó]n|fundaci[oó]n|universidad|museo|grupo de|"
+    r"sociedad|comit[eé]|ministerio|consejo|real academia|departamento|federaci[oó]n|ayuntamiento|diputaci[oó]n|"
+    r"[aá]rea de gobierno|disney|marvel|nintendo|ubisoft|pok[eé]mon company|winx club|entertainment|press)\b"
+    r"|\b(?:s\.?\s?a\.?|s\.?\s?l\.?|inc\.?|ltd\.?)$", re.I)
+
+
+def is_corporate_author(name):
+    return bool(CORPORATE_AUTHOR.search(name.strip()))
+
+
+
+def mark_corporate_authors(payload):
+    """Fichas bibliográficas de una firma corporativa sin `entidad`: se marcan como organización. Devuelve los nombres."""
+    marked = []
+    for a in payload['autores']:
+        if a.get('tipo') == 'bibliografico' and 'entidad' not in a and is_corporate_author(a['nombre']):
+            a['entidad'] = 'organizacion'
+            marked.append(a['nombre'])
+    return marked
+
+
 AUTHOR_PAGE_MIN_BOOKS = 2  # con dos libros, «último/próximo libro de X» ya tiene respuesta propia en su página
 NO_PAGE_AUTHORS = frozenset({'Varios autores', 'Anónimo'})
 
@@ -363,7 +387,7 @@ def ensure_author_records(payload, catalogue, today, min_books=AUTHOR_PAGE_MIN_B
             'slug': key, 'nombre': name, 'tipo': 'bibliografico',
             'descripcion': f'Libros de {name} incluidos en este catálogo: {titles}. Consulta sus ediciones, fechas de publicación y fichas editoriales en los enlaces de cada libro.',
             'fuentes': [{'titulo': b['titulo'] + ' · ficha editorial', 'url': b['fuente_bibliografica_url']} for b in own[:8]],
-            'fecha_verificacion': today})
+            'fecha_verificacion': today, **({'entidad': 'organizacion'} if is_corporate_author(name) else {})})
         used.add(key)
     return missing
 

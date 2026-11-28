@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
-from reading_intake_pipeline import ensure_author_records  # noqa: E402
+from reading_intake_pipeline import ensure_author_records, is_corporate_author, mark_corporate_authors  # noqa: E402
 
 
 def book(i, authors, source='https://editorial.example/ficha'):
@@ -37,6 +37,20 @@ class EnsureAuthorRecordsTest(unittest.TestCase):
         payload = {'autores': [{'slug': 'ana-perez', 'nombre': 'Ana Pérez', 'tipo': 'bibliografico'}]}
         ensure_author_records(payload, catalogue, '2026-11-28')
         self.assertRegex(payload['autores'][-1]['slug'], r'^ana-perez-[0-9a-f]{8}$')
+
+
+    def test_corporate_signatures_are_organizations_not_people(self):
+        for name in ('Universal Studios', 'Equipo Editorial Libsa', 'Instituto Valenciano de Arte Moderno', 'Playformación SL',
+                     'Real Academia Española', 'Ubisoft Entertainment Inc.'):
+            self.assertTrue(is_corporate_author(name), name)
+        for name in ('James S.A. Corey', 'Sarah J. Maas', 'Isabel Allende', 'Santiago Posteguillo'):
+            self.assertFalse(is_corporate_author(name), name)
+        catalogue = {'libros': [book(1, ['Universal Studios']), book(2, ['Universal Studios'])]}
+        payload = {'autores': [{'slug': 'disney', 'nombre': 'Disney', 'tipo': 'bibliografico'}]}
+        ensure_author_records(payload, catalogue, '2026-11-28')
+        self.assertEqual(payload['autores'][-1]['entidad'], 'organizacion')
+        self.assertEqual(mark_corporate_authors(payload), ['Disney'])
+        self.assertEqual(mark_corporate_authors(payload), [])
 
 
 if __name__ == '__main__':

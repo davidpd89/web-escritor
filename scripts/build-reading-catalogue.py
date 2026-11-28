@@ -896,7 +896,7 @@ def load_author_records(path):
     for a in payload['autores']:
         required = {'slug', 'nombre', 'descripcion', 'fuentes', 'fecha_verificacion'}
         optional = {'biografia_breve', 'biografia_fuente_url', 'biografia_fecha_revision', 'biografia_fuente_nombre', 'biografia_ultimo_intento',
-                    'nacimiento', 'fallecimiento', 'foto', 'wikidata', 'amazon_autor_id', 'identificadores'}
+                    'nacimiento', 'fallecimiento', 'foto', 'wikidata', 'amazon_autor_id', 'identificadores', 'entidad'}
         required |= {'tipo'} if a.get('tipo') == 'bibliografico' else {'nacimiento'}
         require(required <= set(a) <= required | optional, 'Campos de autor inválidos')
         require(a['slug'] != 'pagina', 'Slug de autor reservado para la paginación del índice')
@@ -924,6 +924,7 @@ def load_author_records(path):
         require(isinstance(a['descripcion'], str) and len(a['descripcion']) >= 60, 'Autor sin descripción')
         day(a['fecha_verificacion'], 'autor verificado')
         require(a['fuentes'] and all(set(s) == {'titulo', 'url'} and s['titulo'] and https(s['url']) for s in a['fuentes']), 'Autor sin fuentes')
+        require(a.get('entidad', 'persona') in {'persona', 'organizacion'}, 'Entidad de autor inválida (persona u organizacion)')
         names.add(a['nombre']); slugs.add(a['slug'])
     return payload['autores']
 
@@ -1894,7 +1895,7 @@ def render_author(a,data,books,template,all_authors=(),anchor=None):
     genres=author_genres(data,selected)
     publishers={b.get('editorial_slug') or b.get('editorial'):b for b in selected if b.get('editorial')}
     count=len(selected)
-    person_like=a['nombre'] not in COLLECTIVE_AUTHORS
+    person_like=a['nombre'] not in COLLECTIVE_AUTHORS and a.get('entidad') != 'organizacion'
     summary=a['nombre']+': '+str(count)+(' libro disponible' if count==1 else ' libros disponibles')+' en este catálogo.'
     has_bio=bool(a.get('biografia_breve')) or a.get('tipo') != 'bibliografico'
     genre_names=[g['nombre'].lower() for g in genres[:2]]
