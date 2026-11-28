@@ -117,6 +117,15 @@ class ReadingTextsTest(unittest.TestCase):
         boast = {**block, 'texto': block['texto'] + ' Es un best seller que ya ha conquistado a medio país.'}
         self.assertIn('afirmaciones sin respaldo: best seller', texts.validate_block(p, boast))
 
+    def test_a_short_title_form_does_not_hide_a_claim_around_it(self):
+        # Revisión de #1628 (Codex/CodeRabbit): la forma corta «Televisión» no puede tapar «serie de televisión».
+        title = 'Televisión: Tecnología y forma cultural'
+        p = {**self.payload, 'afines_ids': {title: 'tv'},
+             'evidencias': {**self.payload['evidencias'], 'afines_catalogo': [f'«{title}», de Raymond Williams.']}}
+        block = {'modulo': 'lecturas_afines', 'evidencias': ['afines_catalogo'],
+                 'texto': 'Cuenta con una serie de televisión y se lee junto a Televisión, que mira el mismo medio desde otro punto de partida.'}
+        self.assertIn('afirmaciones sin respaldo: serie de televisi', texts.validate_block(p, block))
+
     def test_valid_blocks_pass_and_affines_are_linked(self):
         blocks, errors = self.check()
         self.assertEqual(errors, [])

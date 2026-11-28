@@ -391,7 +391,9 @@ def validate_block(p, x):
     numbers = set(re.findall(r'\d+', text)) - set(re.findall(r'\d+', cited + ' ' + own))
     if numbers:
         errors.append('cifras sin respaldo: ' + ', '.join(sorted(numbers)))
-    claims = {m.group(0).lower() for m in CLAIMS.finditer(without_titles(p, text))} - {m.group(0).lower() for m in CLAIMS.finditer(source)}
+    spans = title_spans(p, text)
+    claims = {m.group(0).lower() for m in CLAIMS.finditer(text) if not any(a <= m.start() and m.end() <= b for a, b in spans)}
+    claims -= {m.group(0).lower() for m in CLAIMS.finditer(source)}
     if claims:
         errors.append('afirmaciones sin respaldo: ' + ', '.join(sorted(claims)))
     if opinion := OPINION.search(text):
@@ -417,14 +419,14 @@ def title_forms(title):
     return {f for f in (title.strip(), short) if len(f) >= 8 or f == title.strip()}
 
 
-def without_titles(p, text):
-    """El texto sin los títulos que nombra (el propio y los afines): «(Best Seller | Ficción)» es el nombre de una
-    colección, no una afirmación; la misma palabra fuera del título sigue necesitando respaldo."""
+def title_spans(p, text):
+    """Tramos del texto que nombran un título (el propio o un afín): «(Best Seller | Ficción)» es el nombre de una
+    colección, no una afirmación. Solo queda exenta la palabra que cae entera dentro de la mención; si la forma corta
+    de un título («Televisión») coincide con otra frase del texto («serie de televisión»), esa sigue necesitando
+    respaldo porque la mención no cubre «serie de»."""
     titles = [p['evidencias'].get('titulo', ''), *(p.get('afines_ids') or {})]
-    forms = sorted({f for t in titles if t for f in title_forms(t) if f}, key=len, reverse=True)
-    for form in forms:
-        text = re.sub(re.escape(form), ' ', text, flags=re.IGNORECASE)
-    return text
+    forms = {f for t in titles if t for f in title_forms(t) if f}
+    return [(m.start(), m.end()) for f in forms for m in re.finditer(re.escape(f), text, flags=re.IGNORECASE)]
 
 
 def linked(p, text):
