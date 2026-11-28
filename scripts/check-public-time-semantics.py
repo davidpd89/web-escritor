@@ -244,98 +244,104 @@ def walk_nodes(value):
             yield from walk_nodes(child)
 
 
-errors = []
-files = 0
-time_count = 0
-jsonld_count = 0
+def main() -> int:
+    errors = []
+    files = 0
+    time_count = 0
+    jsonld_count = 0
 
-for path in sorted(public_html()):
-    files += 1
-    rel = path.relative_to(ROOT).as_posix()
-    parser = Parser()
-    parser.feed(path.read_text(encoding="utf-8"))
+    for path in sorted(public_html()):
+        files += 1
+        rel = path.relative_to(ROOT).as_posix()
+        parser = Parser()
+        parser.feed(path.read_text(encoding="utf-8"))
 
-    for line, value in parser.times:
-        time_count += 1
-        try:
-            parse_temporal(value, html_time=True)
-        except ValueError as exc:
-            errors.append(f"{rel}:{line}: <time datetime={value!r}> {exc}")
+        for line, value in parser.times:
+            time_count += 1
+            try:
+                parse_temporal(value, html_time=True)
+            except ValueError as exc:
+                errors.append(f"{rel}:{line}: <time datetime={value!r}> {exc}")
 
-    for line, raw in parser.jsonld:
-        jsonld_count += 1
-        try:
-            doc = json.loads(raw)
-        except json.JSONDecodeError as exc:
-            errors.append(f"{rel}:{line}: invalid JSON-LD: {exc}")
-            continue
+        for line, raw in parser.jsonld:
+            jsonld_count += 1
+            try:
+                doc = json.loads(raw)
+            except json.JSONDecodeError as exc:
+                errors.append(f"{rel}:{line}: invalid JSON-LD: {exc}")
+                continue
 
-        for node in walk_nodes(doc):
-            types = node.get("@type", [])
-            if isinstance(types, str):
-                types = [types]
-            # Google ProfilePage accepts DateTime, unlike WebPage's Date or
-            # DateTime. Omit optional profile dates when only the day is known;
-            # never manufacture a time just to satisfy the rich-result parser.
-            if "ProfilePage" in types:
-                for key in ("dateCreated", "dateModified"):
-                    if key not in node:
+            for node in walk_nodes(doc):
+                types = node.get("@type", [])
+                if isinstance(types, str):
+                    types = [types]
+                # Google ProfilePage accepts DateTime, unlike WebPage's Date or
+                # DateTime. Omit optional profile dates when only the day is known;
+                # never manufacture a time just to satisfy the rich-result parser.
+                if "ProfilePage" in types:
+                    for key in ("dateCreated", "dateModified"):
+                        if key not in node:
+                            continue
+                        value = node[key]
+                        try:
+                            kind, _ = parse_temporal(value)
+                            if kind != "datetime":
+                                raise ValueError("ProfilePage requires DateTime precision")
+                        except (ValueError, TypeError, AttributeError) as exc:
+                            errors.append(f"{rel}:{line}: {key} {exc}")
+                parsed = {}
+                for key in ("datePublished", "dateModified", "uploadDate", "startDate", "endDate"):
+                    if key not in node or not isinstance(node[key], str):
                         continue
-                    value = node[key]
                     try:
-                        kind, _ = parse_temporal(value)
-                        if kind != "datetime":
-                            raise ValueError("ProfilePage requires DateTime precision")
-                    except (ValueError, TypeError, AttributeError) as exc:
+                        parsed[key] = parse_temporal(node[key])
+                    except ValueError as exc:
                         errors.append(f"{rel}:{line}: {key} {exc}")
-            parsed = {}
-            for key in ("datePublished", "dateModified", "uploadDate", "startDate", "endDate"):
-                if key not in node or not isinstance(node[key], str):
-                    continue
-                try:
-                    parsed[key] = parse_temporal(node[key])
-                except ValueError as exc:
-                    errors.append(f"{rel}:{line}: {key} {exc}")
 
-            for key in ("datePublished", "dateModified", "uploadDate"):
-                if key in parsed:
-                    span = bounds(parsed[key])
-                    if span and span[0] > TODAY:
-                        errors.append(f"{rel}:{line}: {key} is in the future ({node[key]})")
+                for key in ("datePublished", "dateModified", "uploadDate"):
+                    if key in parsed:
+                        span = bounds(parsed[key])
+                        if span and span[0] > TODAY:
+                            errors.append(f"{rel}:{line}: {key} is in the future ({node[key]})")
 
-            if "datePublished" in parsed and "dateModified" in parsed:
-                published = bounds(parsed["datePublished"])
-                modified = bounds(parsed["dateModified"])
-                # Fail only when the entire modification period is before the
-                # entire publication period. Overlapping reduced-precision
-                # ranges are ambiguous and therefore not fabricated.
-                if published and modified and modified[1] < published[0]:
-                    errors.append(
-                        f"{rel}:{line}: dateModified {node['dateModified']} "
-                        f"precedes datePublished {node['datePublished']}"
-                    )
+                if "datePublished" in parsed and "dateModified" in parsed:
+                    published = bounds(parsed["datePublished"])
+                    modified = bounds(parsed["dateModified"])
+                    # Fail only when the entire modification period is before the
+                    # entire publication period. Overlapping reduced-precision
+                    # ranges are ambiguous and therefore not fabricated.
+                    if published and modified and modified[1] < published[0]:
+                        errors.append(
+                            f"{rel}:{line}: dateModified {node['dateModified']} "
+                            f"precedes datePublished {node['datePublished']}"
+                        )
 
-            if "startDate" in parsed and "endDate" in parsed:
-                start_kind, start_value = parsed["startDate"]
-                end_kind, end_value = parsed["endDate"]
-                start = bounds(parsed["startDate"])
-                end = bounds(parsed["endDate"])
-                reversed_dates = bool(start and end and end[1] < start[0])
-                if start_kind == end_kind == "datetime":
-                    start_aware = start_value.utcoffset() is not None
-                    end_aware = end_value.utcoffset() is not None
-                    if start_aware == end_aware:
-                        reversed_dates = end_value < start_value
-                if reversed_dates:
-                    errors.append(f"{rel}:{line}: endDate precedes startDate")
+                if "startDate" in parsed and "endDate" in parsed:
+                    start_kind, start_value = parsed["startDate"]
+                    end_kind, end_value = parsed["endDate"]
+                    start = bounds(parsed["startDate"])
+                    end = bounds(parsed["endDate"])
+                    reversed_dates = bool(start and end and end[1] < start[0])
+                    if start_kind == end_kind == "datetime":
+                        start_aware = start_value.utcoffset() is not None
+                        end_aware = end_value.utcoffset() is not None
+                        if start_aware == end_aware:
+                            reversed_dates = end_value < start_value
+                    if reversed_dates:
+                        errors.append(f"{rel}:{line}: endDate precedes startDate")
 
-if errors:
-    print(f"PUBLIC TIME SEMANTICS: FAIL ({len(errors)} issue(s))")
-    for error in errors:
-        print(" -", error)
-    sys.exit(1)
+    if errors:
+        print(f"PUBLIC TIME SEMANTICS: FAIL ({len(errors)} issue(s))")
+        for error in errors:
+            print(" -", error)
+        return 1
 
-print(
-    f"PUBLIC TIME SEMANTICS: PASS "
-    f"({files} files, {time_count} <time> values, {jsonld_count} JSON-LD blocks)"
-)
+    print(
+        f"PUBLIC TIME SEMANTICS: PASS "
+        f"({files} files, {time_count} <time> values, {jsonld_count} JSON-LD blocks)"
+    )
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
