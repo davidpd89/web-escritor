@@ -53,3 +53,4 @@ Hipótesis mías, para que las critiques (no las aceptes por defecto)
 3. Di qué NO harías aunque se suela recomendar.
 4. Si conoces herramientas o repositorios públicos (licencia libre) que encajen con un sitio estático Python + GitHub Pages para esto, nómbralos con su uso exacto; marca «sin verificar» si no estás seguro de que existan o sigan activos.
 Responde en Markdown, conciso, sin introducción.
+
