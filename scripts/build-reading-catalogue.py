@@ -2241,12 +2241,16 @@ def render_genres_index(hubs, books, template):
     rows = ''
     for c, selected in hubs:
         upcoming = sum(1 for b in selected if b.get('fecha_publicacion', '') > anchor)
-        rows += ('<li><a href="' + genre_url(c) + '">' + esc(c['nombre']) + '</a><p>' + str(len(selected)) + ' libros'
+        released = _newest_first([b for b in selected if is_released(b, anchor)])
+        cover = image(released[0], True, '120px', 'catalogue-index__image', '') if released else ''
+        # Tarjeta como la de editoriales: enlace grande (portada + nombre); una lista de enlaces sueltos de 22 px no
+        # pasaba el tamaño mínimo de objetivo táctil (sitewide-reflow).
+        rows += ('<li><a href="' + genre_url(c) + '">' + cover + '<span>' + esc(c['nombre']) + '</span></a><p>' + str(len(selected)) + ' libros'
                  + (' · ' + str(upcoming) + ' próximos' if upcoming else '') + '</p></li>')
     summary = str(len(hubs)) + ' géneros con novedades y próximos lanzamientos de libros en España: fantasía, romance, thriller, novela histórica, cómic, infantil y más.'
     main = ('<main id="contenido" tabindex="-1" class="v1-main reading-catalogue catalogue-author-page" data-family="recomendaciones"><nav class="book-breadcrumb" aria-label="Ruta de navegación"><ol><li><a href="/">Inicio</a></li><li><a href="/recomendaciones/">Libros recomendados</a></li><li aria-current="page">Géneros</li></ol></nav>'
             '<header class="catalogue-author-hero"><p class="eyebrow">Libros recomendados</p><h1>Libros por género: novedades y próximos lanzamientos</h1><p>' + esc(summary) + '</p></header>'
-            '<section aria-labelledby="genres-list"><h2 id="genres-list">Géneros del catálogo</h2><ul class="directory-list">' + rows + '</ul></section>'
+            '<section aria-labelledby="genres-list"><h2 id="genres-list">Géneros del catálogo</h2><ul class="catalogue-author-books">' + rows + '</ul></section>'
             '<div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
     schema = {'@context': 'https://schema.org', '@graph': [
         {'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Libros por género', 'description': summary, 'inLanguage': 'es',
