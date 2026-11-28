@@ -108,37 +108,43 @@ def public_files() -> list[Path]:
             files.add(p)
     return sorted(files)
 
-errors: list[str] = []
-checked = 0
-for path in public_files():
-    rel = path.relative_to(ROOT).as_posix()
-    try:
-        raw = path.read_bytes()
-        text = raw.decode("utf-8")
-    except UnicodeDecodeError as exc:
-        errors.append(f"{rel}: invalid UTF-8 at byte {exc.start}")
-        continue
-    checked += 1
-
-    for token in MOJIBAKE:
-        if token in text:
-            line = text[: text.index(token)].count("\n") + 1
-            errors.append(f"{rel}:{line}: suspicious mojibake token {token!r}")
-
-    if path.suffix.lower() in {".html", ".htm"}:
-        if not has_early_utf8_meta(raw):
-            errors.append(f"{rel}: public HTML lacks a real UTF-8 meta charset in its first 1024 bytes")
-
-    if path.suffix.lower() == ".json":
+def main() -> int:
+    errors: list[str] = []
+    checked = 0
+    for path in public_files():
+        rel = path.relative_to(ROOT).as_posix()
         try:
-            json.loads(text)
-        except json.JSONDecodeError as exc:
-            errors.append(f"{rel}:{exc.lineno}: invalid JSON: {exc.msg}")
+            raw = path.read_bytes()
+            text = raw.decode("utf-8")
+        except UnicodeDecodeError as exc:
+            errors.append(f"{rel}: invalid UTF-8 at byte {exc.start}")
+            continue
+        checked += 1
 
-if errors:
-    print("PUBLIC TEXT ENCODING: FAIL")
-    for error in errors:
-        print(" -", error)
-    sys.exit(1)
+        for token in MOJIBAKE:
+            if token in text:
+                line = text[: text.index(token)].count("\n") + 1
+                errors.append(f"{rel}:{line}: suspicious mojibake token {token!r}")
 
-print(f"PUBLIC TEXT ENCODING: PASS ({checked} public artifacts)")
+        if path.suffix.lower() in {".html", ".htm"}:
+            if not has_early_utf8_meta(raw):
+                errors.append(f"{rel}: public HTML lacks a real UTF-8 meta charset in its first 1024 bytes")
+
+        if path.suffix.lower() == ".json":
+            try:
+                json.loads(text)
+            except json.JSONDecodeError as exc:
+                errors.append(f"{rel}:{exc.lineno}: invalid JSON: {exc.msg}")
+
+    if errors:
+        print("PUBLIC TEXT ENCODING: FAIL")
+        for error in errors:
+            print(" -", error)
+        return 1
+
+    print(f"PUBLIC TEXT ENCODING: PASS ({checked} public artifacts)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
