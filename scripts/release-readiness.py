@@ -1,0 +1,319 @@
+#!/usr/bin/env python3
+"""Generate a release-readiness evidence report for pre-main human review.
+
+This script does not deploy and does not merge. It runs the required checks,
+captures PASS/FAIL results, records repository HEAD metadata, verifies key
+routes from sitemap.xml, and writes a Markdown evidence report.
+"""
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import json
+import shlex
+import os
+import subprocess
+from concurrent.futures import ThreadPoolExecutor
+import sys
+import textwrap
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SITE = "https://davidportodiaz.com"
+
+CHECKS = [
+    ("CI parity: content indexes", "python scripts/check-local-assets.py"),
+    ("CI parity: hrefs", "python scripts/check-hrefs.py"),
+    ("CI parity: internal graph", "python scripts/check-internal-graph.py"),
+    ("CI parity: navigation coverage", "python scripts/check-navigation-coverage.py"),
+    ("CI parity: Atlas pages", "python scripts/build-atlas-pages.py --data data/atlas/catalogue.json --root . --check"),
+    ("CI parity: Atlas release contract", "python scripts/check_atlas_release_contract.py --root . --manifest data/atlas-routes-manifest.json"),
+    ("CI parity: heading structure", "python scripts/check-heading-structure.py"),
+    ("CI parity: public document/form contract", "python scripts/check-public-document-form-contract.py"),
+    ("CI parity: jsonld absolute URLs", "python scripts/check-jsonld-absolute-urls.py"),
+    ("CI parity: canonical entity IDs", "python scripts/check-canonical-entity-ids.py"),
+    ("CI parity: Wikidata sameAs known-good", "python scripts/check-wikidata-sameas.py"),
+    ("CI parity: editorial facts", "python scripts/check-editorial-facts.py"),
+    ("CI parity: recommendations evidence", "python scripts/check-recommendations-evidence.py --check"),
+    ("CI parity: Noveris editorial quarantine", "python scripts/check-noveris-magic-quarantine.py --check"),
+    ("CI parity: public time semantics", "python scripts/check-public-time-semantics.py"),
+    ("CI parity: article date and review lifecycle", "python scripts/check-article-dates.py --check"),
+    ("CI parity: global discoverability", "python scripts/check-global-discoverability.py"),
+    ("CI parity: AVIF/WebP format ladder", "python scripts/check-image-format-ladder.py --check"),
+    ("CI parity: professional writer resources", "python scripts/check-professional-resources.py"),
+    ("CI parity: AI discoverability", "python scripts/check-ai-discoverability.py"),
+    ("CI parity: social cards strict", "python scripts/check-social-cards.py --strict"),
+    ("CI parity: copy tildes", "python scripts/check-copy-tildes.py"),
+    ("CI parity: head icon normalization", "python scripts/check-head-icons.py --check"),
+    ("CI parity: head icon normalizer regression", "python tests/test-head-icon-normalizer.py"),
+    ("CI parity: interaction a11y anti-patterns", "python scripts/check-interaction-a11y-contracts.py"),
+    ("CI parity: radar clock projection", "python scripts/check-radar-clock-current.py"),
+    ("Authority: machine-readable contract", "python tests/test-machine-authority.py"),
+    ("Builder parity: editoriales", "python tests/test-editoriales-builder-parity-v1.py"),
+    ("Builder parity: convocatorias", "python tests/test-radar-builder-parity-v1.py"),
+    ("Newsletter: client contract", "node tests/test-newsletter-client-contract.mjs"),
+    ("Newsletter: worker contract", "node qa/newsletter-worker-contract.mjs"),
+    ("Newsletter: staging gate", "node tests/test-staging-newsletter-disable.mjs"),
+    ("Social card regression guard", "python tests/test-social-card-article-specific.py"),
+    ("Smoke: sample build parity", "python tests/test-manecillas-sample-build.py"),
+    ("Smoke: radar freshness real clock", "python tests/test-radar-freshness-real-clock.py"),
+    ("Smoke: ICS RFC5545 roundtrip", "python tests/test-ics-roundtrip-independent-parser.py"),
+    ("Smoke: SEO & discoverability sitewide", "node tests/test-seo-discoverability-smoke.mjs"),
+    ("SEO: meta quality & collision prevention", "python scripts/check-seo-meta-quality.py"),
+    ("SEO: meta quality mutation tests", "python tests/test-seo-meta-quality.py"),
+    ("DOM: integrity & ARIA resolution", "python scripts/check-dom-integrity.py"),
+    ("DOM: integrity mutation tests", "python tests/test-dom-integrity.py"),
+    ("Supply chain: baseline & zero prod vulns", "python tests/test-npm-supply-chain-baseline.py"),
+]
+
+ROUTE_CHECKS = [
+    ("/", "sitemap"),
+    ("/las-manecillas-del-recuerdo/", "sitemap"),
+    ("/libros/samuel-entre-mundos/", "sitemap"),
+    ("/autor.html", "sitemap"),
+    ("/cuaderno/", "sitemap"),
+    ("/herramientas/", "sitemap"),
+    ("/recomendaciones/", "sitemap"),
+    ("/editoriales/", "sitemap"),
+    ("/prensa.html", "sitemap"),
+    ("/eventos.html", "sitemap"),
+    ("/asistente/", "file"),
+    ("/privacidad.html", "file"),
+    ("/aviso-legal.html", "file"),
+    ("/sitemap.xml", "file"),
+    ("/llms.txt", "file"),
+    ("/robots.txt", "file"),
+]
+
+
+def run(cmd: str) -> tuple[int, str]:
+    # PATH may still point at another workspace's venv in a multi-root editor.
+    # These are fixed repository commands, not shell expressions.
+    args = shlex.split(cmd)
+    if args and args[0] == "python":
+        args[0] = sys.executable
+    proc = subprocess.run(
+        args,
+        cwd=ROOT,
+        shell=False,
+        text=True,
+        capture_output=True,
+        encoding="utf-8",
+        errors="replace",
+    )
+    out = (proc.stdout or "") + (proc.stderr or "")
+    return proc.returncode, out.strip()
+
+
+def git_output(args: list[str]) -> str:
+    proc = subprocess.run(
+        ["git", *args],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        encoding="utf-8",
+        errors="replace",
+    )
+    if proc.returncode != 0:
+        return "UNKNOWN"
+    return proc.stdout.strip()
+
+
+def load_sitemap_urls() -> set[str]:
+    sitemap = ROOT / "sitemap.xml"
+    if not sitemap.exists():
+        return set()
+    tree = ET.parse(sitemap)
+    root = tree.getroot()
+    ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    urls = set()
+    for node in root.findall("sm:url/sm:loc", ns):
+        value = (node.text or "").strip()
+        if value:
+            urls.add(value)
+    return urls
+
+
+def route_to_repo_path(route: str) -> Path:
+    clean = route.lstrip("/")
+    if not clean:
+        return ROOT / "index.html"
+    if route.endswith("/"):
+        return ROOT / clean / "index.html"
+    return ROOT / clean
+
+
+def route_in_sitemap(route: str, sitemap_urls: set[str]) -> bool:
+    if route == "/":
+        return f"{SITE}/" in sitemap_urls or SITE in sitemap_urls
+    return f"{SITE}{route}" in sitemap_urls
+
+
+def status_label(code: int) -> str:
+    return "PASS" if code == 0 else "FAIL"
+
+
+def clip(text: str, limit: int = 900) -> str:
+    if len(text) <= limit:
+        return text
+    return text[:limit] + "\n... [truncated]"
+
+
+def build_report(output: Path) -> int:
+    now = dt.datetime.now(dt.timezone.utc).isoformat()
+    head = git_output(["rev-parse", "HEAD"])
+    branch = git_output(["branch", "--show-current"])
+    prev = git_output(["rev-parse", "HEAD~1"])
+    commits = git_output(["log", "--oneline", "-20"])
+
+    checks_data: list[dict[str, str | int]] = []
+    failures = 0
+    # Las comprobaciones son independientes y de solo lectura: en serie tardaban ~18 min. Se ejecutan a la vez y el
+    # informe conserva el orden declarado en CHECKS.
+    workers = min(len(CHECKS), max(2, os.cpu_count() or 2))
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        outcomes = list(pool.map(lambda check: run(check[1]), CHECKS))
+    for (label, command), (code, out) in zip(CHECKS, outcomes):
+        checks_data.append(
+            {
+                "label": label,
+                "command": command,
+                "status": status_label(code),
+                "exit_code": code,
+                "output": clip(out),
+                # El final, no el principio: el error está en la última línea y clip() lo cortaba.
+                "tail": "\n".join(out.splitlines()[-12:]),
+            }
+        )
+        if code != 0:
+            failures += 1
+
+    sitemap_urls = load_sitemap_urls()
+    route_results = []
+    for route, mode in ROUTE_CHECKS:
+        if mode == "sitemap":
+            ok = route_in_sitemap(route, sitemap_urls)
+        else:
+            ok = route_to_repo_path(route).exists()
+        route_results.append((route, mode, "PASS" if ok else "FAIL"))
+        if not ok:
+            failures += 1
+
+    # No decir "READY_FOR_HUMAN_MAIN_REVIEW". Este script ejecuta las comprobaciones
+    # estáticas/unitarias declaradas en CHECKS y un inventario de rutas. Un informe que se titula
+    # "listo para main" sin la suite de navegador y CI completa invita a leerlo
+    # como una autorizacion final que no es. El paquete final lo certifica
+    # CI_REQUIRED_GATES_PASSED en GitHub Actions y PRODUCTION_VERIFIED en deploy.
+    summary = "STATIC_CHECKS_PASSED" if failures == 0 else "BLOCKED"
+
+    lines: list[str] = []
+    lines.append("# Release Readiness Evidence (Static Preflight Gate)")
+    lines.append("")
+    lines.append(f"- Generated: `{now}`")
+    lines.append(f"- Branch: `{branch}`")
+    lines.append(f"- HEAD: `{head}`")
+    lines.append(f"- Previous SHA (rollback candidate): `{prev}`")
+    lines.append("")
+    lines.append(f"## Status: `{summary}`")
+    lines.append("")
+    if failures == 0:
+        lines.append("> **Este informe certifica el estado STATIC_CHECKS_PASSED.**")
+    else:
+        # Un informe BLOCKED no certifica nada: enumera lo que bloquea.
+        lines.append(f"> **Este informe NO certifica el preflight: {failures} comprobación(es) fallida(s).**")
+        lines.append(">")
+        for item in checks_data:
+            if item["status"] != "PASS":
+                lines.append(f"> - Check `{item['label']}`: exit `{item['exit_code']}`")
+        for route, mode, status in route_results:
+            if status != "PASS":
+                lines.append(f"> - Ruta `{route}` (`{mode}`): no encontrada")
+    lines.append(">")
+    lines.append("> Cubre las comprobaciones estáticas, de paridad, unitarias y contratos locales")
+    lines.append("> headless. No sustituye la ejecución completa de los gates requeridos de CI")
+    lines.append("> (Lighthouse, Pa11y, sitewide browser suites) ni el smoke post-despliegue en producción.")
+    lines.append("> El ciclo completo de release exige: `STATIC_CHECKS_PASSED` -> `CI_REQUIRED_GATES_PASSED` -> `PRODUCTION_VERIFIED`.")
+    lines.append("")
+    lines.append("## Commit Window (latest 20)")
+    lines.append("")
+    lines.append("```text")
+    lines.append(commits or "UNKNOWN")
+    lines.append("```")
+    lines.append("")
+    lines.append("## Required Route Inventory")
+    lines.append("")
+    lines.append("| Route | Validation | Status |")
+    lines.append("|---|---|---|")
+    for route, mode, status in route_results:
+        lines.append(f"| `{route}` | `{mode}` | `{status}` |")
+    lines.append("")
+    lines.append("## Automated Evidence Checks")
+    lines.append("")
+    lines.append("| Check | Command | Status |")
+    lines.append("|---|---|---|")
+    for item in checks_data:
+        lines.append(f"| {item['label']} | `{item['command']}` | `{item['status']}` |")
+
+    lines.append("")
+    lines.append("## Output Excerpts")
+    lines.append("")
+    for item in checks_data:
+        lines.append(f"### {item['label']} — {item['status']}")
+        lines.append("")
+        lines.append("```text")
+        lines.append((item["output"] or "(no output)").strip())
+        lines.append("```")
+        lines.append("")
+
+    lines.append("## Rollback Procedure (Documented, not executed)")
+    lines.append("")
+    lines.append("1. Identify incident and freeze merges.")
+    lines.append(f"2. Checkout rollback target SHA: `{prev}`.")
+    lines.append("3. Re-run core checks:")
+    lines.append("```bash")
+    lines.append("python scripts/check-local-assets.py")
+    lines.append("python scripts/check-social-cards.py --strict")
+    lines.append("python scripts/check-ai-discoverability.py")
+    lines.append("python tests/test-machine-authority.py")
+    lines.append("```")
+    lines.append("4. Confirm route inventory and CI green before any promotion decision.")
+    lines.append("")
+    lines.append("## Notes")
+    lines.append("")
+    lines.append("- This report does not merge to main.")
+    lines.append("- This report does not deploy.")
+
+    output.write_text("\n".join(lines).strip() + "\n", encoding="utf-8")
+    # El informe se queda en el runner: sin esto, el log del CI solo decía «BLOCKED» y averiguar qué comprobación
+    # fallaba exigía repetirla en local (10/11, check-professional-resources).
+    for item in checks_data:
+        if item["status"] != "PASS":
+            print(f"BLOQUEA: {item['label']} (`{item['command']}`, exit {item['exit_code']})\n{item['tail']}", flush=True)
+    for route, mode, status in route_results:
+        if status != "PASS":
+            print(f"BLOQUEA: ruta {route} ({mode}) no encontrada", flush=True)
+    return 0 if failures == 0 else 1
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Generate pre-main release readiness evidence report")
+    parser.add_argument(
+        "--output",
+        default="docs/RELEASE-READINESS-V1.md",
+        help="Output markdown file path (relative to repo root)",
+    )
+    args = parser.parse_args()
+    output = ROOT / args.output
+    output.parent.mkdir(parents=True, exist_ok=True)
+    code = build_report(output)
+    print(f"release-readiness: wrote {output.relative_to(ROOT)}")
+    if code != 0:
+        print("release-readiness: BLOCKED (one or more checks failed)")
+    else:
+        print("release-readiness: STATIC_CHECKS_PASSED (no cubre navegador/Lighthouse/pa11y)")
+    return code
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
