@@ -138,7 +138,7 @@ try {
     assert.match(await page.locator('h1').innerText(), /Libros recomendados/);
     assert.equal(await page.locator('[data-catalogue-book]').count(), realCount);
     assert(await page.locator('[data-catalogue-empty]').isHidden());
-    assert.deepEqual(await page.locator('.section-context__links a').allInnerTexts(), ['Catálogo', 'Autores', 'Editoriales', 'Atlas literario', 'Concursos']);
+    assert.deepEqual(await page.locator('.section-context__links a').allInnerTexts(), ['Catálogo', 'Géneros', 'Autores', 'Editoriales', 'Atlas literario', 'Concursos']);
     await page.locator('details[data-facet-group="genero"]').evaluate(d => { d.open = true; });
     // Solo se ofrecen categorías con libros publicados: ninguna casilla muerta.
     const offered = await page.locator('input[data-facet="genero"]').evaluateAll(xs => xs.map(x => x.value));
