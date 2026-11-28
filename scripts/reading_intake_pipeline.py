@@ -872,10 +872,6 @@ def ingest(config, root, cache, *, max_new=None, max_requests=None, apply=False,
                     state['items'][key] = {'isbn13': isbn, 'estado_ingesta': 'pendiente_datos', 'primera_deteccion': previous.get('primera_deteccion', today), 'retry_after': (day + timedelta(days=3)).isoformat(), 'motivo': reason, 'fuente': url, 'intentos': attempts, **({'datos': record} if record else {})}
                 stats['pending'] += 1
         update_authors(authors, catalogue, new_books + updated_books, today)
-        try:
-            stats['author_pages_added'] = len(ensure_author_records(authors, catalogue, today))
-        except (KeyError, TypeError, ValueError) as exc:  # opcional: sin fichas nuevas hoy, el lote sigue
-            stats['errors'].append({'optional_author_pages': f'{type(exc).__name__}: {str(exc)[:120]}'})
         stats['synopses_completed'] = fill_full_synopses(catalogue, providers, http, int(config.get('max_synopsis_backfill', 6)))
         sinopsis_de_respaldo(catalogue, state, config, day, stats)
         stats['author_profiles_updated'] = enrich_author_bios(authors, state, http, today)

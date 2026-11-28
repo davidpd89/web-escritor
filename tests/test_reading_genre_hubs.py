@@ -95,6 +95,21 @@ class GenreHubsTest(unittest.TestCase):
         self.assertIn('href="/recomendaciones/generos/romantasy/feed.xml"', page)
         self.assertIn('href="/recomendaciones/novedades.xml"', (ROOT / 'recomendaciones/index.html').read_text(encoding='utf-8'))
 
+    def test_month_or_year_only_release_is_not_counted_as_published(self):
+        self.assertFalse(builder.is_released({'fecha_publicacion_parcial': '2027-03'}, '2026-11-28'))
+        self.assertFalse(builder.is_released({'anio_publicacion': 2027}, '2026-11-28'))
+        self.assertTrue(builder.is_released({'fecha_publicacion_parcial': '2026-10'}, '2026-11-28'))
+        self.assertTrue(builder.is_released({'fecha_publicacion': '2026-11-28'}, '2026-11-28'))
+        self.assertFalse(builder.is_released({}, '2026-11-28'))
+
+    def test_hub_date_follows_release_and_end_of_novelty(self):
+        books = [{'fecha_actualizacion': '2026-11-01', 'fecha_publicacion': '2026-11-20'},
+                 {'fecha_actualizacion': '2026-11-01', 'fecha_publicacion': '2026-10-01'},
+                 {'fecha_actualizacion': '2026-11-01', 'fecha_publicacion': '2027-01-10'}]
+        self.assertEqual(builder.genre_modified(books, '2026-11-25'), '2026-11-20')  # salida del primero
+        self.assertEqual(builder.genre_modified(books, '2026-12-25'), '2026-12-21')  # deja de ser novedad
+        self.assertEqual(builder.genre_modified(books, '2026-10-15'), '2026-11-01')  # solo la ficha
+
     def test_stale_genre_becomes_noindex_redirect(self):
         page = builder.genre_redirect('fantasia-oscura')
         self.assertIn('noindex', page)

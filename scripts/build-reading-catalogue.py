@@ -2083,13 +2083,44 @@ def _genre_label(c):
     return c['nombre'][:1].lower() + c['nombre'][1:] if c['nombre'][:2] != c['nombre'][:2].upper() else c['nombre']
 
 
+def release_lower_bound(b):
+    """Primer día posible de salida: exacto, o el primero del mes/año si solo se conoce eso (igual que facet_counts)."""
+    if b.get('fecha_publicacion'):
+        return b['fecha_publicacion']
+    if b.get('fecha_publicacion_parcial'):
+        return b['fecha_publicacion_parcial'] + '-01'
+    if b.get('anio_publicacion'):
+        return f"{b['anio_publicacion']}-01-01"
+    return ''
+
+
+def is_released(b, anchor):
+    """Publicado con seguridad: su primer día posible ya pasó. Un mes o año futuro no cuenta como novedad."""
+    lower = release_lower_bound(b)
+    return bool(lower) and lower <= anchor
+
+
+def genre_modified(selected, anchor):
+    """La página cambia cuando cambia una ficha, cuando un libro sale (pasa de próximo a novedad) y cuando deja de ser
+    novedad: la última de esas fechas que ya llegó. Sin las transiciones, lastmod se quedaba atrás del contenido."""
+    stamps = [b['fecha_actualizacion'] for b in selected]
+    for b in selected:
+        day = b.get('fecha_publicacion')
+        if day:
+            for moment in (day, (date.fromisoformat(day) + timedelta(days=NOVELTY_DAYS + 1)).isoformat()):
+                if moment <= anchor:
+                    stamps.append(moment)
+    return max(stamps)
+
+
 def render_genre(c, selected, data, books, template, hubs, authors=()):
     """Página de un género: próximos lanzamientos, novedades, lo más reciente, autores, editoriales y géneros cercanos."""
     anchor = data_anchor(books)
     canonical = SITE + genre_url(c)
     label = _genre_label(c)
+    # Próximos: solo con día exacto futuro (se anuncian por fecha). Uno con solo mes/año futuro no es próximo ni novedad.
     upcoming = sorted((b for b in selected if b.get('fecha_publicacion', '') > anchor), key=lambda b: (b['fecha_publicacion'], b['titulo'].casefold(), b['id']))
-    released = _newest_first([b for b in selected if b.get('fecha_publicacion', '') <= anchor])
+    released = _newest_first([b for b in selected if is_released(b, anchor)])
     recent = [b for b in released if badge(b, anchor) == 'novedad']
     shown_upcoming = upcoming[:GENRE_HUB_UPCOMING]
     shown_recent = recent[:GENRE_HUB_UPCOMING]
@@ -2160,7 +2191,7 @@ def render_genre(c, selected, data, books, template, hubs, authors=()):
                  'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': SITE + url(b), 'name': b['titulo']} for i, b in enumerate(listed)]}
     schema = {'@context': 'https://schema.org', '@graph': [
         {'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Libros de ' + label + ': novedades y próximos lanzamientos', 'description': summary,
-         'inLanguage': 'es', 'about': {'@type': 'Thing', 'name': c['nombre']}, 'dateModified': max(b['fecha_actualizacion'] for b in selected),
+         'inLanguage': 'es', 'about': {'@type': 'Thing', 'name': c['nombre']}, 'dateModified': genre_modified(selected, anchor),
          'mainEntity': {'@id': canonical + '#lista'}, 'isPartOf': {'@id': SITE + GENRES_BASE}},
         item_list,
         _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Géneros', GENRES_BASE), (c['nombre'], genre_url(c))])]}
@@ -2218,7 +2249,7 @@ def render_genres_index(hubs, books, template):
             '<div class="catalogue-end"><a class="text-action" href="/recomendaciones/">Explorar todos los libros</a></div></main>')
     schema = {'@context': 'https://schema.org', '@graph': [
         {'@type': 'CollectionPage', '@id': canonical, 'url': canonical, 'name': 'Libros por género', 'description': summary, 'inLanguage': 'es',
-         'dateModified': max(b['fecha_actualizacion'] for b in books), 'hasPart': [{'@id': SITE + genre_url(c)} for c, _ in hubs]},
+         'dateModified': genre_modified(books, anchor), 'hasPart': [{'@id': SITE + genre_url(c)} for c, _ in hubs]},
         _breadcrumb_schema([('Inicio', '/'), ('Libros recomendados', '/recomendaciones/'), ('Géneros', GENRES_BASE)])]}
     return render_detail_page(template, main, canonical, 'Libros por género: novedades y próximos | David Porto Díaz', summary, schema)
 

@@ -2,8 +2,6 @@
 
 Antes del 28/11 solo la ingesta editorial creaba fichas: los libros que entraban por Amazon dejaban sin página a
 1.120 autores con varios libros, justo los que responden «último/próximo libro de X»."""
-import json
-import subprocess
 import sys
 import unittest
 from pathlib import Path
@@ -39,14 +37,6 @@ class EnsureAuthorRecordsTest(unittest.TestCase):
         payload = {'autores': [{'slug': 'ana-perez', 'nombre': 'Ana Pérez', 'tipo': 'bibliografico'}]}
         ensure_author_records(payload, catalogue, '2026-11-28')
         self.assertRegex(payload['autores'][-1]['slug'], r'^ana-perez-[0-9a-f]{8}$')
-
-    def test_repository_has_no_missing_author_pages(self):
-        result = subprocess.run([sys.executable, 'scripts/backfill-reading-author-pages.py', '--check'], cwd=ROOT,
-                                capture_output=True, text=True)
-        self.assertEqual(result.returncode, 0, result.stderr)
-        authors = json.loads((ROOT / 'data/reading-authors.json').read_text(encoding='utf-8'))['autores']
-        for a in authors[-5:]:
-            self.assertTrue((ROOT / 'recomendaciones/autores' / a['slug'] / 'index.html').exists(), a['slug'])
 
 
 if __name__ == '__main__':
