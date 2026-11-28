@@ -2569,7 +2569,7 @@ def retired_entries(previous, current):
             for e in previous if e['id'].startswith(RETIRABLE) and e['id'] not in live]
 
 
-def render_map(original, books, authors=(), publishers=(), author_pages=1):
+def render_map(original, books, authors=(), publishers=(), author_pages=1, genres=()):
     start, end = '<!-- reading-catalogue-map:start -->', '<!-- reading-catalogue-map:end -->'
     original = re.sub(re.escape(start) + r'[\s\S]*?' + re.escape(end) + r'\n?', '', original)
     if not books:
@@ -2586,6 +2586,9 @@ def render_map(original, books, authors=(), publishers=(), author_pages=1):
     publisher_links = ''.join(f'<li><a href="{publisher_url(p)}">{esc(p["nombre"])}</a></li>' for p in publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books))
     if publisher_links:
         block = block.replace('</section>', '<details class="directory-reading-books"><summary>Ver editoriales del catálogo</summary><ul class="directory-list">' + publisher_links + '</ul></details></section>')
+    if genres:
+        genre_links = '<li><a href="' + GENRES_BASE + '">Libros por género</a></li>' + ''.join(f'<li><a href="{genre_url(c)}">Libros de {esc(_genre_label(c))}</a></li>' for c in genres)
+        block = block.replace('</section>', '<details class="directory-reading-books"><summary>Ver géneros del catálogo</summary><ul class="directory-list">' + genre_links + '</ul></details></section>')
     require('</main>' in original, 'Mapa del sitio sin main')
     return original.replace('</main>', block + '</main>', 1)
 
@@ -2617,7 +2620,7 @@ def render_outputs(root, data):
         outputs[authors_page_url(number).lstrip('/') + 'index.html'] = render_authors_index(active_authors, books, template, data, number, catalogue_publishers)
     map_path = root / 'mapa-del-sitio/index.html'
     if map_path.exists():
-        outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors, catalogue_publishers, author_pages)
+        outputs['mapa-del-sitio/index.html'] = render_map(map_path.read_text(encoding='utf-8'), books, authors, catalogue_publishers, author_pages, [c for c, _ in genre_hubs(data, books)])
     active_publishers = [p for p in catalogue_publishers if any(b.get('editorial_catalogo_slug') == p['slug'] for b in books)]
     for p in active_publishers:
         outputs[publisher_url(p).lstrip('/') + 'index.html'] = render_publisher(p, data, books, template, {a['nombre'] for a in authors}, active_authors)
