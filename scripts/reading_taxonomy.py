@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import re
+from functools import lru_cache
 from pathlib import Path
 
 from reading_intake_core import normalize_text
@@ -522,13 +523,44 @@ def drop_seasons(catalogue: dict, by_book: dict) -> list:
 
 
 # Segunda opinión de ChatGPT (reading-texts.py la guarda al escribir cada ficha). Género de la lista cerrada de GPT → id.
+# Nombres de la lista fija anterior: las opiniones ya guardadas los usan.
 GPT_GENRE_IDS = {'misterio y thriller': 'misterio-y-thriller', 'fantasia': 'fantasia', 'romance': 'romance',
                  'ciencia ficcion': 'ciencia-ficcion', 'terror': 'terror', 'novela historica': 'novela-historica',
                  'aventuras': 'aventuras', 'poesia': 'poesia', 'humor': 'humor', 'ensayo': 'ensayo',
                  'comic y novela grafica': 'comic-y-novela-grafica', 'biografias y memorias': 'biografias-y-memorias',
                  'cocina': 'cocina', 'desarrollo personal': 'desarrollo-personal',
                  'narrativa contemporanea': 'narrativa', 'infantil': CHILD_ID}
+LEGACY_GPT_NAMES = {'Misterio y thriller': 'misterio-y-thriller', 'Fantasía': 'fantasia', 'Romance': 'romance',
+                    'Ciencia ficción': 'ciencia-ficcion', 'Terror': 'terror', 'Novela histórica': 'novela-historica',
+                    'Aventuras': 'aventuras', 'Poesía': 'poesia', 'Humor': 'humor', 'Ensayo': 'ensayo',
+                    'Cómic y novela gráfica': 'comic-y-novela-grafica', 'Biografías y memorias': 'biografias-y-memorias',
+                    'Cocina': 'cocina', 'Desarrollo personal': 'desarrollo-personal', 'Narrativa contemporánea': 'narrativa',
+                    'Infantil': CHILD_ID}
 OPINIONS_FILE = Path(__file__).resolve().parents[1] / 'data' / 'reading-classification-gpt.json'
+CATALOGUE_FILE = Path(__file__).resolve().parents[1] / 'data' / 'reading-catalogue.json'
+# La segunda opinión de las altas elige entre los géneros activos del catálogo, no entre una lista fija: un
+# género nuevo (teatro, manuales…) llega solo a las altas. Los subgéneros derivados no se preguntan.
+ASKED_LABEL = {CHILD_ID: 'Infantil'}  # «Infantil y juvenil» confundiría a GPT con la novela juvenil
+NOT_ASKED = {'romantasy', 'fantasia-juvenil', 'fantasia-oscura'}
+
+
+@lru_cache(maxsize=None)
+def asked_genres(path: Path = CATALOGUE_FILE) -> tuple[tuple[str, str], ...]:
+    """(id, nombre) de los géneros que la segunda opinión puede elegir, en el orden del catálogo."""
+    try:
+        cats = json.loads(path.read_text(encoding='utf-8'))['categorias']
+    except (OSError, ValueError, KeyError, TypeError):
+        cats = []
+    found = [(c['id'], ASKED_LABEL.get(c['id'], c['nombre'])) for c in sorted(cats, key=lambda c: (c.get('orden', 0), c['id']))
+             if c.get('tipo') == 'genero' and c.get('activa') and c['id'] not in NOT_ASKED]
+    return tuple(found) or tuple((i, n) for n, i in LEGACY_GPT_NAMES.items())
+
+
+def gpt_genre_id(name: str) -> str | None:
+    """Id del género que GPT nombró (lista actual o nombres de opiniones antiguas); None si es «Otro»."""
+    key = normalize_text(name or '')
+    current = {normalize_text(n): i for i, n in asked_genres()}
+    return current.get(key) or GPT_GENRE_IDS.get(key)
 
 
 def load_opinions(path: Path = OPINIONS_FILE) -> dict:
@@ -551,7 +583,7 @@ def apply_second_opinion(catalogue: dict, by_book: dict, opinions: dict | None =
         if not op or op.get('coincide') or not str(op.get('motivo') or '').strip():
             continue
         assigned = by_book.setdefault(book['id'], set())
-        gpt_genre = GPT_GENRE_IDS.get(normalize_text(op.get('genero_gpt') or ''))
+        gpt_genre = gpt_genre_id(op.get('genero_gpt'))
         add = set()
         if normalize_text(op.get('publico_gpt') or '') == 'infantil' and CHILD_ID not in assigned and not assigned & OLDER_AUDIENCE:
             add.add(CHILD_ID)
