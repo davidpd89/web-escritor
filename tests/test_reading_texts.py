@@ -22,6 +22,8 @@ def load(name, rel):
 
 
 texts = load('reading_texts_test', 'scripts/reading-texts.py')
+# Sinopsis sin palabras de CLAIMS: los tests de afirmaciones no dependen de qué libro salga primero del catálogo vivo.
+CLAIM_FREE_SYNOPSIS = 'Una historia contada desde dentro que sigue a sus personajes durante un verano decisivo en la costa.'
 builder = texts.catalogue
 
 
@@ -104,6 +106,29 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertEqual([x['modulo'] for x in publish(only_own)], ['para_quien'])
         two = {**self.payload, 'modulos_permitidos': [m for m in self.payload['modulos_permitidos'] if m['modulo'] == 'para_quien'] + [{'modulo': 'encaje_documentado'}]}
         self.assertIsNone(publish(two))
+
+    def test_claim_words_inside_a_named_title_are_the_title_not_a_claim(self):
+        # 28/11: el primer afín del catálogo real pasó a ser «… (Best Seller | Ficción)» y todo bloque que lo nombraba
+        # caía por «afirmaciones sin respaldo: best seller». Es el nombre de la colección de Debolsillo.
+        title = 'Corsarios de Levante (Pirates of the Levant 6) (Best Seller | Ficción)'
+        p = {**self.payload, 'afines_ids': {title: 'corsarios'},
+             'evidencias': {**self.payload['evidencias'], 'sinopsis_editorial': CLAIM_FREE_SYNOPSIS,
+                           'afines_catalogo': [f'«{title}», de Arturo Pérez-Reverte.']}}
+        block = {'modulo': 'lecturas_afines', 'evidencias': ['afines_catalogo'],
+                 'texto': f'Comparte terreno con {title}, aunque cada uno plantea su conflicto central desde un punto de partida distinto.'}
+        self.assertNotIn('afirmaciones sin respaldo: best seller', texts.validate_block(p, block))
+        boast = {**block, 'texto': block['texto'] + ' Es un best seller que ya ha conquistado a medio país.'}
+        self.assertIn('afirmaciones sin respaldo: best seller', texts.validate_block(p, boast))
+
+    def test_a_short_title_form_does_not_hide_a_claim_around_it(self):
+        # Revisión de #1628 (Codex/CodeRabbit): la forma corta «Televisión» no puede tapar «serie de televisión».
+        title = 'Televisión: Tecnología y forma cultural'
+        p = {**self.payload, 'afines_ids': {title: 'tv'},
+             'evidencias': {**self.payload['evidencias'], 'sinopsis_editorial': CLAIM_FREE_SYNOPSIS,
+                           'afines_catalogo': [f'«{title}», de Raymond Williams.']}}
+        block = {'modulo': 'lecturas_afines', 'evidencias': ['afines_catalogo'],
+                 'texto': 'Cuenta con una serie de televisión y se lee junto a Televisión, que mira el mismo medio desde otro punto de partida.'}
+        self.assertIn('afirmaciones sin respaldo: serie de televisi', texts.validate_block(p, block))
 
     def test_valid_blocks_pass_and_affines_are_linked(self):
         blocks, errors = self.check()
@@ -228,6 +253,33 @@ class ReadingTextsTest(unittest.TestCase):
         self.assertTrue(texts.publish_due(args, at, ''))
         self.assertFalse(texts.publish_due(args, at, '2026-11-03 21'))
         self.assertFalse(texts.publish_due(args, datetime(2026, 11, 3, 10), ''))
+
+    def test_publication_deferred_by_a_catalogue_load_retries_within_the_hour_and_keeps_its_texts(self):
+        """27/11: aplazada a las 21 h por una carga en CI esperaba al día siguiente (#1562 roja desde el 24/11)."""
+        from datetime import datetime
+        from types import SimpleNamespace
+        args = SimpleNamespace(publish_at=[21], publish_every=25)
+        back, retry_at = texts.after_publish(texts.PUBLISH_DEFERRED, 7, 1000)
+        self.assertEqual((back, retry_at), (7, 1000 + texts.PUBLISH_RETRY))
+        at = datetime(2026, 11, 26, 21, 40)
+        self.assertFalse(texts.publish_now(args, at, '2026-11-26 21', back, retry_at, 1000 + 60))
+        self.assertTrue(texts.publish_now(args, datetime(2026, 11, 26, 23, 0), '2026-11-26 21', back, retry_at, retry_at))
+        self.assertEqual(texts.after_publish(1, 7, 1000), (7, 0))  # fallida: los textos siguen pendientes
+        self.assertEqual(texts.after_publish(0, 7, 1000), (0, 0))
+        self.assertFalse(texts.publish_now(args, at, '', 0, 0, 0))
+        self.assertTrue(texts.publish_now(args, datetime(2026, 11, 27, 21, 1), '2026-11-26 21', 7, 0, 0))
+
+    def test_publish_command_exits_75_when_a_catalogue_load_is_in_ci(self):
+        from types import SimpleNamespace
+        publisher = SimpleNamespace(publication=SimpleNamespace(gh=lambda *a: '[]'))
+        with tempfile.TemporaryDirectory() as tmp:
+            out = Path(tmp) / 'out'
+            out.mkdir()
+            (out / 'x.json').write_text('{}', encoding='utf-8')
+            with mock.patch.object(texts.gh_listas, 'lista', return_value=[{'headRefName': 'automation/reading-catalogue-2026-11-26-1',
+                                                                          'createdAt': '2099-01-01T00:00:00Z'}]), \
+                    mock.patch.object(texts, 'catalogue_in_ci', return_value='automation/reading-catalogue-2026-11-26-1'):
+                self.assertEqual(texts._publish_once(out, publisher), texts.DEFERRED)
 
     def test_same_chat_repairs_failing_blocks_then_improves_short_ones(self):
         wrong = {**self.others[2], 'texto': self.others[2]['texto'] + ' Se publicó en 1987.'}

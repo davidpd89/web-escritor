@@ -230,6 +230,15 @@ class PublicacionesLocales(unittest.TestCase):
         r = na.estado_local.leer('publicacion-textos', self.carpeta)
         self.assertEqual((r['status'], r['conclusion']), ('completed', 'success'))
 
+    def test_vigilado_aplazada_queda_neutral_y_no_borra_el_estado_previo(self):
+        """Revisión de #1612: una publicación aplazada no publicó nada; no puede constar como éxito."""
+        with na.estado_local.vigilado('publicacion-textos', self.log, ['py', 'x.py', 'publish'], self.carpeta, self.carpeta) as r:
+            r['conclusion'] = 'neutral'
+        r = na.estado_local.leer('publicacion-textos', self.carpeta)
+        self.assertEqual((r['status'], r['conclusion']), ('completed', 'neutral'))
+        ahora = dt.datetime.fromisoformat(r['createdAt'])
+        self.assertEqual(na.decidir(r, {'intentos': 1}, ahora, 1), 'nada')  # ni 'olvidar' ni 'reparar'
+
     def test_vigilado_deja_fallo_con_registro_y_traza(self):
         with self.assertRaises(SystemExit):
             with na.estado_local.vigilado('publicacion-textos', self.log, ['py', 'x.py', 'publish'], self.carpeta, self.carpeta):

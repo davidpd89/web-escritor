@@ -32,7 +32,7 @@ Frase prohibida: «La sinopsis no especifica la edad del protagonista.» (habla 
 Frase prohibida: «Una novela apasionante que engancha desde la primera página.» (valoración sin evidencia)
 
 Además, para cada libro das tu propia clasificación, como segunda opinión sobre la nuestra ("clasificacion_actual", que viene en los datos del libro):
-- "genero": el género principal de la obra, uno solo de esta lista: {{GENEROS}}. Para un cómic o novela gráfica es «Cómic y novela gráfica» salvo que sea claramente otra cosa; «Biografías y memorias» solo si es un relato real de una vida, no una novela con recuerdos.
+- "genero": el género principal de la obra, uno solo de esta lista: {{GENEROS}}. Para un cómic o novela gráfica es «Cómic y novela gráfica» salvo que sea claramente otra cosa; «Biografías y memorias» solo si es un relato real de una vida, no una novela con recuerdos. Un manual técnico, universitario o profesional es «Manuales y formación», no «Ensayo» ni «Divulgación científica»; un texto dramático es «Teatro». Si alguno de esos nombres no está en la lista, elige el más cercano.
 - "publico": «infantil», «juvenil» o «adultos». La edad mínima que indica la editorial no basta: una novela romántica con escenas explícitas es para adultos aunque diga 16+.
 - "motivo": si tu género o público no coincide con "clasificacion_actual", explica en una frase concreta por qué (qué dato de la sinopsis lo respalda); si coincide, déjalo vacío.
 Sé independiente: no copies "clasificacion_actual" por inercia. Esto no afecta a los bloques de texto, que se escriben igual.
